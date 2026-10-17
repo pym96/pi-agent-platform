@@ -16,7 +16,15 @@ Human corrected the repository boundary: the Pi platform belongs in its own repo
 
 The historical13-run matrix remains under its original source SHA, task IDs and paths. The old manifest is byte-identical. [Historical report](REPORT.md) is labelled and only adjusts repository links. These are inherited source measurements, not fresh independent-repository results and not a previous accepted verdict. No13-run rerun is implied.
 
-New migration validation is small and synthetic: clean dependency installation/build, Go checks, actual Pi submission/two-turn history/SSE replay and owned restart/fault probes. Its new source SHA, raw outputs and cleanup evidence are separate in [migration-manifest.json](migration-manifest.json). Validation is pending completion in this candidate preparation; independent acceptance is not claimed.
+New migration validation is small and synthetic: clean dependency installation/build, Go checks, actual Pi submission/two-turn history/SSE replay and owned restart/fault probes. Its new source SHA, raw outputs and cleanup evidence are separate in [migration-manifest.json](migration-manifest.json). Executed migration source: `0c6db070bccc87f7fd7b0780c93d112d93a36512`. All29 server source files matched this commit before cleanup. Independent acceptance is not claimed.
+
+Fresh checks passed: offline clean npm installation; capped Go build; local race checks; actual PostgreSQL integration in a separate empty test database; actual Pi two-turn/context, duplicate/conflicting-key and SSE replay smoke; restart interruption/history; slow-consumer write deadline; terminal-persistence fault rollback/fail-stop/recovery. The provider-failure probe uses a deliberate synthetic endpoint error, not a paid provider.
+
+A separate100-connection/10.001s check used one subscribed session, two offered/completed tasks and two maximum executors. All100 connections established and remained healthy; each observed all22 durable session events (2200 subscriber deliveries), with zero missing IDs, duplicates or regressions. This is a migration smoke, not a new C10K result. Normal idle stack limits total3 CPU/7 GiB; generator or build/test slot adds at most1 CPU/1 GiB. SSH/control observations remain outside container limits.
+
+Owned services were stopped at03:24 UTC2026-10-17; new and historical volumes retained, unrelated ComfyUI stayed running. No model requests or GPU work were billed. Public Node22.23.3 and Go1.24.13 distributions were independently copied into the new root; no `pan-env` or Pan checkout is required.
+
+One read-only evidence query initially referenced nonexistent `session_id`; correcting it to `events.session` produced the receipt. No task was rerun or data changed for this diagnostic mistake. Startup health polling also retained a transient connection reset before readiness.
 
 ## Ownership and setup
 

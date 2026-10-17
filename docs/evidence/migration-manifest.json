@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "repository": "pym96/pi-agent-platform",
+  "issue": 1,
+  "criteria": "1.1",
+  "executedSource": "0c6db070bccc87f7fd7b0780c93d112d93a36512",
+  "historicalSource": "381947df33783c89773601793b1d8f7a17668e59",
+  "historicalManifestSHA256": "41d63495bb54a42e6bb403cb10e519815654521bed40fd7d4abadbc9093cc6fb",
+  "artifactLocator": "$HOME/.local/state/pi-agent-platform/independent1-20261017",
+  "serverRawLocator": "owned experiments/1/evidence",
+  "summary": {
+    "executedSource": "0c6db070bccc87f7fd7b0780c93d112d93a36512",
+    "migrationOnly": true,
+    "requested": 100,
+    "established": 100,
+    "healthyAtEnd": 100,
+    "holdSeconds": 10.00106677,
+    "uniqueSubscribedSessions": 1,
+    "executorConcurrencyLimit": 2,
+    "taskOffers": 2,
+    "completed": 2,
+    "databaseEvents": 22,
+    "subscriberEvents": 2200,
+    "suffixUnobserved": 0,
+    "duplicates": 0,
+    "regressions": 0,
+    "allSubscriberIDsMatchDurableSession": true,
+    "model": "deterministic local fixture through actual Pi 1.3.0",
+    "PanMainObserved": "b331feaf6ce67fed7ec3da457999ad4ca5ccff4f",
+    "paidCalls": 0
+  },
+  "artifacts": [
+    {
+      "path": "local-race.log",
+      "bytes": 366,
+      "sha256": "9ef48ba059ea8be758d244f248d714cff7af4e3a116246e7bfa90846c78dce1a"
+    },
+    {
+      "path": "notes.txt",
+      "bytes": 706,
+      "sha256": "78acf0075491a8b2247c182980df594be0a397f73b8c375fc736ad8d560a2081"
+    },
+    {
+      "path": "raw/api.log",
+      "bytes": 589,
+      "sha256": "1b52d0ddee840b958d4db1b1b2d6d57205d2a0588b6754f6817a91ca59f7c9ef"
+    },
+    {
+      "path": "raw/build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/cleanup.log",
+      "bytes": 698,
+      "sha256": "ec6401002fda0e59b93cdf2563546587674a2e8441dcfef9c0cb357169681012"
+    },
+    {
+      "path": "raw/database.sql",
+      "bytes": 12832732,
+      "sha256": "c49cf22e0c8365dc38d182a77e644b3ec4398e33f0575aee6ca4f9adc623ba1f"
+    },
+    {
+      "path": "raw/disk.txt",
+      "bytes": 166,
+      "sha256": "a8608d28b9adc958dbdf50d679fb278a8e72752929cadd57fab20402f2532194"
+    },
+    {
+      "path": "raw/idle-stats.jsonl",
+      "bytes": 627,
+      "sha256": "2c68627241078bbe24ccb0024d14f848cc6f60d192f08ba2f45175a75d16719c"
+    },
+    {
+      "path": "raw/migration-events.jsonl",
+      "bytes": 4680,
+      "sha256": "82de9e55d9b970a59f53eb8a6a5359f3daa8815802d6912c724bc1a0a606f990"
+    },
+    {
+      "path": "raw/npm-clean-install.log",
+      "bytes": 236,
+      "sha256": "57e29e91237ae3fae35e4a8422ac04e41a3280e157e5599edd4c6a603a6cca9d"
+    },
+    {
+      "path": "raw/owned-inspect.json",
+      "bytes": 34963,
+      "sha256": "f1a47040b19e566a30b9d9e302351fefa4baefce2eeea625bf2f01fcb3f7bb70"
+    },
+    {
+      "path": "raw/pg-integration.log",
+      "bytes": 167,
+      "sha256": "49c31748179293afaf8c18fd423f96d6010142295eabcfe2cb0bb0bf11db71c6"
+    },
+    {
+      "path": "raw/pi.log",
+      "bytes": 69,
+      "sha256": "311c2e337eb7db07fef1984040541bb205e3bd3a4abe7c7fdde2cff95248cd68"
+    },
+    {
+      "path": "raw/restart.log",
+      "bytes": 1344,
+      "sha256": "33c19d0b6b14aed5a4b08010ac09536bc0ff61ca40311582d968b521cf1f6940"
+    },
+    {
+      "path": "raw/short-load.json",
+      "bytes": 30021,
+      "sha256": "beaf44ad1f29b345f41032ff25eae98352be86d1970e05cb45c82db170befe85"
+    },
+    {
+      "path": "raw/short-load.log",
+      "bytes": 67,
+      "sha256": "8132032947648ba269b156a0e4478e10b1de2e5559481213a095b56ff7780025"
+    },
+    {
+      "path": "raw/slow-consumer.log",
+      "bytes": 1205,
+      "sha256": "465ed6244450a9ed050940f4f9eea704331a1d527659b3cf79ed4ab4b1ce7ebb"
+    },
+    {
+      "path": "raw/smoke.log",
+      "bytes": 4239,
+      "sha256": "bfc842dfcab5d98523a91eb694be4b66e8b89c4d38a4f01003a393b93a1499d0"
+    },
+    {
+      "path": "raw/tasks.jsonl",
+      "bytes": 2868,
+      "sha256": "062fbf54f95f8aa8f112502486c256a17636475bad0935e8a56a8b79c6d78764"
+    },
+    {
+      "path": "raw/terminal-failure.log",
+      "bytes": 690,
+      "sha256": "5b9c569175864173666caa8323c961f41d94396634767b88747e490e7bf9410f"
+    },
+    {
+      "path": "raw/toolchain.txt",
+      "bytes": 195,
+      "sha256": "d7c1ab49d576fa4125fbe6b70fde1aeb142eecbe1d9a8029a682f9b56f8d3b6b"
+    },
+    {
+      "path": "source-verification.json",
+      "bytes": 6367,
+      "sha256": "ba7713e0663bbe8223f80d77c1c4c2e3d9d9e4fe0f23f7ade273e073e0bfdc4d"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 602,
+      "sha256": "2d8707a8d54d202566871644cf7f62263fe20ccf7fd3104fd7bf17d5bb445e2d"
+    }
+  ]
+}
