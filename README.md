@@ -27,6 +27,7 @@ docker compose down
 
 - [Service](service/README.md): bounded workers, idempotent submission, durable events, SSE replay and failure recovery.
 - [Evidence index](docs/evidence/README.md): historical load results and separate independent-repository validation.
+- [hey / Vegeta candidate experiment](docs/evidence/hey-vegeta-20261020.md): bounded HTTP measurements and a separately identified SSE connection probe; independent review remains separate.
 - [Migration provenance](docs/evidence/MIGRATION.md): source mapping and changed executable/configuration identities.
 - [Upstream attribution](service/UPSTREAM.md) and [MIT license](LICENSE).
 

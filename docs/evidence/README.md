@@ -1,5 +1,10 @@
 # Evidence index
 
+## hey / Vegeta experiment — Pi #3
+
+- [2026-10-20 candidate report](hey-vegeta-20261020.md): real tool matrix, separately identified SSE probe, raw-evidence locators and measurement limits. Builder report; independent Verdict remains separate.
+- [Reproduction and verified summary](../../service/scripts/hey-vegeta/README.md): fixed versions, command driver and strict per-run raw-artifact checks.
+
 ## Independent repository migration
 
 - [Migration record](MIGRATION.md): new repository/base, ownership, exact source/config deltas and fresh small checks.
