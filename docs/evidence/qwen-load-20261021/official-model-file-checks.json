@@ -1,0 +1,141 @@
+{
+  "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "source": "https://huggingface.co/api/models/Qwen/Qwen3-8B/revision/b968826d9c46dd6066d109eabc6255188de91218?blobs=true",
+  "checks": [
+    {
+      "path": ".gitattributes",
+      "present": true,
+      "required": true,
+      "method": "git_blob_sha1_from_cached_bytes",
+      "expected": "52373fe24473b1aa44333d318f578ae6bf04b49b",
+      "observed": "52373fe24473b1aa44333d318f578ae6bf04b49b",
+      "match": true
+    },
+    {
+      "path": "LICENSE",
+      "present": true,
+      "required": true,
+      "method": "git_blob_sha1_from_cached_bytes",
+      "expected": "6634c8cc3133b3848ec74b9f275acaaa1ea618ab",
+      "observed": "6634c8cc3133b3848ec74b9f275acaaa1ea618ab",
+      "match": true
+    },
+    {
+      "path": "README.md",
+      "present": true,
+      "required": true,
+      "method": "git_blob_sha1_from_cached_bytes",
+      "expected": "ecc3ebd0849aa08d9484bd911dddfd5261b10d30",
+      "observed": "ecc3ebd0849aa08d9484bd911dddfd5261b10d30",
+      "match": true
+    },
+    {
+      "path": "config.json",
+      "present": true,
+      "required": true,
+      "method": "git_blob_sha1_from_cached_bytes",
+      "expected": "d46195ac87f837ad233d02b2f80f148bf7c005e0",
+      "observed": "d46195ac87f837ad233d02b2f80f148bf7c005e0",
+      "match": true
+    },
+    {
+      "path": "generation_config.json",
+      "present": true,
+      "required": true,
+      "method": "git_blob_sha1_from_cached_bytes",
+      "expected": "20a8a9156fc8c3f25295ca067f61fdf120d517c5",
+      "observed": "20a8a9156fc8c3f25295ca067f61fdf120d517c5",
+      "match": true
+    },
+    {
+      "path": "merges.txt",
+      "present": true,
+      "required": true,
+      "method": "git_blob_sha1_from_cached_bytes",
+      "expected": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+      "observed": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+      "match": true
+    },
+    {
+      "path": "model-00001-of-00005.safetensors",
+      "present": true,
+      "required": true,
+      "method": "official_api_lfs_sha256_against_pre_run_full_file_inventory",
+      "expected": "31d6a825ae35f11fb85b195b4c42c146c051e446433125a215336abdf95cbf5f",
+      "observed": "31d6a825ae35f11fb85b195b4c42c146c051e446433125a215336abdf95cbf5f",
+      "match": true
+    },
+    {
+      "path": "model-00002-of-00005.safetensors",
+      "present": true,
+      "required": true,
+      "method": "official_api_lfs_sha256_against_pre_run_full_file_inventory",
+      "expected": "5991236cea6fe21f3d43cab0f0e84448734fbbe0789816202989f2ddc9d18282",
+      "observed": "5991236cea6fe21f3d43cab0f0e84448734fbbe0789816202989f2ddc9d18282",
+      "match": true
+    },
+    {
+      "path": "model-00003-of-00005.safetensors",
+      "present": true,
+      "required": true,
+      "method": "official_api_lfs_sha256_against_pre_run_full_file_inventory",
+      "expected": "c5185c4794be2d8a9784d5753c9922db38df478ce11f9ed0b415b7304d896836",
+      "observed": "c5185c4794be2d8a9784d5753c9922db38df478ce11f9ed0b415b7304d896836",
+      "match": true
+    },
+    {
+      "path": "model-00004-of-00005.safetensors",
+      "present": true,
+      "required": true,
+      "method": "official_api_lfs_sha256_against_pre_run_full_file_inventory",
+      "expected": "b5ee7de71fbf17db3d5704e0c8f2bc7d005ca9e1d7ca2aeb19827b0cfcaa917a",
+      "observed": "b5ee7de71fbf17db3d5704e0c8f2bc7d005ca9e1d7ca2aeb19827b0cfcaa917a",
+      "match": true
+    },
+    {
+      "path": "model-00005-of-00005.safetensors",
+      "present": true,
+      "required": true,
+      "method": "official_api_lfs_sha256_against_pre_run_full_file_inventory",
+      "expected": "20c2d6366ab85c90786ccdd829cd2b9e7d30ef3b2ebbb998280e7e4014b542ff",
+      "observed": "20c2d6366ab85c90786ccdd829cd2b9e7d30ef3b2ebbb998280e7e4014b542ff",
+      "match": true
+    },
+    {
+      "path": "model.safetensors.index.json",
+      "present": true,
+      "required": true,
+      "method": "git_blob_sha1_from_cached_bytes",
+      "expected": "2b85c00f1b118961cd7a477e2bba0fe197a4ce1a",
+      "observed": "2b85c00f1b118961cd7a477e2bba0fe197a4ce1a",
+      "match": true
+    },
+    {
+      "path": "tokenizer.json",
+      "present": true,
+      "required": true,
+      "method": "official_api_lfs_sha256_against_pre_run_full_file_inventory",
+      "expected": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "observed": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "match": true
+    },
+    {
+      "path": "tokenizer_config.json",
+      "present": true,
+      "required": true,
+      "method": "git_blob_sha1_from_cached_bytes",
+      "expected": "417d038a63fa3de29cfde265caedae14d1a58d92",
+      "observed": "417d038a63fa3de29cfde265caedae14d1a58d92",
+      "match": true
+    },
+    {
+      "path": "vocab.json",
+      "present": true,
+      "required": true,
+      "method": "git_blob_sha1_from_cached_bytes",
+      "expected": "4783fe10ac3adce15ac8f358ef5462739852c569",
+      "observed": "4783fe10ac3adce15ac8f358ef5462739852c569",
+      "match": true
+    }
+  ]
+}

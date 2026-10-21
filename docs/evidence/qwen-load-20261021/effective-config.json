@@ -1,0 +1,27 @@
+{
+  "execution_sha": "601918edd4198e32e6940fbab3e2d5a2ba6095b5",
+  "analysis_sha": "8c22f4a5893c8c3abbfe0381f025f63db7374276",
+  "client_metadata": {
+    "temperature": 0,
+    "seed": 20261021,
+    "max_tokens": 128,
+    "enable_thinking": false
+  },
+  "backend_effective": {
+    "model": "Qwen3-8B",
+    "dtype": "bfloat16",
+    "attention": "torch SDPA (specific dispatched kernel not profiled)",
+    "do_sample": false,
+    "seed_applied": false,
+    "seed_explanation": "No random sampling; backend does not consume client seed/temperature. Deterministic-kernel mode not enabled.",
+    "max_new_tokens": 128,
+    "enable_thinking": false,
+    "max_context_guard": 1024,
+    "scheduler": "FIFO asyncio.Lock; max active generation1",
+    "use_cache": "per request only; no cross-request prefix cache"
+  },
+  "notes": [
+    "max_new_tokens and enable_thinking are backend constants matching the client request, not dynamically consumed request settings",
+    "Physical generator code remained601918 throughout allformal runs; post-run analysis8c22 adds usage validation/explicit cohort labels only"
+  ]
+}

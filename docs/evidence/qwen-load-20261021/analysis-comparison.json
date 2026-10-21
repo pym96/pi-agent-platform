@@ -1,0 +1,29 @@
+{
+  "execution_sha": "601918edd4198e32e6940fbab3e2d5a2ba6095b5",
+  "analysis_sha": "8c22f4a5893c8c3abbfe0381f025f63db7374276",
+  "execution_source_sha256": "6208dc355027969526fc313737f1ee075666ee6642f6a96cfdcf5bd2d0415fc2",
+  "analysis_source_sha256": "cc21576471701c2a36cc5a56ab7645deabd85b4ac69fa6a09273cec82303e872",
+  "runs": 18,
+  "actual_sent_records": 325,
+  "classification_changes": [],
+  "summary_changes": [],
+  "original_open_rate_lock": {
+    "reference_rb": 0.26666666666666666,
+    "rates": [
+      0.133,
+      0.267,
+      0.4
+    ],
+    "max_window_completed_count": 12,
+    "formula": "max(0.01,half-up((max_window_completed_count/45)*factor,3)), factors0.5,1.0,1.5",
+    "frozen_utc": "2026-10-21T08:48:06.570470+00:00"
+  },
+  "new_reference_max_window_count": 12,
+  "new_rates": [
+    0.133,
+    0.267,
+    0.4
+  ],
+  "open_rate_plan_unchanged": true,
+  "all_actual_unchanged": true
+}

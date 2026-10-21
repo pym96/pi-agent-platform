@@ -1,0 +1,290 @@
+{
+  "closed-1-r1": {
+    "utc": "2026-10-21T08:34:41.056563+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 1,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "closed-1-r2": {
+    "utc": "2026-10-21T08:34:46.079737+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "closed-2-r1": {
+    "utc": "2026-10-21T08:35:42.320001+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "closed-2-r2": {
+    "utc": "2026-10-21T08:36:36.539687+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "closed-4-r1": {
+    "utc": "2026-10-21T08:37:37.802822+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "closed-4-r2": {
+    "utc": "2026-10-21T08:38:36.092072+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "closed-8-r1": {
+    "utc": "2026-10-21T08:39:52.462646+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "closed-8-r2": {
+    "utc": "2026-10-21T08:41:08.852240+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "closed-16-r1": {
+    "utc": "2026-10-21T08:42:54.390356+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "closed-16-r2": {
+    "utc": "2026-10-21T08:44:36.833480+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "closed-32-r1": {
+    "utc": "2026-10-21T08:46:21.336822+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "closed-32-r2": {
+    "utc": "2026-10-21T08:48:04.775636+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "open-0.133-r1": {
+    "utc": "2026-10-21T08:48:51.971655+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "open-0.133-r2": {
+    "utc": "2026-10-21T08:49:39.192998+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "open-0.267-r1": {
+    "utc": "2026-10-21T08:50:42.472827+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "open-0.267-r2": {
+    "utc": "2026-10-21T08:51:46.750606+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "open-0.4-r1": {
+    "utc": "2026-10-21T08:53:13.119998+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  },
+  "open-0.4-r2": {
+    "utc": "2026-10-21T08:54:39.483397+00:00",
+    "health": {
+      "engine": "Transformers serialized generate",
+      "ready": true,
+      "model": "Qwen3-8B",
+      "batching": "none",
+      "prefix_cache": false,
+      "max_context": 1024,
+      "max_new_tokens": 128,
+      "max_active_generation": 1,
+      "active_generation": 0,
+      "queued_waiters": 0
+    },
+    "error": null
+  }
+}

@@ -1,0 +1,5 @@
+Wed Oct 21 09:06:11 UTC 2026
+pi-qwen7-generator exited
+pi-qwen7-model exited
+uuid, memory.used [MiB], utilization.gpu [%]
+GPU-dd5fc05f-7d4d-17f7-8d33-2f474b56b74e, 6 MiB, 0 %

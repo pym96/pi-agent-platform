@@ -1,0 +1,12 @@
+{
+  "native_git_diff_check_exit": 2,
+  "diagnostic_counts_by_file": {
+    "docs/evidence/qwen-load-20261021/results/closed-curves.svg": 1511,
+    "docs/evidence/qwen-load-20261021/results/open-curves.svg": 1442,
+    "docs/evidence/qwen-load-20261021/results/requests.csv": 326,
+    "docs/evidence/qwen-load-20261021/results/summary.csv": 19
+  },
+  "without_native_svg_csv_exit": 0,
+  "without_native_svg_csv_output": "",
+  "handling": "Preserve native matplotlib SVG path whitespace and Python CSV CRLF byte-for-byte as indexed in raw manifest; no whitespace Criterion was registered. This is not independent acceptance."
+}

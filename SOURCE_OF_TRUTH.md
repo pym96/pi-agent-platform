@@ -1,6 +1,6 @@
 # Source of truth
 
-- Current opt-in experiment: [Qwen real-model load WorkOrder #7](https://github.com/pym96/pi-agent-platform/issues/7), Criteria1.1; [evidence and stage status](docs/evidence/qwen-load-20261021/README.md), [measurement code](service/experiments/qwen-load-20261021/README.md). GPU startup requires separately granted idle UUID; preparation is not a performance result or independent acceptance. Default business service is unchanged.
+- Current opt-in experiment: [Qwen real-model load WorkOrder #7](https://github.com/pym96/pi-agent-platform/issues/7), Criteria1.1; [18-run candidate curves and denominators](docs/evidence/qwen-load-20261021/README.md), [measurement code](service/experiments/qwen-load-20261021/README.md). Execution601918 and post-run analysis8c22f4 are separately bound; owned GPU services stopped. Builder results await independent Verdict. Default business service is unchanged.
 
 - Current candidate: [hey / Vegeta WorkOrder #3](https://github.com/pym96/pi-agent-platform/issues/3), Criteria1.0; [candidate evidence](docs/evidence/hey-vegeta-20261020.md) and [reproduction guide](service/scripts/hey-vegeta/README.md). Independent acceptance is separate; the #1 migration entry below retains its original scope.
 
