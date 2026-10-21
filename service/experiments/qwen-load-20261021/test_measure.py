@@ -28,6 +28,19 @@ class ParserTests(unittest.TestCase):
         s=summarize(dict(id='test',mode='open',load=1,rep=1,window_s=45,actual_window_s=45,total_elapsed_s=45),[dict(drop='client_cap64')])
         self.assertEqual(s['window_tokens_s'],0);self.assertEqual(s['generator_admission_drop'],1);self.assertIsNone(s['latency']['ttft_s']['p95'])
     def test_nearest_rank(self):self.assertEqual(nearest([1,2,3,4],.95),4)
+    def test_done_before_content(self):
+        r=record();r['done']=.01;c=classify(r);self.assertFalse(c['success']);self.assertIsNone(c['ttft_s'])
+    def test_negative_ttft(self):
+        r=record();r['send']=1.5;c=classify(r);self.assertFalse(c['success']);self.assertIsNone(c['ttft_s'])
+    def test_nonmonotone_terminal(self):
+        r=record();r['events'][-1]['t']=.2;c=classify(r);self.assertFalse(c['success']);self.assertIsNone(c['ttft_s'])
+    def test_equal_times_valid(self):
+        r=record()
+        for e in r['events']:e['t']=1.
+        self.assertTrue(classify(r)['success'])
+    def test_after_hard_event_cutoff(self):
+        r=record();r['done']=106.;r['events'][-1]['t']=106.
+        c=classify(r);self.assertFalse(c['success']);self.assertEqual(c['ttft_s'],1.)
 
 
 if __name__=='__main__':unittest.main()

@@ -7,3 +7,5 @@
 3. f733e8006c96f0153da5f015052fcd89253358d0首次GPU启动在tokenizer解析时报“缺少model_type”，没有加载权重或正式请求。最初以为配置解析问题；实际cache目录和文件权限为700、owner1001:1001，而root容器cap-dropALL后不能越权读取，os.path.isfile返回False使HF得到空config。CPU默认root能力预检没有覆盖实际启动权限，这是Builder预检遗漏。保留startup-attempt1.log/inspect，停止自有容器，不改共享cache权限。窄修复以--user1001:1001运行，并让deadline线程daemon化以免主线程异常后残留。相同read-only/cap-drop/UID CPU检查成功读取qwen3和官方tokenizer；GPU重启与正式矩阵仍待Master门禁。
 
 改进：把身份、mount、capabilities与实际服务保持一致作为启动预检的一部分；分别验证包元数据、实际import、文件访问和真实生成。已知目前只是配置读取修正，尚不能据此断言权重加载、生成或负载矩阵成功。原始大件位于本轮专属raw目录，最终manifest将索引；先记录当时证据，不事后包装成功故事。
+
+4. 独立Regulator准备期对f733的静态探针发现parser没有拒绝“done早于首内容”“send晚于首内容”“SSE事件时钟倒退”，可能把错误原件报为成功/负TTFT。尚未正式测量，Master按既有C-LC02/03派窄修复。Builder增加有限数值、send→逐事件非递减→done的时间约束，允许相等时间；不一致记录不计有效TTFT或成功。追加5条回归（含105秒后事件排除），保留原SHA与独立反例，不称独立验收。

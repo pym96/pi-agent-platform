@@ -14,8 +14,19 @@ def classify(record):
     usage = None
     done = False
     error = record.get('error')
+    def finite_number(value):
+        return isinstance(value,(int,float)) and not isinstance(value,bool) and math.isfinite(value)
+    send=record.get('send');end=record.get('done')
+    invalid_chronology=(not finite_number(send) or not finite_number(end)
+                        or not 0<=send<45 or end<send)
+    previous=send if finite_number(send) else None
     for event in events:
-        if not isinstance(event.get('t'),(int,float)) or not 0<=event['t']<=105:
+        timestamp=event.get('t')
+        if (not finite_number(timestamp) or previous is None or not finite_number(end)
+                or timestamp<previous or timestamp<send or timestamp>end):
+            invalid_chronology=True
+        if finite_number(timestamp):previous=timestamp
+        if not finite_number(timestamp) or not 0<=timestamp<=105:
             error = 'event_outside_run_bound'
             continue
         line = event['line']
@@ -46,6 +57,9 @@ def classify(record):
                 first = event['t']
             if choice.get('finish_reason') is not None:
                 finish = choice['finish_reason']
+    if invalid_chronology:
+        error='invalid_chronology'
+        first=None  # an inconsistent clock record is not a valid TTFT observation
     valid_usage = isinstance(usage, dict) and all(
         isinstance(usage.get(k), int) and not isinstance(usage.get(k), bool)
         and usage[k] >= 0 for k in ['prompt_tokens', 'completion_tokens', 'total_tokens'])
@@ -56,7 +70,6 @@ def classify(record):
                and isinstance(record.get('done'),(int,float)) and 0<=record['done']<=105
                and isinstance(record.get('send'),(int,float)) and 0<=record['send']<45
                and finish in ['stop', 'length'] and first is not None and valid_usage)
-    send = record.get('send')
     return dict(success=success, first=first, finish_reason=finish, usage=usage,
                 valid_usage=valid_usage, done=done, error=error,
                 ttft_s=(first-send if first is not None and send is not None else None),
