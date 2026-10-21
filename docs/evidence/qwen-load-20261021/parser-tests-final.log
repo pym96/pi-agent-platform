@@ -1,0 +1,12 @@
+test_complete (test_measure.ParserTests) ... ok
+test_empty_delta (test_measure.ParserTests) ... ok
+test_missing_done (test_measure.ParserTests) ... ok
+test_nearest_rank (test_measure.ParserTests) ... ok
+test_timeout_partial (test_measure.ParserTests) ... ok
+test_usage_corrupt (test_measure.ParserTests) ... ok
+test_zero_drop (test_measure.ParserTests) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+OK

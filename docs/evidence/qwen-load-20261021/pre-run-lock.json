@@ -1,0 +1,16 @@
+{
+  "stage": "CPU preparation complete; GPU StageB NOT yet activated",
+  "config_sha256": "a3bc2839278e51db73f1487b6bdf7be7c8d677f7e94e8fb1781222839cd9d246",
+  "model_files_sha256": "4380c0c2174d1ba6a4698f37d06d05cfb01d3652a19fccdeeb414a96b573a1a8",
+  "deps_manifest_sha256": "0daa116e06671a31c9b57f69a7664aa30c5e33d04898eda18f08451bfa93a1e3",
+  "criteria": "1.1",
+  "model": "Qwen3-8B",
+  "engine": "Transformers4.51.3 serialized generate",
+  "active_generation_limit": 1,
+  "gpu_uuid": "GPU-dd5fc05f-7d4d-17f7-8d33-2f474b56b74e",
+  "gpu_scope": "existing GPU3 authorization; no GPU0/1 usage",
+  "cpu_limit_total": 8,
+  "memory_limit_total_bytes": 34359738368,
+  "model_hard_end_utc": "2026-10-21T09:20:00Z",
+  "formal_matrix_not_started": true
+}

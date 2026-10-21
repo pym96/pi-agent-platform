@@ -1,5 +1,9 @@
 # Evidence index
 
+## Qwen real-model load experiment — Pi #7
+
+- [Evidence and stage status](qwen-load-20261021/README.md): frozen single-model/runtime workload, streaming measurement and full repetition denominators. Builder candidate; independent Verdict remains separate.
+
 ## hey / Vegeta experiment — Pi #3
 
 - [2026-10-20 candidate report](hey-vegeta-20261020.md): real tool matrix, separately identified SSE probe, raw-evidence locators and measurement limits. Builder report; independent Verdict remains separate.

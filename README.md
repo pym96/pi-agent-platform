@@ -25,6 +25,7 @@ docker compose down
 
 ## Design and evidence
 
+- [Qwen real-model load experiment — Pi #7](docs/evidence/qwen-load-20261021/README.md): opt-in, separately bounded engine measurements; stage status and independent review are explicit.
 - [Service](service/README.md): bounded workers, idempotent submission, durable events, SSE replay and failure recovery.
 - [Evidence index](docs/evidence/README.md): historical load results and separate independent-repository validation.
 - [hey / Vegeta candidate experiment](docs/evidence/hey-vegeta-20261020.md): bounded HTTP measurements and a separately identified SSE connection probe; independent review remains separate.
