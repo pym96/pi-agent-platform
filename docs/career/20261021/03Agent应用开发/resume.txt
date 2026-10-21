@@ -1,0 +1,45 @@
+潘佳祥                                                                           Agent 应用开发实习生
+上海｜ 13501632852 ｜ pym66@outlook.com ｜ github.com/pym96
+候选草稿·禁止投递
+以执行契约、协议适配、Trace 与实验有效性为重点的候选定位。
+
+项目经历
+
+Workspace Agent Harness
+面向不确定 Agent 执行的 Runtime、协议适配与可重算实验｜个人公开项目｜ 2026.08–至今
+• 离线 typed-history Adapter 校验关联；事件化 AgentLoop 先验证动作，再写有序事件与唯一终态。
+• 权限取 Runtime、caller 与 Pack 交集；evaluator 在有界独立进程运行，错误不改写执行终态。
+• 24 个真实 Trace 上下文完成 240-slot 协议实验；Strict L3 从 93/120 至一次 repair 后 120/120。
+• 五个 failure-enriched 上下文、四档输出上限共 100 次调用；L3 为 2/25→4/25→4/25→5/25。
+• TUI 从保留事件零模型/工具调用回放，取消只记一个终态；c2c9e33 基线仓库测试 116/116。
+实验边界：固定语料、模型与时间窗；无 repair 含 2048-token 上限，不是 provider 普遍可靠性或任务成绩。
+
+Pi Agent Platform ｜私有候选项目材料
+Go / PostgreSQL / Pi / Docker Compose ｜ Agent 协作实施的服务实验，非本人独立实现。
+• PG 保存任务与有序事件，幂等键区分重复提交；未知执行阻断会话，不自动重发模型请求。
+• 已提交事件经 SSE 游标重放；tail 缓存可丢弃，旧游标回退 SQL，慢写超时断连后可重连。
+测量边界：synthetic 端点、单控制实例、最多两个执行者；HTTP history 仅两行，非模型吞吐。
+
+RoboMaster
+RoboMaster 自动瞄准与自主哨兵｜主要提交者｜ 2023.06–2024.07
+• Git identity 覆盖 MA_Sentry 的 179/188 与 MA_training 的 144/144 提交；包含 PnP、串口与 ROS 工程。
+
+
+教育背景
+
+上海大学｜控制科学与工程｜硕士｜ 2025.09–2028.06 ｜ GPA 3.76/4.00
+
+技能
+
+编程与工程：Python、C++、ROS1、Git、unittest、JSON/JSONL
+Agent：Agent Runtime、Tool Calling、JSON Schema、Trace、Evaluation
+
+公开输出
+
+GitHub 个人非 Fork 仓库累计 100+ stars。
+
+
+
+
+新增 Pi 项目句子待本人披露批准；本稿仅供内部评审。
+

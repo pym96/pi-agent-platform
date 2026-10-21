@@ -1,0 +1,212 @@
+{
+  "purpose": "Pi #5 stage A research only; metadata, not mirror of source text",
+  "access_date": "2026-10-21",
+  "sources": [
+    {
+      "repo": "open-infra-index",
+      "sha": "56d86855fcf6e08fdfd45ce6280bd24322c93351",
+      "date": "2025-05-15T02:00:11Z",
+      "url": "https://github.com/deepseek-ai/open-infra-index/blob/56d86855fcf6e08fdfd45ce6280bd24322c93351/README.md",
+      "access_date": "2026-10-21",
+      "content_sha256": "24b66fde3db4377519a6315e187776ea714f00a2d96d1506a81251ecc2bfd76c",
+      "bytes": 5350,
+      "status": "fetched",
+      "kind": "official_repo_readme"
+    },
+    {
+      "repo": "DeepInfer",
+      "sha": "9bd9cf243fc53ef9afbf8f04d391d989117d6ab9",
+      "date": "2026-10-21T04:55:43Z",
+      "url": "https://github.com/deepseek-ai/DeepInfer/blob/9bd9cf243fc53ef9afbf8f04d391d989117d6ab9/README.md",
+      "access_date": "2026-10-21",
+      "content_sha256": "b55624158ada4dc21b882d24ded06bf82f65350b44d170877b68395712cd670d",
+      "bytes": 4660,
+      "status": "fetched",
+      "kind": "official_repo_readme"
+    },
+    {
+      "repo": "3FS",
+      "sha": "22fca04564c7cc230fd8b9523b8b92864e1dad47",
+      "date": "2026-05-07T09:31:53Z",
+      "url": "https://github.com/deepseek-ai/3FS/blob/22fca04564c7cc230fd8b9523b8b92864e1dad47/README.md",
+      "access_date": "2026-10-21",
+      "content_sha256": "af8025b09e96026bf0460964a2154310ef0bc1f5ec63e3d0447caf882bc8620a",
+      "bytes": 7663,
+      "status": "fetched",
+      "kind": "official_repo_readme"
+    },
+    {
+      "repo": "DeepEP",
+      "sha": "f6aa38fe06cd4a0489e7730365d4e0114970a2f3",
+      "date": "2026-10-21T03:50:43Z",
+      "url": "https://github.com/deepseek-ai/DeepEP/blob/f6aa38fe06cd4a0489e7730365d4e0114970a2f3/README.md",
+      "access_date": "2026-10-21",
+      "content_sha256": "86415f7fc11381dceb14c112b6c602103d975936444601666ab1fcfd65e8fceb",
+      "bytes": 32914,
+      "status": "fetched",
+      "kind": "official_repo_readme"
+    },
+    {
+      "repo": "DeepGEMM",
+      "sha": "5081f8513af57e61696de4f4f04b0e707ffb503e",
+      "date": "2026-10-20T05:07:07Z",
+      "url": "https://github.com/deepseek-ai/DeepGEMM/blob/5081f8513af57e61696de4f4f04b0e707ffb503e/README.md",
+      "access_date": "2026-10-21",
+      "content_sha256": "1112521165450d617bf0ff0cc06d8944f7b4548ecf4727e1d16143671014a4d2",
+      "bytes": 13257,
+      "status": "fetched",
+      "kind": "official_repo_readme"
+    },
+    {
+      "repo": "FlashMLA",
+      "sha": "0f11e178da1f67becb087a324b400854931ec3e3",
+      "date": "2026-10-15T13:47:29Z",
+      "url": "https://github.com/deepseek-ai/FlashMLA/blob/0f11e178da1f67becb087a324b400854931ec3e3/README.md",
+      "access_date": "2026-10-21",
+      "content_sha256": "0a3d443119284195fd8ef144bd0325fd7d58e08070764f824a1adb6ad3333eb8",
+      "bytes": 22629,
+      "status": "fetched",
+      "kind": "official_repo_readme"
+    },
+    {
+      "id": "docker-security",
+      "url": "https://docs.docker.com/engine/security/",
+      "accessed_utc": "2026-10-21T06:44:05.598626+00:00",
+      "sha256": "233fb13850ca80889233dd98ed6ddbee503fd2750b295edbf5980af45ddbe6a9",
+      "bytes": 533197,
+      "status": "fetched"
+    },
+    {
+      "id": "docker-volumes",
+      "url": "https://docs.docker.com/engine/storage/volumes/",
+      "accessed_utc": "2026-10-21T06:44:05.754622+00:00",
+      "sha256": "3bbd8f0380f08a046fad57a8c0fad8a6e3679a038ab130b279520c9280985f2c",
+      "bytes": 673872,
+      "status": "fetched"
+    },
+    {
+      "id": "k8s-controller",
+      "url": "https://kubernetes.io/docs/concepts/architecture/controller/",
+      "accessed_utc": "2026-10-21T06:44:25.454748+00:00",
+      "sha256": "96ad0ef9661c7a3fff3b360ce9643a6c1bc120bcec52b82385c94481194581cb",
+      "bytes": 509019,
+      "status": "fetched"
+    },
+    {
+      "id": "k8s-scheduler",
+      "url": "https://kubernetes.io/docs/concepts/scheduling-eviction/kube-scheduler/",
+      "accessed_utc": "2026-10-21T06:44:20.681618+00:00",
+      "sha256": "c54867b9864c705271d430046be27bb3454fa726c9e542f73f0296b6cf81a51a",
+      "bytes": 505639,
+      "status": "fetched"
+    },
+    {
+      "id": "k8s-resources",
+      "url": "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+      "accessed_utc": "2026-10-21T06:44:17.103024+00:00",
+      "sha256": "8eee4a66c18acfd2ad9798686ad1bec7831deaae5f71691e33217bc06e2c870e",
+      "bytes": 563507,
+      "status": "fetched"
+    },
+    {
+      "id": "k8s-lifecycle",
+      "url": "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/",
+      "accessed_utc": "2026-10-21T06:44:06.420641+00:00",
+      "sha256": "89d260eb151b501eca880bf434b85ed5be90e632ce6e6de96964d195b909e4ae",
+      "bytes": 609483,
+      "status": "fetched"
+    },
+    {
+      "id": "go-spec",
+      "url": "https://go.dev/ref/spec",
+      "status": "unknown",
+      "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)>"
+    },
+    {
+      "id": "go-context",
+      "url": "https://pkg.go.dev/context@go1.24.13",
+      "status": "unknown",
+      "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)>"
+    },
+    {
+      "id": "pg18-lock",
+      "url": "https://www.postgresql.org/docs/18/explicit-locking.html",
+      "accessed_utc": "2026-10-21T06:44:11.586632+00:00",
+      "sha256": "c380ea819aae4ea552be1b8d3ae49caad9139c1d06a1d08ca98d79828c3f7472",
+      "bytes": 46826,
+      "status": "fetched"
+    },
+    {
+      "id": "pg18-select",
+      "url": "https://www.postgresql.org/docs/18/sql-select.html",
+      "accessed_utc": "2026-10-21T06:44:09.558125+00:00",
+      "sha256": "0423dc0b809d7a69e7ffaa456975b37f7dbfa374ed5ac8c6e1725004535b798a",
+      "bytes": 118042,
+      "status": "fetched"
+    },
+    {
+      "id": "hey",
+      "url": "https://raw.githubusercontent.com/rakyll/hey/v0.1.4/README.md",
+      "accessed_utc": "2026-10-21T06:44:07.808712+00:00",
+      "sha256": "fc9a136c6c40bfe2ea4a6237e28efde05c96e574361a4ed4e8d33c7499c1e215",
+      "bytes": 2728,
+      "status": "fetched"
+    },
+    {
+      "id": "vegeta",
+      "url": "https://raw.githubusercontent.com/tsenart/vegeta/v12.12.0/README.md",
+      "accessed_utc": "2026-10-21T06:44:08.071800+00:00",
+      "sha256": "0a72906ed2a24dd4de2e57370fc805d60ff24a2984655ba5b934599d58bafd6f",
+      "bytes": 31766,
+      "status": "fetched"
+    },
+    {
+      "id": "go-spec-web",
+      "url": "https://go.dev/ref/spec#Go_statements",
+      "access_date": "2026-10-21",
+      "status": "web_fetched",
+      "version_observed": "go1.27",
+      "content_sha256": null,
+      "note": "shell SSL EOF separately preserved; web source was successfully read"
+    },
+    {
+      "id": "go-context-web",
+      "url": "https://pkg.go.dev/context",
+      "access_date": "2026-10-21",
+      "status": "web_fetched",
+      "version_observed": "go1.27.3",
+      "content_sha256": null,
+      "note": "shell attempt at go1.24.13 failed; no claim to have read that pinned page"
+    },
+    {
+      "repo": "3FS",
+      "sha": "22fca04564c7cc230fd8b9523b8b92864e1dad47",
+      "path": "docs/design_notes.md",
+      "url": "https://github.com/deepseek-ai/3FS/blob/22fca04564c7cc230fd8b9523b8b92864e1dad47/docs/design_notes.md",
+      "access_date": "2026-10-21",
+      "status": "fetched",
+      "content_sha256": "8a7a198b6e53f14f8dc950ab2517f43c3da02074647079d88eb5a59bdf32c59f",
+      "bytes": 31811
+    },
+    {
+      "repo": "3FS",
+      "sha": "22fca04564c7cc230fd8b9523b8b92864e1dad47",
+      "path": "deploy/README.md",
+      "url": "https://github.com/deepseek-ai/3FS/blob/22fca04564c7cc230fd8b9523b8b92864e1dad47/deploy/README.md",
+      "access_date": "2026-10-21",
+      "status": "fetched",
+      "content_sha256": "52bfa6d35aba77189f28093d7b3163c66ea80d6b601f0eb7165598bca510df25",
+      "bytes": 17459
+    },
+    {
+      "repo": "open-infra-index",
+      "sha": "56d86855fcf6e08fdfd45ce6280bd24322c93351",
+      "path": "202502OpenSourceWeek/day_6_one_more_thing_deepseekV3R1_inference_system_overview.md",
+      "url": "https://github.com/deepseek-ai/open-infra-index/blob/56d86855fcf6e08fdfd45ce6280bd24322c93351/202502OpenSourceWeek/day_6_one_more_thing_deepseekV3R1_inference_system_overview.md",
+      "access_date": "2026-10-21",
+      "status": "fetched",
+      "content_sha256": "3b145f129d4a00947eadf64f4157770ab557996a243db28185f54ff8b58b0205",
+      "bytes": 7453
+    }
+  ]
+}

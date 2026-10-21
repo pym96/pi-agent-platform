@@ -1,0 +1,77 @@
+\documentclass[10pt,a4paper,UTF8,fontset=fandol]{ctexart}
+\usepackage[a4paper,left=1.18cm,right=1.18cm,top=1.05cm,bottom=1.05cm]{geometry}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+\definecolor{navy}{HTML}{173B63}
+\definecolor{ruleblue}{HTML}{4E79A7}
+\definecolor{muted}{HTML}{4B5968}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\pagestyle{empty}
+\linespread{1.10}
+\setlist[itemize]{leftmargin=1.25em,itemsep=0.30em,topsep=0.18em,parsep=0pt,partopsep=0pt}
+\titleformat{\section}{\fontsize{13.0}{15.0}\selectfont\bfseries\color{navy}}{}{0pt}{}[\vspace{-0.34em}\color{ruleblue}\rule{\linewidth}{0.65pt}]
+\titlespacing*{\section}{0pt}{0.85em}{0.34em}
+
+\newcommand{\entry}[3]{%
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{\color{navy}#1} & {\color{muted}#2} \\
+    \multicolumn{2}{@{}l@{}}{{\fontsize{8.9}{10.4}\selectfont\color{muted}#3}}
+  \end{tabularx}\par\vspace{-0.06em}
+}
+
+
+\begin{document}
+\fontsize{9.5}{12.0}\selectfont
+{\fontsize{23.5}{26}\selectfont\bfseries 潘佳祥}\hfill {\color{navy}\bfseries Agent 应用开发实习生}
+\par\vspace{0.3em}{\color{muted}上海｜13501632852｜pym66@outlook.com｜github.com/pym96}
+\par\vspace{0.6em}{\color{navy}\bfseries 候选草稿·禁止投递}
+\par\vspace{0.3em}以执行契约、协议适配、Trace与实验有效性为重点的候选定位。
+\section{项目经历}
+{\bfseries\color{navy}Workspace Agent Harness}\par
+{\color{muted}\fontsize{8.8}{10.8}\selectfont 面向不确定Agent执行的Runtime、协议适配与可重算实验｜个人公开项目｜2026.08--至今}\par
+\begin{itemize}
+% A02
+\item 离线typed-history Adapter校验关联；事件化AgentLoop先验证动作，再写有序事件与唯一终态。
+% A01
+\item 权限取Runtime、caller与Pack交集；evaluator在有界独立进程运行，错误不改写执行终态。
+% A03
+\item 24个真实Trace上下文完成240-slot协议实验；Strict L3从93/120至一次repair后120/120。
+% A04
+\item 五个failure-enriched上下文、四档输出上限共100次调用；L3为2/25→4/25→4/25→5/25。
+% A05
+\item TUI从保留事件零模型/工具调用回放，取消只记一个终态；c2c9e33基线仓库测试116/116。
+\end{itemize}
+{\color{muted}\fontsize{8.5}{10.4}\selectfont 实验边界：固定语料、模型与时间窗；无repair含2048-token上限，不是provider普遍可靠性或任务成绩。\par}
+\vspace{0.6em}
+{\bfseries\color{navy}Pi Agent Platform｜私有候选项目材料}\par
+{\color{muted}\fontsize{8.8}{10.8}\selectfont Go / PostgreSQL / Pi / Docker Compose｜Agent协作实施的服务实验，非本人独立实现。}\par
+\begin{itemize}
+% P01a
+\item PG保存任务与有序事件，幂等键区分重复提交；未知执行阻断会话，不自动重发模型请求。
+% P01d
+\item 已提交事件经SSE游标重放；tail缓存可丢弃，旧游标回退SQL，慢写超时断连后可重连。
+\end{itemize}
+{\color{muted}\fontsize{8.5}{10.4}\selectfont 测量边界：synthetic端点、单控制实例、最多两个执行者；HTTP history仅两行，非模型吞吐。\par}
+\vspace{0.6em}
+{\bfseries\color{navy}RoboMaster}\par
+{\color{muted}\fontsize{8.8}{10.8}\selectfont RoboMaster自动瞄准与自主哨兵｜主要提交者｜2023.06--2024.07}\par
+\begin{itemize}
+% R01
+\item Git identity覆盖MA\_Sentry的179/188与MA\_training的144/144提交；包含PnP、串口与ROS工程。
+\end{itemize}
+\vspace{0.6em}
+\section{教育背景}
+上海大学｜控制科学与工程｜硕士｜2025.09--2028.06｜GPA 3.76/4.00
+\section{技能}
+编程与工程：Python、C++、ROS1、Git、unittest、JSON/JSONL\par
+Agent：Agent Runtime、Tool Calling、JSON Schema、Trace、Evaluation\par
+\section{公开输出}
+GitHub 个人非 Fork 仓库累计 100+ stars。
+\vfill{\color{muted}\fontsize{8.5}{10}\selectfont 新增Pi项目句子待本人披露批准；本稿仅供内部评审。}
+\end{document}

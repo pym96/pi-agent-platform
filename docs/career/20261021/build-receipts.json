@@ -1,0 +1,50 @@
+[
+  {
+    "dir": "01平台可靠性Infra",
+    "pass": 1,
+    "command": "python3 <resume-builder>/driver.py build --resume-dir 01平台可靠性Infra --tex resume.tex",
+    "exit": 0,
+    "stdout": "Compiling: /Library/TeX/texbin/xelatex -interaction=nonstopmode -halt-on-error resume.tex\nOK — /Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-career5-candidate/docs/career/20261021/01平台可靠性Infra/resume.pdf (110.7 KB)\n",
+    "stderr": ""
+  },
+  {
+    "dir": "01平台可靠性Infra",
+    "pass": 2,
+    "command": "python3 <resume-builder>/driver.py build --resume-dir 01平台可靠性Infra --tex resume.tex",
+    "exit": 0,
+    "stdout": "Compiling: /Library/TeX/texbin/xelatex -interaction=nonstopmode -halt-on-error resume.tex\nOK — /Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-career5-candidate/docs/career/20261021/01平台可靠性Infra/resume.pdf (110.9 KB)\n",
+    "stderr": ""
+  },
+  {
+    "dir": "02推理服务Infra",
+    "pass": 1,
+    "command": "python3 <resume-builder>/driver.py build --resume-dir 02推理服务Infra --tex resume.tex",
+    "exit": 0,
+    "stdout": "Compiling: /Library/TeX/texbin/xelatex -interaction=nonstopmode -halt-on-error resume.tex\nOK — /Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-career5-candidate/docs/career/20261021/02推理服务Infra/resume.pdf (108.9 KB)\n",
+    "stderr": ""
+  },
+  {
+    "dir": "02推理服务Infra",
+    "pass": 2,
+    "command": "python3 <resume-builder>/driver.py build --resume-dir 02推理服务Infra --tex resume.tex",
+    "exit": 0,
+    "stdout": "Compiling: /Library/TeX/texbin/xelatex -interaction=nonstopmode -halt-on-error resume.tex\nOK — /Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-career5-candidate/docs/career/20261021/02推理服务Infra/resume.pdf (109.0 KB)\n",
+    "stderr": ""
+  },
+  {
+    "dir": "03Agent应用开发",
+    "pass": 1,
+    "command": "python3 <resume-builder>/driver.py build --resume-dir 03Agent应用开发 --tex resume.tex",
+    "exit": 0,
+    "stdout": "Compiling: /Library/TeX/texbin/xelatex -interaction=nonstopmode -halt-on-error resume.tex\nOK — /Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-career5-candidate/docs/career/20261021/03Agent应用开发/resume.pdf (104.3 KB)\n",
+    "stderr": ""
+  },
+  {
+    "dir": "03Agent应用开发",
+    "pass": 2,
+    "command": "python3 <resume-builder>/driver.py build --resume-dir 03Agent应用开发 --tex resume.tex",
+    "exit": 0,
+    "stdout": "Compiling: /Library/TeX/texbin/xelatex -interaction=nonstopmode -halt-on-error resume.tex\nOK — /Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-career5-candidate/docs/career/20261021/03Agent应用开发/resume.pdf (104.5 KB)\n",
+    "stderr": ""
+  }
+]

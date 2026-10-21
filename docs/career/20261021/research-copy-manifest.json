@@ -1,0 +1,32 @@
+[
+  {
+    "name": "README.md",
+    "root_sha256": "75003be95ff6635b86b1f55267d65cd2f15fcbecc4356b65ac0b1894605739f5",
+    "candidate_sha256": "096cc8c0ad4646f3251b2d9a85e215420f6c0024490152f434fbae7005831197",
+    "change": "README navigation only"
+  },
+  {
+    "name": "sources.json",
+    "root_sha256": "ca64cbb700bfff02b0c20cdb16551eed5fcf9224a02f76568d49f6d739f4e26d",
+    "candidate_sha256": "ca64cbb700bfff02b0c20cdb16551eed5fcf9224a02f76568d49f6d739f4e26d",
+    "change": "byte-identical"
+  },
+  {
+    "name": "学习与实验建议.md",
+    "root_sha256": "a422bed4de9c3b0a1a595069f31f4836e58c1c789d0fae8058cb2090eaa406ac",
+    "candidate_sha256": "a422bed4de9c3b0a1a595069f31f4836e58c1c789d0fae8058cb2090eaa406ac",
+    "change": "byte-identical"
+  },
+  {
+    "name": "来源清单.md",
+    "root_sha256": "ac75910231b87c08140a401eeeb2b35a5e1d58a5fdb95164f7f30ee5d9263103",
+    "candidate_sha256": "ac75910231b87c08140a401eeeb2b35a5e1d58a5fdb95164f7f30ee5d9263103",
+    "change": "byte-identical"
+  },
+  {
+    "name": "研究报告.md",
+    "root_sha256": "063d2c77c38b63bd36f8a6bbec15aad87302b921b2342ee6afc46f904cc3d266",
+    "candidate_sha256": "063d2c77c38b63bd36f8a6bbec15aad87302b921b2342ee6afc46f904cc3d266",
+    "change": "byte-identical"
+  }
+]

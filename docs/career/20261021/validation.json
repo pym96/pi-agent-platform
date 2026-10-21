@@ -1,0 +1,39 @@
+{
+  "checks": "Builder offline artifact checks only, not independent Verdict",
+  "variants": [
+    {
+      "variant": "01平台可靠性Infra",
+      "pages": 1,
+      "size": "A4",
+      "fonts_embedded": true,
+      "overfull": false,
+      "all_claims_in_pdf_and_md": true,
+      "single_line_contributions": 9,
+      "pdf_sha256": "7a181df6550148c188b6d77bf198ecbbb71689ff5bb3479621b6b5217213cb86",
+      "font_report": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nKKQVNG+FandolSong-Bold-Identity-H    CID Type 0C       Identity-H       yes yes no       4  0\nAXOHYV+LMRoman10-Bold-Identity-H     CID Type 0C       Identity-H       yes yes yes      6  0\nWPQEJZ+FandolSong-Regular-Identity-H CID Type 0C       Identity-H       yes yes no       8  0\nFUFFCD+LMRoman10-Regular-Identity-H  CID Type 0C       Identity-H       yes yes yes     10  0\nKBKJCG+LMRoman9-Regular-Identity-H   CID Type 0C       Identity-H       yes yes yes     12  0\n"
+    },
+    {
+      "variant": "02推理服务Infra",
+      "pages": 1,
+      "size": "A4",
+      "fonts_embedded": true,
+      "overfull": false,
+      "all_claims_in_pdf_and_md": true,
+      "single_line_contributions": 8,
+      "pdf_sha256": "8767fc25efe3b9b02165d0a9fa4bf251f345b4849f24011b9425ef5fc932c43b",
+      "font_report": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nKKQVNG+FandolSong-Bold-Identity-H    CID Type 0C       Identity-H       yes yes no       4  0\nAXOHYV+LMRoman10-Bold-Identity-H     CID Type 0C       Identity-H       yes yes yes      6  0\nWPQEJZ+FandolSong-Regular-Identity-H CID Type 0C       Identity-H       yes yes no       8  0\nFUFFCD+LMRoman10-Regular-Identity-H  CID Type 0C       Identity-H       yes yes yes     10  0\nKBKJCG+LMRoman9-Regular-Identity-H   CID Type 0C       Identity-H       yes yes yes     12  0\n"
+    },
+    {
+      "variant": "03Agent应用开发",
+      "pages": 1,
+      "size": "A4",
+      "fonts_embedded": true,
+      "overfull": false,
+      "all_claims_in_pdf_and_md": true,
+      "single_line_contributions": 8,
+      "pdf_sha256": "693329049d5d0eeab8e3928ed0d45b1bfe4ef3395f0590b5d68e1ed51de8dfa8",
+      "font_report": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nKKQVNG+FandolSong-Bold-Identity-H    CID Type 0C       Identity-H       yes yes no       4  0\nAXOHYV+LMRoman10-Bold-Identity-H     CID Type 0C       Identity-H       yes yes yes      6  0\nWPQEJZ+FandolSong-Regular-Identity-H CID Type 0C       Identity-H       yes yes no       8  0\nFUFFCD+LMRoman10-Regular-Identity-H  CID Type 0C       Identity-H       yes yes yes     10  0\nKBKJCG+LMRoman9-Regular-Identity-H   CID Type 0C       Identity-H       yes yes yes     12  0\n"
+    }
+  ],
+  "navigation_links_checked": 45
+}

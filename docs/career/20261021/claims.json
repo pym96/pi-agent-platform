@@ -1,0 +1,233 @@
+{
+  "variants": {
+    "01平台可靠性Infra": {
+      "position": "平台可靠性 Infra 实习生",
+      "position_status": "Human授权方向的候选定位，不是历史任职；未核上海实习JD",
+      "summary": "以任务状态、失败恢复和受控负载为重点的候选定位。",
+      "claims": [
+        "B01",
+        "B02",
+        "P00",
+        "P01a",
+        "P01b",
+        "P01c",
+        "P02a",
+        "P02b",
+        "PL1",
+        "PL2",
+        "A00",
+        "A01",
+        "A02",
+        "A05",
+        "R00",
+        "R01",
+        "E01",
+        "S01",
+        "S02",
+        "O01"
+      ],
+      "footer": "新增Pi项目句子待本人披露批准；本稿仅供内部评审。"
+    },
+    "02推理服务Infra": {
+      "position": "推理服务 Infra 实习生",
+      "position_status": "Human授权方向的候选定位，不是历史任职；未核上海实习JD",
+      "summary": "以流式服务、负载模型和执行边界为重点的候选定位。",
+      "claims": [
+        "B01",
+        "B02",
+        "P00",
+        "P02a",
+        "P01d",
+        "P01b",
+        "P02b",
+        "PL1",
+        "PL2",
+        "A00",
+        "A03",
+        "A04",
+        "A05",
+        "AL1",
+        "R00",
+        "R01",
+        "E01",
+        "S01",
+        "S02",
+        "O01"
+      ],
+      "footer": "新增Pi项目句子待本人披露批准；本稿仅供内部评审。"
+    },
+    "03Agent应用开发": {
+      "position": "Agent 应用开发实习生",
+      "position_status": "Human授权方向的候选定位，不是历史任职；未核上海实习JD",
+      "summary": "以执行契约、协议适配、Trace与实验有效性为重点的候选定位。",
+      "claims": [
+        "B01",
+        "B02",
+        "A00",
+        "A02",
+        "A01",
+        "A03",
+        "A04",
+        "A05",
+        "AL1",
+        "P00",
+        "P01a",
+        "P01d",
+        "PL1",
+        "R00",
+        "R01",
+        "E01",
+        "S01",
+        "S02",
+        "O01"
+      ],
+      "footer": "新增Pi项目句子待本人披露批准；本稿仅供内部评审。"
+    }
+  },
+  "claims": {
+    "B01": {
+      "text": "潘佳祥",
+      "basis": "F-BASIC-01",
+      "ownership": "Human",
+      "disclosure": "已批准A/B原子事实改写"
+    },
+    "B02": {
+      "text": "上海｜13501632852｜pym66@outlook.com｜github.com/pym96",
+      "basis": "F-BASIC-01/02",
+      "ownership": "Human",
+      "disclosure": "已批准A/B原子事实改写"
+    },
+    "E01": {
+      "text": "上海大学｜控制科学与工程｜硕士｜2025.09--2028.06｜GPA 3.76/4.00",
+      "basis": "F-EDU-01；现实版教育栏",
+      "ownership": "Human",
+      "disclosure": "已批准A/B原子事实改写"
+    },
+    "S01": {
+      "text": "编程与工程：Python、C++、ROS1、Git、unittest、JSON/JSONL",
+      "basis": "F-SKILL-01",
+      "ownership": "Human有可归属产物；不外推熟练度",
+      "disclosure": "已批准A/B原子事实改写"
+    },
+    "S02": {
+      "text": "Agent：Agent Runtime、Tool Calling、JSON Schema、Trace、Evaluation",
+      "basis": "F-AGENT-04/08/12/13；现实版技能栏",
+      "ownership": "Human已批准项目事实范围",
+      "disclosure": "已批准A/B原子事实改写"
+    },
+    "O01": {
+      "text": "GitHub 个人非 Fork 仓库累计 100+ stars。",
+      "basis": "F-SKILL-02；2026-08-26历史登记口径",
+      "ownership": "Human账号历史快照，不声称当日新核",
+      "disclosure": "已批准A/B原子事实改写"
+    },
+    "P00": {
+      "text": "Go / PostgreSQL / Pi / Docker Compose｜Agent协作实施的服务实验，非本人独立实现。",
+      "basis": "P01/P02/P04/P05/P06",
+      "ownership": "Human定目标/资源约束；Builder Agent实现/执行；Regulator独立复核；上游Pi/Go/PG/工具提供组件",
+      "disclosure": "新增Pi事实，项目已accepted；待Human逐句批准披露，禁止投递"
+    },
+    "PL1": {
+      "text": "测量边界：synthetic端点、单控制实例、最多两个执行者；HTTP history仅两行，非模型吞吐。",
+      "basis": "P01/P02",
+      "ownership": "Human定目标/资源约束；Builder Agent实现/执行；Regulator独立复核；上游Pi/Go/PG/工具提供组件",
+      "disclosure": "新增Pi事实，项目已accepted；待Human逐句批准披露，禁止投递"
+    },
+    "PL2": {
+      "text": "SSE仅一次120s采样逻辑订阅；含1000次计划重连、21次服务写失败，不代表TCP不中断或生产容量。",
+      "basis": "P02",
+      "ownership": "Human定目标/资源约束；Builder Agent实现/执行；Regulator独立复核；上游Pi/Go/PG/工具提供组件",
+      "disclosure": "新增Pi事实，项目已accepted；待Human逐句批准披露，禁止投递"
+    },
+    "P01a": {
+      "text": "PG保存任务与有序事件，幂等键区分重复提交；未知执行阻断会话，不自动重发模型请求。",
+      "basis": "P01/P03/P05",
+      "ownership": "Human定目标/资源约束；Builder Agent实现/执行；Regulator独立复核；上游Pi/Go/PG/工具提供组件",
+      "disclosure": "新增Pi事实，项目已accepted；待Human逐句批准披露，禁止投递"
+    },
+    "P01b": {
+      "text": "终态与事件同事务提交；单控制实例持锁，两个worker执行，事件读取与控制连接池分离。",
+      "basis": "P01/P03/P05",
+      "ownership": "Human定目标/资源约束；Builder Agent实现/执行；Regulator独立复核；上游Pi/Go/PG/工具提供组件",
+      "disclosure": "新增Pi事实，项目已accepted；待Human逐句批准披露，禁止投递"
+    },
+    "P01c": {
+      "text": "Compose分离API、PG、Pi与负载端，合计4 CPU / 8 GiB硬配额；数据卷独立、端口仅loopback。",
+      "basis": "P01/P02/P04",
+      "ownership": "Human定目标/资源约束；Builder Agent实现/执行；Regulator独立复核；上游Pi/Go/PG/工具提供组件",
+      "disclosure": "新增Pi事实，项目已accepted；待Human逐句批准披露，禁止投递"
+    },
+    "P02a": {
+      "text": "hey固定并发、Vegeta固定目标速率：54轮共72600次请求均HTTP 200，分开核实际发送与完成率。",
+      "basis": "P02/P06",
+      "ownership": "Human定目标/资源约束；Builder Agent实现/执行；Regulator独立复核；上游Pi/Go/PG/工具提供组件",
+      "disclosure": "新增Pi事实，项目已accepted；待Human逐句批准披露，禁止投递"
+    },
+    "P02b": {
+      "text": "SSE在120s内24次采样均为10000在线订阅；断连后API观测回到0连接、11条goroutine。",
+      "basis": "P02/P06",
+      "ownership": "Human定目标/资源约束；Builder Agent实现/执行；Regulator独立复核；上游Pi/Go/PG/工具提供组件",
+      "disclosure": "新增Pi事实，项目已accepted；待Human逐句批准披露，禁止投递"
+    },
+    "P01d": {
+      "text": "已提交事件经SSE游标重放；tail缓存可丢弃，旧游标回退SQL，慢写超时断连后可重连。",
+      "basis": "P01/P03/P05",
+      "ownership": "Human定目标/资源约束；Builder Agent实现/执行；Regulator独立复核；上游Pi/Go/PG/工具提供组件",
+      "disclosure": "新增Pi事实，项目已accepted；待Human逐句批准披露，禁止投递"
+    },
+    "A00": {
+      "text": "面向不确定Agent执行的Runtime、协议适配与可重算实验｜个人公开项目｜2026.08--至今",
+      "basis": "F-AGENT-01/04；现实版项目日期",
+      "ownership": "已批准Human项目表述；不推导全部代码个人独立实现",
+      "disclosure": "已批准A/B原子事实改写"
+    },
+    "A01": {
+      "text": "权限取Runtime、caller与Pack交集；evaluator在有界独立进程运行，错误不改写执行终态。",
+      "basis": "F-AGENT-06/07",
+      "ownership": "Human已批准项目事实；不声称OS安全沙盒",
+      "disclosure": "已批准A/B原子事实改写"
+    },
+    "A02": {
+      "text": "离线typed-history Adapter校验关联；事件化AgentLoop先验证动作，再写有序事件与唯一终态。",
+      "basis": "F-AGENT-12/13",
+      "ownership": "Human已批准项目事实，非实时provider兼容声明",
+      "disclosure": "已批准A/B原子事实改写"
+    },
+    "A03": {
+      "text": "24个真实Trace上下文完成240-slot协议实验；Strict L3从93/120至一次repair后120/120。",
+      "basis": "F-AGENT-08/09",
+      "ownership": "Human已批准实验原子含义",
+      "disclosure": "已批准A/B原子事实改写"
+    },
+    "A04": {
+      "text": "五个failure-enriched上下文、四档输出上限共100次调用；L3为2/25→4/25→4/25→5/25。",
+      "basis": "F-AGENT-10/11",
+      "ownership": "Human已批准实验原子含义",
+      "disclosure": "已批准A/B原子事实改写"
+    },
+    "A05": {
+      "text": "TUI从保留事件零模型/工具调用回放，取消只记一个终态；c2c9e33基线仓库测试116/116。",
+      "basis": "F-AGENT-14/15",
+      "ownership": "Human已批准软件行为事实，非LLM任务成功数",
+      "disclosure": "已批准A/B原子事实改写"
+    },
+    "AL1": {
+      "text": "实验边界：固定语料、模型与时间窗；无repair含2048-token上限，不是provider普遍可靠性或任务成绩。",
+      "basis": "F-AGENT-08/09/10/11",
+      "ownership": "Human已批准实验披露边界",
+      "disclosure": "已批准A/B原子事实改写"
+    },
+    "R00": {
+      "text": "RoboMaster自动瞄准与自主哨兵｜主要提交者｜2023.06--2024.07",
+      "basis": "F-RM-01/02；现实版",
+      "ownership": "Human可归属Git identity，不声称队长或全部原创",
+      "disclosure": "已批准A/B原子事实改写"
+    },
+    "R01": {
+      "text": "Git identity覆盖MA_Sentry的179/188与MA_training的144/144提交；包含PnP、串口与ROS工程。",
+      "basis": "F-RM-01/02",
+      "ownership": "Human可归属提交；不声称全部代码原创",
+      "disclosure": "已批准A/B原子事实改写"
+    }
+  }
+}

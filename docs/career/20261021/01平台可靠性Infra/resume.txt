@@ -1,0 +1,46 @@
+潘佳祥                                                                       平台可靠性 Infra 实习生
+上海｜ 13501632852 ｜ pym66@outlook.com ｜ github.com/pym96
+候选草稿·禁止投递
+以任务状态、失败恢复和受控负载为重点的候选定位。
+
+项目经历
+
+Pi Agent Platform ｜私有候选项目材料
+Go / PostgreSQL / Pi / Docker Compose ｜ Agent 协作实施的服务实验，非本人独立实现。
+• PG 保存任务与有序事件，幂等键区分重复提交；未知执行阻断会话，不自动重发模型请求。
+• 终态与事件同事务提交；单控制实例持锁，两个 worker 执行，事件读取与控制连接池分离。
+• Compose 分离 API、PG、Pi 与负载端，合计 4 CPU / 8 GiB 硬配额；数据卷独立、端口仅 loopback。
+• hey 固定并发、Vegeta 固定目标速率：54 轮共 72600 次请求均 HTTP 200，分开核实际发送与完成率。
+• SSE 在 120s 内 24 次采样均为 10000 在线订阅；断连后 API 观测回到 0 连接、11 条 goroutine。
+测量边界：synthetic 端点、单控制实例、最多两个执行者；HTTP history 仅两行，非模型吞吐。
+SSE 仅一次 120s 采样逻辑订阅；含 1000 次计划重连、21 次服务写失败，不代表 TCP 不中断或生产容量。
+
+Workspace Agent Harness
+面向不确定 Agent 执行的 Runtime、协议适配与可重算实验｜个人公开项目｜ 2026.08–至今
+• 权限取 Runtime、caller 与 Pack 交集；evaluator 在有界独立进程运行，错误不改写执行终态。
+• 离线 typed-history Adapter 校验关联；事件化 AgentLoop 先验证动作，再写有序事件与唯一终态。
+• TUI 从保留事件零模型/工具调用回放，取消只记一个终态；c2c9e33 基线仓库测试 116/116。
+
+RoboMaster
+RoboMaster 自动瞄准与自主哨兵｜主要提交者｜ 2023.06–2024.07
+• Git identity 覆盖 MA_Sentry 的 179/188 与 MA_training 的 144/144 提交；包含 PnP、串口与 ROS 工程。
+
+
+教育背景
+
+上海大学｜控制科学与工程｜硕士｜ 2025.09–2028.06 ｜ GPA 3.76/4.00
+
+技能
+
+编程与工程：Python、C++、ROS1、Git、unittest、JSON/JSONL
+Agent：Agent Runtime、Tool Calling、JSON Schema、Trace、Evaluation
+
+公开输出
+
+GitHub 个人非 Fork 仓库累计 100+ stars。
+
+
+
+
+新增 Pi 项目句子待本人披露批准；本稿仅供内部评审。
+
