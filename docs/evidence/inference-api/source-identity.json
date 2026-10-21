@@ -1,0 +1,79 @@
+{
+  "executed_sha": "47d174af53efb4f29deca836355aa09a266df93f",
+  "linux_source_files": 18,
+  "mismatches": [],
+  "files": [
+    {
+      "path": "service/inference/README.md",
+      "sha256": "8ddab60f0a6adc31e01e606c0b311d4c9b7199f383d45ffd7df27ebdcf0ac674"
+    },
+    {
+      "path": "service/inference/__init__.py",
+      "sha256": "614a56ae152e67520fc56d9b75460e5aed5e000f3c2575fad91b8f263a39b081"
+    },
+    {
+      "path": "service/inference/__main__.py",
+      "sha256": "708bf67b5c66b8219c0add50adf6e4cbbcb52a55e801f85c47b8755907c21fdb"
+    },
+    {
+      "path": "service/inference/app.py",
+      "sha256": "43fed73f2967573b2e479723d547b2916098efb6400e54df643cf9d22afa9f04"
+    },
+    {
+      "path": "service/inference/config/server.json",
+      "sha256": "74146d8c90ac2c39e5d7a4975f55b5535b6f1eb3e8d5cbd5651ddc25c8fe7458"
+    },
+    {
+      "path": "service/inference/oracle.py",
+      "sha256": "d992a1d5c86fc1f4728f3599d9073843504203645ead4a5c7f410b6278104f38"
+    },
+    {
+      "path": "service/inference/requirements-test.txt",
+      "sha256": "09efbc89b69da9f40cbaa899c7480fe338531654895efa13e452b80fb8acec86"
+    },
+    {
+      "path": "service/inference/scripted.py",
+      "sha256": "4493b830d27709f0bcc120d94f5202964a63538012f5972ce4c8e60ec84cb70e"
+    },
+    {
+      "path": "service/inference/scripts/guard.py",
+      "sha256": "babe1e00bfec54bfe3ea83d2b6a3ab3cf0c01bd2f73c334005dd0a5d8c9d9328"
+    },
+    {
+      "path": "service/inference/scripts/launch.sh",
+      "sha256": "0b348d1891ec37969f3dda801383cb0fa3971f0136c8b4f6be684b626ccb43d2"
+    },
+    {
+      "path": "service/inference/scripts/run_tests.py",
+      "sha256": "627e23b9bbb656e26b19c701835e113d8e3adcab0709d05acb381dbd6cf73a6c"
+    },
+    {
+      "path": "service/inference/scripts/seed_defect.py",
+      "sha256": "49ad0c1a8f485ec36afb4d245110cbf044e1a2dc6a1da85e83601881b7ffbe8a"
+    },
+    {
+      "path": "service/inference/scripts/smoke.py",
+      "sha256": "0c7d7e8d93f077ff068e617e6f8dbf8930445006cbce98f46e32e7e3e4a79192"
+    },
+    {
+      "path": "service/inference/scripts/watch.py",
+      "sha256": "ac809a8bd85894d37e8ad4ff689309fa96a81979534e6e5b48916a3fa20e7593"
+    },
+    {
+      "path": "service/inference/tests/test_api.py",
+      "sha256": "98564ce6979f6528e013ba5ab6ea9c314e51aeb4efab3f4b95418e8e8f556548"
+    },
+    {
+      "path": "service/inference/tests/test_oracle.py",
+      "sha256": "8a9dd2966dbb03a430bcc67697d045ce27a8985fdc48f1716da66c5c2d71c933"
+    },
+    {
+      "path": "service/inference/tests/test_receipt.py",
+      "sha256": "ac21f38003c77923fe87ecda0e96a8b3897023d30d18d942948937794148f658"
+    },
+    {
+      "path": "service/inference/transformers_backend.py",
+      "sha256": "3ff66998b5e8b82d8e06757718920126b669803a401e2666210e42daf09df949"
+    }
+  ]
+}
