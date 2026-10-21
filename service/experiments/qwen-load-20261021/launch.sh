@@ -24,6 +24,7 @@ if ss -ltnH | awk '{print $4}' | grep -q ':18171$'; then
     echo 'Port18171 occupied; refusing startup' >&2;exit 1
 fi
 docker run -d --name pi-qwen7-model --label workorder=7 --label "execution-sha=$PI_QWEN7_CODE_SHA" \
+    --user 1001:1001 \
     --runtime nvidia --gpus "device=$pi7_gpu" --cpus 6 --memory 28g --memory-swap 28g --pids-limit 256 \
     --read-only --tmpfs /tmp:size=512m --shm-size 512m --cap-drop ALL --security-opt no-new-privileges \
     -p 127.0.0.1:18171:18171 -v /media/usv012/pjx/agent/Qwen3-8B:/model:ro \

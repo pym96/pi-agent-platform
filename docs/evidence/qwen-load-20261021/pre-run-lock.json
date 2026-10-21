@@ -1,6 +1,6 @@
 {
-  "stage": "CPU preparation complete; GPU StageB NOT yet activated",
-  "config_sha256": "a3bc2839278e51db73f1487b6bdf7be7c8d677f7e94e8fb1781222839cd9d246",
+  "stage": "Restart gate pending; startup1 failed before weights; no formal runs",
+  "config_sha256": "4e2fb31edbf480f7d74ddc6b42e09ab1bd9ef928642d11ac233a2a13b2274a67",
   "model_files_sha256": "4380c0c2174d1ba6a4698f37d06d05cfb01d3652a19fccdeeb414a96b573a1a8",
   "deps_manifest_sha256": "0daa116e06671a31c9b57f69a7664aa30c5e33d04898eda18f08451bfa93a1e3",
   "criteria": "1.1",
@@ -12,5 +12,6 @@
   "cpu_limit_total": 8,
   "memory_limit_total_bytes": 34359738368,
   "model_hard_end_utc": "2026-10-21T09:20:00Z",
-  "formal_matrix_not_started": true
+  "formal_matrix_not_started": true,
+  "prior_startup_code_sha": "f733e8006c96f0153da5f015052fcd89253358d0"
 }

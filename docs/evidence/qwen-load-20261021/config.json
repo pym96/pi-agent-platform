@@ -333,5 +333,6 @@
   "event_cutoff_s": 105,
   "ttft_cohort": "all sent with valid first nonempty content, including subsequent failures; status counts separate",
   "e2e_cohort": "complete success only",
-  "open_rates_rounding": "exact fraction half-up to0.001 req/s min0.01"
+  "open_rates_rounding": "exact fraction half-up to0.001 req/s min0.01",
+  "model_container_uid_gid": "1001:1001"
 }

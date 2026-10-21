@@ -14,7 +14,9 @@ if time.time()>=hard_end:raise RuntimeError('Builder GPU window expired')
 def deadline_exit():
     print(json.dumps(dict(event='hard_deadline_stop',utc='2026-10-21T09:20:00Z')),flush=True)
     os._exit(0)
-threading.Timer(hard_end-time.time(),deadline_exit).start()
+deadline_timer=threading.Timer(hard_end-time.time(),deadline_exit)
+deadline_timer.daemon=True
+deadline_timer.start()
 torch.cuda.set_per_process_memory_fraction(.75)
 tokenizer=AutoTokenizer.from_pretrained('/model',local_files_only=True)
 model=AutoModelForCausalLM.from_pretrained('/model',torch_dtype=torch.bfloat16,
