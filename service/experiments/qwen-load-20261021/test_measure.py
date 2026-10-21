@@ -41,6 +41,19 @@ class ParserTests(unittest.TestCase):
     def test_after_hard_event_cutoff(self):
         r=record();r['done']=106.;r['events'][-1]['t']=106.
         c=classify(r);self.assertFalse(c['success']);self.assertEqual(c['ttft_s'],1.)
+    def test_usage_above_locked_output_cap(self):
+        r=record();o=json.loads(r['events'][2]['line'][6:]);o['usage']={'prompt_tokens':256,'completion_tokens':999999,'total_tokens':1000255}
+        r['events'][2]['line']='data: '+json.dumps(o);self.assertFalse(classify(r)['success'])
+    def test_damaged_intermediate_usage_not_overwritten(self):
+        for usage in ['damaged',{'prompt_tokens':256,'completion_tokens':0,'total_tokens':1}]:
+            r=record();r['events'].insert(2,{'t':1.5,'line':'data: '+json.dumps({'choices':[],'usage':usage})})
+            self.assertFalse(classify(r)['success'])
+    def test_null_intermediate_usage_allowed(self):
+        r=record();r['events'].insert(2,{'t':1.5,'line':'data: '+json.dumps({'choices':[],'usage':None})})
+        self.assertTrue(classify(r)['success'])
+    def test_valid_zero_intermediate_usage_allowed(self):
+        r=record();r['events'].insert(2,{'t':1.5,'line':'data: '+json.dumps({'choices':[],'usage':{'prompt_tokens':256,'completion_tokens':0,'total_tokens':256}})})
+        self.assertTrue(classify(r)['success'])
 
 
 if __name__=='__main__':unittest.main()

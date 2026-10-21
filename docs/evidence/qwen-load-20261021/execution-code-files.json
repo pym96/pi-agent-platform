@@ -1,0 +1,38 @@
+[
+  {
+    "path": "freeze.py",
+    "sha256": "da2ba5a6f3790afedde89bfe3d441aac76147567bedd24fa8795ead2adf48a88"
+  },
+  {
+    "path": "inventory.py",
+    "sha256": "96ee52fd863702399be60bb258e4d6509c3cc34e65be9341392c26c7663540cf"
+  },
+  {
+    "path": "launch.sh",
+    "sha256": "1a87a1a45529be0bbdef4d26088aea62078b003a5dc30b597976d201f7468883"
+  },
+  {
+    "path": "matrix.py",
+    "sha256": "b8460f3fa1bcb17e43bbae30af3ec026def9d4af76c9c3ee11f4581efc9b033f"
+  },
+  {
+    "path": "measure.py",
+    "sha256": "6208dc355027969526fc313737f1ee075666ee6642f6a96cfdcf5bd2d0415fc2"
+  },
+  {
+    "path": "observe.py",
+    "sha256": "0f92b644fa86557f22980bc40a0daf86a492e0a49f495feaef4b9019ba0f7552"
+  },
+  {
+    "path": "report.py",
+    "sha256": "7823502d877acb9cbb3f7aa48c9fc5cec54df041a19cf973b3898bf37f183de7"
+  },
+  {
+    "path": "test_measure.py",
+    "sha256": "b3dc1385e73bfc3c667acbe5949398e801409cdb1626b2cb24ba3654ecea743c"
+  },
+  {
+    "path": "transformers_server.py",
+    "sha256": "53bce953e2595b0eba43f0f4e6b31bde8704683bd0eb3e779695b9b67f370a2e"
+  }
+]

@@ -1,0 +1,90 @@
+[
+  [
+    "coherent_usage_above_locked_max128",
+    {
+      "send": 0.0,
+      "done": 2.0,
+      "http_status": 200,
+      "error": null,
+      "events": [
+        {
+          "t": 0.1,
+          "line": "data: {\"choices\": [{\"delta\": {\"role\": \"assistant\", \"content\": \"\"}, \"finish_reason\": null}]}"
+        },
+        {
+          "t": 1.0,
+          "line": "data: {\"choices\": [{\"delta\": {\"content\": \"Hello\"}, \"finish_reason\": null}]}"
+        },
+        {
+          "t": 1.9,
+          "line": "data: {\"choices\": [{\"delta\": {}, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 256, \"completion_tokens\": 999999, \"total_tokens\": 1000255}}"
+        },
+        {
+          "t": 2.0,
+          "line": "data: [DONE]"
+        }
+      ]
+    },
+    {
+      "success": true,
+      "first": 1.0,
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 256,
+        "completion_tokens": 999999,
+        "total_tokens": 1000255
+      },
+      "valid_usage": true,
+      "done": true,
+      "error": null,
+      "ttft_s": 1.0,
+      "e2e_s": 2.0
+    }
+  ],
+  [
+    "damaged_intermediate_usage_then_valid_final",
+    {
+      "send": 0.0,
+      "done": 2.0,
+      "http_status": 200,
+      "error": null,
+      "events": [
+        {
+          "t": 0.1,
+          "line": "data: {\"choices\": [{\"delta\": {\"role\": \"assistant\", \"content\": \"\"}, \"finish_reason\": null}]}"
+        },
+        {
+          "t": 1.0,
+          "line": "data: {\"choices\": [{\"delta\": {\"content\": \"Hello\"}, \"finish_reason\": null}]}"
+        },
+        {
+          "t": 1.5,
+          "line": "data: {\"choices\": [], \"usage\": \"damaged\"}"
+        },
+        {
+          "t": 1.9,
+          "line": "data: {\"choices\": [{\"delta\": {}, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 256, \"completion_tokens\": 1, \"total_tokens\": 257}}"
+        },
+        {
+          "t": 2.0,
+          "line": "data: [DONE]"
+        }
+      ]
+    },
+    {
+      "success": true,
+      "first": 1.0,
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 256,
+        "completion_tokens": 1,
+        "total_tokens": 257
+      },
+      "valid_usage": true,
+      "done": true,
+      "error": null,
+      "ttft_s": 1.0,
+      "e2e_s": 2.0
+    }
+  ]
+]

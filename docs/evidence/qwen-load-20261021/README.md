@@ -4,6 +4,10 @@
 
 [兼容与启动修正记录](compatibility-case.md)保留失败判断、原因与限制；[时序负向回归](parser-timing-tests.log)覆盖独立Regulator在准备期提出的矛盾时钟反例。
 
+正式运行源码固定为`601918edd4198e32e6940fbab3e2d5a2ba6095b5`；模型/GPU已于08:56:23Z停止。随后按Master窄修复授权强化usage非空对象/128上限，增加显式TTFT/E2E cohort图注；[16项后分析测试](post-run-analysis-tests.log)通过。后分析代码SHA、与全部原始分类/summary/open-rate一致性回执及曲线将在交接中绑定；不改原件、原速率计划或执行代码身份。
+
+[私有博客/X草稿](private-writing-drafts.md)仅供审阅，未发布。[compare-analysis.py](compare-analysis.py)用于逐条比较冻结执行源和后分析源，结果尚待生成及独立复核。
+
 合同：[WorkOrder #7](https://github.com/pym96/pi-agent-platform/issues/7)，Criteria1.1。实现入口：[实验脚本](../../../service/experiments/qwen-load-20261021/README.md)。现有Go/Pi业务与默认synthetic端点保持原状；本轮先测引擎直连。
 
 选择：已有只读Qwen3-8B缓存，官方revision `b968826d9c46dd6066d109eabc6255188de91218`。候选引擎为固定CUDA12.1镜像中的PyTorch2.5.1 + 隔离Transformers4.51.3。其调度为**单个活动generate调用，FIFO等待，不做batching/前缀缓存**。这不能称为vLLM/continuous-batching容量。

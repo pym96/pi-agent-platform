@@ -1,0 +1,4 @@
+Wed Oct 21 08:57:06 UTC 2026
+uuid, memory.used [MiB], utilization.gpu [%]
+GPU-dd5fc05f-7d4d-17f7-8d33-2f474b56b74e, 6 MiB, 0 %
+185600631	/media/usv012/pjx/pi-agent-platform/experiments/7-qwen-load-20261021

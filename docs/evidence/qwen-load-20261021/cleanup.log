@@ -1,0 +1,7 @@
+Wed Oct 21 08:56:20 UTC 2026
+{"engine": "Transformers serialized generate", "ready": true, "model": "Qwen3-8B", "batching": "none", "prefix_cache": false, "max_context": 1024, "max_new_tokens": 128, "max_active_generation": 1, "active_generation": 0, "queued_waiters": 0}c2192d4dba499217eb275fd924f18ee6e64a3e97f753e593ae8ca4fde1f3d245
+Wed Oct 21 08:56:23 UTC 2026
+gpu_uuid, pid, used_gpu_memory [MiB]
+GPU-9efbe796-7d6b-0b19-98ec-182c26e5a7d9, 611446, 19280 MiB
+uuid, memory.used [MiB], utilization.gpu [%]
+GPU-dd5fc05f-7d4d-17f7-8d33-2f474b56b74e, 6 MiB, 97 %

@@ -14,6 +14,13 @@ def classify(record):
     usage = None
     done = False
     error = record.get('error')
+    usage_error=False
+    def well_formed_usage(value):
+        return (isinstance(value,dict) and all(
+            isinstance(value.get(k),int) and not isinstance(value.get(k),bool) and value[k]>=0
+            for k in ['prompt_tokens','completion_tokens','total_tokens'])
+            and value['completion_tokens']<=128  # this experiment's frozen max_output
+            and value['total_tokens']==value['prompt_tokens']+value['completion_tokens'])
     def finite_number(value):
         return isinstance(value,(int,float)) and not isinstance(value,bool) and math.isfinite(value)
     send=record.get('send');end=record.get('done')
@@ -48,6 +55,9 @@ def classify(record):
             error = 'backend_error'
         if obj.get('usage') is not None:
             usage = obj['usage']
+            if not well_formed_usage(usage):
+                usage_error=True
+                error='invalid_usage'
         for choice in obj.get('choices', []):
             if not isinstance(choice,dict) or not isinstance(choice.get('delta',{}),dict):
                 error = 'malformed_sse_choice'
@@ -60,12 +70,7 @@ def classify(record):
     if invalid_chronology:
         error='invalid_chronology'
         first=None  # an inconsistent clock record is not a valid TTFT observation
-    valid_usage = isinstance(usage, dict) and all(
-        isinstance(usage.get(k), int) and not isinstance(usage.get(k), bool)
-        and usage[k] >= 0 for k in ['prompt_tokens', 'completion_tokens', 'total_tokens'])
-    if valid_usage:
-        valid_usage = (usage['total_tokens'] == usage['prompt_tokens'] + usage['completion_tokens']
-                       and usage['completion_tokens'] > 0)
+    valid_usage = not usage_error and well_formed_usage(usage) and usage['completion_tokens']>0
     success = (record.get('http_status') == 200 and error is None and done
                and isinstance(record.get('done'),(int,float)) and 0<=record['done']<=105
                and isinstance(record.get('send'),(int,float)) and 0<=record['send']<45

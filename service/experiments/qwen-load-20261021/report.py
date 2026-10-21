@@ -16,6 +16,7 @@ def main():
             row={k:r.get(k) for k in ['id','planned','send','done','http_status','error','drop','prompt_index']}
             row.update(run=run['id'],success=c.get('success',False),first=c.get('first'),ttft_s=c.get('ttft_s'),
                        e2e_s=c.get('e2e_s'),finish_reason=c.get('finish_reason'),valid_usage=c.get('valid_usage'),
+                       semantic_error=c.get('error'),
                        prompt_tokens=usage.get('prompt_tokens'),output_tokens=usage.get('completion_tokens'))
             request_rows.append(row)
     (out/'summary.json').write_text(json.dumps(summaries,indent=2))
@@ -45,7 +46,8 @@ def main():
             for ax,metric in [(axes[1,0],'ttft_s'),(axes[1,1],'e2e_s')]:
                 for stat,style in [('p50','o-'),('p95','s--')]:
                     ax.plot(xx,[s['latency'][metric][stat] for s in ss],style,label=f'rep {rep} {stat.upper()}')
-                ax.set_ylabel(f'{metric[:-2].upper()} (s), observed cohort')
+                ax.set_ylabel('TTFT (s), all valid first content\nincluding later failures' if metric=='ttft_s'
+                              else 'E2E (s), complete success only')
             for key,style in [('failures','o-'),('timeout','s--'),('generator_admission_drop','x:')]:
                 axes[2,0].plot(xx,[s[key] for s in ss],style,label=f'rep {rep} {key}')
             axes[2,0].set_ylabel('Request counts')
