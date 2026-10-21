@@ -31,3 +31,7 @@ python3 docs/evidence/summarize-resources.py /path/to/historical/artifacts/raw
 ```
 
 Historical database time fields are transaction-start intervals, not exact queue/commit latency. Negative diagnostic values are retained. Separate suffix replay proves recoverability, not that original connections caught up after closure. See the historical report for these and other limits.
+
+## Inference API QA — Pi #9
+
+[CPU evidence and real-stage status](inference-api/README.md): independent HTTP assertions, fault injection and cleanup; real-model review remains separately identified.

@@ -79,3 +79,7 @@ See [upstream attribution](UPSTREAM.md) and [experiment evidence](../docs/eviden
 For Pi #3's fixed hey/Vegeta HTTP matrix, use the [separate experiment guide](scripts/hey-vegeta/README.md) and [candidate report](../docs/evidence/hey-vegeta-20261020.md). It distinguishes offered request rate, observed HTTP completion, held SSE connections and actual Pi task execution; the tooling does not alter this service's business implementation.
 
 Historical measurements originated in the archived Pan #142 candidate. This independent repository uses a new project, ports and volumes; see [migration provenance](../docs/evidence/MIGRATION.md). The synthetic fixture/model ID retains its original label for source continuity; it is not an old task replay.
+
+## Opt-in inference API QA
+
+[Inference API and pytest guide](inference/README.md) describes the separate Python HTTP module. It does not change this default Go/Pi deployment.

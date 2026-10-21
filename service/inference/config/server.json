@@ -1,0 +1,16 @@
+{
+  "schema": "pi-inference-api-run/v1",
+  "gpu_uuid": "GPU-dd5fc05f-7d4d-17f7-8d33-2f474b56b74e",
+  "image": "sha256:7e8449fcd1ce73c68dc35292e94182a3b09ddf155eba052fafcb0b6cf174c1c2",
+  "model_path": "/media/usv012/pjx/agent/Qwen3-8B",
+  "dependency_path": "/media/usv012/pjx/pi-agent-platform/experiments/7-qwen-load-20261021/deps",
+  "model_manifest": "/media/usv012/pjx/pi-agent-platform/experiments/7-qwen-load-20261021/model-files.json",
+  "dependency_manifest": "/media/usv012/pjx/pi-agent-platform/experiments/7-qwen-load-20261021/deps-manifest.json",
+  "container": "pi-inference9-model",
+  "port": 18179,
+  "cpu": 6,
+  "memory_gib": 28,
+  "maximum_lifetime_seconds": 1800,
+  "builder_generation_requests": 0,
+  "regulator_generation_requests": 6
+}

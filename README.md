@@ -33,3 +33,5 @@ docker compose down
 - [Upstream attribution](service/UPSTREAM.md) and [MIT license](LICENSE).
 
 This repository contains no Pan Runtime/TUI/workbench or Pan Git history. Its initial experimental service source came from an unaccepted archived Pan candidate after Human corrected the repository boundary. Historical results retain their old source SHA and run IDs. They are not new measurements or production capacity evidence for this repository.
+
+- [Inference API pytest QA — Pi #9](service/inference/README.md): opt-in CPU contract/fault tests and separately authorized real-model smoke.

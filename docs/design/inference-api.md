@@ -1,0 +1,9 @@
+# Inference API boundary
+
+Pi #9 adds a standalone opt-in HTTP adapter; it leaves the Go/Pi control plane and frozen #7 measurements intact. `app.create_app(backend)` owns validation, admission, streaming protocol and slot lifetime. Backend `prepare(messages, budget)` validates context before headers; its async `stream(prepared, cancel)` yields content and one terminal usage record. The scripted implementation tests lifecycle deterministically; the Transformers implementation loads existing local weights only when explicitly selected.
+
+The adapter buffers terminal success until the backend iterator finishes. Thus a late exception cannot leave a successful terminal before an error. A client disconnect sets cancellation and waits for backend settlement before slot reuse. This is cooperative cancellation; the owned-container monitor is the independent hard deadline boundary. Bounded queues reject before response headers, while generation failures after headers remain explicit SSE errors. HTTP 200 alone is not success.
+
+The oracle separately parses complete response bytes and requires termination, usage consistency and no trailing events. Public HTTP tests exercise actual sockets rather than only calling request handlers. Seeded adapter mutation proves the tests fail on an incorrect status, then pass after restoration. Evidence retains environment failures as well as successful runs. No LLM judge or paid API is involved in Stage A.
+
+Source provenance: the lazy Transformers backend adapts generation/tokenizer behavior from `service/experiments/qwen-load-20261021/transformers_server.py` at base 5395d4b8fef4ab6aea2b35d83ef99a28165425fc. That file and its historical scores are unchanged. The new API adds validation and lifecycle seams, not a new model algorithm. See the [API guide](../../service/inference/README.md) for exact supported fields, limits and real-stage authorization.

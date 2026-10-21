@@ -1,0 +1,31 @@
+"""Explicit opt-in server; loopback binding and a fresh bounded deadline are mandatory."""
+import argparse
+import asyncio
+import json
+import time
+from aiohttp import web
+from .app import create_app
+
+async def main(args):
+    if not time.time()<args.deadline_epoch<=time.time()+1800:
+        raise ValueError('fresh deadline within30min required')
+    if args.backend=='transformers':
+        from .transformers_backend import TransformersBackend
+        backend=TransformersBackend(args.model_path)
+    else:
+        from .scripted import ScriptedBackend
+        backend=ScriptedBackend()
+    if time.time()>=args.deadline_epoch:raise ValueError('deadline expired during startup')
+    runner=web.AppRunner(create_app(backend,queue_timeout=args.queue_timeout,generation_timeout=args.generation_timeout),handler_cancellation=True,shutdown_timeout=2)
+    await runner.setup()
+    try:
+        await web.TCPSite(runner,'127.0.0.1',args.port).start()
+        print(json.dumps({'event':'ready','backend':backend.identity,'port':args.port,'deadline_epoch':args.deadline_epoch}),flush=True)
+        await asyncio.sleep(max(0,args.deadline_epoch-time.time()))
+    finally:
+        await runner.cleanup()
+        print(json.dumps({'event':'stopped','active':backend.active,'calls':backend.calls}),flush=True)
+
+if __name__=='__main__':
+    p=argparse.ArgumentParser();p.add_argument('--backend',choices=['scripted','transformers'],required=True);p.add_argument('--model-path',default='/model');p.add_argument('--port',type=int,default=18179);p.add_argument('--deadline-epoch',type=float,required=True);p.add_argument('--queue-timeout',type=float,default=2);p.add_argument('--generation-timeout',type=float,default=60)
+    asyncio.run(main(p.parse_args()))
