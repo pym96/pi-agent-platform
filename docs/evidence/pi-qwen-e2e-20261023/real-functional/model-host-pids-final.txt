@@ -1,0 +1,2 @@
+PID                 COMMAND
+1359984             python -m service.inference --backend transformers --host 0.0.0.0 --port 8082 --generation-timeout 30 --queue-timeout 2 --max-attempts 12 --deadline-epoch 1792746973

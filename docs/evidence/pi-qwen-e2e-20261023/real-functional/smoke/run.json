@@ -1,0 +1,12 @@
+{
+  "kind": "qwen-functional",
+  "commit": "1112502ab2ba186787383762f026fd6e3ccfd2ef",
+  "config_sha256": "0d2350140bd2e00105ba383342e6af83c6b75e531339b6d6cde5124569adb0d6",
+  "utc": "2026-10-23T08:56:05Z",
+  "workload": "3 sequential tasks, same-session 2 turns and independent session; no throughput/P95 claim",
+  "resource": "one authorized GPU3, fixed model/config",
+  "resources": {
+    "GPU": true,
+    "gpu_uuid": "GPU-dd5fc05f-7d4d-17f7-8d33-2f474b56b74e"
+  }
+}

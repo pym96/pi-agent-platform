@@ -8,7 +8,7 @@ The Builder added a Qwen-only bridge that checks the original upstream stream. I
 
 A small positive test uncovered a separate SDK assumption. Pi's simple request helper reserves4096 tokens before estimating output room. Registering our1024-token experimental context reduced the request to one output token. The Builder used the SDK's public explicit-stream interface, keeping the real context declaration and the backend's exact tokenizer check. This avoids inflating the advertised context just to satisfy an estimator.
 
-The CPU chain now checks context restoration, idempotent submission and SSE reconnect. A deliberate missing-DONE bug makes the required entry fail. These checks establish protocol behavior; GPU throughput and latency still need a separately bound real run.
+The CPU chain now checks context restoration, idempotent submission and SSE reconnect. A deliberate missing-DONE bug makes the required entry fail. These checks establish protocol behavior; A separately bound functional run later completed three real tasks, including same-session context restoration. Those samples do not establish a load or P95 result.
 
 Human chose the learning problem; Master scoped the experiment; the Builder implemented this candidate; the Regulator's challenge exposed the usage risk. The upstream SDK and inference libraries supply their implementations. Publication is not authorized, and this draft awaits independent candidate review.
 
