@@ -8,7 +8,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: pi-cpu-${{ github.ref }}
+  group: pi-cpu-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: true
 jobs:
   cpu:
@@ -23,7 +23,7 @@ jobs:
           POSTGRES_DB: e2e12
         ports: ['5432:5432']
         options: >-
-          --health-cmd 'pg_isready -U postgres -d e2e12'
+          --health-cmd "pg_isready -U postgres -d e2e12"
           --health-interval 2s --health-timeout 2s --health-retries 30
     env:
       TEST_DATABASE_URL: postgres://postgres:local-cpu-only@127.0.0.1:5432/e2e12?sslmode=disable
