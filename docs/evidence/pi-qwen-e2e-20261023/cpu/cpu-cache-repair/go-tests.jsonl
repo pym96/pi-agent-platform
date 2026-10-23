@@ -1,0 +1,47 @@
+{"Time":"2026-10-23T16:44:14.721704+08:00","Action":"start","Package":"github.com/pym96/pi-agent-platform/service/cmd/load"}
+{"Time":"2026-10-23T16:44:14.724385+08:00","Action":"start","Package":"github.com/pym96/pi-agent-platform/service/cmd/service"}
+{"Time":"2026-10-23T16:44:14.724419+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/cmd/service","Output":"?   \tgithub.com/pym96/pi-agent-platform/service/cmd/service\t[no test files]\n"}
+{"Time":"2026-10-23T16:44:14.724447+08:00","Action":"skip","Package":"github.com/pym96/pi-agent-platform/service/cmd/service","Elapsed":0}
+{"Time":"2026-10-23T16:44:14.725147+08:00","Action":"start","Package":"github.com/pym96/pi-agent-platform/service/internal/api"}
+{"Time":"2026-10-23T16:44:15.840069+08:00","Action":"run","Package":"github.com/pym96/pi-agent-platform/service/internal/api","Test":"TestNotificationsAreBoundedAndSessionScoped"}
+{"Time":"2026-10-23T16:44:15.840199+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/internal/api","Test":"TestNotificationsAreBoundedAndSessionScoped","Output":"=== RUN   TestNotificationsAreBoundedAndSessionScoped\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:15.840905+08:00","Action":"run","Package":"github.com/pym96/pi-agent-platform/service/cmd/load","Test":"TestCursorWaitsForCompletePayload"}
+{"Time":"2026-10-23T16:44:15.840948+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/cmd/load","Test":"TestCursorWaitsForCompletePayload","Output":"=== RUN   TestCursorWaitsForCompletePayload\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:15.841413+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/cmd/load","Test":"TestCursorWaitsForCompletePayload","Output":"--- PASS: TestCursorWaitsForCompletePayload (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:15.841426+08:00","Action":"pass","Package":"github.com/pym96/pi-agent-platform/service/cmd/load","Test":"TestCursorWaitsForCompletePayload","Elapsed":0}
+{"Time":"2026-10-23T16:44:15.841435+08:00","Action":"run","Package":"github.com/pym96/pi-agent-platform/service/cmd/load","Test":"TestRejectMismatchedPayload"}
+{"Time":"2026-10-23T16:44:15.841441+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/cmd/load","Test":"TestRejectMismatchedPayload","Output":"=== RUN   TestRejectMismatchedPayload\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:15.841562+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/cmd/load","Test":"TestRejectMismatchedPayload","Output":"--- PASS: TestRejectMismatchedPayload (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:15.841631+08:00","Action":"pass","Package":"github.com/pym96/pi-agent-platform/service/cmd/load","Test":"TestRejectMismatchedPayload","Elapsed":0}
+{"Time":"2026-10-23T16:44:15.841642+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/cmd/load","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:15.888242+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/internal/api","Test":"TestNotificationsAreBoundedAndSessionScoped","Output":"--- PASS: TestNotificationsAreBoundedAndSessionScoped (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:15.88831+08:00","Action":"pass","Package":"github.com/pym96/pi-agent-platform/service/internal/api","Test":"TestNotificationsAreBoundedAndSessionScoped","Elapsed":0.05}
+{"Time":"2026-10-23T16:44:15.888363+08:00","Action":"run","Package":"github.com/pym96/pi-agent-platform/service/internal/api","Test":"TestTailCoalescesReadsAndReplaysOldCursor"}
+{"Time":"2026-10-23T16:44:15.88837+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/internal/api","Test":"TestTailCoalescesReadsAndReplaysOldCursor","Output":"=== RUN   TestTailCoalescesReadsAndReplaysOldCursor\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:15.890307+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/internal/api","Test":"TestTailCoalescesReadsAndReplaysOldCursor","Output":"--- PASS: TestTailCoalescesReadsAndReplaysOldCursor (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:15.890354+08:00","Action":"pass","Package":"github.com/pym96/pi-agent-platform/service/internal/api","Test":"TestTailCoalescesReadsAndReplaysOldCursor","Elapsed":0}
+{"Time":"2026-10-23T16:44:15.890362+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/internal/api","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:16.853543+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/cmd/load","Output":"ok  \tgithub.com/pym96/pi-agent-platform/service/cmd/load\t2.132s\n"}
+{"Time":"2026-10-23T16:44:16.853641+08:00","Action":"pass","Package":"github.com/pym96/pi-agent-platform/service/cmd/load","Elapsed":2.132}
+{"Time":"2026-10-23T16:44:16.893246+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/internal/api","Output":"ok  \tgithub.com/pym96/pi-agent-platform/service/internal/api\t2.168s\n"}
+{"Time":"2026-10-23T16:44:16.893309+08:00","Action":"pass","Package":"github.com/pym96/pi-agent-platform/service/internal/api","Elapsed":2.168}
+{"Time":"2026-10-23T16:44:17.059883+08:00","Action":"start","Package":"github.com/pym96/pi-agent-platform/service/internal/executor"}
+{"Time":"2026-10-23T16:44:17.162479+08:00","Action":"start","Package":"github.com/pym96/pi-agent-platform/service/internal/store"}
+{"Time":"2026-10-23T16:44:17.704135+08:00","Action":"run","Package":"github.com/pym96/pi-agent-platform/service/internal/executor","Test":"TestResultRequiresCompleteValidStream"}
+{"Time":"2026-10-23T16:44:17.70422+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/internal/executor","Test":"TestResultRequiresCompleteValidStream","Output":"=== RUN   TestResultRequiresCompleteValidStream\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:17.704635+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/internal/executor","Test":"TestResultRequiresCompleteValidStream","Output":"--- PASS: TestResultRequiresCompleteValidStream (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:17.704661+08:00","Action":"pass","Package":"github.com/pym96/pi-agent-platform/service/internal/executor","Test":"TestResultRequiresCompleteValidStream","Elapsed":0}
+{"Time":"2026-10-23T16:44:17.70467+08:00","Action":"run","Package":"github.com/pym96/pi-agent-platform/service/internal/executor","Test":"TestStrictResultAndPostTerminalFailures"}
+{"Time":"2026-10-23T16:44:17.704675+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/internal/executor","Test":"TestStrictResultAndPostTerminalFailures","Output":"=== RUN   TestStrictResultAndPostTerminalFailures\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:17.70545+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/internal/executor","Test":"TestStrictResultAndPostTerminalFailures","Output":"--- PASS: TestStrictResultAndPostTerminalFailures (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:17.705499+08:00","Action":"pass","Package":"github.com/pym96/pi-agent-platform/service/internal/executor","Test":"TestStrictResultAndPostTerminalFailures","Elapsed":0}
+{"Time":"2026-10-23T16:44:17.70553+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/internal/executor","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:17.740231+08:00","Action":"run","Package":"github.com/pym96/pi-agent-platform/service/internal/store","Test":"TestDurableAdmissionAndRecovery"}
+{"Time":"2026-10-23T16:44:17.740306+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/internal/store","Test":"TestDurableAdmissionAndRecovery","Output":"=== RUN   TestDurableAdmissionAndRecovery\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:17.95569+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/internal/store","Test":"TestDurableAdmissionAndRecovery","Output":"--- PASS: TestDurableAdmissionAndRecovery (0.21s)\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:17.956061+08:00","Action":"pass","Package":"github.com/pym96/pi-agent-platform/service/internal/store","Test":"TestDurableAdmissionAndRecovery","Elapsed":0.21}
+{"Time":"2026-10-23T16:44:17.956168+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/internal/store","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-23T16:44:18.715971+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/internal/executor","Output":"ok  \tgithub.com/pym96/pi-agent-platform/service/internal/executor\t1.656s\n"}
+{"Time":"2026-10-23T16:44:18.716077+08:00","Action":"pass","Package":"github.com/pym96/pi-agent-platform/service/internal/executor","Elapsed":1.6560000000000001}
+{"Time":"2026-10-23T16:44:18.969657+08:00","Action":"output","Package":"github.com/pym96/pi-agent-platform/service/internal/store","Output":"ok  \tgithub.com/pym96/pi-agent-platform/service/internal/store\t1.807s\n"}
+{"Time":"2026-10-23T16:44:18.969756+08:00","Action":"pass","Package":"github.com/pym96/pi-agent-platform/service/internal/store","Elapsed":1.807}

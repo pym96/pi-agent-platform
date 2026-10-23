@@ -103,7 +103,7 @@ def main():
         (out/'source-manifest.json').write_text(json.dumps(source,indent=2,sort_keys=True))
         (out/'run.json').write_text(json.dumps({'kind':'synthetic','commit':commit,'worktree_dirty':bool(subprocess.check_output(['git','status','--porcelain'],cwd=REPO,text=True)),'source_manifest_sha256':hashlib.sha256((out/'source-manifest.json').read_bytes()).hexdigest(),'workload':{'sessions':4,'tasks':5,'success':3,'errors':2,'output_budget':128,'actual_model':'synthetic protocol fixture'},'resources':{'GOMAXPROCS':2,'GPU':False},'utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'postgres':version,'node':subprocess.check_output(['node','--version'],text=True).strip(),'go':subprocess.check_output(['go','version'],text=True).strip()},indent=2))
         with (out/'go-tests.jsonl').open('w') as f:
-            r=subprocess.run(['go','test','-race','-json','./...'],cwd=REPO/'service',env=env,stdout=f,stderr=subprocess.STDOUT,timeout=300)
+            r=subprocess.run(['go','test','-count=1','-race','-json','./...'],cwd=REPO/'service',env=env,stdout=f,stderr=subprocess.STDOUT,timeout=300)
         go=[json.loads(x) for x in (out/'go-tests.jsonl').read_text().splitlines() if x.startswith('{')]
         assert r.returncode==0 and any(x.get('Action')=='pass' and x.get('Test') for x in go) and not any(x.get('Action')=='fail' or (x.get('Action')=='skip' and x.get('Test')) for x in go)
         for package in ['cmd/load','internal/api','internal/store','internal/executor']:
@@ -114,7 +114,7 @@ def main():
         execute([sys.executable,'service/inference/scripts/run_tests.py','--out',str(out/'inference')],out/'inference-tests.log',env)
         with (out/'build.log').open('w') as f:
             subprocess.run(['go','build','-o',str(out/'api'),'./cmd/service'],cwd=REPO/'service',env=env,stdout=f,stderr=subprocess.STDOUT,check=True,timeout=120)
-        with psycopg.connect(url) as conn:conn.execute('TRUNCATE events,tasks,sessions CASCADE')
+        with psycopg.connect(url) as conn:conn.execute('DROP TABLE IF EXISTS events,tasks,sessions CASCADE')
         mp,pp,ap=freeport(),freeport(),freeport()
         def start(command,name,extra):
             f=(out/(name+'.log')).open('w');logs.append(f);proc=subprocess.Popen(command,cwd=REPO,env=dict(env,**extra),stdout=f,stderr=subprocess.STDOUT);children.append(proc);return proc

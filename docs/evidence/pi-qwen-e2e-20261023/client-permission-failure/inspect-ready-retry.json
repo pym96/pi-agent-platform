@@ -1,0 +1,1228 @@
+[
+    {
+        "Id": "378a77dade052165b147e84d03853bdebe4c9e2463e40d7172a067f648d32d2d",
+        "Created": "2026-10-23T08:37:13.795965921Z",
+        "Path": "python",
+        "Args": [
+            "-m",
+            "service.inference",
+            "--backend",
+            "transformers",
+            "--host",
+            "0.0.0.0",
+            "--port",
+            "8082",
+            "--generation-timeout",
+            "30",
+            "--queue-timeout",
+            "2",
+            "--max-attempts",
+            "12",
+            "--deadline-epoch",
+            "1792745921"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1340719,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-23T08:37:14.880846474Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:7e8449fcd1ce73c68dc35292e94182a3b09ddf155eba052fafcb0b6cf174c1c2",
+        "ResolvConfPath": "/media/usv012/pjx/docker-data/containers/378a77dade052165b147e84d03853bdebe4c9e2463e40d7172a067f648d32d2d/resolv.conf",
+        "HostnamePath": "/media/usv012/pjx/docker-data/containers/378a77dade052165b147e84d03853bdebe4c9e2463e40d7172a067f648d32d2d/hostname",
+        "HostsPath": "/media/usv012/pjx/docker-data/containers/378a77dade052165b147e84d03853bdebe4c9e2463e40d7172a067f648d32d2d/hosts",
+        "LogPath": "/media/usv012/pjx/docker-data/containers/378a77dade052165b147e84d03853bdebe4c9e2463e40d7172a067f648d32d2d/378a77dade052165b147e84d03853bdebe4c9e2463e40d7172a067f648d32d2d-json.log",
+        "Name": "/pi-e2e12-builder-model-1",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source:/source:ro",
+                "/media/usv012/pjx/agent/Qwen3-8B:/model:ro",
+                "/media/usv012/pjx/pi-agent-platform/experiments/7-qwen-load-20261021/deps:/deps:ro"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "pi-e2e12-builder_default",
+            "PortBindings": {
+                "8082/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "18181"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": [
+                "ALL"
+            ],
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": true,
+            "SecurityOpt": [
+                "no-new-privileges:true"
+            ],
+            "Tmpfs": {
+                "/tmp": "size=512m"
+            },
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 536870912,
+            "Runtime": "nvidia",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 30064771072,
+            "NanoCpus": 6000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 30064771072,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": 256,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/media/usv012/pjx/docker-data/overlay2/4bd708e3ab60e6620874ade68c6e2a4f94cea133111bb1e584c4c2b57e237ad9-init/diff:/media/usv012/pjx/docker-data/overlay2/kavtng1jpc3xwilkv2e2nwjjd/diff:/media/usv012/pjx/docker-data/overlay2/0btvouhgbjp4e2r6037f9rfqc/diff:/media/usv012/pjx/docker-data/overlay2/mojokm1g9dqw0sfis4rjd1v6b/diff:/media/usv012/pjx/docker-data/overlay2/kkt23gmh9zuozlc9hq07rg8xr/diff:/media/usv012/pjx/docker-data/overlay2/u2pswes9lit8admqg8y9j3qv6/diff:/media/usv012/pjx/docker-data/overlay2/ia0aziolqf8tzd49ajw4n72zv/diff:/media/usv012/pjx/docker-data/overlay2/ltwainzxumywh0hgp61oryebm/diff:/media/usv012/pjx/docker-data/overlay2/xsa1ddvon44zr2nmwgd8b6fj1/diff:/media/usv012/pjx/docker-data/overlay2/vvra5yx0prz3xfm1qtrk3t9x1/diff:/media/usv012/pjx/docker-data/overlay2/xmdnzdgjq3yuo0tq5hffbskg5/diff:/media/usv012/pjx/docker-data/overlay2/xkl8bmhxhqdyozz4apthv9pv8/diff:/media/usv012/pjx/docker-data/overlay2/u9i4614lzfz4yx87b3mmluuia/diff:/media/usv012/pjx/docker-data/overlay2/6u1jqghh7yfv9a1xuwzar9x9b/diff:/media/usv012/pjx/docker-data/overlay2/r56nxqcej814dinv0gsqlgcfl/diff:/media/usv012/pjx/docker-data/overlay2/1v44l2aoedh5op9846rxcbhxh/diff:/media/usv012/pjx/docker-data/overlay2/8jcodh9w8cx8qpq3x2y9jggm7/diff:/media/usv012/pjx/docker-data/overlay2/x4hd7ibz5g7pdxi9ojzlwc85k/diff:/media/usv012/pjx/docker-data/overlay2/8gticnt0oloyrnp4gn004klit/diff:/media/usv012/pjx/docker-data/overlay2/n2ehl0q2g21832ct9tsd55h39/diff:/media/usv012/pjx/docker-data/overlay2/11c9122502d49de604fe81b7a9220e8a7cdf1fb6bfe38653267710eeaaac0d47/diff:/media/usv012/pjx/docker-data/overlay2/4751446e91849a98b5b78acf55d876525038b3a3e3776e05cca61fea276fc29a/diff:/media/usv012/pjx/docker-data/overlay2/e7c5dbaa72a1495e4e1df190d6db8a876a245676af062bcc0c7c9a55477b1897/diff:/media/usv012/pjx/docker-data/overlay2/dc7c4e083daa013a8df351f4dbd9118edeeb411e3be9e25af717fe3c9d143b18/diff:/media/usv012/pjx/docker-data/overlay2/ecf81b2c66c7a548075ab3e970d5342bce94a52d217bd25be9313ebfbb88b457/diff:/media/usv012/pjx/docker-data/overlay2/b4d01a00dcbe5183083a031e6024352d155123dafc94d4aaa0854f4993e406c3/diff:/media/usv012/pjx/docker-data/overlay2/91f599497063d3a98b1ece306a21a6dae2d305eea02bf7cbaf51836891dd7836/diff:/media/usv012/pjx/docker-data/overlay2/d1cc02b6c29779919f3e18c62be4f9004c686be2194290379b0975e2e1e55c54/diff:/media/usv012/pjx/docker-data/overlay2/2a34461362b58eb6c5d4d2fa3a2fe383302b186193e1b7b3f0d6ddf21d0f0344/diff:/media/usv012/pjx/docker-data/overlay2/0034b4566679913c9cfa841069e15e11704c2849049ec6e19c3fcc6dd56205dd/diff:/media/usv012/pjx/docker-data/overlay2/b71d064cdb13dd3663fcbf13e69f585a96f22b3375f3ad96f19e63fedb289acb/diff:/media/usv012/pjx/docker-data/overlay2/776b08966801d15cadf962cdb92cc5e9835e9a50783d2d4c1d172c4666b8ad8b/diff",
+                "MergedDir": "/media/usv012/pjx/docker-data/overlay2/4bd708e3ab60e6620874ade68c6e2a4f94cea133111bb1e584c4c2b57e237ad9/merged",
+                "UpperDir": "/media/usv012/pjx/docker-data/overlay2/4bd708e3ab60e6620874ade68c6e2a4f94cea133111bb1e584c4c2b57e237ad9/diff",
+                "WorkDir": "/media/usv012/pjx/docker-data/overlay2/4bd708e3ab60e6620874ade68c6e2a4f94cea133111bb1e584c4c2b57e237ad9/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source",
+                "Destination": "/source",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/media/usv012/pjx/agent/Qwen3-8B",
+                "Destination": "/model",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/media/usv012/pjx/pi-agent-platform/experiments/7-qwen-load-20261021/deps",
+                "Destination": "/deps",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "378a77dade05",
+            "Domainname": "",
+            "User": "1001:1001",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "8082/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "TOKENIZERS_PARALLELISM=false",
+                "NVIDIA_VISIBLE_DEVICES=GPU-dd5fc05f-7d4d-17f7-8d33-2f474b56b74e",
+                "NVIDIA_DRIVER_CAPABILITIES=compute,utility",
+                "CUDA_VISIBLE_DEVICES=0",
+                "PYTHONPATH=/source:/deps",
+                "PYTHONDONTWRITEBYTECODE=1",
+                "OMP_NUM_THREADS=6",
+                "PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NVARCH=x86_64",
+                "NVIDIA_REQUIRE_CUDA=cuda>=12.1 brand=tesla,driver>=470,driver<471 brand=unknown,driver>=470,driver<471 brand=nvidia,driver>=470,driver<471 brand=nvidiartx,driver>=470,driver<471 brand=geforce,driver>=470,driver<471 brand=geforcertx,driver>=470,driver<471 brand=quadro,driver>=470,driver<471 brand=quadrortx,driver>=470,driver<471 brand=titan,driver>=470,driver<471 brand=titanrtx,driver>=470,driver<471 brand=tesla,driver>=525,driver<526 brand=unknown,driver>=525,driver<526 brand=nvidia,driver>=525,driver<526 brand=nvidiartx,driver>=525,driver<526 brand=geforce,driver>=525,driver<526 brand=geforcertx,driver>=525,driver<526 brand=quadro,driver>=525,driver<526 brand=quadrortx,driver>=525,driver<526 brand=titan,driver>=525,driver<526 brand=titanrtx,driver>=525,driver<526",
+                "NV_CUDA_CUDART_VERSION=12.1.105-1",
+                "NV_CUDA_COMPAT_PACKAGE=cuda-compat-12-1",
+                "CUDA_VERSION=12.1.1",
+                "LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64",
+                "NV_CUDA_LIB_VERSION=12.1.1-1",
+                "NV_NVTX_VERSION=12.1.105-1",
+                "NV_LIBNPP_VERSION=12.1.0.40-1",
+                "NV_LIBNPP_PACKAGE=libnpp-12-1=12.1.0.40-1",
+                "NV_LIBCUSPARSE_VERSION=12.1.0.106-1",
+                "NV_LIBCUBLAS_PACKAGE_NAME=libcublas-12-1",
+                "NV_LIBCUBLAS_VERSION=12.1.3.1-1",
+                "NV_LIBCUBLAS_PACKAGE=libcublas-12-1=12.1.3.1-1",
+                "NV_LIBNCCL_PACKAGE_NAME=libnccl2",
+                "NV_LIBNCCL_PACKAGE_VERSION=2.17.1-1",
+                "NCCL_VERSION=2.17.1-1",
+                "NV_LIBNCCL_PACKAGE=libnccl2=2.17.1-1+cuda12.1",
+                "NVIDIA_PRODUCT_NAME=CUDA",
+                "NV_CUDA_CUDART_DEV_VERSION=12.1.105-1",
+                "NV_NVML_DEV_VERSION=12.1.105-1",
+                "NV_LIBCUSPARSE_DEV_VERSION=12.1.0.106-1",
+                "NV_LIBNPP_DEV_VERSION=12.1.0.40-1",
+                "NV_LIBNPP_DEV_PACKAGE=libnpp-dev-12-1=12.1.0.40-1",
+                "NV_LIBCUBLAS_DEV_VERSION=12.1.3.1-1",
+                "NV_LIBCUBLAS_DEV_PACKAGE_NAME=libcublas-dev-12-1",
+                "NV_LIBCUBLAS_DEV_PACKAGE=libcublas-dev-12-1=12.1.3.1-1",
+                "NV_CUDA_NSIGHT_COMPUTE_VERSION=12.1.1-1",
+                "NV_CUDA_NSIGHT_COMPUTE_DEV_PACKAGE=cuda-nsight-compute-12-1=12.1.1-1",
+                "NV_NVPROF_VERSION=12.1.105-1",
+                "NV_NVPROF_DEV_PACKAGE=cuda-nvprof-12-1=12.1.105-1",
+                "NV_LIBNCCL_DEV_PACKAGE_NAME=libnccl-dev",
+                "NV_LIBNCCL_DEV_PACKAGE_VERSION=2.17.1-1",
+                "NV_LIBNCCL_DEV_PACKAGE=libnccl-dev=2.17.1-1+cuda12.1",
+                "LIBRARY_PATH=/usr/local/cuda/lib64/stubs",
+                "NV_CUDNN_VERSION=8.9.0.131",
+                "NV_CUDNN_PACKAGE_NAME=libcudnn8",
+                "NV_CUDNN_PACKAGE=libcudnn8=8.9.0.131-1+cuda12.1",
+                "NV_CUDNN_PACKAGE_DEV=libcudnn8-dev=8.9.0.131-1+cuda12.1",
+                "DEBIAN_FRONTEND=noninteractive",
+                "TZ=Etc/UTC",
+                "LANG=C.UTF-8",
+                "LC_ALL=C.UTF-8",
+                "PYTHONUNBUFFERED=1",
+                "PYTHONNOUSERSITE=1",
+                "PIP_NO_CACHE_DIR=1",
+                "PIP_DISABLE_PIP_VERSION_CHECK=1",
+                "PIP_DEFAULT_TIMEOUT=180",
+                "PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple",
+                "PIP_ROOT_USER_ACTION=ignore",
+                "FORCE_CUDA=1",
+                "TORCH_CUDA_ARCH_LIST=8.0;8.6;8.9;9.0",
+                "MPLCONFIGDIR=/tmp/mpl_config",
+                "TRITON_CACHE_DIR=/tmp/triton_cache",
+                "VLM3R_STORAGE_ROOT=/workspace/data_stem",
+                "HF_HOME=/workspace/data_stem/.hf_home",
+                "HUGGINGFACE_HUB_CACHE=/workspace/data_stem/.hf_home/hub",
+                "HF_DATASETS_CACHE=/workspace/data_stem/.hf_home/datasets",
+                "VLM3R_DATA_ROOT=/workspace/data_stem/vlm_3r_data",
+                "VLM3R_CHECKPOINT_ROOT=/workspace/data_stem/checkpoints",
+                "VLM3R_BASE_MODEL_PATH=/workspace/data_stem/checkpoints/LLaVA-Video-7B-Qwen2",
+                "VLM3R_MODEL_PATH=/workspace/data_stem/checkpoints/vlm-3r-llava-qwen2-lora",
+                "VLM3R_VSTIBENCH_MODEL_PATH=/workspace/data_stem/checkpoints/vlm-3r-llava-qwen2-lora-vstibench",
+                "VLM3R_PI_LONG_ROOT=/workspace/VLM-3R-pi3/Pi-Long",
+                "VLM3R_PI3_WEIGHTS=/workspace/VLM-3R-pi3/Pi-Long/weights/pi3.safetensors",
+                "HF_HUB_OFFLINE=1",
+                "TRANSFORMERS_OFFLINE=1",
+                "HF_DATASETS_OFFLINE=1",
+                "VLM3R_LOGER_ROOT=/workspace/VLM-3R-pi3/LoGeR",
+                "VLM3R_LOGER_WEIGHTS=/workspace/VLM-3R-pi3/LoGeR/ckpts/LoGeR_star/latest.pt",
+                "VLM3R_LOGER_CONFIG=/workspace/VLM-3R-pi3/LoGeR/ckpts/LoGeR_star/original_config.yaml",
+                "LOGER_ROOT=/workspace/VLM-3R-pi3/LoGeR",
+                "LOGER_WEIGHTS=/workspace/VLM-3R-pi3/LoGeR/ckpts/LoGeR_star/latest.pt",
+                "LOGER_CONFIG=/workspace/VLM-3R-pi3/LoGeR/ckpts/LoGeR_star/original_config.yaml"
+            ],
+            "Cmd": null,
+            "Image": "sha256:7e8449fcd1ce73c68dc35292e94182a3b09ddf155eba052fafcb0b6cf174c1c2",
+            "Volumes": null,
+            "WorkingDir": "/source",
+            "Entrypoint": [
+                "python",
+                "-m",
+                "service.inference",
+                "--backend",
+                "transformers",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "8082",
+                "--generation-timeout",
+                "30",
+                "--queue-timeout",
+                "2",
+                "--max-attempts",
+                "12",
+                "--deadline-epoch",
+                "1792745921"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "2128d4afefbded8ed11b60ac4e67478c650d87e4e81d0e8a2f3c8b25fb1bc5e1",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:7e8449fcd1ce73c68dc35292e94182a3b09ddf155eba052fafcb0b6cf174c1c2",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "pi-e2e12-builder",
+                "com.docker.compose.project.config_files": "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source/service/compose.qwen.yaml",
+                "com.docker.compose.project.working_dir": "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source/service",
+                "com.docker.compose.service": "model",
+                "com.docker.compose.version": "2.29.7",
+                "com.nvidia.cudnn.version": "8.9.0.131",
+                "execution-sha": "3df2167b75823399d1d27ef04c6ff7686bc382a8",
+                "maintainer": "NVIDIA CORPORATION <cudatools@nvidia.com>",
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "22.04",
+                "workorder": "12"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "ecb18ae925b5306e0d596545abf7361f647f1f706761ff5c286629feecdb1614",
+            "SandboxKey": "/var/run/docker/netns/ecb18ae925b5",
+            "Ports": {
+                "8082/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "18181"
+                    }
+                ]
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "pi-e2e12-builder_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "pi-e2e12-builder-model-1",
+                        "model"
+                    ],
+                    "MacAddress": "02:42:ac:14:00:04",
+                    "DriverOpts": null,
+                    "NetworkID": "7b0cb9483f7ae91d8b3b49b02999d7ca4bc057d2e1c568b25f13b252ed15ba8f",
+                    "EndpointID": "f22da5a4233c2d57eec9ec3281b92fe629046926207941cab0d0b389baf0d83d",
+                    "Gateway": "172.20.0.1",
+                    "IPAddress": "172.20.0.4",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "pi-e2e12-builder-model-1",
+                        "model",
+                        "378a77dade05"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "Id": "54ce776ed8fcd6f0ea2e02c92e5e23a0f29ad11aad3527c786000cbb33505bd0",
+        "Created": "2026-10-23T08:37:13.794939473Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "postgres"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1340596,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-23T08:37:14.608616731Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+                "Status": "healthy",
+                "FailingStreak": 0,
+                "Log": [
+                    {
+                        "Start": "2026-10-23T16:38:19.882155401+08:00",
+                        "End": "2026-10-23T16:38:19.973844727+08:00",
+                        "ExitCode": 0,
+                        "Output": "127.0.0.1:5432 - accepting connections\n"
+                    },
+                    {
+                        "Start": "2026-10-23T16:38:21.974613845+08:00",
+                        "End": "2026-10-23T16:38:22.052120595+08:00",
+                        "ExitCode": 0,
+                        "Output": "127.0.0.1:5432 - accepting connections\n"
+                    },
+                    {
+                        "Start": "2026-10-23T16:38:24.05357422+08:00",
+                        "End": "2026-10-23T16:38:24.139887138+08:00",
+                        "ExitCode": 0,
+                        "Output": "127.0.0.1:5432 - accepting connections\n"
+                    },
+                    {
+                        "Start": "2026-10-23T16:38:26.141124109+08:00",
+                        "End": "2026-10-23T16:38:26.2296972+08:00",
+                        "ExitCode": 0,
+                        "Output": "127.0.0.1:5432 - accepting connections\n"
+                    },
+                    {
+                        "Start": "2026-10-23T16:38:28.231158556+08:00",
+                        "End": "2026-10-23T16:38:28.303341701+08:00",
+                        "ExitCode": 0,
+                        "Output": "127.0.0.1:5432 - accepting connections\n"
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:79bd7c99e923138f136f8009d6bffa66e21e9d4fda5c0c561b00fc9c90cfe537",
+        "ResolvConfPath": "/media/usv012/pjx/docker-data/containers/54ce776ed8fcd6f0ea2e02c92e5e23a0f29ad11aad3527c786000cbb33505bd0/resolv.conf",
+        "HostnamePath": "/media/usv012/pjx/docker-data/containers/54ce776ed8fcd6f0ea2e02c92e5e23a0f29ad11aad3527c786000cbb33505bd0/hostname",
+        "HostsPath": "/media/usv012/pjx/docker-data/containers/54ce776ed8fcd6f0ea2e02c92e5e23a0f29ad11aad3527c786000cbb33505bd0/hosts",
+        "LogPath": "/media/usv012/pjx/docker-data/containers/54ce776ed8fcd6f0ea2e02c92e5e23a0f29ad11aad3527c786000cbb33505bd0/54ce776ed8fcd6f0ea2e02c92e5e23a0f29ad11aad3527c786000cbb33505bd0-json.log",
+        "Name": "/pi-e2e12-builder-pg-1",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "pi-e2e12-builder_default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 1073741824,
+            "NanoCpus": 1000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 2147483648,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "volume",
+                    "Source": "pi-e2e12-builder_pg-data",
+                    "Target": "/var/lib/postgresql/data",
+                    "VolumeOptions": {}
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/media/usv012/pjx/docker-data/overlay2/df4d9027f5c096b472a9e0c22189293a459fb9d3081cfd369f284661edddb03f-init/diff:/media/usv012/pjx/docker-data/overlay2/a7f0045ef1153fb6cfdc671b49b235c83760e09e2989db4f36140f55112b1cbd/diff:/media/usv012/pjx/docker-data/overlay2/c46bd7c0e9620d8dad7ce84d4ff6b5df653c431e5cd83892cddfe40b2004b643/diff:/media/usv012/pjx/docker-data/overlay2/b2e69ff3be589483de49666ff0cc6103b2dac60a7a82d8eee4c10c704cf02d65/diff:/media/usv012/pjx/docker-data/overlay2/b74eb5e2226831500b5f3cb0c263d94c01ece35d9b299d9db1ef0df1618b482f/diff:/media/usv012/pjx/docker-data/overlay2/a7dde935b8656668c6cc396edaabc6b3dbf196c1ca0026df9db4164f5763db62/diff:/media/usv012/pjx/docker-data/overlay2/33f1b46e1a6585bf2612ddfb653474d402245920555729b5330edc476f21d2c5/diff:/media/usv012/pjx/docker-data/overlay2/b9d645f0fefe68a88218e9903d5d833ea312211cca5b466ff0370d938985bfba/diff:/media/usv012/pjx/docker-data/overlay2/b092c1069dc52d705bbb45e6c1f726f172c897314b43de9e83d85bf857ad52ee/diff:/media/usv012/pjx/docker-data/overlay2/1c6c48782e87d74593c5bf0cd219c5d581a84f9ea97dcb4e133631c27dfdaf19/diff:/media/usv012/pjx/docker-data/overlay2/0e650bad698dda6bb16be4c42f95ac391ec7e27bcd3792cf8ecb0418ceb6e0d5/diff",
+                "MergedDir": "/media/usv012/pjx/docker-data/overlay2/df4d9027f5c096b472a9e0c22189293a459fb9d3081cfd369f284661edddb03f/merged",
+                "UpperDir": "/media/usv012/pjx/docker-data/overlay2/df4d9027f5c096b472a9e0c22189293a459fb9d3081cfd369f284661edddb03f/diff",
+                "WorkDir": "/media/usv012/pjx/docker-data/overlay2/df4d9027f5c096b472a9e0c22189293a459fb9d3081cfd369f284661edddb03f/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "pi-e2e12-builder_pg-data",
+                "Source": "/media/usv012/pjx/docker-data/volumes/pi-e2e12-builder_pg-data/_data",
+                "Destination": "/var/lib/postgresql/data",
+                "Driver": "local",
+                "Mode": "z",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "54ce776ed8fc",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "5432/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "POSTGRES_DB=pan",
+                "POSTGRES_USER=pan",
+                "POSTGRES_PASSWORD=local-experiment-only",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.19",
+                "LANG=en_US.utf8",
+                "PG_MAJOR=17",
+                "PG_VERSION=17.11",
+                "PG_SHA256=dd27f2b3c59e73ed14aa3324901242bf69a032a6347805f274e6260322d42979",
+                "DOCKER_PG_LLVM_DEPS=llvm21-dev \t\tclang21",
+                "PGDATA=/var/lib/postgresql/data"
+            ],
+            "Cmd": [
+                "postgres"
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "CMD-SHELL",
+                    "pg_isready -h 127.0.0.1 -U pan"
+                ],
+                "Interval": 2000000000,
+                "Timeout": 2000000000,
+                "Retries": 30
+            },
+            "Image": "postgres@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24",
+            "Volumes": {
+                "/var/lib/postgresql/data": {}
+            },
+            "WorkingDir": "/",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "b04df29aef015fe3536e475095c79ba0b1eb162b2837f08e56088d6e48f0ce74",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:79bd7c99e923138f136f8009d6bffa66e21e9d4fda5c0c561b00fc9c90cfe537",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "pi-e2e12-builder",
+                "com.docker.compose.project.config_files": "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source/service/compose.qwen.yaml",
+                "com.docker.compose.project.working_dir": "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source/service",
+                "com.docker.compose.service": "pg",
+                "com.docker.compose.version": "2.29.7",
+                "execution-sha": "3df2167b75823399d1d27ef04c6ff7686bc382a8",
+                "workorder": "12"
+            },
+            "StopSignal": "SIGINT"
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "a39c876d56932b8c16fc9d479ebaef5028abbfb60d69e16e07b46fa309fdb164",
+            "SandboxKey": "/var/run/docker/netns/a39c876d5693",
+            "Ports": {
+                "5432/tcp": null
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "pi-e2e12-builder_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "pi-e2e12-builder-pg-1",
+                        "pg"
+                    ],
+                    "MacAddress": "02:42:ac:14:00:03",
+                    "DriverOpts": null,
+                    "NetworkID": "7b0cb9483f7ae91d8b3b49b02999d7ca4bc057d2e1c568b25f13b252ed15ba8f",
+                    "EndpointID": "61e510c3ef40319afc4ae0d967acc19f4b9043d699940f673ac3ce20fd83d42a",
+                    "Gateway": "172.20.0.1",
+                    "IPAddress": "172.20.0.3",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "pi-e2e12-builder-pg-1",
+                        "pg",
+                        "54ce776ed8fc"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "Id": "f44a066eb05d190002314df3e664e9320b735ef33cecdd20af3301aade864d53",
+        "Created": "2026-10-23T08:37:13.795025945Z",
+        "Path": "/node/bin/node",
+        "Args": [
+            "/source/service/pi/server.mjs"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1340546,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-23T08:37:14.265471928Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:df18428df8a0f9189c84e7424d214b4c50092af1f9dca5842a00c41c39bda316",
+        "ResolvConfPath": "/media/usv012/pjx/docker-data/containers/f44a066eb05d190002314df3e664e9320b735ef33cecdd20af3301aade864d53/resolv.conf",
+        "HostnamePath": "/media/usv012/pjx/docker-data/containers/f44a066eb05d190002314df3e664e9320b735ef33cecdd20af3301aade864d53/hostname",
+        "HostsPath": "/media/usv012/pjx/docker-data/containers/f44a066eb05d190002314df3e664e9320b735ef33cecdd20af3301aade864d53/hosts",
+        "LogPath": "/media/usv012/pjx/docker-data/containers/f44a066eb05d190002314df3e664e9320b735ef33cecdd20af3301aade864d53/f44a066eb05d190002314df3e664e9320b735ef33cecdd20af3301aade864d53-json.log",
+        "Name": "/pi-e2e12-builder-pi-1",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source:/source:ro",
+                "/media/usv012/pjx/pi-agent-platform/experiments/1/toolchains/node-v22.23.3:/node:ro",
+                "/media/usv012/pjx/pi-agent-platform/experiments/3/builder/source/service/pi/node_modules:/source/service/pi/node_modules:ro"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "pi-e2e12-builder_default",
+            "PortBindings": {
+                "8081/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "18182"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 4294967296,
+            "NanoCpus": 2000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 8589934592,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "volume",
+                    "Source": "pi-e2e12-builder_pi-data",
+                    "Target": "/data",
+                    "VolumeOptions": {}
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/media/usv012/pjx/docker-data/overlay2/359fe84255a9ed14361dba1400f381c8ada8488f151b6d2c5fc7cebe54b07ec8-init/diff:/media/usv012/pjx/docker-data/overlay2/06e69b065e7ed60063c6021d6d6460a1c5e41d1f5c5551593c30c2dba09e5aa2/diff:/media/usv012/pjx/docker-data/overlay2/ad335a040b28788355b69b9ba3b4e9c9810d0c41864be8047ffd7d171b02b23c/diff:/media/usv012/pjx/docker-data/overlay2/dd3d9cdcc8c8ffac5f5222ed43e16eb5194198afcefac4e2552ed0e7e47888fa/diff:/media/usv012/pjx/docker-data/overlay2/4140d54cf73248f33a1a4b084884d566497eaf4e30e14af596f622947fa4f86f/diff",
+                "MergedDir": "/media/usv012/pjx/docker-data/overlay2/359fe84255a9ed14361dba1400f381c8ada8488f151b6d2c5fc7cebe54b07ec8/merged",
+                "UpperDir": "/media/usv012/pjx/docker-data/overlay2/359fe84255a9ed14361dba1400f381c8ada8488f151b6d2c5fc7cebe54b07ec8/diff",
+                "WorkDir": "/media/usv012/pjx/docker-data/overlay2/359fe84255a9ed14361dba1400f381c8ada8488f151b6d2c5fc7cebe54b07ec8/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source",
+                "Destination": "/source",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/media/usv012/pjx/pi-agent-platform/experiments/1/toolchains/node-v22.23.3",
+                "Destination": "/node",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/media/usv012/pjx/pi-agent-platform/experiments/3/builder/source/service/pi/node_modules",
+                "Destination": "/source/service/pi/node_modules",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "volume",
+                "Name": "pi-e2e12-builder_pi-data",
+                "Source": "/media/usv012/pjx/docker-data/volumes/pi-e2e12-builder_pi-data/_data",
+                "Destination": "/data",
+                "Driver": "local",
+                "Mode": "z",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "f44a066eb05d",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "8081/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "MODEL_ID=Qwen3-8B",
+                "MODEL_KIND=qwen",
+                "PI_DATA=/data",
+                "HOME=/data/home",
+                "PI_TRACE=/data/bridge.jsonl",
+                "MODEL_URL=http://model:8082/v1",
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+                "PYTHON_VERSION=3.12.15",
+                "PYTHON_SHA256=c2c4321961fab0fb999d66e0cecf521c2ab3994c7992873ea99e306c1094fd5a"
+            ],
+            "Cmd": null,
+            "Image": "python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/node/bin/node",
+                "/source/service/pi/server.mjs"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "dc2d540e703208c905c2ac845069b980dd0ebe1793da720b7601d29a9d27512b",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:df18428df8a0f9189c84e7424d214b4c50092af1f9dca5842a00c41c39bda316",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "pi-e2e12-builder",
+                "com.docker.compose.project.config_files": "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source/service/compose.qwen.yaml",
+                "com.docker.compose.project.working_dir": "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source/service",
+                "com.docker.compose.service": "pi",
+                "com.docker.compose.version": "2.29.7",
+                "execution-sha": "3df2167b75823399d1d27ef04c6ff7686bc382a8",
+                "workorder": "12"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "96cd22be7dbe650942c67a5bd0559a3eabb3df120ae33f67de11d7c9fa4af19e",
+            "SandboxKey": "/var/run/docker/netns/96cd22be7dbe",
+            "Ports": {
+                "8081/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "18182"
+                    }
+                ]
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "pi-e2e12-builder_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "pi-e2e12-builder-pi-1",
+                        "pi"
+                    ],
+                    "MacAddress": "02:42:ac:14:00:02",
+                    "DriverOpts": null,
+                    "NetworkID": "7b0cb9483f7ae91d8b3b49b02999d7ca4bc057d2e1c568b25f13b252ed15ba8f",
+                    "EndpointID": "91597e0fa4f57a2887f400461609818d045e31c6ab69053c20460c74a8da9cd9",
+                    "Gateway": "172.20.0.1",
+                    "IPAddress": "172.20.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "pi-e2e12-builder-pi-1",
+                        "pi",
+                        "f44a066eb05d"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "Id": "c6bd5c50d788fcd749bb03ea4471731d724acb8cd703591922206184755225fd",
+        "Created": "2026-10-23T08:37:13.978343933Z",
+        "Path": "/source/service/bin/service",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1341036,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-23T08:37:18.065590615Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:df18428df8a0f9189c84e7424d214b4c50092af1f9dca5842a00c41c39bda316",
+        "ResolvConfPath": "/media/usv012/pjx/docker-data/containers/c6bd5c50d788fcd749bb03ea4471731d724acb8cd703591922206184755225fd/resolv.conf",
+        "HostnamePath": "/media/usv012/pjx/docker-data/containers/c6bd5c50d788fcd749bb03ea4471731d724acb8cd703591922206184755225fd/hostname",
+        "HostsPath": "/media/usv012/pjx/docker-data/containers/c6bd5c50d788fcd749bb03ea4471731d724acb8cd703591922206184755225fd/hosts",
+        "LogPath": "/media/usv012/pjx/docker-data/containers/c6bd5c50d788fcd749bb03ea4471731d724acb8cd703591922206184755225fd/c6bd5c50d788fcd749bb03ea4471731d724acb8cd703591922206184755225fd-json.log",
+        "Name": "/pi-e2e12-builder-api-1",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source:/source:ro"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "pi-e2e12-builder_default",
+            "PortBindings": {
+                "8080/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "18183"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 2147483648,
+            "NanoCpus": 1000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 4294967296,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/media/usv012/pjx/docker-data/overlay2/bfd448ebe56b24710a2bd6df4b9146127b25188a81bc23dacd722f5ad8cc264b-init/diff:/media/usv012/pjx/docker-data/overlay2/06e69b065e7ed60063c6021d6d6460a1c5e41d1f5c5551593c30c2dba09e5aa2/diff:/media/usv012/pjx/docker-data/overlay2/ad335a040b28788355b69b9ba3b4e9c9810d0c41864be8047ffd7d171b02b23c/diff:/media/usv012/pjx/docker-data/overlay2/dd3d9cdcc8c8ffac5f5222ed43e16eb5194198afcefac4e2552ed0e7e47888fa/diff:/media/usv012/pjx/docker-data/overlay2/4140d54cf73248f33a1a4b084884d566497eaf4e30e14af596f622947fa4f86f/diff",
+                "MergedDir": "/media/usv012/pjx/docker-data/overlay2/bfd448ebe56b24710a2bd6df4b9146127b25188a81bc23dacd722f5ad8cc264b/merged",
+                "UpperDir": "/media/usv012/pjx/docker-data/overlay2/bfd448ebe56b24710a2bd6df4b9146127b25188a81bc23dacd722f5ad8cc264b/diff",
+                "WorkDir": "/media/usv012/pjx/docker-data/overlay2/bfd448ebe56b24710a2bd6df4b9146127b25188a81bc23dacd722f5ad8cc264b/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source",
+                "Destination": "/source",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "c6bd5c50d788",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "8080/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "GOMAXPROCS=1",
+                "DATABASE_URL=postgres://pan:local-experiment-only@pg:5432/pan?sslmode=disable",
+                "PI_URL=http://pi:8081",
+                "MODEL_KIND=qwen",
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+                "PYTHON_VERSION=3.12.15",
+                "PYTHON_SHA256=c2c4321961fab0fb999d66e0cecf521c2ab3994c7992873ea99e306c1094fd5a"
+            ],
+            "Cmd": null,
+            "Image": "python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/source/service/bin/service"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "40a717f86eb41bde8fce135b40994dca1ca8af725fdfdeb105312ddf602c072b",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "pg:service_healthy:false",
+                "com.docker.compose.image": "sha256:df18428df8a0f9189c84e7424d214b4c50092af1f9dca5842a00c41c39bda316",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "pi-e2e12-builder",
+                "com.docker.compose.project.config_files": "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source/service/compose.qwen.yaml",
+                "com.docker.compose.project.working_dir": "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source/service",
+                "com.docker.compose.service": "api",
+                "com.docker.compose.version": "2.29.7",
+                "execution-sha": "3df2167b75823399d1d27ef04c6ff7686bc382a8",
+                "workorder": "12"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "e84d1866a134d6f7e545c1fdb7138b8f7fd91eeb517acb6e568a8ddd339d14fc",
+            "SandboxKey": "/var/run/docker/netns/e84d1866a134",
+            "Ports": {
+                "8080/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "18183"
+                    }
+                ]
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "pi-e2e12-builder_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "pi-e2e12-builder-api-1",
+                        "api"
+                    ],
+                    "MacAddress": "02:42:ac:14:00:05",
+                    "DriverOpts": null,
+                    "NetworkID": "7b0cb9483f7ae91d8b3b49b02999d7ca4bc057d2e1c568b25f13b252ed15ba8f",
+                    "EndpointID": "0d63c069109866d041f491c7a611b61f7544bbbd154bc3c33076535119644780",
+                    "Gateway": "172.20.0.1",
+                    "IPAddress": "172.20.0.5",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "pi-e2e12-builder-api-1",
+                        "api",
+                        "c6bd5c50d788"
+                    ]
+                }
+            }
+        }
+    }
+]

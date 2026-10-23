@@ -1,0 +1,23 @@
+cpu	Required CPU suites and real SDK to PG chain	﻿2026-10-23T08:34:16.0594706Z ##[group]Run python service/scripts/pi-qwen-e2e/run.py --out "$RUNNER_TEMP/pi-e2e12-cpu"
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:16.0595939Z ^[[36;1mpython service/scripts/pi-qwen-e2e/run.py --out "$RUNNER_TEMP/pi-e2e12-cpu"^[[0m
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:16.0676749Z shell: /usr/bin/bash -e {0}
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:16.0677045Z env:
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:16.0677609Z   TEST_DATABASE_URL: ***127.0.0.1:5432/e2e12?sslmode=disable
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:16.0678063Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:16.0678823Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:16.0679297Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:16.0679720Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:16.0680133Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:16.0680553Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:16.0680916Z ##[endgroup]
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:34.4782757Z Traceback (most recent call last):
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:34.4785057Z   File "/home/runner/work/pi-agent-platform/pi-agent-platform/service/scripts/pi-qwen-e2e/run.py", line 162, in <module>
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:34.4786587Z     if __name__=='__main__':main()
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:34.4787595Z                             ^^^^^^
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:34.4789330Z   File "/home/runner/work/pi-agent-platform/pi-agent-platform/service/scripts/pi-qwen-e2e/run.py", line 117, in main
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:34.4790967Z     with psycopg.connect(url) as conn:conn.execute('TRUNCATE events,tasks,sessions CASCADE')
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:34.4793081Z                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:34.4794613Z   File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/psycopg/connection.py", line 269, in execute
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:34.4796057Z     raise ex.with_traceback(None)
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:34.4797083Z psycopg.errors.UndefinedTable: relation "events" does not exist
+cpu	Required CPU suites and real SDK to PG chain	2026-10-23T08:34:34.5446996Z ##[error]Process completed with exit code 1.

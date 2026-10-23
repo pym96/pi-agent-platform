@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/source/service/scripts/pi-qwen-e2e/smoke.py", line 8, in <module>
+    out=Path(a.out);out.mkdir(exist_ok=False,parents=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+PermissionError: [Errno 13] Permission denied: '/evidence/smoke'

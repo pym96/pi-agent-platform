@@ -52,6 +52,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: pi-e2e12-${{ github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/pi-e2e12-cpu
+          path: |
+            ${{ runner.temp }}/pi-e2e12-cpu
+            !${{ runner.temp }}/pi-e2e12-cpu/api
           if-no-files-found: error
           retention-days: 14

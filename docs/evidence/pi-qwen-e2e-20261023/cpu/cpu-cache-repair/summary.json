@@ -1,0 +1,60 @@
+{
+  "kind": "synthetic",
+  "commit": "3df2167b75823399d1d27ef04c6ff7686bc382a8",
+  "attempts": 5,
+  "success": 3,
+  "failure": 2,
+  "samples": [
+    {
+      "client_first_content_seconds": 0.15143400011584163,
+      "task": "7e90d107cd0ac18101b855bb7ec0f942",
+      "status": "completed",
+      "ack_seconds": 0.004029167117550969,
+      "client_terminal_seconds": 0.18565100012347102,
+      "pi_model_first_content_ms": 39.751667,
+      "pi_model_settled_ms": 72.52612499999987,
+      "pg_queue_seconds": 0.025255
+    },
+    {
+      "client_first_content_seconds": 0.08953141700476408,
+      "task": "bdfd9c35583ecb6ff4a1d0eb14d5ab87",
+      "status": "completed",
+      "ack_seconds": 0.0008682080078870058,
+      "client_terminal_seconds": 0.12047520792111754,
+      "pi_model_first_content_ms": 33.74420800000007,
+      "pi_model_settled_ms": 64.51454100000001,
+      "pg_queue_seconds": 0.044939
+    },
+    {
+      "client_first_content_seconds": 0.12594212498515844,
+      "task": "b56eb77e72ee0ad5cfc3507dbd4b7177",
+      "status": "completed",
+      "ack_seconds": 0.0009484589099884033,
+      "client_terminal_seconds": 0.8281227089464664,
+      "pi_model_first_content_ms": 33.8231659999999,
+      "pi_model_settled_ms": 536.9112079999998,
+      "pg_queue_seconds": 0.081032
+    },
+    {
+      "client_first_content_seconds": 0.05059991590678692,
+      "task": "752350f0b5b57964094f9827fd305fa1",
+      "status": "interrupted",
+      "ack_seconds": 0.0015133749693632126,
+      "client_terminal_seconds": 0.08512916602194309,
+      "pi_model_first_content_ms": 34.22370799999999,
+      "pi_model_settled_ms": 66.99824999999964,
+      "pg_queue_seconds": 0.001233
+    },
+    {
+      "client_first_content_seconds": null,
+      "task": "29162cb3ece0f5056a43e2fd67fbf823",
+      "status": "interrupted",
+      "ack_seconds": 0.0018999590538442135,
+      "client_terminal_seconds": 0.11185774998739362,
+      "pi_model_first_content_ms": null,
+      "pi_model_settled_ms": 1.5875420000002123,
+      "pg_queue_seconds": 0.09984
+    }
+  ],
+  "warning": "local spans only; no subtraction across clock domains; fixture is not GPU latency"
+}

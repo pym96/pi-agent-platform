@@ -1,0 +1,28 @@
+{
+  "utc_epoch": 1792744688.66315,
+  "try": 0,
+  "model": {
+    "backend": "transformers-serialized/Qwen3-8B",
+    "model": "Qwen3-8B",
+    "ready": true,
+    "active_generation": 0,
+    "queued": 0,
+    "max_active_generation": 1,
+    "max_context": 1024,
+    "attempts": 0,
+    "max_attempts": 12
+  },
+  "pi": {
+    "active": 0,
+    "requests": 0,
+    "completed": 0,
+    "failed": 0,
+    "pi": "1.3.0",
+    "endpointKind": "qwen"
+  },
+  "api": {
+    "model": "qwen",
+    "ok": true,
+    "runtime": "actual Pi 1.3.0"
+  }
+}

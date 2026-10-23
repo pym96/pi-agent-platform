@@ -1,0 +1,7 @@
+2026-10-23T08:38:32.824357504Z Traceback (most recent call last):
+2026-10-23T08:38:32.824414864Z   File "/source/service/scripts/pi-qwen-e2e/smoke.py", line 8, in <module>
+2026-10-23T08:38:32.824419910Z     out=Path(a.out);out.mkdir(exist_ok=False,parents=True)
+2026-10-23T08:38:32.824423844Z                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-23T08:38:32.824427007Z   File "/usr/local/lib/python3.12/pathlib.py", line 1311, in mkdir
+2026-10-23T08:38:32.824430207Z     os.mkdir(self, mode)
+2026-10-23T08:38:32.824433300Z PermissionError: [Errno 13] Permission denied: '/evidence/smoke'

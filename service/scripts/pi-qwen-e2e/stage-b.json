@@ -7,7 +7,11 @@
   "dependency_path": "/media/usv012/pjx/pi-agent-platform/experiments/7-qwen-load-20261021/deps",
   "model_manifest": "/media/usv012/pjx/pi-agent-platform/experiments/7-qwen-load-20261021/model-files.json",
   "dependency_manifest": "/media/usv012/pjx/pi-agent-platform/experiments/7-qwen-load-20261021/deps-manifest.json",
-  "ports": [18181, 18182, 18183],
+  "ports": [
+    18181,
+    18182,
+    18183
+  ],
   "maximum_lifetime_seconds": 1800,
   "maximum_attempts_per_role": 12,
   "planned_builder_attempts": 3,
@@ -21,5 +25,13 @@
   "model_generation_timeout_seconds": 30,
   "pi_timeout_seconds": 45,
   "go_timeout_seconds": 60,
-  "fixture_default_unchanged": true
+  "fixture_default_unchanged": true,
+  "client_uid": 1001,
+  "client_gid": 1001,
+  "client_cpu": 2,
+  "client_memory_gib": 5,
+  "client_read_only": true,
+  "client_cap_drop": [
+    "ALL"
+  ]
 }

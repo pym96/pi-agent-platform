@@ -20,3 +20,6 @@ Full local original CPU runs, including first harness failures, seeded defect an
 
 - [First real-stack startup failure, exact cleanup and raw evidence](startup-failure/README.md).
 - [Required-suite skip/zero correction and restoration](skip-fix-identity.json), [zero result](measurement-zero-result.json).
+
+- [Second client permission failure and successful CPU-only write probe](client-permission-failure/README.md).
+- [All real-model container lifecycles and generation inventory](gpu-budget-ledger.json).

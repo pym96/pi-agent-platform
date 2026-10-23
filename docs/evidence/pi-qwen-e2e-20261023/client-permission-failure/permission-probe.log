@@ -1,0 +1,1 @@
+{"kind": "CPU-only permission probe, no HTTP/model calls", "uid": 1001, "gid": 1001, "source_config_sha256": "914eec10096c4184b5f1909d8d28f8d083f9297e5195594307640142627081bb", "ledger_uid": 1001, "ledger_gid": 1001}
