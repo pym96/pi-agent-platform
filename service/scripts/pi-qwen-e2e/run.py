@@ -110,7 +110,7 @@ def main():
             assert any(x.get('Action')=='pass' and x.get('Test') and x.get('Package','').endswith('/'+package) for x in go)
         execute(['node','--test','--test-reporter=tap','service/pi/tests/budget.test.mjs','service/pi/tests/wire.test.mjs'],out/'sdk-tests.log',env)
         tap=(out/'sdk-tests.log').read_text();assert re.search(r'# tests [1-9]',tap) and '# fail 0' in tap and '# skipped 0' in tap
-        execute([sys.executable,'-m','unittest','discover','-s','service/scripts/pi-qwen-e2e','-p','test_measurements.py'],out/'measurement-tests.log',env)
+        execute([sys.executable,'service/scripts/pi-qwen-e2e/measurement_gate.py','--out',str(out/'measurement-tests.json')],out/'measurement-tests.log',env)
         execute([sys.executable,'service/inference/scripts/run_tests.py','--out',str(out/'inference')],out/'inference-tests.log',env)
         with (out/'build.log').open('w') as f:
             subprocess.run(['go','build','-o',str(out/'api'),'./cmd/service'],cwd=REPO/'service',env=env,stdout=f,stderr=subprocess.STDOUT,check=True,timeout=120)

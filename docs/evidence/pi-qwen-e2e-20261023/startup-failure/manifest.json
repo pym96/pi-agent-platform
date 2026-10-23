@@ -1,0 +1,102 @@
+[
+  {
+    "path": "compose-executed.json",
+    "bytes": 6887,
+    "sha256": "979f13dc73b2b9cf7bb81242ef78a66d81371a61a96319d5e90948417368ea7f"
+  },
+  {
+    "path": "compose-resolved-preflight.json",
+    "bytes": 6887,
+    "sha256": "5a66cfc01bc7162f60980c1c2949c4b0b78496662cbd3b770a050bb5e928b77e"
+  },
+  {
+    "path": "config-binding.json",
+    "bytes": 473,
+    "sha256": "8866ea1e628d9865ee0f1270137ec3bbd6f88bedd4a07286609cf32169e2685e"
+  },
+  {
+    "path": "containers-started.json",
+    "bytes": 5885,
+    "sha256": "e3567be02b10c55f835b5370005b654c79bea27a76ff1923af2210337fe5076a"
+  },
+  {
+    "path": "execution-source-manifest.json",
+    "bytes": 11726,
+    "sha256": "7a34e584195acffe8617638aad860103616218e834cd3daea83819b077f16b03"
+  },
+  {
+    "path": "preflight-A.json",
+    "bytes": 810,
+    "sha256": "09c94bcc0bbe284e7069bacb89c913b3259fd4a310be08cf25e49015b8a0f6c4"
+  },
+  {
+    "path": "preflight-B.json",
+    "bytes": 809,
+    "sha256": "6b690fc0c0e561b9afdd92b786e94b061ae7bf58e47987a38e12d8f2d839a921"
+  },
+  {
+    "path": "preflight-C.json",
+    "bytes": 810,
+    "sha256": "9f15a73d775802daab117f75dcc40f8f2e9e47c8c6104152cd66015465b95238"
+  },
+  {
+    "path": "start-failure-api.log",
+    "bytes": 154,
+    "sha256": "05adb0fa56f768cdce87d83c0817485f64c287d8f562521fd39b1b57d695e54d"
+  },
+  {
+    "path": "start-failure-final-inspect.json",
+    "bytes": 54332,
+    "sha256": "a2dbab0788436185be7e4f0a548903f46fa28c393fb8e6442f2a76a83eaae15a"
+  },
+  {
+    "path": "start-failure-gpu-after.txt",
+    "bytes": 203,
+    "sha256": "04bc9ef911bd3917e481bf93ee881721d153f18d44d918cbd4d3b9ce0cbead0d"
+  },
+  {
+    "path": "start-failure-inspect.json",
+    "bytes": 55352,
+    "sha256": "db3600881ef25689b018f1a17a6ed90765c90e1d847b933f5a57dc4ad089b097"
+  },
+  {
+    "path": "start-failure-listeners-after.txt",
+    "bytes": 2046,
+    "sha256": "f27b52989ed6fc9ca344180f8494a9a8761f824e7cb97ef51876878f2b918a67"
+  },
+  {
+    "path": "start-failure-model-final.log",
+    "bytes": 1608,
+    "sha256": "edea47c2c0e195a310bc455038af859172be04d5ec01b8a1be50b10716f9ad0d"
+  },
+  {
+    "path": "start-failure-model.log",
+    "bytes": 1608,
+    "sha256": "edea47c2c0e195a310bc455038af859172be04d5ec01b8a1be50b10716f9ad0d"
+  },
+  {
+    "path": "start-failure-pg.log",
+    "bytes": 3546,
+    "sha256": "d6ae4ad273ed603c6bde5187ae7ff2021d3f3f87c20a4068b1a6987399deecce"
+  },
+  {
+    "path": "start-failure-pi-final.log",
+    "bytes": 57,
+    "sha256": "78eee78c87ee640afeef79ea28022c43ce9afe84cd9c7f35570c6fe5b26bc510"
+  },
+  {
+    "path": "start-failure-pi.log",
+    "bytes": 57,
+    "sha256": "78eee78c87ee640afeef79ea28022c43ce9afe84cd9c7f35570c6fe5b26bc510"
+  },
+  {
+    "path": "start-failure-status.txt",
+    "bytes": 218,
+    "sha256": "bc8935e72d2d103a6b4d11f55a98b57a33db2f00af5d57aeec48ec2c3a540701"
+  },
+  {
+    "path": "watch.jsonl",
+    "bytes": 27907,
+    "sha256": "865ef081acdec13dbb688c417285fad5fdb1033e28585f7337eb7222e0a15759"
+  }
+]

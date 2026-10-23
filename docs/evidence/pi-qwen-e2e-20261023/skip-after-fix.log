@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/scripts/pi-qwen-e2e/run.py", line 162, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/scripts/pi-qwen-e2e/run.py", line 113, in main
+    execute([sys.executable,'service/scripts/pi-qwen-e2e/measurement_gate.py','--out',str(out/'measurement-tests.json')],out/'measurement-tests.log',env)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/scripts/pi-qwen-e2e/run.py", line 15, in execute
+    if r.returncode:raise RuntimeError(f'command failed ({r.returncode}): {command}; see {out}')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: command failed (1): ['/Users/panyiming/.local/state/pi-agent-platform/e2e12-builder-20261023/venv/bin/python', 'service/scripts/pi-qwen-e2e/measurement_gate.py', '--out', '/Users/panyiming/.local/state/pi-agent-platform/e2e12-builder-20261023/cpu-skipped-after-fix/measurement-tests.json']; see /Users/panyiming/.local/state/pi-agent-platform/e2e12-builder-20261023/cpu-skipped-after-fix/measurement-tests.log

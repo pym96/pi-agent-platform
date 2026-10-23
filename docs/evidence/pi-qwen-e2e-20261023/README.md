@@ -1,6 +1,6 @@
 # Pi #12 candidate evidence
 
-Working Agent candidate, not an independent Verdict. Stage B real-model calls remain0 pending a fresh Master code/config/deadline binding and an idle authorized GPU3. No high-load or P95 claim.
+Working Agent candidate, not an independent Verdict. First Stage B startup at7d failed before any task/model request; all owned services stopped. Generation calls remain0; the old GO is retired and corrected source needs a fresh binding. No high-load or P95 claim.
 
 - [Initial actual SDK missing-usage failure](initial-sdk-wire-red.json): SDK converted missing upstream usage into zero counts and emitted result. The opt-in bridge now requires complete raw terminal/usage/DONE evidence.
 - [CPU reproduction and explicit compatibility contract](../../../service/scripts/pi-qwen-e2e/README.md).
@@ -17,3 +17,6 @@ Full local original CPU runs, including first harness failures, seeded defect an
 - [C04 missing-inventory counterexample correction](inventory-fix.json), [measurement red](measurement-f403-red.log), [measurement repaired green](measurement-fixed-green.log).
 - [Explicit smaller-budget red](budget-unconditional-red.log) and [exact restoration](budget-fix.json).
 - [Actual one-token SDK clamp failure](sdk-one-token-clamp-failure.json) and [raw bridge](sdk-one-token-clamp-bridge.jsonl).
+
+- [First real-stack startup failure, exact cleanup and raw evidence](startup-failure/README.md).
+- [Required-suite skip/zero correction and restoration](skip-fix-identity.json), [zero result](measurement-zero-result.json).

@@ -1,0 +1,6 @@
+test_required (test_measurements.Skipped.test_required) ... skipped 'required probe'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK (skipped=1)

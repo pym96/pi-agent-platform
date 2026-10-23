@@ -5,6 +5,13 @@ from pathlib import Path
 def analyze(root):
     root=Path(root);run=json.loads((root/'run.json').read_text());clients=[json.loads(x) for x in (root/'client.jsonl').read_text().splitlines()];bridge=[json.loads(x) for x in (root/'bridge.jsonl').read_text().splitlines()]
     assert run['kind'] in ('synthetic','qwen-functional') and len(run['commit'])==40
+    if run['kind']=='synthetic':
+        assert run.get('resources',{}).get('GPU') is False and (root/'fixture.jsonl').is_file()
+    else:
+        assert run.get('resources',{}).get('GPU') is True and not (root/'fixture.jsonl').exists()
+        before=json.loads((root/'health-before.json').read_text());after=json.loads((root/'health-after.json').read_text())
+        assert before['ready'] is True and before['backend']=='transformers-serialized/Qwen3-8B' and after['backend']==before['backend']
+        assert before['attempts']==0 and after['active_generation']==0
     tasks={};samples=[]
     for c in clients:
         assert c['task'] and c['session'] and c['clock']=='client-monotonic'
@@ -26,6 +33,11 @@ def analyze(root):
     settled=[b for b in bridge if b['event']=='settled']
     requests=[b for b in bridge if b['event']=='request']
     assert len(settled)==len(tasks)==len(requests) and len({b['id'] for b in settled})==len(settled)
+    if run['kind']=='synthetic':
+        fixture=[json.loads(x) for x in (root/'fixture.jsonl').read_text().splitlines()]
+        assert len(fixture)==len(requests) and [x['call'] for x in fixture]==list(range(1,len(requests)+1))
+        assert all(x['request']==y['mapped'] for x,y in zip(fixture,requests))
+    else:assert after['attempts']==len(requests)
     def number(v):return type(v) in (int,float) and math.isfinite(v)
     for b in settled:
         c=tasks[b['task']]

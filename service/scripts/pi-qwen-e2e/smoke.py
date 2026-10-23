@@ -12,7 +12,7 @@ def request(path,data=None):
 _,health=request(a.model+'/health');assert health['ready'] and health['attempts']==0
 (out/'health-before.json').write_text(json.dumps(health,indent=2))
 config=Path(__file__).with_name('stage-b.json')
-(out/'run.json').write_text(json.dumps({'kind':'qwen-functional','commit':a.sha,'config_sha256':hashlib.sha256(config.read_bytes()).hexdigest(),'utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'workload':'3 sequential tasks, same-session 2 turns and independent session; no throughput/P95 claim','resource':'one authorized GPU3, fixed model/config'},indent=2))
+(out/'run.json').write_text(json.dumps({'kind':'qwen-functional','commit':a.sha,'config_sha256':hashlib.sha256(config.read_bytes()).hexdigest(),'utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'workload':'3 sequential tasks, same-session 2 turns and independent session; no throughput/P95 claim','resource':'one authorized GPU3, fixed model/config','resources':{'GPU':True,'gpu_uuid':'GPU-dd5fc05f-7d4d-17f7-8d33-2f474b56b74e'}},indent=2))
 for session,key,prompt in [(a.prefix+'_context','one','Remember the codeword LANTERN. Reply with OK only.'),(a.prefix+'_context','two','What was the codeword? Reply with that word only.'),(a.prefix+'_independent','one','Reply with hello only.')]:
     with (out/'model-attempts.jsonl').open('a') as ledger:ledger.write(json.dumps({'phase':'task_offer','session':session,'key':key,'source_sha':a.sha,'utc_epoch':time.time(),'generation_count':'pending health/bridge evidence'})+'\n')
     start=time.monotonic();code,task=request(a.base+f'/sessions/{session}/tasks',{'key':key,'prompt':prompt});assert code==202;ack=time.monotonic();events=[]

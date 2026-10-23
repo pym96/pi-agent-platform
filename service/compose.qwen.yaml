@@ -9,7 +9,7 @@ services:
     mem_limit: 1g
     labels: {workorder: '12', execution-sha: '${SOURCE_SHA:?exact source SHA}'}
     healthcheck:
-      test: [CMD-SHELL, "pg_isready -U pan"]
+      test: [CMD-SHELL, "pg_isready -h 127.0.0.1 -U pan"]
       interval: 2s
       timeout: 2s
       retries: 30
