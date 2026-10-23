@@ -1,6 +1,7 @@
 // Actual pinned upstream SDK. This adapter disables all tools/resources/ambient configuration.
 import http from 'node:http';
 import {createBridge} from './qwen-bridge.mjs';
+import {streamQwen} from './qwen-provider.mjs';
 import {appendFile} from 'node:fs/promises';
 import {mkdir} from 'node:fs/promises';
 import {join} from 'node:path';
@@ -29,7 +30,7 @@ const executorServer=http.createServer(async(req,res)=>{
   const settingsManager=SettingsManager.inMemory({retry:{enabled:false,maxRetries:0,provider:{maxRetries:0,timeoutMs:45000}},compaction:{enabled:false},cacheWarming:'off',enableAnalytics:false,enableInstallTelemetry:false});
   const loader=new DefaultResourceLoader({cwd,agentDir,settingsManager,noExtensions:true,disabledBuiltinExtensions:['mcp'],noSkills:true,noPromptTemplates:true,noThemes:true,noContextFiles:true,systemPrompt:'You are a text-only assistant. No tools are available.'});await loader.reload();
   ({session}=await createAgentSession({cwd,agentDir,modelRuntime:runtime,model:call?{...model,baseUrl:call.baseUrl}:model,thinkingLevel:'off',tools:[],noTools:'all',resourceLoader:loader,settingsManager,sessionManager:SessionManager.continueRecent(cwd,join(dir,'history'))}));
-  if(qwen)session.agent.streamFunction=(selected,context,options)=>runtime.stream(selected,context,{...options,maxTokens:128,maxRetries:0,timeoutMs:45000});
+  if(qwen)session.agent.streamFunction=(selected,context,options)=>streamQwen(runtime,selected,context,options);
   if(session.getActiveToolNames().length)throw Error('tools unexpectedly active');
   res.writeHead(200,{'Content-Type':'application/x-ndjson'});
   emit('runtime',{package:'@earendil-works/pi-coding-agent',version:'1.3.0',tools:[],contextOwner:'Pi SessionManager',session:body.session,task:body.task??body.session,modelCall:call?.id??null,clock:'pi-performance.now',receivedMono});

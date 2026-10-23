@@ -14,6 +14,7 @@ _,health=request(a.model+'/health');assert health['ready'] and health['attempts'
 config=Path(__file__).with_name('stage-b.json')
 (out/'run.json').write_text(json.dumps({'kind':'qwen-functional','commit':a.sha,'config_sha256':hashlib.sha256(config.read_bytes()).hexdigest(),'utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'workload':'3 sequential tasks, same-session 2 turns and independent session; no throughput/P95 claim','resource':'one authorized GPU3, fixed model/config'},indent=2))
 for session,key,prompt in [(a.prefix+'_context','one','Remember the codeword LANTERN. Reply with OK only.'),(a.prefix+'_context','two','What was the codeword? Reply with that word only.'),(a.prefix+'_independent','one','Reply with hello only.')]:
+    with (out/'model-attempts.jsonl').open('a') as ledger:ledger.write(json.dumps({'phase':'task_offer','session':session,'key':key,'source_sha':a.sha,'utc_epoch':time.time(),'generation_count':'pending health/bridge evidence'})+'\n')
     start=time.monotonic();code,task=request(a.base+f'/sessions/{session}/tasks',{'key':key,'prompt':prompt});assert code==202;ack=time.monotonic();events=[]
     with urllib.request.urlopen(a.base+f'/sessions/{session}/events',timeout=90) as stream:
         for raw in stream:
@@ -27,6 +28,8 @@ for session,key,prompt in [(a.prefix+'_context','one','Remember the codeword LAN
     end=time.monotonic();_,history=request(a.base+f'/sessions/{session}/tasks');status=next(t['status'] for t in history if t['id']==task['id']);assert status==events[-1]['kind']
     record={'task':task['id'],'session':session,'clock':'client-monotonic','utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'submit':start,'ack':ack,'completed':end,'status':status,'events':events}
     with (out/'client.jsonl').open('a') as f:f.write(json.dumps(record)+'\n')
+    _,current=request(a.model+'/health')
+    with (out/'model-attempts.jsonl').open('a') as ledger:ledger.write(json.dumps({'phase':'task_terminal','session':session,'task':task['id'],'status':status,'observed_model_attempts':current['attempts'],'model_calls':[e['data']['modelCall'] for e in events if e['kind']=='result'],'utc_epoch':time.time()})+'\n')
     if status!='completed':raise RuntimeError('real task did not complete; do not retry automatically')
     code,again=request(a.base+f'/sessions/{session}/tasks',{'key':key,'prompt':prompt});assert code==200 and again['id']==task['id']
 _,health=request(a.model+'/health');(out/'health-after.json').write_text(json.dumps(health,indent=2));assert health['attempts']==3 and health['active_generation']==0

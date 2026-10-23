@@ -1,0 +1,8 @@
+{
+  "f403_wrongly_accepted": {
+    "attempts": 4,
+    "failure": 1
+  },
+  "new_rejected": true,
+  "omitted_task": "e74a4b3892e898bb09ef3dd786d222b3"
+}

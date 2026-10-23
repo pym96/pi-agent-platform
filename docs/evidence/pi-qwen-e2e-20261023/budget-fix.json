@@ -1,0 +1,6 @@
+{
+  "behavior": "prior unconditional128 budget",
+  "original_sha256": "1afce0dc22dc2a3a7c54023d184e150e6371756579d6fdd80dc32a47843b8ffb",
+  "red_exit": 1,
+  "restored_sha256": "1afce0dc22dc2a3a7c54023d184e150e6371756579d6fdd80dc32a47843b8ffb"
+}

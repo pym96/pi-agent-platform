@@ -1,0 +1,149 @@
+cpu	Set up job	﻿2026-10-23T07:56:56.3663346Z Current runner version: '2.338.0'
+cpu	Set up job	2026-10-23T07:56:56.3707095Z ##[group]Runner Image Provisioner
+cpu	Set up job	2026-10-23T07:56:56.3708648Z Hosted Compute Agent
+cpu	Set up job	2026-10-23T07:56:56.3709856Z Version: 20261012.601
+cpu	Set up job	2026-10-23T07:56:56.3710955Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+cpu	Set up job	2026-10-23T07:56:56.3712734Z Build Date: 2026-10-12T17:48:21Z
+cpu	Set up job	2026-10-23T07:56:56.3714189Z Worker ID: {590a4f48-3bb4-426b-8cb1-e7efc4e5acfa}
+cpu	Set up job	2026-10-23T07:56:56.3715995Z Region: centralus
+cpu	Set up job	2026-10-23T07:56:56.3717119Z Cloud: Azure
+cpu	Set up job	2026-10-23T07:56:56.3718115Z ##[endgroup]
+cpu	Set up job	2026-10-23T07:56:56.3720579Z ##[group]Operating System
+cpu	Set up job	2026-10-23T07:56:56.3721779Z Ubuntu
+cpu	Set up job	2026-10-23T07:56:56.3722698Z 24.04.5
+cpu	Set up job	2026-10-23T07:56:56.3723629Z LTS
+cpu	Set up job	2026-10-23T07:56:56.3724509Z ##[endgroup]
+cpu	Set up job	2026-10-23T07:56:56.3725950Z ##[group]Runner Image
+cpu	Set up job	2026-10-23T07:56:56.3729026Z Image: ubuntu-24.04
+cpu	Set up job	2026-10-23T07:56:56.3730179Z Version: 20261012.334.1
+cpu	Set up job	2026-10-23T07:56:56.3732340Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+cpu	Set up job	2026-10-23T07:56:56.3735848Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+cpu	Set up job	2026-10-23T07:56:56.3737833Z ##[endgroup]
+cpu	Set up job	2026-10-23T07:56:56.3739799Z ##[group]GITHUB_TOKEN Permissions
+cpu	Set up job	2026-10-23T07:56:56.3743253Z Contents: read
+cpu	Set up job	2026-10-23T07:56:56.3744268Z Metadata: read
+cpu	Set up job	2026-10-23T07:56:56.3765723Z ##[endgroup]
+cpu	Set up job	2026-10-23T07:56:56.3769485Z Secret source: Actions
+cpu	Set up job	2026-10-23T07:56:56.3771140Z Cache mode: write
+cpu	Set up job	2026-10-23T07:56:56.3772372Z Prepare workflow directory
+cpu	Set up job	2026-10-23T07:56:56.5159335Z Prepare all required actions
+cpu	Set up job	2026-10-23T07:56:56.5315709Z Getting action download info
+cpu	Set up job	2026-10-23T07:56:56.8122818Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+cpu	Set up job	2026-10-23T07:56:56.9298334Z Download action repository 'actions/setup-go@v5' (SHA:40f1582b2485089dde7abd97c1529aa768e1baff)
+cpu	Set up job	2026-10-23T07:56:57.4210699Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+cpu	Set up job	2026-10-23T07:56:57.5198294Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+cpu	Set up job	2026-10-23T07:56:57.6167040Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+cpu	Set up job	2026-10-23T07:56:57.8624553Z Complete job name: cpu
+cpu	Initialize containers	﻿2026-10-23T07:56:57.9334475Z ##[group]Checking docker version
+cpu	Initialize containers	2026-10-23T07:56:57.9349022Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+cpu	Initialize containers	2026-10-23T07:56:58.0423004Z '1.48'
+cpu	Initialize containers	2026-10-23T07:56:58.0442515Z Docker daemon API version: '1.48'
+cpu	Initialize containers	2026-10-23T07:56:58.0443655Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+cpu	Initialize containers	2026-10-23T07:56:58.0673342Z '1.48'
+cpu	Initialize containers	2026-10-23T07:56:58.0698674Z Docker client API version: '1.48'
+cpu	Initialize containers	2026-10-23T07:56:58.0705990Z ##[endgroup]
+cpu	Initialize containers	2026-10-23T07:56:58.0711504Z ##[group]Clean up resources from previous jobs
+cpu	Initialize containers	2026-10-23T07:56:58.0720408Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=fc5f21"
+cpu	Initialize containers	2026-10-23T07:56:58.0918525Z ##[command]/usr/bin/docker network prune --force --filter "label=fc5f21"
+cpu	Initialize containers	2026-10-23T07:56:58.1074063Z ##[endgroup]
+cpu	Initialize containers	2026-10-23T07:56:58.1074723Z ##[group]Create local container network
+cpu	Initialize containers	2026-10-23T07:56:58.1086489Z ##[command]/usr/bin/docker network create --label fc5f21 github_network_cd00a53653034ed0bd5fad140ac04e50
+cpu	Initialize containers	2026-10-23T07:56:58.1807254Z 15d82d8bd09fc1f8e1d39f6ed4720f4e19fcf1c9f6a230668bdcfa0bea932b60
+cpu	Initialize containers	2026-10-23T07:56:58.1830567Z ##[endgroup]
+cpu	Initialize containers	2026-10-23T07:56:58.1858965Z ##[group]Starting postgres service container
+cpu	Initialize containers	2026-10-23T07:56:58.1883156Z ##[command]/usr/bin/docker pull postgres:16.6
+cpu	Initialize containers	2026-10-23T07:56:58.7740732Z 16.6: Pulling from library/postgres
+cpu	Initialize containers	2026-10-23T07:56:58.9473260Z c29f5b76f736: Pulling fs layer
+cpu	Initialize containers	2026-10-23T07:56:58.9474815Z 5d09b270019a: Pulling fs layer
+cpu	Initialize containers	2026-10-23T07:56:58.9477623Z 1b97e303d014: Pulling fs layer
+cpu	Initialize containers	2026-10-23T07:56:58.9480450Z 9d735a0b570c: Pulling fs layer
+cpu	Initialize containers	2026-10-23T07:56:58.9482408Z ff1ae98c5afe: Pulling fs layer
+cpu	Initialize containers	2026-10-23T07:56:58.9490481Z 3b6992cf2918: Pulling fs layer
+cpu	Initialize containers	2026-10-23T07:56:58.9492313Z 6af5b0a8381b: Pulling fs layer
+cpu	Initialize containers	2026-10-23T07:56:58.9493509Z f8a2f3f2bb57: Pulling fs layer
+cpu	Initialize containers	2026-10-23T07:56:58.9494657Z 071d7e2b1414: Pulling fs layer
+cpu	Initialize containers	2026-10-23T07:56:58.9495989Z 92ce9438a1c4: Pulling fs layer
+cpu	Initialize containers	2026-10-23T07:56:58.9497191Z 97dd3da5d022: Pulling fs layer
+cpu	Initialize containers	2026-10-23T07:56:58.9507789Z 820eeecfbadf: Pulling fs layer
+cpu	Initialize containers	2026-10-23T07:56:58.9509572Z 161b744b7149: Pulling fs layer
+cpu	Initialize containers	2026-10-23T07:56:58.9512794Z 9f4ee33118cf: Pulling fs layer
+cpu	Initialize containers	2026-10-23T07:56:58.9515838Z ff1ae98c5afe: Waiting
+cpu	Initialize containers	2026-10-23T07:56:58.9517416Z 3b6992cf2918: Waiting
+cpu	Initialize containers	2026-10-23T07:56:58.9526200Z 6af5b0a8381b: Waiting
+cpu	Initialize containers	2026-10-23T07:56:58.9527025Z f8a2f3f2bb57: Waiting
+cpu	Initialize containers	2026-10-23T07:56:58.9527819Z 071d7e2b1414: Waiting
+cpu	Initialize containers	2026-10-23T07:56:58.9528601Z 92ce9438a1c4: Waiting
+cpu	Initialize containers	2026-10-23T07:56:58.9529380Z 97dd3da5d022: Waiting
+cpu	Initialize containers	2026-10-23T07:56:58.9530159Z 820eeecfbadf: Waiting
+cpu	Initialize containers	2026-10-23T07:56:58.9530956Z 161b744b7149: Waiting
+cpu	Initialize containers	2026-10-23T07:56:58.9531729Z 9f4ee33118cf: Waiting
+cpu	Initialize containers	2026-10-23T07:56:58.9532352Z 9d735a0b570c: Waiting
+cpu	Initialize containers	2026-10-23T07:56:59.1237580Z 5d09b270019a: Verifying Checksum
+cpu	Initialize containers	2026-10-23T07:56:59.1238700Z 5d09b270019a: Download complete
+cpu	Initialize containers	2026-10-23T07:56:59.2681706Z 1b97e303d014: Verifying Checksum
+cpu	Initialize containers	2026-10-23T07:56:59.2693271Z 1b97e303d014: Download complete
+cpu	Initialize containers	2026-10-23T07:56:59.3344263Z c29f5b76f736: Verifying Checksum
+cpu	Initialize containers	2026-10-23T07:56:59.3351836Z c29f5b76f736: Download complete
+cpu	Initialize containers	2026-10-23T07:56:59.3997777Z 9d735a0b570c: Verifying Checksum
+cpu	Initialize containers	2026-10-23T07:56:59.4034807Z 9d735a0b570c: Download complete
+cpu	Initialize containers	2026-10-23T07:56:59.5181830Z ff1ae98c5afe: Verifying Checksum
+cpu	Initialize containers	2026-10-23T07:56:59.5185367Z ff1ae98c5afe: Download complete
+cpu	Initialize containers	2026-10-23T07:56:59.5582192Z 6af5b0a8381b: Verifying Checksum
+cpu	Initialize containers	2026-10-23T07:56:59.5585455Z 6af5b0a8381b: Download complete
+cpu	Initialize containers	2026-10-23T07:56:59.5786812Z 3b6992cf2918: Verifying Checksum
+cpu	Initialize containers	2026-10-23T07:56:59.5794613Z 3b6992cf2918: Download complete
+cpu	Initialize containers	2026-10-23T07:56:59.6755390Z f8a2f3f2bb57: Verifying Checksum
+cpu	Initialize containers	2026-10-23T07:56:59.6758154Z f8a2f3f2bb57: Download complete
+cpu	Initialize containers	2026-10-23T07:56:59.7254619Z 92ce9438a1c4: Verifying Checksum
+cpu	Initialize containers	2026-10-23T07:56:59.7259186Z 92ce9438a1c4: Download complete
+cpu	Initialize containers	2026-10-23T07:56:59.8047131Z 97dd3da5d022: Download complete
+cpu	Initialize containers	2026-10-23T07:56:59.8691215Z 820eeecfbadf: Verifying Checksum
+cpu	Initialize containers	2026-10-23T07:56:59.8695131Z 820eeecfbadf: Download complete
+cpu	Initialize containers	2026-10-23T07:56:59.9662863Z 161b744b7149: Verifying Checksum
+cpu	Initialize containers	2026-10-23T07:56:59.9721640Z 161b744b7149: Download complete
+cpu	Initialize containers	2026-10-23T07:57:00.0132949Z 9f4ee33118cf: Verifying Checksum
+cpu	Initialize containers	2026-10-23T07:57:00.0137431Z 9f4ee33118cf: Download complete
+cpu	Initialize containers	2026-10-23T07:57:00.3758608Z 071d7e2b1414: Verifying Checksum
+cpu	Initialize containers	2026-10-23T07:57:00.3789762Z 071d7e2b1414: Download complete
+cpu	Initialize containers	2026-10-23T07:57:01.7280480Z c29f5b76f736: Pull complete
+cpu	Initialize containers	2026-10-23T07:57:03.7744495Z 5d09b270019a: Pull complete
+cpu	Initialize containers	2026-10-23T07:57:03.9494380Z 1b97e303d014: Pull complete
+cpu	Initialize containers	2026-10-23T07:57:04.0056093Z 9d735a0b570c: Pull complete
+cpu	Initialize containers	2026-10-23T07:57:04.3739532Z ff1ae98c5afe: Pull complete
+cpu	Initialize containers	2026-10-23T07:57:04.4621602Z 3b6992cf2918: Pull complete
+cpu	Initialize containers	2026-10-23T07:57:04.4701671Z 6af5b0a8381b: Pull complete
+cpu	Initialize containers	2026-10-23T07:57:04.4803473Z f8a2f3f2bb57: Pull complete
+cpu	Initialize containers	2026-10-23T07:57:08.7788534Z 071d7e2b1414: Pull complete
+cpu	Initialize containers	2026-10-23T07:57:08.7968279Z 92ce9438a1c4: Pull complete
+cpu	Initialize containers	2026-10-23T07:57:08.8123294Z 97dd3da5d022: Pull complete
+cpu	Initialize containers	2026-10-23T07:57:08.8269536Z 820eeecfbadf: Pull complete
+cpu	Initialize containers	2026-10-23T07:57:08.8407223Z 161b744b7149: Pull complete
+cpu	Initialize containers	2026-10-23T07:57:08.8500344Z 9f4ee33118cf: Pull complete
+cpu	Initialize containers	2026-10-23T07:57:08.8539312Z Digest: sha256:557fea37a744d5f4c8faab304b0a90858b53ab119735a88c131fd19dab802f36
+cpu	Initialize containers	2026-10-23T07:57:08.8553658Z Status: Downloaded newer image for postgres:16.6
+cpu	Initialize containers	2026-10-23T07:57:08.8565712Z docker.io/library/postgres:16.6
+cpu	Initialize containers	2026-10-23T07:57:08.8636868Z ##[command]/usr/bin/docker create --name 6fb83b45db96474182be5c50bc158ea2_postgres166_551236 --label fc5f21 --network github_network_cd00a53653034ed0bd5fad140ac04e50 --network-alias postgres -p 5432:5432 --health-cmd 'pg_isready -U postgres -d e2e12' --health-interval 2s --health-timeout 2s --health-retries 30 -e "POSTGRES_USER=postgres" -e "POSTGRES_PASSWORD=local-cpu-only" -e "POSTGRES_DB=e2e12" -e GITHUB_ACTIONS=true -e CI=true postgres:16.6
+cpu	Initialize containers	2026-10-23T07:57:11.5668484Z unknown shorthand flag: 'U' in -U
+cpu	Initialize containers	2026-10-23T07:57:11.5670285Z Usage:  docker create [OPTIONS] IMAGE [COMMAND] [ARG...]
+cpu	Initialize containers	2026-10-23T07:57:11.5670936Z Run 'docker create --help' for more information
+cpu	Initialize containers	2026-10-23T07:57:11.5802460Z ##[error]Exit code 125 returned from process: file name '/usr/bin/docker', arguments 'create --name 6fb83b45db96474182be5c50bc158ea2_postgres166_551236 --label fc5f21 --network github_network_cd00a53653034ed0bd5fad140ac04e50 --network-alias postgres -p 5432:5432 --health-cmd 'pg_isready -U postgres -d e2e12' --health-interval 2s --health-timeout 2s --health-retries 30 -e "POSTGRES_USER=postgres" -e "POSTGRES_PASSWORD=local-cpu-only" -e "POSTGRES_DB=e2e12" -e GITHUB_ACTIONS=true -e CI=true postgres:16.6'.
+cpu	Preserve original diagnostics and identity	﻿2026-10-23T07:57:11.6181693Z ##[group]Run actions/upload-artifact@v4
+cpu	Preserve original diagnostics and identity	2026-10-23T07:57:11.6182341Z with:
+cpu	Preserve original diagnostics and identity	2026-10-23T07:57:11.6182714Z   name: pi-e2e12-c28751ddeae0606b068a0d73012588bad8747999-39921200482
+cpu	Preserve original diagnostics and identity	2026-10-23T07:57:11.6183129Z   path: /home/runner/work/_temp/pi-e2e12-cpu
+cpu	Preserve original diagnostics and identity	2026-10-23T07:57:11.6183427Z   if-no-files-found: error
+cpu	Preserve original diagnostics and identity	2026-10-23T07:57:11.6183671Z   retention-days: 14
+cpu	Preserve original diagnostics and identity	2026-10-23T07:57:11.6183891Z   compression-level: 6
+cpu	Preserve original diagnostics and identity	2026-10-23T07:57:11.6184118Z   overwrite: false
+cpu	Preserve original diagnostics and identity	2026-10-23T07:57:11.6184357Z   include-hidden-files: false
+cpu	Preserve original diagnostics and identity	2026-10-23T07:57:11.6185117Z env:
+cpu	Preserve original diagnostics and identity	2026-10-23T07:57:11.6185970Z   TEST_DATABASE_URL: ***127.0.0.1:5432/e2e12?sslmode=disable
+cpu	Preserve original diagnostics and identity	2026-10-23T07:57:11.6186305Z ##[endgroup]
+cpu	Preserve original diagnostics and identity	2026-10-23T07:57:11.8082700Z (node:2175) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+cpu	Preserve original diagnostics and identity	2026-10-23T07:57:11.8100105Z (Use `node --trace-deprecation ...` to show where the warning was created)
+cpu	Preserve original diagnostics and identity	2026-10-23T07:57:11.8119302Z ##[error]No files were found with the provided path: /home/runner/work/_temp/pi-e2e12-cpu. No artifacts will be uploaded.
+cpu	Stop containers	﻿2026-10-23T07:57:11.8452431Z Remove container network: github_network_cd00a53653034ed0bd5fad140ac04e50
+cpu	Stop containers	2026-10-23T07:57:11.8458136Z ##[command]/usr/bin/docker network rm github_network_cd00a53653034ed0bd5fad140ac04e50
+cpu	Stop containers	2026-10-23T07:57:11.9406352Z github_network_cd00a53653034ed0bd5fad140ac04e50
+cpu	Complete job	﻿2026-10-23T07:57:11.9498380Z Cleaning up orphan processes
+cpu	Complete job	2026-10-23T07:57:11.9880654Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

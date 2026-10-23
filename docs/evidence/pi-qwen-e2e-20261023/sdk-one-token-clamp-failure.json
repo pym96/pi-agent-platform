@@ -1,0 +1,21 @@
+{
+  "wires": [
+    {
+      "model": "Qwen3-8B",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a text-only assistant. No tools are available.\n\n<cwd>\n/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/pi-e2e12-Ijjr8Y/sessions/wire/workspace\n</cwd>"
+        },
+        {
+          "role": "user",
+          "content": "Say hello"
+        }
+      ],
+      "stream": true,
+      "max_tokens": 1
+    }
+  ],
+  "text": "{\"kind\":\"runtime\",\"data\":{\"package\":\"@earendil-works/pi-coding-agent\",\"version\":\"1.3.0\",\"tools\":[],\"contextOwner\":\"Pi SessionManager\",\"session\":\"wire\"}}\n{\"kind\":\"text\",\"data\":{\"text\":\"hello\"}}\n",
+  "logs": "Pi SDK executor ready; no tools; concurrency=2\n"
+}

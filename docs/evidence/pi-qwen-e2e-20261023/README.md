@@ -12,3 +12,8 @@ Full local original CPU runs, including first harness failures, seeded defect an
 - [Private blog/X draft, not published](blog-and-x-draft.md).
 
 - [CPU original logs, manifests and deliberate-defect red/green](cpu/README.md).
+
+- [CI initialization failure and first clean-SHA success](ci/README.md).
+- [C04 missing-inventory counterexample correction](inventory-fix.json), [measurement red](measurement-f403-red.log), [measurement repaired green](measurement-fixed-green.log).
+- [Explicit smaller-budget red](budget-unconditional-red.log) and [exact restoration](budget-fix.json).
+- [Actual one-token SDK clamp failure](sdk-one-token-clamp-failure.json) and [raw bridge](sdk-one-token-clamp-bridge.jsonl).
