@@ -8,8 +8,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"net/http"
 	"github.com/pym96/pi-agent-platform/service/internal/store"
+	"net/http"
 	"regexp"
 	"runtime"
 	"strconv"
@@ -53,6 +53,7 @@ func (h *Hub) Notify(s string) {
 }
 
 type API struct {
+	ModelKind   string
 	Store       *store.Store
 	Tail        *Tail
 	Hub         *Hub
@@ -78,7 +79,7 @@ func (a *API) Handler() http.Handler {
 			http.Error(w, "database unavailable", 503)
 			return
 		}
-		writeJSON(w, 200, map[string]any{"ok": true, "runtime": "actual Pi 1.3.0", "model": "synthetic local baseline"})
+		writeJSON(w, 200, map[string]any{"ok": true, "runtime": "actual Pi 1.3.0", "model": a.ModelKind})
 	})
 	m.HandleFunc("POST /sessions/{session}/tasks", a.submit)
 	m.HandleFunc("GET /sessions/{session}/tasks", a.history)

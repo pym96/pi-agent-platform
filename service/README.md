@@ -83,3 +83,9 @@ Historical measurements originated in the archived Pan #142 candidate. This inde
 ## Opt-in inference API QA
 
 [Inference API and pytest guide](inference/README.md) describes the separate Python HTTP module. It does not change this default Go/Pi deployment.
+
+## Opt-in Pi–Qwen closed loop and CPU CI — #12
+
+The [single CPU entry and protocol contract](scripts/pi-qwen-e2e/README.md) uses the actual pinned SDK, a strict synthetic HTTP endpoint and a dedicated disposable PostgreSQL database. It checks durable completion, missing/invalid terminal evidence, same-session continuation, idempotency and client SSE reconnect; output is labelled synthetic. GitHub CPU CI saves source identity and local-clock timeline originals; it does not measure GPU throughput.
+
+[compose.qwen.yaml](compose.qwen.yaml) is a separately authorized private functional stack, not the default deployment. It uses the [frozen Stage B config](scripts/pi-qwen-e2e/stage-b.json), three loopback-only host ports and GPU3 only. `--host 0.0.0.0` is used solely inside its private Docker network; the inference CLI default remains loopback. Both Master activation and an external owned-container watchdog are required before starting it. See [candidate evidence](../docs/evidence/pi-qwen-e2e-20261023/README.md). Model generation has a30s deadline, Pi45s and Go60s; a timeout/cancel request is not proof the GPU thread has settled. The inference module holds its slot until the cooperative worker settles.

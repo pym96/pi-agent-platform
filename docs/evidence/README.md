@@ -35,3 +35,8 @@ Historical database time fields are transaction-start intervals, not exact queue
 ## Inference API QA — Pi #9
 
 [CPU evidence and real-stage status](inference-api/README.md): independent HTTP assertions, fault injection and cleanup; real-model review remains separately identified.
+
+
+## Pi–Qwen closed loop and CPU CI — #12
+
+[Candidate evidence, original failures and stage status](pi-qwen-e2e-20261023/README.md). This is not an independent Verdict or performance claim.

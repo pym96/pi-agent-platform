@@ -1,0 +1,223 @@
+TAP version 13
+# Subtest: actual Pi SDK must not complete missing upstream usage
+not ok 1 - actual Pi SDK must not complete missing upstream usage
+  ---
+  duration_ms: 15400.624542
+  type: 'test'
+  location: '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/pi/tests/wire.test.mjs:24:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    node:internal/modules/cjs/loader:1573
+      throw err;
+      ^
+    
+    Error: Cannot find module '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/server.mjs'
+        at Module._resolveFilename (node:internal/modules/cjs/loader:1569:15)
+        at wrapResolveFilename (node:internal/modules/cjs/loader:1123:27)
+        at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1147:10)
+        at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1174:12)
+        at Module._load (node:internal/modules/cjs/loader:1346:5)
+        at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+        at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+        at node:internal/main/run_main_module:33:47 {
+      code: 'MODULE_NOT_FOUND',
+      requireStack: []
+    }
+    
+    Node.js v26.7.0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    Module._resolveFilename (node:internal/modules/cjs/loader:1569:15)
+    wrapResolveFilename (node:internal/modules/cjs/loader:1123:27)
+    defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1147:10)
+    resolveForCJSWithHooks (node:internal/modules/cjs/loader:1174:12)
+    Module._load (node:internal/modules/cjs/loader:1346:5)
+    wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    node:internal/main/run_main_module:33:47 {
+    fixture (file:///Users/panyiming/Desktop/todo/%E9%9D%A2%E8%AF%95/career-planning/60-%E9%A1%B9%E7%9B%AE/pi-agent-platform-e2e12-candidate/service/pi/tests/wire.test.mjs:18:9)
+    async TestContext.<anonymous> (file:///Users/panyiming/Desktop/todo/%E9%9D%A2%E8%AF%95/career-planning/60-%E9%A1%B9%E7%9B%AE/pi-agent-platform-e2e12-candidate/service/pi/tests/wire.test.mjs:25:10)
+    async Test.run (node:internal/test_runner/test:1404:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+# Subtest: actual Pi SDK successful stream has verified raw usage and mapped budget
+not ok 2 - actual Pi SDK successful stream has verified raw usage and mapped budget
+  ---
+  duration_ms: 15488.244958
+  type: 'test'
+  location: '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/pi/tests/wire.test.mjs:32:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    node:internal/modules/cjs/loader:1573
+      throw err;
+      ^
+    
+    Error: Cannot find module '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/server.mjs'
+        at Module._resolveFilename (node:internal/modules/cjs/loader:1569:15)
+        at wrapResolveFilename (node:internal/modules/cjs/loader:1123:27)
+        at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1147:10)
+        at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1174:12)
+        at Module._load (node:internal/modules/cjs/loader:1346:5)
+        at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+        at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+        at node:internal/main/run_main_module:33:47 {
+      code: 'MODULE_NOT_FOUND',
+      requireStack: []
+    }
+    
+    Node.js v26.7.0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    Module._resolveFilename (node:internal/modules/cjs/loader:1569:15)
+    wrapResolveFilename (node:internal/modules/cjs/loader:1123:27)
+    defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1147:10)
+    resolveForCJSWithHooks (node:internal/modules/cjs/loader:1174:12)
+    Module._load (node:internal/modules/cjs/loader:1346:5)
+    wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    node:internal/main/run_main_module:33:47 {
+    fixture (file:///Users/panyiming/Desktop/todo/%E9%9D%A2%E8%AF%95/career-planning/60-%E9%A1%B9%E7%9B%AE/pi-agent-platform-e2e12-candidate/service/pi/tests/wire.test.mjs:18:9)
+    async TestContext.<anonymous> (file:///Users/panyiming/Desktop/todo/%E9%9D%A2%E8%AF%95/career-planning/60-%E9%A1%B9%E7%9B%AE/pi-agent-platform-e2e12-candidate/service/pi/tests/wire.test.mjs:33:10)
+    async Test.run (node:internal/test_runner/test:1404:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:969:7)
+  ...
+# Subtest: actual Pi SDK rejects missing DONE
+not ok 3 - actual Pi SDK rejects missing DONE
+  ---
+  duration_ms: 1422.500541
+  type: 'test'
+  location: '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/pi/tests/wire.test.mjs:46:3'
+  failureType: 'testCodeFailure'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  ...
+# Subtest: actual Pi SDK rejects inconsistent usage
+not ok 4 - actual Pi SDK rejects inconsistent usage
+  ---
+  duration_ms: 582.454917
+  type: 'test'
+  location: '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/pi/tests/wire.test.mjs:46:3'
+  failureType: 'testCodeFailure'
+  error: 'terminated'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    Fetch.onAborted (node:internal/deps/undici/undici:14538:53)
+    Fetch.emit (node:events:514:20)
+    Fetch.terminate (node:internal/deps/undici/undici:13654:14)
+    Object.onResponseError (node:internal/deps/undici/undici:14674:40)
+    Request.onResponseError (node:internal/deps/undici/undici:3070:48)
+    Object.errorRequest (node:internal/deps/undici/undici:2356:17)
+    Socket.onHttpSocketClose (node:internal/deps/undici/undici:7832:14)
+    Socket.emit (node:events:526:24)
+    TCP.<anonymous> (node:net:362:12)
+  ...
+# Subtest: actual Pi SDK rejects partial then error
+not ok 5 - actual Pi SDK rejects partial then error
+  ---
+  duration_ms: 523.236125
+  type: 'test'
+  location: '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/pi/tests/wire.test.mjs:46:3'
+  failureType: 'testCodeFailure'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  ...
+# Subtest: actual Pi SDK rejects empty content
+not ok 6 - actual Pi SDK rejects empty content
+  ---
+  duration_ms: 518.843167
+  type: 'test'
+  location: '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/pi/tests/wire.test.mjs:46:3'
+  failureType: 'testCodeFailure'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  ...
+# Subtest: actual Pi SDK rejects missing terminal
+ok 7 - actual Pi SDK rejects missing terminal
+  ---
+  duration_ms: 958.402083
+  type: 'test'
+  ...
+# Subtest: actual Pi SDK rejects usage beyond budget
+not ok 8 - actual Pi SDK rejects usage beyond budget
+  ---
+  duration_ms: 12.827667
+  type: 'test'
+  location: '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/pi/tests/wire.test.mjs:46:3'
+  failureType: 'testCodeFailure'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  ...
+# Subtest: actual Pi SDK rejects null usage
+not ok 9 - actual Pi SDK rejects null usage
+  ---
+  duration_ms: 415.165584
+  type: 'test'
+  location: '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/pi/tests/wire.test.mjs:46:3'
+  failureType: 'testCodeFailure'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  ...
+# Subtest: actual Pi SDK rejects damaged intermediate usage
+not ok 10 - actual Pi SDK rejects damaged intermediate usage
+  ---
+  duration_ms: 415.630292
+  type: 'test'
+  location: '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/pi/tests/wire.test.mjs:46:3'
+  failureType: 'testCodeFailure'
+  error: 'fetch failed'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  ...
+# Subtest: actual Pi SDK rejects data after DONE
+ok 11 - actual Pi SDK rejects data after DONE
+  ---
+  duration_ms: 413.505208
+  type: 'test'
+  ...
+# Subtest: content reaches client before complete upstream terminal
+not ok 12 - content reaches client before complete upstream terminal
+  ---
+  duration_ms: 64.0125
+  type: 'test'
+  location: '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/pi/tests/wire.test.mjs:48:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(first)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///Users/panyiming/Desktop/todo/%E9%9D%A2%E8%AF%95/career-planning/60-%E9%A1%B9%E7%9B%AE/pi-agent-platform-e2e12-candidate/service/pi/tests/wire.test.mjs:50:106)
+    process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    async Test.run (node:internal/test_runner/test:1404:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:969:7)
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 2
+# fail 10
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 36284.525625

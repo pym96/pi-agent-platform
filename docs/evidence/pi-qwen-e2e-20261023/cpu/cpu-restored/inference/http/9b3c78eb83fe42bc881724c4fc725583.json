@@ -1,0 +1,15 @@
+{
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/v1/chat/completions",
+      "request": "{",
+      "status": 400,
+      "body_read": true,
+      "body": "{\"error\": {\"code\": \"invalid_request\"}}"
+    }
+  ],
+  "lifecycle": [],
+  "active_after_cleanup": 0,
+  "max_active": 0
+}

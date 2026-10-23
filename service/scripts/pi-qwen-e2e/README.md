@@ -1,0 +1,8 @@
+# Pi–Qwen CPU and functional checks
+
+`python3 service/scripts/pi-qwen-e2e/run.py --out ABSOLUTE_NEW_DIRECTORY` is the CPU entry (from repository root). Requires Node>=22.19, Go>=1.24, Python with inference requirements and psycopg, and a dedicated disposable PostgreSQL URL in TEST_DATABASE_URL. Missing tools, skipped/zero tests and malformed measurements fail. CPU fixtures are synthetic; no GPU bottleneck or P95 claim.
+
+The opt-in bridge validates actual pinned SDK wire, maps text arrays and max_completion_tokens, and translates only explicit store=false and include_usage=true. Other fields fail closed. Content streams before terminal; finish/usage/DONE are gated by valid upstream EOF. Raw usage is required because SDK defaults and normalizes missing/broken counters. The Qwen physical context is1024 and output128; public runtime.stream bypasses streamSimple's fixed4096-token estimator reserve without modifying upstream. Accurate tokenization/rejection remains the inference backend's responsibility. No history trimming, tools, sampling or automatic model retry.
+
+
+For an activated real functional run, `smoke.py --prefix builder12 --sha FULL_SHA --out NEW_DIR` sends exactly three sequential durable tasks (two turns sharing context and one independent session), then checks idempotency and model attempt inventory. It never retries. Copy Pi's raw bridge log and PostgreSQL `row_to_json(events)` snapshot into the same directory and run `analyze.py NEW_DIR`. `watch.py` is the external, foreground, exact-label watchdog; it stops only this project's owned containers on deadline, foreign GPU work, disk or memory pressure. The model also has its own30min maximum fresh deadline and12-attempt cap. This is a functional check, not a load experiment.

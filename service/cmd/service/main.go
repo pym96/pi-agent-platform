@@ -2,13 +2,13 @@ package main
 
 import (
 	"context"
+	"github.com/pym96/pi-agent-platform/service/internal/api"
+	"github.com/pym96/pi-agent-platform/service/internal/executor"
+	"github.com/pym96/pi-agent-platform/service/internal/store"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
-	"github.com/pym96/pi-agent-platform/service/internal/api"
-	"github.com/pym96/pi-agent-platform/service/internal/executor"
-	"github.com/pym96/pi-agent-platform/service/internal/store"
 	"sync"
 	"syscall"
 	"time"
@@ -38,7 +38,11 @@ func main() {
 		log.Fatal(e)
 	}
 	hub := api.NewHub()
-	a := &api.API{Store: s, Hub: hub}
+	kind := os.Getenv("MODEL_KIND")
+	if kind == "" {
+		kind = "synthetic local baseline"
+	}
+	a := &api.API{Store: s, Hub: hub, ModelKind: kind}
 	if os.Getenv("SSE_TAIL_CACHE") != "0" {
 		a.Tail = api.NewTail(s.Events)
 	}
@@ -48,7 +52,7 @@ func main() {
 		}
 		hub.Notify(session)
 	}
-	p := &executor.Pool{Store: s, URL: os.Getenv("PI_URL"), Notify: notify, Fatal: func(err error) { log.Print(err); stop() }}
+	p := &executor.Pool{Store: s, URL: os.Getenv("PI_URL"), Strict: os.Getenv("MODEL_KIND") == "qwen", Notify: notify, Fatal: func(err error) { log.Print(err); stop() }}
 	var workers sync.WaitGroup
 	for i := 0; i < 2; i++ {
 		workers.Add(1)
@@ -73,7 +77,11 @@ func main() {
 			}
 		}
 	}()
-	server := &http.Server{Addr: ":8080", Handler: a.Handler(), ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 10 * time.Second, IdleTimeout: 30 * time.Second, MaxHeaderBytes: 8192}
+	addr := os.Getenv("API_ADDR")
+	if addr == "" {
+		addr = ":8080"
+	}
+	server := &http.Server{Addr: addr, Handler: a.Handler(), ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 10 * time.Second, IdleTimeout: 30 * time.Second, MaxHeaderBytes: 8192}
 	go func() {
 		<-ctx.Done()
 		shutdown, cancel := context.WithTimeout(context.Background(), 7*time.Second)

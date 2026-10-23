@@ -35,19 +35,23 @@ def valid_terminal(event):
         and all(type(v) is int and v>=0 for v in usage.values())
         and usage['total_tokens']==usage['prompt_tokens']+usage['completion_tokens'])
 
-def create_app(backend, queue_timeout=1.0, generation_timeout=2.0, max_queue=8, body_limit=16384):
+def create_app(backend, queue_timeout=1.0, generation_timeout=2.0, max_queue=8, body_limit=16384, max_attempts=None):
     if queue_timeout<=0 or generation_timeout<=0 or max_queue<1:
         raise ValueError('positive bounded timeouts/queue required')
     app=web.Application(client_max_size=body_limit)
     lock=asyncio.Lock()
     waiting=0
+    attempts=0
+    if max_attempts is not None and (type(max_attempts) is not int or max_attempts<1):raise ValueError("positive max_attempts required")
 
     async def health(request):
         return web.json_response({'backend':backend.identity,'model':'Qwen3-8B','ready':backend.ready,
-            'active_generation':backend.active,'queued':waiting,'max_active_generation':1,'max_context':1024})
+            'active_generation':backend.active,'queued':waiting,'max_active_generation':1,'max_context':1024,'attempts':attempts,'max_attempts':max_attempts})
 
     async def completion(request):
-        nonlocal waiting
+        nonlocal waiting,attempts
+        if max_attempts is not None and attempts>=max_attempts:return error(503,"attempt_budget")
+        attempts+=1
         try:
             data=await request.json()
             messages,budget=validate(data)

@@ -1,0 +1,40 @@
+{
+  "kind": "synthetic",
+  "commit": "1bd0443c436f9fb4bb11dfbcaa8c481eaf311239",
+  "attempts": 5,
+  "success": 3,
+  "failure": 2,
+  "samples": [
+    {
+      "task": "b5b5142ac45ee3f4e4c7b37c0fe80479",
+      "status": "completed",
+      "ack_seconds": 0.003829583991318941,
+      "client_terminal_seconds": 0.1787933751475066
+    },
+    {
+      "task": "10ce87637b6d74021ccc49c0f67b1353",
+      "status": "completed",
+      "ack_seconds": 0.0008972920477390289,
+      "client_terminal_seconds": 0.11312000011093915
+    },
+    {
+      "task": "962c6b3c0fe81a3f67f373156399df3f",
+      "status": "completed",
+      "ack_seconds": 0.0010966670233756304,
+      "client_terminal_seconds": 0.8298567500896752
+    },
+    {
+      "task": "528c4ae6a2da286a5f51d3268230fd58",
+      "status": "interrupted",
+      "ack_seconds": 0.001410959055647254,
+      "client_terminal_seconds": 0.07851654198020697
+    },
+    {
+      "task": "96bee219c316ae926bb8c1e58d774a7b",
+      "status": "interrupted",
+      "ack_seconds": 0.0012645828537642956,
+      "client_terminal_seconds": 0.11318824999034405
+    }
+  ],
+  "warning": "local spans only; no subtraction across clock domains; fixture is not GPU latency"
+}
