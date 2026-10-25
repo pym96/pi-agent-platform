@@ -1,0 +1,82 @@
+FFFE./Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-nginx-candidate/service/scripts/nginx-entry/test_required_cli.py:31: ResourceWarning: unclosed file <_io.TextIOWrapper name='/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-nginx-candidate/docs/evidence/nginx-entry-20261025/raw/run-08/point-01/raw.csv' mode='r' encoding='UTF-8'>
+  rows=list(csv.reader((SEALED/'point-01/raw.csv').open()))[1:]
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+FE
+======================================================================
+ERROR: test_changed_manifest_cannot_replace_external_anchor (test_required_cli.SealedMeasurementCLI.test_changed_manifest_cannot_replace_external_anchor)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-nginx-candidate/service/scripts/nginx-entry/test_required_cli.py", line 51, in test_changed_manifest_cannot_replace_external_anchor
+    self.assertNotEqual(r.returncode,0);self.assertEqual(json.loads(r.stderr)['phase'],'integrity')
+                                                         ~~~~~~~~~~^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+======================================================================
+ERROR: test_same_count_replacement_fails_before_statistics (test_required_cli.SealedMeasurementCLI.test_same_count_replacement_fails_before_statistics)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-nginx-candidate/service/scripts/nginx-entry/test_required_cli.py", line 46, in test_same_count_replacement_fails_before_statistics
+    self.assertNotEqual(r.returncode,0);self.assertFalse(out.exists());self.assertEqual(json.loads(r.stderr)['phase'],'integrity')
+                                                                                        ~~~~~~~~~~^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+======================================================================
+FAIL: test_real_empty_process_fails_required_entry (test_required_cli.RequiredSuiteCLI.test_real_empty_process_fails_required_entry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-nginx-candidate/service/scripts/nginx-entry/test_required_cli.py", line 23, in test_real_empty_process_fails_required_entry
+    self.assertEqual(r.returncode,1,r.stderr);self.assertEqual(s['tests'],0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1 : /opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-nginx-candidate/service/scripts/nginx-entry/strict_suite.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_real_skipped_test_process_fails_required_entry (test_required_cli.RequiredSuiteCLI.test_real_skipped_test_process_fails_required_entry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-nginx-candidate/service/scripts/nginx-entry/test_required_cli.py", line 20, in test_real_skipped_test_process_fails_required_entry
+    self.assertEqual(r.returncode,1,r.stderr);self.assertIn('skipped=1',r.stderr);self.assertEqual(s['skipped'],1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1 : /opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-nginx-candidate/service/scripts/nginx-entry/strict_suite.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_real_success_process (test_required_cli.RequiredSuiteCLI.test_real_success_process)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-nginx-candidate/service/scripts/nginx-entry/test_required_cli.py", line 17, in test_real_success_process
+    self.assertEqual(r.returncode,0,r.stderr);self.assertEqual(s['tests'],1);self.assertEqual(s['skipped'],0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : /opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-nginx-candidate/service/scripts/nginx-entry/strict_suite.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_original_natural_equal_rows_are_preserved (test_required_cli.SealedMeasurementCLI.test_original_natural_equal_rows_are_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-nginx-candidate/service/scripts/nginx-entry/test_required_cli.py", line 35, in test_original_natural_equal_rows_are_preserved
+    self.assertEqual(r.returncode,0,r.stderr);d=json.loads(out.read_text());self.assertTrue(d['integrity_verified']);self.assertEqual(sum(x['observed'] for x in d['runs']),3468)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : /opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-nginx-candidate/service/scripts/nginx-entry/recompute.py': [Errno 2] No such file or directory
+
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.315s
+
+FAILED (failures=4, errors=2)

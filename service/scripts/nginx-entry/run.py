@@ -2,7 +2,7 @@
 """Single bounded CPU entry point. Owns only its explicit project; retains volumes."""
 import argparse,csv,hashlib,json,os,signal,subprocess,sys,threading,time,urllib.request
 from pathlib import Path
-from measurement import report,summarize_go,scheduled_budget
+from measurement import summarize_live_unsealed,summarize_go,scheduled_budget
 ROOT=Path(__file__).resolve().parents[3];PYTHON='python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1'
 p=argparse.ArgumentParser();p.add_argument('--out',required=True);p.add_argument('--measure',action='store_true');p.add_argument('--build-host',action='store_true');a=p.parse_args()
 OUT=Path(a.out).resolve();OUT.mkdir(parents=True,exist_ok=False);PROJECT=os.environ.get('NG_PROJECT','pi-ng15-b');OWNER=os.environ.get('NG_OWNER','builder')
@@ -76,7 +76,7 @@ def measurements():
             for suffix,args2 in [('decoded.jsonl',['encode','-to=json']),('native-report.json',['report','-type=json'])]:
                 rr=container(['/tools/vegeta',*args2,'/evidence/'+d.name+'/raw.bin'],'decode-'+str(point['index'])+'-'+suffix.split('.')[0],extra=['-v',str(toolroot)+':/tools:ro']);(d/suffix).write_text(rr.stdout)
         print('measurement',point,flush=True);time.sleep(cfg['idle_seconds'])
-    runs=report(OUT)
+    runs=summarize_live_unsealed(OUT)
     if any(x.get('invalid') or x['missing'] for x in runs):raise RuntimeError('invalid/missing measurement receipts')
 
 def timeout_handler(*_):raise TimeoutError('full CPU invocation exceeded 15 minutes')
@@ -117,8 +117,8 @@ try:
         testargs[testargs.index(PROJECT+'-build')]=PROJECT+'-gotests';command(testargs,name='go-tests',timeout=240)
     gotest=(OUT/'go-tests.stdout').read_text();events=[json.loads(x) for x in gotest.splitlines() if x.startswith('{')];save('go-tests-summary.json',summarize_go(events))
     container(['python','service/inference/scripts/run_tests.py','--out','/evidence/inference'],'inference',timeout=180)
-    unit=container(['python','-m','unittest','discover','-s','service/scripts/nginx-entry','-p','test_measurement.py'],'measurement-tests')
-    assert 'Ran 0 tests' not in unit.stderr and 'Ran ' in unit.stderr and 'OK' in unit.stderr,'empty required measurement suite'
+    container(['python','service/scripts/nginx-entry/strict_suite.py','--start-dir','service/scripts/nginx-entry','--pattern','test_measurement.py','--out','/evidence/measurement-tests.json'],'measurement-tests')
+    container(['python','service/scripts/nginx-entry/strict_suite.py','--start-dir','service/scripts/nginx-entry','--pattern','test_required_cli.py','--out','/evidence/required-cli-tests.json'],'required-cli-tests')
     container(['python','service/scripts/nginx-entry/test_entry.py'],'platform-tests',extra=['-e','NG_TEST_MODE=platform'])
     before=capture_db('database-before-singleton')
     probe=compose('run','--rm','--no-deps','--name',PROJECT+'-singleton','api',name='singleton-rejected',check=False)

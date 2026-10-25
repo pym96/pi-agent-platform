@@ -1,5 +1,5 @@
 """Strict raw-receipt analysis; HTTP success cohort is separate from all attempts."""
-import csv,json,math,datetime,re
+import csv,json,math,datetime,re,hashlib
 from pathlib import Path
 
 def summarize_rows(rows,planned):
@@ -16,7 +16,8 @@ def timestamp_ns(value):
     whole=re.sub(r'\.\d+','',value).replace('Z','+00:00')
     return int(datetime.datetime.fromisoformat(whole).timestamp())*10**9+frac
 
-def analyze_run(directory):
+def _analyze_run(directory):
+    """Internal statistics only; caller controls integrity verification stage."""
     p=Path(directory);meta=json.loads((p/'run.json').read_text())
     if meta['tool']=='hey':
         with (p/'raw.csv').open() as f:
@@ -47,20 +48,20 @@ def analyze_run(directory):
     if meta['exit_code']!=0:result['invalid']='tool nonzero exit'
     return result
 
-def report(root):
+def _summarize_points(root):
+    """Internal statistics; no standalone verified claim without external anchor."""
     p=Path(root);config=json.loads((p/'measurement-config.json').read_text());runs=[]
     for i in range(12):
         d=p/f'point-{i:02d}'
         if not d.is_dir():raise ValueError(f'missing point {i}')
-        r=analyze_run(d)
+        r=_analyze_run(d)
         if r['index']!=i:raise ValueError('duplicate/misplaced point identity')
         expected=config['points'][i]
         if r['source_sha']!=config['source_sha']:raise ValueError('source SHA mismatch')
         if any(r[k]!=expected[k] for k in ('tool','path','level','planned','configured_intent','expected_scheduled','generator_not_scheduled')):raise ValueError('matrix differs from frozen config')
         runs.append(r)
     if any(r.get('invalid') or r['missing'] for r in runs):raise ValueError('scheduled attempt receipts missing or invalid')
-    (p/'measurement-summary.json').write_text(json.dumps({'config':config,'runs':runs,'boundary':'CPU synthetic platform HTTP health only; no Qwen/model throughput; one repetition exploratory'},indent=2))
-    return runs
+    return {'config':config,'runs':runs,'boundary':'CPU synthetic platform HTTP health only; no Qwen/model throughput; one repetition exploratory'}
 
 def summarize_go(events):
     tests=[e for e in events if e.get('Test') and e.get('Action') in ['pass','skip','fail']]
@@ -72,3 +73,50 @@ def scheduled_budget(tool,intent,level):
     if intent<=0 or level<=0:raise ValueError('positive frozen parameters required')
     expected=(intent//level)*level if tool=='hey' else intent
     return {'configured_intent':intent,'expected_scheduled':expected,'generator_not_scheduled':intent-expected}
+
+class IntegrityError(ValueError):
+    pass
+
+def verify_manifest(root,expected_manifest_sha256):
+    p=Path(root).resolve()
+    if not isinstance(expected_manifest_sha256,str) or not re.fullmatch(r'[0-9a-f]{64}',expected_manifest_sha256):
+        raise IntegrityError('external expected SHA256 anchor is required')
+    manifest_path=p/'manifest.json'
+    if not manifest_path.is_file() or manifest_path.is_symlink():raise IntegrityError('missing regular manifest')
+    raw=manifest_path.read_bytes()
+    actual=hashlib.sha256(raw).hexdigest()
+    if actual!=expected_manifest_sha256:raise IntegrityError('external manifest SHA256 mismatch')
+    try:manifest=json.loads(raw)
+    except (ValueError,UnicodeError) as e:raise IntegrityError('invalid trusted manifest') from e
+    if not isinstance(manifest,dict) or not manifest:raise IntegrityError('empty or invalid trusted manifest')
+    for name,digest in manifest.items():
+        if not isinstance(name,str) or not isinstance(digest,str) or not re.fullmatch(r'[0-9a-f]{64}',digest):raise IntegrityError('invalid manifest entry')
+        rel=Path(name)
+        if rel.is_absolute() or '..' in rel.parts or name=='manifest.json':raise IntegrityError('unsafe manifest path')
+        path=p/rel
+        if not path.is_file() or path.is_symlink() or not path.resolve().is_relative_to(p):raise IntegrityError('missing/unsafe receipt '+name)
+        if hashlib.sha256(path.read_bytes()).hexdigest()!=digest:raise IntegrityError('receipt SHA256 mismatch: '+name)
+    actual_files=set()
+    for path in p.rglob('*'):
+        if path.is_symlink():raise IntegrityError('symlink in sealed receipt set')
+        if path.is_file() and path!=manifest_path:actual_files.add(str(path.relative_to(p)))
+    if actual_files!=set(manifest):raise IntegrityError('sealed file inventory differs from trusted manifest')
+    return {'manifest_sha256':actual,'files_verified':len(manifest)}
+
+def report(root,*,expected_manifest_sha256):
+    """Authoritative offline entry: external anchor first, then original statistics.
+
+    Does not alter sealed input files. Public callers cannot omit the trust anchor.
+    """
+    integrity=verify_manifest(root,expected_manifest_sha256)
+    return dict(_summarize_points(root),integrity_verified=True,**integrity)
+
+def summarize_live_unsealed(root):
+    """Producer intermediate only: not authoritative and not sealed/verified."""
+    if (Path(root)/'manifest.json').exists():raise ValueError('sealed inputs require externally anchored offline report')
+    data=dict(_summarize_points(root),integrity_verified=False,integrity_stage='live_unsealed_not_authoritative')
+    (Path(root)/'measurement-summary.json').write_text(json.dumps(data,indent=2)+'\n')
+    return data['runs']
+
+if __name__=='__main__':
+    raise SystemExit('Use recompute.py with --expected-manifest-sha256 from the external Handoff/CI binding')

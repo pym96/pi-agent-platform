@@ -1,6 +1,6 @@
 # Pi #15：私有 Nginx 入口与分流实验
 
-状态：Builder 候选自检通过，待独立 Regulator。Issue15，Criteria NG1.1；最终候选完整SHA、draft PR和同SHA CI回执以外部Handoff绑定，本文不自授accepted。
+状态：NG1.2修复候选；旧8ede遭独立partial REJECTED，新完整SHA待独立复验。Issue15，Criteria NG1.2；最终候选完整SHA、draft PR和同SHA CI回执以外部Handoff绑定，本文不自授accepted。
 
 ## 结果与边界
 
@@ -72,3 +72,11 @@ server宿主工作全部位于获授权的本工单builder根，每个SSH先cd�
 运行入口和必需环境见[指南](../../../service/scripts/nginx-entry/README.md)。首个hosted CI40193666085（候选5b6a11a76c3731774b264af0b9b4c51eb0d794aa）在free≥20GiB guard处失败，尚未build或启动服务；[原始artifact](ci-40193666085/summary.json)保留。Master授权只在专用github-hosted Linux job且空间不足时清理预装、此次不用的`/usr/local/lib/android` SDK，记录df/du前后；没有降低20GiB保护、docker prune或server/本机清理。第二次CI40194197626在旧配置候选b8d357c99e7139d0bc9529774b039f14de074c69上全套success，但未覆盖新请求体边界，不作最终运行配置证据。最终同SHA hosted CI需要成功，最多4个完整run；Handoff提供真实run链接，不能用当前自检替代CI。R另用新工作树、自己的源构建和owned资源执行，Master只有收到正式accepted后才可集成。
 
 贡献：Human给方向、问题和预算；Master发现/裁定单控制器边界和hey计数修订；Builder Agent实施、排错、记录；Regulator独立验收。没有将本候选写入事实账本、现实简历或公开内容。
+
+## NG1.2独立打回与窄修
+
+R在[8ede的partial REJECTED](https://github.com/pym96/pi-agent-platform/issues/15#issuecomment-6398111258)中实际证明：unittest可以输出Ran1/OK(skipped=1)且exit0，旧Ran/OK字符串guard会放行。这违反必需skip0。新入口直接读取TestResult机器计数，真实skip/空测试都非零；新增9个实际CLI/live-stage回归，原8个统计/PG-required回归仍通过。Go没有Test字段的包级“无测试文件”继续允许。
+
+R还发现hey低精度原件本来含合法同值行，不能把同值直接当成真实重复请求。Master冻结NG1.2：保留这些行，对已封存原件先核外部Handoff/CI绑定的期望manifest SHA256和完整文件集合，再统计；同count替换且外部锚不变必须在完整性阶段失败。公开recompute.py强制外部摘要，缺锚不静默重建；其内部统计不声称提供真实逐attempt身份。live中间输出明确未verified，不能覆盖已封存树。
+
+[修复原件和权威重算](repair-ng12/README.md)保留真实子进程红绿。原run08摘要与231文件清单未改，12点所有原统计JSON值相同。此次只改guard/完整性/对应测试和文档，不改Go/Pi/Nginx、负载配置、分位数或调度计数算法，不重复已验证矩阵。旧CI3绿色不抵消独立rejected；新SHA需要同SHA完整CPU CI与R原负向复验。CI内部总上限已由Master在原3h窗口内调整为5次：修复CI4、main集成CI5，原时间和资源上限不变。

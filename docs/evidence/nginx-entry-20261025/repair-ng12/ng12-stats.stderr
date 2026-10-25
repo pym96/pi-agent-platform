@@ -1,0 +1,13 @@
+test_extra_receipts_cannot_hide_duplicate_attempts (test_measurement.DenominatorEdges.test_extra_receipts_cannot_hide_duplicate_attempts) ... ok
+test_zero_success_has_undefined_quantiles (test_measurement.DenominatorEdges.test_zero_success_has_undefined_quantiles) ... ok
+test_packages_without_tests_do_not_hide_real_required_test (test_measurement.GoReceiptTests.test_packages_without_tests_do_not_hide_real_required_test) ... ok
+test_skipped_test_and_empty_collection_fail (test_measurement.GoReceiptTests.test_skipped_test_and_empty_collection_fail) ... ok
+test_hey_worker_floor_is_independent_of_observed_rows (test_measurement.HeySchedulingTests.test_hey_worker_floor_is_independent_of_observed_rows) ... ok
+test_other_registered_levels (test_measurement.HeySchedulingTests.test_other_registered_levels) ... ok
+test_errors_remain_in_denominator_and_percentiles_use_successes (test_measurement.MeasurementTests.test_errors_remain_in_denominator_and_percentiles_use_successes) ... ok
+test_nanosecond_receipts_keep_sub_microsecond_distinction (test_measurement.TimestampTests.test_nanosecond_receipts_keep_sub_microsecond_distinction) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

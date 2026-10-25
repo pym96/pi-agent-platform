@@ -1,0 +1,4 @@
+{
+  "python": "3.14.0 (main, Oct  7 2025, 09:34:52) [Clang 17.0.0 (clang-1700.4.4.1)]",
+  "note": "Local Python3.14 stdlib empty discovery returns5; required wrapper returns1/count0. Native skipped-test CLI returns0, required wrapper1/count skipped1."
+}

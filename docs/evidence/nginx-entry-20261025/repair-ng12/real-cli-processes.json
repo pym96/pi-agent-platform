@@ -1,0 +1,122 @@
+[
+  {
+    "case": "normal",
+    "mode": "stdlib",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/tmpxg71xd8h",
+      "-p",
+      "test_case.py"
+    ],
+    "exit_code": 0,
+    "receipt": null
+  },
+  {
+    "case": "normal",
+    "mode": "required",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "/Users/panyiming/Desktop/todo/\u9762\u8bd5/career-planning/60-\u9879\u76ee/pi-agent-platform-nginx-candidate/service/scripts/nginx-entry/strict_suite.py",
+      "--start-dir",
+      "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/tmpxg71xd8h",
+      "--pattern",
+      "test_case.py",
+      "--out",
+      "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/tmpxg71xd8h/receipt.json"
+    ],
+    "exit_code": 0,
+    "receipt": {
+      "tests": 1,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": true
+    }
+  },
+  {
+    "case": "skip",
+    "mode": "stdlib",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/tmpbxzqbnbp",
+      "-p",
+      "test_case.py"
+    ],
+    "exit_code": 0,
+    "receipt": null
+  },
+  {
+    "case": "skip",
+    "mode": "required",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "/Users/panyiming/Desktop/todo/\u9762\u8bd5/career-planning/60-\u9879\u76ee/pi-agent-platform-nginx-candidate/service/scripts/nginx-entry/strict_suite.py",
+      "--start-dir",
+      "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/tmpbxzqbnbp",
+      "--pattern",
+      "test_case.py",
+      "--out",
+      "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/tmpbxzqbnbp/receipt.json"
+    ],
+    "exit_code": 1,
+    "receipt": {
+      "tests": 1,
+      "skipped": 1,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": false
+    }
+  },
+  {
+    "case": "empty",
+    "mode": "stdlib",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/tmpa9ula1p5",
+      "-p",
+      "test_case.py"
+    ],
+    "exit_code": 5,
+    "receipt": null
+  },
+  {
+    "case": "empty",
+    "mode": "required",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "/Users/panyiming/Desktop/todo/\u9762\u8bd5/career-planning/60-\u9879\u76ee/pi-agent-platform-nginx-candidate/service/scripts/nginx-entry/strict_suite.py",
+      "--start-dir",
+      "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/tmpa9ula1p5",
+      "--pattern",
+      "test_case.py",
+      "--out",
+      "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/tmpa9ula1p5/receipt.json"
+    ],
+    "exit_code": 1,
+    "receipt": {
+      "tests": 0,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": false
+    }
+  }
+]
