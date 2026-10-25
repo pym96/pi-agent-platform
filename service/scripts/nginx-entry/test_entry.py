@@ -74,7 +74,7 @@ class PlatformTests(unittest.TestCase):
     def test_02_input_boundaries_match_direct(self):
         s='boundary-'+uuid.uuid4().hex[:8]
         for body in ({'key':'x','prompt':''},{'key':'x','prompt':'x'*8193},{'key':'x','prompt':'x'*40000},{'key':'!','prompt':'x'},{'key':'x','prompt':'x','unknown':True}):
-            statuses=[request(b,'/sessions/'+s+'/tasks',body)[0] for b in [DIRECT,PROXY]];self.assertEqual(statuses,[400,400])
+            replies=[request(b,'/sessions/'+s+'/tasks',body) for b in [DIRECT,PROXY]];self.assertEqual([x[0] for x in replies],[400,400]);self.assertEqual(replies[0][1],replies[1][1])
         for cursor in ['-1','bad']:
             self.assertEqual([request(b,'/sessions/'+s+'/events',headers={'Last-Event-ID':cursor})[0] for b in [DIRECT,PROXY]],[400,400])
     def test_03_disconnect_preserves_durable_task_and_failure(self):
