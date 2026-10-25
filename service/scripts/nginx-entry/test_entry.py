@@ -73,7 +73,7 @@ class PlatformTests(unittest.TestCase):
         record('platform-context',session=session,tasks=tasks)
     def test_02_input_boundaries_match_direct(self):
         s='boundary-'+uuid.uuid4().hex[:8]
-        for body in ({'key':'x','prompt':''},{'key':'x','prompt':'x'*8193},{'key':'!','prompt':'x'},{'key':'x','prompt':'x','unknown':True}):
+        for body in ({'key':'x','prompt':''},{'key':'x','prompt':'x'*8193},{'key':'x','prompt':'x'*40000},{'key':'!','prompt':'x'},{'key':'x','prompt':'x','unknown':True}):
             statuses=[request(b,'/sessions/'+s+'/tasks',body)[0] for b in [DIRECT,PROXY]];self.assertEqual(statuses,[400,400])
         for cursor in ['-1','bad']:
             self.assertEqual([request(b,'/sessions/'+s+'/events',headers={'Last-Event-ID':cursor})[0] for b in [DIRECT,PROXY]],[400,400])
