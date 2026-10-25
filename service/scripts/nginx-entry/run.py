@@ -2,7 +2,7 @@
 """Single bounded CPU entry point. Owns only its explicit project; retains volumes."""
 import argparse,csv,hashlib,json,os,signal,subprocess,sys,threading,time,urllib.request
 from pathlib import Path
-from measurement import report,summarize_go
+from measurement import report,summarize_go,scheduled_budget
 ROOT=Path(__file__).resolve().parents[3];PYTHON='python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1'
 p=argparse.ArgumentParser();p.add_argument('--out',required=True);p.add_argument('--measure',action='store_true');p.add_argument('--build-host',action='store_true');a=p.parse_args()
 OUT=Path(a.out).resolve();OUT.mkdir(parents=True,exist_ok=False);PROJECT=os.environ.get('NG_PROJECT','pi-ng15-b');OWNER=os.environ.get('NG_OWNER','builder')
@@ -49,7 +49,10 @@ def measurements():
     for tool,levels in [('hey',cfg['hey_concurrency']),('vegeta',cfg['vegeta_rates'])]:
         for path in ['direct','proxy']:
             for level in levels:points.append({'index':len(points),'tool':tool,'path':path,'level':level,'planned':cfg['hey_requests'] if tool=='hey' else level*cfg['vegeta_seconds']})
+    for point in points:point.update(scheduled_budget(point['tool'],point['planned'],point['level']))
     cfg['points']=points;cfg['source_sha']=SHA;save('measurement-config.json',cfg)
+    save('tool-identities.json',{name:{'sha256':hashlib.sha256((Path(os.environ['NG_TOOLS'])/name).read_bytes()).hexdigest()} for name in ['hey','vegeta']})
+    command([os.environ.get('GO_ROOT','/usr/local/go')+'/bin/go','version','-m',str(Path(os.environ['NG_TOOLS'])/'hey'),str(Path(os.environ['NG_TOOLS'])/'vegeta')],name='tool-buildinfo')
     toolroot=Path(os.environ['NG_TOOLS']).resolve()
     for path,base in cfg['paths'].items():
         rows=[]

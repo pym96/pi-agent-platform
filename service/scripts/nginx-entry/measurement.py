@@ -33,7 +33,9 @@ def analyze_run(directory):
         sends=[timestamp_ns(r['timestamp']) for r in data]
         start=min(sends,default=0)/1e9;send_end=max(sends,default=0)/1e9
         end=max((t+int(r['latency']) for t,r in zip(sends,data)),default=0)/1e9
-    result=summarize_rows(rows,meta['planned']);result.update(meta)
+    result=summarize_rows(rows,meta['expected_scheduled']);result.update(meta)
+    result['completion_fraction_scheduled']=result['success']/meta['expected_scheduled']
+    result['completion_fraction_configured_intent']=result['success']/meta['configured_intent']
     result['completion_window_s']=max(0,end-start)
     result['observed_send_window_s']=max(0,send_end-start)
     result['observed_send_rps']=len(rows)/(send_end-start) if send_end>start else None
@@ -54,8 +56,9 @@ def report(root):
         if r['index']!=i:raise ValueError('duplicate/misplaced point identity')
         expected=config['points'][i]
         if r['source_sha']!=config['source_sha']:raise ValueError('source SHA mismatch')
-        if any(r[k]!=expected[k] for k in ('tool','path','level','planned')):raise ValueError('matrix differs from frozen config')
+        if any(r[k]!=expected[k] for k in ('tool','path','level','planned','configured_intent','expected_scheduled','generator_not_scheduled')):raise ValueError('matrix differs from frozen config')
         runs.append(r)
+    if any(r.get('invalid') or r['missing'] for r in runs):raise ValueError('scheduled attempt receipts missing or invalid')
     (p/'measurement-summary.json').write_text(json.dumps({'config':config,'runs':runs,'boundary':'CPU synthetic platform HTTP health only; no Qwen/model throughput; one repetition exploratory'},indent=2))
     return runs
 
@@ -64,3 +67,8 @@ def summarize_go(events):
     if not tests or any(e['Action']!='pass' for e in tests):raise ValueError('empty, failed or skipped required Go tests')
     if not any(e['Test']=='TestDurableAdmissionAndRecovery' for e in tests):raise ValueError('required real PostgreSQL test absent')
     return {'tests':len(tests),'skipped':0,'no_test_packages':[e['Package'] for e in events if e.get('Action')=='skip' and not e.get('Test')]}
+
+def scheduled_budget(tool,intent,level):
+    if intent<=0 or level<=0:raise ValueError('positive frozen parameters required')
+    expected=(intent//level)*level if tool=='hey' else intent
+    return {'configured_intent':intent,'expected_scheduled':expected,'generator_not_scheduled':intent-expected}

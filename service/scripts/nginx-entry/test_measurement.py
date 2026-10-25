@@ -32,4 +32,17 @@ class GoReceiptTests(unittest.TestCase):
         for events in [[],[{'Action':'skip','Test':'TestDurableAdmissionAndRecovery'}]]:
             with self.assertRaises(ValueError):summarize_go(events)
 
+class HeySchedulingTests(unittest.TestCase):
+    def test_hey_worker_floor_is_independent_of_observed_rows(self):
+        from measurement import scheduled_budget
+        b=scheduled_budget('hey',300,8)
+        self.assertEqual(b,{'configured_intent':300,'expected_scheduled':296,'generator_not_scheduled':4})
+        r=summarize_rows([{'code':200,'latency_ns':1}]*295,b['expected_scheduled'])
+        self.assertEqual(r['missing'],1)
+    def test_other_registered_levels(self):
+        from measurement import scheduled_budget
+        self.assertEqual(scheduled_budget('hey',300,32)['expected_scheduled'],288)
+        self.assertEqual(scheduled_budget('hey',300,1)['generator_not_scheduled'],0)
+        self.assertEqual(scheduled_budget('vegeta',100,10)['expected_scheduled'],100)
+
 if __name__=='__main__':unittest.main()
