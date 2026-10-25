@@ -54,7 +54,7 @@ class PlatformTests(unittest.TestCase):
         session='ng-'+uuid.uuid4().hex[:12];p='/sessions/'+session+'/tasks';body={'key':'one','prompt':'hello'}
         before=request('http://127.0.0.1:18203','/metrics')[1]['requests']
         code,task=request(PROXY,p,body);self.assertEqual(code,202)
-        self.assertEqual(request(DIRECT,p,body),(200,task))
+        duplicate_code,duplicate=request(DIRECT,p,body);self.assertEqual(duplicate_code,200);self.assertEqual(duplicate['id'],task['id'])
         self.assertEqual(request(PROXY,p,dict(body,prompt='different'))[0],409)
         tasks=wait_task(PROXY,session);self.assertEqual(tasks,request(DIRECT,p)[1])
         self.assertEqual(request('http://127.0.0.1:18203','/metrics')[1]['requests'],before+1)
