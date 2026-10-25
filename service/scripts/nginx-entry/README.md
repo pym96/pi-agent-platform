@@ -1,0 +1,18 @@
+# Private Nginx CPU entry
+
+Opt-in Product, WorkOrder Pi #15 / NG1.0. The default service and singleton lock remain unchanged. The platform uses actual Pi SDK1.3.0 with its deterministic synthetic model. The separate lab uses two stateless HTTP fixtures, not two Go controllers or model replicas.
+
+`run.py --out ABSENT_DIRECTORY [--measure]` is the single bounded entry. Required environment: `SOURCE_SHA` full checkout SHA, `NODE_ROOT` Linux Node22.23.3 root, `PI_MODULES` matching Linux dependencies installed from `service/pi/package-lock.json`, `NG_DEPS` isolated Python dependencies from `service/inference/requirements-test.txt`; `NG_PROJECT` begins `pi-ng15-`, `NG_OWNER` is builder/regulator/ci. Server additionally needs `GO_ROOT`, `GO_MOD_CACHE`, writable `NG_BUILD_CACHE`, and existing GCC-capable `NG_BUILD_IMAGE` immutable ID. `--build-host` is for the bounded hosted CI machine, with `NG_HOST_TEST_DATABASE_URL` pointing to this profile's dedicated `ng_test` database. Never point at user history.
+
+```sh
+SOURCE_SHA=$(git rev-parse HEAD) python3 service/scripts/nginx-entry/run.py \
+  --measure --out /media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/builder/evidence/run-01
+```
+
+Server source/build/cache/logs must all stay beneath the authorized work root. The runner reserves loopback18201–18207, refuses conflicts, requires20GiB free, has a15min alarm, and caps each client/build container1CPU/2GiB. Platform PG0.75CPU/1GiB, Pi1CPU/3GiB, API1CPU/1GiB and Nginx0.5CPU/256MiB plus one build/client slot stay below6CPU/10GiB. Singleton probe uses the API slot. Lab runs after platform stops: two0.5CPU/256MiB fixtures and0.5CPU/256MiB Nginx plus client. At most six owned containers run. Only explicitly named/labelled owned resources are stopped; PG/Pi volumes remain for diagnosis. No GPU devices are passed.
+
+Required suites: `go test -race -count=1 -json ./...` against fresh `ng_test`, all inference CPU pytest via its strict public entry, nonempty measurement unittest, three real platform tests, four lab tests. Zero required skips is mandatory. Clients save HTTP and SSE receipts; PG snapshots bind retained records. Config/inspect/logs and cleanup accompany the receipts. The independent Regulator supplies additional isolated seeded failures; Builder does not self-accept.
+
+The optional frozen config contains exactly12 points: hey C1/8/32 × direct/proxy,300 requests; Vegeta10/25/50rps × direct/proxy,10s. Per-path10 warmups and2s interpoint idle are separate. HTTP/1.1, keepalive, no redirects,5s timeout. Raw hey CSV and Vegeta binary/decoded receipts are retained. hey supplies no custom per-attempt IDs; its CSV and proxy logs are only interval/count-correlated, not claimed to join one-to-one. Missing hey transport receipts count as failures. P50/P95 use nearest-rank over observed successful HTTP attempts, alongside all planned/observed/missing/error counts. One repetition is exploratory; tool rounding and same-host generator interference limit interpretation. SSE causal marker latency is separate from HTTP completion. No model TTFT, Qwen throughput, C10K capacity or improvement is established.
+
+`measurement.py` recomputes all12 points and rejects missing/extra rows and changed matrix identity. `test_entry.py` exercises actual public HTTP interfaces. Fixture ledgers preserve marker→independent release→terminal and received POST count. Client disconnect does not cancel a durable platform task. No background scheduling or public publishing is installed.

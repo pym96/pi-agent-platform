@@ -83,3 +83,7 @@ Historical measurements originated in the archived Pan #142 candidate. This inde
 ## Opt-in inference API QA
 
 [Inference API and pytest guide](inference/README.md) describes the separate Python HTTP module. It does not change this default Go/Pi deployment.
+
+## Opt-in private Nginx entry
+
+The [Nginx CPU guide](scripts/nginx-entry/README.md) adds an explicit separate Compose profile around one controller, plus an independent two-fixture routing lab and a frozen hey/Vegeta comparison. It does not change the default stack, remove singleton ownership or measure real-model capacity.

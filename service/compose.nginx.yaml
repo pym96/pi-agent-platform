@@ -1,0 +1,83 @@
+# Explicit opt-in CPU laboratory. Never combines two stateful Go controllers.
+name: ${NG_PROJECT:-pi-ng15-b}
+x-python: &python
+  image: python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+  labels: {workorder: '15', owner: '${NG_OWNER:-builder}', source-sha: '${SOURCE_SHA:?}'}
+  restart: 'no'
+  read_only: true
+  tmpfs: [/tmp:size=128m]
+services:
+  pg:
+    image: postgres@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24
+    profiles: [platform]
+    labels: {workorder: '15', owner: '${NG_OWNER:-builder}', source-sha: '${SOURCE_SHA:?}'}
+    environment: {POSTGRES_USER: pan, POSTGRES_PASSWORD: isolated-cpu-only, POSTGRES_DB: pan}
+    volumes: [pg-data:/var/lib/postgresql/data]
+    ports: ['127.0.0.1:18204:5432']
+    cpus: 0.75
+    mem_limit: 1g
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -h 127.0.0.1 -U pan']
+      interval: 2s
+      timeout: 2s
+      retries: 30
+  pi:
+    <<: *python
+    profiles: [platform]
+    working_dir: /source/service/pi
+    entrypoint: [/bin/sh, -c, '/node/bin/node model.mjs & model=$$!; trap "kill $$model" EXIT; /node/bin/node server.mjs']
+    environment: {PI_DATA: /data, HOME: /data/home, MODEL_URL: 'http://127.0.0.1:8082/v1'}
+    volumes: ['..:/source:ro', '${NODE_ROOT:?}:/node:ro', '${PI_MODULES:?}:/source/service/pi/node_modules:ro', 'pi-data:/data']
+    ports: ['127.0.0.1:18203:8081']
+    cpus: 1
+    mem_limit: 3g
+  api:
+    <<: *python
+    profiles: [platform]
+    entrypoint: [/source/service/bin/service]
+    environment: {DATABASE_URL: 'postgres://pan:isolated-cpu-only@pg:5432/pan?sslmode=disable', PI_URL: 'http://pi:8081', GOMAXPROCS: '1'}
+    volumes: ['..:/source:ro']
+    ports: ['127.0.0.1:18201:8080']
+    depends_on: {pg: {condition: service_healthy}}
+    cpus: 1
+    mem_limit: 1g
+  nginx:
+    image: nginx@sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284
+    profiles: [platform]
+    labels: {workorder: '15', owner: '${NG_OWNER:-builder}', source-sha: '${SOURCE_SHA:?}'}
+    entrypoint: [nginx, -g, 'daemon off;']
+    volumes: ['./nginx/platform.conf:/etc/nginx/nginx.conf:ro']
+    ports: ['127.0.0.1:18202:8080']
+    read_only: true
+    tmpfs: [/tmp:size=32m]
+    depends_on: [api]
+    cpus: 0.5
+    mem_limit: 256m
+  fixture-a: &fixture
+    <<: *python
+    profiles: [lab]
+    entrypoint: [python, /source/service/scripts/nginx-entry/fixture.py]
+    environment: {BACKEND_ID: A, EVIDENCE_FILE: /evidence/fixture-a.jsonl}
+    volumes: ['..:/source:ro', '${NG_EVIDENCE:?}:/evidence']
+    ports: ['127.0.0.1:18206:8080']
+    cpus: 0.5
+    mem_limit: 256m
+  fixture-b:
+    <<: *fixture
+    environment: {BACKEND_ID: B, EVIDENCE_FILE: /evidence/fixture-b.jsonl}
+    ports: ['127.0.0.1:18207:8080']
+  nginx-lab:
+    image: nginx@sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284
+    profiles: [lab]
+    labels: {workorder: '15', owner: '${NG_OWNER:-builder}', source-sha: '${SOURCE_SHA:?}'}
+    entrypoint: [nginx, -g, 'daemon off;']
+    volumes: ['./nginx/lab.conf:/etc/nginx/nginx.conf:ro']
+    ports: ['127.0.0.1:18205:8080']
+    read_only: true
+    tmpfs: [/tmp:size=32m]
+    depends_on: [fixture-a, fixture-b]
+    cpus: 0.5
+    mem_limit: 256m
+volumes:
+  pg-data:
+  pi-data:

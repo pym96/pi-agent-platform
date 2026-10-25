@@ -1,0 +1,57 @@
+name: Opt-in Nginx CPU entry
+on:
+  workflow_dispatch:
+    inputs:
+      measure:
+        description: Run the frozen 12-point exploratory HTTP matrix
+        type: boolean
+        default: false
+  push:
+    branches: [workorder/15-candidate]
+    paths: ['service/nginx/**', 'service/compose.nginx.yaml', 'service/scripts/nginx-entry/**', '.github/workflows/nginx-entry.yml']
+permissions: {contents: read}
+concurrency:
+  group: nginx-entry-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  cpu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      NG_PROJECT: pi-ng15-ci
+      NG_OWNER: ci
+      SOURCE_SHA: ${{ github.sha }}
+      NG_HOST_TEST_DATABASE_URL: postgres://pan:isolated-cpu-only@127.0.0.1:18204/ng_test?sslmode=disable
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with: {go-version: '1.24.13'}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22.23.3'}
+      - name: Isolated pinned dependencies
+        run: |
+          npm ci --prefix service/pi --ignore-scripts
+          python3 -m pip install --target "$RUNNER_TEMP/ng-deps" -r service/inference/requirements-test.txt
+          echo "NODE_ROOT=$(dirname "$(dirname "$(readlink -f "$(command -v node)")")")" >> "$GITHUB_ENV"
+          echo "PI_MODULES=$GITHUB_WORKSPACE/service/pi/node_modules" >> "$GITHUB_ENV"
+          echo "NG_DEPS=$RUNNER_TEMP/ng-deps" >> "$GITHUB_ENV"
+          docker pull python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+          docker pull postgres@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24
+          docker pull nginx@sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284
+      - name: Required actual Nginx, SDK, PG and CPU suites
+        run: |
+          if [ "${{ inputs.measure }}" = true ]; then
+            mkdir -p "$RUNNER_TEMP/ng-tools"
+            GOBIN="$RUNNER_TEMP/ng-tools" go install github.com/rakyll/hey@v0.1.4
+            GOBIN="$RUNNER_TEMP/ng-tools" go install github.com/tsenart/vegeta/v12@v12.12.0
+            export NG_TOOLS="$RUNNER_TEMP/ng-tools"
+            python3 service/scripts/nginx-entry/run.py --build-host --measure --out "$RUNNER_TEMP/ng-entry"
+          else
+            python3 service/scripts/nginx-entry/run.py --build-host --out "$RUNNER_TEMP/ng-entry"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nginx-entry-${{ github.sha }}
+          path: ${{ runner.temp }}/ng-entry
+          if-no-files-found: error
