@@ -67,6 +67,6 @@ server宿主工作全部位于获授权的本工单builder根，每个SSH先cd�
 
 最终[owned进程回执](owned-final.txt)为空；run-06 summary和各失败summary的remaining_owned_running均为空。PG/Pi诊断卷保留，不能声称删除了全部资源。[工作根字节数](disk-root.txt)和[owned镜像/卷统计](disk-owned.txt)单列，总新增留存量低于2GiB；未清理历史或外来资源。静态图渲染容器也已退出。
 
-运行入口和必需环境见[指南](../../../service/scripts/nginx-entry/README.md)。最终同SHA hosted CI需要成功，最多4个完整run；Handoff提供真实run链接，不能用当前自检替代CI。R另用新工作树、自己的源构建和owned资源执行，Master只有收到正式accepted后才可集成。
+运行入口和必需环境见[指南](../../../service/scripts/nginx-entry/README.md)。首个hosted CI40193666085（候选5b6a11a76c3731774b264af0b9b4c51eb0d794aa）在free≥20GiB guard处失败，尚未build或启动服务；[原始artifact](ci-40193666085/summary.json)保留。Master授权只在专用github-hosted Linux job且空间不足时清理预装、此次不用的`/usr/local/lib/android` SDK，记录df/du前后；没有降低20GiB保护、docker prune或server/本机清理。最终同SHA hosted CI需要成功，最多4个完整run；Handoff提供真实run链接，不能用当前自检替代CI。R另用新工作树、自己的源构建和owned资源执行，Master只有收到正式accepted后才可集成。
 
 贡献：Human给方向、问题和预算；Master发现/裁定单控制器边界和hey计数修订；Builder Agent实施、排错、记录；Regulator独立验收。没有将本候选写入事实账本、现实简历或公开内容。

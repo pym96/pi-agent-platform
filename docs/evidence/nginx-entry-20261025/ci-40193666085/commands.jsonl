@@ -1,0 +1,6 @@
+{"name": "ports-before", "command": ["ss", "-ltn"], "started_ns": 1792931666423928135, "ended_ns": 1792931666450179150, "exit_code": 0}
+{"name": "all-logs", "command": ["docker", "compose", "-p", "pi-ng15-ci", "-f", "service/compose.nginx.yaml", "--profile", "platform", "--profile", "lab", "logs", "--no-color"], "started_ns": 1792931666450251355, "ended_ns": 1792931666729803385, "exit_code": 0}
+{"name": "cleanup", "command": ["docker", "compose", "-p", "pi-ng15-ci", "-f", "service/compose.nginx.yaml", "--profile", "platform", "--profile", "lab", "down", "--timeout", "5"], "started_ns": 1792931666729849532, "ended_ns": 1792931666815473033, "exit_code": 0}
+{"name": "extra-owned", "command": ["docker", "ps", "-aq", "--filter", "label=ng.project=pi-ng15-ci"], "started_ns": 1792931666815514732, "ended_ns": 1792931666831011542, "exit_code": 0}
+{"name": "remaining-compose", "command": ["docker", "ps", "--filter", "label=com.docker.compose.project=pi-ng15-ci", "--format", "{{.Names}}"], "started_ns": 1792931666831044474, "ended_ns": 1792931666846031854, "exit_code": 0}
+{"name": "remaining-extra", "command": ["docker", "ps", "--filter", "label=ng.project=pi-ng15-ci", "--format", "{{.Names}}"], "started_ns": 1792931666846065237, "ended_ns": 1792931666860802958, "exit_code": 0}

@@ -28,6 +28,18 @@ jobs:
         with: {go-version: '1.24.13'}
       - uses: actions/setup-node@v4
         with: {node-version: '22.23.3'}
+      - name: Record and prepare exclusive hosted runner disk
+        run: |
+          test "$RUNNER_ENVIRONMENT" = github-hosted
+          test "$RUNNER_OS" = Linux
+          mkdir -p "$RUNNER_TEMP/ng-preflight"
+          df -B1 "$GITHUB_WORKSPACE" | tee "$RUNNER_TEMP/ng-preflight/disk-before.txt"
+          available=$(df --output=avail -B1 "$GITHUB_WORKSPACE" | tail -n 1)
+          if [ "$available" -lt 21474836480 ] && [ -d /usr/local/lib/android ]; then
+            sudo du -sb /usr/local/lib/android | tee "$RUNNER_TEMP/ng-preflight/removed-sdk-size.txt"
+            sudo rm -rf -- /usr/local/lib/android
+          fi
+          df -B1 "$GITHUB_WORKSPACE" | tee "$RUNNER_TEMP/ng-preflight/disk-after.txt"
       - name: Isolated pinned dependencies
         run: |
           npm ci --prefix service/pi --ignore-scripts
@@ -53,5 +65,7 @@ jobs:
         if: always()
         with:
           name: nginx-entry-${{ github.sha }}
-          path: ${{ runner.temp }}/ng-entry
+          path: |
+            ${{ runner.temp }}/ng-entry
+            ${{ runner.temp }}/ng-preflight
           if-no-files-found: error
