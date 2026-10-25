@@ -58,3 +58,9 @@ def report(root):
         runs.append(r)
     (p/'measurement-summary.json').write_text(json.dumps({'config':config,'runs':runs,'boundary':'CPU synthetic platform HTTP health only; no Qwen/model throughput; one repetition exploratory'},indent=2))
     return runs
+
+def summarize_go(events):
+    tests=[e for e in events if e.get('Test') and e.get('Action') in ['pass','skip','fail']]
+    if not tests or any(e['Action']!='pass' for e in tests):raise ValueError('empty, failed or skipped required Go tests')
+    if not any(e['Test']=='TestDurableAdmissionAndRecovery' for e in tests):raise ValueError('required real PostgreSQL test absent')
+    return {'tests':len(tests),'skipped':0,'no_test_packages':[e['Package'] for e in events if e.get('Action')=='skip' and not e.get('Test')]}

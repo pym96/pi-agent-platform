@@ -2,7 +2,7 @@
 """Single bounded CPU entry point. Owns only its explicit project; retains volumes."""
 import argparse,csv,hashlib,json,os,signal,subprocess,sys,threading,time,urllib.request
 from pathlib import Path
-from measurement import report
+from measurement import report,summarize_go
 ROOT=Path(__file__).resolve().parents[3];PYTHON='python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1'
 p=argparse.ArgumentParser();p.add_argument('--out',required=True);p.add_argument('--measure',action='store_true');p.add_argument('--build-host',action='store_true');a=p.parse_args()
 OUT=Path(a.out).resolve();OUT.mkdir(parents=True,exist_ok=False);PROJECT=os.environ.get('NG_PROJECT','pi-ng15-b');OWNER=os.environ.get('NG_OWNER','builder')
@@ -112,7 +112,7 @@ try:
     else:
         testargs=args.copy();testargs[testargs.index('none')]=PROJECT+'_default';testargs[-1]='TEST_DATABASE_URL=postgres://pan:isolated-cpu-only@pg:5432/ng_test?sslmode=disable /go/bin/go test -p 1 -race -count=1 -json ./...'
         testargs[testargs.index(PROJECT+'-build')]=PROJECT+'-gotests';command(testargs,name='go-tests',timeout=240)
-    gotest=(OUT/'go-tests.stdout').read_text();events=[json.loads(x) for x in gotest.splitlines() if x.startswith('{')];assert not any(x.get('Action')=='skip' for x in events),'required Go skip';assert any(x.get('Action')=='pass' and x.get('Test') for x in events),'zero Go tests'
+    gotest=(OUT/'go-tests.stdout').read_text();events=[json.loads(x) for x in gotest.splitlines() if x.startswith('{')];save('go-tests-summary.json',summarize_go(events))
     container(['python','service/inference/scripts/run_tests.py','--out','/evidence/inference'],'inference',timeout=180)
     unit=container(['python','-m','unittest','discover','-s','service/scripts/nginx-entry','-p','test_measurement.py'],'measurement-tests')
     assert 'Ran 0 tests' not in unit.stderr and 'Ran ' in unit.stderr and 'OK' in unit.stderr,'empty required measurement suite'
