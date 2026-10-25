@@ -1,0 +1,30 @@
+{
+  "index": 1,
+  "tool": "hey",
+  "path": "direct",
+  "level": 8,
+  "planned": 300,
+  "configured_intent": 300,
+  "expected_scheduled": 296,
+  "generator_not_scheduled": 4,
+  "command": [
+    "/tools/hey",
+    "-n",
+    "300",
+    "-c",
+    "8",
+    "-t",
+    "5",
+    "-cpus",
+    "1",
+    "-disable-redirects",
+    "-o",
+    "csv",
+    "http://127.0.0.1:18201/health"
+  ],
+  "exit_code": 0,
+  "started_ns": 1792932461752748540,
+  "ended_ns": 1792932462277250467,
+  "elapsed_s": 0.5245051090605557,
+  "source_sha": "9a00285935dd61c29c9a2ddf9ebcfc49ad29d3ba"
+}

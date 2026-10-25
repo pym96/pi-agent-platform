@@ -1,0 +1,28 @@
+test_01_actual_sdk_identity_idempotency_and_replay (__main__.PlatformTests.test_01_actual_sdk_identity_idempotency_and_replay) ... ok
+test_02_input_boundaries_match_direct (__main__.PlatformTests.test_02_input_boundaries_match_direct) ... FAIL
+test_03_disconnect_preserves_durable_task_and_failure (__main__.PlatformTests.test_03_disconnect_preserves_durable_task_and_failure) ... ok
+
+======================================================================
+FAIL: test_02_input_boundaries_match_direct (__main__.PlatformTests.test_02_input_boundaries_match_direct)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/source/service/scripts/nginx-entry/test_entry.py", line 77, in test_02_input_boundaries_match_direct
+    statuses=[request(b,'/sessions/'+s+'/tasks',body)[0] for b in [DIRECT,PROXY]];self.assertEqual(statuses,[400,400])
+                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [400, 413] != [400, 400]
+
+First differing element 1:
+413
+400
+
+- [400, 413]
+?        ^^
+
++ [400, 400]
+?        ^^
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.938s
+
+FAILED (failures=1)

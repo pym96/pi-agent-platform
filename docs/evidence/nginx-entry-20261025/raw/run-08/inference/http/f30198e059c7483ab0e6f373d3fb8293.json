@@ -1,0 +1,28 @@
+{
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/v1/chat/completions",
+      "request": {
+        "model": "Qwen3-8B",
+        "stream": true,
+        "messages": [
+          {
+            "role": "user",
+            "content": "hello"
+          }
+        ],
+        "max_tokens": 8
+      },
+      "status": 200,
+      "body_read": true,
+      "body": "data: {\"choices\": [{\"delta\": {\"role\": \"assistant\", \"content\": \"\"}, \"finish_reason\": null}]}\n\ndata: {\"error\": {\"code\": \"backend_failure\"}}\n\ndata: [DONE]\n\n"
+    }
+  ],
+  "lifecycle": [
+    "started",
+    "settled"
+  ],
+  "active_after_cleanup": 0,
+  "max_active": 1
+}

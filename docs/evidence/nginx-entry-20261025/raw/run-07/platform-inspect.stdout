@@ -1,0 +1,1124 @@
+[
+    {
+        "Id": "62673c8d090f7c6806eb6e5ef5f300d695c10e8e948bd4cc5358a1ada7dc41f9",
+        "Created": "2026-10-25T12:45:29.445458349Z",
+        "Path": "/source/service/bin/service",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 2300139,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-25T12:45:42.093629801Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:df18428df8a0f9189c84e7424d214b4c50092af1f9dca5842a00c41c39bda316",
+        "ResolvConfPath": "/media/usv012/pjx/docker-data/containers/62673c8d090f7c6806eb6e5ef5f300d695c10e8e948bd4cc5358a1ada7dc41f9/resolv.conf",
+        "HostnamePath": "/media/usv012/pjx/docker-data/containers/62673c8d090f7c6806eb6e5ef5f300d695c10e8e948bd4cc5358a1ada7dc41f9/hostname",
+        "HostsPath": "/media/usv012/pjx/docker-data/containers/62673c8d090f7c6806eb6e5ef5f300d695c10e8e948bd4cc5358a1ada7dc41f9/hosts",
+        "LogPath": "/media/usv012/pjx/docker-data/containers/62673c8d090f7c6806eb6e5ef5f300d695c10e8e948bd4cc5358a1ada7dc41f9/62673c8d090f7c6806eb6e5ef5f300d695c10e8e948bd4cc5358a1ada7dc41f9-json.log",
+        "Name": "/pi-ng15-b-07-api-1",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/builder/source:/source:ro"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "pi-ng15-b-07_default",
+            "PortBindings": {
+                "8080/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "18201"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": true,
+            "SecurityOpt": null,
+            "Tmpfs": {
+                "/tmp": "size=128m"
+            },
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 1073741824,
+            "NanoCpus": 1000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 2147483648,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/media/usv012/pjx/docker-data/overlay2/64e5d8809ae48150a517eec7f6f45dac85063dd8fa1df23b5c95aae93b6ab3c7-init/diff:/media/usv012/pjx/docker-data/overlay2/06e69b065e7ed60063c6021d6d6460a1c5e41d1f5c5551593c30c2dba09e5aa2/diff:/media/usv012/pjx/docker-data/overlay2/ad335a040b28788355b69b9ba3b4e9c9810d0c41864be8047ffd7d171b02b23c/diff:/media/usv012/pjx/docker-data/overlay2/dd3d9cdcc8c8ffac5f5222ed43e16eb5194198afcefac4e2552ed0e7e47888fa/diff:/media/usv012/pjx/docker-data/overlay2/4140d54cf73248f33a1a4b084884d566497eaf4e30e14af596f622947fa4f86f/diff",
+                "MergedDir": "/media/usv012/pjx/docker-data/overlay2/64e5d8809ae48150a517eec7f6f45dac85063dd8fa1df23b5c95aae93b6ab3c7/merged",
+                "UpperDir": "/media/usv012/pjx/docker-data/overlay2/64e5d8809ae48150a517eec7f6f45dac85063dd8fa1df23b5c95aae93b6ab3c7/diff",
+                "WorkDir": "/media/usv012/pjx/docker-data/overlay2/64e5d8809ae48150a517eec7f6f45dac85063dd8fa1df23b5c95aae93b6ab3c7/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/builder/source",
+                "Destination": "/source",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "62673c8d090f",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "8080/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PI_URL=http://pi:8081",
+                "GOMAXPROCS=1",
+                "DATABASE_URL=postgres://pan:isolated-cpu-only@pg:5432/pan?sslmode=disable",
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+                "PYTHON_VERSION=3.12.15",
+                "PYTHON_SHA256=c2c4321961fab0fb999d66e0cecf521c2ab3994c7992873ea99e306c1094fd5a"
+            ],
+            "Cmd": null,
+            "Image": "python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/source/service/bin/service"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "ddb1b6e24e43d30afc94ca4da0b0f3414cf60b4d8440e717c5116f7eda498a5b",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "pg:service_healthy:false",
+                "com.docker.compose.image": "sha256:df18428df8a0f9189c84e7424d214b4c50092af1f9dca5842a00c41c39bda316",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "pi-ng15-b-07",
+                "com.docker.compose.project.config_files": "/media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/builder/source/service/compose.nginx.yaml",
+                "com.docker.compose.project.working_dir": "/media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/builder/source/service",
+                "com.docker.compose.service": "api",
+                "com.docker.compose.version": "2.29.7",
+                "owner": "builder",
+                "source-sha": "1a97f28cc06ba9ae8d7ab2a43269b8cf6a07156d",
+                "workorder": "15"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "e618492652e50ecad7c39a328663bf1fca53ebca6bb73def3c84abf323d930d6",
+            "SandboxKey": "/var/run/docker/netns/e618492652e5",
+            "Ports": {
+                "8080/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "18201"
+                    }
+                ]
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "pi-ng15-b-07_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "pi-ng15-b-07-api-1",
+                        "api"
+                    ],
+                    "MacAddress": "02:42:ac:14:00:04",
+                    "DriverOpts": null,
+                    "NetworkID": "748208f52a6fb49a4ab6d76d1fc905a6d72bff49acbc1465c61d4cd578b789e0",
+                    "EndpointID": "97a60a1c18af9e35523bb92e4c8979f91d8784626896168b0300687eff7b6367",
+                    "Gateway": "172.20.0.1",
+                    "IPAddress": "172.20.0.4",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "pi-ng15-b-07-api-1",
+                        "api",
+                        "62673c8d090f"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "Id": "86755e383c42aeb2af5e087295335bb85747799daa57be2626b360f1b54efe0a",
+        "Created": "2026-10-25T12:45:43.197159584Z",
+        "Path": "nginx",
+        "Args": [
+            "-g",
+            "daemon off;"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 2300495,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-25T12:45:45.095767091Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:c318e336065b17ff460aeac6d14bce5d0b13e35f25d5cb1843b635359fc00c9a",
+        "ResolvConfPath": "/media/usv012/pjx/docker-data/containers/86755e383c42aeb2af5e087295335bb85747799daa57be2626b360f1b54efe0a/resolv.conf",
+        "HostnamePath": "/media/usv012/pjx/docker-data/containers/86755e383c42aeb2af5e087295335bb85747799daa57be2626b360f1b54efe0a/hostname",
+        "HostsPath": "/media/usv012/pjx/docker-data/containers/86755e383c42aeb2af5e087295335bb85747799daa57be2626b360f1b54efe0a/hosts",
+        "LogPath": "/media/usv012/pjx/docker-data/containers/86755e383c42aeb2af5e087295335bb85747799daa57be2626b360f1b54efe0a/86755e383c42aeb2af5e087295335bb85747799daa57be2626b360f1b54efe0a-json.log",
+        "Name": "/pi-ng15-b-07-nginx-1",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/builder/source/service/nginx/platform.conf:/etc/nginx/nginx.conf:ro"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "pi-ng15-b-07_default",
+            "PortBindings": {
+                "8080/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "18202"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": true,
+            "SecurityOpt": null,
+            "Tmpfs": {
+                "/tmp": "size=32m"
+            },
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 268435456,
+            "NanoCpus": 500000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 536870912,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/media/usv012/pjx/docker-data/overlay2/ed9afc6acb6d609e5ea0f0b3c6332472cf12305b5c78aca57999b1d73343e404-init/diff:/media/usv012/pjx/docker-data/overlay2/cb291b447df3c78ca03520c24ab615ed378fb5d43a1051f833e8c637d20f666d/diff:/media/usv012/pjx/docker-data/overlay2/8de9af205bfb689c7da51e63089bee47e3fc227ef489e2771861b70a04f50d21/diff:/media/usv012/pjx/docker-data/overlay2/4abd2b0d2c3dfe988ac2494e79130d9e7b253dd5d6577ceb16844005effcd579/diff:/media/usv012/pjx/docker-data/overlay2/6511a4f2f136235a7b01779d4d2338a3c9e1beaec69f4ccbb7870e9f4d401dad/diff:/media/usv012/pjx/docker-data/overlay2/7ef0397ab82ce428420905f438ce9cc051c8ef700e205b1d87077633e1816d83/diff:/media/usv012/pjx/docker-data/overlay2/c79f3de3d7d53c0833e5beec3ad19b77fceb1a0407b9e334c983400b8cf41eb8/diff:/media/usv012/pjx/docker-data/overlay2/183dc500fedf9ab3c2dabaabeb4d442711329702ad847575e5552957832bc384/diff:/media/usv012/pjx/docker-data/overlay2/ef00008b0254c33000af185e871e2cb21b38177eab035fb844074508127285b0/diff",
+                "MergedDir": "/media/usv012/pjx/docker-data/overlay2/ed9afc6acb6d609e5ea0f0b3c6332472cf12305b5c78aca57999b1d73343e404/merged",
+                "UpperDir": "/media/usv012/pjx/docker-data/overlay2/ed9afc6acb6d609e5ea0f0b3c6332472cf12305b5c78aca57999b1d73343e404/diff",
+                "WorkDir": "/media/usv012/pjx/docker-data/overlay2/ed9afc6acb6d609e5ea0f0b3c6332472cf12305b5c78aca57999b1d73343e404/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/builder/source/service/nginx/platform.conf",
+                "Destination": "/etc/nginx/nginx.conf",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "86755e383c42",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "80/tcp": {},
+                "8080/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NGINX_VERSION=1.28.0",
+                "PKG_RELEASE=1",
+                "DYNPKG_RELEASE=1",
+                "NJS_VERSION=0.8.10",
+                "NJS_RELEASE=1"
+            ],
+            "Cmd": null,
+            "Image": "nginx@sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284",
+            "Volumes": null,
+            "WorkingDir": "/",
+            "Entrypoint": [
+                "nginx",
+                "-g",
+                "daemon off;"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "f4a4af2b5450fa799ab12c4114fba87aaf31d5a05198753dfefaccd504ef6457",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "api:service_started:false",
+                "com.docker.compose.image": "sha256:c318e336065b17ff460aeac6d14bce5d0b13e35f25d5cb1843b635359fc00c9a",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "pi-ng15-b-07",
+                "com.docker.compose.project.config_files": "/media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/builder/source/service/compose.nginx.yaml",
+                "com.docker.compose.project.working_dir": "/media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/builder/source/service",
+                "com.docker.compose.service": "nginx",
+                "com.docker.compose.version": "2.29.7",
+                "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>",
+                "owner": "builder",
+                "source-sha": "1a97f28cc06ba9ae8d7ab2a43269b8cf6a07156d",
+                "workorder": "15"
+            },
+            "StopSignal": "SIGQUIT"
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "46bbf52af81df06bd26fe8e8fa6da17a741ea2a301cf41aec36b0056b114a9e7",
+            "SandboxKey": "/var/run/docker/netns/46bbf52af81d",
+            "Ports": {
+                "80/tcp": null,
+                "8080/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "18202"
+                    }
+                ]
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "pi-ng15-b-07_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "pi-ng15-b-07-nginx-1",
+                        "nginx"
+                    ],
+                    "MacAddress": "02:42:ac:14:00:05",
+                    "DriverOpts": null,
+                    "NetworkID": "748208f52a6fb49a4ab6d76d1fc905a6d72bff49acbc1465c61d4cd578b789e0",
+                    "EndpointID": "f808d6b39a0435aaa287412d9c874d6f0b0307d1a760281ee9fdc667d54b0779",
+                    "Gateway": "172.20.0.1",
+                    "IPAddress": "172.20.0.5",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "pi-ng15-b-07-nginx-1",
+                        "nginx",
+                        "86755e383c42"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "Id": "bee2062f69e931b6f9f5fed42256028f1445c02453c10117a9e500112689173d",
+        "Created": "2026-10-25T12:45:29.283412921Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "postgres"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 2299561,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-25T12:45:31.24614328Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+                "Status": "healthy",
+                "FailingStreak": 0,
+                "Log": [
+                    {
+                        "Start": "2026-10-25T20:45:35.556518271+08:00",
+                        "End": "2026-10-25T20:45:35.618758306+08:00",
+                        "ExitCode": 2,
+                        "Output": "127.0.0.1:5432 - no response\n"
+                    },
+                    {
+                        "Start": "2026-10-25T20:45:37.620128376+08:00",
+                        "End": "2026-10-25T20:45:37.688353353+08:00",
+                        "ExitCode": 2,
+                        "Output": "127.0.0.1:5432 - no response\n"
+                    },
+                    {
+                        "Start": "2026-10-25T20:45:39.689337231+08:00",
+                        "End": "2026-10-25T20:45:39.757815132+08:00",
+                        "ExitCode": 2,
+                        "Output": "127.0.0.1:5432 - no response\n"
+                    },
+                    {
+                        "Start": "2026-10-25T20:45:41.758564634+08:00",
+                        "End": "2026-10-25T20:45:41.839721576+08:00",
+                        "ExitCode": 0,
+                        "Output": "127.0.0.1:5432 - accepting connections\n"
+                    },
+                    {
+                        "Start": "2026-10-25T20:45:43.841245616+08:00",
+                        "End": "2026-10-25T20:45:43.916311607+08:00",
+                        "ExitCode": 0,
+                        "Output": "127.0.0.1:5432 - accepting connections\n"
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:79bd7c99e923138f136f8009d6bffa66e21e9d4fda5c0c561b00fc9c90cfe537",
+        "ResolvConfPath": "/media/usv012/pjx/docker-data/containers/bee2062f69e931b6f9f5fed42256028f1445c02453c10117a9e500112689173d/resolv.conf",
+        "HostnamePath": "/media/usv012/pjx/docker-data/containers/bee2062f69e931b6f9f5fed42256028f1445c02453c10117a9e500112689173d/hostname",
+        "HostsPath": "/media/usv012/pjx/docker-data/containers/bee2062f69e931b6f9f5fed42256028f1445c02453c10117a9e500112689173d/hosts",
+        "LogPath": "/media/usv012/pjx/docker-data/containers/bee2062f69e931b6f9f5fed42256028f1445c02453c10117a9e500112689173d/bee2062f69e931b6f9f5fed42256028f1445c02453c10117a9e500112689173d-json.log",
+        "Name": "/pi-ng15-b-07-pg-1",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": [
+            "a3f9890cd1d5f233cda920bdadedd5a41dcb63ae9df6e86c188abf2335c250bd"
+        ],
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "pi-ng15-b-07_default",
+            "PortBindings": {
+                "5432/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "18204"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 1073741824,
+            "NanoCpus": 750000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 2147483648,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "volume",
+                    "Source": "pi-ng15-b-07_pg-data",
+                    "Target": "/var/lib/postgresql/data",
+                    "VolumeOptions": {}
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/media/usv012/pjx/docker-data/overlay2/52c02441f2618d5a31033d01159fbbaa2d9ec6e084d50e4a08ce5f9abfca7100-init/diff:/media/usv012/pjx/docker-data/overlay2/a7f0045ef1153fb6cfdc671b49b235c83760e09e2989db4f36140f55112b1cbd/diff:/media/usv012/pjx/docker-data/overlay2/c46bd7c0e9620d8dad7ce84d4ff6b5df653c431e5cd83892cddfe40b2004b643/diff:/media/usv012/pjx/docker-data/overlay2/b2e69ff3be589483de49666ff0cc6103b2dac60a7a82d8eee4c10c704cf02d65/diff:/media/usv012/pjx/docker-data/overlay2/b74eb5e2226831500b5f3cb0c263d94c01ece35d9b299d9db1ef0df1618b482f/diff:/media/usv012/pjx/docker-data/overlay2/a7dde935b8656668c6cc396edaabc6b3dbf196c1ca0026df9db4164f5763db62/diff:/media/usv012/pjx/docker-data/overlay2/33f1b46e1a6585bf2612ddfb653474d402245920555729b5330edc476f21d2c5/diff:/media/usv012/pjx/docker-data/overlay2/b9d645f0fefe68a88218e9903d5d833ea312211cca5b466ff0370d938985bfba/diff:/media/usv012/pjx/docker-data/overlay2/b092c1069dc52d705bbb45e6c1f726f172c897314b43de9e83d85bf857ad52ee/diff:/media/usv012/pjx/docker-data/overlay2/1c6c48782e87d74593c5bf0cd219c5d581a84f9ea97dcb4e133631c27dfdaf19/diff:/media/usv012/pjx/docker-data/overlay2/0e650bad698dda6bb16be4c42f95ac391ec7e27bcd3792cf8ecb0418ceb6e0d5/diff",
+                "MergedDir": "/media/usv012/pjx/docker-data/overlay2/52c02441f2618d5a31033d01159fbbaa2d9ec6e084d50e4a08ce5f9abfca7100/merged",
+                "UpperDir": "/media/usv012/pjx/docker-data/overlay2/52c02441f2618d5a31033d01159fbbaa2d9ec6e084d50e4a08ce5f9abfca7100/diff",
+                "WorkDir": "/media/usv012/pjx/docker-data/overlay2/52c02441f2618d5a31033d01159fbbaa2d9ec6e084d50e4a08ce5f9abfca7100/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "pi-ng15-b-07_pg-data",
+                "Source": "/media/usv012/pjx/docker-data/volumes/pi-ng15-b-07_pg-data/_data",
+                "Destination": "/var/lib/postgresql/data",
+                "Driver": "local",
+                "Mode": "z",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "bee2062f69e9",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "5432/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "POSTGRES_USER=pan",
+                "POSTGRES_PASSWORD=isolated-cpu-only",
+                "POSTGRES_DB=pan",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.19",
+                "LANG=en_US.utf8",
+                "PG_MAJOR=17",
+                "PG_VERSION=17.11",
+                "PG_SHA256=dd27f2b3c59e73ed14aa3324901242bf69a032a6347805f274e6260322d42979",
+                "DOCKER_PG_LLVM_DEPS=llvm21-dev \t\tclang21",
+                "PGDATA=/var/lib/postgresql/data"
+            ],
+            "Cmd": [
+                "postgres"
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "CMD-SHELL",
+                    "pg_isready -h 127.0.0.1 -U pan"
+                ],
+                "Interval": 2000000000,
+                "Timeout": 2000000000,
+                "Retries": 30
+            },
+            "Image": "postgres@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24",
+            "Volumes": {
+                "/var/lib/postgresql/data": {}
+            },
+            "WorkingDir": "/",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "bc540d336fb0484f3760fadf6fe4f30c6c12b30fc1e1d09a2b4dcefd9f6ee97d",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:79bd7c99e923138f136f8009d6bffa66e21e9d4fda5c0c561b00fc9c90cfe537",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "pi-ng15-b-07",
+                "com.docker.compose.project.config_files": "/media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/builder/source/service/compose.nginx.yaml",
+                "com.docker.compose.project.working_dir": "/media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/builder/source/service",
+                "com.docker.compose.service": "pg",
+                "com.docker.compose.version": "2.29.7",
+                "owner": "builder",
+                "source-sha": "1a97f28cc06ba9ae8d7ab2a43269b8cf6a07156d",
+                "workorder": "15"
+            },
+            "StopSignal": "SIGINT"
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "90d450a127e15569ec9e7cfc31452a3ea2834bd25e87231b72568e56793e4c37",
+            "SandboxKey": "/var/run/docker/netns/90d450a127e1",
+            "Ports": {
+                "5432/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "18204"
+                    }
+                ]
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "pi-ng15-b-07_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "pi-ng15-b-07-pg-1",
+                        "pg"
+                    ],
+                    "MacAddress": "02:42:ac:14:00:03",
+                    "DriverOpts": null,
+                    "NetworkID": "748208f52a6fb49a4ab6d76d1fc905a6d72bff49acbc1465c61d4cd578b789e0",
+                    "EndpointID": "12d9169fef28cec6eedb2c21425a4274bddb8321d22f86dc65a133aa0dd4f0a2",
+                    "Gateway": "172.20.0.1",
+                    "IPAddress": "172.20.0.3",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "pi-ng15-b-07-pg-1",
+                        "pg",
+                        "bee2062f69e9"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "Id": "a34e2016cb8b279417f6026ba3a1f3e3a1bb70fcaee81fb33d713c8030de2d9d",
+        "Created": "2026-10-25T12:45:29.281693957Z",
+        "Path": "/bin/sh",
+        "Args": [
+            "-c",
+            "/node/bin/node model.mjs & model=$!; trap \"kill $model\" EXIT; /node/bin/node server.mjs"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 2299497,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-25T12:45:31.150073939Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:df18428df8a0f9189c84e7424d214b4c50092af1f9dca5842a00c41c39bda316",
+        "ResolvConfPath": "/media/usv012/pjx/docker-data/containers/a34e2016cb8b279417f6026ba3a1f3e3a1bb70fcaee81fb33d713c8030de2d9d/resolv.conf",
+        "HostnamePath": "/media/usv012/pjx/docker-data/containers/a34e2016cb8b279417f6026ba3a1f3e3a1bb70fcaee81fb33d713c8030de2d9d/hostname",
+        "HostsPath": "/media/usv012/pjx/docker-data/containers/a34e2016cb8b279417f6026ba3a1f3e3a1bb70fcaee81fb33d713c8030de2d9d/hosts",
+        "LogPath": "/media/usv012/pjx/docker-data/containers/a34e2016cb8b279417f6026ba3a1f3e3a1bb70fcaee81fb33d713c8030de2d9d/a34e2016cb8b279417f6026ba3a1f3e3a1bb70fcaee81fb33d713c8030de2d9d-json.log",
+        "Name": "/pi-ng15-b-07-pi-1",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/builder/source:/source:ro",
+                "/media/usv012/pjx/pi-agent-platform/experiments/1/toolchains/node-v22.23.3:/node:ro",
+                "/media/usv012/pjx/pi-agent-platform/experiments/3/builder/source/service/pi/node_modules:/source/service/pi/node_modules:ro"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "pi-ng15-b-07_default",
+            "PortBindings": {
+                "8081/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "18203"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": true,
+            "SecurityOpt": null,
+            "Tmpfs": {
+                "/tmp": "size=128m"
+            },
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 3221225472,
+            "NanoCpus": 1000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 6442450944,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "volume",
+                    "Source": "pi-ng15-b-07_pi-data",
+                    "Target": "/data",
+                    "VolumeOptions": {}
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/media/usv012/pjx/docker-data/overlay2/5fd9c2c1a228e9c9757112477fb60eac592ecd0edba4f49e238c36d7be790537-init/diff:/media/usv012/pjx/docker-data/overlay2/06e69b065e7ed60063c6021d6d6460a1c5e41d1f5c5551593c30c2dba09e5aa2/diff:/media/usv012/pjx/docker-data/overlay2/ad335a040b28788355b69b9ba3b4e9c9810d0c41864be8047ffd7d171b02b23c/diff:/media/usv012/pjx/docker-data/overlay2/dd3d9cdcc8c8ffac5f5222ed43e16eb5194198afcefac4e2552ed0e7e47888fa/diff:/media/usv012/pjx/docker-data/overlay2/4140d54cf73248f33a1a4b084884d566497eaf4e30e14af596f622947fa4f86f/diff",
+                "MergedDir": "/media/usv012/pjx/docker-data/overlay2/5fd9c2c1a228e9c9757112477fb60eac592ecd0edba4f49e238c36d7be790537/merged",
+                "UpperDir": "/media/usv012/pjx/docker-data/overlay2/5fd9c2c1a228e9c9757112477fb60eac592ecd0edba4f49e238c36d7be790537/diff",
+                "WorkDir": "/media/usv012/pjx/docker-data/overlay2/5fd9c2c1a228e9c9757112477fb60eac592ecd0edba4f49e238c36d7be790537/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/builder/source",
+                "Destination": "/source",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/media/usv012/pjx/pi-agent-platform/experiments/1/toolchains/node-v22.23.3",
+                "Destination": "/node",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/media/usv012/pjx/pi-agent-platform/experiments/3/builder/source/service/pi/node_modules",
+                "Destination": "/source/service/pi/node_modules",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "volume",
+                "Name": "pi-ng15-b-07_pi-data",
+                "Source": "/media/usv012/pjx/docker-data/volumes/pi-ng15-b-07_pi-data/_data",
+                "Destination": "/data",
+                "Driver": "local",
+                "Mode": "z",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "a34e2016cb8b",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "8081/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PI_DATA=/data",
+                "HOME=/data/home",
+                "MODEL_URL=http://127.0.0.1:8082/v1",
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+                "PYTHON_VERSION=3.12.15",
+                "PYTHON_SHA256=c2c4321961fab0fb999d66e0cecf521c2ab3994c7992873ea99e306c1094fd5a"
+            ],
+            "Cmd": null,
+            "Image": "python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1",
+            "Volumes": null,
+            "WorkingDir": "/source/service/pi",
+            "Entrypoint": [
+                "/bin/sh",
+                "-c",
+                "/node/bin/node model.mjs & model=$!; trap \"kill $model\" EXIT; /node/bin/node server.mjs"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "7c3ea0668b0631f8c89e7d699dfff4c62aba36add3c9764cd16b4e0329a824dc",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:df18428df8a0f9189c84e7424d214b4c50092af1f9dca5842a00c41c39bda316",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "pi-ng15-b-07",
+                "com.docker.compose.project.config_files": "/media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/builder/source/service/compose.nginx.yaml",
+                "com.docker.compose.project.working_dir": "/media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/builder/source/service",
+                "com.docker.compose.service": "pi",
+                "com.docker.compose.version": "2.29.7",
+                "owner": "builder",
+                "source-sha": "1a97f28cc06ba9ae8d7ab2a43269b8cf6a07156d",
+                "workorder": "15"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "c07918f451029a93a96cfe2801a402fa2ed3ee04f76fbdd77fa72c1c114ebe52",
+            "SandboxKey": "/var/run/docker/netns/c07918f45102",
+            "Ports": {
+                "8081/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "18203"
+                    }
+                ]
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "pi-ng15-b-07_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "pi-ng15-b-07-pi-1",
+                        "pi"
+                    ],
+                    "MacAddress": "02:42:ac:14:00:02",
+                    "DriverOpts": null,
+                    "NetworkID": "748208f52a6fb49a4ab6d76d1fc905a6d72bff49acbc1465c61d4cd578b789e0",
+                    "EndpointID": "61076569738eb1ad1ab3982b2ac76bb48f42f664ac1295df16230402dd212fd5",
+                    "Gateway": "172.20.0.1",
+                    "IPAddress": "172.20.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "pi-ng15-b-07-pi-1",
+                        "pi",
+                        "a34e2016cb8b"
+                    ]
+                }
+            }
+        }
+    }
+]

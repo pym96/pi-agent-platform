@@ -1,0 +1,9 @@
+test_01_round_robin_with_request_receipts (__main__.LabTests.test_01_round_robin_with_request_receipts) ... ok
+test_02_marker_precedes_independent_release (__main__.LabTests.test_02_marker_precedes_independent_release) ... ok
+test_03_received_post_drop_is_not_retried (__main__.LabTests.test_03_received_post_drop_is_not_retried) ... ok
+test_04_failure_recovery_and_truncation (__main__.LabTests.test_04_failure_recovery_and_truncation) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.332s
+
+OK

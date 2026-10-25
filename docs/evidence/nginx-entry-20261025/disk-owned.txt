@@ -1,13 +1,17 @@
 nginx                                                                          1.28.0-alpine                     c318e336065b   18 months ago   48.3MB    0B            48.29MB       0
 Local Volumes space usage:
 VOLUME NAME                                           LINKS     SIZE
-pi-ng15-b-05_pg-data                                  0         56.36MB
 pi-ng15-b-03_pi-data                                  0         0B
 pi-ng15-b-04_pi-data                                  0         0B
 pi-ng15-b-05_pi-data                                  0         5.197kB
 pi-ng15-b-06_pi-data                                  0         5.195kB
+pi-ng15-b-08_pi-data                                  0         5.196kB
 pi-ng15-b-02_pi-data                                  0         0B
 pi-ng15-b-04_pg-data                                  0         56.11MB
 pi-ng15-b-03_pg-data                                  0         48.01MB
 pi-ng15-b-06_pg-data                                  0         56.36MB
 pi-ng15-b-02_pg-data                                  0         48.01MB
+pi-ng15-b-07_pi-data                                  0         5.198kB
+pi-ng15-b-08_pg-data                                  0         56.36MB
+pi-ng15-b-05_pg-data                                  0         56.36MB
+pi-ng15-b-07_pg-data                                  0         56.12MB

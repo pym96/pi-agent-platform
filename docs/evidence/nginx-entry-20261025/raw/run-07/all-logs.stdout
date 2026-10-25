@@ -1,0 +1,198 @@
+api-1  | 2026/10/25 12:45:42 Pi service listening :8080; executor concurrency=2 queue=128 SSE=11000
+nginx-1  | 2026/10/25 12:45:45 [notice] 1#1: using the "epoll" event method
+nginx-1  | 2026/10/25 12:45:45 [notice] 1#1: nginx/1.28.0
+nginx-1  | 2026/10/25 12:45:45 [notice] 1#1: built by gcc 14.2.0 (Alpine 14.2.0) 
+nginx-1  | 2026/10/25 12:45:45 [notice] 1#1: OS: Linux 6.8.0-138-generic
+nginx-1  | 2026/10/25 12:45:45 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+nginx-1  | 2026/10/25 12:45:45 [notice] 1#1: start worker processes
+nginx-1  | 2026/10/25 12:45:45 [notice] 1#1: start worker process 7
+nginx-1  | {"at":"1792932345.380","method":"GET","uri":"/health","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+pg-1     | The files belonging to this database system will be owned by user "postgres".
+pg-1     | This user must also own the server process.
+nginx-1  | {"at":"1792932359.622","method":"POST","uri":"/sessions/ng-3e6f6bf68c13/tasks","request_id":"","status":202,"upstream":"172.20.0.4:8080","upstream_status":"202","seconds":0.011}
+nginx-1  | 2026/10/25 12:45:59 [info] 7#7: *3 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932359.647","method":"POST","uri":"/sessions/ng-3e6f6bf68c13/tasks","request_id":"","status":409,"upstream":"172.20.0.4:8080","upstream_status":"409","seconds":0.001}
+nginx-1  | 2026/10/25 12:45:59 [info] 7#7: *5 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932359.654","method":"GET","uri":"/sessions/ng-3e6f6bf68c13/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.002}
+pg-1     | 
+nginx-1  | 2026/10/25 12:45:59 [info] 7#7: *7 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932359.711","method":"GET","uri":"/sessions/ng-3e6f6bf68c13/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:45:59 [info] 7#7: *9 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932359.783","method":"GET","uri":"/sessions/ng-3e6f6bf68c13/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.000}
+nginx-1  | 2026/10/25 12:45:59 [info] 7#7: *11 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932359.840","method":"GET","uri":"/sessions/ng-3e6f6bf68c13/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.000}
+nginx-1  | 2026/10/25 12:45:59 [info] 7#7: *13 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932359.898","method":"GET","uri":"/sessions/ng-3e6f6bf68c13/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:45:59 [info] 7#7: *15 client 172.20.0.1 closed keepalive connection
+nginx-1  | 2026/10/25 12:45:59 [info] 7#7: *17 epoll_wait() reported that client prematurely closed connection, so upstream connection is closed too while reading upstream, client: 172.20.0.1, server: , request: "GET /sessions/ng-3e6f6bf68c13/events HTTP/1.1", upstream: "http://172.20.0.4:8080/sessions/ng-3e6f6bf68c13/events", host: "127.0.0.1:18202"
+nginx-1  | {"at":"1792932359.931","method":"GET","uri":"/sessions/ng-3e6f6bf68c13/events","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.011}
+pg-1     | The database cluster will be initialized with locale "en_US.utf8".
+pg-1     | The default database encoding has accordingly been set to "UTF8".
+pg-1     | The default text search configuration will be set to "english".
+pg-1     | 
+pi-1     | synthetic model ready
+pi-1     | Pi SDK executor ready; no tools; concurrency=2
+pg-1     | Data page checksums are disabled.
+nginx-1  | 2026/10/25 12:45:59 [info] 7#7: *19 epoll_wait() reported that client prematurely closed connection, so upstream connection is closed too while reading upstream, client: 172.20.0.1, server: , request: "GET /sessions/ng-3e6f6bf68c13/events HTTP/1.1", upstream: "http://172.20.0.4:8080/sessions/ng-3e6f6bf68c13/events", host: "127.0.0.1:18202"
+pg-1     | 
+nginx-1  | {"at":"1792932359.941","method":"GET","uri":"/sessions/ng-3e6f6bf68c13/events","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.002}
+nginx-1  | {"at":"1792932359.959","method":"POST","uri":"/sessions/ng-3e6f6bf68c13/tasks","request_id":"","status":202,"upstream":"172.20.0.4:8080","upstream_status":"202","seconds":0.008}
+nginx-1  | 2026/10/25 12:45:59 [info] 7#7: *21 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932359.967","method":"GET","uri":"/sessions/ng-3e6f6bf68c13/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.002}
+nginx-1  | 2026/10/25 12:45:59 [info] 7#7: *23 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932360.025","method":"GET","uri":"/sessions/ng-3e6f6bf68c13/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *25 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932360.083","method":"GET","uri":"/sessions/ng-3e6f6bf68c13/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *27 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932360.152","method":"GET","uri":"/sessions/ng-3e6f6bf68c13/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *29 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932360.169","method":"POST","uri":"/sessions/boundary-cada01f8/tasks","request_id":"","status":400,"upstream":"172.20.0.4:8080","upstream_status":"400","seconds":0.000}
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *31 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932360.181","method":"POST","uri":"/sessions/boundary-cada01f8/tasks","request_id":"","status":400,"upstream":"172.20.0.4:8080","upstream_status":"400","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *33 client 172.20.0.1 closed keepalive connection
+nginx-1  | 2026/10/25 12:46:00 [error] 7#7: *35 client intended to send too large body: 40026 bytes, client: 172.20.0.1, server: , request: "POST /sessions/boundary-cada01f8/tasks HTTP/1.1", host: "127.0.0.1:18202"
+nginx-1  | {"at":"1792932360.194","method":"POST","uri":"/sessions/boundary-cada01f8/tasks","request_id":"","status":413,"upstream":"","upstream_status":"","seconds":0.001}
+nginx-1  | {"at":"1792932360.206","method":"POST","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":202,"upstream":"172.20.0.4:8080","upstream_status":"202","seconds":0.006}
+pg-1     | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *36 client 172.20.0.1 closed keepalive connection
+pg-1     | creating subdirectories ... ok
+pg-1     | selecting dynamic shared memory implementation ... posix
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *38 epoll_wait() reported that client prematurely closed connection, so upstream connection is closed too while reading upstream, client: 172.20.0.1, server: , request: "GET /sessions/detach-4f58126c/events HTTP/1.1", upstream: "http://172.20.0.4:8080/sessions/detach-4f58126c/events", host: "127.0.0.1:18202"
+nginx-1  | {"at":"1792932360.212","method":"GET","uri":"/sessions/detach-4f58126c/events","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | {"at":"1792932360.219","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.002}
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *40 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932360.278","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+pg-1     | selecting default "max_connections" ... 100
+pg-1     | selecting default "shared_buffers" ... 128MB
+pg-1     | selecting default time zone ... UTC
+pg-1     | creating configuration files ... ok
+pg-1     | running bootstrap script ... ok
+pg-1     | sh: locale: not found
+pg-1     | 2026-10-25 12:45:32.477 UTC [35] WARNING:  no usable system locales were found
+pg-1     | performing post-bootstrap initialization ... ok
+pg-1     | syncing data to disk ... ok
+pg-1     | 
+pg-1     | 
+pg-1     | Success. You can now start the database server using:
+pg-1     | 
+pg-1     |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+pg-1     | 
+pg-1     | initdb: warning: enabling "trust" authentication for local connections
+pg-1     | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+pg-1     | waiting for server to start....2026-10-25 12:45:38.430 UTC [58] LOG:  starting PostgreSQL 17.11 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+pg-1     | 2026-10-25 12:45:38.440 UTC [58] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+pg-1     | 2026-10-25 12:45:38.495 UTC [61] LOG:  database system was shut down at 2026-10-25 12:45:33 UTC
+pg-1     | 2026-10-25 12:45:38.520 UTC [58] LOG:  database system is ready to accept connections
+pg-1     |  done
+pg-1     | server started
+pg-1     | CREATE DATABASE
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *42 client 172.20.0.1 closed keepalive connection
+pg-1     | 
+pg-1     | 
+pg-1     | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+nginx-1  | {"at":"1792932360.335","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *44 client 172.20.0.1 closed keepalive connection
+pg-1     | 
+pg-1     | waiting for server to shut down....2026-10-25 12:45:38.835 UTC [58] LOG:  received fast shutdown request
+nginx-1  | {"at":"1792932360.396","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+pg-1     | 2026-10-25 12:45:38.854 UTC [58] LOG:  aborting any active transactions
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *46 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932360.463","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+pg-1     | 2026-10-25 12:45:38.858 UTC [58] LOG:  background worker "logical replication launcher" (PID 64) exited with exit code 1
+pg-1     | 2026-10-25 12:45:38.859 UTC [59] LOG:  shutting down
+pg-1     | 2026-10-25 12:45:38.883 UTC [59] LOG:  checkpoint starting: shutdown immediate
+pg-1     | ..2026-10-25 12:45:41.121 UTC [59] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.132 s, sync=2.039 s, total=2.263 s; sync files=301, longest=0.029 s, average=0.007 s; distance=4266 kB, estimate=4266 kB; lsn=0/191E810, redo lsn=0/191E810
+pg-1     | 2026-10-25 12:45:41.138 UTC [58] LOG:  database system is shut down
+pg-1     |  done
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *48 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932360.529","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.000}
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *50 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932360.588","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *52 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932360.654","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.000}
+pg-1     | server stopped
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *54 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932360.713","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *56 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932360.771","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *58 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932360.830","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *60 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932360.898","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *62 client 172.20.0.1 closed keepalive connection
+pg-1     | 
+pg-1     | PostgreSQL init process complete; ready for start up.
+pg-1     | 
+nginx-1  | {"at":"1792932360.972","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.000}
+nginx-1  | 2026/10/25 12:46:00 [info] 7#7: *64 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932361.049","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:01 [info] 7#7: *66 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932361.107","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:01 [info] 7#7: *68 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932361.173","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:01 [info] 7#7: *70 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932361.363","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:01 [info] 7#7: *72 client 172.20.0.1 closed keepalive connection
+pg-1     | 2026-10-25 12:45:41.225 UTC [1] LOG:  starting PostgreSQL 17.11 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+pg-1     | 2026-10-25 12:45:41.225 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+pg-1     | 2026-10-25 12:45:41.225 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+pg-1     | 2026-10-25 12:45:41.235 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+pg-1     | 2026-10-25 12:45:41.257 UTC [80] LOG:  database system was shut down at 2026-10-25 12:45:41 UTC
+pg-1     | 2026-10-25 12:45:41.280 UTC [1] LOG:  database system is ready to accept connections
+pg-1     | 2026-10-25 12:45:54.499 UTC [138] ERROR:  new row for relation "events" violates check constraint "reject_completed"
+pg-1     | 2026-10-25 12:45:54.499 UTC [138] DETAIL:  Failing row contains (137, q1, q1, completed, {}, 2026-10-25 12:45:54.496419+00).
+pg-1     | 2026-10-25 12:45:54.499 UTC [138] STATEMENT:  INSERT INTO events(session,task,kind,data) VALUES($1,$2,$3,'{}')
+nginx-1  | {"at":"1792932361.541","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:01 [info] 7#7: *74 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932361.731","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:01 [info] 7#7: *76 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932361.802","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:01 [info] 7#7: *78 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932361.980","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:01 [info] 7#7: *80 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932362.162","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:02 [info] 7#7: *82 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932362.345","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.000}
+nginx-1  | 2026/10/25 12:46:02 [info] 7#7: *84 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932362.402","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:02 [info] 7#7: *86 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932362.460","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:02 [info] 7#7: *88 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932362.516","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:02 [info] 7#7: *90 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932362.587","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:02 [info] 7#7: *92 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932362.644","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:02 [info] 7#7: *94 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932362.701","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:02 [info] 7#7: *96 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932362.757","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.000}
+nginx-1  | 2026/10/25 12:46:02 [info] 7#7: *98 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932362.814","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:02 [info] 7#7: *100 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932362.876","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:02 [info] 7#7: *102 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932362.933","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:02 [info] 7#7: *104 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932362.990","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:02 [info] 7#7: *106 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932363.047","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:03 [info] 7#7: *108 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932363.126","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:03 [info] 7#7: *110 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932363.183","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:03 [info] 7#7: *112 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932363.240","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.000}
+nginx-1  | 2026/10/25 12:46:03 [info] 7#7: *114 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932363.297","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:03 [info] 7#7: *116 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932363.370","method":"GET","uri":"/sessions/detach-4f58126c/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:03 [info] 7#7: *118 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932363.452","method":"POST","uri":"/sessions/fault-430098f4/tasks","request_id":"","status":202,"upstream":"172.20.0.4:8080","upstream_status":"202","seconds":0.008}
+nginx-1  | 2026/10/25 12:46:03 [info] 7#7: *120 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932363.458","method":"GET","uri":"/sessions/fault-430098f4/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.000}
+nginx-1  | 2026/10/25 12:46:03 [info] 7#7: *122 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932363.515","method":"GET","uri":"/sessions/fault-430098f4/tasks","request_id":"","status":200,"upstream":"172.20.0.4:8080","upstream_status":"200","seconds":0.001}
+nginx-1  | 2026/10/25 12:46:03 [info] 7#7: *124 client 172.20.0.1 closed keepalive connection
+nginx-1  | {"at":"1792932363.523","method":"POST","uri":"/sessions/fault-430098f4/tasks","request_id":"","status":429,"upstream":"172.20.0.4:8080","upstream_status":"429","seconds":0.003}
+nginx-1  | 2026/10/25 12:46:03 [info] 7#7: *126 client 172.20.0.1 closed keepalive connection

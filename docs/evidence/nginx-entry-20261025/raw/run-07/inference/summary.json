@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "exit_code": 0,
+  "tests": 49,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "duration_seconds": 1.720759766874835,
+  "command": [
+    "/usr/local/bin/python",
+    "-m",
+    "pytest",
+    "service/inference/tests",
+    "-q",
+    "--junitxml=/evidence/inference/junit.xml"
+  ],
+  "python": "3.12.15 (main, Oct  6 2026, 02:02:22) [GCC 14.2.0]"
+}
