@@ -1,0 +1,8 @@
+{
+  "status": "failed",
+  "source_sha": "1a2ee6286ca2922f44819666d971cc927dfddc96",
+  "remaining_owned_running": [],
+  "volumes": "preserved for diagnostics",
+  "gpu_calls": 0,
+  "measurement": true
+}

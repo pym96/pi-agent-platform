@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "source_sha": "ae0764d140cc2d8b6a089e77eb90d6cc2214b1cb",
+  "remaining_owned_running": [],
+  "volumes": "preserved for diagnostics",
+  "gpu_calls": 0,
+  "measurement": true
+}

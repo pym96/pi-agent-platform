@@ -7,7 +7,7 @@ on:
         type: boolean
         default: false
   push:
-    branches: [workorder/15-candidate]
+    branches: [main, workorder/15-candidate]
     paths: ['service/nginx/**', 'service/compose.nginx.yaml', 'service/scripts/nginx-entry/**', '.github/workflows/nginx-entry.yml']
 permissions: {contents: read}
 concurrency:

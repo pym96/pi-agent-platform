@@ -12,6 +12,8 @@ Human 从 Nginx“分流”提出把入口接入 Pi 平台。聊天里的示意�
 
 另外三个准备失败也保留：容器用户与源目录所有权不同导致 Go VCS status128；只读父目录下缺少嵌套 bind 目标；只读 Nginx 根目录下默认 fastcgi 临时路径不可写。分别采用进程级精确 safe.directory、预建 ignored 挂载目录、把各类临时路径放隔离 tmpfs。这里只记录各次日志已经说明的原因，后续完整协议和负载结果另见 REPORT。
 
+run-05又改变了一次判断：hey配置-n300，在C8只收296条、C32只收288条。我先保守记为missing/error。核对v0.1.4官方源码后，Master独立确认每个worker只执行整数除法N/C次，并冻结NG1.1。run-06保留原命令，新记录configured300、scheduled296/288、未安排4/12；未安排不能算服务成功。从296条删一条，仍应得到真实回执缺失。旧run-05继续标failed，未用新解释覆盖原summary。
+
 贡献边界：Human 提出方向、学习问题和预算；Master 审视单控制器约束、冻结工单并协调；Builder Agent 编写实现、测试和本草稿；独立 Regulator 尚需复核完整远端候选。本文未证明 Qwen 吞吐、GPU 调度、C10K 或生产可靠性。
 
 来源：Pi #15 / NG1.0；run-01–04 的命令、日志、summary；最终原件位置和清单见 REPORT。源码定位：service/cmd/service/main.go 的 singleton 获取、service/scripts/nginx-entry/measurement.py 的 Go receipt 检查。

@@ -1,0 +1,12 @@
+name: pi-ng15-b-04
+services: {}
+x-python:
+  image: python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+  labels:
+    owner: builder
+    source-sha: fe98f8517d34e3dd384f2132f292036d3cfdd3b6
+    workorder: "15"
+  read_only: true
+  restart: "no"
+  tmpfs:
+    - /tmp:size=128m

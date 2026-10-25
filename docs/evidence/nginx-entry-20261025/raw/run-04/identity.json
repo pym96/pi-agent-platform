@@ -1,0 +1,12 @@
+{
+  "source_sha": "fe98f8517d34e3dd384f2132f292036d3cfdd3b6",
+  "config_sha256": "3d957fef7ece54a84d93c449672b6a6bf996f9f2a005d0fd0defe7970da73ab0",
+  "project": "pi-ng15-b-04",
+  "owner": "builder",
+  "started_ns": 1792930062457184040,
+  "gpu_calls": 0,
+  "model": "synthetic fixture through actual Pi1.3.0",
+  "cpu_limit": 6,
+  "memory_limit_gib": 10,
+  "max_containers": 6
+}

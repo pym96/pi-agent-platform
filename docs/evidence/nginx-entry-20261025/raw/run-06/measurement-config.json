@@ -1,0 +1,150 @@
+{
+  "version": "NG1.1",
+  "endpoint": "/health",
+  "paths": {
+    "direct": "http://127.0.0.1:18201",
+    "proxy": "http://127.0.0.1:18202"
+  },
+  "hey_concurrency": [
+    1,
+    8,
+    32
+  ],
+  "hey_requests": 300,
+  "vegeta_rates": [
+    10,
+    25,
+    50
+  ],
+  "vegeta_seconds": 10,
+  "timeout_seconds": 5,
+  "warmup_per_path": 10,
+  "idle_seconds": 2,
+  "repetitions": 1,
+  "quantile": "nearest-rank, success cohort plus full attempt denominator",
+  "boundary": "CPU synthetic platform health only; not model TTFT or Qwen capacity",
+  "hey_schedule": "hey0.1.4 expected_scheduled=C*floor(N/C); configured_intent=N; generator_not_scheduled separate",
+  "points": [
+    {
+      "index": 0,
+      "tool": "hey",
+      "path": "direct",
+      "level": 1,
+      "planned": 300,
+      "configured_intent": 300,
+      "expected_scheduled": 300,
+      "generator_not_scheduled": 0
+    },
+    {
+      "index": 1,
+      "tool": "hey",
+      "path": "direct",
+      "level": 8,
+      "planned": 300,
+      "configured_intent": 300,
+      "expected_scheduled": 296,
+      "generator_not_scheduled": 4
+    },
+    {
+      "index": 2,
+      "tool": "hey",
+      "path": "direct",
+      "level": 32,
+      "planned": 300,
+      "configured_intent": 300,
+      "expected_scheduled": 288,
+      "generator_not_scheduled": 12
+    },
+    {
+      "index": 3,
+      "tool": "hey",
+      "path": "proxy",
+      "level": 1,
+      "planned": 300,
+      "configured_intent": 300,
+      "expected_scheduled": 300,
+      "generator_not_scheduled": 0
+    },
+    {
+      "index": 4,
+      "tool": "hey",
+      "path": "proxy",
+      "level": 8,
+      "planned": 300,
+      "configured_intent": 300,
+      "expected_scheduled": 296,
+      "generator_not_scheduled": 4
+    },
+    {
+      "index": 5,
+      "tool": "hey",
+      "path": "proxy",
+      "level": 32,
+      "planned": 300,
+      "configured_intent": 300,
+      "expected_scheduled": 288,
+      "generator_not_scheduled": 12
+    },
+    {
+      "index": 6,
+      "tool": "vegeta",
+      "path": "direct",
+      "level": 10,
+      "planned": 100,
+      "configured_intent": 100,
+      "expected_scheduled": 100,
+      "generator_not_scheduled": 0
+    },
+    {
+      "index": 7,
+      "tool": "vegeta",
+      "path": "direct",
+      "level": 25,
+      "planned": 250,
+      "configured_intent": 250,
+      "expected_scheduled": 250,
+      "generator_not_scheduled": 0
+    },
+    {
+      "index": 8,
+      "tool": "vegeta",
+      "path": "direct",
+      "level": 50,
+      "planned": 500,
+      "configured_intent": 500,
+      "expected_scheduled": 500,
+      "generator_not_scheduled": 0
+    },
+    {
+      "index": 9,
+      "tool": "vegeta",
+      "path": "proxy",
+      "level": 10,
+      "planned": 100,
+      "configured_intent": 100,
+      "expected_scheduled": 100,
+      "generator_not_scheduled": 0
+    },
+    {
+      "index": 10,
+      "tool": "vegeta",
+      "path": "proxy",
+      "level": 25,
+      "planned": 250,
+      "configured_intent": 250,
+      "expected_scheduled": 250,
+      "generator_not_scheduled": 0
+    },
+    {
+      "index": 11,
+      "tool": "vegeta",
+      "path": "proxy",
+      "level": 50,
+      "planned": 500,
+      "configured_intent": 500,
+      "expected_scheduled": 500,
+      "generator_not_scheduled": 0
+    }
+  ],
+  "source_sha": "ae0764d140cc2d8b6a089e77eb90d6cc2214b1cb"
+}

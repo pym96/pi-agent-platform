@@ -1,0 +1,8 @@
+{
+  "tests": 5,
+  "skipped": 0,
+  "no_test_packages": [
+    "github.com/pym96/pi-agent-platform/service/cmd/service",
+    "github.com/pym96/pi-agent-platform/service/internal/executor"
+  ]
+}

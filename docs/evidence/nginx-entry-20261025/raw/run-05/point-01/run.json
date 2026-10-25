@@ -1,0 +1,27 @@
+{
+  "index": 1,
+  "tool": "hey",
+  "path": "direct",
+  "level": 8,
+  "planned": 300,
+  "command": [
+    "/tools/hey",
+    "-n",
+    "300",
+    "-c",
+    "8",
+    "-t",
+    "5",
+    "-cpus",
+    "1",
+    "-disable-redirects",
+    "-o",
+    "csv",
+    "http://127.0.0.1:18201/health"
+  ],
+  "exit_code": 0,
+  "started_ns": 1792930293791250668,
+  "ended_ns": 1792930294291798969,
+  "elapsed_s": 0.5005506770685315,
+  "source_sha": "1a2ee6286ca2922f44819666d971cc927dfddc96"
+}

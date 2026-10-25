@@ -1,0 +1,8 @@
+test_01_actual_sdk_identity_idempotency_and_replay (__main__.PlatformTests.test_01_actual_sdk_identity_idempotency_and_replay) ... ok
+test_02_input_boundaries_match_direct (__main__.PlatformTests.test_02_input_boundaries_match_direct) ... ok
+test_03_disconnect_preserves_durable_task_and_failure (__main__.PlatformTests.test_03_disconnect_preserves_durable_task_and_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 4.224s
+
+OK

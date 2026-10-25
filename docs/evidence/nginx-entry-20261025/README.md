@@ -1,3 +1,7 @@
 # Pi #15 Nginx CPU evidence
 
-Builder execution receipts and report will be bound here to a full candidate SHA. No result has been recorded yet. The independent Regulator must review the exact remote candidate; this directory does not imply accepted status.
+- [Execution report](REPORT.md): complete source/run identities, required suites, raw matrix and boundaries.
+- [Private learning/blog/X draft](LEARNING-DRAFT.md): singleton-safe design and the Go receipt judgment correction; unpublished.
+- `raw/run-01` onward: original failed and successful invocations, each with independent manifest. Final acceptance belongs to the separate Regulator.
+
+CPU synthetic fixtures only. No GPU, Qwen capacity, C10K result or résumé fact promotion.

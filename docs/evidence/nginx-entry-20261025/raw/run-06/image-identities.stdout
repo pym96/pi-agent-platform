@@ -1,0 +1,229 @@
+[
+    {
+        "Id": "sha256:df18428df8a0f9189c84e7424d214b4c50092af1f9dca5842a00c41c39bda316",
+        "RepoTags": [
+            "python:3.12-slim"
+        ],
+        "RepoDigests": [
+            "python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1"
+        ],
+        "Parent": "",
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-10-06T02:04:40.915617827Z",
+        "DockerVersion": "",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+                "PYTHON_VERSION=3.12.15",
+                "PYTHON_SHA256=c2c4321961fab0fb999d66e0cecf521c2ab3994c7992873ea99e306c1094fd5a"
+            ],
+            "Cmd": [
+                "python3"
+            ],
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": null
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 119448702,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/media/usv012/pjx/docker-data/overlay2/ad335a040b28788355b69b9ba3b4e9c9810d0c41864be8047ffd7d171b02b23c/diff:/media/usv012/pjx/docker-data/overlay2/dd3d9cdcc8c8ffac5f5222ed43e16eb5194198afcefac4e2552ed0e7e47888fa/diff:/media/usv012/pjx/docker-data/overlay2/4140d54cf73248f33a1a4b084884d566497eaf4e30e14af596f622947fa4f86f/diff",
+                "MergedDir": "/media/usv012/pjx/docker-data/overlay2/06e69b065e7ed60063c6021d6d6460a1c5e41d1f5c5551593c30c2dba09e5aa2/merged",
+                "UpperDir": "/media/usv012/pjx/docker-data/overlay2/06e69b065e7ed60063c6021d6d6460a1c5e41d1f5c5551593c30c2dba09e5aa2/diff",
+                "WorkDir": "/media/usv012/pjx/docker-data/overlay2/06e69b065e7ed60063c6021d6d6460a1c5e41d1f5c5551593c30c2dba09e5aa2/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:15f1c8eb1ab18eae260c7fb6296434cbe1ff0e1e30fd814ae92a80dd54005e62",
+                "sha256:e1fa2746ad6d51e7de9171dfcbb1fe93d01d51c5d8d3623e0c3b223076dc5d23",
+                "sha256:b361fa3b97940ee89a1aab8fde1027e47ab2c2e700ca2f8d5988ad2c64386e5c",
+                "sha256:dca2a125b4903477bcb42084172cfc98865299810620ffd617bf6e12dd83d89f"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    },
+    {
+        "Id": "sha256:79bd7c99e923138f136f8009d6bffa66e21e9d4fda5c0c561b00fc9c90cfe537",
+        "RepoTags": [
+            "postgres:17-alpine"
+        ],
+        "RepoDigests": [
+            "postgres@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24"
+        ],
+        "Parent": "",
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-09-17T21:31:32.987011508Z",
+        "DockerVersion": "",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "5432/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.19",
+                "LANG=en_US.utf8",
+                "PG_MAJOR=17",
+                "PG_VERSION=17.11",
+                "PG_SHA256=dd27f2b3c59e73ed14aa3324901242bf69a032a6347805f274e6260322d42979",
+                "DOCKER_PG_LLVM_DEPS=llvm21-dev \t\tclang21",
+                "PGDATA=/var/lib/postgresql/data"
+            ],
+            "Cmd": [
+                "postgres"
+            ],
+            "Image": "",
+            "Volumes": {
+                "/var/lib/postgresql/data": {}
+            },
+            "WorkingDir": "/",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": null,
+            "StopSignal": "SIGINT"
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 297183979,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/media/usv012/pjx/docker-data/overlay2/c46bd7c0e9620d8dad7ce84d4ff6b5df653c431e5cd83892cddfe40b2004b643/diff:/media/usv012/pjx/docker-data/overlay2/b2e69ff3be589483de49666ff0cc6103b2dac60a7a82d8eee4c10c704cf02d65/diff:/media/usv012/pjx/docker-data/overlay2/b74eb5e2226831500b5f3cb0c263d94c01ece35d9b299d9db1ef0df1618b482f/diff:/media/usv012/pjx/docker-data/overlay2/a7dde935b8656668c6cc396edaabc6b3dbf196c1ca0026df9db4164f5763db62/diff:/media/usv012/pjx/docker-data/overlay2/33f1b46e1a6585bf2612ddfb653474d402245920555729b5330edc476f21d2c5/diff:/media/usv012/pjx/docker-data/overlay2/b9d645f0fefe68a88218e9903d5d833ea312211cca5b466ff0370d938985bfba/diff:/media/usv012/pjx/docker-data/overlay2/b092c1069dc52d705bbb45e6c1f726f172c897314b43de9e83d85bf857ad52ee/diff:/media/usv012/pjx/docker-data/overlay2/1c6c48782e87d74593c5bf0cd219c5d581a84f9ea97dcb4e133631c27dfdaf19/diff:/media/usv012/pjx/docker-data/overlay2/0e650bad698dda6bb16be4c42f95ac391ec7e27bcd3792cf8ecb0418ceb6e0d5/diff",
+                "MergedDir": "/media/usv012/pjx/docker-data/overlay2/a7f0045ef1153fb6cfdc671b49b235c83760e09e2989db4f36140f55112b1cbd/merged",
+                "UpperDir": "/media/usv012/pjx/docker-data/overlay2/a7f0045ef1153fb6cfdc671b49b235c83760e09e2989db4f36140f55112b1cbd/diff",
+                "WorkDir": "/media/usv012/pjx/docker-data/overlay2/a7f0045ef1153fb6cfdc671b49b235c83760e09e2989db4f36140f55112b1cbd/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:74d97c428c51a828f9051a7a40a53ff1fc99e54fc30323ce36760701b0b7f711",
+                "sha256:199b85bb67b34ec56ca3679a640cad26c482694949d478875ad803bfad29f113",
+                "sha256:1b1c5f60fe610883c371803e933d0eb9d31dfe8ae9c1a5299e2516c6757eb2d9",
+                "sha256:507f0fcc5e5565bd8f7a584202000685ebfaa7ebda9b9d436289bc1004fb4ce8",
+                "sha256:34f5e4927b447367ecd2367ae94e56d654a30b9e244b9396ac628d5bcf90a5cf",
+                "sha256:d006a4a663e7362cd4ae34ed8bf9a851ac9e99c359d8b1f143b1fccc0ad3e8fe",
+                "sha256:42a506b7d4dafcf6fb679a5c2e4de60153ebca613bbfad36b833053eb92cd047",
+                "sha256:149a42a2d36a8dc846e4624af2c7c2766d1cac31300c9f8392ca050d137ed217",
+                "sha256:f81d67057ca8ee3ee1f538cdb7b128e05b4e2727e1c50686633d8b5158793fe2",
+                "sha256:b69834c94476d5cb5d6561d3529668949fa3d28bd745a937bcec2f66eadebb72"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    },
+    {
+        "Id": "sha256:c318e336065b17ff460aeac6d14bce5d0b13e35f25d5cb1843b635359fc00c9a",
+        "RepoTags": [
+            "nginx:1.28.0-alpine"
+        ],
+        "RepoDigests": [
+            "nginx@sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284"
+        ],
+        "Parent": "",
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2025-04-23T18:00:49Z",
+        "DockerVersion": "",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NGINX_VERSION=1.28.0",
+                "PKG_RELEASE=1",
+                "DYNPKG_RELEASE=1",
+                "NJS_VERSION=0.8.10",
+                "NJS_RELEASE=1"
+            ],
+            "Cmd": [
+                "nginx",
+                "-g",
+                "daemon off;"
+            ],
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "/",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>"
+            },
+            "StopSignal": "SIGQUIT"
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 48285519,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/media/usv012/pjx/docker-data/overlay2/8de9af205bfb689c7da51e63089bee47e3fc227ef489e2771861b70a04f50d21/diff:/media/usv012/pjx/docker-data/overlay2/4abd2b0d2c3dfe988ac2494e79130d9e7b253dd5d6577ceb16844005effcd579/diff:/media/usv012/pjx/docker-data/overlay2/6511a4f2f136235a7b01779d4d2338a3c9e1beaec69f4ccbb7870e9f4d401dad/diff:/media/usv012/pjx/docker-data/overlay2/7ef0397ab82ce428420905f438ce9cc051c8ef700e205b1d87077633e1816d83/diff:/media/usv012/pjx/docker-data/overlay2/c79f3de3d7d53c0833e5beec3ad19b77fceb1a0407b9e334c983400b8cf41eb8/diff:/media/usv012/pjx/docker-data/overlay2/183dc500fedf9ab3c2dabaabeb4d442711329702ad847575e5552957832bc384/diff:/media/usv012/pjx/docker-data/overlay2/ef00008b0254c33000af185e871e2cb21b38177eab035fb844074508127285b0/diff",
+                "MergedDir": "/media/usv012/pjx/docker-data/overlay2/cb291b447df3c78ca03520c24ab615ed378fb5d43a1051f833e8c637d20f666d/merged",
+                "UpperDir": "/media/usv012/pjx/docker-data/overlay2/cb291b447df3c78ca03520c24ab615ed378fb5d43a1051f833e8c637d20f666d/diff",
+                "WorkDir": "/media/usv012/pjx/docker-data/overlay2/cb291b447df3c78ca03520c24ab615ed378fb5d43a1051f833e8c637d20f666d/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:922ec217407c0fd31cb18b46090bf62e439fb53ecd01f09406d62e25a906e09b",
+                "sha256:412e147b334cddb83eedf352f7f2ea40844abceb3614a5d9c9726d076e5c3b6f",
+                "sha256:570a1c87f279a67fc5509cf76c4b57cf722c8de9f9cdaa214c787d0fb0e1e7a5",
+                "sha256:34034c5235653389adbf8982e9fc868561e62e5d88c58c878331ed89abfd1a6f",
+                "sha256:7d9abb9ab3b7a473c37818aee5eb0f4637716ef9d8b28989ebab09d29f987246",
+                "sha256:5f23a9cf34f1103f7564dfb3f036e877efedde5372cb2190285418008372fdde",
+                "sha256:a231a657395e32fc50a9dd243cbf8476a246468d0faf68dacfd9a9a1befbb456",
+                "sha256:90ec271303985395afe0c2966824bb392d291365e94b87df2c4582c30b0bc18a"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]

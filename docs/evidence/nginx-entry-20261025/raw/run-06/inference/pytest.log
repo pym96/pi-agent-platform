@@ -1,0 +1,9 @@
+.................................................                        [100%]
+=============================== warnings summary ===============================
+../deps/_pytest/cacheprovider.py:475
+  /deps/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /source/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/source/pytest-cache-files-unzu5vit'
+    config.cache.set("cache/nodeids", sorted(self.cached_nodeids))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+-------------- generated xml file: /evidence/inference/junit.xml ---------------
+49 passed, 1 warning in 2.01s

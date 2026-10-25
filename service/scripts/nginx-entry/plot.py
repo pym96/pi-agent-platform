@@ -16,4 +16,5 @@ for col,tool in enumerate(['hey','vegeta']):
         axes[row,col].set_xlabel('Concurrent workers' if tool=='hey' else 'Offered requests / second');axes[row,col].grid(alpha=.25);axes[row,col].legend()
 axes[0,0].set_ylabel('Observed completion requests / second');axes[1,0].set_ylabel('Successful HTTP P95 (ms, nearest rank)')
 fig.suptitle('CPU synthetic platform /health: one exploratory repetition\nSame-host generator; not model TTFT or Qwen throughput',fontsize=11)
-fig.tight_layout(rect=[0,0,1,.93]);fig.savefig(a.out)
+fig.text(.5,.01,'hey configured N=300: scheduled 300 / 296 / 288 at C=1 / 8 / 32; unissued remainder 0 / 4 / 12',ha='center',fontsize=8)
+fig.tight_layout(rect=[0,.035,1,.93]);fig.savefig(a.out)
