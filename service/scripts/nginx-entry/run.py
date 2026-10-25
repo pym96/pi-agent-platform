@@ -89,6 +89,10 @@ try:
     command(['git','status','--porcelain'],name='source-status');command(['git','rev-parse','HEAD'],name='source-sha');command(['docker','images','--digests'],name='images-before')
     assert command(['git','rev-parse','HEAD']).stdout.strip()==SHA
     assert not command(['git','status','--porcelain','--untracked-files=no']).stdout.strip(),'tracked source dirty'
+    # Docker cannot create a nested bind target beneath a read-only source bind.
+    (ROOT/'service/pi/node_modules').mkdir(exist_ok=True)
+    sdk=json.loads((Path(os.environ['PI_MODULES'])/'@earendil-works/pi-coding-agent/package.json').read_text());assert sdk['version']=='1.3.0','SDK version mismatch'
+    save('dependency-identity.json',{'sdk_version':sdk['version'],'sdk_package_sha256':hashlib.sha256((Path(os.environ['PI_MODULES'])/'@earendil-works/pi-coding-agent/package.json').read_bytes()).hexdigest(),'lock_sha256':hashlib.sha256((ROOT/'service/pi/package-lock.json').read_bytes()).hexdigest(),'node_root':os.environ['NODE_ROOT']})
     compose('config',name='compose-config')
     command(['docker','image','inspect',PYTHON,'postgres@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24','nginx@sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284'],name='image-identities')
     if a.build_host:
@@ -97,6 +101,7 @@ try:
         args=['docker','run','--rm','--name',PROJECT+'-build','--label','ng.project='+PROJECT,'--label','workorder=15','--cpus','1','--memory','2g','--network','none','-v',str(ROOT)+':/source','-v',os.environ['GO_ROOT']+':/go:ro','-v',os.environ['GO_MOD_CACHE']+':/mod:ro','-v',os.environ['NG_BUILD_CACHE']+':/cache','-w','/source/service','-e','GOROOT=/go','-e','GOMODCACHE=/mod','-e','GOCACHE=/cache','-e','GOTOOLCHAIN=local','-e','GOENV=off','-e','GOMAXPROCS=1','-e','GIT_CONFIG_COUNT=1','-e','GIT_CONFIG_KEY_0=safe.directory','-e','GIT_CONFIG_VALUE_0=/source','--entrypoint','/bin/sh',os.environ['NG_BUILD_IMAGE'],'-c','CGO_ENABLED=0 /go/bin/go build -p 1 -trimpath -o bin/service ./cmd/service']
         command(args,name='build',timeout=180)
     compose('--profile','platform','up','-d',name='platform-start');ready('http://127.0.0.1:18202/health')
+    compose('exec','-T','nginx','nginx','-v',name='nginx-version')
     compose('exec','-T','nginx','nginx','-t',name='nginx-test');compose('exec','-T','nginx','nginx','-T',name='nginx-effective')
     ids=compose('ps','-q').stdout.split();command(['docker','inspect',*ids],name='platform-inspect')
     pg('CREATE DATABASE ng_test','test-database-create')
