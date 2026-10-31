@@ -1,5 +1,7 @@
 # Source of truth
 
+- Current #12 candidate: [E2E1.1 evidence](docs/evidence/pi-qwen-e2e-20261031/README.md), based on accepted Nginx main870575fe697dbc71c7a4ed13ce3c1d76fdb28fed. Stage A CPU has fresh local receipts; GPU0 Stage B/independent final Verdict remain pending. New source/config/GPU0 binding replaces expired historical GPU3 GO, while original evidence remains unchanged.
+
 - Current opt-in experiment: [Qwen real-model load WorkOrder #7](https://github.com/pym96/pi-agent-platform/issues/7), Criteria1.1; [18-run candidate curves and denominators](docs/evidence/qwen-load-20261021/README.md), [measurement code](service/experiments/qwen-load-20261021/README.md). Execution601918 and post-run analysis8c22f4 are separately bound; owned GPU services stopped. Builder results await independent Verdict. Default business service is unchanged.
 
 - Current candidate: [hey / Vegeta WorkOrder #3](https://github.com/pym96/pi-agent-platform/issues/3), Criteria1.0; [candidate evidence](docs/evidence/hey-vegeta-20261020.md) and [reproduction guide](service/scripts/hey-vegeta/README.md). Independent acceptance is separate; the #1 migration entry below retains its original scope.

@@ -1,0 +1,54 @@
+{
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/v1/chat/completions",
+      "request": {
+        "model": "Qwen3-8B",
+        "stream": true,
+        "messages": [
+          {
+            "role": "user",
+            "content": "hello"
+          }
+        ],
+        "max_tokens": 8
+      },
+      "status": 200,
+      "body_read": true,
+      "body": "data: {\"choices\": [{\"delta\": {\"role\": \"assistant\", \"content\": \"\"}, \"finish_reason\": null}]}\n\ndata: {\"choices\": [{\"delta\": {\"content\": \"fixture \"}, \"finish_reason\": null}]}\n\ndata: {\"choices\": [{\"delta\": {\"content\": \"response\"}, \"finish_reason\": null}]}\n\ndata: {\"choices\": [{\"delta\": {}, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1, \"completion_tokens\": 2, \"total_tokens\": 3}}\n\ndata: [DONE]\n\n"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/chat/completions",
+      "request": {
+        "model": "Qwen3-8B",
+        "stream": true,
+        "messages": [
+          {
+            "role": "user",
+            "content": "hello"
+          }
+        ],
+        "max_tokens": 8
+      },
+      "status": 503,
+      "body_read": true,
+      "body": "{\"error\": {\"code\": \"attempt_budget\"}}"
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "request": null,
+      "status": 200,
+      "body_read": true,
+      "body": "{\"backend\": \"scripted-cpu-fixture/v1\", \"model\": \"Qwen3-8B\", \"ready\": true, \"active_generation\": 0, \"queued\": 0, \"max_active_generation\": 1, \"max_context\": 1024, \"attempts\": 1, \"max_attempts\": 1}"
+    }
+  ],
+  "lifecycle": [
+    "started",
+    "settled"
+  ],
+  "active_after_cleanup": 0,
+  "max_active": 1
+}

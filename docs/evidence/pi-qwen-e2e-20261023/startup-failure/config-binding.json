@@ -1,0 +1,11 @@
+{
+  "source_sha": "7d826e57596cff7b8e903695047f410792880464",
+  "base_config_sha256": "914eec10096c4184b5f1909d8d28f8d083f9297e5195594307640142627081bb",
+  "derived_guard_sha256": "86953f99882b594ac01f54a342dcd09306b3fd9d1c2d288816380af11c45139a",
+  "derived_added_fields": {
+    "container": "pi-e2e12-builder-model-1",
+    "port": 18181
+  },
+  "remaining_fields_equal": true,
+  "source_archive_sha256": "f98d132cdd66a93539f47a94418157608e8c2695324c77b4af1a9ba39c26fa32"
+}

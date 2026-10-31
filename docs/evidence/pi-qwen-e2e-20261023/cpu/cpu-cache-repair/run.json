@@ -1,0 +1,22 @@
+{
+  "kind": "synthetic",
+  "commit": "3df2167b75823399d1d27ef04c6ff7686bc382a8",
+  "worktree_dirty": true,
+  "source_manifest_sha256": "240554c54e7bdfb6c48d9a05425b1b477f16cfaea171f79fb1998fdede5bf4ae",
+  "workload": {
+    "sessions": 4,
+    "tasks": 5,
+    "success": 3,
+    "errors": 2,
+    "output_budget": 128,
+    "actual_model": "synthetic protocol fixture"
+  },
+  "resources": {
+    "GOMAXPROCS": 2,
+    "GPU": false
+  },
+  "utc": "2026-10-23T08:44:13Z",
+  "postgres": "PostgreSQL 14.18 (Homebrew) on aarch64-apple-darwin24.4.0, compiled by Apple clang version 17.0.0 (clang-1700.0.13.3), 64-bit",
+  "node": "v26.7.0",
+  "go": "go version go1.27.1 darwin/arm64"
+}

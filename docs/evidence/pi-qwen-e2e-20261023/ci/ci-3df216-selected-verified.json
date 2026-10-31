@@ -1,0 +1,10 @@
+{
+  "artifact": 12488968176,
+  "run": 39925316048,
+  "candidate": "3df2167b75823399d1d27ef04c6ff7686bc382a8",
+  "retrieval": "HTTP206 exact final65536bytes (7757419..7822954 of7822955); ZIP central directory and desired members all inside returned interval, decompression CRC verified",
+  "tail_sha256": "bc9cd70efa338911b80d3d0f4182d1fdac556ebb8e0b458bfa3219a65a95b728",
+  "whole_zip_digest_verified": false,
+  "store_cached_marker": true,
+  "source_note": "Artifacts retain actual cached test result replay; whole zip transfer incomplete, no complete digest claim."
+}

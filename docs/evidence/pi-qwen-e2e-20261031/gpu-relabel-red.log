@@ -1,0 +1,14 @@
+....F.
+======================================================================
+FAIL: test_historical_gpu3_cannot_be_relabelled_current_gpu0 (test_measurements.MeasurementEvidenceTests.test_historical_gpu3_cannot_be_relabelled_current_gpu0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-20261031-candidate/service/scripts/pi-qwen-e2e/test_measurements.py", line 48, in test_historical_gpu3_cannot_be_relabelled_current_gpu0
+    with self.assertRaises((AssertionError,ValueError,KeyError,TypeError,OSError)):analyze(root)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'AssertionError'>, <class 'ValueError'>, <class 'KeyError'>, <class 'TypeError'>, <class 'OSError'>) not raised
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.015s
+
+FAILED (failures=1)

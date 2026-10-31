@@ -87,3 +87,7 @@ Historical measurements originated in the archived Pan #142 candidate. This inde
 ## Opt-in private Nginx entry
 
 The [Nginx CPU guide](scripts/nginx-entry/README.md) adds an explicit separate Compose profile around one controller, plus an independent two-fixture routing lab and a frozen hey/Vegeta comparison. It does not change the default stack, remove singleton ownership or measure real-model capacity.
+
+## Pi #12 real-Qwen integration candidate
+
+[2026-10-31 E2E1.1 evidence](../docs/evidence/pi-qwen-e2e-20261031/README.md): actual SDK/PG CPU chain and strict required-suite/provenance checks. Fresh host physical GPU0 execution and independent acceptance are pending; historical GPU3 samples are preserved with their original identity.

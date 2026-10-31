@@ -1,0 +1,14 @@
+2026-10-23T08:37:17.003679658Z /usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+2026-10-23T08:37:17.003764809Z   import pynvml  # type: ignore[import]
+2026-10-23T08:37:21.610353297Z [2026-10-23 08:37:21,610] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2026-10-23T08:37:21.699958698Z df: /.triton/autotune: No such file or directory
+2026-10-23T08:37:21.702500307Z df: /.triton/autotune: No such file or directory
+2026-10-23T08:37:21.791103772Z [93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+2026-10-23T08:37:22.615859116Z [93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.5
+2026-10-23T08:37:22.615893739Z [93m [WARNING] [0m using untested triton version (3.1.0), only 1.0.0 is known to be compatible
+2026-10-23T08:37:22.649746282Z /usr/local/lib/python3.10/dist-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+2026-10-23T08:37:22.649780870Z   def forward(ctx, input, weight, bias=None):
+2026-10-23T08:37:22.649798374Z /usr/local/lib/python3.10/dist-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+2026-10-23T08:37:22.649802360Z   def backward(ctx, grad_output):
+2026-10-23T08:37:23.091548444Z Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 50.13it/s]
+2026-10-23T08:37:28.481094740Z {"event": "ready", "backend": "transformers-serialized/Qwen3-8B", "port": 8082, "deadline_epoch": 1792745921.0}

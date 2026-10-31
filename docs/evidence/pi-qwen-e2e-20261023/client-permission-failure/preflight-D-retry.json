@@ -1,0 +1,27 @@
+{
+  "config_sha256": "86953f99882b594ac01f54a342dcd09306b3fd9d1c2d288816380af11c45139a",
+  "snapshots": [
+    {
+      "utc_epoch": 1792744585.5702224,
+      "gpu": "GPU-dd5fc05f-7d4d-17f7-8d33-2f474b56b74e, 6, 0",
+      "matching_compute": false
+    },
+    {
+      "utc_epoch": 1792744595.6619258,
+      "gpu": "GPU-dd5fc05f-7d4d-17f7-8d33-2f474b56b74e, 6, 0",
+      "matching_compute": false
+    }
+  ],
+  "ready": true,
+  "image": "sha256:7e8449fcd1ce73c68dc35292e94182a3b09ddf155eba052fafcb0b6cf174c1c2",
+  "model": {
+    "manifest_sha256": "4380c0c2174d1ba6a4698f37d06d05cfb01d3652a19fccdeeb414a96b573a1a8",
+    "files": 33,
+    "mismatches": []
+  },
+  "dependencies": {
+    "manifest_sha256": "0daa116e06671a31c9b57f69a7664aa30c5e33d04898eda18f08451bfa93a1e3",
+    "files": 2349,
+    "mismatches": []
+  }
+}

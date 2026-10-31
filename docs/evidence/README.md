@@ -37,3 +37,7 @@ Historical database time fields are transaction-start intervals, not exact queue
 [CPU evidence and real-stage status](inference-api/README.md): independent HTTP assertions, fault injection and cleanup; real-model review remains separately identified.
 
 - [Nginx CPU entry evidence](nginx-entry-20261025/README.md): Pi #15 candidate receipts, isolated routing/stream contracts and exploratory HTTP measurements; acceptance is separate.
+
+## Pi #12 real-Qwen integration candidate
+
+[2026-10-31 E2E1.1 evidence](pi-qwen-e2e-20261031/README.md): actual SDK/PG CPU chain and strict required-suite/provenance checks. Fresh host physical GPU0 execution and independent acceptance are pending; historical GPU3 samples are preserved with their original identity.

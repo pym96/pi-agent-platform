@@ -1,0 +1,364 @@
+[
+  {
+    "id": 139,
+    "session": "context",
+    "task": "bb1229c255990df4228a58f05f33f7c9",
+    "kind": "queued",
+    "data": {
+      "task": "bb1229c255990df4228a58f05f33f7c9"
+    },
+    "created_at": "2026-10-23T16:29:23.286094+08:00"
+  },
+  {
+    "id": 140,
+    "session": "context",
+    "task": "bb1229c255990df4228a58f05f33f7c9",
+    "kind": "running",
+    "data": {},
+    "created_at": "2026-10-23T16:29:23.313309+08:00"
+  },
+  {
+    "id": 141,
+    "session": "context",
+    "task": "bb1229c255990df4228a58f05f33f7c9",
+    "kind": "runtime",
+    "data": {
+      "task": "bb1229c255990df4228a58f05f33f7c9",
+      "clock": "pi-performance.now",
+      "tools": [],
+      "package": "@earendil-works/pi-coding-agent",
+      "session": "context",
+      "version": "1.3.0",
+      "modelCall": "db41922f-8776-42b0-a8fd-49194ebdb9b9",
+      "contextOwner": "Pi SessionManager",
+      "receivedMono": 729.852166
+    },
+    "created_at": "2026-10-23T16:29:23.382702+08:00"
+  },
+  {
+    "id": 142,
+    "session": "context",
+    "task": "bb1229c255990df4228a58f05f33f7c9",
+    "kind": "text",
+    "data": {
+      "text": "synthetic reply"
+    },
+    "created_at": "2026-10-23T16:29:23.427543+08:00"
+  },
+  {
+    "id": 143,
+    "session": "context",
+    "task": "bb1229c255990df4228a58f05f33f7c9",
+    "kind": "result",
+    "data": {
+      "text": "synthetic reply",
+      "usage": {
+        "cost": {
+          "input": 0,
+          "total": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "input": 32,
+        "output": 2,
+        "cacheRead": 0,
+        "reasoning": 0,
+        "cacheWrite": 0,
+        "totalTokens": 34
+      },
+      "rawUsage": {
+        "total_tokens": 34,
+        "prompt_tokens": 32,
+        "completion_tokens": 2
+      },
+      "verified": true,
+      "modelCall": "db41922f-8776-42b0-a8fd-49194ebdb9b9",
+      "stopReason": "stop",
+      "piResultMono": 873.489625
+    },
+    "created_at": "2026-10-23T16:29:23.459956+08:00"
+  },
+  {
+    "id": 144,
+    "session": "context",
+    "task": "bb1229c255990df4228a58f05f33f7c9",
+    "kind": "completed",
+    "data": {},
+    "created_at": "2026-10-23T16:29:23.460522+08:00"
+  },
+  {
+    "id": 145,
+    "session": "context",
+    "task": "076be0690ec3bd50b7dc6b725eb0e9a0",
+    "kind": "queued",
+    "data": {
+      "task": "076be0690ec3bd50b7dc6b725eb0e9a0"
+    },
+    "created_at": "2026-10-23T16:29:23.463459+08:00"
+  },
+  {
+    "id": 146,
+    "session": "context",
+    "task": "076be0690ec3bd50b7dc6b725eb0e9a0",
+    "kind": "running",
+    "data": {},
+    "created_at": "2026-10-23T16:29:23.518336+08:00"
+  },
+  {
+    "id": 147,
+    "session": "context",
+    "task": "076be0690ec3bd50b7dc6b725eb0e9a0",
+    "kind": "runtime",
+    "data": {
+      "task": "076be0690ec3bd50b7dc6b725eb0e9a0",
+      "clock": "pi-performance.now",
+      "tools": [],
+      "package": "@earendil-works/pi-coding-agent",
+      "session": "context",
+      "version": "1.3.0",
+      "modelCall": "ab317873-ac75-43ea-bbe4-8de4ea8af7f9",
+      "contextOwner": "Pi SessionManager",
+      "receivedMono": 933.606708
+    },
+    "created_at": "2026-10-23T16:29:23.526307+08:00"
+  },
+  {
+    "id": 148,
+    "session": "context",
+    "task": "076be0690ec3bd50b7dc6b725eb0e9a0",
+    "kind": "text",
+    "data": {
+      "text": "synthetic reply"
+    },
+    "created_at": "2026-10-23T16:29:23.562295+08:00"
+  },
+  {
+    "id": 149,
+    "session": "context",
+    "task": "076be0690ec3bd50b7dc6b725eb0e9a0",
+    "kind": "result",
+    "data": {
+      "text": "synthetic reply",
+      "usage": {
+        "cost": {
+          "input": 0,
+          "total": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "input": 32,
+        "output": 2,
+        "cacheRead": 0,
+        "reasoning": 0,
+        "cacheWrite": 0,
+        "totalTokens": 34
+      },
+      "rawUsage": {
+        "total_tokens": 34,
+        "prompt_tokens": 32,
+        "completion_tokens": 2
+      },
+      "verified": true,
+      "modelCall": "ab317873-ac75-43ea-bbe4-8de4ea8af7f9",
+      "stopReason": "stop",
+      "piResultMono": 1007.919916
+    },
+    "created_at": "2026-10-23T16:29:23.594336+08:00"
+  },
+  {
+    "id": 150,
+    "session": "context",
+    "task": "076be0690ec3bd50b7dc6b725eb0e9a0",
+    "kind": "completed",
+    "data": {},
+    "created_at": "2026-10-23T16:29:23.595025+08:00"
+  },
+  {
+    "id": 151,
+    "session": "independent",
+    "task": "d701c3f71f85ef7d90b7f4c6bfce57bc",
+    "kind": "queued",
+    "data": {
+      "task": "d701c3f71f85ef7d90b7f4c6bfce57bc"
+    },
+    "created_at": "2026-10-23T16:29:23.598056+08:00"
+  },
+  {
+    "id": 152,
+    "session": "independent",
+    "task": "d701c3f71f85ef7d90b7f4c6bfce57bc",
+    "kind": "running",
+    "data": {},
+    "created_at": "2026-10-23T16:29:23.664766+08:00"
+  },
+  {
+    "id": 153,
+    "session": "independent",
+    "task": "d701c3f71f85ef7d90b7f4c6bfce57bc",
+    "kind": "runtime",
+    "data": {
+      "task": "d701c3f71f85ef7d90b7f4c6bfce57bc",
+      "clock": "pi-performance.now",
+      "tools": [],
+      "package": "@earendil-works/pi-coding-agent",
+      "session": "independent",
+      "version": "1.3.0",
+      "modelCall": "6c262a29-6655-4a55-8926-f652801f7f00",
+      "contextOwner": "Pi SessionManager",
+      "receivedMono": 1080.367708
+    },
+    "created_at": "2026-10-23T16:29:23.675403+08:00"
+  },
+  {
+    "id": 154,
+    "session": "independent",
+    "task": "d701c3f71f85ef7d90b7f4c6bfce57bc",
+    "kind": "text",
+    "data": {
+      "text": "synthetic reply"
+    },
+    "created_at": "2026-10-23T16:29:23.710778+08:00"
+  },
+  {
+    "id": 155,
+    "session": "independent",
+    "task": "d701c3f71f85ef7d90b7f4c6bfce57bc",
+    "kind": "result",
+    "data": {
+      "text": "synthetic reply",
+      "usage": {
+        "cost": {
+          "input": 0,
+          "total": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0
+        },
+        "input": 32,
+        "output": 2,
+        "cacheRead": 0,
+        "reasoning": 0,
+        "cacheWrite": 0,
+        "totalTokens": 34
+      },
+      "rawUsage": {
+        "total_tokens": 34,
+        "prompt_tokens": 32,
+        "completion_tokens": 2
+      },
+      "verified": true,
+      "modelCall": "6c262a29-6655-4a55-8926-f652801f7f00",
+      "stopReason": "stop",
+      "piResultMono": 1627.425458
+    },
+    "created_at": "2026-10-23T16:29:24.213808+08:00"
+  },
+  {
+    "id": 156,
+    "session": "independent",
+    "task": "d701c3f71f85ef7d90b7f4c6bfce57bc",
+    "kind": "completed",
+    "data": {},
+    "created_at": "2026-10-23T16:29:24.214445+08:00"
+  },
+  {
+    "id": 157,
+    "session": "failure",
+    "task": "6ac647c87ba94f3317a2b9fc0354c470",
+    "kind": "queued",
+    "data": {
+      "task": "6ac647c87ba94f3317a2b9fc0354c470"
+    },
+    "created_at": "2026-10-23T16:29:24.419686+08:00"
+  },
+  {
+    "id": 158,
+    "session": "failure",
+    "task": "6ac647c87ba94f3317a2b9fc0354c470",
+    "kind": "running",
+    "data": {},
+    "created_at": "2026-10-23T16:29:24.516877+08:00"
+  },
+  {
+    "id": 159,
+    "session": "failure",
+    "task": "6ac647c87ba94f3317a2b9fc0354c470",
+    "kind": "runtime",
+    "data": {
+      "task": "6ac647c87ba94f3317a2b9fc0354c470",
+      "clock": "pi-performance.now",
+      "tools": [],
+      "package": "@earendil-works/pi-coding-agent",
+      "session": "failure",
+      "version": "1.3.0",
+      "modelCall": "c55270ea-862e-406f-9af7-d31a1cace681",
+      "contextOwner": "Pi SessionManager",
+      "receivedMono": 1933.073708
+    },
+    "created_at": "2026-10-23T16:29:24.531858+08:00"
+  },
+  {
+    "id": 160,
+    "session": "failure",
+    "task": "6ac647c87ba94f3317a2b9fc0354c470",
+    "kind": "text",
+    "data": {
+      "text": "synthetic reply"
+    },
+    "created_at": "2026-10-23T16:29:24.567704+08:00"
+  },
+  {
+    "id": 161,
+    "session": "failure",
+    "task": "6ac647c87ba94f3317a2b9fc0354c470",
+    "kind": "interrupted",
+    "data": {},
+    "created_at": "2026-10-23T16:29:24.604605+08:00"
+  },
+  {
+    "id": 162,
+    "session": "limit",
+    "task": "cbec53715809ac15c03fed03385b89a1",
+    "kind": "queued",
+    "data": {
+      "task": "cbec53715809ac15c03fed03385b89a1"
+    },
+    "created_at": "2026-10-23T16:29:24.608841+08:00"
+  },
+  {
+    "id": 163,
+    "session": "limit",
+    "task": "cbec53715809ac15c03fed03385b89a1",
+    "kind": "running",
+    "data": {},
+    "created_at": "2026-10-23T16:29:24.62076+08:00"
+  },
+  {
+    "id": 164,
+    "session": "limit",
+    "task": "cbec53715809ac15c03fed03385b89a1",
+    "kind": "runtime",
+    "data": {
+      "task": "cbec53715809ac15c03fed03385b89a1",
+      "clock": "pi-performance.now",
+      "tools": [],
+      "package": "@earendil-works/pi-coding-agent",
+      "session": "limit",
+      "version": "1.3.0",
+      "modelCall": "6c7b0cd2-9a9e-44a7-91af-fab5e23f1d30",
+      "contextOwner": "Pi SessionManager",
+      "receivedMono": 2036.257416
+    },
+    "created_at": "2026-10-23T16:29:24.630509+08:00"
+  },
+  {
+    "id": 165,
+    "session": "limit",
+    "task": "cbec53715809ac15c03fed03385b89a1",
+    "kind": "interrupted",
+    "data": {},
+    "created_at": "2026-10-23T16:29:24.635233+08:00"
+  }
+]

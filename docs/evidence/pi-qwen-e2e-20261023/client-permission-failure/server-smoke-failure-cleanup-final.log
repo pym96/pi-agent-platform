@@ -1,0 +1,10 @@
+uid=1001(wt) gid=1001(wt) 组=1001(wt),27(sudo),999(docker)
+1001:1001 775 evidence
+1001:1001 775 source
+/pi-e2e12-builder-model-1 user=1001:1001 false 137 2026-10-23T08:37:14.880846474Z 2026-10-23T08:39:39.066180334Z
+/pi-e2e12-builder-pi-1 user= false 137 2026-10-23T08:37:14.265471928Z 2026-10-23T08:39:38.910241409Z
+/pi-e2e12-builder-pg-1 user= false 0 2026-10-23T08:37:14.608616731Z 2026-10-23T08:39:34.046088433Z
+/pi-e2e12-builder-api-1 user= false 0 2026-10-23T08:37:18.065590615Z 2026-10-23T08:39:33.869155983Z
+/pi-e2e12-builder-client user= false 1 2026-10-23T08:38:31.31706944Z 2026-10-23T08:38:32.875443355Z
+GPU-dd5fc05f-7d4d-17f7-8d33-2f474b56b74e, 6, 0
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess

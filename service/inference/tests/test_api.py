@@ -177,3 +177,19 @@ def test_fixture_cleans_owned_listener_after_assertion_failure():
                 raise AssertionError('seeded assertion')
         assert backend.active==0
     asyncio.run(scenario())
+
+def test_explicit_attempt_budget_is_not_retried_or_exceeded():
+    async def scenario():
+        backend=ScriptedBackend()
+        async with serve(backend,max_attempts=1) as (client,url):
+            async with client.post(url+'/v1/chat/completions',json=VALID) as response:
+                assert response.status==200
+                await response.read()
+            async with client.post(url+'/v1/chat/completions',json=VALID) as response:
+                assert response.status==503
+                assert (await response.json())['error']['code']=='attempt_budget'
+            async with client.get(url+'/health') as response:
+                health=await response.json()
+                assert health['attempts']==1 and health['max_attempts']==1
+            assert backend.calls==1
+    asyncio.run(scenario())

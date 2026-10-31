@@ -1,0 +1,22 @@
+{
+  "runs": [
+    {
+      "container": "fa3a0a5fa007e8612ea2b440d6f96b1a10baf0f1bd6fb98e018a3d5b2cefd728",
+      "source_sha": "7d826e57596cff7b8e903695047f410792880464",
+      "started": "2026-10-23T08:20:59.511940094Z",
+      "finished": "2026-10-23T08:23:35.328349772Z",
+      "lifecycle_seconds": 155.816409,
+      "generation_attempts": 0
+    },
+    {
+      "container": "378a77dade052165b147e84d03853bdebe4c9e2463e40d7172a067f648d32d2d",
+      "source_sha": "3df2167b75823399d1d27ef04c6ff7686bc382a8",
+      "started": "2026-10-23T08:37:14.880846474Z",
+      "finished": "2026-10-23T08:39:39.066180334Z",
+      "lifecycle_seconds": 144.185334,
+      "generation_attempts": 0
+    }
+  ],
+  "lifecycle_seconds_total": 300.00174300000003,
+  "generation_attempts_total": 0
+}

@@ -1,0 +1,3 @@
+{"event":"ready","port":58126,"tools":[],"concurrency":2}
+{"event":"pi_failure","task":"3c12f165f4e5f33076dde235fd3460d3","session":"failure","clock":"pi-performance.now","at":2010.143417,"reason":"upstream_stream_error"}
+{"event":"pi_failure","task":"07853b44ce2a3b1c0399b725e51849a7","session":"limit","clock":"pi-performance.now","at":2046.329,"reason":"upstream_http_400"}

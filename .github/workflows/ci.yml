@@ -1,0 +1,86 @@
+name: Pi Qwen CPU contracts
+on:
+  push:
+    branches: [main, workorder/12-candidate]
+    paths: ['service/**', 'docs/evidence/pi-qwen-e2e-20261031/**', '.github/workflows/ci.yml']
+permissions:
+  contents: read
+concurrency:
+  group: pi-cpu-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  cpu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: local-cpu-only
+          POSTGRES_DB: e2e12
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres -d e2e12"
+          --health-interval 2s --health-timeout 2s --health-retries 30
+    env:
+      TEST_DATABASE_URL: postgres://postgres:local-cpu-only@127.0.0.1:5432/e2e12?sslmode=disable
+      NG_PROJECT: pi-ng15-ci
+      NG_OWNER: ci
+      SOURCE_SHA: ${{ github.sha }}
+      NG_HOST_TEST_DATABASE_URL: postgres://pan:isolated-cpu-only@127.0.0.1:18204/ng_test?sslmode=disable
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.24.13'
+          cache-dependency-path: service/go.sum
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.3'
+          cache: npm
+          cache-dependency-path: service/pi/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare exclusive hosted runner disk
+        run: |
+          test "$RUNNER_ENVIRONMENT" = github-hosted
+          test "$RUNNER_OS" = Linux
+          mkdir -p "$RUNNER_TEMP/ng-preflight"
+          df -B1 "$GITHUB_WORKSPACE" | tee "$RUNNER_TEMP/ng-preflight/disk-before.txt"
+          available=$(df --output=avail -B1 "$GITHUB_WORKSPACE" | tail -n 1)
+          if [ "$available" -lt 21474836480 ] && [ -d /usr/local/lib/android ]; then
+            sudo du -sb /usr/local/lib/android | tee "$RUNNER_TEMP/ng-preflight/removed-sdk-size.txt"
+            sudo rm -rf -- /usr/local/lib/android
+          fi
+          df -B1 "$GITHUB_WORKSPACE" | tee "$RUNNER_TEMP/ng-preflight/disk-after.txt"
+      - name: Pinned CPU dependencies
+        run: |
+          npm ci --prefix service/pi --ignore-scripts
+          python -m pip install -r service/inference/requirements-test.txt 'psycopg[binary]==3.2.10'
+          python -m pip install --target "$RUNNER_TEMP/ng-deps" -r service/inference/requirements-test.txt
+          echo "NODE_ROOT=$(dirname "$(dirname "$(readlink -f "$(command -v node)")")")" >> "$GITHUB_ENV"
+          echo "PI_MODULES=$GITHUB_WORKSPACE/service/pi/node_modules" >> "$GITHUB_ENV"
+          echo "NG_DEPS=$RUNNER_TEMP/ng-deps" >> "$GITHUB_ENV"
+          docker pull python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+          docker pull nginx@sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284
+      - name: Required CPU suites and actual SDK to PG chain
+        run: python service/scripts/pi-qwen-e2e/run.py --out "$RUNNER_TEMP/pi-e2e12-cpu"
+      - name: Stop dedicated E2E PostgreSQL before Nginx phase
+        if: always()
+        run: docker stop --time 5 '${{ job.services.postgres.id }}'
+      - name: Current Product Nginx actual platform, lab and strict suites
+        run: python service/scripts/nginx-entry/run.py --build-host --out "$RUNNER_TEMP/ng-entry"
+      - name: Preserve original diagnostics and identity
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pi-e2e12-${{ github.sha }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/pi-e2e12-cpu
+            !${{ runner.temp }}/pi-e2e12-cpu/api
+            ${{ runner.temp }}/ng-entry
+            ${{ runner.temp }}/ng-preflight
+          if-no-files-found: error
+          retention-days: 14

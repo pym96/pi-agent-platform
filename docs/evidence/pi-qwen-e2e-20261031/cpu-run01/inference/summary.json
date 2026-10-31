@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "exit_code": 0,
+  "tests": 50,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "xfail_reports": [],
+  "duration_seconds": 0.9810317500086967,
+  "command": [
+    "/Users/panyiming/Desktop/todo/\u9762\u8bd5/career-planning/60-\u9879\u76ee/pi-agent-platform-e2e12-20261031-candidate/.e2e12-venv/bin/python",
+    "-m",
+    "pytest",
+    "-p",
+    "service.inference.scripts.required_pytest",
+    "service/inference/tests",
+    "-q",
+    "--junitxml=/Users/panyiming/Desktop/todo/\u9762\u8bd5/career-planning/60-\u9879\u76ee/pi-agent-platform-e2e12-20261031-candidate/.local-evidence/cpu-run01/inference/junit.xml"
+  ],
+  "python": "3.14.0 (main, Oct  7 2025, 09:34:52) [Clang 17.0.0 (clang-1700.4.4.1)]"
+}

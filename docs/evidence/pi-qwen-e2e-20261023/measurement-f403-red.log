@@ -1,0 +1,41 @@
+FFF
+======================================================================
+FAIL: test_first_content_requires_raw_content_frame (test_measurements.MeasurementEvidenceTests.test_first_content_requires_raw_content_frame)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/scripts/pi-qwen-e2e/test_measurements.py", line 18, in test_first_content_requires_raw_content_frame
+    def test_first_content_requires_raw_content_frame(self):self.probe(lambda r:r.update(firstContent=r['start']))
+                                                            ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/scripts/pi-qwen-e2e/test_measurements.py", line 16, in probe
+    with self.assertRaises((AssertionError,ValueError,KeyError,TypeError)):analyze(root)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'AssertionError'>, <class 'ValueError'>, <class 'KeyError'>, <class 'TypeError'>) not raised
+
+======================================================================
+FAIL: test_frame_cannot_occur_after_settled (test_measurements.MeasurementEvidenceTests.test_frame_cannot_occur_after_settled)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/scripts/pi-qwen-e2e/test_measurements.py", line 19, in test_frame_cannot_occur_after_settled
+    def test_frame_cannot_occur_after_settled(self):self.probe(lambda r:r['frames'][-1].update(at=r['settled']+10000))
+                                                    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/scripts/pi-qwen-e2e/test_measurements.py", line 16, in probe
+    with self.assertRaises((AssertionError,ValueError,KeyError,TypeError)):analyze(root)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'AssertionError'>, <class 'ValueError'>, <class 'KeyError'>, <class 'TypeError'>) not raised
+
+======================================================================
+FAIL: test_settled_call_must_match_runtime_result (test_measurements.MeasurementEvidenceTests.test_settled_call_must_match_runtime_result)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/scripts/pi-qwen-e2e/test_measurements.py", line 17, in test_settled_call_must_match_runtime_result
+    def test_settled_call_must_match_runtime_result(self):self.probe(lambda r:r.update(id='wrong-model-call'))
+                                                          ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-candidate/service/scripts/pi-qwen-e2e/test_measurements.py", line 16, in probe
+    with self.assertRaises((AssertionError,ValueError,KeyError,TypeError)):analyze(root)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'AssertionError'>, <class 'ValueError'>, <class 'KeyError'>, <class 'TypeError'>) not raised
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.010s
+
+FAILED (failures=3)

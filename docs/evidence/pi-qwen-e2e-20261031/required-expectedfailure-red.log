@@ -1,0 +1,24 @@
+F
+======================================================================
+FAIL: test_real_expected_failure_is_rejected (test_required_entry.RequiredEntryTests.test_real_expected_failure_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-20261031-candidate/service/scripts/pi-qwen-e2e/test_required_entry.py", line 19, in test_real_expected_failure_is_rejected
+    self.assertNotEqual(guarded.returncode,0,guarded.stdout+guarded.stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0 : test_cpu_fixture_cannot_be_relabelled_gpu (test_measurements.MeasurementEvidenceTests.test_cpu_fixture_cannot_be_relabelled_gpu) ... ok
+test_failure_cannot_disappear_from_denominator (test_measurements.MeasurementEvidenceTests.test_failure_cannot_disappear_from_denominator) ... ok
+test_first_content_requires_raw_content_frame (test_measurements.MeasurementEvidenceTests.test_first_content_requires_raw_content_frame) ... ok
+test_frame_cannot_occur_after_settled (test_measurements.MeasurementEvidenceTests.test_frame_cannot_occur_after_settled) ... ok
+test_settled_call_must_match_runtime_result (test_measurements.MeasurementEvidenceTests.test_settled_call_must_match_runtime_result) ... expected failure
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.000s
+
+OK (expected failures=1)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.102s
+
+FAILED (failures=1)

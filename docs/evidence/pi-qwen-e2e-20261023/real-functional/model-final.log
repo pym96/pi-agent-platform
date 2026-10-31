@@ -1,0 +1,20 @@
+2026-10-23T08:54:50.659966023Z /usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+2026-10-23T08:54:50.660118952Z   import pynvml  # type: ignore[import]
+2026-10-23T08:54:55.210779521Z [2026-10-23 08:54:55,210] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2026-10-23T08:54:55.265080507Z df: /.triton/autotune: No such file or directory
+2026-10-23T08:54:55.266913648Z df: /.triton/autotune: No such file or directory
+2026-10-23T08:54:55.325135612Z [93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+2026-10-23T08:54:55.959592475Z [93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.5
+2026-10-23T08:54:55.959643828Z [93m [WARNING] [0m using untested triton version (3.1.0), only 1.0.0 is known to be compatible
+2026-10-23T08:54:55.994181969Z /usr/local/lib/python3.10/dist-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+2026-10-23T08:54:55.994220069Z   def forward(ctx, input, weight, bias=None):
+2026-10-23T08:54:55.994256342Z /usr/local/lib/python3.10/dist-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+2026-10-23T08:54:55.994280755Z   def backward(ctx, grad_output):
+2026-10-23T08:54:56.445727268Z Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 50.68it/s]
+2026-10-23T08:55:01.436829908Z {"event": "ready", "backend": "transformers-serialized/Qwen3-8B", "port": 8082, "deadline_epoch": 1792746973.0}
+2026-10-23T08:56:05.793945876Z /deps/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+2026-10-23T08:56:05.794003657Z   warnings.warn(
+2026-10-23T08:56:05.794009153Z /deps/transformers/generation/configuration_utils.py:636: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.95` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+2026-10-23T08:56:05.794014487Z   warnings.warn(
+2026-10-23T08:56:05.794064364Z /deps/transformers/generation/configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+2026-10-23T08:56:05.794069143Z   warnings.warn(

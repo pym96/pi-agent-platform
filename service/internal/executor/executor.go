@@ -2,21 +2,20 @@
 package executor
 
 import (
-	"bufio"
 	"bytes"
 	"context"
 	"encoding/json"
 	"errors"
 	"github.com/jackc/pgx/v5"
-	"io"
+	"github.com/pym96/pi-agent-platform/service/internal/store"
 	"log"
 	"net/http"
-	"github.com/pym96/pi-agent-platform/service/internal/store"
 	"time"
 )
 
 type Pool struct {
 	Store  *store.Store
+	Strict bool
 	URL    string
 	Notify func(string)
 	Fatal  func(error)
@@ -40,6 +39,12 @@ func (p *Pool) Run(ctx context.Context) {
 			}
 			continue
 		}
+		started := time.Now()
+		trace := func(phase, status string) {
+			raw, _ := json.Marshal(map[string]any{"task": t.ID, "session": t.Session, "phase": phase, "status": status, "clock": "go-since-claim", "sinceClaimNs": time.Since(started).Nanoseconds(), "utc": time.Now().UTC()})
+			log.Print(string(raw))
+		}
+		trace("pi_request_start", "running")
 		p.Notify(t.Session)
 		status := "interrupted"
 		body, _ := json.Marshal(map[string]string{"session": t.Session, "task": t.ID, "prompt": t.Prompt})
@@ -49,32 +54,15 @@ func (p *Pool) Run(ctx context.Context) {
 		resp, err := client.Do(req)
 		if err == nil {
 			if resp.StatusCode == 200 {
-				scanner := bufio.NewScanner(io.LimitReader(resp.Body, 2<<20))
-				scanner.Buffer(make([]byte, 4096), 65536)
-				count := 0
-				for scanner.Scan() {
-					count++
-					if count > 512 {
-						break
-					}
-					var ev struct {
-						Kind string          `json:"kind"`
-						Data json.RawMessage `json:"data"`
-					}
-					if json.Unmarshal(scanner.Bytes(), &ev) != nil {
-						break
-					}
-					if ev.Kind != "text" && ev.Kind != "result" && ev.Kind != "runtime" {
-						break
-					}
-					if p.Store.Append(requestCtx, t, ev.Kind, ev.Data) != nil {
-						break
+				if consume(resp.Body, p.Strict, func(kind string, data json.RawMessage) error {
+					trace("pi_event_"+kind, "running")
+					if err := p.Store.Append(requestCtx, t, kind, data); err != nil {
+						return err
 					}
 					p.Notify(t.Session)
-					if ev.Kind == "result" {
-						status = "completed"
-						break
-					}
+					return nil
+				}) {
+					status = "completed"
 				}
 			}
 			resp.Body.Close()
@@ -98,6 +86,7 @@ func (p *Pool) Run(ctx context.Context) {
 			}
 			return
 		}
+		trace("durable_terminal", status)
 		p.Notify(t.Session)
 	}
 }

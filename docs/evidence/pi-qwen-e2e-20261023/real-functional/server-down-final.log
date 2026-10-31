@@ -1,0 +1,23 @@
+pi-e2e12-builder-client
+ Container pi-e2e12-builder-model-1  Stopping
+ Container pi-e2e12-builder-pi-1  Stopping
+ Container pi-e2e12-builder-api-1  Stopping
+ Container pi-e2e12-builder-api-1  Stopped
+ Container pi-e2e12-builder-api-1  Removing
+ Container pi-e2e12-builder-model-1  Stopped
+ Container pi-e2e12-builder-model-1  Removing
+ Container pi-e2e12-builder-pi-1  Stopped
+ Container pi-e2e12-builder-pi-1  Removing
+ Container pi-e2e12-builder-api-1  Removed
+ Container pi-e2e12-builder-pg-1  Stopping
+ Container pi-e2e12-builder-pg-1  Stopped
+ Container pi-e2e12-builder-pg-1  Removing
+ Container pi-e2e12-builder-pi-1  Removed
+ Container pi-e2e12-builder-model-1  Removed
+ Container pi-e2e12-builder-pg-1  Removed
+ Network pi-e2e12-builder_default  Removing
+ Network pi-e2e12-builder_default  Removed
+pi-e2e12-builder_pg-data
+pi-e2e12-builder_pi-data
+GPU-dd5fc05f-7d4d-17f7-8d33-2f474b56b74e, 6, 0
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess

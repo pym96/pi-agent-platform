@@ -1,0 +1,30 @@
+{
+  "command": [
+    "node",
+    "--test",
+    "--test-reporter=junit",
+    "service/pi/tests/budget.test.mjs",
+    "service/pi/tests/wire.test.mjs"
+  ],
+  "exit_code": 0,
+  "success": true,
+  "tests": 13,
+  "collected": [
+    "actual SDK explicit-stream wire preserves smaller output budget",
+    "actual Pi SDK must not complete missing upstream usage",
+    "actual Pi SDK successful stream has verified raw usage and mapped budget",
+    "actual Pi SDK rejects missing DONE",
+    "actual Pi SDK rejects inconsistent usage",
+    "actual Pi SDK rejects partial then error",
+    "actual Pi SDK rejects empty content",
+    "actual Pi SDK rejects missing terminal",
+    "actual Pi SDK rejects usage beyond budget",
+    "actual Pi SDK rejects null usage",
+    "actual Pi SDK rejects damaged intermediate usage",
+    "actual Pi SDK rejects data after DONE",
+    "content reaches client before complete upstream terminal"
+  ],
+  "missing_required": [],
+  "failures": 0,
+  "skipped": 0
+}

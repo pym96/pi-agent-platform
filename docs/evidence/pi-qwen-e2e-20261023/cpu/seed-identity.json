@@ -1,0 +1,7 @@
+{
+  "defect": "omit upstream DONE requirement",
+  "original_sha256": "c3ac223e82bcc858038ac95029c4f380fbcce449c63baea2bae2507218619a05",
+  "seeded_sha256": "a02eeb05eb0b04b105188f8a5c543e5315f951b260d9868a1db0d3a18bed66c6",
+  "restored_sha256": "c3ac223e82bcc858038ac95029c4f380fbcce449c63baea2bae2507218619a05",
+  "restored_exact_bytes": true
+}

@@ -1,0 +1,30 @@
+{
+  "wires": [
+    {
+      "model": "Qwen3-8B",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a text-only assistant. No tools are available.\n\n<cwd>\n/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/pi-e2e12-SpGopQ/sessions/wire/workspace\n</cwd>"
+        },
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Say hello"
+            }
+          ]
+        }
+      ],
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "store": false,
+      "max_completion_tokens": 512
+    }
+  ],
+  "text": "{\"kind\":\"runtime\",\"data\":{\"package\":\"@earendil-works/pi-coding-agent\",\"version\":\"1.3.0\",\"tools\":[],\"contextOwner\":\"Pi SessionManager\",\"session\":\"wire\"}}\n{\"kind\":\"text\",\"data\":{\"text\":\"hello\"}}\n{\"kind\":\"result\",\"data\":{\"text\":\"hello\",\"usage\":{\"input\":0,\"output\":0,\"cacheRead\":0,\"cacheWrite\":0,\"totalTokens\":0,\"cost\":{\"input\":0,\"output\":0,\"cacheRead\":0,\"cacheWrite\":0,\"total\":0}},\"stopReason\":\"stop\"}}\n",
+  "logs": "Pi SDK executor ready; no tools; concurrency=2\n"
+}

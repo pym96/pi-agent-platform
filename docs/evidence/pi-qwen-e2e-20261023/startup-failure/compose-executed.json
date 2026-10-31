@@ -1,0 +1,267 @@
+{
+  "name": "pi-e2e12-builder",
+  "networks": {
+    "default": {
+      "name": "pi-e2e12-builder_default",
+      "ipam": {}
+    }
+  },
+  "services": {
+    "api": {
+      "cpus": 1,
+      "command": null,
+      "depends_on": {
+        "pg": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": [
+        "/source/service/bin/service"
+      ],
+      "environment": {
+        "DATABASE_URL": "postgres://pan:local-experiment-only@pg:5432/pan?sslmode=disable",
+        "GOMAXPROCS": "1",
+        "MODEL_KIND": "qwen",
+        "PI_URL": "http://pi:8081"
+      },
+      "image": "python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1",
+      "labels": {
+        "execution-sha": "7d826e57596cff7b8e903695047f410792880464",
+        "workorder": "12"
+      },
+      "mem_limit": "2147483648",
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8080,
+          "published": "18183",
+          "protocol": "tcp"
+        }
+      ],
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source",
+          "target": "/source",
+          "read_only": true,
+          "bind": {
+            "create_host_path": true
+          }
+        }
+      ]
+    },
+    "model": {
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 6,
+      "command": null,
+      "entrypoint": [
+        "python",
+        "-m",
+        "service.inference",
+        "--backend",
+        "transformers",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8082",
+        "--generation-timeout",
+        "30",
+        "--queue-timeout",
+        "2",
+        "--max-attempts",
+        "12",
+        "--deadline-epoch",
+        "1792744900"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "0",
+        "NVIDIA_DRIVER_CAPABILITIES": "compute,utility",
+        "NVIDIA_VISIBLE_DEVICES": "GPU-dd5fc05f-7d4d-17f7-8d33-2f474b56b74e",
+        "OMP_NUM_THREADS": "6",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/source:/deps",
+        "TOKENIZERS_PARALLELISM": "false"
+      },
+      "image": "sha256:7e8449fcd1ce73c68dc35292e94182a3b09ddf155eba052fafcb0b6cf174c1c2",
+      "labels": {
+        "execution-sha": "7d826e57596cff7b8e903695047f410792880464",
+        "workorder": "12"
+      },
+      "mem_limit": "30064771072",
+      "memswap_limit": "30064771072",
+      "networks": {
+        "default": null
+      },
+      "pids_limit": 256,
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8082,
+          "published": "18181",
+          "protocol": "tcp"
+        }
+      ],
+      "read_only": true,
+      "runtime": "nvidia",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "shm_size": "536870912",
+      "tmpfs": [
+        "/tmp:size=512m"
+      ],
+      "user": "1001:1001",
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source",
+          "target": "/source",
+          "read_only": true,
+          "bind": {
+            "create_host_path": true
+          }
+        },
+        {
+          "type": "bind",
+          "source": "/media/usv012/pjx/agent/Qwen3-8B",
+          "target": "/model",
+          "read_only": true,
+          "bind": {
+            "create_host_path": true
+          }
+        },
+        {
+          "type": "bind",
+          "source": "/media/usv012/pjx/pi-agent-platform/experiments/7-qwen-load-20261021/deps",
+          "target": "/deps",
+          "read_only": true,
+          "bind": {
+            "create_host_path": true
+          }
+        }
+      ],
+      "working_dir": "/source"
+    },
+    "pg": {
+      "cpus": 1,
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "POSTGRES_DB": "pan",
+        "POSTGRES_PASSWORD": "local-experiment-only",
+        "POSTGRES_USER": "pan"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "pg_isready -U pan"
+        ],
+        "timeout": "2s",
+        "interval": "2s",
+        "retries": 30
+      },
+      "image": "postgres@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24",
+      "labels": {
+        "execution-sha": "7d826e57596cff7b8e903695047f410792880464",
+        "workorder": "12"
+      },
+      "mem_limit": "1073741824",
+      "networks": {
+        "default": null
+      },
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "pg-data",
+          "target": "/var/lib/postgresql/data",
+          "volume": {}
+        }
+      ]
+    },
+    "pi": {
+      "cpus": 2,
+      "command": null,
+      "entrypoint": [
+        "/node/bin/node",
+        "/source/service/pi/server.mjs"
+      ],
+      "environment": {
+        "HOME": "/data/home",
+        "MODEL_ID": "Qwen3-8B",
+        "MODEL_KIND": "qwen",
+        "MODEL_URL": "http://model:8082/v1",
+        "PI_DATA": "/data",
+        "PI_TRACE": "/data/bridge.jsonl"
+      },
+      "image": "python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1",
+      "labels": {
+        "execution-sha": "7d826e57596cff7b8e903695047f410792880464",
+        "workorder": "12"
+      },
+      "mem_limit": "4294967296",
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8081,
+          "published": "18182",
+          "protocol": "tcp"
+        }
+      ],
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261023/builder/source",
+          "target": "/source",
+          "read_only": true,
+          "bind": {
+            "create_host_path": true
+          }
+        },
+        {
+          "type": "bind",
+          "source": "/media/usv012/pjx/pi-agent-platform/experiments/1/toolchains/node-v22.23.3",
+          "target": "/node",
+          "read_only": true,
+          "bind": {
+            "create_host_path": true
+          }
+        },
+        {
+          "type": "bind",
+          "source": "/media/usv012/pjx/pi-agent-platform/experiments/3/builder/source/service/pi/node_modules",
+          "target": "/source/service/pi/node_modules",
+          "read_only": true,
+          "bind": {
+            "create_host_path": true
+          }
+        },
+        {
+          "type": "volume",
+          "source": "pi-data",
+          "target": "/data",
+          "volume": {}
+        }
+      ]
+    }
+  },
+  "volumes": {
+    "pg-data": {
+      "name": "pi-e2e12-builder_pg-data"
+    },
+    "pi-data": {
+      "name": "pi-e2e12-builder_pi-data"
+    }
+  }
+}

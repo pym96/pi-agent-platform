@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="actual SDK explicit-stream wire preserves smaller output budget" time="0.098670" classname="test" file="/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-20261031-candidate/service/pi/tests/budget.test.mjs"/>
+	<testcase name="actual Pi SDK must not complete missing upstream usage" time="0.760450" classname="test" file="/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-20261031-candidate/service/pi/tests/wire.test.mjs"/>
+	<testcase name="actual Pi SDK successful stream has verified raw usage and mapped budget" time="0.485077" classname="test" file="/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-20261031-candidate/service/pi/tests/wire.test.mjs"/>
+	<testcase name="actual Pi SDK rejects missing DONE" time="0.479899" classname="test" file="/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-20261031-candidate/service/pi/tests/wire.test.mjs"/>
+	<testcase name="actual Pi SDK rejects inconsistent usage" time="0.477159" classname="test" file="/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-20261031-candidate/service/pi/tests/wire.test.mjs"/>
+	<testcase name="actual Pi SDK rejects partial then error" time="0.478074" classname="test" file="/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-20261031-candidate/service/pi/tests/wire.test.mjs"/>
+	<testcase name="actual Pi SDK rejects empty content" time="0.480508" classname="test" file="/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-20261031-candidate/service/pi/tests/wire.test.mjs"/>
+	<testcase name="actual Pi SDK rejects missing terminal" time="0.484816" classname="test" file="/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-20261031-candidate/service/pi/tests/wire.test.mjs"/>
+	<testcase name="actual Pi SDK rejects usage beyond budget" time="0.480328" classname="test" file="/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-20261031-candidate/service/pi/tests/wire.test.mjs"/>
+	<testcase name="actual Pi SDK rejects null usage" time="0.482756" classname="test" file="/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-20261031-candidate/service/pi/tests/wire.test.mjs"/>
+	<testcase name="actual Pi SDK rejects damaged intermediate usage" time="0.478812" classname="test" file="/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-20261031-candidate/service/pi/tests/wire.test.mjs"/>
+	<testcase name="actual Pi SDK rejects data after DONE" time="0.479181" classname="test" file="/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-20261031-candidate/service/pi/tests/wire.test.mjs"/>
+	<testcase name="content reaches client before complete upstream terminal" time="0.678148" classname="test" file="/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-20261031-candidate/service/pi/tests/wire.test.mjs"/>
+	<!-- tests 13 -->
+	<!-- suites 0 -->
+	<!-- pass 13 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 6309.615042 -->
+</testsuites>

@@ -1,0 +1,8 @@
+{
+  "kind": "synthetic",
+  "commit": "1bd0443c436f9fb4bb11dfbcaa8c481eaf311239",
+  "utc": "2026-10-23T07:45:16Z",
+  "postgres": "PostgreSQL 14.18 (Homebrew) on aarch64-apple-darwin24.4.0, compiled by Apple clang version 17.0.0 (clang-1700.0.13.3), 64-bit",
+  "node": "v26.7.0",
+  "go": "go version go1.27.1 darwin/arm64"
+}

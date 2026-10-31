@@ -1,0 +1,147 @@
+[
+  {
+    "path": "README.md",
+    "bytes": 1190,
+    "sha256": "df246c5e10ef778286a27ab551a0c8a364708096d5574fb54f61b4ab4a95735a"
+  },
+  {
+    "path": "ci-3df-failure.log",
+    "bytes": 3249,
+    "sha256": "e17f132e3121cf96ef99d802df819291d76eeee7dfe6bab8e1d21f582a4d4797"
+  },
+  {
+    "path": "client-permission-probe/ledger.jsonl",
+    "bytes": 177,
+    "sha256": "c2e9fbea64a98c679f3c1f158d595331f6bc1b84e658da5eedf081c45d4d42f4"
+  },
+  {
+    "path": "client-permission-probe.log",
+    "bytes": 258,
+    "sha256": "13c5a21c9e55d5af4870c0776f5534d27dcb8e803542ba07e8ba2777668d25a5"
+  },
+  {
+    "path": "compose-executed-retry.json",
+    "bytes": 6900,
+    "sha256": "94980caf475d7096448280bdd8a0606bc87b9a3b3118bacdb2f455460220e76c"
+  },
+  {
+    "path": "containers-started-retry.json",
+    "bytes": 5878,
+    "sha256": "5ad90dd3cd8af0faad9135cb2c9e8e539d62d827df45b7060b14274185b592ca"
+  },
+  {
+    "path": "execution-source-manifest-retry.json",
+    "bytes": 11887,
+    "sha256": "96fb577313c4465eec200e7be99860a8590e8f1193bd66580a080df0b55b3302"
+  },
+  {
+    "path": "inspect-ready-retry.json",
+    "bytes": 55705,
+    "sha256": "e4332d24f1ddb44ed2a368526c4fef4efebda8fedb01029b875ac119e20bb2dd"
+  },
+  {
+    "path": "permission-probe-inspect.json",
+    "bytes": 9224,
+    "sha256": "889a9ae393b7c7cfce8a4fa529a72e35ac7ddcfef16aeed6313ffd736179b2f9"
+  },
+  {
+    "path": "permission-probe.log",
+    "bytes": 217,
+    "sha256": "fb7962bd19260ec4b752ecfd47057242558f758d385a27fe599b4c9cde793821"
+  },
+  {
+    "path": "permission-probe.py",
+    "bytes": 655,
+    "sha256": "54d3f0c8ebcb763cd03e0950522195a3df80ecd5184de211aba9553e0009ed89"
+  },
+  {
+    "path": "preflight-D-retry.json",
+    "bytes": 810,
+    "sha256": "c18c7c98189c5c0654a8b16069c5a95403488d606e529baeb588e4860d2cee46"
+  },
+  {
+    "path": "ready-retry.json",
+    "bytes": 524,
+    "sha256": "256c228ad6db783590fb26dbd75f022c2a4678546079453f25d9889c8be1f539"
+  },
+  {
+    "path": "server-smoke-failure-cleanup-final.log",
+    "bytes": 730,
+    "sha256": "f9c06d86296194aa74ea74109b0a3f68af9913302bc8288babc9e6a8621d408c"
+  },
+  {
+    "path": "server-smoke-failure-cleanup.log",
+    "bytes": 143,
+    "sha256": "289ccb0ecb113db5939baab0eba4cbc1f75e4d70e904d3f609ce480cde95b04a"
+  },
+  {
+    "path": "server-smoke-failure-stop.log",
+    "bytes": 65,
+    "sha256": "4576349b5116ba028734ca9149cd0878d0050b4e862cd175f1df536bed54e414"
+  },
+  {
+    "path": "server-smoke.log",
+    "bytes": 385,
+    "sha256": "415fc972a1ce194ee129e18b56b377a5897d11e6eb7e3039bb0ed91cbe5b40e8"
+  },
+  {
+    "path": "smoke-failure-api-final.log",
+    "bytes": 122,
+    "sha256": "25b20a0834e4a94fc84397a5fb1ebc9547717f1b020271808a965fb9991b7662"
+  },
+  {
+    "path": "smoke-failure-api.log",
+    "bytes": 122,
+    "sha256": "25b20a0834e4a94fc84397a5fb1ebc9547717f1b020271808a965fb9991b7662"
+  },
+  {
+    "path": "smoke-failure-client-final.log",
+    "bytes": 602,
+    "sha256": "dff02b644b23ce0f09b44c70d5fd4094fa579a97aa2b4b42f0977a680fbec108"
+  },
+  {
+    "path": "smoke-failure-client.log",
+    "bytes": 602,
+    "sha256": "dff02b644b23ce0f09b44c70d5fd4094fa579a97aa2b4b42f0977a680fbec108"
+  },
+  {
+    "path": "smoke-failure-final-inspect.json",
+    "bytes": 63897,
+    "sha256": "f580f1245f33cd1806e05f8002c8c7a406b3712fdc2a812214c8524613228d53"
+  },
+  {
+    "path": "smoke-failure-inspect.json",
+    "bytes": 65311,
+    "sha256": "7099c1819d84edfba672c03a1bf3397850919ec64b495a8e6378a9114d8a4e4c"
+  },
+  {
+    "path": "smoke-failure-model-final.log",
+    "bytes": 2042,
+    "sha256": "9d541d3e17541ed28cd8f82bf288edd3b57d069a057176b4541c134190f182b0"
+  },
+  {
+    "path": "smoke-failure-model.log",
+    "bytes": 2042,
+    "sha256": "9d541d3e17541ed28cd8f82bf288edd3b57d069a057176b4541c134190f182b0"
+  },
+  {
+    "path": "smoke-failure-pi-final.log",
+    "bytes": 88,
+    "sha256": "d2367a2ab24e1c9bceea17c7a7987c540ec4effefc2bf0a2fafc150782648dce"
+  },
+  {
+    "path": "smoke-failure-pi.log",
+    "bytes": 88,
+    "sha256": "d2367a2ab24e1c9bceea17c7a7987c540ec4effefc2bf0a2fafc150782648dce"
+  },
+  {
+    "path": "stats-ready-retry.jsonl",
+    "bytes": 860,
+    "sha256": "7480b7120cf4c4aa5243a9cb3810bd353815fc7799c73779c3cb834d6c37b9bd"
+  },
+  {
+    "path": "watch-retry.jsonl",
+    "bytes": 27726,
+    "sha256": "423d1963b0226da7e29f98fb52f70ce6431399b18189a7d6f3f631306091eee8"
+  }
+]

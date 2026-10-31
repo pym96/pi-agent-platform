@@ -1,0 +1,7 @@
+test_consistent_mapping_and_mismatches (test_device_proof.DeviceProofTests.test_consistent_mapping_and_mismatches) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+OK
+{"tests": 1, "skipped": 0, "failures": 0, "errors": 0, "expected_failures": 0, "unexpected_successes": 0, "success": true}

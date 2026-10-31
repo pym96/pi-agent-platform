@@ -1,0 +1,16 @@
+2026-10-23T08:54:49.049586503Z 
+2026-10-23T08:54:49.049630582Z PostgreSQL Database directory appears to contain a database; Skipping initialization
+2026-10-23T08:54:49.049633385Z 
+2026-10-23T08:54:49.404693603Z 2026-10-23 08:54:49.404 UTC [1] LOG:  starting PostgreSQL 17.11 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+2026-10-23T08:54:49.404873097Z 2026-10-23 08:54:49.404 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-10-23T08:54:49.404887469Z 2026-10-23 08:54:49.404 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2026-10-23T08:54:49.461497183Z 2026-10-23 08:54:49.461 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-10-23T08:54:49.477721161Z 2026-10-23 08:54:49.477 UTC [29] LOG:  database system was shut down at 2026-10-23 08:39:34 UTC
+2026-10-23T08:54:49.490362215Z 2026-10-23 08:54:49.490 UTC [1] LOG:  database system is ready to accept connections
+2026-10-23T08:58:04.389161571Z 2026-10-23 08:58:04.388 UTC [1] LOG:  received fast shutdown request
+2026-10-23T08:58:04.393725709Z 2026-10-23 08:58:04.393 UTC [1] LOG:  aborting any active transactions
+2026-10-23T08:58:04.399029264Z 2026-10-23 08:58:04.398 UTC [1] LOG:  background worker "logical replication launcher" (PID 32) exited with exit code 1
+2026-10-23T08:58:04.399917977Z 2026-10-23 08:58:04.399 UTC [27] LOG:  shutting down
+2026-10-23T08:58:04.404240330Z 2026-10-23 08:58:04.404 UTC [27] LOG:  checkpoint starting: shutdown immediate
+2026-10-23T08:58:04.469823891Z 2026-10-23 08:58:04.469 UTC [27] LOG:  checkpoint complete: wrote 26 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.013 s, sync=0.028 s, total=0.070 s; sync files=16, longest=0.006 s, average=0.002 s; distance=14 kB, estimate=14 kB; lsn=0/19ACA10, redo lsn=0/19ACA10
+2026-10-23T08:58:04.478612848Z 2026-10-23 08:58:04.478 UTC [1] LOG:  database system is shut down

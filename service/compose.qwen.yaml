@@ -1,0 +1,81 @@
+# Opt-in private functional stack. Stage B activation and clean SOURCE_SHA required.
+name: ${E2E_PROJECT:?set pi-e2e12-1031-b or pi-e2e12-1031-r}
+services:
+  pg:
+    image: postgres@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24
+    environment: {POSTGRES_USER: pan, POSTGRES_PASSWORD: local-experiment-only, POSTGRES_DB: pan}
+    volumes: [pg-data:/var/lib/postgresql/data]
+    cpus: 1
+    mem_limit: 1g
+    labels: {workorder: '12', execution-sha: '${SOURCE_SHA:?exact source SHA}'}
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -h 127.0.0.1 -U pan"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+  model:
+    image: sha256:7e8449fcd1ce73c68dc35292e94182a3b09ddf155eba052fafcb0b6cf174c1c2
+    runtime: nvidia
+    user: '1001:1001'
+    entrypoint: [python, -m, service.inference, --backend, transformers, --host, 0.0.0.0, --port, '8082', --generation-timeout, '30', --queue-timeout, '2', --max-attempts, '3', --deadline-epoch, '${DEADLINE_EPOCH:?fresh Master deadline}']
+    working_dir: /source
+    environment:
+      NVIDIA_VISIBLE_DEVICES: GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+      CUDA_VISIBLE_DEVICES: '0'
+      PYTHONPATH: /source:/deps
+      PYTHONDONTWRITEBYTECODE: '1'
+      OMP_NUM_THREADS: '6'
+      TOKENIZERS_PARALLELISM: 'false'
+    volumes:
+      - ..:/source:ro
+      - /media/usv012/pjx/agent/Qwen3-8B:/model:ro
+      - /media/usv012/pjx/pi-agent-platform/experiments/7-qwen-load-20261021/deps:/deps:ro
+    ports: ["127.0.0.1:18181:8082"]
+    cpus: 6
+    mem_limit: 28g
+    memswap_limit: 28g
+    pids_limit: 256
+    read_only: true
+    tmpfs: [/tmp:size=512m]
+    shm_size: 512m
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    labels: {workorder: '12', execution-sha: '${SOURCE_SHA:?exact source SHA}'}
+  pi:
+    image: python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+    entrypoint: [/node/bin/node, /source/service/pi/server.mjs]
+    environment:
+      PI_DATA: /data
+      HOME: /data/home
+      PI_TRACE: /data/bridge.jsonl
+      MODEL_URL: http://model:8082/v1
+      MODEL_ID: Qwen3-8B
+      MODEL_KIND: qwen
+    volumes:
+      - ..:/source:ro
+      - ${NODE_ROOT:?Linux Node root}:/node:ro
+      - ${PI_MODULES:?locked Linux SDK node_modules}:/source/service/pi/node_modules:ro
+      - pi-data:/data
+    ports: ["127.0.0.1:18182:8081"]
+    cpus: 2
+    mem_limit: 4g
+    labels: {workorder: '12', execution-sha: '${SOURCE_SHA:?exact source SHA}'}
+  api:
+    image: python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+    entrypoint: [/source/service/bin/service]
+    environment:
+      DATABASE_URL: postgres://pan:local-experiment-only@pg:5432/pan?sslmode=disable
+      PI_URL: http://pi:8081
+      MODEL_KIND: qwen
+      GOMAXPROCS: '1'
+    volumes: ["..:/source:ro"]
+    ports: ["127.0.0.1:18183:8080"]
+    depends_on:
+      pg: {condition: service_healthy}
+    cpus: 1
+    mem_limit: 2g
+    labels: {workorder: '12', execution-sha: '${SOURCE_SHA:?exact source SHA}'}
+volumes:
+  pg-data:
+  pi-data:

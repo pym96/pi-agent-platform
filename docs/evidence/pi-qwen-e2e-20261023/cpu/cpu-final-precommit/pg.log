@@ -1,0 +1,13 @@
+2026-10-23 15:54:14.807 CST [97276] LOG:  starting PostgreSQL 14.18 (Homebrew) on aarch64-apple-darwin24.4.0, compiled by Apple clang version 17.0.0 (clang-1700.0.13.3), 64-bit
+2026-10-23 15:54:14.807 CST [97276] LOG:  listening on IPv4 address "127.0.0.1", port 54419
+2026-10-23 15:54:14.808 CST [97276] LOG:  listening on Unix socket "/tmp/.s.PGSQL.54419"
+2026-10-23 15:54:14.810 CST [97277] LOG:  database system was shut down at 2026-10-23 15:54:14 CST
+2026-10-23 15:54:14.813 CST [97276] LOG:  database system is ready to accept connections
+2026-10-23 15:54:17.247 CST [97375] ERROR:  new row for relation "events" violates check constraint "reject_completed"
+2026-10-23 15:54:17.247 CST [97375] DETAIL:  Failing row contains (137, q1, q1, completed, {}, 2026-10-23 15:54:17.24698+08).
+2026-10-23 15:54:17.247 CST [97375] STATEMENT:  INSERT INTO events(session,task,kind,data) VALUES($1,$2,$3,'{}')
+2026-10-23 15:54:29.313 CST [97276] LOG:  received fast shutdown request
+2026-10-23 15:54:29.313 CST [97276] LOG:  aborting any active transactions
+2026-10-23 15:54:29.314 CST [97276] LOG:  background worker "logical replication launcher" (PID 97283) exited with exit code 1
+2026-10-23 15:54:29.314 CST [97278] LOG:  shutting down
+2026-10-23 15:54:29.327 CST [97276] LOG:  database system is shut down

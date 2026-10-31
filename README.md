@@ -37,3 +37,7 @@ This repository contains no Pan Runtime/TUI/workbench or Pan Git history. Its in
 - [Inference API pytest QA — Pi #9](service/inference/README.md): opt-in CPU contract/fault tests and separately authorized real-model smoke.
 
 The optional [private Nginx CPU entry](service/scripts/nginx-entry/README.md) tests streaming proxy semantics and labelled fixture routing while preserving the single-controller contract.
+
+## Pi #12 real-Qwen integration candidate
+
+[2026-10-31 E2E1.1 evidence](docs/evidence/pi-qwen-e2e-20261031/README.md): actual SDK/PG CPU chain and strict required-suite/provenance checks. Fresh host physical GPU0 execution and independent acceptance are pending; historical GPU3 samples are preserved with their original identity.

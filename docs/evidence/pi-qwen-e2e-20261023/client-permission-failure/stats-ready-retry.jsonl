@@ -1,0 +1,4 @@
+{"BlockIO":"53.2kB / 0B","CPUPerc":"0.05%","Container":"pi-e2e12-builder-model-1","ID":"378a77dade05","MemPerc":"1.73%","MemUsage":"496.6MiB / 28GiB","Name":"pi-e2e12-builder-model-1","NetIO":"4.06kB / 805B","PIDs":"20"}
+{"BlockIO":"119kB / 725kB","CPUPerc":"4.93%","Container":"pi-e2e12-builder-pg-1","ID":"54ce776ed8fc","MemPerc":"2.65%","MemUsage":"27.16MiB / 1GiB","Name":"pi-e2e12-builder-pg-1","NetIO":"817kB / 762kB","PIDs":"9"}
+{"BlockIO":"979kB / 0B","CPUPerc":"0.00%","Container":"pi-e2e12-builder-pi-1","ID":"f44a066eb05d","MemPerc":"1.28%","MemUsage":"52.44MiB / 4GiB","Name":"pi-e2e12-builder-pi-1","NetIO":"4.25kB / 536B","PIDs":"11"}
+{"BlockIO":"0B / 0B","CPUPerc":"0.79%","Container":"pi-e2e12-builder-api-1","ID":"c6bd5c50d788","MemPerc":"0.17%","MemUsage":"3.414MiB / 2GiB","Name":"pi-e2e12-builder-api-1","NetIO":"756kB / 803kB","PIDs":"7"}

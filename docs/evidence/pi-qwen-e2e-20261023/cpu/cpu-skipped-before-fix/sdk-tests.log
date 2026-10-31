@@ -1,0 +1,88 @@
+TAP version 13
+# Subtest: actual SDK explicit-stream wire preserves smaller output budget
+ok 1 - actual SDK explicit-stream wire preserves smaller output budget
+  ---
+  duration_ms: 113.278875
+  type: 'test'
+  ...
+# Subtest: actual Pi SDK must not complete missing upstream usage
+ok 2 - actual Pi SDK must not complete missing upstream usage
+  ---
+  duration_ms: 780.727417
+  type: 'test'
+  ...
+# Subtest: actual Pi SDK successful stream has verified raw usage and mapped budget
+ok 3 - actual Pi SDK successful stream has verified raw usage and mapped budget
+  ---
+  duration_ms: 488.133542
+  type: 'test'
+  ...
+# Subtest: actual Pi SDK rejects missing DONE
+ok 4 - actual Pi SDK rejects missing DONE
+  ---
+  duration_ms: 495.365375
+  type: 'test'
+  ...
+# Subtest: actual Pi SDK rejects inconsistent usage
+ok 5 - actual Pi SDK rejects inconsistent usage
+  ---
+  duration_ms: 492.878542
+  type: 'test'
+  ...
+# Subtest: actual Pi SDK rejects partial then error
+ok 6 - actual Pi SDK rejects partial then error
+  ---
+  duration_ms: 485.416333
+  type: 'test'
+  ...
+# Subtest: actual Pi SDK rejects empty content
+ok 7 - actual Pi SDK rejects empty content
+  ---
+  duration_ms: 492.577292
+  type: 'test'
+  ...
+# Subtest: actual Pi SDK rejects missing terminal
+ok 8 - actual Pi SDK rejects missing terminal
+  ---
+  duration_ms: 494.532625
+  type: 'test'
+  ...
+# Subtest: actual Pi SDK rejects usage beyond budget
+ok 9 - actual Pi SDK rejects usage beyond budget
+  ---
+  duration_ms: 498.838792
+  type: 'test'
+  ...
+# Subtest: actual Pi SDK rejects null usage
+ok 10 - actual Pi SDK rejects null usage
+  ---
+  duration_ms: 490.113916
+  type: 'test'
+  ...
+# Subtest: actual Pi SDK rejects damaged intermediate usage
+ok 11 - actual Pi SDK rejects damaged intermediate usage
+  ---
+  duration_ms: 489.330042
+  type: 'test'
+  ...
+# Subtest: actual Pi SDK rejects data after DONE
+ok 12 - actual Pi SDK rejects data after DONE
+  ---
+  duration_ms: 492.000375
+  type: 'test'
+  ...
+# Subtest: content reaches client before complete upstream terminal
+ok 13 - content reaches client before complete upstream terminal
+  ---
+  duration_ms: 697.169
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6471.621666

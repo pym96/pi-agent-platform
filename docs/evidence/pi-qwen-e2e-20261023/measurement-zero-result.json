@@ -1,0 +1,15 @@
+{
+  "tests": 0,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "missing_required": [
+    "test_measurements.MeasurementEvidenceTests.test_cpu_fixture_cannot_be_relabelled_gpu",
+    "test_measurements.MeasurementEvidenceTests.test_failure_cannot_disappear_from_denominator",
+    "test_measurements.MeasurementEvidenceTests.test_first_content_requires_raw_content_frame",
+    "test_measurements.MeasurementEvidenceTests.test_frame_cannot_occur_after_settled",
+    "test_measurements.MeasurementEvidenceTests.test_settled_call_must_match_runtime_result"
+  ],
+  "collected": [],
+  "success": false
+}

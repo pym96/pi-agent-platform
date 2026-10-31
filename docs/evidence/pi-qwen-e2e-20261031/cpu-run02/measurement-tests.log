@@ -1,0 +1,11 @@
+test_cpu_fixture_cannot_be_relabelled_gpu (test_measurements.MeasurementEvidenceTests.test_cpu_fixture_cannot_be_relabelled_gpu) ... ok
+test_failure_cannot_disappear_from_denominator (test_measurements.MeasurementEvidenceTests.test_failure_cannot_disappear_from_denominator) ... ok
+test_first_content_requires_raw_content_frame (test_measurements.MeasurementEvidenceTests.test_first_content_requires_raw_content_frame) ... ok
+test_frame_cannot_occur_after_settled (test_measurements.MeasurementEvidenceTests.test_frame_cannot_occur_after_settled) ... ok
+test_historical_gpu3_cannot_be_relabelled_current_gpu0 (test_measurements.MeasurementEvidenceTests.test_historical_gpu3_cannot_be_relabelled_current_gpu0) ... ok
+test_settled_call_must_match_runtime_result (test_measurements.MeasurementEvidenceTests.test_settled_call_must_match_runtime_result) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.022s
+
+OK

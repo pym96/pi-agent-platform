@@ -1,0 +1,9 @@
+{
+  "mutation": "one skipped measurement test",
+  "original_sha256": "fd5d8f74f7cdde895c0e9eaeb83ca447cf0c11a75a670d1e944e86491c78aa54",
+  "old_full_entry_exit": 0,
+  "restored_sha256": "fd5d8f74f7cdde895c0e9eaeb83ca447cf0c11a75a670d1e944e86491c78aa54",
+  "new_full_entry_exit": 1,
+  "new_zero_exit": 1,
+  "fixed_restored_sha256": "184aed1b13014b82a213f8f172f578d94d71af9a21215d594a23621918897ff6"
+}

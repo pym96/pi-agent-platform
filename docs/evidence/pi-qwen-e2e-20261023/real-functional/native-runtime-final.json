@@ -1,0 +1,21 @@
+{
+  "python": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]",
+  "packages": {
+    "torch": "2.5.1+cu121",
+    "transformers": "4.51.3",
+    "tokenizers": "0.21.4",
+    "numpy": "1.26.4",
+    "aiohttp": "3.13.5"
+  },
+  "model_process_maps": [
+    "7ec2fde00000-7ec2fdfaa000 r-xp 00000000 103:02 52190933                  /usr/lib/x86_64-linux-gnu/libnvidia-ml.so.535.309.01\n",
+    "7ec2fdfaa000-7ec2fe1a9000 ---p 001aa000 103:02 52190933                  /usr/lib/x86_64-linux-gnu/libnvidia-ml.so.535.309.01\n",
+    "7ec2fe1a9000-7ec2fe1d9000 r--p 001a9000 103:02 52190933                  /usr/lib/x86_64-linux-gnu/libnvidia-ml.so.535.309.01\n",
+    "7ec2fe1d9000-7ec2fe1db000 rw-p 001d9000 103:02 52190933                  /usr/lib/x86_64-linux-gnu/libnvidia-ml.so.535.309.01\n",
+    "7ec336e00000-7ec336ee1000 r--p 00000000 103:02 52190931                  /usr/lib/x86_64-linux-gnu/libcuda.so.535.309.01\n",
+    "7ec336ee1000-7ec337401000 r-xp 000e1000 103:02 52190931                  /usr/lib/x86_64-linux-gnu/libcuda.so.535.309.01\n",
+    "7ec337401000-7ec3388e8000 r--p 00601000 103:02 52190931                  /usr/lib/x86_64-linux-gnu/libcuda.so.535.309.01\n",
+    "7ec3388e8000-7ec338901000 r--p 01ae7000 103:02 52190931                  /usr/lib/x86_64-linux-gnu/libcuda.so.535.309.01\n",
+    "7ec338901000-7ec338a07000 rw-p 01b00000 103:02 52190931                  /usr/lib/x86_64-linux-gnu/libcuda.so.535.309.01\n"
+  ]
+}

@@ -1,0 +1,8 @@
+82ce69ad2535c4f1ebd23643dec02dc4efc4f919ad79bfe743f1d5952bb4d767
+c6bd5c50d788fcd749bb03ea4471731d724acb8cd703591922206184755225fd
+378a77dade052165b147e84d03853bdebe4c9e2463e40d7172a067f648d32d2d
+f44a066eb05d190002314df3e664e9320b735ef33cecdd20af3301aade864d53
+54ce776ed8fcd6f0ea2e02c92e5e23a0f29ad11aad3527c786000cbb33505bd0
+{"removed_stopped_owned": 5, "volumes_preserved": true}
+{"kind": "CPU-only permission probe, no HTTP/model calls", "uid": 1001, "gid": 1001, "source_config_sha256": "0d2350140bd2e00105ba383342e6af83c6b75e531339b6d6cde5124569adb0d6", "ledger_uid": 1001, "ledger_gid": 1001}
+pi-e2e12-builder-client-permission-probe-final
