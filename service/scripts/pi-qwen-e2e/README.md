@@ -27,3 +27,7 @@ python3 service/scripts/pi-qwen-e2e/recompute.py --root SEALED_INPUT \
 ```
 
 The authoritative entry first verifies the external digest and full inventory through the unchanged NG1.2 integrity reader. It never rewrites sealed originals. Copy the digest to the external Handoff; deriving a new digest from altered inputs does not preserve the old identity. The old703 manifest-listed originals and their manifest remain historical GPU3/CPU fixtures with original hashes. This functional work does not establish throughput, stable P95, C10K capacity or a physical GPU limit.
+
+## Exact-ID watchdog cleanup correction
+
+The November2 functional run completed at source444096 but exposed a watchdog removal race. `watch_cleanup.py` supplies the live watch's exact-ID inspect/inventory/cleanup logic. A failed inspect is removed only if a successful full engine inventory lacks that exact ID; unreachable engines and ownership mismatches remain unknown/failing. No name fallback is used. `test_watch_cli.py` runs actual bounded1CPU/512MiB CPU containers against the public cleanup CLI, including reused names and a child-only wrong Docker socket. It requires explicit WATCH_CLI_EVIDENCE; scratch stays underneath that path. The hosted required step runs this suite between E2E and NG. Server's actual full-watch red/green probes are retained in [dated evidence](../../../docs/evidence/pi-qwen-e2e-20261031/20261102-builder/README.md); no additional Builder model run was made.

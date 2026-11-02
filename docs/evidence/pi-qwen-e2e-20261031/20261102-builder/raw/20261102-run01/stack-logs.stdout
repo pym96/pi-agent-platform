@@ -1,0 +1,100 @@
+pi-1  | {"event":"ready","port":8081,"tools":[],"concurrency":2}
+model-1  | /usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+model-1  |   import pynvml  # type: ignore[import]
+model-1  | [2026-11-02 04:48:40,355] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+model-1  | df: /.triton/autotune: No such file or directory
+model-1  | df: /.triton/autotune: No such file or directory
+model-1  | [93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+model-1  | [93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.5
+model-1  | [93m [WARNING] [0m using untested triton version (3.1.0), only 1.0.0 is known to be compatible
+model-1  | /usr/local/lib/python3.10/dist-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+model-1  |   def forward(ctx, input, weight, bias=None):
+model-1  | /usr/local/lib/python3.10/dist-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+model-1  |   def backward(ctx, grad_output):
+model-1  | 
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:  60%|██████    | 3/5 [00:00<00:00, 26.74it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 39.24it/s]
+model-1  | {"event": "ready", "backend": "transformers-serialized/Qwen3-8B", "port": 8082, "deadline_epoch": 1793595578.0}
+model-1  | /deps/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+model-1  |   warnings.warn(
+model-1  | /deps/transformers/generation/configuration_utils.py:636: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.95` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+model-1  |   warnings.warn(
+model-1  | /deps/transformers/generation/configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+model-1  |   warnings.warn(
+pg-1     | The files belonging to this database system will be owned by user "postgres".
+pg-1     | This user must also own the server process.
+pg-1     | 
+pg-1     | The database cluster will be initialized with locale "en_US.utf8".
+pg-1     | The default database encoding has accordingly been set to "UTF8".
+pg-1     | The default text search configuration will be set to "english".
+pg-1     | 
+pg-1     | Data page checksums are disabled.
+pg-1     | 
+pg-1     | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+pg-1     | creating subdirectories ... ok
+pg-1     | selecting dynamic shared memory implementation ... posix
+pg-1     | selecting default "max_connections" ... 100
+pg-1     | selecting default "shared_buffers" ... 128MB
+pg-1     | selecting default time zone ... UTC
+pg-1     | creating configuration files ... ok
+pg-1     | running bootstrap script ... ok
+pg-1     | sh: locale: not found
+pg-1     | 2026-11-02 04:47:43.067 UTC [46] WARNING:  no usable system locales were found
+pg-1     | performing post-bootstrap initialization ... ok
+pg-1     | syncing data to disk ... ok
+pg-1     | 
+pg-1     | 
+pg-1     | Success. You can now start the database server using:
+pg-1     | 
+pg-1     |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+pg-1     | 
+api-1    | 2026/11/02 04:48:09 Pi service listening :8080; executor concurrency=2 queue=128 SSE=11000
+api-1    | 2026/11/02 04:49:08 {"clock":"go-since-claim","phase":"pi_request_start","session":"builder20261102_context","sinceClaimNs":7180,"status":"running","task":"17c1c2d4f1ad26d2092321cab06db743","utc":"2026-11-02T04:49:08.642843079Z"}
+api-1    | 2026/11/02 04:49:09 {"clock":"go-since-claim","phase":"pi_event_runtime","session":"builder20261102_context","sinceClaimNs":457876130,"status":"running","task":"17c1c2d4f1ad26d2092321cab06db743","utc":"2026-11-02T04:49:09.100712143Z"}
+api-1    | 2026/11/02 04:49:12 {"clock":"go-since-claim","phase":"pi_event_text","session":"builder20261102_context","sinceClaimNs":3485125369,"status":"running","task":"17c1c2d4f1ad26d2092321cab06db743","utc":"2026-11-02T04:49:12.127961128Z"}
+api-1    | 2026/11/02 04:49:12 {"clock":"go-since-claim","phase":"pi_event_result","session":"builder20261102_context","sinceClaimNs":3843516252,"status":"running","task":"17c1c2d4f1ad26d2092321cab06db743","utc":"2026-11-02T04:49:12.486351727Z"}
+api-1    | 2026/11/02 04:49:12 {"clock":"go-since-claim","phase":"durable_terminal","session":"builder20261102_context","sinceClaimNs":3873791314,"status":"completed","task":"17c1c2d4f1ad26d2092321cab06db743","utc":"2026-11-02T04:49:12.516627107Z"}
+api-1    | 2026/11/02 04:49:12 {"clock":"go-since-claim","phase":"pi_request_start","session":"builder20261102_context","sinceClaimNs":7628,"status":"running","task":"06d8d234f10acbc3a6851ac1358f37ad","utc":"2026-11-02T04:49:12.570804449Z"}
+api-1    | 2026/11/02 04:49:12 {"clock":"go-since-claim","phase":"pi_event_runtime","session":"builder20261102_context","sinceClaimNs":20797493,"status":"running","task":"06d8d234f10acbc3a6851ac1358f37ad","utc":"2026-11-02T04:49:12.591593943Z"}
+api-1    | 2026/11/02 04:49:12 {"clock":"go-since-claim","phase":"pi_event_text","session":"builder20261102_context","sinceClaimNs":90603838,"status":"running","task":"06d8d234f10acbc3a6851ac1358f37ad","utc":"2026-11-02T04:49:12.661400289Z"}
+api-1    | 2026/11/02 04:49:12 {"clock":"go-since-claim","phase":"pi_event_text","session":"builder20261102_context","sinceClaimNs":131497026,"status":"running","task":"06d8d234f10acbc3a6851ac1358f37ad","utc":"2026-11-02T04:49:12.702293618Z"}
+api-1    | 2026/11/02 04:49:12 {"clock":"go-since-claim","phase":"pi_event_text","session":"builder20261102_context","sinceClaimNs":173660778,"status":"running","task":"06d8d234f10acbc3a6851ac1358f37ad","utc":"2026-11-02T04:49:12.744457347Z"}
+api-1    | 2026/11/02 04:49:12 {"clock":"go-since-claim","phase":"pi_event_result","session":"builder20261102_context","sinceClaimNs":222164020,"status":"running","task":"06d8d234f10acbc3a6851ac1358f37ad","utc":"2026-11-02T04:49:12.792960282Z"}
+api-1    | 2026/11/02 04:49:12 {"clock":"go-since-claim","phase":"durable_terminal","session":"builder20261102_context","sinceClaimNs":233066574,"status":"completed","task":"06d8d234f10acbc3a6851ac1358f37ad","utc":"2026-11-02T04:49:12.803863313Z"}
+api-1    | 2026/11/02 04:49:12 {"clock":"go-since-claim","phase":"pi_request_start","session":"builder20261102_independent","sinceClaimNs":2957,"status":"running","task":"225c920dc519d96494f901333c9352d8","utc":"2026-11-02T04:49:12.82983142Z"}
+api-1    | 2026/11/02 04:49:12 {"clock":"go-since-claim","phase":"pi_event_runtime","session":"builder20261102_independent","sinceClaimNs":16184545,"status":"running","task":"225c920dc519d96494f901333c9352d8","utc":"2026-11-02T04:49:12.846013441Z"}
+api-1    | 2026/11/02 04:49:12 {"clock":"go-since-claim","phase":"pi_event_text","session":"builder20261102_independent","sinceClaimNs":127553316,"status":"running","task":"225c920dc519d96494f901333c9352d8","utc":"2026-11-02T04:49:12.957382317Z"}
+api-1    | 2026/11/02 04:49:13 {"clock":"go-since-claim","phase":"pi_event_result","session":"builder20261102_independent","sinceClaimNs":176778697,"status":"running","task":"225c920dc519d96494f901333c9352d8","utc":"2026-11-02T04:49:13.006607314Z"}
+api-1    | 2026/11/02 04:49:13 {"clock":"go-since-claim","phase":"durable_terminal","session":"builder20261102_independent","sinceClaimNs":188003856,"status":"completed","task":"225c920dc519d96494f901333c9352d8","utc":"2026-11-02T04:49:13.017832902Z"}
+pg-1     | initdb: warning: enabling "trust" authentication for local connections
+pg-1     | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+pg-1     | waiting for server to start....2026-11-02 04:47:59.378 UTC [100] LOG:  starting PostgreSQL 17.11 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+pg-1     | 2026-11-02 04:47:59.414 UTC [100] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+pg-1     | 2026-11-02 04:47:59.532 UTC [103] LOG:  database system was shut down at 2026-11-02 04:47:44 UTC
+pg-1     | 2026-11-02 04:47:59.580 UTC [100] LOG:  database system is ready to accept connections
+pg-1     |  done
+pg-1     | server started
+pg-1     | CREATE DATABASE
+pg-1     | 
+pg-1     | 
+pg-1     | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+pg-1     | 
+pg-1     | waiting for server to shut down....2026-11-02 04:48:00.233 UTC [100] LOG:  received fast shutdown request
+pg-1     | 2026-11-02 04:48:00.279 UTC [100] LOG:  aborting any active transactions
+pg-1     | 2026-11-02 04:48:00.283 UTC [100] LOG:  background worker "logical replication launcher" (PID 106) exited with exit code 1
+pg-1     | 2026-11-02 04:48:00.286 UTC [101] LOG:  shutting down
+pg-1     | 2026-11-02 04:48:00.342 UTC [101] LOG:  checkpoint starting: shutdown immediate
+pg-1     | ....2026-11-02 04:48:04.931 UTC [101] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.251 s, sync=4.128 s, total=4.646 s; sync files=301, longest=0.047 s, average=0.014 s; distance=4266 kB, estimate=4266 kB; lsn=0/191E810, redo lsn=0/191E810
+pg-1     | 2026-11-02 04:48:04.950 UTC [100] LOG:  database system is shut down
+pg-1     |  done
+pg-1     | server stopped
+pg-1     | 
+pg-1     | PostgreSQL init process complete; ready for start up.
+pg-1     | 
+pg-1     | 2026-11-02 04:48:05.184 UTC [1] LOG:  starting PostgreSQL 17.11 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+pg-1     | 2026-11-02 04:48:05.185 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+pg-1     | 2026-11-02 04:48:05.185 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+pg-1     | 2026-11-02 04:48:05.266 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+pg-1     | 2026-11-02 04:48:05.340 UTC [134] LOG:  database system was shut down at 2026-11-02 04:48:04 UTC
+pg-1     | 2026-11-02 04:48:05.390 UTC [1] LOG:  database system is ready to accept connections

@@ -1,0 +1,40 @@
+{
+  "success": false,
+  "containers": {
+    "7ed4d16034fd12fb4dbe243cd1a137bafe98f7196ccf6d688d436064212859bc": "unknown"
+  },
+  "errors": [
+    {
+      "id": "7ed4d16034fd12fb4dbe243cd1a137bafe98f7196ccf6d688d436064212859bc",
+      "error": "engine inventory unavailable"
+    }
+  ],
+  "receipts": [
+    {
+      "command": [
+        "docker",
+        "inspect",
+        "7ed4d16034fd12fb4dbe243cd1a137bafe98f7196ccf6d688d436064212859bc"
+      ],
+      "started_ns": 1793595596169918619,
+      "ended_ns": 1793595596191801734,
+      "exit_code": 1,
+      "stdout": "[]\n",
+      "stderr": "Cannot connect to the Docker daemon at unix:///tmp/watch-cleanup-stx0196z/missing-daemon.sock. Is the docker daemon running?\n"
+    },
+    {
+      "command": [
+        "docker",
+        "ps",
+        "-a",
+        "-q",
+        "--no-trunc"
+      ],
+      "started_ns": 1793595596191805301,
+      "ended_ns": 1793595596212878122,
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Cannot connect to the Docker daemon at unix:///tmp/watch-cleanup-stx0196z/missing-daemon.sock. Is the docker daemon running?\n"
+    }
+  ]
+}

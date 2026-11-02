@@ -1,0 +1,1 @@
+{"stage_a_probe_passed": true, "source_sha": "444096edccca28155ad60d9c17e2e8d2b7f5fdda", "config_sha256": "12253933a8b29d243d22c838789f8b80ba9f02cc45ed061c81f0e4911b40d991", "derived_guard_sha256": "85ab5cba0e52586506b72447e321a54bc25d0d61a8f56042bb5f129c625499b6", "available_memory_bytes": 524014678016, "new_root_bytes": 54652104}

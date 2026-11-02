@@ -70,6 +70,11 @@ jobs:
       - name: Stop dedicated E2E PostgreSQL before Nginx phase
         if: always()
         run: docker stop --time 5 '${{ job.services.postgres.id }}'
+      - name: Required actual Docker watchdog cleanup CLI
+        run: |
+          mkdir -p "$RUNNER_TEMP/watch-cleanup-tests"
+          export WATCH_CLI_EVIDENCE="$RUNNER_TEMP/watch-cleanup-tests/raw"
+          python service/scripts/nginx-entry/strict_suite.py --start-dir service/scripts/pi-qwen-e2e --pattern test_watch_cli.py --out "$RUNNER_TEMP/watch-cleanup-tests/summary.json"
       - name: Current Product Nginx actual platform, lab and strict suites
         run: python service/scripts/nginx-entry/run.py --build-host --out "$RUNNER_TEMP/ng-entry"
       - name: Preserve original diagnostics and identity
@@ -82,5 +87,6 @@ jobs:
             !${{ runner.temp }}/pi-e2e12-cpu/api
             ${{ runner.temp }}/ng-entry
             ${{ runner.temp }}/ng-preflight
+            ${{ runner.temp }}/watch-cleanup-tests
           if-no-files-found: error
           retention-days: 14

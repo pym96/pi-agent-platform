@@ -1,0 +1,20 @@
+{
+  "watch_command": [
+    "python3",
+    "service/scripts/pi-qwen-e2e/watch.py",
+    "--project",
+    "pi-e2e12-1031-b",
+    "--sha",
+    "444096edccca28155ad60d9c17e2e8d2b7f5fdda",
+    "--deadline",
+    "1793595478.519989",
+    "--root",
+    "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder",
+    "--out",
+    "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/evidence/20261102-watch-red/watch.jsonl"
+  ],
+  "watch_exit_code": 1,
+  "expected_repaired_exit_code": 0,
+  "actual_removed_id": "bdb54a828b29d008f7fa5bf507605aac9b4d00e0a3c9835115334496b8bc5a72",
+  "red_observed": true
+}

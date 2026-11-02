@@ -1,0 +1,14 @@
+{
+  "command": [
+    "docker",
+    "stop",
+    "-t",
+    "3",
+    "pi-e2e12-1031-b-client-probe-20261102"
+  ],
+  "started_ns": 1793594238615898731,
+  "ended_ns": 1793594238639384973,
+  "exit_code": 0,
+  "stdout": "pi-e2e12-1031-b-client-probe-20261102\n",
+  "stderr": ""
+}

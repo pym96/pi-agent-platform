@@ -1,0 +1,2 @@
+3539299 python3 service/scripts/pi-qwen-e2e/watch.py --project pi-e2e12-1031-b --sha 444096edccca28155ad60d9c17e2e8d2b7f5fdda --deadline 1793595578 --root /media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder --out /media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/evidence/20261102-watch.jsonl
+{"utc_epoch": 1793594846.469413, "event": "sample", "running": [], "foreign_pids": [], "owned_bytes": 54667431, "available_memory": 523905802240, "stop_reason": null}

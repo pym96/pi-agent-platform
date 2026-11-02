@@ -6,13 +6,8 @@ assert a.project in ('pi-e2e12-1031-b','pi-e2e12-1031-r') and len(a.sha)==40 and
 root=Path(a.root).resolve();assert str(root).startswith('/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/')
 assert not Path(a.out).exists();gpu='GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead';known={}
 def cmd(args):return subprocess.check_output(args,text=True,timeout=15).strip()
-def owned():
-    ids=cmd(['docker','ps','-aq','--filter','label=com.docker.compose.project='+a.project]).splitlines();result=[]
-    for ident in ids:
-        row=json.loads(cmd(['docker','inspect',ident]))[0];labels=row['Config']['Labels']
-        assert labels.get('workorder')=='12' and labels.get('execution-sha')==a.sha
-        known[row['Id']]=row;result.append(row)
-    return result
+from watch_cleanup import discover_owned,cleanup_known,inspect_exact
+def owned():return discover_owned(a.project,a.sha,known)
 def record(value):
     with Path(a.out).open('a') as f:f.write(json.dumps({'utc_epoch':time.time(),**value})+'\n')
 def interrupted(*_):raise RuntimeError('watch interrupted; stop owned objects')
@@ -26,7 +21,12 @@ try:
         if time.time()>=a.deadline:reason='deadline'
         pids=set()
         for row in running:
-            pids.update(int(x.strip()) for x in cmd(['docker','top',row['Id'],'-eo','pid']).splitlines()[1:])
+            try:pids.update(int(x.strip()) for x in cmd(['docker','top',row['Id'],'-eo','pid']).splitlines()[1:])
+            except subprocess.CalledProcessError:
+                current=inspect_exact(row['Id'],a.project,a.sha,[])
+                if current is not None and current['State']['Running']:raise
+                # The exact ID settled/disappeared during this monitoring read.
+
         others=[]
         for line in cmd(['nvidia-smi','--query-compute-apps=gpu_uuid,pid','--format=csv,noheader,nounits']).splitlines():
             fields=[x.strip() for x in line.split(',')]
@@ -41,16 +41,9 @@ try:
         if reason:break
         time.sleep(2)
 finally:
-    errors=[]
-    # Failure to collect fresh diagnostics must not skip known-owned stop attempts.
+    refresh_error=None
     try:owned()
-    except Exception as error:errors.append('refresh: '+repr(error))
-    for ident in list(known):
-        try:subprocess.run(['docker','stop','--time','5',ident],check=True,timeout=20,capture_output=True)
-        except Exception as error:errors.append('stop '+ident+': '+repr(error))
-    state={}
-    for ident in known:
-        try:state[ident]=not json.loads(cmd(['docker','inspect',ident]))[0]['State']['Running']
-        except Exception as error:state[ident]=None;errors.append('inspect '+ident+': '+repr(error))
-    record({'event':'cleanup','containers':state,'errors':errors})
-    if errors or any(value is not True for value in state.values()):raise RuntimeError('owned cleanup incomplete; inspect receipts')
+    except Exception as error:refresh_error=repr(error)
+    result=cleanup_known(a.project,a.sha,list(known))
+    record({'event':'cleanup',**result,'refresh_error':refresh_error})
+    if refresh_error or not result['success']:raise RuntimeError('owned cleanup unknown/incomplete; inspect receipts')

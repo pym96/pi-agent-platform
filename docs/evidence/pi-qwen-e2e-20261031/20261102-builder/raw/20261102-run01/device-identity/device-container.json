@@ -1,0 +1,15 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "19b7725069be2c8817beb9884d12ba23ded26ef5cf3eb8b7974b9c74400483aa",
+    "nvidia-smi",
+    "--query-gpu=index,uuid,name",
+    "--format=csv,noheader,nounits"
+  ],
+  "started_utc_ns": 1793594946653096927,
+  "ended_utc_ns": 1793594946900584329,
+  "exit_code": 0,
+  "stdout": "0, GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead, NVIDIA GeForce RTX 4090\n",
+  "stderr": ""
+}

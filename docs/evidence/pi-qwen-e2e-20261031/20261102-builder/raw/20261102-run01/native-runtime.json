@@ -1,0 +1,1 @@
+{"python": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]", "packages": {"torch": "2.5.1+cu121", "transformers": "4.51.3", "tokenizers": "0.21.4", "aiohttp": "3.13.5"}}

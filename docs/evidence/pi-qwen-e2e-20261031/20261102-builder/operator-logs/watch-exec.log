@@ -1,0 +1,9 @@
+Error: No such object: 792901a252f7d11dbc1ed27af2e87a79ad0094e1555190a5b32d92a150ab83b5
+Error: No such object: a705de9eab2a502a073515a74f32f150e16a923caeafcce0498aad45139fd559
+Error: No such object: 3466146a23d76fd882c1b720b5a1b81f6c093b7b409f35d528d790097b8bba66
+Error: No such object: 19b7725069be2c8817beb9884d12ba23ded26ef5cf3eb8b7974b9c74400483aa
+Error: No such object: 238cdfbc0c9dbc954f6517504264f7970cb32d95f51537d1a5ca7d1e3207bf96
+Traceback (most recent call last):
+  File "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/source/service/scripts/pi-qwen-e2e/watch.py", line 56, in <module>
+    if errors or any(value is not True for value in state.values()):raise RuntimeError('owned cleanup incomplete; inspect receipts')
+RuntimeError: owned cleanup incomplete; inspect receipts

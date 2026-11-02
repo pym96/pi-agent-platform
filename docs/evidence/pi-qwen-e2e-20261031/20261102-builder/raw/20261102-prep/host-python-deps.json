@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-c",
+    "import importlib.util,json;print(json.dumps({x:importlib.util.find_spec(x) is not None for x in ['aiohttp','psycopg']}))"
+  ],
+  "started_ns": 1793594236948865360,
+  "ended_ns": 1793594236975701797,
+  "exit_code": 0,
+  "stdout": "{\"aiohttp\": false, \"psycopg\": false}\n",
+  "stderr": ""
+}

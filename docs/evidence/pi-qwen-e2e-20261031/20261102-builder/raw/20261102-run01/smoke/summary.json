@@ -1,0 +1,41 @@
+{
+  "integrity_verified": false,
+  "kind": "qwen-functional",
+  "commit": "444096edccca28155ad60d9c17e2e8d2b7f5fdda",
+  "attempts": 3,
+  "success": 3,
+  "failure": 0,
+  "samples": [
+    {
+      "client_first_content_seconds": 3.5802357620559633,
+      "task": "17c1c2d4f1ad26d2092321cab06db743",
+      "status": "completed",
+      "ack_seconds": 0.03410490183159709,
+      "client_terminal_seconds": 3.9599035647697747,
+      "pi_model_first_content_ms": 2964.189266000001,
+      "pi_model_settled_ms": 3321.9211670000077,
+      "pg_queue_seconds": 0.075009
+    },
+    {
+      "client_first_content_seconds": 0.13779402803629637,
+      "task": "06d8d234f10acbc3a6851ac1358f37ad",
+      "status": "completed",
+      "ack_seconds": 0.007602327037602663,
+      "client_terminal_seconds": 0.27463034307584167,
+      "pi_model_first_content_ms": 60.185163999994984,
+      "pi_model_settled_ms": 191.3565760000056,
+      "pg_queue_seconds": 0.024083
+    },
+    {
+      "client_first_content_seconds": 0.14722192799672484,
+      "task": "225c920dc519d96494f901333c9352d8",
+      "status": "completed",
+      "ack_seconds": 0.007034399081021547,
+      "client_terminal_seconds": 0.20249181520193815,
+      "pi_model_first_content_ms": 105.40884899999946,
+      "pi_model_settled_ms": 154.17420599999605,
+      "pg_queue_seconds": 0.006779
+    }
+  ],
+  "warning": "local spans only; no subtraction across clock domains; fixture is not GPU latency"
+}

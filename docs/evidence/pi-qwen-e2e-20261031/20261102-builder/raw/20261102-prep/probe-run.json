@@ -1,0 +1,13 @@
+{
+  "command": [
+    "docker",
+    "start",
+    "-a",
+    "pi-e2e12-1031-b-client-probe-20261102"
+  ],
+  "started_ns": 1793594237216227397,
+  "ended_ns": 1793594238588522449,
+  "exit_code": 0,
+  "stdout": "{\"uid\": 1001, \"gid\": 1001, \"config_sha256\": \"12253933a8b29d243d22c838789f8b80ba9f02cc45ed061c81f0e4911b40d991\"}\n",
+  "stderr": ""
+}

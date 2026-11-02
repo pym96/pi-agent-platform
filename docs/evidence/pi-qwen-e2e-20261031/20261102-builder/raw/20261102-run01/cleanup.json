@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "source_sha": "444096edccca28155ad60d9c17e2e8d2b7f5fdda",
+  "remaining_owned_running": [],
+  "conservative_stack_invocation_seconds": 103.857765925,
+  "model_compose_up_returned": true,
+  "historical_attempts": 3,
+  "historical_lifetime_seconds": 502,
+  "diagnostic_volumes": "retained"
+}

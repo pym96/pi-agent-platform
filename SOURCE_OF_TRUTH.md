@@ -14,3 +14,5 @@
 No Pan product development, public deployment, paid model calls or GPU work is implied.
 
 - Private career candidate: [WorkOrder #5](https://github.com/pym96/pi-agent-platform/issues/5), Criteria1.0; [three resume drafts and research pack](docs/career/20261021/README.md). Draft only: no independent verdict or Human disclosure approval is implied; business baseline remains f1d172dda9e578cd1ff773363b14f03ff0a1d18d.
+
+- Pi#12 November2 producer evidence: [fresh GPU0 functional run and watchdog correction](docs/evidence/pi-qwen-e2e-20261031/20261102-builder/README.md). Three tasks executed source444096; final delivery adds only the scoped exact-ID watch/CLI guard and documentation. Original watch failure and temporary-path correction remain visible. Main/integration/independent acceptance remain controlled by the Master/Regulator.

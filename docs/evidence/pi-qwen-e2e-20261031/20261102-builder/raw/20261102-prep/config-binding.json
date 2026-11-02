@@ -1,0 +1,11 @@
+{
+  "source_sha": "444096edccca28155ad60d9c17e2e8d2b7f5fdda",
+  "base_config_sha256": "12253933a8b29d243d22c838789f8b80ba9f02cc45ed061c81f0e4911b40d991",
+  "derived_guard_sha256": "85ab5cba0e52586506b72447e321a54bc25d0d61a8f56042bb5f129c625499b6",
+  "added_fields": {
+    "container": "pi-e2e12-1031-b-model-1",
+    "port": 18181
+  },
+  "remaining_equal": true,
+  "sdk_package_sha256": "83c3bb7619f590c213cc96a24216eb29a819a3ef6dc548607cc037ed276e8dc5"
+}

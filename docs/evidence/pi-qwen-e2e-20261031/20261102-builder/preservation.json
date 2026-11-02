@@ -1,0 +1,9 @@
+{
+  "compared_to": "444096edccca28155ad60d9c17e2e8d2b7f5fdda",
+  "protected_tracked_paths": 1853,
+  "all_byte_identical": true,
+  "old_e2e_manifest_entries": 703,
+  "ng_manifest_entries": 974,
+  "old_new_evidence_manifest_entries": 157,
+  "old_new_manifest_sha256": "0731be3a1e325c34d1a893e7d2a9d025c3d38432d028c6d9fd97b4a81a957d87"
+}

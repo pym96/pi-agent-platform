@@ -41,3 +41,7 @@ Historical database time fields are transaction-start intervals, not exact queue
 ## Pi #12 real-Qwen integration candidate
 
 [2026-10-31 E2E1.1 evidence](pi-qwen-e2e-20261031/README.md): actual SDK/PG CPU chain and strict required-suite/provenance checks. Fresh host physical GPU0 execution and independent acceptance are pending; historical GPU3 samples are preserved with their original identity.
+
+## Pi #12 November2 functional producer delivery
+
+[Fresh GPU0 chain, failed-watch original and narrow correction](pi-qwen-e2e-20261031/20261102-builder/README.md): three successful real tasks at execution source444096, explicit usage/device/PG/SSE provenance, bounded lifecycle and actual CPU watcher controls. Final delivery source/CI and independent Verdict are bound externally; no acceptance or capacity claim is implied. The prior157-entry manifest/source snapshot is preserved unchanged; the dated subtree has a separate inventory.

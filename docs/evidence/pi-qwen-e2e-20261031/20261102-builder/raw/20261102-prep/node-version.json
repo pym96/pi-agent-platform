@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/media/usv012/pjx/pi-agent-platform/experiments/1/toolchains/node-v22.23.3/bin/node",
+    "--version"
+  ],
+  "started_ns": 1793594236265814088,
+  "ended_ns": 1793594236702997900,
+  "exit_code": 0,
+  "stdout": "v22.23.3\n",
+  "stderr": ""
+}

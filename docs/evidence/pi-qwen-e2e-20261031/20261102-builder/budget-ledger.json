@@ -1,0 +1,23 @@
+{
+  "execution_source_sha": "444096edccca28155ad60d9c17e2e8d2b7f5fdda",
+  "historical_attempts": 3,
+  "historical_conservative_seconds": 502,
+  "new_attempts": 3,
+  "new_success": 3,
+  "new_conservative_seconds": 104,
+  "new_invocation_seconds": 103.857765925,
+  "total_attempts": 6,
+  "total_conservative_seconds": 606,
+  "remaining_total_attempts": 18,
+  "remaining_total_seconds": 2994,
+  "new_prompt_tokens": 211,
+  "new_completion_tokens": 8,
+  "warmup": 0,
+  "automatic_retry": 0,
+  "gpu_go_deadline_epoch": 1793595578,
+  "cpu_sc_extra_gpu_attempts": 0,
+  "original_gpu_watch_exit_code": 1,
+  "launcher_exit_code": 0,
+  "fixed_actual_cpu_watch_exit_code": 0,
+  "all_owned_stopped": true
+}

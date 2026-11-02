@@ -1,0 +1,40 @@
+{
+  "success": false,
+  "containers": {
+    "ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6": "unknown"
+  },
+  "errors": [
+    {
+      "id": "ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6",
+      "error": "engine inventory unavailable"
+    }
+  ],
+  "receipts": [
+    {
+      "command": [
+        "docker",
+        "inspect",
+        "ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6"
+      ],
+      "started_ns": 1793595770286715341,
+      "ended_ns": 1793595770307666751,
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Failed to initialize: unix socket path \"/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/evidence/20261102-watch-cli-rooted/raw/watch-cleanup-4vteqcek/missing-daemon.sock\" is too long\n"
+    },
+    {
+      "command": [
+        "docker",
+        "ps",
+        "-a",
+        "-q",
+        "--no-trunc"
+      ],
+      "started_ns": 1793595770307670723,
+      "ended_ns": 1793595770327803714,
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Failed to initialize: unix socket path \"/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/evidence/20261102-watch-cli-rooted/raw/watch-cleanup-4vteqcek/missing-daemon.sock\" is too long\n"
+    }
+  ]
+}

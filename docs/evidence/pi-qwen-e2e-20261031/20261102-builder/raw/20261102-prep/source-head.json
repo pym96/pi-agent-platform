@@ -1,0 +1,12 @@
+{
+  "command": [
+    "git",
+    "rev-parse",
+    "HEAD"
+  ],
+  "started_ns": 1793594236179349072,
+  "ended_ns": 1793594236181622430,
+  "exit_code": 0,
+  "stdout": "444096edccca28155ad60d9c17e2e8d2b7f5fdda\n",
+  "stderr": ""
+}

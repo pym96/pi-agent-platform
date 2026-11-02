@@ -1,0 +1,10 @@
+test_existing_wrong_execution_is_not_stopped (test_watch_cli.WatchCleanupCliTests) ... ok
+test_live_owned_exact_id_is_stopped (test_watch_cli.WatchCleanupCliTests) ... ok
+test_removed_exact_id_and_reused_name_does_not_stop_new_id (test_watch_cli.WatchCleanupCliTests) ... ok
+test_unreachable_engine_is_unknown_and_leaves_real_object_running (test_watch_cli.WatchCleanupCliTests) ... {"tests": 4, "skipped": 0, "failures": 0, "errors": 0, "expected_failures": 0, "unexpected_successes": 0, "success": true}
+ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 12.653s
+
+OK

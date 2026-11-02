@@ -1,0 +1,103 @@
+[
+  {
+    "command": [
+      "docker",
+      "info",
+      "--format",
+      "{{.ServerVersion}}"
+    ],
+    "started_ns": 1793595769215633791,
+    "ended_ns": 1793595769286094502,
+    "exit_code": 0,
+    "stdout": "27.3.1\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "-d",
+      "--pull",
+      "never",
+      "--name",
+      "pi-e2e12-watch-probe-575b83e7406c",
+      "--runtime",
+      "runc",
+      "--network",
+      "none",
+      "--label",
+      "com.docker.compose.project=pi-e2e12-1031-b",
+      "--label",
+      "workorder=12",
+      "--label",
+      "execution-sha=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "--cpus",
+      "1",
+      "--memory",
+      "512m",
+      "--read-only",
+      "--tmpfs",
+      "/tmp:size=32m",
+      "--user",
+      "1001:1001",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges:true",
+      "--entrypoint",
+      "python",
+      "python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1",
+      "-c",
+      "import time;time.sleep(45)"
+    ],
+    "started_ns": 1793595769286222904,
+    "ended_ns": 1793595770247508613,
+    "exit_code": 0,
+    "stdout": "ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/usr/bin/python3",
+      "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/source/service/scripts/pi-qwen-e2e/watch_cleanup.py",
+      "--project",
+      "pi-e2e12-1031-b",
+      "--sha",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "--known-id",
+      "ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6",
+      "--out",
+      "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/evidence/20261102-watch-cli-rooted/raw/test_unreachable_engine_is_unknown_and_leaves_real_object_running/result.json"
+    ],
+    "started_ns": 1793595770247825836,
+    "ended_ns": 1793595770335229489,
+    "exit_code": 1,
+    "stdout": "{\"success\": false, \"containers\": {\"ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6\": \"unknown\"}, \"errors\": [{\"id\": \"ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6\", \"error\": \"engine inventory unavailable\"}], \"receipts\": [{\"command\": [\"docker\", \"inspect\", \"ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6\"], \"started_ns\": 1793595770286715341, \"ended_ns\": 1793595770307666751, \"exit_code\": 1, \"stdout\": \"\", \"stderr\": \"Failed to initialize: unix socket path \\\"/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/evidence/20261102-watch-cli-rooted/raw/watch-cleanup-4vteqcek/missing-daemon.sock\\\" is too long\\n\"}, {\"command\": [\"docker\", \"ps\", \"-a\", \"-q\", \"--no-trunc\"], \"started_ns\": 1793595770307670723, \"ended_ns\": 1793595770327803714, \"exit_code\": 1, \"stdout\": \"\", \"stderr\": \"Failed to initialize: unix socket path \\\"/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/evidence/20261102-watch-cli-rooted/raw/watch-cleanup-4vteqcek/missing-daemon.sock\\\" is too long\\n\"}]}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "inspect",
+      "ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6"
+    ],
+    "started_ns": 1793595770335512959,
+    "ended_ns": 1793595770359925462,
+    "exit_code": 0,
+    "stdout": "[\n    {\n        \"Id\": \"ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6\",\n        \"Created\": \"2026-11-02T05:02:49.312950557Z\",\n        \"Path\": \"python\",\n        \"Args\": [\n            \"-c\",\n            \"import time;time.sleep(45)\"\n        ],\n        \"State\": {\n            \"Status\": \"running\",\n            \"Running\": true,\n            \"Paused\": false,\n            \"Restarting\": false,\n            \"OOMKilled\": false,\n            \"Dead\": false,\n            \"Pid\": 3550576,\n            \"ExitCode\": 0,\n            \"Error\": \"\",\n            \"StartedAt\": \"2026-11-02T05:02:50.051126783Z\",\n            \"FinishedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        \"Image\": \"sha256:df18428df8a0f9189c84e7424d214b4c50092af1f9dca5842a00c41c39bda316\",\n        \"ResolvConfPath\": \"/media/usv012/pjx/docker-data/containers/ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6/resolv.conf\",\n        \"HostnamePath\": \"/media/usv012/pjx/docker-data/containers/ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6/hostname\",\n        \"HostsPath\": \"/media/usv012/pjx/docker-data/containers/ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6/hosts\",\n        \"LogPath\": \"/media/usv012/pjx/docker-data/containers/ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6/ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6-json.log\",\n        \"Name\": \"/pi-e2e12-watch-probe-575b83e7406c\",\n        \"RestartCount\": 0,\n        \"Driver\": \"overlay2\",\n        \"Platform\": \"linux\",\n        \"MountLabel\": \"\",\n        \"ProcessLabel\": \"\",\n        \"AppArmorProfile\": \"docker-default\",\n        \"ExecIDs\": null,\n        \"HostConfig\": {\n            \"Binds\": null,\n            \"ContainerIDFile\": \"\",\n            \"LogConfig\": {\n                \"Type\": \"json-file\",\n                \"Config\": {}\n            },\n            \"NetworkMode\": \"none\",\n            \"PortBindings\": {},\n            \"RestartPolicy\": {\n                \"Name\": \"no\",\n                \"MaximumRetryCount\": 0\n            },\n            \"AutoRemove\": false,\n            \"VolumeDriver\": \"\",\n            \"VolumesFrom\": null,\n            \"ConsoleSize\": [\n                0,\n                0\n            ],\n            \"CapAdd\": null,\n            \"CapDrop\": [\n                \"ALL\"\n            ],\n            \"CgroupnsMode\": \"private\",\n            \"Dns\": [],\n            \"DnsOptions\": [],\n            \"DnsSearch\": [],\n            \"ExtraHosts\": null,\n            \"GroupAdd\": null,\n            \"IpcMode\": \"private\",\n            \"Cgroup\": \"\",\n            \"Links\": null,\n            \"OomScoreAdj\": 0,\n            \"PidMode\": \"\",\n            \"Privileged\": false,\n            \"PublishAllPorts\": false,\n            \"ReadonlyRootfs\": true,\n            \"SecurityOpt\": [\n                \"no-new-privileges:true\"\n            ],\n            \"Tmpfs\": {\n                \"/tmp\": \"size=32m\"\n            },\n            \"UTSMode\": \"\",\n            \"UsernsMode\": \"\",\n            \"ShmSize\": 67108864,\n            \"Runtime\": \"runc\",\n            \"Isolation\": \"\",\n            \"CpuShares\": 0,\n            \"Memory\": 536870912,\n            \"NanoCpus\": 1000000000,\n            \"CgroupParent\": \"\",\n            \"BlkioWeight\": 0,\n            \"BlkioWeightDevice\": [],\n            \"BlkioDeviceReadBps\": [],\n            \"BlkioDeviceWriteBps\": [],\n            \"BlkioDeviceReadIOps\": [],\n            \"BlkioDeviceWriteIOps\": [],\n            \"CpuPeriod\": 0,\n            \"CpuQuota\": 0,\n            \"CpuRealtimePeriod\": 0,\n            \"CpuRealtimeRuntime\": 0,\n            \"CpusetCpus\": \"\",\n            \"CpusetMems\": \"\",\n            \"Devices\": [],\n            \"DeviceCgroupRules\": null,\n            \"DeviceRequests\": null,\n            \"MemoryReservation\": 0,\n            \"MemorySwap\": 1073741824,\n            \"MemorySwappiness\": null,\n            \"OomKillDisable\": null,\n            \"PidsLimit\": null,\n            \"Ulimits\": [],\n            \"CpuCount\": 0,\n            \"CpuPercent\": 0,\n            \"IOMaximumIOps\": 0,\n            \"IOMaximumBandwidth\": 0,\n            \"MaskedPaths\": [\n                \"/proc/asound\",\n                \"/proc/acpi\",\n                \"/proc/kcore\",\n                \"/proc/keys\",\n                \"/proc/latency_stats\",\n                \"/proc/timer_list\",\n                \"/proc/timer_stats\",\n                \"/proc/sched_debug\",\n                \"/proc/scsi\",\n                \"/sys/firmware\",\n                \"/sys/devices/virtual/powercap\"\n            ],\n            \"ReadonlyPaths\": [\n                \"/proc/bus\",\n                \"/proc/fs\",\n                \"/proc/irq\",\n                \"/proc/sys\",\n                \"/proc/sysrq-trigger\"\n            ]\n        },\n        \"GraphDriver\": {\n            \"Data\": {\n                \"LowerDir\": \"/media/usv012/pjx/docker-data/overlay2/0cd3c831425626b3ad3b158cda035a5c5b4429064e245f0fc5ec0092aaf76b36-init/diff:/media/usv012/pjx/docker-data/overlay2/06e69b065e7ed60063c6021d6d6460a1c5e41d1f5c5551593c30c2dba09e5aa2/diff:/media/usv012/pjx/docker-data/overlay2/ad335a040b28788355b69b9ba3b4e9c9810d0c41864be8047ffd7d171b02b23c/diff:/media/usv012/pjx/docker-data/overlay2/dd3d9cdcc8c8ffac5f5222ed43e16eb5194198afcefac4e2552ed0e7e47888fa/diff:/media/usv012/pjx/docker-data/overlay2/4140d54cf73248f33a1a4b084884d566497eaf4e30e14af596f622947fa4f86f/diff\",\n                \"MergedDir\": \"/media/usv012/pjx/docker-data/overlay2/0cd3c831425626b3ad3b158cda035a5c5b4429064e245f0fc5ec0092aaf76b36/merged\",\n                \"UpperDir\": \"/media/usv012/pjx/docker-data/overlay2/0cd3c831425626b3ad3b158cda035a5c5b4429064e245f0fc5ec0092aaf76b36/diff\",\n                \"WorkDir\": \"/media/usv012/pjx/docker-data/overlay2/0cd3c831425626b3ad3b158cda035a5c5b4429064e245f0fc5ec0092aaf76b36/work\"\n            },\n            \"Name\": \"overlay2\"\n        },\n        \"Mounts\": [],\n        \"Config\": {\n            \"Hostname\": \"ed64b21294a7\",\n            \"Domainname\": \"\",\n            \"User\": \"1001:1001\",\n            \"AttachStdin\": false,\n            \"AttachStdout\": false,\n            \"AttachStderr\": false,\n            \"Tty\": false,\n            \"OpenStdin\": false,\n            \"StdinOnce\": false,\n            \"Env\": [\n                \"PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\",\n                \"LANG=C.UTF-8\",\n                \"GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305\",\n                \"PYTHON_VERSION=3.12.15\",\n                \"PYTHON_SHA256=c2c4321961fab0fb999d66e0cecf521c2ab3994c7992873ea99e306c1094fd5a\"\n            ],\n            \"Cmd\": [\n                \"-c\",\n                \"import time;time.sleep(45)\"\n            ],\n            \"Image\": \"python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1\",\n            \"Volumes\": null,\n            \"WorkingDir\": \"\",\n            \"Entrypoint\": [\n                \"python\"\n            ],\n            \"OnBuild\": null,\n            \"Labels\": {\n                \"com.docker.compose.project\": \"pi-e2e12-1031-b\",\n                \"execution-sha\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n                \"workorder\": \"12\"\n            }\n        },\n        \"NetworkSettings\": {\n            \"Bridge\": \"\",\n            \"SandboxID\": \"9f5294ba1e59fa5658705cf9b077607b81344aa93112e3b572eab812bc8179f9\",\n            \"SandboxKey\": \"/var/run/docker/netns/9f5294ba1e59\",\n            \"Ports\": {},\n            \"HairpinMode\": false,\n            \"LinkLocalIPv6Address\": \"\",\n            \"LinkLocalIPv6PrefixLen\": 0,\n            \"SecondaryIPAddresses\": null,\n            \"SecondaryIPv6Addresses\": null,\n            \"EndpointID\": \"\",\n            \"Gateway\": \"\",\n            \"GlobalIPv6Address\": \"\",\n            \"GlobalIPv6PrefixLen\": 0,\n            \"IPAddress\": \"\",\n            \"IPPrefixLen\": 0,\n            \"IPv6Gateway\": \"\",\n            \"MacAddress\": \"\",\n            \"Networks\": {\n                \"none\": {\n                    \"IPAMConfig\": null,\n                    \"Links\": null,\n                    \"Aliases\": null,\n                    \"MacAddress\": \"\",\n                    \"DriverOpts\": null,\n                    \"NetworkID\": \"3c37b84eb2a378f2cafdc543c234ca12143fd1c81a25bf1f13efa086c853661e\",\n                    \"EndpointID\": \"7deef11dab49e85baa0d259a8ecc423a959a9573d17133b7ae90f48235c07628\",\n                    \"Gateway\": \"\",\n                    \"IPAddress\": \"\",\n                    \"IPPrefixLen\": 0,\n                    \"IPv6Gateway\": \"\",\n                    \"GlobalIPv6Address\": \"\",\n                    \"GlobalIPv6PrefixLen\": 0,\n                    \"DNSNames\": null\n                }\n            }\n        }\n    }\n]\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "rm",
+      "-f",
+      "ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6"
+    ],
+    "started_ns": 1793595770360268321,
+    "ended_ns": 1793595770788747712,
+    "exit_code": 0,
+    "stdout": "ed64b21294a7fbe487c751bf2247e067f9b02f96977ecd47580ea22a789a5aa6\n",
+    "stderr": ""
+  }
+]

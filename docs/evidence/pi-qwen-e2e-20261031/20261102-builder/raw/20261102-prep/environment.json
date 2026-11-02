@@ -1,0 +1,21 @@
+{
+  "cwd": "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder",
+  "uid": 1001,
+  "gid": 1001,
+  "available_memory_bytes": 524014678016,
+  "disk_free": 1251902451712,
+  "new_root_bytes": 54626582,
+  "host_commands": {
+    "go": null,
+    "gcc": "/usr/bin/gcc",
+    "node": "/usr/bin/node",
+    "psql": null,
+    "initdb": null,
+    "pg_ctl": null
+  },
+  "deps_paths": {
+    "/media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/regulator/deps": true,
+    "/media/usv012/pjx/pi-agent-platform/experiments/15-nginx-entry-20261025/builder/deps": true,
+    "/media/usv012/pjx/pi-agent-platform/experiments/7-qwen-load-20261021/deps": true
+  }
+}
