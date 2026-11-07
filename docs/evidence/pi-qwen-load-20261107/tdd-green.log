@@ -1,0 +1,6 @@
+test_closed_waits_for_terminal (test_load.TestLoad.test_closed_waits_for_terminal) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.851s
+
+OK

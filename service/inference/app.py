@@ -1,6 +1,9 @@
 """Private loopback adapter. Backend is cooperative; no hostile-code/GPU kill guarantee."""
 import asyncio
 import json
+import os
+import time
+import hashlib
 from aiohttp import web
 
 class InputError(ValueError):
@@ -44,6 +47,11 @@ def create_app(backend, queue_timeout=1.0, generation_timeout=2.0, max_queue=8, 
     attempts=0
     if max_attempts is not None and (type(max_attempts) is not int or max_attempts<1):raise ValueError("positive max_attempts required")
 
+    def trace(event, ident, **values):
+        path=os.environ.get("LOAD_TRACE")
+        if path:
+            with open(path,"a") as f:f.write(json.dumps({"event":event,"attempt":ident,"clock":"model-monotonic","at":time.monotonic(),**values})+"\n")
+
     async def health(request):
         return web.json_response({'backend':backend.identity,'model':'Qwen3-8B','ready':backend.ready,
             'active_generation':backend.active,'queued':waiting,'max_active_generation':1,'max_context':1024,'attempts':attempts,'max_attempts':max_attempts})
@@ -52,9 +60,12 @@ def create_app(backend, queue_timeout=1.0, generation_timeout=2.0, max_queue=8, 
         nonlocal waiting,attempts
         if max_attempts is not None and attempts>=max_attempts:return error(503,"attempt_budget")
         attempts+=1
+        ident=attempts
+        trace("received",ident,waiting=waiting,active=backend.active)
         try:
             data=await request.json()
             messages,budget=validate(data)
+            trace("validated",ident,payload=data,core_hash=hashlib.sha256(json.dumps(data,sort_keys=True,separators=(",",":"),ensure_ascii=False).encode()).hexdigest())
         except web.HTTPRequestEntityTooLarge:
             return error(413,'body_too_large')
         except (ValueError,TypeError):
@@ -75,10 +86,12 @@ def create_app(backend, queue_timeout=1.0, generation_timeout=2.0, max_queue=8, 
         worker=None
         response=None
         try:
+            trace("slot_acquired",ident,waiting=waiting,active=backend.active)
             if not backend.ready:
                 return error(503,'model_unavailable')
             try:
                 prepared=await backend.prepare(messages,budget)
+                trace("prepared",ident)
             except InputError:
                 return error(400,'context_limit')
             except Exception:
@@ -90,6 +103,7 @@ def create_app(backend, queue_timeout=1.0, generation_timeout=2.0, max_queue=8, 
             await emit({'choices':[{'delta':{'role':'assistant','content':''},'finish_reason':None}]})
             queue=asyncio.Queue()
             async def pump():
+                trace("execute_start",ident)
                 terminal=None
                 stream=backend.stream(prepared,cancel)
                 try:
@@ -108,6 +122,7 @@ def create_app(backend, queue_timeout=1.0, generation_timeout=2.0, max_queue=8, 
                     queue.put_nowait(('error',None))
                 finally:
                     await stream.aclose()
+                    trace("execute_end",ident,terminal=terminal)
             worker=asyncio.create_task(pump())
             end=asyncio.get_running_loop().time()+generation_timeout
             try:
@@ -138,7 +153,8 @@ def create_app(backend, queue_timeout=1.0, generation_timeout=2.0, max_queue=8, 
                     try:await asyncio.shield(worker)
                     except asyncio.CancelledError:continue
                 await worker
-            lock.release()
+            try:trace("settled",ident)
+            finally:lock.release()
 
     app.router.add_get('/health',health)
     app.router.add_post('/v1/chat/completions',completion)

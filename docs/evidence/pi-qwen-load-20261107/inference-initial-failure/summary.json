@@ -1,0 +1,18 @@
+{
+  "success": false,
+  "exit_code": 1,
+  "reason": "unusable_junit",
+  "xfail_reports": null,
+  "duration_seconds": 0.02045520901447162,
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-m",
+    "pytest",
+    "-p",
+    "service.inference.scripts.required_pytest",
+    "service/inference/tests",
+    "-q",
+    "--junitxml=/Users/panyiming/.local/state/pi-agent-platform/lb13-builder-inference-20261107/junit.xml"
+  ],
+  "python": "3.14.0 (main, Oct  7 2025, 09:34:52) [Clang 17.0.0 (clang-1700.4.4.1)]"
+}

@@ -1,0 +1,16 @@
+test_closed_waits_for_terminal (test_load.TestLoad.test_closed_waits_for_terminal) ... FAIL
+
+======================================================================
+FAIL: test_closed_waits_for_terminal (test_load.TestLoad.test_closed_waits_for_terminal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-load13-candidate/service/scripts/pi-qwen-load/test_load.py", line 20, in test_closed_waits_for_terminal
+    self.assertEqual(r.returncode,0,r.stderr);self.assertEqual(len(arrivals),3);self.assertTrue(all(b-a>=.1 for a,b in zip(arrivals,arrivals[1:])))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : /opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-load13-candidate/service/scripts/pi-qwen-load/load.py': [Errno 2] No such file or directory
+
+
+----------------------------------------------------------------------
+Ran 1 test in 7.962s
+
+FAILED (failures=1)

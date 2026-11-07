@@ -1,8 +1,8 @@
 name: Pi Qwen CPU contracts
 on:
   push:
-    branches: [main, workorder/12-candidate]
-    paths: ['service/**', 'docs/evidence/pi-qwen-e2e-20261031/**', '.github/workflows/ci.yml']
+    branches: [main, workorder/13-candidate]
+    paths: ['service/**', 'docs/evidence/pi-qwen-e2e-20261031/**', 'docs/evidence/pi-qwen-load-20261107/**', '.github/workflows/ci.yml']
 permissions:
   contents: read
 concurrency:
@@ -73,6 +73,10 @@ jobs:
           echo "NG_DEPS=$RUNNER_TEMP/ng-deps" >> "$GITHUB_ENV"
           docker pull python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
           docker pull nginx@sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284
+      - name: Required terminal-aware load measurement CLI
+        run: |
+          mkdir -p "$RUNNER_TEMP/load13"
+          python service/scripts/nginx-entry/strict_suite.py --start-dir service/scripts/pi-qwen-load --pattern test_load.py --out "$RUNNER_TEMP/load13/summary.json" > "$RUNNER_TEMP/load13/tests.log" 2>&1
       - name: Required CPU suites and actual SDK to PG chain
         run: python service/scripts/pi-qwen-e2e/run.py --out "$RUNNER_TEMP/pi-e2e12-cpu"
       - name: Stop dedicated E2E PostgreSQL before Nginx phase
@@ -97,5 +101,6 @@ jobs:
             ${{ runner.temp }}/ng-preflight
             ${{ runner.temp }}/watch-cleanup-tests
             ${{ runner.temp }}/python310-analyzer
+            ${{ runner.temp }}/load13
           if-no-files-found: error
           retention-days: 14

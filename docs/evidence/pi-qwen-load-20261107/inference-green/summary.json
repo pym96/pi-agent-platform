@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "exit_code": 0,
+  "tests": 50,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "xfail_reports": [],
+  "duration_seconds": 0.9977401249925606,
+  "command": [
+    "/Users/panyiming/.local/state/pi-agent-platform/e2e12-regulator-20261023/venv/bin/python",
+    "-m",
+    "pytest",
+    "-p",
+    "service.inference.scripts.required_pytest",
+    "service/inference/tests",
+    "-q",
+    "--junitxml=/Users/panyiming/.local/state/pi-agent-platform/lb13-builder-inference-green-20261107/junit.xml"
+  ],
+  "python": "3.14.0 (main, Oct  7 2025, 09:34:52) [Clang 17.0.0 (clang-1700.4.4.1)]"
+}

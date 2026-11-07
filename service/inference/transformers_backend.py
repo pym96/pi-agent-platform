@@ -2,6 +2,9 @@
 
 Qwen3-8B/BF16, one adapter slot, no batching/cache claim. Model directory is read-only.
 """
+import os
+import json
+import contextlib
 import asyncio
 import threading
 from .app import InputError
@@ -42,11 +45,18 @@ class TransformersBackend:
             def end(self):pass
         class Cancel(StoppingCriteria):
             def __call__(self,input_ids,scores,**kwargs):return stop.is_set()
+        profile_path=os.environ.get('LOAD_PROFILE') if self.calls==0 else None
         def generate():
             try:
-                with backend.torch.inference_mode():
+                profiler=None
+                if profile_path:
+                    try:profiler=backend.torch.profiler.profile(activities=[backend.torch.profiler.ProfilerActivity.CPU,backend.torch.profiler.ProfilerActivity.CUDA])
+                    except Exception as error:
+                        with open(profile_path+'.error','w') as f:f.write(repr(error))
+                with backend.torch.inference_mode(),(profiler if profiler is not None else contextlib.nullcontext()):
                     backend.model.generate(**encoded,streamer=Streamer(),max_new_tokens=budget,
                         do_sample=False,use_cache=True,stopping_criteria=StoppingCriteriaList([Cancel()]))
+                if profiler is not None:profiler.export_chrome_trace(profile_path)
                 loop.call_soon_threadsafe(queue.put_nowait,('finish',None))
             except Exception:loop.call_soon_threadsafe(queue.put_nowait,('error',None))
         async def watch():await cancel.wait();stop.set()
