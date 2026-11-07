@@ -193,3 +193,25 @@ def test_explicit_attempt_budget_is_not_retried_or_exceeded():
                 assert health['attempts']==1 and health['max_attempts']==1
             assert backend.calls==1
     asyncio.run(scenario())
+
+# #13 opt-in diagnostic failure must not change ownership of the serialized slot.
+def test_optin_trace_io_failure_releases_settled_slot(tmp_path,monkeypatch):
+    path=tmp_path/'trace.jsonl';monkeypatch.setenv('LOAD_TRACE',str(path))
+    class TraceFailureBackend(ScriptedBackend):
+        fail_once=True
+        async def stream(self,prepared,cancel):
+            async for event in super().stream(prepared,cancel):yield event
+            if self.fail_once:
+                self.fail_once=False;path.unlink();path.mkdir()
+    async def scenario():
+        backend=TraceFailureBackend()
+        async with serve(backend,queue_timeout=.1,generation_timeout=.3) as (client,url):
+            try:
+                async with client.post(url+'/v1/chat/completions',json=VALID) as response:await response.read()
+            except aiohttp.ClientPayloadError:pass
+            path.rmdir();path.write_text('')
+            async with client.post(url+'/v1/chat/completions',json=VALID) as response:
+                assert response.status==200
+                assert 'data: [DONE]' in await response.text()
+            assert backend.calls==2 and backend.active==0
+    asyncio.run(scenario())

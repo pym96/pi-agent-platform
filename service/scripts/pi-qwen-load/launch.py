@@ -12,7 +12,7 @@ def main():
  assert sha(source/'service/compose.qwen-load.yaml')==go['config_sha256'] and sha(source/'service/bin/service')==go['binary_sha256'] and sha(source/'service/scripts/pi-qwen-load/launch.py')==go['launcher_sha256'] and sha(source/'service/scripts/pi-qwen-load/watch.py')==go['watch_sha256']
  assert go['max_attempts']==(6 if go['stage']=='pilot' else 240)
  env=dict(os.environ,SOURCE_SHA=go['source_sha'],LOAD_PROJECT=project,LOAD_OUT=str(out),LOAD_PI_DATA=str(root/'pi-data'),LOAD_PROFILE='/evidence/profile.json' if go['stage']=='pilot' else '',MAX_ATTEMPTS=str(go['max_attempts']),DEADLINE_EPOCH=str(deadline),NODE_ROOT='/media/usv012/pjx/pi-agent-platform/experiments/1/toolchains/node-v22.23.3',PI_MODULES='/media/usv012/pjx/pi-agent-platform/experiments/3/builder/source/service/pi/node_modules')
- (root/'pi-data').mkdir(exist_ok=True);started=time.monotonic();serial=0;status='failed';sampling_stop=threading.Event();sampler=None;client=project+'-client';client_created=False
+ (root/'pi-data').mkdir(exist_ok=True);started=time.monotonic();serial=0;status='failed';sampling_stop=threading.Event();sampler=None;watch_guard=None;watch_lost=threading.Event();client=project+'-client';client_created=False;client_id=None;startup_attempted=False;known_ids={}
  def call(args,key=None,check=True,timeout=60):
   nonlocal serial
   serial+=1;key=key or str(serial);s=time.time();r=subprocess.run(args,cwd=source,env=env,text=True,capture_output=True,timeout=timeout)
@@ -20,6 +20,28 @@ def main():
   if check and r.returncode:raise RuntimeError('command failed:'+key)
   return r
  def compose(*args,**kw):return call(['docker','compose','-p',project,'-f','service/compose.qwen-load.yaml',*args],**kw)
+ def watch_live():
+  path=Path(go['watch_receipt']);entries=[]
+  if not path.exists():raise RuntimeError('watch receipt absent')
+  for line in path.read_text().splitlines():
+   try:entries.append(json.loads(line))
+   except ValueError:pass
+  samples=[x for x in entries if x.get('event')=='sample']
+  if not samples:raise RuntimeError('watch sample absent')
+  sample=samples[-1];pid=sample['watch_pid']
+  assert sample['project']==project and sample['source_sha']==go['source_sha'] and sample['deadline_epoch']==deadline and 0<=time.time()-sample['utc_epoch']<=5,'watch binding/staleness'
+  os.kill(pid,0);assert Path('/proc/'+str(pid)+'/stat').read_text().split()[21]==sample['watch_start_ticks'],'watch PID reuse'
+  args=Path('/proc/'+str(pid)+'/cmdline').read_bytes().split(b'\0');assert b'--sha' in args and b'--project' in args and go['source_sha'].encode() in args and project.encode() in args and any(x.endswith(b'service/scripts/pi-qwen-load/watch.py') for x in args),'watch process identity'
+  return sample
+ def guard():
+  while not sampling_stop.wait(1):
+   try:watch_live()
+   except Exception as error:
+    watch_lost.set();sys.path.insert(0,str(HERE));from watch_cleanup import discover_owned,cleanup_known
+    try:discover_owned(project,go['source_sha'],known_ids)
+    except Exception:pass
+    result=cleanup_known(project,go['source_sha'],list(known_ids))
+    with (out/'watch-loss.jsonl').open('a') as f:f.write(json.dumps({'error':repr(error),'cleanup':result,'utc_epoch':time.time()})+'\n')
  try:
   # Two fresh empty snapshots, at least ten seconds apart. A foreign task is never stopped.
   for i in range(2):
@@ -28,10 +50,12 @@ def main():
    if i==0:time.sleep(10)
   existing=call(['docker','ps','-a','-q','--filter','label=com.docker.compose.project='+project],'preexisting').stdout.split()
   assert not existing,'preexisting project objects; no takeover'
-  watch=Path(go['watch_receipt']);assert watch.exists() and any(json.loads(x).get('event')=='sample' for x in watch.read_text().splitlines()),'independent watch must be active first'
+  watch_live()
   if go['stage']=='formal':assert sha(go['plan_host_path'])==go['plan_sha256']
-  compose('config',key='compose-config');compose('up','-d','pg','model','pi','api',key='compose-up',timeout=120)
+  compose('config',key='compose-config');startup_attempted=True;watch_guard=threading.Thread(target=guard);watch_guard.start();compose('up','-d','pg','model','pi','api',key='compose-up',timeout=120)
   while time.time()<deadline-180:
+   if watch_lost.is_set():raise RuntimeError('watch lost during startup')
+   watch_live()
    try:
     observations={}
     for name,port,path in [('model',18181,'health'),('pi',18182,'metrics'),('api',18183,'health')]:
@@ -44,6 +68,7 @@ def main():
   def sample():
    while not sampling_stop.is_set():
     row={'utc_epoch':time.time(),'clock':'sampler-wall-epoch'}
+    if watch_lost.is_set():break
     for name,port,path in [('model',18181,'health'),('pi',18182,'metrics'),('api',18183,'metrics')]:
      try:
       with urllib.request.urlopen(f'http://127.0.0.1:{port}/{path}',timeout=1) as response:row[name]=json.load(response)
@@ -55,23 +80,34 @@ def main():
   sampler=threading.Thread(target=sample);sampler.start()
   command=['docker','create','--pull','never','--name',client,'--runtime','runc','--network','host','--label','com.docker.compose.project='+project,'--label','workorder=13','--label','execution-sha='+go['source_sha'],'--user','1001:1001','--read-only','--tmpfs','/tmp:size=256m','--cap-drop','ALL','--security-opt','no-new-privileges:true','--cpus','2','--memory','5g','--memory-swap','5g','-v',str(source)+':/source:ro','-v',str(out)+':/evidence','-v',str(root/'pi-data')+':/pi-data:ro','-v',str(root)+':/owned:ro','-e','PYTHONDONTWRITEBYTECODE=1','-e','CUDA_VISIBLE_DEVICES=0','-w','/source','--entrypoint','python','python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1','service/scripts/pi-qwen-load/campaign.py','--stage',go['stage'],'--out','/evidence/campaign','--bridge','/pi-data/bridge.jsonl','--deadline',str(deadline)]
   if go['stage']=='formal':command+=['--pilot',go['pilot_container_path'],'--plan',go['plan_container_path']]
-  call(command,'client-create');client_created=True;call(['docker','inspect',client],'client-inspect');call(['docker','start','-a',client],'client-run',timeout=max(1,deadline-time.time()-20))
-  state=json.loads(call(['docker','inspect',client],'client-state').stdout)[0]['State'];assert state['ExitCode']==0 and not state['Running'];status='passed'
+  client_id=call(command,'client-create').stdout.strip();assert len(client_id)==64;client_created=True;call(['docker','inspect',client_id],'client-inspect');call(['docker','start','-a',client_id],'client-run',timeout=max(1,deadline-time.time()-20))
+  state=json.loads(call(['docker','inspect',client_id],'client-state').stdout)[0]['State'];assert state['ExitCode']==0 and not state['Running'];status='passed'
  except BaseException:
   (out/'failure.txt').write_text(traceback.format_exc());raise
  finally:
   sampling_stop.set()
   if sampler is not None:sampler.join(8)
-  for args,key in [(['logs','--no-color'],'stack-logs'),(['exec','-T','pg','psql','-U','pan','-d','pan','-X','-At','-v','ON_ERROR_STOP=1','-c',"SELECT coalesce(json_agg(e ORDER BY id),'[]') FROM events e;"],'pg-events')]:
+  if watch_guard is not None:watch_guard.join(20)
+  for args,key in ([(['logs','--no-color'],'stack-logs'),(['exec','-T','pg','psql','-U','pan','-d','pan','-X','-At','-v','ON_ERROR_STOP=1','-c',"SELECT coalesce(json_agg(e ORDER BY id),'[]') FROM events e;"],'pg-events')] if startup_attempted else []):
    try:compose(*args,key=key,check=False,timeout=15)
    except Exception as e:(out/(key+'-error.txt')).write_text(repr(e))
   try:
-   if client_created:call(['docker','stop','-t','3',client],'client-stop',False);call(['docker','rm',client],'client-rm',False)
+   if client_created:
+    sys.path.insert(0,str(HERE));from watch_cleanup import cleanup_known
+    result=cleanup_known(project,go['source_sha'],[client_id]);(out/'client-stop.json').write_text(json.dumps(result,indent=2))
+    if result['success']:call(['docker','rm',client_id],'client-rm',False)
   finally:
-   try:compose('down','--timeout','5',key='compose-down',check=False)
+   try:
+    if startup_attempted:
+     sys.path.insert(0,str(HERE));from watch_cleanup import discover_owned,cleanup_known
+     try:discover_owned(project,go['source_sha'],known_ids)
+     except Exception as error:(out/'discovery-error.txt').write_text(repr(error))
+     result=cleanup_known(project,go['source_sha'],list(known_ids));(out/'exact-stop.json').write_text(json.dumps(result,indent=2))
+     if not result['success']:raise RuntimeError('owned stop incomplete')
+     if known_ids:call(['docker','rm',*known_ids],'exact-remove',False)
    finally:
     ids=call(['docker','ps','-q','--no-trunc','--filter','label=com.docker.compose.project='+project],'remaining',check=False).stdout.split()
     sys.path.insert(0,str(HERE));from watch_cleanup import cleanup_known
-    cleanup=cleanup_known(project,go['source_sha'],ids);(out/'cleanup.json').write_text(json.dumps({'status':status,'lifecycle_seconds':time.monotonic()-started,**cleanup},indent=2))
+    cleanup=cleanup_known(project,go['source_sha'],ids) if startup_attempted else {'success':True,'containers':{},'errors':[],'note':'startup not attempted; preexisting objects untouched'};(out/'cleanup.json').write_text(json.dumps({'status':status,'lifecycle_seconds':time.monotonic()-started,**cleanup},indent=2))
     if not cleanup['success']:raise RuntimeError('cleanup unknown')
 if __name__=='__main__':main()

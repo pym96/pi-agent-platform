@@ -89,3 +89,17 @@ class TestNegative(unittest.TestCase):
    ledger=root/'run/ledger.jsonl';rows=[json.loads(x) for x in ledger.read_text().splitlines()];row=next(x for x in rows if x['status']=='complete');row['first_content']=row['send'];ledger.write_text(''.join(json.dumps(x)+'\n' for x in rows));anchor=m.seal(root/'run')
    r=subprocess.run([sys.executable,str(HERE/'load.py'),'recompute','--out',str(root/'run'),'--anchor',anchor],capture_output=True,text=True);self.assertNotEqual(r.returncode,0);self.assertIn('ledger differs from raw',r.stderr)
   finally:tmp.cleanup()
+
+class TestAbsoluteDeadline(unittest.TestCase):
+ def test_trickle_without_newline_stops_at_total_deadline(self):
+  class H(BaseHTTPRequestHandler):
+   def log_message(self,*a):pass
+   def do_POST(self):
+    self.rfile.read(int(self.headers['Content-Length']));self.send_response(200);self.end_headers()
+    try:
+     for _ in range(30):self.wfile.write(b':');self.wfile.flush();time.sleep(.03)
+    except (BrokenPipeError,ConnectionResetError):pass
+  tmp,root,r=TestNegative.invoke(self,H,['--drain','.15'])
+  try:
+   self.assertEqual(r.returncode,0,r.stderr);trace=json.loads((root/'run/trace.json').read_text());row=json.loads((root/'run/ledger.jsonl').read_text());self.assertEqual(row['status'],'timeout');self.assertLess(row['end']-trace['deadline'],.2)
+  finally:tmp.cleanup()

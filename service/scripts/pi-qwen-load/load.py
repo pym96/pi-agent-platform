@@ -8,7 +8,16 @@ TERMINALS={'completed':'complete','interrupted':'failed','cancelled':'failed'}
 def digest(value):return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()).hexdigest()
 def http(url,data=None,timeout=65):
  request=urllib.request.Request(url,data=None if data is None else json.dumps(data).encode(),headers={'Content-Type':'application/json'})
- return urllib.request.urlopen(request,timeout=timeout)
+ started=time.monotonic();response=urllib.request.urlopen(request,timeout=timeout)
+ # A read socket timeout resets on every byte; enforce the whole response budget.
+ remaining=max(0,timeout-(time.monotonic()-started));original_close=response.close
+ def expire():
+  try:response.fp.raw._sock.shutdown(socket.SHUT_RDWR)
+  except (AttributeError,OSError):pass
+ timer=threading.Timer(remaining,expire);timer.daemon=True;timer.start()
+ def close():timer.cancel();original_close()
+ response.close=close
+ return response
 def getjson(url,data=None,timeout=65):
  with http(url,data,timeout) as r:return r.status,json.load(r)
 def usage_ok(u):return isinstance(u,dict) and set(u)=={'prompt_tokens','completion_tokens','total_tokens'} and all(type(x) is int and x>=0 for x in u.values()) and u['prompt_tokens']+u['completion_tokens']==u['total_tokens']
@@ -70,9 +79,9 @@ def attempt(base,path,payload,ident,planned,deadline,raw):
    row['end']=time.monotonic();f.write(json.dumps({'observed':row['end'],'eof':True})+'\n')
  except urllib.error.HTTPError as e:
   row.update(http=e.code,status='rejected' if e.code in (429,503) else 'failed',reason='http_'+str(e.code),error_body=e.read().decode(errors='replace'))
- except EOFError as e:row.update(status='unresolved',reason=str(e))
+ except EOFError as e:row.update(status='timeout' if time.monotonic()>=deadline else 'unresolved',reason=str(e))
  except (TimeoutError,socket.timeout) as e:row.update(status='timeout',reason=str(e))
- except Exception as e:row.update(status='failed',reason=repr(e))
+ except Exception as e:row.update(status='timeout' if time.monotonic()>=deadline else 'failed',reason=repr(e))
  row['end']=row['end'] or time.monotonic();return row
 
 def point(args):

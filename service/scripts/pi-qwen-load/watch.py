@@ -1,4 +1,5 @@
 """Foreground #13 exact-ID guard. No scheduling; Master GO required."""
+import os
 import argparse,json,subprocess,time,shutil,signal
 from pathlib import Path
 p=argparse.ArgumentParser();p.add_argument('--project',required=True);p.add_argument('--sha',required=True);p.add_argument('--deadline',required=True,type=float);p.add_argument('--root',required=True);p.add_argument('--out',required=True);a=p.parse_args()
@@ -9,7 +10,7 @@ def cmd(args):return subprocess.check_output(args,text=True,timeout=15).strip()
 from watch_cleanup import discover_owned,cleanup_known,inspect_exact
 def owned():return discover_owned(a.project,a.sha,known)
 def record(value):
-    with Path(a.out).open('a') as f:f.write(json.dumps({'utc_epoch':time.time(),**value})+'\n')
+    with Path(a.out).open('a') as f:f.write(json.dumps({'project':a.project,'source_sha':a.sha,'deadline_epoch':a.deadline,'watch_pid':os.getpid(),'watch_start_ticks':Path('/proc/self/stat').read_text().split()[21],'utc_epoch':time.time(),**value})+'\n')
 def interrupted(*_):raise RuntimeError('watch interrupted; stop owned objects')
 signal.signal(signal.SIGTERM,interrupted)
 try:

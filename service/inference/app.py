@@ -147,14 +147,16 @@ def create_app(backend, queue_timeout=1.0, generation_timeout=2.0, max_queue=8, 
             raise
         finally:
             cancel.set()
-            if worker is not None:
-                # Do not release the slot while cooperative generation is still settling.
-                while not worker.done():
-                    try:await asyncio.shield(worker)
-                    except asyncio.CancelledError:continue
-                await worker
-            try:trace("settled",ident)
-            finally:lock.release()
+            try:
+                if worker is not None:
+                    # Keep ownership until cooperative generation has actually settled.
+                    while not worker.done():
+                        try:await asyncio.shield(worker)
+                        except asyncio.CancelledError:continue
+                    await worker
+            finally:
+                try:trace("settled",ident)
+                finally:lock.release()
 
     app.router.add_get('/health',health)
     app.router.add_post('/v1/chat/completions',completion)
