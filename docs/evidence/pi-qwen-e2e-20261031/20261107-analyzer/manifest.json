@@ -1,0 +1,72 @@
+{
+  "files": {
+    "red-stdout.txt": {
+      "sha256": "36c6de386f976c953b9e5b97d51e631b97dfbc48edee1dce9703a8fbe5bec0cc",
+      "bytes": 77
+    },
+    "red-stderr.txt": {
+      "sha256": "da08040ed4e146857789f8c1fd41b107c72ab213756c9dcc732ee21048825d16",
+      "bytes": 6511
+    },
+    "red-receipt.json": {
+      "sha256": "03e7c384c56076b419db962407c3ebe0699a8ce90b391650783479a0d2de3b30",
+      "bytes": 581
+    },
+    "green1-stdout.txt": {
+      "sha256": "a6b9d6c1dda9e709081e7e10bb3526656b3e8ee92cdc5c1972154b1b434b6243",
+      "bytes": 1319
+    },
+    "green1-stderr.txt": {
+      "sha256": "272fc67869abfb5b8e1ab84334bd25fe6602f863eba14cb59f3e5a75b96ffec4",
+      "bytes": 783
+    },
+    "green1-receipt.json": {
+      "sha256": "11a805c921dafc7914ffed2612ee9013f35ac991758ca4b126ce1f285fd2465f",
+      "bytes": 587
+    },
+    "green2-stdout.txt": {
+      "sha256": "a6b9d6c1dda9e709081e7e10bb3526656b3e8ee92cdc5c1972154b1b434b6243",
+      "bytes": 1319
+    },
+    "green2-stderr.txt": {
+      "sha256": "f254b71bdd9d26d19a3951915caaac380ba18672e460f6f7ccd598b6b4957d16",
+      "bytes": 1093
+    },
+    "green2-receipt.json": {
+      "sha256": "d50362556beb1183e9cac8cbcf2b1781ed567e899cc43dc805d2317052ec2576",
+      "bytes": 587
+    },
+    "local-measurements.json": {
+      "sha256": "72f6a6b83faefe34d6de1a0639bf275f39cab15e19854fb52079b940761f720a",
+      "bytes": 1160
+    },
+    "local-required.txt": {
+      "sha256": "6cb41cadf2396c0a7bd673f031631d1d6d6b23814e524c85dd5be4269caf02fa",
+      "bytes": 1435
+    },
+    "local-required-existing-venv.txt": {
+      "sha256": "7f6dfd35db552820ba6258efde3ff5843577ac608dad10e04490d0487ea35928",
+      "bytes": 103
+    },
+    "modern-new-result.json": {
+      "sha256": "c57fd12f92f5466009ad62cb17282a8b2ca312a4d435a3554f3a88dae1da3420",
+      "bytes": 1438
+    },
+    "modern-old-result.json": {
+      "sha256": "c57fd12f92f5466009ad62cb17282a8b2ca312a4d435a3554f3a88dae1da3420",
+      "bytes": 1438
+    },
+    "cross-version-comparison.json": {
+      "sha256": "e2c1a9a2e03baf6f99726a55467e79ecadf35b411ccbd5092a730a269d35d8e7",
+      "bytes": 310
+    },
+    "server-final-gate.log": {
+      "sha256": "333d4a265b00231e8cf25b1f7f3dfc82e49fed6226a2e324c899f3ffbe9feffc",
+      "bytes": 1093
+    },
+    "server-final-gate-receipt.json": {
+      "sha256": "bcaa72a87e8c0d9475ef641598f275460ca1a074a68fc2b0dd2c322254f62574",
+      "bytes": 673
+    }
+  }
+}

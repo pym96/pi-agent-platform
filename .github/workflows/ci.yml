@@ -42,6 +42,14 @@ jobs:
           cache-dependency-path: service/pi/package-lock.json
       - uses: actions/setup-python@v5
         with:
+          python-version: '3.10'
+      - name: Server Python timestamp compatibility
+        run: |
+          mkdir -p "$RUNNER_TEMP/python310-analyzer"
+          python --version > "$RUNNER_TEMP/python310-analyzer/version.txt"
+          python service/scripts/pi-qwen-e2e/measurement_gate.py --out "$RUNNER_TEMP/python310-analyzer/summary.json" > "$RUNNER_TEMP/python310-analyzer/tests.log" 2>&1
+      - uses: actions/setup-python@v5
+        with:
           python-version: '3.12'
       - name: Prepare exclusive hosted runner disk
         run: |
@@ -88,5 +96,6 @@ jobs:
             ${{ runner.temp }}/ng-entry
             ${{ runner.temp }}/ng-preflight
             ${{ runner.temp }}/watch-cleanup-tests
+            ${{ runner.temp }}/python310-analyzer
           if-no-files-found: error
           retention-days: 14

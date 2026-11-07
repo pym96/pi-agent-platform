@@ -8,7 +8,8 @@ class RequiredEntryTests(unittest.TestCase):
             copy=Path(tmp)
             for p in ROOT.glob('*.py'):shutil.copy2(p,copy/p.name)
             # All mandatory IDs collect. One real expectedFailure is still native-green.
-            names=['test_settled_call_must_match_runtime_result','test_first_content_requires_raw_content_frame','test_frame_cannot_occur_after_settled','test_failure_cannot_disappear_from_denominator','test_cpu_fixture_cannot_be_relabelled_gpu','test_historical_gpu3_cannot_be_relabelled_current_gpu0']
+            from measurement_gate import REQUIRED
+            names=[name.rsplit('.',1)[-1] for name in sorted(REQUIRED)]
             source='import unittest\nclass MeasurementEvidenceTests(unittest.TestCase):\n'
             for i,name in enumerate(names):
                 source+=('    @unittest.expectedFailure\n' if i==0 else '')+f'    def {name}(self): self.assertTrue({i!=0!r})\n'
@@ -19,6 +20,7 @@ class RequiredEntryTests(unittest.TestCase):
             self.assertNotEqual(guarded.returncode,0,guarded.stdout+guarded.stderr)
             result=json.loads((copy/'summary.json').read_text())
             self.assertEqual(result['expected_failures'],1)
+            self.assertEqual(result['missing_required'],[])
     def test_actual_node_skip_todo_and_empty_are_rejected(self):
         from sdk_gate import REQUIRED
         with tempfile.TemporaryDirectory(prefix='e2e12-node-required-') as tmp:

@@ -14,6 +14,47 @@ class MeasurementEvidenceTests(unittest.TestCase):
             row=next(r for r in rows if r['event']=='settled');mutation(row)
             (root/'bridge.jsonl').write_text(''.join(json.dumps(x)+'\n' for x in rows))
             with self.assertRaises((AssertionError,ValueError,KeyError,TypeError)):analyze(root)
+    def pg_span(self,queued,running):
+        with tempfile.TemporaryDirectory(prefix='pi-e2e12-pg-time-') as scratch:
+            root=Path(scratch)
+            for name in ['run.json','client.jsonl','bridge.jsonl','go-trace.jsonl','pg-events.json','fixture.jsonl']:
+                shutil.copyfile(SOURCE/name,root/name)
+            rows=json.loads((root/'pg-events.json').read_text())
+            task=next(e['task'] for e in rows if e['kind']=='queued')
+            for row in rows:
+                if row['task']==task and row['kind']=='queued':row['created_at']=queued
+                if row['task']==task and row['kind']=='running':row['created_at']=running
+            (root/'pg-events.json').write_text(json.dumps(rows))
+            result=analyze(root)
+            return next(s['pg_queue_seconds'] for s in result['samples'] if s['task']==task)
+    def test_pg_five_digit_fraction_preserves_queue_span(self):
+        self.assertEqual(self.pg_span('2026-11-07T01:20:47.25993+00:00','2026-11-07T01:20:48.25993+00:00'),1.0)
+    def test_pg_fraction_precision_and_timezone_preserve_instants(self):
+        for precision in range(7):
+            fraction='123456'[:precision]
+            suffix='.'+fraction if fraction else ''
+            expected=1+int(fraction.ljust(6,'0'))/1_000_000
+            for timestamp in ('2026-11-07T01:20:48'+suffix+'Z',
+                              '2026-11-07T01:20:48'+suffix+'+00:00',
+                              '2026-11-07T06:50:48'+suffix+'+05:30',
+                              '2026-11-06 21:50:48'+suffix+'-03:30'):
+                with self.subTest(precision=precision,timestamp=timestamp):
+                    self.assertEqual(self.pg_span('2026-11-07T01:20:47+00:00',timestamp),expected)
+    def test_pg_invalid_or_naive_timestamps_fail_closed(self):
+        invalid=[None,123,'','not-a-date','2026-11-07','2026-11-07T01:20:48',
+                 '2026-11-07T01:20:48.123456','2026-11-07T01:20:48.+00:00',
+                 '2026-11-07T01:20:48.1234567+00:00','2026-11-07T01:20:48.12x+00:00',
+                 '2026-11-07T01:20:48+24:00','2026-11-07T01:20:48+00:99',
+                 '2026-02-30T01:20:48+00:00','2026-11-07T25:20:48+00:00',
+                 '2026-11-07T01:20:48+00:00junk','2026-11-07T01:20:48+00:00\n']
+        for value in invalid:
+            for queued,running in ((value,'2026-11-07T01:20:48Z'),('2026-11-07T01:20:47Z',value)):
+                with self.subTest(queued=queued,running=running):
+                    with self.assertRaises(ValueError):self.pg_span(queued,running)
+        with self.assertRaises(ValueError):self.pg_span('2026-11-07T01:20:47','2026-11-07T01:20:48')
+    def test_pg_negative_queue_interval_is_not_clamped(self):
+        with self.assertRaises(AssertionError):
+            self.pg_span('2026-11-07T01:20:48.25993+00:00','2026-11-07T01:20:48.25992+00:00')
     def test_cpu_fixture_cannot_be_relabelled_gpu(self):
         with tempfile.TemporaryDirectory(prefix='pi-e2e12-kind-') as scratch:
             root=Path(scratch)

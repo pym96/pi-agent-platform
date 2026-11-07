@@ -1,0 +1,16 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "HostKeyAlias=58.199.168.63",
+    "-o",
+    "ConnectTimeout=10",
+    "wt@58.199.171.85",
+    "cd /media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/green2 && export CUDA_VISIBLE_DEVICES=0 TMPDIR=/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/green2 && timeout 55s python3 service/scripts/pi-qwen-e2e/measurement_gate.py --out /media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/green2/gate.json"
+  ],
+  "exit_code": 0
+}

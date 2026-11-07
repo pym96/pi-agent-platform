@@ -9,3 +9,5 @@ Current scope: Stage A CPU and device/provenance reader preparation on top of ma
 - [Earlier703-original evidence plus manifest](../pi-qwen-e2e-20261023/README.md): historical CPU/GPU3 source identities preserved; not current GPU0 evidence.
 
 The manifest in this directory covers committed candidate evidence. Its digest must be copied to the external Handoff. Sealed CPU run subdirectories have their own externally recorded anchors. Failed red-test receipts are retained deliberately; their expected assertions demonstrate the old behavior.
+
+- [November 7 analyzer compatibility repair](20261107-analyzer/README.md): original server Python 3.10 failure, unchanged raw replay and targeted regression; independent acceptance pending.

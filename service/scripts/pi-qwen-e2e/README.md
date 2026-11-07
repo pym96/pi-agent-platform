@@ -31,3 +31,7 @@ The authoritative entry first verifies the external digest and full inventory th
 ## Exact-ID watchdog cleanup correction
 
 The November2 functional run completed at source444096 but exposed a watchdog removal race. `watch_cleanup.py` supplies the live watch's exact-ID inspect/inventory/cleanup logic. A failed inspect is removed only if a successful full engine inventory lacks that exact ID; unreachable engines and ownership mismatches remain unknown/failing. No name fallback is used. `test_watch_cli.py` runs actual bounded1CPU/512MiB CPU containers against the public cleanup CLI, including reused names and a child-only wrong Docker socket. It requires explicit WATCH_CLI_EVIDENCE; scratch stays underneath that path. The hosted required step runs this suite between E2E and NG. Server's actual full-watch red/green probes are retained in [dated evidence](../../../docs/evidence/pi-qwen-e2e-20261031/20261102-builder/README.md); no additional Builder model run was made.
+
+## PostgreSQL timestamp compatibility
+
+The analyzer accepts timezone-aware PostgreSQL timestamps with zero through six fractional digits, using Python 3.10-compatible parsing. It rejects naive/malformed timestamps and negative queue intervals. The required measurement gate exercises these cases against the public analyzer, and CI runs that gate under Python 3.10 before the unchanged Python 3.12 full suites. [November 7 failure and replay evidence](../../../docs/evidence/pi-qwen-e2e-20261031/20261107-analyzer/README.md) preserve the old execution identity.

@@ -1,0 +1,15 @@
+.F...
+======================================================================
+FAIL: test_actual_pytest_xpass_is_not_required_success (test_required_entry.RequiredEntryTests.test_actual_pytest_xpass_is_not_required_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-e2e12-nov7-candidate/service/scripts/pi-qwen-e2e/test_required_entry.py", line 67, in test_actual_pytest_xpass_is_not_required_success
+    self.assertEqual(result.returncode==0,mode=='normal',result.stdout+result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False != True : {"success": false, "exit_code": 1, "reason": "unusable_junit", "xfail_reports": null, "duration_seconds": 0.04042187501909211, "command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-m", "pytest", "-p", "service.inference.scripts.required_pytest", "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/e2e12-pytest-required-tuzo_fec/case_normal", "-q", "--junitxml=/private/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/e2e12-pytest-required-tuzo_fec/out_normal/junit.xml"], "python": "3.14.0 (main, Oct  7 2025, 09:34:52) [Clang 17.0.0 (clang-1700.4.4.1)]"}
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 2.121s
+
+FAILED (failures=1)

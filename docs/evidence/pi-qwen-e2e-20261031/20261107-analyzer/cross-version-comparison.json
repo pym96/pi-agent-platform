@@ -1,0 +1,8 @@
+{
+  "all_fields_exactly_equal": true,
+  "old_execution_commit": "2d37849daf7f9b90e4299acafa9e079728ed9a15",
+  "modern_python": "3.14.0 (main, Oct  7 2025, 09:34:52) [Clang 17.0.0 (clang-1700.4.4.1)]",
+  "server_python": "3.10.12",
+  "raw_files_verified": 138,
+  "old_modern_vs_new_modern_vs_new_server": true
+}

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "HostKeyAlias=58.199.168.63",
+    "-o",
+    "ConnectTimeout=10",
+    "wt@58.199.171.85",
+    "cd /media/usv012/pjx && export CUDA_VISIBLE_DEVICES=0 TMPDIR=/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/red && timeout 55s python3 -"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 0.4404377909959294,
+  "source_dest": "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/red"
+}

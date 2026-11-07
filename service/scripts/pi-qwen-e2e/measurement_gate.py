@@ -2,6 +2,10 @@
 import argparse,json,sys,unittest
 from pathlib import Path
 REQUIRED={
+ 'test_measurements.MeasurementEvidenceTests.test_pg_five_digit_fraction_preserves_queue_span',
+ 'test_measurements.MeasurementEvidenceTests.test_pg_fraction_precision_and_timezone_preserve_instants',
+ 'test_measurements.MeasurementEvidenceTests.test_pg_invalid_or_naive_timestamps_fail_closed',
+ 'test_measurements.MeasurementEvidenceTests.test_pg_negative_queue_interval_is_not_clamped',
  'test_measurements.MeasurementEvidenceTests.test_settled_call_must_match_runtime_result',
  'test_measurements.MeasurementEvidenceTests.test_first_content_requires_raw_content_frame',
  'test_measurements.MeasurementEvidenceTests.test_frame_cannot_occur_after_settled',

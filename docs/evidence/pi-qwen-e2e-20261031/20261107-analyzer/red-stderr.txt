@@ -1,0 +1,73 @@
+test_cpu_fixture_cannot_be_relabelled_gpu (test_measurements.MeasurementEvidenceTests) ... ERROR
+test_failure_cannot_disappear_from_denominator (test_measurements.MeasurementEvidenceTests) ... ok
+test_first_content_requires_raw_content_frame (test_measurements.MeasurementEvidenceTests) ... ERROR
+test_frame_cannot_occur_after_settled (test_measurements.MeasurementEvidenceTests) ... ERROR
+test_historical_gpu3_cannot_be_relabelled_current_gpu0 (test_measurements.MeasurementEvidenceTests) ... ok
+test_pg_five_digit_fraction_preserves_queue_span (test_measurements.MeasurementEvidenceTests) ... ERROR
+test_settled_call_must_match_runtime_result (test_measurements.MeasurementEvidenceTests) ... ERROR
+
+======================================================================
+ERROR: test_cpu_fixture_cannot_be_relabelled_gpu (test_measurements.MeasurementEvidenceTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/red/service/scripts/pi-qwen-e2e/test_measurements.py", line 35, in test_cpu_fixture_cannot_be_relabelled_gpu
+    analyze(root)
+  File "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/red/service/scripts/pi-qwen-e2e/analyze.py", line 94, in analyze
+    q=(datetime.fromisoformat(running['created_at'])-datetime.fromisoformat(queued['created_at'])).total_seconds();assert q>=0
+ValueError: Invalid isoformat string: '2026-10-23T15:55:37.32273+08:00'
+
+======================================================================
+ERROR: test_first_content_requires_raw_content_frame (test_measurements.MeasurementEvidenceTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/red/service/scripts/pi-qwen-e2e/test_measurements.py", line 50, in test_first_content_requires_raw_content_frame
+    def test_first_content_requires_raw_content_frame(self):self.probe(lambda r:r.update(firstContent=r['start']))
+  File "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/red/service/scripts/pi-qwen-e2e/test_measurements.py", line 12, in probe
+    analyze(root)
+  File "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/red/service/scripts/pi-qwen-e2e/analyze.py", line 94, in analyze
+    q=(datetime.fromisoformat(running['created_at'])-datetime.fromisoformat(queued['created_at'])).total_seconds();assert q>=0
+ValueError: Invalid isoformat string: '2026-10-23T15:55:37.32273+08:00'
+
+======================================================================
+ERROR: test_frame_cannot_occur_after_settled (test_measurements.MeasurementEvidenceTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/red/service/scripts/pi-qwen-e2e/test_measurements.py", line 51, in test_frame_cannot_occur_after_settled
+    def test_frame_cannot_occur_after_settled(self):self.probe(lambda r:r['frames'][-1].update(at=r['settled']+10000))
+  File "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/red/service/scripts/pi-qwen-e2e/test_measurements.py", line 12, in probe
+    analyze(root)
+  File "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/red/service/scripts/pi-qwen-e2e/analyze.py", line 94, in analyze
+    q=(datetime.fromisoformat(running['created_at'])-datetime.fromisoformat(queued['created_at'])).total_seconds();assert q>=0
+ValueError: Invalid isoformat string: '2026-10-23T15:55:37.32273+08:00'
+
+======================================================================
+ERROR: test_pg_five_digit_fraction_preserves_queue_span (test_measurements.MeasurementEvidenceTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/red/service/scripts/pi-qwen-e2e/test_measurements.py", line 28, in test_pg_five_digit_fraction_preserves_queue_span
+    result=analyze(root)
+  File "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/red/service/scripts/pi-qwen-e2e/analyze.py", line 94, in analyze
+    q=(datetime.fromisoformat(running['created_at'])-datetime.fromisoformat(queued['created_at'])).total_seconds();assert q>=0
+ValueError: Invalid isoformat string: '2026-11-07T01:20:48.25993+00:00'
+
+======================================================================
+ERROR: test_settled_call_must_match_runtime_result (test_measurements.MeasurementEvidenceTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/red/service/scripts/pi-qwen-e2e/test_measurements.py", line 49, in test_settled_call_must_match_runtime_result
+    def test_settled_call_must_match_runtime_result(self):self.probe(lambda r:r.update(id='wrong-model-call'))
+  File "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/red/service/scripts/pi-qwen-e2e/test_measurements.py", line 12, in probe
+    analyze(root)
+  File "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/red/service/scripts/pi-qwen-e2e/analyze.py", line 94, in analyze
+    q=(datetime.fromisoformat(running['created_at'])-datetime.fromisoformat(queued['created_at'])).total_seconds();assert q>=0
+ValueError: Invalid isoformat string: '2026-10-23T15:55:37.32273+08:00'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.023s
+
+FAILED (errors=5)
+Traceback (most recent call last):
+  File "<stdin>", line 10, in <module>
+  File "/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107/red/service/scripts/pi-qwen-e2e/analyze.py", line 94, in analyze
+    q=(datetime.fromisoformat(running['created_at'])-datetime.fromisoformat(queued['created_at'])).total_seconds();assert q>=0
+ValueError: Invalid isoformat string: '2026-11-07T01:20:48.25993+00:00'

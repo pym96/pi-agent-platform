@@ -1,6 +1,19 @@
 """Recompute local-clock spans and identity conservation. Synthetic CPU times only."""
-import json,math
+import json,math,re
+from datetime import datetime
 from pathlib import Path
+
+
+def pg_timestamp(value):
+    """Read timezone-aware PostgreSQL timestamps consistently on Python 3.10+."""
+    if not isinstance(value,str) or not re.fullmatch(
+        r'[0-9]{4}-[0-9]{2}-[0-9]{2}[T ][0-9]{2}:[0-9]{2}:[0-9]{2}'
+        r'(?:\.[0-9]{1,6})?(?:Z|[+-][0-9]{2}:[0-9]{2})',value
+    ):
+        raise ValueError('expected timezone-aware PostgreSQL timestamp with 0–6 fractional digits')
+    # %f accepts PostgreSQL's variable precision on 3.10; fromisoformat does not.
+    fmt='%Y-%m-%dT%H:%M:%S'+('.%f' if '.' in value else '')+'%z'
+    return datetime.strptime(value.replace(' ','T'),fmt)
 
 def analyze(root):
     root=Path(root);run=json.loads((root/'run.json').read_text());clients=[json.loads(x) for x in (root/'client.jsonl').read_text().splitlines()];bridge=[json.loads(x) for x in (root/'bridge.jsonl').read_text().splitlines()]
@@ -85,13 +98,12 @@ def analyze(root):
         assert all(x['sinceClaimNs']<=y['sinceClaimNs'] for x,y in zip(observations,observations[1:]))
     pg=json.loads((root/'pg-events.json').read_text())
     assert {e['task'] for e in pg}==set(tasks)
-    from datetime import datetime
     for task,c in tasks.items():
         rows=[e for e in pg if e['task']==task]
         assert len(rows)==len(c['events']) and all(all(x[k]==y[k] for k in ('id','task','kind','data')) for x,y in zip(rows,c['events']))
         assert rows and rows[-1]['kind']==c['status']
         queued=next(e for e in rows if e['kind']=='queued');running=next(e for e in rows if e['kind']=='running')
-        q=(datetime.fromisoformat(running['created_at'])-datetime.fromisoformat(queued['created_at'])).total_seconds();assert q>=0
+        q=(pg_timestamp(running['created_at'])-pg_timestamp(queued['created_at'])).total_seconds();assert q>=0
         next(s for s in samples if s['task']==task)['pg_queue_seconds']=q
     return {'integrity_verified':False,'kind':run['kind'],'commit':run['commit'],'attempts':len(settled),'success':sum(c['status']=='completed' for c in clients),'failure':sum(c['status']!='completed' for c in clients),'samples':samples,'warning':'local spans only; no subtraction across clock domains; fixture is not GPU latency'}
 if __name__=='__main__':
