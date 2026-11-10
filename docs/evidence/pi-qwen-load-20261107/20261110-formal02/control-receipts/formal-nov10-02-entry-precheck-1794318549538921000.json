@@ -1,0 +1,10 @@
+{
+  "phase": "before_checks",
+  "clock": {
+    "epoch": 1794318549.538715,
+    "UTC": "2026-11-10T13:49:09.538716+00:00"
+  },
+  "envelope_sha256": "8dcc3fa8226e8fc86fc043caea6379ebe290d38578367510e76afe254214ded7",
+  "nonce": "pi13-nov10-phase5-formal02-once",
+  "literal_already_exists": false
+}

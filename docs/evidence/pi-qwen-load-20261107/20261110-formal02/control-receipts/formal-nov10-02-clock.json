@@ -1,0 +1,12 @@
+{
+  "fresh_epoch": 1794318560.565024,
+  "fresh_UTC": "2026-11-10T13:49:20.565024+00:00",
+  "literal_deadline_epoch": 1794319460,
+  "literal_go_sha256": "9872e7d02c916d1d1cf7bc47c08abf8f7bdda368f48801a3a7068ce8217e0c66",
+  "envelope_sha256": "8dcc3fa8226e8fc86fc043caea6379ebe290d38578367510e76afe254214ded7",
+  "entrypoint_sha256": "41a3c1ef841178e1310e0f7eaa548a7b8fc4091c14c5a18eb3519226a12b25e9",
+  "nonce": "pi13-nov10-phase5-formal02-once",
+  "source_sha": "260831db022021289e5e29776292385f81cd8078",
+  "R_source_StageA_archive_sha256": "9a7aa480597b01f24082cb85902a0cf6c93e70a9621dd38f98816d08421b02f0",
+  "CI6_actual_artifact_sha256": "61667d3fcc1fbfcf232aa0311101906a1497f6f796fcde39b55ee92b1bce1dd9"
+}

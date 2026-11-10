@@ -1,0 +1,17 @@
+{
+  "complete": true,
+  "exit_code": 0,
+  "coordinator_exit": 0,
+  "native_exit": 0,
+  "watch_rows": [
+    {
+      "watch_exit": 0,
+      "ended_epoch": 1794319111.9104152
+    }
+  ],
+  "errors": [],
+  "native_result_read_error": null,
+  "coordinator_stdout_sha256": "ac0acbb094780560505fbb7d2ea93513fac5b10ac2b38388f923549e64a096ad",
+  "coordinator_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "native_result_sha256": "924e577d69cd6bb67fc795cc15f95e66f3622b0eb49a9c351e20581f3d48db5d"
+}

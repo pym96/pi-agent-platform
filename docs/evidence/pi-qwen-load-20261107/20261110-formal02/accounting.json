@@ -1,0 +1,51 @@
+{
+  "batch": "formal-nov10-02",
+  "source_sha": "260831db022021289e5e29776292385f81cd8078",
+  "campaign_status": {
+    "schema": "lb13-campaign-status-v1",
+    "status": "complete",
+    "stopped_reason": null,
+    "points_planned": 12,
+    "points_with_summary": 12,
+    "planned": 240,
+    "sent": 240,
+    "complete": 219,
+    "generator_drop": 0
+  },
+  "inventory": {
+    "planned": 240,
+    "sent": 240,
+    "complete": 219,
+    "rejected": 19,
+    "failed": 2,
+    "timeout": 0,
+    "unresolved": 0,
+    "generator_drop": 0
+  },
+  "model_trace_event_counts": {
+    "received": 240,
+    "validated": 240,
+    "slot_acquired": 219,
+    "prepared": 219,
+    "execute_start": 219,
+    "execute_end": 219,
+    "settled": 219
+  },
+  "model_lifetime_seconds": 533.647045,
+  "model_started_at": "2026-11-10T13:49:36.594788837Z",
+  "model_finished_at": "2026-11-10T13:58:30.241833744Z",
+  "model_state_exit": 137,
+  "model_OOMKilled": false,
+  "B_cumulative_model_seconds": 886.871656,
+  "B_cumulative_modelHTTP": 303,
+  "B_model_seconds_cap": 1500,
+  "B_modelHTTP_cap": 320,
+  "R_model_seconds": 25.564429079,
+  "R_modelHTTP": 4,
+  "owned_after": 0,
+  "native_exit": 0,
+  "watch_exit": 0,
+  "entry_exit": 0,
+  "archive_sha256": "ecec03f76ff4ce14f8c956dcfad6aef782409ef17a2b33bdb66a640863ead01e",
+  "manifest_sha256": "28d14f9044e5bf469652e919055787daa330a9ec52ba5a3fadfdf57c6b2aec0d"
+}

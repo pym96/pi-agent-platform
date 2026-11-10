@@ -1,0 +1,7 @@
+{
+  "input": "results.json",
+  "input_sha256": "317e58baeb08779dcbabdb2990a8e578bed119b3a4be075caa9f7b79857b6c67",
+  "points": 12,
+  "slots_each": 20,
+  "warning": "No independent repeats; fixed order. P95 conditional on success. Rejections and failures remain in success-rate denominator."
+}

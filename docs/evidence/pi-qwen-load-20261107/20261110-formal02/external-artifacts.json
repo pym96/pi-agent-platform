@@ -1,0 +1,31 @@
+{
+  "status": "private original retained; no public disclosure implied",
+  "profile05": {
+    "local": "/Users/panyiming/.local/state/pi-agent-platform/lb13-builder-20261110/pilot-nov10-05/profile.json",
+    "server": "/media/usv012/pjx/pi-agent-platform/experiments/13-qwen-load-20261107/builder/pilot-nov10-05/profile.json",
+    "bytes": 309574476,
+    "sha256": "f4275009295ea1db7d1351fb0286cc1194caaec1844583ad6cabfd69a8a296fe",
+    "execution_source": "45faa56c5656314bee56825bd9418e21ae1466ef",
+    "scope": "pilot05 first platform request; profiled latency excluded from formal02"
+  },
+  "original_archive": {
+    "local": "/Users/panyiming/.local/state/pi-agent-platform/lb13-builder-20261110/pilot05-originals.tar.gz",
+    "sha256": "858b55e03cf6e5968828a7ecc5efdfa78a526c2662a58ef6a965b275613c7045"
+  },
+  "formal01_partial_archive": {
+    "local": "/Users/panyiming/.local/state/pi-agent-platform/lb13-builder-20261110/formal01-originals.tar.gz",
+    "sha256": "dcda9a19acdf89c6b54046548344211123bbd351b3b9d5adca28c2fcf96ecf92",
+    "inventory": {
+      "planned": 240,
+      "sent": 60,
+      "complete": 50,
+      "failed": 10,
+      "not_run": 180
+    }
+  },
+  "independent_review_reference_only": {
+    "measurement_receipt": "/Users/panyiming/.local/state/pi-agent-platform/lb13-nov10-regulator/FORMAL02-MEASUREMENT-REVIEW.json",
+    "sha256": "e5d3b4cdd9f8a96d00702383aec0bb7cdc68b52d68f505ec903342a7b82fbffc",
+    "meaning": "measurement reproducible, not final accepted; R probes excluded from candidate"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "HostKeyAlias=58.199.168.63",
+    "-o",
+    "ConnectTimeout=10",
+    "wt@58.199.171.85",
+    "cd /media/usv012/pjx/pi-agent-platform/experiments/13-qwen-load-20261107/builder && export CUDA_VISIBLE_DEVICES=0 && python3 source/service/scripts/pi-qwen-load/launch.py --go /media/usv012/pjx/pi-agent-platform/experiments/13-qwen-load-20261107/builder/formal-nov10-02-go.json"
+  ],
+  "start_epoch": 1794318563.790656,
+  "end_epoch": 1794319111.539613,
+  "exit": 0,
+  "stdout": "",
+  "stderr": ""
+}

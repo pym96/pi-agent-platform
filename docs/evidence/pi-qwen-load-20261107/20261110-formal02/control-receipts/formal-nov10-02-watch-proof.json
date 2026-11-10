@@ -1,0 +1,5 @@
+{
+  "exit": 0,
+  "stdout": "{\"project\": \"pi-qwen13-b\", \"source_sha\": \"260831db022021289e5e29776292385f81cd8078\", \"deadline_epoch\": 1794319460.0, \"watch_pid\": 2313759, \"watch_start_ticks\": \"25087988\", \"monitor_version\": 2, \"utc_epoch\": 1794318562.8940558, \"event\": \"heartbeat\", \"control\": \"deadline_checked\", \"diagnostic_status\": \"in_progress\", \"cycle\": 2, \"sampler_pid\": 2313785, \"resource_status\": \"fresh\", \"resource_observed_epoch\": 1794318562.012265, \"gpu_snapshot\": \"GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead, 6, 0, 210, 11.57\"}\n",
+  "stderr": ""
+}

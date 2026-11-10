@@ -1,0 +1,393 @@
+[
+  {
+    "point": "direct_closed_2",
+    "id": "f02_20261110_p3_14",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.008161972014932,
+    "events": []
+  },
+  {
+    "point": "platform_closed_4",
+    "id": "f02_20261110_p4_8",
+    "task": "178d85edd0b3f1bf9a9059a5752c6d8c",
+    "session": "f02_20261110_p4_8",
+    "status": "failed",
+    "http": 202,
+    "reason": null,
+    "error_body": null,
+    "usage": null,
+    "terminal": "interrupted",
+    "durable_status": "interrupted",
+    "elapsed_client_s": 5.446617023990257,
+    "events": [
+      {
+        "at": 251060.668123817,
+        "data": {
+          "task": "178d85edd0b3f1bf9a9059a5752c6d8c",
+          "id": 5624,
+          "kind": "running",
+          "data": {}
+        }
+      },
+      {
+        "at": 251060.675901699,
+        "data": {
+          "task": "178d85edd0b3f1bf9a9059a5752c6d8c",
+          "id": 5626,
+          "kind": "runtime",
+          "data": {
+            "task": "178d85edd0b3f1bf9a9059a5752c6d8c",
+            "clock": "pi-performance.now",
+            "tools": [],
+            "package": "@earendil-works/pi-coding-agent",
+            "session": "f02_20261110_p4_8",
+            "version": "1.3.0",
+            "modelCall": "e429bfc9-3a21-486b-b2a3-2823089b581f",
+            "contextOwner": "Pi SessionManager",
+            "receivedMono": 166083.287195
+          }
+        }
+      },
+      {
+        "at": 251062.794494052,
+        "data": {
+          "task": "178d85edd0b3f1bf9a9059a5752c6d8c",
+          "id": 5683,
+          "kind": "interrupted",
+          "data": {}
+        }
+      }
+    ]
+  },
+  {
+    "point": "direct_closed_4",
+    "id": "f02_20261110_p5_3",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.0256656990095507,
+    "events": []
+  },
+  {
+    "point": "direct_closed_4",
+    "id": "f02_20261110_p5_2",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.02853402600158,
+    "events": []
+  },
+  {
+    "point": "direct_closed_4",
+    "id": "f02_20261110_p5_6",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.0049413229862694,
+    "events": []
+  },
+  {
+    "point": "direct_closed_4",
+    "id": "f02_20261110_p5_5",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.006383817002643,
+    "events": []
+  },
+  {
+    "point": "direct_closed_4",
+    "id": "f02_20261110_p5_9",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.0079334039764944,
+    "events": []
+  },
+  {
+    "point": "direct_closed_4",
+    "id": "f02_20261110_p5_8",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.008542633993784,
+    "events": []
+  },
+  {
+    "point": "direct_closed_4",
+    "id": "f02_20261110_p5_11",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.007943204982439,
+    "events": []
+  },
+  {
+    "point": "direct_closed_4",
+    "id": "f02_20261110_p5_12",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.007431281002937,
+    "events": []
+  },
+  {
+    "point": "direct_closed_4",
+    "id": "f02_20261110_p5_14",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.006205598998349,
+    "events": []
+  },
+  {
+    "point": "direct_closed_4",
+    "id": "f02_20261110_p5_15",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.0066849290160462,
+    "events": []
+  },
+  {
+    "point": "direct_closed_4",
+    "id": "f02_20261110_p5_18",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.0063047099974938,
+    "events": []
+  },
+  {
+    "point": "direct_closed_4",
+    "id": "f02_20261110_p5_19",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.0061850260244682,
+    "events": []
+  },
+  {
+    "point": "platform_open_2",
+    "id": "f02_20261110_p10_4",
+    "task": "6fcf5d16f670da710a4c2513d1d7a15a",
+    "session": "f02_20261110_p10_4",
+    "status": "failed",
+    "http": 202,
+    "reason": null,
+    "error_body": null,
+    "usage": null,
+    "terminal": "interrupted",
+    "durable_status": "interrupted",
+    "elapsed_client_s": 3.0639295549772214,
+    "events": [
+      {
+        "at": 251360.413207626,
+        "data": {
+          "task": "6fcf5d16f670da710a4c2513d1d7a15a",
+          "id": 9312,
+          "kind": "running",
+          "data": {}
+        }
+      },
+      {
+        "at": 251360.446172047,
+        "data": {
+          "task": "6fcf5d16f670da710a4c2513d1d7a15a",
+          "id": 9314,
+          "kind": "runtime",
+          "data": {
+            "task": "6fcf5d16f670da710a4c2513d1d7a15a",
+            "clock": "pi-performance.now",
+            "tools": [],
+            "package": "@earendil-works/pi-coding-agent",
+            "session": "f02_20261110_p10_4",
+            "version": "1.3.0",
+            "modelCall": "9764ee9b-4c61-44c0-bb6c-688eed92a511",
+            "contextOwner": "Pi SessionManager",
+            "receivedMono": 465827.831352
+          }
+        }
+      },
+      {
+        "at": 251362.447420324,
+        "data": {
+          "task": "6fcf5d16f670da710a4c2513d1d7a15a",
+          "id": 9377,
+          "kind": "interrupted",
+          "data": {}
+        }
+      }
+    ]
+  },
+  {
+    "point": "direct_open_2",
+    "id": "f02_20261110_p11_4",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.0060463329718914,
+    "events": []
+  },
+  {
+    "point": "direct_open_2",
+    "id": "f02_20261110_p11_7",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.0050853459979407,
+    "events": []
+  },
+  {
+    "point": "direct_open_2",
+    "id": "f02_20261110_p11_10",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.0050771640089806,
+    "events": []
+  },
+  {
+    "point": "direct_open_2",
+    "id": "f02_20261110_p11_13",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.0044772320252378,
+    "events": []
+  },
+  {
+    "point": "direct_open_2",
+    "id": "f02_20261110_p11_16",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.005110967991641,
+    "events": []
+  },
+  {
+    "point": "direct_open_2",
+    "id": "f02_20261110_p11_18",
+    "task": null,
+    "session": null,
+    "status": "rejected",
+    "http": 503,
+    "reason": "http_503",
+    "error_body": "{\"error\": {\"code\": \"queue_deadline\"}}",
+    "usage": null,
+    "terminal": null,
+    "durable_status": null,
+    "elapsed_client_s": 2.0050750719965436,
+    "events": []
+  }
+]

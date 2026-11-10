@@ -1,0 +1,3 @@
+{"watch_ssh_pid": 79133, "start_epoch": 1794318561.1811368, "go_sha256": "9872e7d02c916d1d1cf7bc47c08abf8f7bdda368f48801a3a7068ce8217e0c66"}
+{"launch_exit": 0, "start_epoch": 1794318563.790656, "end_epoch": 1794319111.5411909, "stdout": "", "stderr": ""}
+{"watch_exit": 0, "ended_epoch": 1794319111.9104152}

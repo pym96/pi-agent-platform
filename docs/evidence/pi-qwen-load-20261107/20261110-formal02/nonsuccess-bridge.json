@@ -1,0 +1,108 @@
+[
+  {
+    "id": "e429bfc9-3a21-486b-b2a3-2823089b581f",
+    "task": "178d85edd0b3f1bf9a9059a5752c6d8c",
+    "session": "f02_20261110_p4_8",
+    "utc": "2026-11-10T13:52:22.635Z",
+    "clock": "pi-performance.now",
+    "started": true,
+    "start": 166086.184108,
+    "sdk": {
+      "model": "Qwen3-8B",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a text-only assistant. No tools are available.\n\n<cwd>\n/data/sessions/f02_20261110_p4_8/workspace\n</cwd>"
+        },
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "List the integers from 1 through 24, comma-separated, with no other text."
+            }
+          ]
+        }
+      ],
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "store": false,
+      "max_completion_tokens": 128
+    },
+    "mapped": {
+      "model": "Qwen3-8B",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a text-only assistant. No tools are available.\n\n<cwd>\n/data/sessions/f02_20261110_p4_8/workspace\n</cwd>"
+        },
+        {
+          "role": "user",
+          "content": "List the integers from 1 through 24, comma-separated, with no other text."
+        }
+      ],
+      "stream": true,
+      "max_tokens": 128
+    },
+    "httpStatus": 503,
+    "error": "upstream_http_503",
+    "ok": false,
+    "settled": 168090.46803,
+    "event": "settled"
+  },
+  {
+    "id": "9764ee9b-4c61-44c0-bb6c-688eed92a511",
+    "task": "6fcf5d16f670da710a4c2513d1d7a15a",
+    "session": "f02_20261110_p10_4",
+    "utc": "2026-11-10T13:57:22.379Z",
+    "clock": "pi-performance.now",
+    "started": true,
+    "start": 465835.230538,
+    "sdk": {
+      "model": "Qwen3-8B",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a text-only assistant. No tools are available.\n\n<cwd>\n/data/sessions/f02_20261110_p10_4/workspace\n</cwd>"
+        },
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "List the integers from 1 through 24, comma-separated, with no other text."
+            }
+          ]
+        }
+      ],
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "store": false,
+      "max_completion_tokens": 128
+    },
+    "mapped": {
+      "model": "Qwen3-8B",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a text-only assistant. No tools are available.\n\n<cwd>\n/data/sessions/f02_20261110_p10_4/workspace\n</cwd>"
+        },
+        {
+          "role": "user",
+          "content": "List the integers from 1 through 24, comma-separated, with no other text."
+        }
+      ],
+      "stream": true,
+      "max_tokens": 128
+    },
+    "httpStatus": 503,
+    "error": "upstream_http_503",
+    "ok": false,
+    "settled": 467840.377973,
+    "event": "settled"
+  }
+]

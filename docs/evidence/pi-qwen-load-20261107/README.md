@@ -29,3 +29,5 @@ The model-start cutoff passed before all prerequisites and the exact pilot GO co
 - [November10 full captured-input pairing](20261110-paired-input/README.md) preserves actual SDK workspace differences, refused pilot04 comparison, and the prospective per-slot exact replay protocol. This does not establish a completed real paired baseline.
 
 - [November10 interruption accounting repair](20261110-interrupt-repair/README.md) preserves the foreign-guard partial run and actual CPU red/green regression; it is not a completed matrix.
+
+- [November10 complete formal02 measurement](20261110-formal02/README.md): complete240-slot paired matrix, success denominators, actual queue/serialization evidence, original manifests and cleanup/cost. Measurement independently reproducible; final exact-SHA acceptance remains separate.

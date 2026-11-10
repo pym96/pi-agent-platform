@@ -1,0 +1,23 @@
+{
+  "source_sha": "260831db022021289e5e29776292385f81cd8078",
+  "bindings": {
+    "service/compose.qwen-load.yaml": "a715e99622685d1e603a30ec523342f4a33b63efe9efd9ffd710a1378dd7c67b",
+    "service/scripts/pi-qwen-load/launch.py": "c7e995372d9f035a922646cf72007458214ed68999258d67bbcfe3a9d7793caa",
+    "service/scripts/pi-qwen-load/watch.py": "353f4ba562a19b2e8465116fffaaba09912cdce905d97f9977820a88d3e68498",
+    "service/scripts/pi-qwen-load/watch_monitor.py": "6f7cb1f4383f0270587b1fcd505f510f7d3ec0db74f81533bb1c35a9d58d3565",
+    "service/scripts/pi-qwen-load/watch_sample.py": "50f74f43e13d4e639db5cd25a2bc6f54a7c02710181bab3f9512ed446e3d6547",
+    "service/scripts/pi-qwen-load/watch_cleanup.py": "ac4601df044aa6201b71baf58a600132e2915e4e96f69853bd5a0741e06afd2d",
+    "service/scripts/pi-qwen-load/load.py": "9f941d28718c759f4acf7ef1e92c6e55e6b4e1c852d105c4b37da9f0f925f812",
+    "service/scripts/pi-qwen-load/campaign.py": "d56f1cdafb529569d334558dd1793a1916bea61e444c55d7c8c3b15660dbc907",
+    "service/scripts/pi-qwen-load/pairs.py": "c01eb94767a2e641901819aab035bb9ca354c29fe321d6c0817d9baaa14474b0",
+    "service/scripts/pi-qwen-load/recover.py": "84526800617cf8904bec5f17882e771b26bfc045401fefea480c2f98ad736ce5"
+  },
+  "API_sha256": "9042a98be49b12a6a18274f96927864d792ef88dee0d752e5b5fc6f069dac87e",
+  "API_actual_buildrev": "394e4f15a821ab969a104aae7f8803d3efd3ef72",
+  "unchanged_Go_source": "gitdiff45faa..260831 service Go paths empty",
+  "coordinator_sha256": "5ff913c2e1f790a3b3a4cb1c42e0708fe0ca134175f1bcd5fe1a669086147c75",
+  "B_model_seconds": 353.224611,
+  "B_modelHTTP": 63,
+  "B_modelHTTP_cap": 320,
+  "cpu_required": 26
+}
