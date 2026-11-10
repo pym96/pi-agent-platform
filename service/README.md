@@ -95,3 +95,5 @@ The [Nginx CPU guide](scripts/nginx-entry/README.md) adds an explicit separate C
 Opt-in #13 [terminal-aware load measurement](scripts/pi-qwen-load/README.md) and `compose.qwen-load.yaml` preserve existing default inference policies.
 
 - Optional #21 [isolated vLLM compatibility tooling](scripts/vllm-compat/README.md), CPU-tested guards only; no default backend migration or compatibility claim.
+
+- #21 November10 preparation closed incomplete: source-only CPU CI passed; runtime installation/GPU generation absent. Original server partial was lost during tmpfs export; no compatibility conclusion.

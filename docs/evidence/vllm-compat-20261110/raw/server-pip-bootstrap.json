@@ -1,0 +1,24 @@
+{
+  "comment_text": null,
+  "core-metadata": {
+    "sha256": "4fa7318cf30f979db7cec45c12cbbc2b4f88a15f12eefbf59a6291d0a03af926"
+  },
+  "digests": {
+    "blake2b_256": "c9bcb7db44f5f39f9d0494071bddae6880eb645970366d0a200022a1a93d57f5",
+    "md5": "99f43f22d5321305507b804a2be662c0",
+    "sha256": "c46efd13b6aa8279f33f2864459c8ce587ea6a1a59ee20de055868d8f7688f7f"
+  },
+  "downloads": -1,
+  "filename": "pip-25.0.1-py3-none-any.whl",
+  "has_sig": false,
+  "md5_digest": "99f43f22d5321305507b804a2be662c0",
+  "packagetype": "bdist_wheel",
+  "python_version": "py3",
+  "requires_python": ">=3.8",
+  "size": 1841526,
+  "upload_time": "2025-02-09T17:14:01",
+  "upload_time_iso_8601": "2025-02-09T17:14:01.463742Z",
+  "url": "https://files.pythonhosted.org/packages/c9/bc/b7db44f5f39f9d0494071bddae6880eb645970366d0a200022a1a93d57f5/pip-25.0.1-py3-none-any.whl",
+  "yanked": false,
+  "yanked_reason": null
+}

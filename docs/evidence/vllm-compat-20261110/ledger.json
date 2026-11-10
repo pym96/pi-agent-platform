@@ -1,0 +1,60 @@
+{
+  "issue": 21,
+  "outcome": "INCOMPLETE; no compatibility result",
+  "source_only_ci1_sha": "518c82b287f47c70bb224158d27b2f9a5f77b8f7",
+  "source_only_ci1_run": 42842394349,
+  "ci_consumed": 1,
+  "gpu_lifecycle_seconds": 0,
+  "logical_model_requests": 0,
+  "cuda_initialization": false,
+  "shared_default_changes": false,
+  "wheel_installation": false,
+  "server": {
+    "started_at": "2026-11-10T15:00:32.6164578Z",
+    "pause_epoch": 1794323850.039802,
+    "stoprm_end_epoch": 1794323850.97346,
+    "last_partial_epoch": 1794323849.0385108,
+    "last_observed_partial_bytes": 180092928,
+    "final_received_bytes": null,
+    "final_partial_sha256": null,
+    "partial_retained": false,
+    "reason": "docker cp did not export mounted tmpfs; return0 was insufficient; container then removed",
+    "native_exit": 137,
+    "preservation_watch_exit": 0,
+    "owned_b": 0,
+    "owned_r": 0,
+    "closeout_du_bytes": 3405951,
+    "closeout_free_bytes": 2629017620480,
+    "first_download_received_lower_bound_bytes": 180092928,
+    "first_download_received_upper_bound_bytes": 213619284,
+    "pip_bootstrap_bytes": 1841526
+  },
+  "local_range": {
+    "http": 206,
+    "bytes": 2097152,
+    "elapsed_seconds": "3.813797",
+    "retained": true
+  },
+  "local_full_attempt": {
+    "http": 200,
+    "exit": 28,
+    "requested_max_time_s": 90,
+    "observed_time_total_s": "90.746869",
+    "curl_timeout_report_ms": 90004,
+    "actual_bytes": 27113311,
+    "sha256": "727cb424dcf5fea7a7cfa545a29fc49688f2d748e0c2bd79f20b8670e0e13030",
+    "retained": true,
+    "complete": false
+  },
+  "total_official_wheel_payload_received_lower_bound_bytes": 211144917,
+  "total_official_wheel_payload_received_conservative_upper_bound_bytes": 244671273,
+  "wheel_payload_budget_bytes": 8589934592,
+  "new_server_disk_budget_bytes": 12884901888,
+  "server_prep_absolute_cutoff": "2026-11-10T15:23:36Z",
+  "notes": [
+    "Server final wire byte count/hash unknown; preserve lower-bound observation without inventing exact final bytes.",
+    "Local requested90s differs from observed90.746869s; no timing discount.",
+    "No source-compatible or incompatible runtime conclusion follows from download failures.",
+    "Earlier base-image Python/ensurepip CPU probes used noGPU and no shared package install; exact combined CPU process seconds not instrumented."
+  ]
+}

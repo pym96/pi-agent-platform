@@ -1,0 +1,14 @@
+[
+  {
+    "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm21-builder-20261110/local-speed.partial",
+    "size": 2097152,
+    "sha256": "6298b074551adf797d90770d1c50207fe0f363406069b8ea2ab1563a7ab85c83",
+    "complete_vllm_wheel": false
+  },
+  {
+    "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm21-builder-20261110/vllm-0.8.5.post1+cu118-cp38-abi3-manylinux1_x86_64.whl",
+    "size": 27113311,
+    "sha256": "727cb424dcf5fea7a7cfa545a29fc49688f2d748e0c2bd79f20b8670e0e13030",
+    "complete_vllm_wheel": false
+  }
+]

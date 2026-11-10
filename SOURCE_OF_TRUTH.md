@@ -31,3 +31,5 @@ No Pan product development, public deployment, paid model calls or GPU work is i
 - Pi13 [complete formal02 paired baseline](docs/evidence/pi-qwen-load-20261107/20261110-formal02/README.md): actual240sent/219complete/19direct rejected/2platform failed, original raw archives and denominator-aware curves; Product execution260831 unchanged. Independent measurement review is separate from final candidate acceptance and Human disclosure.
 
 - #21 [isolated vLLM preparation attempt](docs/evidence/vllm-compat-20261110/README.md), [opt-in guards](service/scripts/vllm-compat/README.md): incomplete dependency download/CPU-only tests; no actual runtime or GPU compatibility, no independent acceptance.
+
+- #21 November10 incomplete closeout: source518c82b/CI1 success, original server tmpfs partial lost, local90s download failed with retained partial; no runtime/GPU result. [Ledger and raw](docs/evidence/vllm-compat-20261110/README.md), PR22 draft, no main integration.

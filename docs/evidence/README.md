@@ -49,3 +49,5 @@ Historical database time fields are transaction-start intervals, not exact queue
 - [Pi #13 CPU measurement candidate](pi-qwen-load-20261107/README.md): actual HTTP/CLI tests; no GPU capacity or independent acceptance implied.
 
 - [#21 isolated vLLM November10 attempt](vllm-compat-20261110/README.md): incomplete runtime/download and CPU guard evidence, not G0 compatibility.
+
+- #21 [failed dependency/preparation closeout and private draft](vllm-compat-20261110/README.md): full raw ledger, original CI1 archive, documented lost tmpfs partial; no GPU execution.
