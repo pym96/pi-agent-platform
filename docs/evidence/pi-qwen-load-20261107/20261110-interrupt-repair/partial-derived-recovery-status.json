@@ -1,0 +1,17 @@
+{
+  "analysis_status": "recovered_with_provenance",
+  "status": "stopped",
+  "original_manifest_sha256": "2a7545ed6157eb1b2e1b45be30adb43b245bd36bbba304a3d60e993127798b3f",
+  "analysis_script_sha256": "84526800617cf8904bec5f17882e771b26bfc045401fefea480c2f98ad736ce5",
+  "summary_source": "immutable originals; recompute only source-copy",
+  "original_files_verified": 315,
+  "unknown_inventory_points": [],
+  "planned": 240,
+  "sent": 60,
+  "complete": 50,
+  "rejected": 0,
+  "failed": 10,
+  "timeout": 0,
+  "unresolved": 0,
+  "generator_drop": 180
+}

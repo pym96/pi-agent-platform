@@ -1,0 +1,13 @@
+point,path,mode,concurrency,rate,planned,sent,complete,rejected,failed,timeout,unresolved,generator_drop,n_success,success_rate_planned,p95_complete_s,p95_ttft_s,p95_send_lag_s,cohort_complete_rps,cohort_success_output_tokens_per_s,reason,stop_reason
+platform_closed_1,platform,closed,1,,20,20,20,0,0,0,0,0,20,1.0,2.239931252988754,0.2075214530050289,0.00023026397684589028,0.510684607499824,32.17313027248891,,
+direct_closed_1,direct,closed,1,,20,20,20,0,0,0,0,0,20,1.0,2.2393536750169005,0.051308128982782364,0.0002436680078972131,0.5424063400531857,34.1715994233507,,
+platform_closed_2,platform,closed,2,,20,20,10,0,10,0,0,0,10,0.5,4.105519824981457,2.11744068400003,0.00022952700965106487,0.4557742237585648,28.713776096789584,"URLError(ConnectionRefusedError(111, 'Connection refused'))","URLError(ConnectionRefusedError(111, 'Connection refused'))"
+direct_closed_2,direct,closed,,,20,0,0,0,0,0,0,20,0,,,,,,,"URLError(ConnectionRefusedError(111, 'Connection refused'))",
+platform_closed_4,platform,closed,,,20,0,0,0,0,0,0,20,0,,,,,,,"URLError(ConnectionRefusedError(111, 'Connection refused'))",
+direct_closed_4,direct,closed,,,20,0,0,0,0,0,0,20,0,,,,,,,"URLError(ConnectionRefusedError(111, 'Connection refused'))",
+platform_open_0.5,platform,open,,,20,0,0,0,0,0,0,20,0,,,,,,,"URLError(ConnectionRefusedError(111, 'Connection refused'))",
+direct_open_0.5,direct,open,,,20,0,0,0,0,0,0,20,0,,,,,,,"URLError(ConnectionRefusedError(111, 'Connection refused'))",
+platform_open_1,platform,open,,,20,0,0,0,0,0,0,20,0,,,,,,,"URLError(ConnectionRefusedError(111, 'Connection refused'))",
+direct_open_1,direct,open,,,20,0,0,0,0,0,0,20,0,,,,,,,"URLError(ConnectionRefusedError(111, 'Connection refused'))",
+platform_open_2,platform,open,,,20,0,0,0,0,0,0,20,0,,,,,,,"URLError(ConnectionRefusedError(111, 'Connection refused'))",
+direct_open_2,direct,open,,,20,0,0,0,0,0,0,20,0,,,,,,,"URLError(ConnectionRefusedError(111, 'Connection refused'))",

@@ -1,0 +1,14 @@
+E
+======================================================================
+ERROR: test_post_point_connection_refusal_retains_summary_and_reports_stopped (test_pairs.PairTests.test_post_point_connection_refusal_retains_summary_and_reports_stopped)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-load13-restoration-candidate/service/scripts/pi-qwen-load/test_pairs.py", line 70, in test_post_point_connection_refusal_retains_summary_and_reports_stopped
+    pilot=self.root/'pilot';pilot.mkdir();(pilot/'calibration.json').write_text(json.dumps({'Rb':20,'pairs_sha256':'a'*64}));plan=self.root/'plan';self.assertEqual(self.campaign('freeze',plan,['--pilot',str(pilot)]).returncode,0);out=self.root/'formal';self.close_after_summary=out/'platform_closed_1/summary.json';r=self.campaign('formal',out,['--pilot',str(pilot),'--plan',str(plan/'frozen-plan.json')]);pre=json.loads((self.root/'refusal-precondition.json').read_text());self.assertTrue(pre['summary_exists']);self.assertNotEqual(pre['connect_errno'],0);original=json.loads(self.close_after_summary.read_text());results=json.loads((out/'results.json').read_text());self.assertEqual(results[0]['complete'],original['complete']);self.assertEqual((results[0]['sent'],results[0]['planned']),(20,20));self.assertEqual(original['complete'],20);self.assertTrue(results[0]['stop_reason']);self.assertEqual(len(results),12);self.assertTrue(all(x['planned']==20 and x['sent']==0 and x['generator_drop']==20 for x in results[1:]));self.assertNotEqual(r.returncode,0);status=json.loads((out/'campaign-status.json').read_text());self.assertEqual(status['status'],'stopped');self.assertEqual(status['planned'],240);self.assertEqual(status['sent'],20);self.assertEqual(status['complete'],20);self.assertEqual(status['generator_drop'],220)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'complete'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.841s
+
+FAILED (errors=1)

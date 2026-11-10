@@ -65,8 +65,13 @@ def main():
   sampler=threading.Thread(target=sample);sampler.start()
   command=['docker','create','--pull','never','--name',client,'--runtime','runc','--network','host','--label','com.docker.compose.project='+project,'--label','workorder=13','--label','execution-sha='+go['source_sha'],'--user','1001:1001','--read-only','--tmpfs','/tmp:size=256m','--cap-drop','ALL','--security-opt','no-new-privileges:true','--cpus','2','--memory','5g','--memory-swap','5g','-v',str(source)+':/source:ro','-v',str(out)+':/evidence','-v',str(root/'pi-data')+':/pi-data:ro','-v',str(root)+':/owned:ro','-e','PYTHONDONTWRITEBYTECODE=1','-e','CUDA_VISIBLE_DEVICES=0','-w','/source','--entrypoint','python','python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1','service/scripts/pi-qwen-load/campaign.py','--stage',go['stage'],'--out','/evidence/campaign','--bridge','/pi-data/bridge.jsonl','--deadline',str(deadline)]
   if go['stage']=='formal':command+=['--pilot',go['pilot_container_path'],'--plan',go['plan_container_path']]
-  client_id=call(command,'client-create').stdout.strip();assert len(client_id)==64;client_created=True;call(['docker','inspect',client_id],'client-inspect');call(['docker','start','-a',client_id],'client-run',timeout=max(1,deadline-time.time()-20))
-  state=json.loads(call(['docker','inspect',client_id],'client-state').stdout)[0]['State'];assert state['ExitCode']==0 and not state['Running'];status='passed'
+  client_id=call(command,'client-create').stdout.strip();assert len(client_id)==64;client_created=True;call(['docker','inspect',client_id],'client-inspect');client_result=call(['docker','start','-a',client_id],'client-run',check=False,timeout=max(1,deadline-time.time()-20))
+  state=json.loads(call(['docker','inspect',client_id],'client-state').stdout)[0]['State']
+  if go['stage']=='formal':
+   result=json.loads((out/'campaign/campaign-status.json').read_text());status=result['status'];assert status in ('complete','stopped')
+  else:result={'status':'complete' if client_result.returncode==0 else 'failed'};status=result['status']
+  (out/'campaign-result.json').write_text(json.dumps({'stage':go['stage'],'campaign':result,'client_exit':client_result.returncode,'client_state_exit':state['ExitCode'],'client_running':state['Running']},indent=2))
+  if client_result.returncode or state['ExitCode'] or state['Running'] or status!='complete':raise RuntimeError('campaign did not complete:'+str(result))
  except BaseException:
   (out/'failure.txt').write_text(traceback.format_exc());raise
  finally:
@@ -91,6 +96,6 @@ def main():
    finally:
     ids=call(['docker','ps','-q','--no-trunc','--filter','label=com.docker.compose.project='+project],'remaining',check=False).stdout.split()
     sys.path.insert(0,str(HERE));from watch_cleanup import reconcile_owned
-    cleanup=reconcile_owned(project,go['source_sha'],known_ids) if startup_attempted else {'success':True,'containers':{},'errors':[],'note':'startup not attempted; preexisting objects untouched'};(out/'cleanup.json').write_text(json.dumps({'status':status,'lifecycle_seconds':time.monotonic()-started,**cleanup},indent=2))
+    cleanup=reconcile_owned(project,go['source_sha'],known_ids) if startup_attempted else {'success':True,'containers':{},'errors':[],'note':'startup not attempted; preexisting objects untouched'};(out/'cleanup.json').write_text(json.dumps({'status':status,'campaign_status':status,'cleanup_status':'succeeded' if cleanup['success'] else 'unknown_or_failed','lifecycle_seconds':time.monotonic()-started,**cleanup},indent=2))
     if not cleanup['success']:raise RuntimeError('cleanup unknown')
 if __name__=='__main__':main()

@@ -1,0 +1,30 @@
+{
+  "batch": "formal-nov10-01",
+  "status": "PARTIAL_FOREIGN_GUARD_STOP",
+  "model_lifetime_seconds": 120.107419,
+  "model_started_at": "2026-11-10T12:20:37.09385604Z",
+  "model_finished_at": "2026-11-10T12:22:37.201275292Z",
+  "model_exit": 137,
+  "model_OOMKilled": false,
+  "model_trace_event_counts": {
+    "received": 54,
+    "validated": 54,
+    "slot_acquired": 51,
+    "prepared": 51,
+    "execute_start": 51,
+    "execute_end": 51,
+    "settled": 51
+  },
+  "actual_received": 54,
+  "B_cumulative_model_seconds": 353.224611,
+  "B_cumulative_modelHTTP": 63,
+  "B_remaining_modelHTTP": 193,
+  "R_model_seconds": 25.564429079,
+  "R_modelHTTP": 4,
+  "watch_stop_reason": "foreign_gpu_process",
+  "watch_stop_epoch": 1794313346.0833085,
+  "owned_after": 0,
+  "original_archive_sha256": "dcda9a19acdf89c6b54046548344211123bbd351b3b9d5adca28c2fcf96ecf92",
+  "manifest_sha256": "2a7545ed6157eb1b2e1b45be30adb43b245bd36bbba304a3d60e993127798b3f",
+  "B_remaining_model_seconds": 1146.775389
+}

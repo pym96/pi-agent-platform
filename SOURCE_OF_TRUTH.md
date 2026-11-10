@@ -25,3 +25,5 @@ No Pan product development, public deployment, paid model calls or GPU work is i
 - Pi13 November10 [actual watch-freshness startup failure and scoped monitoring repair](docs/evidence/pi-qwen-load-20261107/20261110-watch-repair/README.md). Old execution394 and its29.348931seconds/zeroHTTP remain distinct from repaired source; missing real baseline/formal results and independent acceptance are not waived. [Control/diagnostic implementation](service/scripts/pi-qwen-load/README.md) is opt-in measurement only.
 
 - Pi13 [paired actual input candidate](docs/evidence/pi-qwen-load-20261107/20261110-paired-input/README.md): SDK per-session workspace changes are preserved in full payload vectors; new protocol/CPU evidence is separate from failed pilot04 and remains independently gated.
+
+- Pi13 [interrupted campaign accounting repair](docs/evidence/pi-qwen-load-20261107/20261110-interrupt-repair/README.md): retain measured point metrics across idle failures, separate stopped workload from cleanup, and recover immutable partial originals. Formal01 remains partial; no complete load matrix or acceptance is claimed.
