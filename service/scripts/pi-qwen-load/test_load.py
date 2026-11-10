@@ -1,7 +1,13 @@
-import unittest,subprocess,sys,json,tempfile,threading,time
+import unittest,subprocess,sys,json,tempfile,threading,time,os,shutil
 from pathlib import Path
 from http.server import ThreadingHTTPServer,BaseHTTPRequestHandler
 HERE=Path(__file__).resolve().parent
+class EvidenceDirectory(tempfile.TemporaryDirectory):
+ def cleanup(self):
+  target=os.environ.get('LOAD_TEST_EVIDENCE')
+  if target and Path(self.name).exists() and not getattr(self,'evidence_saved',False):
+   out=Path(target)/Path(self.name).name;out.parent.mkdir(parents=True,exist_ok=True);shutil.copytree(self.name,out);self.evidence_saved=True
+  super().cleanup()
 class TestLoad(unittest.TestCase):
  def test_closed_waits_for_terminal(self):
   arrivals=[]
@@ -14,7 +20,7 @@ class TestLoad(unittest.TestCase):
     self.wfile.write(b'data: {"choices":[{"delta":{"content":"ok"},"finish_reason":null}]}\n\ndata: {"choices":[{"delta":{},"finish_reason":"stop"}],"usage":{"prompt_tokens":2,"completion_tokens":1,"total_tokens":3}}\n\ndata: [DONE]\n\n')
   server=ThreadingHTTPServer(('127.0.0.1',0),Handler);thread=threading.Thread(target=server.serve_forever);thread.start()
   try:
-   with tempfile.TemporaryDirectory() as d:
+   with EvidenceDirectory() as d:
     p=Path(d);(p/'payload.json').write_text(json.dumps({'model':'Qwen3-8B','stream':True,'messages':[{'role':'user','content':'test'}],'max_tokens':128}))
     r=subprocess.run([sys.executable,str(HERE/'load.py'),'point','--path','direct','--mode','closed','--concurrency','1','--count','3','--base','http://127.0.0.1:'+str(server.server_port),'--payload',str(p/'payload.json'),'--out',str(p/'run')],capture_output=True,text=True,timeout=10)
     self.assertEqual(r.returncode,0,r.stderr);self.assertEqual(len(arrivals),3);self.assertTrue(all(b-a>=.1 for a,b in zip(arrivals,arrivals[1:])))
@@ -32,7 +38,7 @@ class TestMore(unittest.TestCase):
     self.wfile.write(b'data: {"choices":[{"delta":{"content":"ok"},"finish_reason":null}]}\n\ndata: {"choices":[{"delta":{},"finish_reason":"stop"}],"usage":{"prompt_tokens":2,"completion_tokens":1,"total_tokens":3}}\n\ndata: [DONE]\n\n')
   server=ThreadingHTTPServer(('127.0.0.1',0),Handler);t=threading.Thread(target=server.serve_forever);t.start()
   try:
-   with tempfile.TemporaryDirectory() as d:
+   with EvidenceDirectory() as d:
     p=Path(d);(p/'payload').write_text('{"model":"Qwen3-8B"}');r=subprocess.run([sys.executable,str(HERE/'load.py'),'point','--path','direct','--mode','open','--rate','20','--count','4','--base','http://127.0.0.1:'+str(server.server_port),'--payload',str(p/'payload'),'--out',str(p/'run')],capture_output=True,text=True,timeout=10)
     self.assertEqual(r.returncode,0,r.stderr);self.assertEqual(len(arrivals),4);self.assertLess(arrivals[-1]-arrivals[0],.24)
     summary=json.loads((p/'run/summary.json').read_text());self.assertEqual(summary['complete'],4)
@@ -56,14 +62,14 @@ class TestPlatform(unittest.TestCase):
      self.wfile.write(('data: '+json.dumps({'id':ident,'task':session,'kind':kind,'data':data})+'\n\n').encode());self.wfile.flush()
   server=ThreadingHTTPServer(('127.0.0.1',0),Handler);t=threading.Thread(target=server.serve_forever);t.start()
   try:
-   with tempfile.TemporaryDirectory() as d:
+   with EvidenceDirectory() as d:
     r=subprocess.run([sys.executable,str(HERE/'load.py'),'point','--path','platform','--mode','closed','--concurrency','1','--count','3','--base','http://127.0.0.1:'+str(server.server_port),'--out',d+'/run'],capture_output=True,text=True,timeout=10)
     self.assertEqual(r.returncode,0,r.stderr);self.assertEqual(len(arrivals),3);self.assertTrue(all(b-a>=.1 for a,b in zip(arrivals,arrivals[1:])))
   finally:server.shutdown();t.join();server.server_close()
 
 class TestNegative(unittest.TestCase):
  def invoke(self,handler,extra=None,count=1):
-  server=ThreadingHTTPServer(('127.0.0.1',0),handler);t=threading.Thread(target=server.serve_forever);t.start();tmp=tempfile.TemporaryDirectory();root=Path(tmp.name);(root/'payload').write_text('{"model":"Qwen3-8B"}')
+  server=ThreadingHTTPServer(('127.0.0.1',0),handler);t=threading.Thread(target=server.serve_forever);t.start();tmp=EvidenceDirectory();root=Path(tmp.name);(root/'payload').write_text('{"model":"Qwen3-8B"}')
   try:
    command=[sys.executable,str(HERE/'load.py'),'point','--path','direct','--mode','open','--rate','100','--count',str(count),'--base','http://127.0.0.1:'+str(server.server_port),'--payload',str(root/'payload'),'--out',str(root/'run')]+(extra or [])
    result=subprocess.run(command,capture_output=True,text=True,timeout=10);return tmp,root,result

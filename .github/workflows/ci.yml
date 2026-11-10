@@ -76,7 +76,9 @@ jobs:
       - name: Required terminal-aware load measurement CLI
         run: |
           mkdir -p "$RUNNER_TEMP/load13"
-          python service/scripts/nginx-entry/strict_suite.py --start-dir service/scripts/pi-qwen-load --pattern test_load.py --out "$RUNNER_TEMP/load13/summary.json" > "$RUNNER_TEMP/load13/tests.log" 2>&1
+          export MONITOR_TEST_EVIDENCE="$RUNNER_TEMP/load13/raw/monitor"
+          export LOAD_TEST_EVIDENCE="$RUNNER_TEMP/load13/raw/load"
+          python service/scripts/nginx-entry/strict_suite.py --start-dir service/scripts/pi-qwen-load --pattern 'test_*.py' --out "$RUNNER_TEMP/load13/summary.json" > "$RUNNER_TEMP/load13/tests.log" 2>&1
       - name: Required CPU suites and actual SDK to PG chain
         run: python service/scripts/pi-qwen-e2e/run.py --out "$RUNNER_TEMP/pi-e2e12-cpu"
       - name: Stop dedicated E2E PostgreSQL before Nginx phase
