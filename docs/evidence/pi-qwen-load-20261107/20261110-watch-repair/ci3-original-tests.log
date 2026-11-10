@@ -1,0 +1,89 @@
+test_trickle_without_newline_stops_at_total_deadline (test_load.TestAbsoluteDeadline.test_trickle_without_newline_stops_at_total_deadline) ... ok
+test_closed_waits_for_terminal (test_load.TestLoad.test_closed_waits_for_terminal) ... ok
+test_open_offers_without_waiting_for_responses (test_load.TestMore.test_open_offers_without_waiting_for_responses) ... ok
+test_inflight_drop_and_resealed_raw_mismatch (test_load.TestNegative.test_inflight_drop_and_resealed_raw_mismatch) ... ok
+test_missing_terminal_is_unresolved (test_load.TestNegative.test_missing_terminal_is_unresolved) ... ok
+test_platform_ack_is_not_terminal (test_load.TestPlatform.test_platform_ack_is_not_terminal) ... ok
+test_actual_watcher_death_fails_closed (test_monitor.MonitorTests.test_actual_watcher_death_fails_closed) ... ok
+test_deadline_interrupts_blocked_diagnostic_and_cleans_exact_owned (test_monitor.MonitorTests.test_deadline_interrupts_blocked_diagnostic_and_cleans_exact_owned) ... ERROR
+test_slow_diagnostics_keep_live_control_and_mark_old_resource_unknown (test_monitor.MonitorTests.test_slow_diagnostics_keep_live_control_and_mark_old_resource_unknown) ... ERROR
+test_stopped_control_loop_cannot_emit_fresh_heartbeat (test_monitor.MonitorTests.test_stopped_control_loop_cannot_emit_fresh_heartbeat) ... ERROR
+test_wrong_binding_live_process_fails_closed (test_monitor.MonitorTests.test_wrong_binding_live_process_fails_closed) ... ERROR
+
+======================================================================
+ERROR: test_deadline_interrupts_blocked_diagnostic_and_cleans_exact_owned (test_monitor.MonitorTests.test_deadline_interrupts_blocked_diagnostic_and_cleans_exact_owned)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/pi-agent-platform/pi-agent-platform/service/scripts/pi-qwen-load/test_monitor.py", line 53, in tearDown
+    if str(self.root/'sampler.py') in process_arguments(pid):os.killpg(pid,signal.SIGKILL)
+                                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/pi-agent-platform/pi-agent-platform/service/scripts/pi-qwen-load/watch_monitor.py", line 16, in process_arguments
+    if Path('/proc/self/stat').exists():return [x.decode() for x in Path('/proc/'+str(pid)+'/cmdline').read_bytes().split(b'\0') if x]
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/proc/3289/cmdline'
+
+======================================================================
+ERROR: test_slow_diagnostics_keep_live_control_and_mark_old_resource_unknown (test_monitor.MonitorTests.test_slow_diagnostics_keep_live_control_and_mark_old_resource_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/pi-agent-platform/pi-agent-platform/service/scripts/pi-qwen-load/test_monitor.py", line 53, in tearDown
+    if str(self.root/'sampler.py') in process_arguments(pid):os.killpg(pid,signal.SIGKILL)
+                                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/pi-agent-platform/pi-agent-platform/service/scripts/pi-qwen-load/watch_monitor.py", line 16, in process_arguments
+    if Path('/proc/self/stat').exists():return [x.decode() for x in Path('/proc/'+str(pid)+'/cmdline').read_bytes().split(b'\0') if x]
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/proc/3401/cmdline'
+
+======================================================================
+ERROR: test_stopped_control_loop_cannot_emit_fresh_heartbeat (test_monitor.MonitorTests.test_stopped_control_loop_cannot_emit_fresh_heartbeat)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/pi-agent-platform/pi-agent-platform/service/scripts/pi-qwen-load/test_monitor.py", line 53, in tearDown
+    if str(self.root/'sampler.py') in process_arguments(pid):os.killpg(pid,signal.SIGKILL)
+                                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/pi-agent-platform/pi-agent-platform/service/scripts/pi-qwen-load/watch_monitor.py", line 16, in process_arguments
+    if Path('/proc/self/stat').exists():return [x.decode() for x in Path('/proc/'+str(pid)+'/cmdline').read_bytes().split(b'\0') if x]
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/proc/3431/cmdline'
+
+======================================================================
+ERROR: test_wrong_binding_live_process_fails_closed (test_monitor.MonitorTests.test_wrong_binding_live_process_fails_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/pi-agent-platform/pi-agent-platform/service/scripts/pi-qwen-load/test_monitor.py", line 53, in tearDown
+    if str(self.root/'sampler.py') in process_arguments(pid):os.killpg(pid,signal.SIGKILL)
+                                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/pi-agent-platform/pi-agent-platform/service/scripts/pi-qwen-load/watch_monitor.py", line 16, in process_arguments
+    if Path('/proc/self/stat').exists():return [x.decode() for x in Path('/proc/'+str(pid)+'/cmdline').read_bytes().split(b'\0') if x]
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/proc/3502/cmdline'
+
+----------------------------------------------------------------------
+Ran 11 tests in 24.408s
+
+FAILED (errors=4)
+{"tests": 11, "skipped": 0, "failures": 0, "errors": 4, "expected_failures": 0, "unexpected_successes": 0, "success": false}

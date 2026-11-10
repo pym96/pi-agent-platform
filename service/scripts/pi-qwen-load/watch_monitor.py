@@ -1,7 +1,7 @@
 """One control thread owns heartbeat and hard deadline; diagnostics run separately."""
 import json,os,signal,subprocess,sys,time,shlex
 from pathlib import Path
-from watch_cleanup import discover_owned,cleanup_known
+from watch_cleanup import reconcile_owned
 HERE=Path(__file__).resolve().parent
 
 def process_birth(pid):
@@ -35,9 +35,7 @@ def guard_watch(go,stop,lost,known,out):
         try:verify_watch(go)
         except Exception as error:
             lost.set()
-            try:discover_owned(go['project'],go['source_sha'],known)
-            except Exception:pass
-            result=cleanup_known(go['project'],go['source_sha'],list(known))
+            result=reconcile_owned(go['project'],go['source_sha'],known)
             with Path(out).open('a') as f:f.write(json.dumps({'error':repr(error),'cleanup':result,'utc_epoch':time.time()})+'\n')
             return
 
@@ -74,10 +72,6 @@ def run_monitor(project,sha,deadline,root,out,sample_command=None):
             except ProcessLookupError:pass
             sample.wait(timeout=5);record({'event':'diagnostic_cancelled','cycle':cycle,'sampler_pid':sample.pid,'resource_status':'unknown'})
         record({'event':'cleanup_start','known_ids':list(known)})
-        refresh_error=None
-        try:discover_owned(project,sha,known)
-        except Exception as error:refresh_error=repr(error)
-        record({'event':'cleanup_discovery','known_ids':list(known),'refresh_error':refresh_error})
-        result=cleanup_known(project,sha,list(known));record({'event':'cleanup',**result,'refresh_error':refresh_error})
+        result=reconcile_owned(project,sha,known);record({'event':'cleanup',**result})
         for sig,handler in previous.items():signal.signal(sig,handler)
-        if refresh_error or not result['success']:raise RuntimeError('owned cleanup unknown/incomplete; inspect')
+        if not result['success']:raise RuntimeError('owned cleanup unknown/incomplete; inspect')

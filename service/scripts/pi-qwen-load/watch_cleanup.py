@@ -51,8 +51,9 @@ def inspect_exact(ident,project,sha,receipts):
     except (ValueError,KeyError,TypeError,IndexError,AttributeError) as error:raise UnknownState('unusable inspect') from error
     return row
 
-def discover_owned(project,sha,known):
-    receipts=[];result=command(['ps','-a','-q','--no-trunc','--filter','label=com.docker.compose.project='+project],receipts)
+def discover_owned(project,sha,known,receipts=None):
+    if receipts is None:receipts=[]
+    result=command(['ps','-a','-q','--no-trunc','--filter','label=com.docker.compose.project='+project],receipts)
     if result.returncode:raise UnknownState('project inventory unavailable')
     rows=[]
     for ident in ids(result.stdout):
@@ -75,6 +76,16 @@ def cleanup_known(project,sha,known_ids):
         except (UnknownState,OwnershipError) as error:
             states[ident]='unknown';errors.append({'id':ident,'error':str(error)})
     return {'success':not errors and all(x in ('removed','stopped') for x in states.values()),'containers':states,'errors':errors,'receipts':receipts}
+
+def reconcile_owned(project,sha,known):
+    discovery=[];error=None
+    try:discover_owned(project,sha,known,discovery)
+    except Exception as failure:error=repr(failure)
+    result=cleanup_known(project,sha,list(known))
+    result.update(inventory_status='unknown' if error else 'observed',discovery_error=error,discovery_receipts=discovery)
+    if error:
+        result['success']=False;result['errors'].append({'stage':'inventory','error':error})
+    return result
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--project',required=True,choices=['pi-qwen13-b','pi-qwen13-r']);p.add_argument('--sha',required=True);p.add_argument('--known-id',required=True,action='append');p.add_argument('--out',required=True);a=p.parse_args()

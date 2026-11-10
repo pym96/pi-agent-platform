@@ -7,7 +7,9 @@ from watch_monitor import verify_watch,guard_watch,process_arguments
 SHA='a'*40;IDENT='b'*64;PROJECT='pi-qwen13-b'
 class MonitorTests(unittest.TestCase):
  def setUp(self):
-  self.tmp=tempfile.TemporaryDirectory();self.root=Path(self.tmp.name);self.bin=self.root/'bin';self.bin.mkdir();self.state=self.root/'running';self.state.write_text('owned');self.calls=self.root/'docker-calls';self.proc=None;self.guard=None;self.stop=threading.Event();self.lost=threading.Event();self.oldpath=os.environ['PATH'];self.oldenv={k:os.environ.get(k) for k in ['MONITOR_FIXTURE_ROOT','MONITOR_FIXTURE_DELAY']};os.environ['PATH']=str(self.bin)+os.pathsep+self.oldpath;os.environ['MONITOR_FIXTURE_ROOT']=str(self.root);os.environ['MONITOR_FIXTURE_DELAY']='6'
+  evidence=os.environ.get('MONITOR_TEST_EVIDENCE')
+  if evidence:Path(evidence).mkdir(parents=True,exist_ok=True)
+  self.tmp=tempfile.TemporaryDirectory(dir=evidence);self.root=Path(self.tmp.name);self.bin=self.root/'bin';self.bin.mkdir();self.state=self.root/'running';self.state.write_text('owned');self.calls=self.root/'docker-calls';self.proc=None;self.guard=None;self.stop=threading.Event();self.lost=threading.Event();self.oldpath=os.environ['PATH'];self.oldenv={k:os.environ.get(k) for k in ['MONITOR_FIXTURE_ROOT','MONITOR_FIXTURE_DELAY']};os.environ['PATH']=str(self.bin)+os.pathsep+self.oldpath;os.environ['MONITOR_FIXTURE_ROOT']=str(self.root);os.environ['MONITOR_FIXTURE_DELAY']='6'
   docker='''#!'''+sys.executable+'''
 import os,sys,json
 from pathlib import Path
@@ -19,6 +21,10 @@ elif a[0]=='stop':(r/'running').unlink(missing_ok=True)
 else:raise SystemExit(2)
 '''
   (self.bin/'docker').write_text(docker);(self.bin/'docker').chmod(0o755)
+  probes=[]
+  for args in [['docker','ps','-a','-q','--no-trunc'],['docker','inspect',IDENT]]:
+   started=time.time();r=subprocess.run(args,capture_output=True,text=True,timeout=3);probes.append({'command':args,'start_epoch':started,'end_epoch':time.time(),'exit':r.returncode,'stdout':r.stdout,'stderr':r.stderr});self.assertEqual(r.returncode,0,r.stderr)
+  self.assertEqual(probes[0]['stdout'].strip(),IDENT);self.assertTrue(json.loads(probes[1]['stdout'])[0]['State']['Running']);(self.root/'fixture-preconditions.json').write_text(json.dumps({'docker_executed':True,'calls':probes,'nvidia_used':False,'sampler_kind':'explicit CPU sleep fixture, not real GPU'},indent=2))
   sampler=self.root/'sampler.py';sampler.write_text('''import os,time,json,argparse
 from pathlib import Path
 p=argparse.ArgumentParser();p.add_argument('--project');p.add_argument('--sha');p.add_argument('--root');p.add_argument('--out');p.add_argument('--commands');a=p.parse_args();start=time.time();Path(a.commands).open('a').write(json.dumps({'event':'command_start','started_ns':time.time_ns(),'command':['CPU-fixture-sleep']})+'\\n');time.sleep(float(os.environ['MONITOR_FIXTURE_DELAY']));Path(a.commands).open('a').write(json.dumps({'event':'command_end','ended_ns':time.time_ns(),'command':['CPU-fixture-sleep']})+'\\n');Path(a.out).write_text(json.dumps({'status':'complete','known_ids':['''+repr(IDENT)+'''],'running':['''+repr(IDENT)+'''] if (Path(a.root)/'running').exists() else [],'foreign_pids':[],'gpu_snapshot':'CPU fixture, not GPU','gpu_observed_epoch':start,'stop_reason':None,'start_epoch':start,'end_epoch':time.time()}))
@@ -41,25 +47,35 @@ p=argparse.ArgumentParser();p.add_argument('--project');p.add_argument('--sha');
  def begin_guard(self):
   self.guard=threading.Thread(target=guard_watch,args=(self.go,self.stop,self.lost,{},self.root/'loss.jsonl'));self.guard.start()
  def tearDown(self):
-  self.stop.set()
-  if self.guard:self.guard.join(5)
-  if self.proc and self.proc.poll() is None:
-   os.kill(self.proc.pid,signal.SIGCONT);self.proc.terminate()
-   try:self.proc.communicate(timeout=8)
-   except subprocess.TimeoutExpired:self.proc.kill();self.proc.communicate()
-  if hasattr(self,'receipt') and self.receipt.exists():
-   for pid in {r['sampler_pid'] for r in self.rows() if 'sampler_pid' in r}:
-    try:
-     if str(self.root/'sampler.py') in process_arguments(pid):os.killpg(pid,signal.SIGKILL)
-    except (ProcessLookupError,subprocess.CalledProcessError):pass
-  evidence=os.environ.get('MONITOR_TEST_EVIDENCE')
-  if evidence:
-   target=Path(evidence)/self.id().split('.')[-1];target.parent.mkdir(parents=True,exist_ok=True);shutil.copytree(self.root,target)
-  os.environ['PATH']=self.oldpath
-  for k,v in self.oldenv.items():
-   if v is None:os.environ.pop(k,None)
-   else:os.environ[k]=v
-  self.tmp.cleanup()
+  try:
+   self.stop.set()
+   if self.guard:self.guard.join(5)
+   if self.proc and self.proc.poll() is None:
+    os.kill(self.proc.pid,signal.SIGCONT);self.proc.terminate()
+    try:self.proc.communicate(timeout=8)
+    except subprocess.TimeoutExpired:self.proc.kill();self.proc.communicate()
+   if hasattr(self,'receipt') and self.receipt.exists():
+    for pid in {r['sampler_pid'] for r in self.rows() if 'sampler_pid' in r}:
+     try:
+      if str(self.root/'sampler.py') in process_arguments(pid):os.killpg(pid,signal.SIGKILL)
+     except (ProcessLookupError,FileNotFoundError,subprocess.CalledProcessError):pass
+  finally:
+   try:
+    evidence=os.environ.get('MONITOR_TEST_EVIDENCE')
+    if evidence:
+     target=Path(evidence)/self.id().split('.')[-1];target.parent.mkdir(parents=True,exist_ok=True);shutil.copytree(self.root,target)
+   finally:
+    os.environ['PATH']=self.oldpath
+    for k,v in self.oldenv.items():
+     if v is None:os.environ.pop(k,None)
+     else:os.environ[k]=v
+    self.tmp.cleanup()
+ def inventory_failure_case(self,known):
+  docker=self.bin/'docker';text=docker.read_text().replace("if a[0]=='ps':print(ident)","if a[0]=='ps':print('fixture inventory unavailable',file=sys.stderr);raise SystemExit(17)");docker.write_text(text);self.receipt=self.root/'absent.jsonl';self.go={'project':PROJECT,'source_sha':SHA,'deadline_epoch':time.time()+20,'watch_receipt':str(self.receipt)};self.guard=threading.Thread(target=guard_watch,args=(self.go,self.stop,self.lost,known,self.root/'loss.jsonl'));self.guard.start();self.assertTrue(self.lost.wait(4));self.guard.join(5);value=json.loads((self.root/'loss.jsonl').read_text())['cleanup'];self.assertFalse(value['success']);self.assertEqual(value['inventory_status'],'unknown');self.assertTrue(value['discovery_error']);self.assertEqual(value['discovery_receipts'][0]['exit_code'],17);self.assertIn('fixture inventory unavailable',value['discovery_receipts'][0]['stderr']);return value
+ def test_inventory_unknown_cannot_be_empty_success(self):
+  value=self.inventory_failure_case({});self.assertEqual(value['containers'],{});self.assertTrue(self.state.exists());calls=[json.loads(x) for x in self.calls.read_text().splitlines()];self.assertFalse(any(x[0]=='stop' for x in calls))
+ def test_inventory_unknown_still_cleans_exact_known_owned(self):
+  value=self.inventory_failure_case({IDENT:None});self.assertFalse(self.state.exists());self.assertEqual(value['containers'][IDENT],'stopped');calls=[json.loads(x) for x in self.calls.read_text().splitlines()];self.assertEqual([x[-1] for x in calls if x[0]=='stop'],[IDENT])
  def test_slow_diagnostics_keep_live_control_and_mark_old_resource_unknown(self):
   self.start(9);self.begin_guard();time.sleep(6.5);beat=verify_watch(self.go);self.assertFalse(self.lost.is_set());self.assertTrue(self.state.exists());self.assertEqual(beat['resource_status'],'unknown');self.assertIsNone(beat['gpu_snapshot']);end=time.monotonic()+2
   while time.monotonic()<end and not any(r.get('event')=='diagnostic' for r in self.rows()):time.sleep(.05)

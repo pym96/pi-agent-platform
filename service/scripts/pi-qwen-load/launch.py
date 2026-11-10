@@ -84,15 +84,13 @@ def main():
   finally:
    try:
     if startup_attempted:
-     sys.path.insert(0,str(HERE));from watch_cleanup import discover_owned,cleanup_known
-     try:discover_owned(project,go['source_sha'],known_ids)
-     except Exception as error:(out/'discovery-error.txt').write_text(repr(error))
-     result=cleanup_known(project,go['source_sha'],list(known_ids));(out/'exact-stop.json').write_text(json.dumps(result,indent=2))
+     sys.path.insert(0,str(HERE));from watch_cleanup import reconcile_owned
+     result=reconcile_owned(project,go['source_sha'],known_ids);(out/'exact-stop.json').write_text(json.dumps(result,indent=2))
      if not result['success']:raise RuntimeError('owned stop incomplete')
      if known_ids:call(['docker','rm',*known_ids],'exact-remove',False)
    finally:
     ids=call(['docker','ps','-q','--no-trunc','--filter','label=com.docker.compose.project='+project],'remaining',check=False).stdout.split()
-    sys.path.insert(0,str(HERE));from watch_cleanup import cleanup_known
-    cleanup=cleanup_known(project,go['source_sha'],ids) if startup_attempted else {'success':True,'containers':{},'errors':[],'note':'startup not attempted; preexisting objects untouched'};(out/'cleanup.json').write_text(json.dumps({'status':status,'lifecycle_seconds':time.monotonic()-started,**cleanup},indent=2))
+    sys.path.insert(0,str(HERE));from watch_cleanup import reconcile_owned
+    cleanup=reconcile_owned(project,go['source_sha'],known_ids) if startup_attempted else {'success':True,'containers':{},'errors':[],'note':'startup not attempted; preexisting objects untouched'};(out/'cleanup.json').write_text(json.dumps({'status':status,'lifecycle_seconds':time.monotonic()-started,**cleanup},indent=2))
     if not cleanup['success']:raise RuntimeError('cleanup unknown')
 if __name__=='__main__':main()
