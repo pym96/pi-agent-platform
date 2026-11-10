@@ -1,0 +1,29 @@
+test_trickle_without_newline_stops_at_total_deadline (test_load.TestAbsoluteDeadline.test_trickle_without_newline_stops_at_total_deadline) ... ok
+test_closed_waits_for_terminal (test_load.TestLoad.test_closed_waits_for_terminal) ... ok
+test_open_offers_without_waiting_for_responses (test_load.TestMore.test_open_offers_without_waiting_for_responses) ... ok
+test_inflight_drop_and_resealed_raw_mismatch (test_load.TestNegative.test_inflight_drop_and_resealed_raw_mismatch) ... ok
+test_missing_terminal_is_unresolved (test_load.TestNegative.test_missing_terminal_is_unresolved) ... ok
+test_platform_ack_is_not_terminal (test_load.TestPlatform.test_platform_ack_is_not_terminal) ... ok
+test_actual_watcher_death_fails_closed (test_monitor.MonitorTests.test_actual_watcher_death_fails_closed) ... ok
+test_deadline_interrupts_blocked_diagnostic_and_cleans_exact_owned (test_monitor.MonitorTests.test_deadline_interrupts_blocked_diagnostic_and_cleans_exact_owned) ... ok
+test_inventory_unknown_cannot_be_empty_success (test_monitor.MonitorTests.test_inventory_unknown_cannot_be_empty_success) ... ok
+test_inventory_unknown_still_cleans_exact_known_owned (test_monitor.MonitorTests.test_inventory_unknown_still_cleans_exact_known_owned) ... ok
+test_slow_diagnostics_keep_live_control_and_mark_old_resource_unknown (test_monitor.MonitorTests.test_slow_diagnostics_keep_live_control_and_mark_old_resource_unknown) ... ok
+test_stopped_control_loop_cannot_emit_fresh_heartbeat (test_monitor.MonitorTests.test_stopped_control_loop_cannot_emit_fresh_heartbeat) ... ok
+test_wrong_binding_live_process_fails_closed (test_monitor.MonitorTests.test_wrong_binding_live_process_fails_closed) ... ok
+test_actual_request_tamper_is_rejected_even_after_resealing (test_pairs.PairTests.test_actual_request_tamper_is_rejected_even_after_resealing) ... ok
+test_changed_vector_cannot_reuse_pre_send_anchor (test_pairs.PairTests.test_changed_vector_cannot_reuse_pre_send_anchor) ... ok
+test_complete_payloads_with_distinct_cwd_are_exactly_replayed (test_pairs.PairTests.test_complete_payloads_with_distinct_cwd_are_exactly_replayed) ... ok
+test_formal_http_campaign_retains_all_twelve_by_twenty_slots (test_pairs.PairTests.test_formal_http_campaign_retains_all_twelve_by_twenty_slots) ... ok
+test_missing_payload_keeps_three_planned_and_explicit_drop (test_pairs.PairTests.test_missing_payload_keeps_three_planned_and_explicit_drop) ... ok
+test_mutated_message_with_resealed_vector_is_rejected_before_send (test_pairs.PairTests.test_mutated_message_with_resealed_vector_is_rejected_before_send) ... ok
+test_offline_whole_plan_freezes_twelve_paired_cohorts (test_pairs.PairTests.test_offline_whole_plan_freezes_twelve_paired_cohorts) ... ok
+test_open_pair_arrivals_do_not_wait_for_slow_responses (test_pairs.PairTests.test_open_pair_arrivals_do_not_wait_for_slow_responses) ... ok
+test_pilot_campaign_captures_then_replays_and_calibrates (test_pairs.PairTests.test_pilot_campaign_captures_then_replays_and_calibrates) ... ok
+test_wrong_pair_mapping_is_rejected_before_send (test_pairs.PairTests.test_wrong_pair_mapping_is_rejected_before_send) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 44.980s
+
+OK
+{"tests": 23, "skipped": 0, "failures": 0, "errors": 0, "expected_failures": 0, "unexpected_successes": 0, "success": true}

@@ -1,0 +1,37 @@
+{
+  "batch": "pilot-nov10-04",
+  "execution_sha": "9561c667ae8e6703f212894b9dbc94a29bd67bca",
+  "result": "FAILED core identity check after actual platform3 success",
+  "model_http_attempts": 3,
+  "actual_generation": 3,
+  "platform_sent": 3,
+  "platform_complete": 3,
+  "direct_sent": 0,
+  "input_tokens": [
+    82,
+    82,
+    82
+  ],
+  "output_tokens": [
+    63,
+    63,
+    63
+  ],
+  "finish_reasons": [
+    "stop",
+    "stop",
+    "stop"
+  ],
+  "model_lifetime_seconds": 43.078784,
+  "B_cumulative_model_seconds": 187.212104,
+  "B_remaining_model_seconds": 1312.787896,
+  "B_cumulative_model_http": 3,
+  "B_remaining_model_http": 253,
+  "R_cumulative_model_seconds": 0,
+  "R_cumulative_model_http": 0,
+  "payload_identity_diff": "actual SDK system cwd contains distinct session IDs; no normalization applied",
+  "pilot_payload_list_captured_in_modeltrace_and_bridge": true,
+  "Rb_available": false,
+  "formal_run": false,
+  "auto_retry": false
+}

@@ -1,0 +1,129 @@
+{
+  "status": "actual platform captures only; no direct replay or calibration",
+  "bridge_sha256": "e638d6e965f49ccd1787edc70150a8ccaaf23777122e021431b95b703f484fbc",
+  "entries": [
+    {
+      "index": 0,
+      "path": "platform-0.json",
+      "file_sha256": "94d432b9da529eccc17f48f01abc75df3faec38437f549d90542cdbec3aeae40",
+      "actual_core_hash": "9f4096925863003a5c13dd372b77fcab497dcd3b92f81e79e1d1f248f044578e",
+      "actual_model_attempt": 1,
+      "bridge_request": {
+        "id": "15d71b54-d0cd-4c35-8663-c61f12361911",
+        "task": "f64b27c2c3c893fb9ba0825c829cd4d2",
+        "session": "lb1794307445442999231_0",
+        "utc": "2026-11-10T10:44:05.927Z",
+        "clock": "pi-performance.now",
+        "started": true,
+        "start": 11180.203378,
+        "sdk": {
+          "model": "Qwen3-8B",
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a text-only assistant. No tools are available.\n\n<cwd>\n/data/sessions/lb1794307445442999231_0/workspace\n</cwd>"
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "List the integers from 1 through 24, comma-separated, with no other text."
+                }
+              ]
+            }
+          ],
+          "stream": true,
+          "stream_options": {
+            "include_usage": true
+          },
+          "store": false,
+          "max_completion_tokens": 128
+        },
+        "event": "request"
+      }
+    },
+    {
+      "index": 1,
+      "path": "platform-1.json",
+      "file_sha256": "e2996203f6706f0b5785726b9f4955fdfd2c2a86364aefecab0406dfd42bc5b7",
+      "actual_core_hash": "8074ed6865b666c6a202f38664236c0d098b501436eedf798985a788f9d8486f",
+      "actual_model_attempt": 2,
+      "bridge_request": {
+        "id": "7c43839c-aa6e-4309-98f3-6acdb51a24d6",
+        "task": "7dee5d1744fe59ae0179a9d019a4f768",
+        "session": "lb1794307445442999231_1",
+        "utc": "2026-11-10T10:44:19.996Z",
+        "clock": "pi-performance.now",
+        "started": true,
+        "start": 24755.165469,
+        "sdk": {
+          "model": "Qwen3-8B",
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a text-only assistant. No tools are available.\n\n<cwd>\n/data/sessions/lb1794307445442999231_1/workspace\n</cwd>"
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "List the integers from 1 through 24, comma-separated, with no other text."
+                }
+              ]
+            }
+          ],
+          "stream": true,
+          "stream_options": {
+            "include_usage": true
+          },
+          "store": false,
+          "max_completion_tokens": 128
+        },
+        "event": "request"
+      }
+    },
+    {
+      "index": 2,
+      "path": "platform-2.json",
+      "file_sha256": "4e7f467f75ef098efe0a1a42c2f206b9743db43e5b28d7fb89560d816ec4b5f8",
+      "actual_core_hash": "774033e43709ebb3e61f9c05fa0c0c6e7b30b35b76a7cc9143d21ad337635510",
+      "actual_model_attempt": 3,
+      "bridge_request": {
+        "id": "155293f1-41e4-4cf2-9532-c633e8d901fe",
+        "task": "f0f47da24528fa0d55aa82344124a24b",
+        "session": "lb1794307445442999231_2",
+        "utc": "2026-11-10T10:44:22.344Z",
+        "clock": "pi-performance.now",
+        "started": true,
+        "start": 27097.192909,
+        "sdk": {
+          "model": "Qwen3-8B",
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a text-only assistant. No tools are available.\n\n<cwd>\n/data/sessions/lb1794307445442999231_2/workspace\n</cwd>"
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "List the integers from 1 through 24, comma-separated, with no other text."
+                }
+              ]
+            }
+          ],
+          "stream": true,
+          "stream_options": {
+            "include_usage": true
+          },
+          "store": false,
+          "max_completion_tokens": 128
+        },
+        "event": "request"
+      }
+    }
+  ]
+}

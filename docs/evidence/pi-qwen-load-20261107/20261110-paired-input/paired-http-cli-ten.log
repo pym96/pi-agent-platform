@@ -1,0 +1,15 @@
+test_actual_request_tamper_is_rejected_even_after_resealing (test_pairs.PairTests.test_actual_request_tamper_is_rejected_even_after_resealing) ... ok
+test_changed_vector_cannot_reuse_pre_send_anchor (test_pairs.PairTests.test_changed_vector_cannot_reuse_pre_send_anchor) ... ok
+test_complete_payloads_with_distinct_cwd_are_exactly_replayed (test_pairs.PairTests.test_complete_payloads_with_distinct_cwd_are_exactly_replayed) ... ok
+test_formal_http_campaign_retains_all_twelve_by_twenty_slots (test_pairs.PairTests.test_formal_http_campaign_retains_all_twelve_by_twenty_slots) ... ok
+test_missing_payload_keeps_three_planned_and_explicit_drop (test_pairs.PairTests.test_missing_payload_keeps_three_planned_and_explicit_drop) ... ok
+test_mutated_message_with_resealed_vector_is_rejected_before_send (test_pairs.PairTests.test_mutated_message_with_resealed_vector_is_rejected_before_send) ... ok
+test_offline_whole_plan_freezes_twelve_paired_cohorts (test_pairs.PairTests.test_offline_whole_plan_freezes_twelve_paired_cohorts) ... ok
+test_open_pair_arrivals_do_not_wait_for_slow_responses (test_pairs.PairTests.test_open_pair_arrivals_do_not_wait_for_slow_responses) ... ok
+test_pilot_campaign_captures_then_replays_and_calibrates (test_pairs.PairTests.test_pilot_campaign_captures_then_replays_and_calibrates) ... ok
+test_wrong_pair_mapping_is_rejected_before_send (test_pairs.PairTests.test_wrong_pair_mapping_is_rejected_before_send) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 15.698s
+
+OK

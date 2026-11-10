@@ -23,3 +23,5 @@ No Pan product development, public deployment, paid model calls or GPU work is i
 - #13 [private learning draft](docs/evidence/pi-qwen-load-20261107/LEARNING-DRAFT.md) records trace-failure ownership and deadline/fixture corrections; no public posting or GPU capacity claim.
 
 - Pi13 November10 [actual watch-freshness startup failure and scoped monitoring repair](docs/evidence/pi-qwen-load-20261107/20261110-watch-repair/README.md). Old execution394 and its29.348931seconds/zeroHTTP remain distinct from repaired source; missing real baseline/formal results and independent acceptance are not waived. [Control/diagnostic implementation](service/scripts/pi-qwen-load/README.md) is opt-in measurement only.
+
+- Pi13 [paired actual input candidate](docs/evidence/pi-qwen-load-20261107/20261110-paired-input/README.md): SDK per-session workspace changes are preserved in full payload vectors; new protocol/CPU evidence is separate from failed pilot04 and remains independently gated.

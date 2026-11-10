@@ -25,3 +25,5 @@ The model-start cutoff passed before all prerequisites and the exact pilot GO co
 ## November10 restoration and actual startup failure
 
 [Watch freshness failure and scoped repair](20261110-watch-repair/README.md) retains the real failed startup,29.348931seconds model lifetime/zero inferenceHTTP, original timing-fixture correction and new CPU monitoring probes. Independent review, new-SHA CI and actual GPU baseline remain separate pending gates.
+
+- [November10 full captured-input pairing](20261110-paired-input/README.md) preserves actual SDK workspace differences, refused pilot04 comparison, and the prospective per-slot exact replay protocol. This does not establish a completed real paired baseline.
