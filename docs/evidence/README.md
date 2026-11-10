@@ -47,3 +47,5 @@ Historical database time fields are transaction-start intervals, not exact queue
 [Fresh GPU0 chain, failed-watch original and narrow correction](pi-qwen-e2e-20261031/20261102-builder/README.md): three successful real tasks at execution source444096, explicit usage/device/PG/SSE provenance, bounded lifecycle and actual CPU watcher controls. Final delivery source/CI and independent Verdict are bound externally; no acceptance or capacity claim is implied. The prior157-entry manifest/source snapshot is preserved unchanged; the dated subtree has a separate inventory.
 
 - [Pi #13 CPU measurement candidate](pi-qwen-load-20261107/README.md): actual HTTP/CLI tests; no GPU capacity or independent acceptance implied.
+
+- [#21 isolated vLLM November10 attempt](vllm-compat-20261110/README.md): incomplete runtime/download and CPU guard evidence, not G0 compatibility.

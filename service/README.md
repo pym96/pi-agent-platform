@@ -93,3 +93,5 @@ The [Nginx CPU guide](scripts/nginx-entry/README.md) adds an explicit separate C
 [2026-10-31 E2E1.1 evidence](../docs/evidence/pi-qwen-e2e-20261031/README.md): actual SDK/PG CPU chain and strict required-suite/provenance checks. Fresh host physical GPU0 execution and independent acceptance are pending; historical GPU3 samples are preserved with their original identity.
 
 Opt-in #13 [terminal-aware load measurement](scripts/pi-qwen-load/README.md) and `compose.qwen-load.yaml` preserve existing default inference policies.
+
+- Optional #21 [isolated vLLM compatibility tooling](scripts/vllm-compat/README.md), CPU-tested guards only; no default backend migration or compatibility claim.
