@@ -1,0 +1,21 @@
+{
+  "command": [
+    "docker",
+    "compose",
+    "-p",
+    "pi-qwen13-b",
+    "-f",
+    "service/compose.qwen-load.yaml",
+    "up",
+    "-d",
+    "pg",
+    "model",
+    "pi",
+    "api"
+  ],
+  "start_epoch": 1794293885.3190503,
+  "end_epoch": 1794293904.9114146,
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": " Network pi-qwen13-b_default  Creating\n Network pi-qwen13-b_default  Created\n Volume \"pi-qwen13-b_pg-data\"  Creating\n Volume \"pi-qwen13-b_pg-data\"  Created\n Container pi-qwen13-b-pi-1  Creating\n Container pi-qwen13-b-model-1  Creating\n Container pi-qwen13-b-pg-1  Creating\n Container pi-qwen13-b-model-1  Created\n Container pi-qwen13-b-pi-1  Created\n Container pi-qwen13-b-pg-1  Created\n Container pi-qwen13-b-api-1  Creating\n Container pi-qwen13-b-api-1  Created\n Container pi-qwen13-b-pg-1  Starting\n Container pi-qwen13-b-model-1  Starting\n Container pi-qwen13-b-pi-1  Starting\n Container pi-qwen13-b-pg-1  Started\n Container pi-qwen13-b-pg-1  Waiting\n Container pi-qwen13-b-pi-1  Started\n Container pi-qwen13-b-model-1  Started\n Container pi-qwen13-b-pg-1  Error\ndependency failed to start: container pi-qwen13-b-pg-1 exited (137)\n"
+}

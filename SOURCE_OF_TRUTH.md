@@ -19,3 +19,7 @@ No Pan product development, public deployment, paid model calls or GPU work is i
 
 - Pi #12 November 7 scoped analyzer repair: [red/green evidence and execution-versus-analysis identity](docs/evidence/pi-qwen-e2e-20261031/20261107-analyzer/README.md). Original 2d37849 GPU evidence remains unchanged; no new GPU run or acceptance is implied.
 - Current #13 Product load measurement: [client and execution guide](service/scripts/pi-qwen-load/README.md), [producer CPU evidence](docs/evidence/pi-qwen-load-20261107/README.md). Baseline76ac647 accepted; GPU and independent acceptance remain separately gated.
+
+- #13 [private learning draft](docs/evidence/pi-qwen-load-20261107/LEARNING-DRAFT.md) records trace-failure ownership and deadline/fixture corrections; no public posting or GPU capacity claim.
+
+- Pi13 November10 [actual watch-freshness startup failure and scoped monitoring repair](docs/evidence/pi-qwen-load-20261107/20261110-watch-repair/README.md). Old execution394 and its29.348931seconds/zeroHTTP remain distinct from repaired source; missing real baseline/formal results and independent acceptance are not waived. [Control/diagnostic implementation](service/scripts/pi-qwen-load/README.md) is opt-in measurement only.

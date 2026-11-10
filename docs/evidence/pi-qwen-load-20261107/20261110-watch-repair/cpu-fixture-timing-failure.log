@@ -1,0 +1,25 @@
+test_trickle_without_newline_stops_at_total_deadline (test_load.TestAbsoluteDeadline.test_trickle_without_newline_stops_at_total_deadline) ... ok
+test_closed_waits_for_terminal (test_load.TestLoad.test_closed_waits_for_terminal) ... ok
+test_open_offers_without_waiting_for_responses (test_load.TestMore.test_open_offers_without_waiting_for_responses) ... ok
+test_inflight_drop_and_resealed_raw_mismatch (test_load.TestNegative.test_inflight_drop_and_resealed_raw_mismatch) ... ok
+test_missing_terminal_is_unresolved (test_load.TestNegative.test_missing_terminal_is_unresolved) ... ok
+test_platform_ack_is_not_terminal (test_load.TestPlatform.test_platform_ack_is_not_terminal) ... ok
+test_actual_watcher_death_fails_closed (test_monitor.MonitorTests.test_actual_watcher_death_fails_closed) ... ok
+test_deadline_interrupts_blocked_diagnostic_and_cleans_exact_owned (test_monitor.MonitorTests.test_deadline_interrupts_blocked_diagnostic_and_cleans_exact_owned) ... ok
+test_slow_diagnostics_keep_live_control_and_mark_old_resource_unknown (test_monitor.MonitorTests.test_slow_diagnostics_keep_live_control_and_mark_old_resource_unknown) ... FAIL
+test_stopped_control_loop_cannot_emit_fresh_heartbeat (test_monitor.MonitorTests.test_stopped_control_loop_cannot_emit_fresh_heartbeat) ... ok
+test_wrong_binding_live_process_fails_closed (test_monitor.MonitorTests.test_wrong_binding_live_process_fails_closed) ... ok
+
+======================================================================
+FAIL: test_slow_diagnostics_keep_live_control_and_mark_old_resource_unknown (test_monitor.MonitorTests.test_slow_diagnostics_keep_live_control_and_mark_old_resource_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-load13-restoration-candidate/service/scripts/pi-qwen-load/test_monitor.py", line 56, in test_slow_diagnostics_keep_live_control_and_mark_old_resource_unknown
+    self.start(9);self.begin_guard();time.sleep(6.5);beat=verify_watch(self.go);self.assertFalse(self.lost.is_set());self.assertTrue(self.state.exists());self.assertEqual(beat['resource_status'],'unknown');self.assertIsNone(beat['gpu_snapshot']);self.assertTrue(any(r.get('event')=='diagnostic' for r in self.rows()));self.proc.communicate(timeout=8);self.assertFalse(self.state.exists());self.assertEqual(self.proc.returncode,0)
+                                                                                                                                                                                                                                                      ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 11 tests in 25.397s
+
+FAILED (failures=1)

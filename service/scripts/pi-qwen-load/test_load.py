@@ -97,9 +97,9 @@ class TestAbsoluteDeadline(unittest.TestCase):
    def do_POST(self):
     self.rfile.read(int(self.headers['Content-Length']));self.send_response(200);self.end_headers()
     try:
-     for _ in range(30):self.wfile.write(b':');self.wfile.flush();time.sleep(.03)
+     for _ in range(100):self.wfile.write(b':');self.wfile.flush();time.sleep(.03)
     except (BrokenPipeError,ConnectionResetError):pass
-  tmp,root,r=TestNegative.invoke(self,H,['--drain','.15'])
+  tmp,root,r=TestNegative.invoke(self,H,['--drain','.2','--rate','1'])
   try:
    self.assertEqual(r.returncode,0,r.stderr);trace=json.loads((root/'run/trace.json').read_text());row=json.loads((root/'run/ledger.jsonl').read_text());self.assertEqual(row['status'],'timeout');self.assertLess(row['end']-trace['deadline'],.2)
   finally:tmp.cleanup()

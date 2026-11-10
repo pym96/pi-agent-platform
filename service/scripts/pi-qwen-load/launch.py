@@ -21,27 +21,12 @@ def main():
   return r
  def compose(*args,**kw):return call(['docker','compose','-p',project,'-f','service/compose.qwen-load.yaml',*args],**kw)
  def watch_live():
-  path=Path(go['watch_receipt']);entries=[]
-  if not path.exists():raise RuntimeError('watch receipt absent')
-  for line in path.read_text().splitlines():
-   try:entries.append(json.loads(line))
-   except ValueError:pass
-  samples=[x for x in entries if x.get('event')=='sample']
-  if not samples:raise RuntimeError('watch sample absent')
-  sample=samples[-1];pid=sample['watch_pid']
-  assert sample['project']==project and sample['source_sha']==go['source_sha'] and sample['deadline_epoch']==deadline and 0<=time.time()-sample['utc_epoch']<=5,'watch binding/staleness'
-  os.kill(pid,0);assert Path('/proc/'+str(pid)+'/stat').read_text().split()[21]==sample['watch_start_ticks'],'watch PID reuse'
-  args=Path('/proc/'+str(pid)+'/cmdline').read_bytes().split(b'\0');assert b'--sha' in args and b'--project' in args and go['source_sha'].encode() in args and project.encode() in args and any(x.endswith(b'service/scripts/pi-qwen-load/watch.py') for x in args),'watch process identity'
-  return sample
+  from watch_monitor import verify_watch
+  return verify_watch(go)
  def guard():
-  while not sampling_stop.wait(1):
-   try:watch_live()
-   except Exception as error:
-    watch_lost.set();sys.path.insert(0,str(HERE));from watch_cleanup import discover_owned,cleanup_known
-    try:discover_owned(project,go['source_sha'],known_ids)
-    except Exception:pass
-    result=cleanup_known(project,go['source_sha'],list(known_ids))
-    with (out/'watch-loss.jsonl').open('a') as f:f.write(json.dumps({'error':repr(error),'cleanup':result,'utc_epoch':time.time()})+'\n')
+  from watch_monitor import guard_watch
+  guard_watch(go,sampling_stop,watch_lost,known_ids,out/'watch-loss.jsonl')
+
  try:
   # Two fresh empty snapshots, at least ten seconds apart. A foreign task is never stopped.
   for i in range(2):

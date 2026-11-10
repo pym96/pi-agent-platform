@@ -6,15 +6,25 @@ from pathlib import Path
 class UnknownState(RuntimeError):pass
 class OwnershipError(RuntimeError):pass
 
-def command(args,receipts):
-    start=time.time_ns()
+TRACE_PATH=None
+
+def trace(value):
+    if TRACE_PATH is not None:
+        with Path(TRACE_PATH).open('a') as f:f.write(json.dumps(value)+'\n')
+
+def execute(args,receipts):
+    start=time.time_ns();trace({'event':'command_start','command':args,'started_ns':start})
     try:
-        result=subprocess.run(['docker',*args],capture_output=True,text=True,timeout=15)
+        result=subprocess.run(args,capture_output=True,text=True,timeout=15)
     except (OSError,subprocess.TimeoutExpired) as error:
-        receipts.append({'command':['docker',*args],'started_ns':start,'ended_ns':time.time_ns(),'error':repr(error)})
+        row={'command':args,'started_ns':start,'ended_ns':time.time_ns(),'error':repr(error)}
+        receipts.append(row);trace({'event':'command_end',**row})
         raise UnknownState(str(error)) from error
-    receipts.append({'command':['docker',*args],'started_ns':start,'ended_ns':time.time_ns(),'exit_code':result.returncode,'stdout':result.stdout,'stderr':result.stderr})
+    row={'command':args,'started_ns':start,'ended_ns':time.time_ns(),'exit_code':result.returncode,'stdout':result.stdout,'stderr':result.stderr}
+    receipts.append(row);trace({'event':'command_end',**row})
     return result
+
+def command(args,receipts):return execute(['docker',*args],receipts)
 
 def ids(output):
     values=output.splitlines()
