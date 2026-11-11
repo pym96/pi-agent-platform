@@ -1,0 +1,44 @@
+[
+  {
+    "path": "service/scripts/vllm-compat/README.md",
+    "old_source": "518c82b287f47c70bb224158d27b2f9a5f77b8f7",
+    "old_sha256": "194d73189dac70801e233a8cf941122ae2c8b708c1b0772b5ee8f57b3aa0653f",
+    "new_sha256": "28aa75e41267ccfb6c777badda5df26bfa825de45eadf219e8a175b3e82b92da",
+    "byte_identical": false
+  },
+  {
+    "path": "service/scripts/vllm-compat/launch.py",
+    "old_source": "518c82b287f47c70bb224158d27b2f9a5f77b8f7",
+    "old_sha256": "78e304e0a5e8606da91cddab94b6a7b543865bc932dda6b2cdc0246268788823",
+    "new_sha256": "2d49b35deaf01aedece61bbbb69078e0919174bf77485872f63ad6d2332245f0",
+    "byte_identical": false
+  },
+  {
+    "path": "service/scripts/vllm-compat/lock.py",
+    "old_source": "518c82b287f47c70bb224158d27b2f9a5f77b8f7",
+    "old_sha256": "b2108f192aa4310313877502d4c0748745669e7cbb0c113a244e8ce4e56dad28",
+    "new_sha256": "b2108f192aa4310313877502d4c0748745669e7cbb0c113a244e8ce4e56dad28",
+    "byte_identical": true
+  },
+  {
+    "path": "service/scripts/vllm-compat/smoke.py",
+    "old_source": "518c82b287f47c70bb224158d27b2f9a5f77b8f7",
+    "old_sha256": "93681e98f6a5c36ed2ec21f8f8b7b0485ff79b7a02ab2680274a35b656e8b2b2",
+    "new_sha256": "47ba4b2ba35e307d840eb020e2629ca2f33db9b26ce0d3dea8450bb779d72776",
+    "byte_identical": false
+  },
+  {
+    "path": "service/scripts/vllm-compat/test_contract.py",
+    "old_source": "518c82b287f47c70bb224158d27b2f9a5f77b8f7",
+    "old_sha256": "16d4c8338ff9a4a90187041357cb954cdc4cc89ffe72ca6ff30192a7534ebf83",
+    "new_sha256": "62643095921d1bbe5a3b4ac1b292919fe6ce1339ce8977c43509a7cf79427b0b",
+    "byte_identical": false
+  },
+  {
+    "path": "service/scripts/vllm-compat/watch.py",
+    "old_source": "518c82b287f47c70bb224158d27b2f9a5f77b8f7",
+    "old_sha256": "0a5a2a7cee7a0fc81597710685a62e8a6289989b6853f0d55d728a216b94d31f",
+    "new_sha256": "0a5a2a7cee7a0fc81597710685a62e8a6289989b6853f0d55d728a216b94d31f",
+    "byte_identical": true
+  }
+]

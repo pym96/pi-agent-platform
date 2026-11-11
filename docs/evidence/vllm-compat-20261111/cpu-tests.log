@@ -1,0 +1,13 @@
+test_go_rejections_before_gpu_commands (test_contract.Contract.test_go_rejections_before_gpu_commands) ... ok
+test_missing_go_never_executes (test_contract.Contract.test_missing_go_never_executes) ... ok
+test_probe_import_has_no_runtime_or_model_side_effect (test_contract.Contract.test_probe_import_has_no_runtime_or_model_side_effect) ... ok
+test_role_caps_and_absolute_window (test_contract.Contract.test_role_caps_and_absolute_window) ... ok
+test_deadline_stops_exact_owned_cpu_process (test_contract.WatchContract.test_deadline_stops_exact_owned_cpu_process) ... ok
+test_mismatched_ownership_preserves_foreign_process (test_contract.WatchContract.test_mismatched_ownership_preserves_foreign_process) ... ok
+test_sealed_wheel_closure_rejects_corruption_and_source_drift (test_contract.WheelContract.test_sealed_wheel_closure_rejects_corruption_and_source_drift) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.830s
+
+OK
+{"tests": 7, "skipped": 0, "failures": 0, "errors": 0, "expected_failures": 0, "unexpected_successes": 0, "success": true}

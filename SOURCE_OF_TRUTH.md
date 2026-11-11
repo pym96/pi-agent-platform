@@ -29,3 +29,5 @@ No Pan product development, public deployment, paid model calls or GPU work is i
 - Pi13 [interrupted campaign accounting repair](docs/evidence/pi-qwen-load-20261107/20261110-interrupt-repair/README.md): retain measured point metrics across idle failures, separate stopped workload from cleanup, and recover immutable partial originals. Formal01 remains partial; no complete load matrix or acceptance is claimed.
 
 - Pi13 [complete formal02 paired baseline](docs/evidence/pi-qwen-load-20261107/20261110-formal02/README.md): actual240sent/219complete/19direct rejected/2platform failed, original raw archives and denominator-aware curves; Product execution260831 unchanged. Independent measurement review is separate from final candidate acceptance and Human disclosure.
+
+- Issue21 November11 [isolated vLLM compatibility candidate](docs/evidence/vllm-compat-20261111/README.md): CPU preparation/source tests only; runtime and independent GPU compatibility remain unverified.

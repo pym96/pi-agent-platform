@@ -41,3 +41,5 @@ The optional [private Nginx CPU entry](service/scripts/nginx-entry/README.md) te
 ## Pi #12 real-Qwen integration candidate
 
 [2026-10-31 E2E1.1 evidence](docs/evidence/pi-qwen-e2e-20261031/README.md): actual SDK/PG CPU chain and strict required-suite/provenance checks. Fresh host physical GPU0 execution and independent acceptance are pending; historical GPU3 samples are preserved with their original identity.
+
+- Issue21 November11 [isolated vLLM compatibility candidate](docs/evidence/vllm-compat-20261111/README.md): CPU preparation/source tests only; runtime and independent GPU compatibility remain unverified.
