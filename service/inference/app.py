@@ -31,11 +31,12 @@ def validate(data):
         raise InputError('max_tokens')
     return messages, budget
 
-def valid_terminal(event):
+def valid_terminal(event, budget=128):
     usage = event.get('usage')
     return (event.get('finish_reason') in ('stop','length') and isinstance(usage,dict)
         and set(usage)=={'prompt_tokens','completion_tokens','total_tokens'}
         and all(type(v) is int and v>=0 for v in usage.values())
+        and usage['completion_tokens']<=budget
         and usage['total_tokens']==usage['prompt_tokens']+usage['completion_tokens'])
 
 def create_app(backend, queue_timeout=1.0, generation_timeout=2.0, max_queue=8, body_limit=16384, max_attempts=None):
@@ -112,7 +113,7 @@ def create_app(backend, queue_timeout=1.0, generation_timeout=2.0, max_queue=8, 
                         if terminal is not None:raise RuntimeError('event_after_terminal')
                         if event.get('kind')=='content' and isinstance(event.get('text'),str):
                             queue.put_nowait(('content',event['text']))
-                        elif event.get('kind')=='finish' and valid_terminal(event):
+                        elif event.get('kind')=='finish' and valid_terminal(event,budget):
                             terminal=event
                         else:raise RuntimeError('invalid_backend_event')
                     if not cancel.is_set():
@@ -155,7 +156,7 @@ def create_app(backend, queue_timeout=1.0, generation_timeout=2.0, max_queue=8, 
                         except asyncio.CancelledError:continue
                     await worker
             finally:
-                try:trace("settled",ident)
+                try:trace("settled" if backend.active==0 else "settlement_unknown",ident)
                 finally:lock.release()
 
     app.router.add_get('/health',health)

@@ -12,6 +12,9 @@ async def main(args):
     if args.backend=='transformers':
         from .transformers_backend import TransformersBackend
         backend=TransformersBackend(args.model_path)
+    elif args.backend=='vllm':
+        from .vllm_backend import VllmBackend
+        backend=await VllmBackend.load(args.model_path)
     else:
         from .scripted import ScriptedBackend
         backend=ScriptedBackend()
@@ -24,8 +27,9 @@ async def main(args):
         await asyncio.sleep(max(0,args.deadline_epoch-time.time()))
     finally:
         await runner.cleanup()
+        if hasattr(backend,'close'):await backend.close()
         print(json.dumps({'event':'stopped','active':backend.active,'calls':backend.calls}),flush=True)
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--max-attempts',type=int);p.add_argument('--host',choices=['127.0.0.1','0.0.0.0'],default='127.0.0.1');p.add_argument('--backend',choices=['scripted','transformers'],required=True);p.add_argument('--model-path',default='/model');p.add_argument('--port',type=int,default=18179);p.add_argument('--deadline-epoch',type=float,required=True);p.add_argument('--queue-timeout',type=float,default=2);p.add_argument('--generation-timeout',type=float,default=60)
+    p=argparse.ArgumentParser();p.add_argument('--max-attempts',type=int);p.add_argument('--host',choices=['127.0.0.1','0.0.0.0'],default='127.0.0.1');p.add_argument('--backend',choices=['scripted','transformers','vllm'],required=True);p.add_argument('--model-path',default='/model');p.add_argument('--port',type=int,default=18179);p.add_argument('--deadline-epoch',type=float,required=True);p.add_argument('--queue-timeout',type=float,default=2);p.add_argument('--generation-timeout',type=float,default=60)
     asyncio.run(main(p.parse_args()))

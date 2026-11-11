@@ -49,3 +49,5 @@ Historical database time fields are transaction-start intervals, not exact queue
 - [Pi #13 CPU measurement candidate](pi-qwen-load-20261107/README.md): actual HTTP/CLI tests; no GPU capacity or independent acceptance implied.
 
 - Issue21 November11 [isolated vLLM compatibility candidate](vllm-compat-20261111/README.md): complete152-wheel isolated CPU runtime and independent import/file audit; Error804 diagnosis and corrected B native535/16-token GPU smoke, with independent R16-token generation also complete and final exact-SHA G0 Verdict pending.
+
+- [Pi #24 opt-in vLLM functional integration candidate](pi-vllm-serve-20261111/README.md): local CPU development; no real-model or performance claim.

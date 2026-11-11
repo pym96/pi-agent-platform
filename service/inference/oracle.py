@@ -1,7 +1,7 @@
 """Strict oracle for this module's SSE subset; HTTP200 alone is never success."""
 import json
 
-def inspect_stream(status, body):
+def inspect_stream(status, body, budget=128):
     try:
         if status!=200:raise ValueError('http_status')
         done=False;terminal=None;parts=[]
@@ -30,6 +30,7 @@ def inspect_stream(status, body):
                 if any(type(v) is not int or v<0 for v in usage.values()) or usage['total_tokens']!=usage['prompt_tokens']+usage['completion_tokens']:raise ValueError('usage')
                 terminal={'finish_reason':reason,'usage':usage}
         if not done:raise ValueError('missing_done')
+        if terminal['usage']['completion_tokens']>budget:raise ValueError('over_budget')
         return {'success':True,'content':''.join(parts),**terminal}
     except (ValueError,TypeError,KeyError) as exc:
         return {'success':False,'reason':str(exc)}

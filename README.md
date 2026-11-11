@@ -43,3 +43,5 @@ The optional [private Nginx CPU entry](service/scripts/nginx-entry/README.md) te
 [2026-10-31 E2E1.1 evidence](docs/evidence/pi-qwen-e2e-20261031/README.md): actual SDK/PG CPU chain and strict required-suite/provenance checks. Fresh host physical GPU0 execution and independent acceptance are pending; historical GPU3 samples are preserved with their original identity.
 
 - Issue21 November11 [isolated vLLM compatibility candidate](docs/evidence/vllm-compat-20261111/README.md): CPU152 installation and independent import/file audit are [documented](docs/evidence/vllm-compat-20261111/CPU-PREPARATION.md); first Error804 failure is preserved, and [corrected B GPU smoke](docs/evidence/vllm-compat-20261111/gpu-smoke02-summary.json) produced16 tokens under source d803/native535. Independent R also generated16 tokens; final exact-SHA Handoff and G0 Verdict remain pending.
+
+Pi #24 candidate: [opt-in vLLM adapter and scoped evidence](docs/evidence/pi-vllm-serve-20261111/README.md). CPU development is in progress; real-model execution and independent acceptance remain separately gated.
