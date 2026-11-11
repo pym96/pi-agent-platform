@@ -1,0 +1,86 @@
+{
+  "status": "LOADER_IDENTITY_COMPLETE_NO_INIT_NO_MODEL_NO_REPAIR",
+  "source_sha": "90b27c7ab148019ee9c55e76efbd9d207776a853",
+  "runtime_manifest_sha256": "8399994fa82aac42c3cd82a0f3e697bb46f70e16d4ba62969a13ce3a76fc8820",
+  "go_sha256": "e5d10d5f3e589c5069716952577a9c3f01bf4a142c17f96c0b6b108f89dc35b5",
+  "cid": "7df2c609f5ad96986a102da325ea0553712e43d6b0fe6caefd9f2f2265c833ea",
+  "container_started_at": "2026-11-11T11:52:21.00394139Z",
+  "container_finished_at": "2026-11-11T11:52:22.195777656Z",
+  "container_seconds_decimal": "1.191836266",
+  "B_cumulative_container_seconds_decimal": "14.773076036",
+  "B_remaining_container_seconds_decimal": "585.226923964",
+  "outer_seconds": 12.193553924560547,
+  "CUDA_API_calls": 0,
+  "model_generate_calls": 0,
+  "actual_mapped_libcuda": [
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.550.54.15",
+      "symlink": false,
+      "realpath": "/usr/lib/x86_64-linux-gnu/libcuda.so.550.54.15",
+      "bytes": 28392536,
+      "sha256": "685a6623d4d574442e94d748f040b1fd36edf665f1e10f17ed9efc2efa74acf6"
+    }
+  ],
+  "actual_host_reference": [
+    {
+      "path": "/lib/x86_64-linux-gnu/libcuda.so",
+      "symlink": true,
+      "realpath": "/usr/lib/x86_64-linux-gnu/libcuda.so.535.309.01",
+      "bytes": 29384912,
+      "sha256": "e649879a93439c72083bfc255d87727dcea196413e47152c8ee96ba467935d86"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libcuda.so.1",
+      "symlink": true,
+      "realpath": "/usr/lib/x86_64-linux-gnu/libcuda.so.535.309.01",
+      "bytes": 29384912,
+      "sha256": "e649879a93439c72083bfc255d87727dcea196413e47152c8ee96ba467935d86"
+    }
+  ],
+  "same_host535_file_projected_in_container": [
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.535.309.01",
+      "symlink": false,
+      "realpath": "/usr/lib/x86_64-linux-gnu/libcuda.so.535.309.01",
+      "bytes": 29384912,
+      "sha256": "e649879a93439c72083bfc255d87727dcea196413e47152c8ee96ba467935d86"
+    }
+  ],
+  "container_generic_links": [
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so",
+      "symlink": true,
+      "realpath": "/usr/lib/x86_64-linux-gnu/libcuda.so.550.54.15",
+      "bytes": 28392536,
+      "sha256": "685a6623d4d574442e94d748f040b1fd36edf665f1e10f17ed9efc2efa74acf6"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.1",
+      "symlink": true,
+      "realpath": "/usr/lib/x86_64-linux-gnu/libcuda.so.550.54.15",
+      "bytes": 28392536,
+      "sha256": "685a6623d4d574442e94d748f040b1fd36edf665f1e10f17ed9efc2efa74acf6"
+    }
+  ],
+  "observation": "Normal projection includes both actual535 and550, but genericlinks+CDLL select550. Matching550compat bytes and535host bytes independently observable. No cuInit or environment mutation; Error804 causal repair remains untested.",
+  "prospective_repair_for_SC": "Container-only private loader directory with libcuda.so.1 symlink to already projected535 literalfile; prepend only this private directory for childprocess; no replace/delete/systemimage/host/shareddriver writes or newmount/download. Actualnative535 hash beforeload; testCDLL/dladdr then separately authorized CUDAinit/model required.",
+  "cleanup": {
+    "epoch": 1794397965.1383421,
+    "owned": {
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "GPU0": {
+      "exit": 0,
+      "stdout": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead, 535.309.01, 6 MiB, 0 %\n",
+      "stderr": ""
+    },
+    "GPU0compute": {
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "frozen_epoch": 1794398003.5690858
+}

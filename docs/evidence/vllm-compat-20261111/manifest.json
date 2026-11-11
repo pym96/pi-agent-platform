@@ -1,0 +1,230 @@
+{
+  "scope": "ThisdatedEvidencedirectory; manifestexcludesitself. Rprobes/rawarchives remain external, exactdigests referenced. FinalcandidatefullSHA and publicationCI4 are bound by externalHandoff.",
+  "files": [
+    {
+      "path": "CASES.md",
+      "bytes": 4038,
+      "sha256": "17e83bb110b28a4d98183378f2d5178a7cd64f7a212b2777bcac3993a1e08ee3"
+    },
+    {
+      "path": "CI-SOURCE.json",
+      "bytes": 3814,
+      "sha256": "35127ba20476e3be3c1f8fe3153745083d5aec51212fa9eab2b62662fc614d39"
+    },
+    {
+      "path": "CPU-PREPARATION.md",
+      "bytes": 6465,
+      "sha256": "2fef166e23830d0b50256527a3dd1b2da26922efeb0a3912043a7bc371280ed9"
+    },
+    {
+      "path": "GPU-SMOKE.md",
+      "bytes": 4244,
+      "sha256": "c17048e593297f4c65dbba70f5ba5ae2cea8665357b1956fc27ec73507f4ccd8"
+    },
+    {
+      "path": "PRIVATE-DRAFTS.md",
+      "bytes": 684,
+      "sha256": "4e32b4b619c6050168f73fa97b7f7115b166cbce695c8da96b3902dcad0b183b"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4769,
+      "sha256": "0fcce0d762a5a2199d6521c81d4b3dac173505d294eb6000f47d4b934c8c3dcc"
+    },
+    {
+      "path": "closure152.json",
+      "bytes": 278633,
+      "sha256": "f7208b90f2b16cff673a49b2cda994f9708b5b30bc08d35f8a0a141b6d502e68"
+    },
+    {
+      "path": "cpu-import-audit.log",
+      "bytes": 387,
+      "sha256": "64dde77cd24ffb723323e017b3c1b24cc0ee0eb9c05cc90beb09ed775e907eee"
+    },
+    {
+      "path": "cpu-imports.json",
+      "bytes": 2244,
+      "sha256": "3fc122570513aa91685deddf449d302a87ece4fd83550d2e6553c3a1917e6978"
+    },
+    {
+      "path": "cpu-ldd.json",
+      "bytes": 27592,
+      "sha256": "6e0b068d79dcecaf1622c729ed51ca1fcbe34b90f41e495f0f7ae0a86574dbc5"
+    },
+    {
+      "path": "cpu-preparation-closeout.json",
+      "bytes": 1110,
+      "sha256": "7ef3c58248ca39673d1addc2fec1ed0372650c028c22daacb5a1d397bc0e0e22"
+    },
+    {
+      "path": "cpu-receipt.json",
+      "bytes": 161,
+      "sha256": "a3e2047019b7641e6bc1fff7b02847f518149636f074e9d1ef45955ac950745f"
+    },
+    {
+      "path": "cpu-source90b-summary.json",
+      "bytes": 140,
+      "sha256": "92972f153658cb6bf7f457abfc2fd614e434077d9eb68c1fccacb157f64de787"
+    },
+    {
+      "path": "cpu-stage-commands.jsonl",
+      "bytes": 3559,
+      "sha256": "72577e09153497d64a60fb52074fc3af49f208e7e6533cd1b77080bd19eeeffa"
+    },
+    {
+      "path": "cpu-stage-summary.json",
+      "bytes": 4301,
+      "sha256": "d4ba08aa7f598a24972219a67bd2ca7a637e4ddb265f5c37e96aac9a84b5d112"
+    },
+    {
+      "path": "cpu-summary.json",
+      "bytes": 139,
+      "sha256": "b7c66b2eb5d57cac0cdb9f198ca186bb7ec31652a35996822bdc6176cf9aabdb"
+    },
+    {
+      "path": "cpu-tests.log",
+      "bytes": 1404,
+      "sha256": "c73ab01b1b4d70d1265db3f4fe59e1b220746be73e23aff026d01421dd912bb7"
+    },
+    {
+      "path": "draft-publication-boundary.json",
+      "bytes": 1000,
+      "sha256": "94bc6222df7c6c55f15249555f8dbbd5987897ba6ee541c3e79ac72328a0b3ea"
+    },
+    {
+      "path": "external-evidence-index.json",
+      "bytes": 2447,
+      "sha256": "c88840d9d853e8643bba4a24e65562eea767fef9f294f099adb4c5207f4ae112"
+    },
+    {
+      "path": "final-closeout-reference.json",
+      "bytes": 1774,
+      "sha256": "84f3d359500e50bdc2dfb67af989d296b6d01bb51ed6804cca6d9e6cf4043185"
+    },
+    {
+      "path": "gpu-smoke01-native-budget.json",
+      "bytes": 208,
+      "sha256": "acdc01fb49562d13a5268e7c1edfb07a2bb2cb8ea2df1b3ed3512c754d5f520e"
+    },
+    {
+      "path": "gpu-smoke01-native.log",
+      "bytes": 8786,
+      "sha256": "82b2225faa213eba7e4243391622346c1d8a48565ee481f1a81f4ffce608d336"
+    },
+    {
+      "path": "gpu-smoke01-outcome.json",
+      "bytes": 205,
+      "sha256": "d1193757293974f343096fbd5d82a9fa36d9fe1ef0fbd95edd9a546a70fd64db"
+    },
+    {
+      "path": "gpu-smoke01-preflight.json",
+      "bytes": 189,
+      "sha256": "9a2215bd85f4761541305a52407259cacf3a0fa8036db28bcdc1c1568111bb6f"
+    },
+    {
+      "path": "gpu-smoke01-summary.json",
+      "bytes": 1644,
+      "sha256": "97117a04ce04afdfea030c468e67cd8fa4ea303084655bae2b2fdf577aa049ed"
+    },
+    {
+      "path": "gpu-smoke02-completed.json",
+      "bytes": 102,
+      "sha256": "d39f1d1133fa05304bce98599900290189b145e521707d35415e701f31ad43d7"
+    },
+    {
+      "path": "gpu-smoke02-driver-selection.json",
+      "bytes": 15080,
+      "sha256": "b4ee8474f5b7e196b803f2a28fad644aadb8d06cb37abef0e8d36a00db6021b2"
+    },
+    {
+      "path": "gpu-smoke02-generation.json",
+      "bytes": 1031,
+      "sha256": "22386857df20d8560577b3974d8f5c7e7a59554efbd3254b7cc1891f7c01995b"
+    },
+    {
+      "path": "gpu-smoke02-input.json",
+      "bytes": 825,
+      "sha256": "5760d395d24e64a5c8754acf86579891f621655ba9c141d6e12ab052c237ce66"
+    },
+    {
+      "path": "gpu-smoke02-native-budget.json",
+      "bytes": 266,
+      "sha256": "099646f72871fa6336fa1725088d5a1247a3d7a8c26a60133eeea227862e20e1"
+    },
+    {
+      "path": "gpu-smoke02-native.log",
+      "bytes": 4505,
+      "sha256": "f391280fa1cf82692684a74a76d03ffe456c44611a4c068212465040497360f4"
+    },
+    {
+      "path": "gpu-smoke02-outcome.json",
+      "bytes": 206,
+      "sha256": "e00b8b91a0993bfd5c513313f0606cd3a9709f28aa23c50c60363f98b1996bba"
+    },
+    {
+      "path": "gpu-smoke02-preflight.json",
+      "bytes": 190,
+      "sha256": "72cda0bc42abb8cbb3a9a44a0ab67808f5c6875fadefc57931c629cc53b8cf04"
+    },
+    {
+      "path": "gpu-smoke02-summary.json",
+      "bytes": 3674,
+      "sha256": "8235da72bf79a7727ef5b6d416cb68563f37a3e214e67dd3686125d931d5d63b"
+    },
+    {
+      "path": "independent-r-result.json",
+      "bytes": 4066,
+      "sha256": "ca32e299e3e91d506901e34afb3c9a40e02a4398bd1c70124ed3b30ebeeff26e"
+    },
+    {
+      "path": "loader01-host-reference.json",
+      "bytes": 177507,
+      "sha256": "8c2d8f5ca0955c5fa510095029b2bdabebc6e9db449e672c08d4011969225a2d"
+    },
+    {
+      "path": "loader01-outcome.json",
+      "bytes": 213,
+      "sha256": "71c2c4b661127fd34f734356205d19098c763c1c7e0ab8fdcf376aabc14a085b"
+    },
+    {
+      "path": "loader01-provenance.json",
+      "bytes": 41776,
+      "sha256": "8737882b69af0f032dc9042cfe95bdb04d974a04bc803d4322f734057fc00b5c"
+    },
+    {
+      "path": "loader01-summary.json",
+      "bytes": 3545,
+      "sha256": "b3bf1a5b0963c5d33252847665eaf93c88037ee1eb8871367830c237dc00dfc0"
+    },
+    {
+      "path": "preparation-cost.json",
+      "bytes": 3930,
+      "sha256": "b2cbc8de97bff150ac09d1947c3c077d263d60e8e0556a1b372653594b190cb8"
+    },
+    {
+      "path": "requirements152.lock",
+      "bytes": 15129,
+      "sha256": "5d15e2eaea06b4ef1a667a809ea7c5fbe36ecdb1808c57272738864354ac4a32"
+    },
+    {
+      "path": "source-execution-map.v2.json",
+      "bytes": 3512,
+      "sha256": "3c35ba52be625a02373c89fb0205995075a9fe951a8ba31cdcb0d553ceb1244a"
+    },
+    {
+      "path": "source-execution-map.v3.json",
+      "bytes": 1448,
+      "sha256": "8183fc551cb927e0bfa0b61105c5c5bd71d987f2674db328ddefee14a357e95c"
+    },
+    {
+      "path": "source-restore-map.json",
+      "bytes": 2173,
+      "sha256": "12bf8553898c13ae8bbf5b353b18be30c803c6fbf485283fad2cb8512bbbd83a"
+    },
+    {
+      "path": "tdd-process-limitation.json",
+      "bytes": 1200,
+      "sha256": "e5437ed7f4c3d61449fc6f479451b8cb0427f391e71d707f3ae43ad01c2be67e"
+    }
+  ]
+}

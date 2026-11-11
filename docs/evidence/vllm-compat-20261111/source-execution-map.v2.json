@@ -1,0 +1,64 @@
+{
+  "execution_source_sha": "90b27c7ab148019ee9c55e76efbd9d207776a853",
+  "source6de_sha": "6de962bf04d8dac8b0b1464a382cc95575b77189",
+  "baseline_sha": "65c9f61cc4955bcfb5a8bfc761e087d98acdae96",
+  "historical_restore_map": "source-restore-map.json is the earlier6de checkpoint, not a claim that oldhashes describe90b",
+  "files": [
+    {
+      "path": "service/scripts/vllm-compat/README.md",
+      "archived_source_sha": "518c82b287f47c70bb224158d27b2f9a5f77b8f7",
+      "archived_file_sha256": "194d73189dac70801e233a8cf941122ae2c8b708c1b0772b5ee8f57b3aa0653f",
+      "source6de_file_sha256": "6d9432621d527dec1828574dfdba74e8d8d10505724c76f7e3155444c267d7c0",
+      "execution90b_file_sha256": "6d9432621d527dec1828574dfdba74e8d8d10505724c76f7e3155444c267d7c0",
+      "same_6de_90b": true
+    },
+    {
+      "path": "service/scripts/vllm-compat/launch.py",
+      "archived_source_sha": "518c82b287f47c70bb224158d27b2f9a5f77b8f7",
+      "archived_file_sha256": "78e304e0a5e8606da91cddab94b6a7b543865bc932dda6b2cdc0246268788823",
+      "source6de_file_sha256": "15ee2e238ebbcd9fbc2b5767e094cfdb481a33585ddb6e65d38abca10e5b9ec1",
+      "execution90b_file_sha256": "15ee2e238ebbcd9fbc2b5767e094cfdb481a33585ddb6e65d38abca10e5b9ec1",
+      "same_6de_90b": true
+    },
+    {
+      "path": "service/scripts/vllm-compat/lock.py",
+      "archived_source_sha": "518c82b287f47c70bb224158d27b2f9a5f77b8f7",
+      "archived_file_sha256": "b2108f192aa4310313877502d4c0748745669e7cbb0c113a244e8ce4e56dad28",
+      "source6de_file_sha256": "2d13d5601724f6c42b265f07ebb62d284ae4a267273b561b66e6e5a2daf063c7",
+      "execution90b_file_sha256": "7c5fd8dfee4123549d8c6aef23e3248fef358db3bbcca1ae8e1133f0809a4e07",
+      "same_6de_90b": false
+    },
+    {
+      "path": "service/scripts/vllm-compat/smoke.py",
+      "archived_source_sha": "518c82b287f47c70bb224158d27b2f9a5f77b8f7",
+      "archived_file_sha256": "93681e98f6a5c36ed2ec21f8f8b7b0485ff79b7a02ab2680274a35b656e8b2b2",
+      "source6de_file_sha256": "47ba4b2ba35e307d840eb020e2629ca2f33db9b26ce0d3dea8450bb779d72776",
+      "execution90b_file_sha256": "47ba4b2ba35e307d840eb020e2629ca2f33db9b26ce0d3dea8450bb779d72776",
+      "same_6de_90b": true
+    },
+    {
+      "path": "service/scripts/vllm-compat/test_contract.py",
+      "archived_source_sha": "518c82b287f47c70bb224158d27b2f9a5f77b8f7",
+      "archived_file_sha256": "16d4c8338ff9a4a90187041357cb954cdc4cc89ffe72ca6ff30192a7534ebf83",
+      "source6de_file_sha256": "0f42cccd313340ca33ec941fdf129804aaa8b937ac9720100483ac27f114a7db",
+      "execution90b_file_sha256": "d162a6522e6023bfa414b23d684e4feba339a7495a05d55d9989dc1bc173e430",
+      "same_6de_90b": false
+    },
+    {
+      "path": "service/scripts/vllm-compat/watch.py",
+      "archived_source_sha": "518c82b287f47c70bb224158d27b2f9a5f77b8f7",
+      "archived_file_sha256": "0a5a2a7cee7a0fc81597710685a62e8a6289989b6853f0d55d728a216b94d31f",
+      "source6de_file_sha256": "0a5a2a7cee7a0fc81597710685a62e8a6289989b6853f0d55d728a216b94d31f",
+      "execution90b_file_sha256": "0a5a2a7cee7a0fc81597710685a62e8a6289989b6853f0d55d728a216b94d31f",
+      "same_6de_90b": true
+    },
+    {
+      "path": "service/scripts/vllm-compat/native.py",
+      "archived_source_sha": null,
+      "archived_file_sha256": null,
+      "source6de_file_sha256": "691f5f862d0191e51ff7062e07da0bd999dc983a0a334e0012a7458e1e437062",
+      "execution90b_file_sha256": "691f5f862d0191e51ff7062e07da0bd999dc983a0a334e0012a7458e1e437062",
+      "same_6de_90b": true
+    }
+  ]
+}

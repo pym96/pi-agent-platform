@@ -1,0 +1,255 @@
+{
+  "start": 1794397941.402247,
+  "scope": "CDLL only, zero CUDA API, zero ML imports/model, unchanged loader environment",
+  "env": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "NVIDIA_VISIBLE_DEVICES": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead",
+    "NVIDIA_DRIVER_CAPABILITIES": "compute,utility",
+    "LD_LIBRARY_PATH": "/usr/local/nvidia/lib:/usr/local/nvidia/lib64",
+    "LD_PRELOAD": null,
+    "CUDA_VERSION": "12.4.1",
+    "NV_CUDA_COMPAT_PACKAGE": "cuda-compat-12-4"
+  },
+  "actual_libcuda": {
+    "requested": "libcuda.so.1",
+    "maps_before": "5d129d620000-5d129d68d000 r--p 00000000 00:64 70127523                   /usr/bin/python3.10\n5d129d68d000-5d129d942000 r-xp 0006d000 00:64 70127523                   /usr/bin/python3.10\n5d129d942000-5d129db84000 r--p 00322000 00:64 70127523                   /usr/bin/python3.10\n5d129db84000-5d129db8b000 r--p 00563000 00:64 70127523                   /usr/bin/python3.10\n5d129db8b000-5d129dbca000 rw-p 0056a000 00:64 70127523                   /usr/bin/python3.10\n5d129dbca000-5d129dc10000 rw-p 00000000 00:00 0 \n5d12a02fb000-5d12a0489000 rw-p 00000000 00:00 0                          [heap]\n7dd7943ee000-7dd794537000 rw-p 00000000 00:00 0 \n7dd794537000-7dd794539000 r--p 00000000 00:64 70128642                   /usr/lib/python3.10/lib-dynload/_json.cpython-310-x86_64-linux-gnu.so\n7dd794539000-7dd794540000 r-xp 00002000 00:64 70128642                   /usr/lib/python3.10/lib-dynload/_json.cpython-310-x86_64-linux-gnu.so\n7dd794540000-7dd794542000 r--p 00009000 00:64 70128642                   /usr/lib/python3.10/lib-dynload/_json.cpython-310-x86_64-linux-gnu.so\n7dd794542000-7dd794543000 r--p 0000a000 00:64 70128642                   /usr/lib/python3.10/lib-dynload/_json.cpython-310-x86_64-linux-gnu.so\n7dd794543000-7dd794544000 rw-p 0000b000 00:64 70128642                   /usr/lib/python3.10/lib-dynload/_json.cpython-310-x86_64-linux-gnu.so\n7dd794544000-7dd794644000 rw-p 00000000 00:00 0 \n7dd794644000-7dd7946f6000 r--p 00000000 00:64 69569084                   /usr/lib/x86_64-linux-gnu/libcrypto.so.3\n7dd7946f6000-7dd794955000 r-xp 000b2000 00:64 69569084                   /usr/lib/x86_64-linux-gnu/libcrypto.so.3\n7dd794955000-7dd794a27000 r--p 00311000 00:64 69569084                   /usr/lib/x86_64-linux-gnu/libcrypto.so.3\n7dd794a27000-7dd794a82000 r--p 003e2000 00:64 69569084                   /usr/lib/x86_64-linux-gnu/libcrypto.so.3\n7dd794a82000-7dd794a85000 rw-p 0043d000 00:64 69569084                   /usr/lib/x86_64-linux-gnu/libcrypto.so.3\n7dd794a85000-7dd794a88000 rw-p 00000000 00:00 0 \n7dd794a88000-7dd794a8c000 r--p 00000000 00:64 70128641                   /usr/lib/python3.10/lib-dynload/_hashlib.cpython-310-x86_64-linux-gnu.so\n7dd794a8c000-7dd794a92000 r-xp 00004000 00:64 70128641                   /usr/lib/python3.10/lib-dynload/_hashlib.cpython-310-x86_64-linux-gnu.so\n7dd794a92000-7dd794a96000 r--p 0000a000 00:64 70128641                   /usr/lib/python3.10/lib-dynload/_hashlib.cpython-310-x86_64-linux-gnu.so\n7dd794a96000-7dd794a97000 r--p 0000d000 00:64 70128641                   /usr/lib/python3.10/lib-dynload/_hashlib.cpython-310-x86_64-linux-gnu.so\n7dd794a97000-7dd794a99000 rw-p 0000e000 00:64 70128641                   /usr/lib/python3.10/lib-dynload/_hashlib.cpython-310-x86_64-linux-gnu.so\n7dd794a99000-7dd794a9b000 r--p 00000000 00:64 69569090                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.0\n7dd794a9b000-7dd794aa2000 r-xp 00002000 00:64 69569090                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.0\n7dd794aa2000-7dd794aa3000 r--p 00009000 00:64 69569090                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.0\n7dd794aa3000-7dd794aa4000 ---p 0000a000 00:64 69569090                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.0\n7dd794aa4000-7dd794aa5000 r--p 0000a000 00:64 69569090                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.0\n7dd794aa5000-7dd794aa6000 rw-p 0000b000 00:64 69569090                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.0\n7dd794aa6000-7dd794aac000 r--p 00000000 00:64 70128635                   /usr/lib/python3.10/lib-dynload/_ctypes.cpython-310-x86_64-linux-gnu.so\n7dd794aac000-7dd794abc000 r-xp 00006000 00:64 70128635                   /usr/lib/python3.10/lib-dynload/_ctypes.cpython-310-x86_64-linux-gnu.so\n7dd794abc000-7dd794ac2000 r--p 00016000 00:64 70128635                   /usr/lib/python3.10/lib-dynload/_ctypes.cpython-310-x86_64-linux-gnu.so\n7dd794ac2000-7dd794ac3000 r--p 0001b000 00:64 70128635                   /usr/lib/python3.10/lib-dynload/_ctypes.cpython-310-x86_64-linux-gnu.so\n7dd794ac3000-7dd794ac7000 rw-p 0001c000 00:64 70128635                   /usr/lib/python3.10/lib-dynload/_ctypes.cpython-310-x86_64-linux-gnu.so\n7dd794aec000-7dd794d4e000 rw-p 00000000 00:00 0 \n7dd794d4e000-7dd794d55000 r--s 00000000 00:64 69569473                   /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache\n7dd794d55000-7dd794dac000 r--p 00000000 00:64 69568978                   /usr/lib/locale/C.utf8/LC_CTYPE\n7dd794dac000-7dd794db0000 rw-p 00000000 00:00 0 \n7dd794db0000-7dd794dd8000 r--p 00000000 00:64 69569078                   /usr/lib/x86_64-linux-gnu/libc.so.6\n7dd794dd8000-7dd794f6d000 r-xp 00028000 00:64 69569078                   /usr/lib/x86_64-linux-gnu/libc.so.6\n7dd794f6d000-7dd794fc5000 r--p 001bd000 00:64 69569078                   /usr/lib/x86_64-linux-gnu/libc.so.6\n7dd794fc5000-7dd794fc6000 ---p 00215000 00:64 69569078                   /usr/lib/x86_64-linux-gnu/libc.so.6\n7dd794fc6000-7dd794fca000 r--p 00215000 00:64 69569078                   /usr/lib/x86_64-linux-gnu/libc.so.6\n7dd794fca000-7dd794fcc000 rw-p 00219000 00:64 69569078                   /usr/lib/x86_64-linux-gnu/libc.so.6\n7dd794fcc000-7dd794fd9000 rw-p 00000000 00:00 0 \n7dd794fd9000-7dd794fdb000 r--p 00000000 00:64 69569155                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11\n7dd794fdb000-7dd794fec000 r-xp 00002000 00:64 69569155                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11\n7dd794fec000-7dd794ff2000 r--p 00013000 00:64 69569155                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11\n7dd794ff2000-7dd794ff3000 ---p 00019000 00:64 69569155                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11\n7dd794ff3000-7dd794ff4000 r--p 00019000 00:64 69569155                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11\n7dd794ff4000-7dd794ff5000 rw-p 0001a000 00:64 69569155                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11\n7dd794ff5000-7dd794ff9000 r--p 00000000 00:64 70131514                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7\n7dd794ff9000-7dd795018000 r-xp 00004000 00:64 70131514                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7\n7dd795018000-7dd795022000 r--p 00023000 00:64 70131514                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7\n7dd795022000-7dd795023000 ---p 0002d000 00:64 70131514                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7\n7dd795023000-7dd795025000 r--p 0002d000 00:64 70131514                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7\n7dd795025000-7dd795026000 rw-p 0002f000 00:64 70131514                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7\n7dd795026000-7dd795034000 r--p 00000000 00:64 69569107                   /usr/lib/x86_64-linux-gnu/libm.so.6\n7dd795034000-7dd7950b0000 r-xp 0000e000 00:64 69569107                   /usr/lib/x86_64-linux-gnu/libm.so.6\n7dd7950b0000-7dd79510b000 r--p 0008a000 00:64 69569107                   /usr/lib/x86_64-linux-gnu/libm.so.6\n7dd79510b000-7dd79510c000 r--p 000e4000 00:64 69569107                   /usr/lib/x86_64-linux-gnu/libm.so.6\n7dd79510c000-7dd79510d000 rw-p 000e5000 00:64 69569107                   /usr/lib/x86_64-linux-gnu/libm.so.6\n7dd795110000-7dd795112000 rw-p 00000000 00:00 0 \n7dd795112000-7dd795114000 r--p 00000000 00:64 69569068                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\n7dd795114000-7dd79513e000 r-xp 00002000 00:64 69569068                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\n7dd79513e000-7dd795149000 r--p 0002c000 00:64 69569068                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\n7dd79514a000-7dd79514c000 r--p 00037000 00:64 69569068                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\n7dd79514c000-7dd79514e000 rw-p 00039000 00:64 69569068                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\n7fff5d382000-7fff5d3a3000 rw-p 00000000 00:00 0                          [stack]\n7fff5d3dd000-7fff5d3e1000 r--p 00000000 00:00 0                          [vvar]\n7fff5d3e1000-7fff5d3e3000 r-xp 00000000 00:00 0                          [vdso]\nffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]\n",
+    "maps_after": "5d129d620000-5d129d68d000 r--p 00000000 00:64 70127523                   /usr/bin/python3.10\n5d129d68d000-5d129d942000 r-xp 0006d000 00:64 70127523                   /usr/bin/python3.10\n5d129d942000-5d129db84000 r--p 00322000 00:64 70127523                   /usr/bin/python3.10\n5d129db84000-5d129db8b000 r--p 00563000 00:64 70127523                   /usr/bin/python3.10\n5d129db8b000-5d129dbca000 rw-p 0056a000 00:64 70127523                   /usr/bin/python3.10\n5d129dbca000-5d129dc10000 rw-p 00000000 00:00 0 \n5d12a02fb000-5d12a0489000 rw-p 00000000 00:00 0                          [heap]\n7dd792873000-7dd79294e000 r--p 00000000 00:64 69436764                   /usr/lib/x86_64-linux-gnu/libcuda.so.550.54.15\n7dd79294e000-7dd792de6000 r-xp 000db000 00:64 69436764                   /usr/lib/x86_64-linux-gnu/libcuda.so.550.54.15\n7dd792de6000-7dd794276000 r--p 00573000 00:64 69436764                   /usr/lib/x86_64-linux-gnu/libcuda.so.550.54.15\n7dd794276000-7dd79428d000 r--p 01a02000 00:64 69436764                   /usr/lib/x86_64-linux-gnu/libcuda.so.550.54.15\n7dd79428d000-7dd794388000 rw-p 01a19000 00:64 69436764                   /usr/lib/x86_64-linux-gnu/libcuda.so.550.54.15\n7dd794388000-7dd794537000 rw-p 00000000 00:00 0 \n7dd794537000-7dd794539000 r--p 00000000 00:64 70128642                   /usr/lib/python3.10/lib-dynload/_json.cpython-310-x86_64-linux-gnu.so\n7dd794539000-7dd794540000 r-xp 00002000 00:64 70128642                   /usr/lib/python3.10/lib-dynload/_json.cpython-310-x86_64-linux-gnu.so\n7dd794540000-7dd794542000 r--p 00009000 00:64 70128642                   /usr/lib/python3.10/lib-dynload/_json.cpython-310-x86_64-linux-gnu.so\n7dd794542000-7dd794543000 r--p 0000a000 00:64 70128642                   /usr/lib/python3.10/lib-dynload/_json.cpython-310-x86_64-linux-gnu.so\n7dd794543000-7dd794544000 rw-p 0000b000 00:64 70128642                   /usr/lib/python3.10/lib-dynload/_json.cpython-310-x86_64-linux-gnu.so\n7dd794544000-7dd794644000 rw-p 00000000 00:00 0 \n7dd794644000-7dd7946f6000 r--p 00000000 00:64 69569084                   /usr/lib/x86_64-linux-gnu/libcrypto.so.3\n7dd7946f6000-7dd794955000 r-xp 000b2000 00:64 69569084                   /usr/lib/x86_64-linux-gnu/libcrypto.so.3\n7dd794955000-7dd794a27000 r--p 00311000 00:64 69569084                   /usr/lib/x86_64-linux-gnu/libcrypto.so.3\n7dd794a27000-7dd794a82000 r--p 003e2000 00:64 69569084                   /usr/lib/x86_64-linux-gnu/libcrypto.so.3\n7dd794a82000-7dd794a85000 rw-p 0043d000 00:64 69569084                   /usr/lib/x86_64-linux-gnu/libcrypto.so.3\n7dd794a85000-7dd794a88000 rw-p 00000000 00:00 0 \n7dd794a88000-7dd794a8c000 r--p 00000000 00:64 70128641                   /usr/lib/python3.10/lib-dynload/_hashlib.cpython-310-x86_64-linux-gnu.so\n7dd794a8c000-7dd794a92000 r-xp 00004000 00:64 70128641                   /usr/lib/python3.10/lib-dynload/_hashlib.cpython-310-x86_64-linux-gnu.so\n7dd794a92000-7dd794a96000 r--p 0000a000 00:64 70128641                   /usr/lib/python3.10/lib-dynload/_hashlib.cpython-310-x86_64-linux-gnu.so\n7dd794a96000-7dd794a97000 r--p 0000d000 00:64 70128641                   /usr/lib/python3.10/lib-dynload/_hashlib.cpython-310-x86_64-linux-gnu.so\n7dd794a97000-7dd794a99000 rw-p 0000e000 00:64 70128641                   /usr/lib/python3.10/lib-dynload/_hashlib.cpython-310-x86_64-linux-gnu.so\n7dd794a99000-7dd794a9b000 r--p 00000000 00:64 69569090                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.0\n7dd794a9b000-7dd794aa2000 r-xp 00002000 00:64 69569090                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.0\n7dd794aa2000-7dd794aa3000 r--p 00009000 00:64 69569090                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.0\n7dd794aa3000-7dd794aa4000 ---p 0000a000 00:64 69569090                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.0\n7dd794aa4000-7dd794aa5000 r--p 0000a000 00:64 69569090                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.0\n7dd794aa5000-7dd794aa6000 rw-p 0000b000 00:64 69569090                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.0\n7dd794aa6000-7dd794aac000 r--p 00000000 00:64 70128635                   /usr/lib/python3.10/lib-dynload/_ctypes.cpython-310-x86_64-linux-gnu.so\n7dd794aac000-7dd794abc000 r-xp 00006000 00:64 70128635                   /usr/lib/python3.10/lib-dynload/_ctypes.cpython-310-x86_64-linux-gnu.so\n7dd794abc000-7dd794ac2000 r--p 00016000 00:64 70128635                   /usr/lib/python3.10/lib-dynload/_ctypes.cpython-310-x86_64-linux-gnu.so\n7dd794ac2000-7dd794ac3000 r--p 0001b000 00:64 70128635                   /usr/lib/python3.10/lib-dynload/_ctypes.cpython-310-x86_64-linux-gnu.so\n7dd794ac3000-7dd794ac7000 rw-p 0001c000 00:64 70128635                   /usr/lib/python3.10/lib-dynload/_ctypes.cpython-310-x86_64-linux-gnu.so\n7dd794add000-7dd794ade000 r--p 00000000 00:64 69569135                   /usr/lib/x86_64-linux-gnu/librt.so.1\n7dd794ade000-7dd794adf000 r-xp 00001000 00:64 69569135                   /usr/lib/x86_64-linux-gnu/librt.so.1\n7dd794adf000-7dd794ae0000 r--p 00002000 00:64 69569135                   /usr/lib/x86_64-linux-gnu/librt.so.1\n7dd794ae0000-7dd794ae1000 r--p 00002000 00:64 69569135                   /usr/lib/x86_64-linux-gnu/librt.so.1\n7dd794ae1000-7dd794ae2000 rw-p 00003000 00:64 69569135                   /usr/lib/x86_64-linux-gnu/librt.so.1\n7dd794ae2000-7dd794ae3000 r--p 00000000 00:64 69569133                   /usr/lib/x86_64-linux-gnu/libpthread.so.0\n7dd794ae3000-7dd794ae4000 r-xp 00001000 00:64 69569133                   /usr/lib/x86_64-linux-gnu/libpthread.so.0\n7dd794ae4000-7dd794ae5000 r--p 00002000 00:64 69569133                   /usr/lib/x86_64-linux-gnu/libpthread.so.0\n7dd794ae5000-7dd794ae6000 r--p 00002000 00:64 69569133                   /usr/lib/x86_64-linux-gnu/libpthread.so.0\n7dd794ae6000-7dd794ae7000 rw-p 00003000 00:64 69569133                   /usr/lib/x86_64-linux-gnu/libpthread.so.0\n7dd794ae7000-7dd794ae8000 r--p 00000000 00:64 69569087                   /usr/lib/x86_64-linux-gnu/libdl.so.2\n7dd794ae8000-7dd794ae9000 r-xp 00001000 00:64 69569087                   /usr/lib/x86_64-linux-gnu/libdl.so.2\n7dd794ae9000-7dd794aea000 r--p 00002000 00:64 69569087                   /usr/lib/x86_64-linux-gnu/libdl.so.2\n7dd794aea000-7dd794aeb000 r--p 00002000 00:64 69569087                   /usr/lib/x86_64-linux-gnu/libdl.so.2\n7dd794aeb000-7dd794aec000 rw-p 00003000 00:64 69569087                   /usr/lib/x86_64-linux-gnu/libdl.so.2\n7dd794aec000-7dd794d4e000 rw-p 00000000 00:00 0 \n7dd794d4e000-7dd794d55000 r--s 00000000 00:64 69569473                   /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache\n7dd794d55000-7dd794dac000 r--p 00000000 00:64 69568978                   /usr/lib/locale/C.utf8/LC_CTYPE\n7dd794dac000-7dd794db0000 rw-p 00000000 00:00 0 \n7dd794db0000-7dd794dd8000 r--p 00000000 00:64 69569078                   /usr/lib/x86_64-linux-gnu/libc.so.6\n7dd794dd8000-7dd794f6d000 r-xp 00028000 00:64 69569078                   /usr/lib/x86_64-linux-gnu/libc.so.6\n7dd794f6d000-7dd794fc5000 r--p 001bd000 00:64 69569078                   /usr/lib/x86_64-linux-gnu/libc.so.6\n7dd794fc5000-7dd794fc6000 ---p 00215000 00:64 69569078                   /usr/lib/x86_64-linux-gnu/libc.so.6\n7dd794fc6000-7dd794fca000 r--p 00215000 00:64 69569078                   /usr/lib/x86_64-linux-gnu/libc.so.6\n7dd794fca000-7dd794fcc000 rw-p 00219000 00:64 69569078                   /usr/lib/x86_64-linux-gnu/libc.so.6\n7dd794fcc000-7dd794fd9000 rw-p 00000000 00:00 0 \n7dd794fd9000-7dd794fdb000 r--p 00000000 00:64 69569155                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11\n7dd794fdb000-7dd794fec000 r-xp 00002000 00:64 69569155                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11\n7dd794fec000-7dd794ff2000 r--p 00013000 00:64 69569155                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11\n7dd794ff2000-7dd794ff3000 ---p 00019000 00:64 69569155                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11\n7dd794ff3000-7dd794ff4000 r--p 00019000 00:64 69569155                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11\n7dd794ff4000-7dd794ff5000 rw-p 0001a000 00:64 69569155                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11\n7dd794ff5000-7dd794ff9000 r--p 00000000 00:64 70131514                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7\n7dd794ff9000-7dd795018000 r-xp 00004000 00:64 70131514                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7\n7dd795018000-7dd795022000 r--p 00023000 00:64 70131514                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7\n7dd795022000-7dd795023000 ---p 0002d000 00:64 70131514                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7\n7dd795023000-7dd795025000 r--p 0002d000 00:64 70131514                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7\n7dd795025000-7dd795026000 rw-p 0002f000 00:64 70131514                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7\n7dd795026000-7dd795034000 r--p 00000000 00:64 69569107                   /usr/lib/x86_64-linux-gnu/libm.so.6\n7dd795034000-7dd7950b0000 r-xp 0000e000 00:64 69569107                   /usr/lib/x86_64-linux-gnu/libm.so.6\n7dd7950b0000-7dd79510b000 r--p 0008a000 00:64 69569107                   /usr/lib/x86_64-linux-gnu/libm.so.6\n7dd79510b000-7dd79510c000 r--p 000e4000 00:64 69569107                   /usr/lib/x86_64-linux-gnu/libm.so.6\n7dd79510c000-7dd79510d000 rw-p 000e5000 00:64 69569107                   /usr/lib/x86_64-linux-gnu/libm.so.6\n7dd795110000-7dd795112000 rw-p 00000000 00:00 0 \n7dd795112000-7dd795114000 r--p 00000000 00:64 69569068                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\n7dd795114000-7dd79513e000 r-xp 00002000 00:64 69569068                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\n7dd79513e000-7dd795149000 r--p 0002c000 00:64 69569068                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\n7dd79514a000-7dd79514c000 r--p 00037000 00:64 69569068                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\n7dd79514c000-7dd79514e000 rw-p 00039000 00:64 69569068                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\n7fff5d382000-7fff5d3a3000 rw-p 00000000 00:00 0                          [stack]\n7fff5d3dd000-7fff5d3e1000 r--p 00000000 00:00 0                          [vvar]\n7fff5d3e1000-7fff5d3e3000 r-xp 00000000 00:00 0                          [vdso]\nffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]\n",
+    "mappings": [
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.550.54.15",
+        "symlink": false,
+        "realpath": "/usr/lib/x86_64-linux-gnu/libcuda.so.550.54.15",
+        "bytes": 28392536,
+        "sha256": "685a6623d4d574442e94d748f040b1fd36edf665f1e10f17ed9efc2efa74acf6"
+      }
+    ]
+  },
+  "ldconfig": {
+    "exit": 0,
+    "stdout": "156 libs found in cache `/etc/ld.so.cache'\n\tlibzstd.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libzstd.so.1\n\tlibz.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libz.so.1\n\tlibxxhash.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libxxhash.so.0\n\tlibuuid.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libuuid.so.1\n\tlibutil.so.1 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libutil.so.1\n\tlibunistring.so.2 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libunistring.so.2\n\tlibudev.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libudev.so.1\n\tlibtirpc.so.3 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libtirpc.so.3\n\tlibtinfo.so.6 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libtinfo.so.6\n\tlibtic.so.6 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libtic.so.6\n\tlibthread_db.so.1 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libthread_db.so.1\n\tlibtasn1.so.6 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libtasn1.so.6\n\tlibsystemd.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libsystemd.so.0\n\tlibstdc++.so.6 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libstdc++.so.6\n\tlibssl.so.3 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libssl.so.3\n\tlibssh.so.4 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libssh.so.4\n\tlibss.so.2 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libss.so.2\n\tlibsqlite3.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libsqlite3.so.0\n\tlibsmartcols.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libsmartcols.so.1\n\tlibsepol.so.2 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libsepol.so.2\n\tlibsemanage.so.2 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libsemanage.so.2\n\tlibselinux.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libselinux.so.1\n\tlibseccomp.so.2 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libseccomp.so.2\n\tlibsasl2.so.2 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libsasl2.so.2\n\tlibrtmp.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/librtmp.so.1\n\tlibrt.so.1 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/librt.so.1\n\tlibresolv.so.2 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libresolv.so.2\n\tlibreadline.so.8 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libreadline.so.8\n\tlibp11-kit.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libp11-kit.so.0\n\tlibpthread.so.0 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libpthread.so.0\n\tlibpsl.so.5 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libpsl.so.5\n\tlibprocps.so.8 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libprocps.so.8\n\tlibperl.so.5.34 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libperl.so.5.34\n\tlibpcre2-8.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0\n\tlibpcreposix.so.3 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libpcreposix.so.3\n\tlibpcre.so.3 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libpcre.so.3\n\tlibpcprofile.so (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libpcprofile.so\n\tlibpanelw.so.6 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libpanelw.so.6\n\tlibpanel.so.6 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libpanel.so.6\n\tlibpamc.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libpamc.so.0\n\tlibpam_misc.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libpam_misc.so.0\n\tlibpam.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libpam.so.0\n\tlibnvrtc.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnvrtc.so.12\n\tlibnvrtc-builtins.so.12.4 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnvrtc-builtins.so.12.4\n\tlibnvjpeg.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnvjpeg.so.12\n\tlibnvidia-ptxjitcompiler.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.1\n\tlibnvidia-pkcs11.so.550.54.15 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libnvidia-pkcs11.so.550.54.15\n\tlibnvidia-pkcs11.so.535.309.01 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libnvidia-pkcs11.so.535.309.01\n\tlibnvidia-pkcs11-openssl3.so.550.54.15 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libnvidia-pkcs11-openssl3.so.550.54.15\n\tlibnvidia-pkcs11-openssl3.so.535.309.01 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libnvidia-pkcs11-openssl3.so.535.309.01\n\tlibnvidia-opencl.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.1\n\tlibnvidia-nvvm.so.4 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libnvidia-nvvm.so.4\n\tlibnvidia-ml.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1\n\tlibnvfatbin.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnvfatbin.so.12\n\tlibnvblas.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnvblas.so.12\n\tlibnvToolsExt.so.1 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnvToolsExt.so.1\n\tlibnvToolsExt.so (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnvToolsExt.so\n\tlibnvJitLink.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnvJitLink.so.12\n\tlibnss_hesiod.so.2 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libnss_hesiod.so.2\n\tlibnss_files.so.2 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libnss_files.so.2\n\tlibnss_dns.so.2 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libnss_dns.so.2\n\tlibnss_compat.so.2 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libnss_compat.so.2\n\tlibnsl.so.2 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libnsl.so.2\n\tlibnsl.so.1 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libnsl.so.1\n\tlibnpth.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libnpth.so.0\n\tlibnpps.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnpps.so.12\n\tlibnppitc.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnppitc.so.12\n\tlibnppisu.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnppisu.so.12\n\tlibnppist.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnppist.so.12\n\tlibnppim.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnppim.so.12\n\tlibnppig.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnppig.so.12\n\tlibnppif.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnppif.so.12\n\tlibnppidei.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnppidei.so.12\n\tlibnppicc.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnppicc.so.12\n\tlibnppial.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnppial.so.12\n\tlibnppc.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libnppc.so.12\n\tlibnghttp2.so.14 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libnghttp2.so.14\n\tlibnettle.so.8 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libnettle.so.8\n\tlibncursesw.so.6 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libncursesw.so.6\n\tlibncurses.so.6 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libncurses.so.6\n\tlibnccl.so.2 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libnccl.so.2\n\tlibmvec.so.1 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libmvec.so.1\n\tlibmpdec.so.3 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libmpdec.so.3\n\tlibmpdec++.so.3 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libmpdec++.so.3\n\tlibmount.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libmount.so.1\n\tlibmenuw.so.6 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libmenuw.so.6\n\tlibmenu.so.6 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libmenu.so.6\n\tlibmemusage.so (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libmemusage.so\n\tlibm.so.6 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libm.so.6\n\tliblz4.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/liblz4.so.1\n\tliblzma.so.5 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/liblzma.so.5\n\tlibldap-2.5.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libldap-2.5.so.0\n\tliblber-2.5.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/liblber-2.5.so.0\n\tlibk5crypto.so.3 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libk5crypto.so.3\n\tlibksba.so.8 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libksba.so.8\n\tlibkrb5support.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libkrb5support.so.0\n\tlibkrb5.so.3 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libkrb5.so.3\n\tlibkeyutils.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libkeyutils.so.1\n\tlibidn2.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libidn2.so.0\n\tlibhogweed.so.6 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libhogweed.so.6\n\tlibhistory.so.8 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libhistory.so.8\n\tlibgssapi_krb5.so.2 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2\n\tlibgpg-error.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libgpg-error.so.0\n\tlibgnutls.so.30 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libgnutls.so.30\n\tlibgmp.so.10 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libgmp.so.10\n\tlibgdbm_compat.so.4 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libgdbm_compat.so.4\n\tlibgdbm.so.6 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libgdbm.so.6\n\tlibgcrypt.so.20 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libgcrypt.so.20\n\tlibgcc_s.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libgcc_s.so.1\n\tlibformw.so.6 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libformw.so.6\n\tlibform.so.6 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libform.so.6\n\tlibffi.so.8 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libffi.so.8\n\tlibe2p.so.2 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libe2p.so.2\n\tlibext2fs.so.2 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libext2fs.so.2\n\tlibexpatw.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libexpatw.so.1\n\tlibexpat.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libexpat.so.1\n\tlibdl.so.2 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libdl.so.2\n\tlibdebconfclient.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libdebconfclient.so.0\n\tlibdb-5.3.so (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libdb-5.3.so\n\tlibcusparse.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libcusparse.so.12\n\tlibcusolverMg.so.11 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libcusolverMg.so.11\n\tlibcusolver.so.11 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libcusolver.so.11\n\tlibcurl.so.4 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libcurl.so.4\n\tlibcurl-gnutls.so.4 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4\n\tlibcurand.so.10 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libcurand.so.10\n\tlibcufile_rdma.so.1 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libcufile_rdma.so.1\n\tlibcufile.so.0 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libcufile.so.0\n\tlibcufftw.so.11 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libcufftw.so.11\n\tlibcufft.so.11 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libcufft.so.11\n\tlibcudart.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libcudart.so.12\n\tlibcudadebugger.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libcudadebugger.so.1\n\tlibcuda.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libcuda.so.1\n\tlibcublasLt.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libcublasLt.so.12\n\tlibcublas.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libcublas.so.12\n\tlibcrypto.so.3 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libcrypto.so.3\n\tlibcrypt.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libcrypt.so.1\n\tlibcom_err.so.2 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libcom_err.so.2\n\tlibcap.so.2 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libcap.so.2\n\tlibcap-ng.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libcap-ng.so.0\n\tlibc_malloc_debug.so.0 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libc_malloc_debug.so.0\n\tlibc.so.6 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libc.so.6\n\tlibbz2.so.1.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libbz2.so.1.0\n\tlibbrotlienc.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libbrotlienc.so.1\n\tlibbrotlidec.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libbrotlidec.so.1\n\tlibbrotlicommon.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1\n\tlibblkid.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libblkid.so.1\n\tlibaudit.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libaudit.so.1\n\tlibattr.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libattr.so.1\n\tlibassuan.so.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libassuan.so.0\n\tlibapt-private.so.0.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libapt-private.so.0.0\n\tlibapt-pkg.so.6.0 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libapt-pkg.so.6.0\n\tlibanl.so.1 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libanl.so.1\n\tlibacl.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libacl.so.1\n\tlibOpenCL.so.1 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libOpenCL.so.1\n\tlibBrokenLocale.so.1 (libc6,x86-64, OS ABI: Linux 3.2.0) => /usr/lib/x86_64-linux-gnu/libBrokenLocale.so.1\n\tld-linux-x86-64.so.2 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\nCache generated by: ldconfig (Ubuntu GLIBC 2.35-0ubuntu3.15) stable release version 2.35\n",
+    "stderr": ""
+  },
+  "loader_files": [
+    {
+      "path": "/etc/ld.so.cache",
+      "symlink": false,
+      "realpath": "/etc/ld.so.cache",
+      "bytes": 10920,
+      "sha256": "ad2854862e6803c6c1ffb0b5f25cecd00d6d26117579cb52414a3b2c58a604e3"
+    },
+    {
+      "path": "/etc/ld.so.conf",
+      "symlink": false,
+      "realpath": "/etc/ld.so.conf",
+      "bytes": 34,
+      "sha256": "d4b198c463418b493208485def26a6f4c57279467b9dfa491b70433cedb602e8"
+    },
+    {
+      "path": "/etc/ld.so.conf.d/000_cuda.conf",
+      "symlink": false,
+      "realpath": "/etc/ld.so.conf.d/000_cuda.conf",
+      "bytes": 41,
+      "sha256": "a9327cff9435220eac872cffedc7f6144d915bdcb70d985304c72f4c3cb9a7d3"
+    },
+    {
+      "path": "/etc/ld.so.conf.d/988_cuda-12.conf",
+      "symlink": false,
+      "realpath": "/etc/ld.so.conf.d/988_cuda-12.conf",
+      "bytes": 44,
+      "sha256": "93ff348ce54a0588c04b495e9c36a7057c46e96262350c7fa1bee2a649bdd479"
+    },
+    {
+      "path": "/etc/ld.so.conf.d/gds-12-4.conf",
+      "symlink": false,
+      "realpath": "/etc/ld.so.conf.d/gds-12-4.conf",
+      "bytes": 46,
+      "sha256": "eea441d92bcf8839fb44134f6d9c8f20bb69e1f6637c5fa306c141cbfb2d8560"
+    },
+    {
+      "path": "/etc/ld.so.conf.d/libc.conf",
+      "symlink": false,
+      "realpath": "/etc/ld.so.conf.d/libc.conf",
+      "bytes": 44,
+      "sha256": "90d4c7e43e7661cd116010eb9f50ad5817e43162df344bd1ad10898851b15d41"
+    },
+    {
+      "path": "/etc/ld.so.conf.d/nvidia.conf",
+      "symlink": false,
+      "realpath": "/etc/ld.so.conf.d/nvidia.conf",
+      "bytes": 46,
+      "sha256": "b9d9e6d3b6425ffbfecda87f34a876143faef8b75620f452a9e747cca666f31d"
+    },
+    {
+      "path": "/etc/ld.so.conf.d/x86_64-linux-gnu.conf",
+      "symlink": false,
+      "realpath": "/etc/ld.so.conf.d/x86_64-linux-gnu.conf",
+      "bytes": 100,
+      "sha256": "f03e4740e6922b4f4a1181cd696b52f62f9f10d003740a8940f7121795c59c98"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so",
+      "symlink": true,
+      "realpath": "/usr/lib/x86_64-linux-gnu/libcuda.so.550.54.15",
+      "bytes": 28392536,
+      "sha256": "685a6623d4d574442e94d748f040b1fd36edf665f1e10f17ed9efc2efa74acf6"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.1",
+      "symlink": true,
+      "realpath": "/usr/lib/x86_64-linux-gnu/libcuda.so.550.54.15",
+      "bytes": 28392536,
+      "sha256": "685a6623d4d574442e94d748f040b1fd36edf665f1e10f17ed9efc2efa74acf6"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.535.309.01",
+      "symlink": false,
+      "realpath": "/usr/lib/x86_64-linux-gnu/libcuda.so.535.309.01",
+      "bytes": 29384912,
+      "sha256": "e649879a93439c72083bfc255d87727dcea196413e47152c8ee96ba467935d86"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.550.54.15",
+      "symlink": false,
+      "realpath": "/usr/lib/x86_64-linux-gnu/libcuda.so.550.54.15",
+      "bytes": 28392536,
+      "sha256": "685a6623d4d574442e94d748f040b1fd36edf665f1e10f17ed9efc2efa74acf6"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libcudadebugger.so.1",
+      "symlink": true,
+      "realpath": "/usr/lib/x86_64-linux-gnu/libcudadebugger.so.550.54.15",
+      "bytes": 10524136,
+      "sha256": "7b31da2168a98aa60eb4484b00b9de6626ba1fb493cc382d3049005a6ed14ca1"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libcudadebugger.so.535.309.01",
+      "symlink": false,
+      "realpath": "/usr/lib/x86_64-linux-gnu/libcudadebugger.so.535.309.01",
+      "bytes": 10188632,
+      "sha256": "5cee52a8fbd443f9e52429b07198d5498ba44305f612ed823c5966b0bc28178c"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libcudadebugger.so.550.54.15",
+      "symlink": false,
+      "realpath": "/usr/lib/x86_64-linux-gnu/libcudadebugger.so.550.54.15",
+      "bytes": 10524136,
+      "sha256": "7b31da2168a98aa60eb4484b00b9de6626ba1fb493cc382d3049005a6ed14ca1"
+    },
+    {
+      "path": "/usr/local/cuda-12.4/compat/libcuda.so",
+      "symlink": true,
+      "realpath": "/usr/local/cuda-12.4/compat/libcuda.so.550.54.15",
+      "bytes": 28392536,
+      "sha256": "685a6623d4d574442e94d748f040b1fd36edf665f1e10f17ed9efc2efa74acf6"
+    },
+    {
+      "path": "/usr/local/cuda-12.4/compat/libcuda.so.1",
+      "symlink": true,
+      "realpath": "/usr/local/cuda-12.4/compat/libcuda.so.550.54.15",
+      "bytes": 28392536,
+      "sha256": "685a6623d4d574442e94d748f040b1fd36edf665f1e10f17ed9efc2efa74acf6"
+    },
+    {
+      "path": "/usr/local/cuda-12.4/compat/libcuda.so.550.54.15",
+      "symlink": false,
+      "realpath": "/usr/local/cuda-12.4/compat/libcuda.so.550.54.15",
+      "bytes": 28392536,
+      "sha256": "685a6623d4d574442e94d748f040b1fd36edf665f1e10f17ed9efc2efa74acf6"
+    },
+    {
+      "path": "/usr/local/cuda-12.4/compat/libcudadebugger.so.1",
+      "symlink": true,
+      "realpath": "/usr/local/cuda-12.4/compat/libcudadebugger.so.550.54.15",
+      "bytes": 10524136,
+      "sha256": "7b31da2168a98aa60eb4484b00b9de6626ba1fb493cc382d3049005a6ed14ca1"
+    },
+    {
+      "path": "/usr/local/cuda-12.4/compat/libcudadebugger.so.550.54.15",
+      "symlink": false,
+      "realpath": "/usr/local/cuda-12.4/compat/libcudadebugger.so.550.54.15",
+      "bytes": 10524136,
+      "sha256": "7b31da2168a98aa60eb4484b00b9de6626ba1fb493cc382d3049005a6ed14ca1"
+    },
+    {
+      "path": "/usr/local/cuda-12/compat/libcuda.so",
+      "symlink": true,
+      "realpath": "/usr/local/cuda-12.4/compat/libcuda.so.550.54.15",
+      "bytes": 28392536,
+      "sha256": "685a6623d4d574442e94d748f040b1fd36edf665f1e10f17ed9efc2efa74acf6"
+    },
+    {
+      "path": "/usr/local/cuda-12/compat/libcuda.so.1",
+      "symlink": true,
+      "realpath": "/usr/local/cuda-12.4/compat/libcuda.so.550.54.15",
+      "bytes": 28392536,
+      "sha256": "685a6623d4d574442e94d748f040b1fd36edf665f1e10f17ed9efc2efa74acf6"
+    },
+    {
+      "path": "/usr/local/cuda-12/compat/libcuda.so.550.54.15",
+      "symlink": false,
+      "realpath": "/usr/local/cuda-12.4/compat/libcuda.so.550.54.15",
+      "bytes": 28392536,
+      "sha256": "685a6623d4d574442e94d748f040b1fd36edf665f1e10f17ed9efc2efa74acf6"
+    },
+    {
+      "path": "/usr/local/cuda-12/compat/libcudadebugger.so.1",
+      "symlink": true,
+      "realpath": "/usr/local/cuda-12.4/compat/libcudadebugger.so.550.54.15",
+      "bytes": 10524136,
+      "sha256": "7b31da2168a98aa60eb4484b00b9de6626ba1fb493cc382d3049005a6ed14ca1"
+    },
+    {
+      "path": "/usr/local/cuda-12/compat/libcudadebugger.so.550.54.15",
+      "symlink": false,
+      "realpath": "/usr/local/cuda-12.4/compat/libcudadebugger.so.550.54.15",
+      "bytes": 10524136,
+      "sha256": "7b31da2168a98aa60eb4484b00b9de6626ba1fb493cc382d3049005a6ed14ca1"
+    },
+    {
+      "path": "/usr/local/cuda/compat/libcuda.so",
+      "symlink": true,
+      "realpath": "/usr/local/cuda-12.4/compat/libcuda.so.550.54.15",
+      "bytes": 28392536,
+      "sha256": "685a6623d4d574442e94d748f040b1fd36edf665f1e10f17ed9efc2efa74acf6"
+    },
+    {
+      "path": "/usr/local/cuda/compat/libcuda.so.1",
+      "symlink": true,
+      "realpath": "/usr/local/cuda-12.4/compat/libcuda.so.550.54.15",
+      "bytes": 28392536,
+      "sha256": "685a6623d4d574442e94d748f040b1fd36edf665f1e10f17ed9efc2efa74acf6"
+    },
+    {
+      "path": "/usr/local/cuda/compat/libcuda.so.550.54.15",
+      "symlink": false,
+      "realpath": "/usr/local/cuda-12.4/compat/libcuda.so.550.54.15",
+      "bytes": 28392536,
+      "sha256": "685a6623d4d574442e94d748f040b1fd36edf665f1e10f17ed9efc2efa74acf6"
+    },
+    {
+      "path": "/usr/local/cuda/compat/libcudadebugger.so.1",
+      "symlink": true,
+      "realpath": "/usr/local/cuda-12.4/compat/libcudadebugger.so.550.54.15",
+      "bytes": 10524136,
+      "sha256": "7b31da2168a98aa60eb4484b00b9de6626ba1fb493cc382d3049005a6ed14ca1"
+    },
+    {
+      "path": "/usr/local/cuda/compat/libcudadebugger.so.550.54.15",
+      "symlink": false,
+      "realpath": "/usr/local/cuda-12.4/compat/libcudadebugger.so.550.54.15",
+      "bytes": 10524136,
+      "sha256": "7b31da2168a98aa60eb4484b00b9de6626ba1fb493cc382d3049005a6ed14ca1"
+    }
+  ],
+  "loader_config_text": {
+    "/etc/ld.so.conf": "include /etc/ld.so.conf.d/*.conf\n\n",
+    "/etc/ld.so.conf.d/libc.conf": "# libc default configuration\n/usr/local/lib\n",
+    "/etc/ld.so.conf.d/x86_64-linux-gnu.conf": "# Multiarch support\n/usr/local/lib/x86_64-linux-gnu\n/lib/x86_64-linux-gnu\n/usr/lib/x86_64-linux-gnu\n",
+    "/etc/ld.so.conf.d/gds-12-4.conf": "/usr/local/cuda-12.4/targets/x86_64-linux/lib\n",
+    "/etc/ld.so.conf.d/nvidia.conf": "/usr/local/nvidia/lib\n/usr/local/nvidia/lib64\n",
+    "/etc/ld.so.conf.d/988_cuda-12.conf": "/usr/local/cuda-12/targets/x86_64-linux/lib\n",
+    "/etc/ld.so.conf.d/000_cuda.conf": "/usr/local/cuda/targets/x86_64-linux/lib\n"
+  },
+  "status": "complete",
+  "end": 1794397942.1844945
+}

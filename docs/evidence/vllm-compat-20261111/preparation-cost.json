@@ -1,0 +1,85 @@
+{
+  "created_epoch": 1794394641.7034152,
+  "parent_correction_sha256": "791f04642f38cf2a00b4d6e24d402809135eb00a086f1fb96cb0fea933e3ae0c",
+  "new_artifact": "setuptools75.8.0",
+  "new_attempts": 1,
+  "new_explicit_body_bytes": 1228782,
+  "correct_explicit_local_wire_bytes": 1745180411,
+  "correct_conservative_official_body_upper_bytes": 9214102292,
+  "payload_cap_bytes": 12884901888,
+  "server_failed_discarded_wire_bytes": null,
+  "first_bulk_SCP_interval": null,
+  "old151_cost_and_unknowns_preserved": true,
+  "source_sha": "90b27c7ab148019ee9c55e76efbd9d207776a853",
+  "R_local_reported_bytes": 167033296,
+  "first_CPU_outer_interval_s": 111.80219507217407,
+  "firstCPUstatus": "failed_at_Triton_undeclared_setuptools_import;pipinstall+pipcheckPASS",
+  "new_CI_used": 3,
+  "GPU_seconds": "33.486328255",
+  "model_calls": 1,
+  "vllm_attempts_used": 3,
+  "vllm_SC_cap": 5,
+  "vllm_unused_attempts": 2,
+  "vllm_complete_size": 213619284,
+  "vllm_complete_sha256": "a593a2e5f455b0e47bf297ea31153dad9c2b2c44ddb13e194ba0a247e597e34a",
+  "vllm_upstream_advertised_digest": null,
+  "old_Nov10_prefix_untouched_bytes": 27113311,
+  "server_disk_snapshot": {
+    "start": 1794395234.4150164,
+    "end": 1794395244.400925,
+    "source_sha": "90b27c7ab148019ee9c55e76efbd9d207776a853",
+    "runtime_manifest_sha256": "8399994fa82aac42c3cd82a0f3e697bb46f70e16d4ba62969a13ce3a76fc8820",
+    "runtime_files": 47523,
+    "runtime_regular_bytes": 7361033759,
+    "server_path_bytes": 14698593663,
+    "server_unique_bytes": 12983512335,
+    "free_bytes": 2528556740608,
+    "CPU_pipeline_status": "complete",
+    "runtime_GPU_compatibility": "UNVERIFIED",
+    "GPU_seconds": 0,
+    "model_calls": 0
+  },
+  "unknowns_preserved": [
+    "server failed/discarded wire bytes",
+    "first bulkSCP exact interval/exit",
+    "original developer redgreen absolute timestamps"
+  ],
+  "history": "EarlytwoattemptHOLDledger and priorupper9,162,918,325 are historical; Rcorrected resume2omission49,955,185B, thensetuptools1,228,782B added. Do notfillunknown0.",
+  "B_GPU_attempts": [
+    {
+      "phase": "smoke01failed804",
+      "seconds": "13.581239770",
+      "generate_calls": 0
+    },
+    {
+      "phase": "loader01noinit",
+      "seconds": "1.191836266",
+      "generate_calls": 0
+    },
+    {
+      "phase": "smoke02complete",
+      "seconds": "18.713252219",
+      "generate_calls": 1
+    }
+  ],
+  "B_GPU_remaining_seconds": "566.513671745",
+  "R_GPU_status": "R actual complete1generation/native18.630552432seconds; report21c7e9ca\u2026/independent-r-result.json",
+  "current_source_sha": "d8035e6e227ade35e30f4b8d248c2d59a57fef07",
+  "CPU_prep": "Originalabsolute12:11:11stop; lastremotesourcestage12:07:00.609; no newinstall/toolchainprojection",
+  "R_GPU_seconds": "18.630552432",
+  "R_model_calls": 1,
+  "R_remaining_GPU_seconds": "341.369447568",
+  "B_plus_R_GPU_seconds": "52.116880687",
+  "R_late_readonly_retrieval": {
+    "readonly_archive_SCP_start": 1794399845.233991,
+    "readonly_archive_SCP_end": 1794399845.8726132,
+    "seconds_after_GO_deadline_start": 7.378838777542114,
+    "note": "Native execution, exactstop/rm and freshowned0release all completed before originaldeadline. Readonlyarchive retrieval began8seconds afterdeadline; no CUDA/API/model/source rerun, install or rollingextension. Reported immediately toMaster. No furtherSSH."
+  },
+  "final_disk_closeout": "final-closeout-reference.json",
+  "final_conservative_disk_snapshot_plus_reserve_bytes": 17263151509,
+  "final_local_snapshot_plus_reserve_bytes": 2555407691,
+  "R_local_reported_bytes_scope": "HistoricalCPUpreinstall snapshot; finalR/candidate/globaldisk values are in final-closeout-reference.json",
+  "server_disk_snapshot_scope": "HistoricalCPUstageat11:07; finalread-onlyserverinventory is separate",
+  "CI_count_scope": "ActualsourceCI1\u20133 beforethisfinalEvidencecommit; finalCI4/mainCI5 consumption boundexternallywithoutrewritingcandidate"
+}

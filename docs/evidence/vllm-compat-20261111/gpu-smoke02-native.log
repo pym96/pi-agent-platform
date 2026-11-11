@@ -1,0 +1,33 @@
+INFO 11-11 12:15:11 [__init__.py:239] Automatically detected platform cuda.
+INFO 11-11 12:15:18 [config.py:717] This model supports multiple tasks: {'classify', 'embed', 'generate', 'score', 'reward'}. Defaulting to 'generate'.
+INFO 11-11 12:15:18 [config.py:2003] Chunked prefill is enabled with max_num_batched_tokens=8192.
+WARNING 11-11 12:15:18 [cuda.py:93] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 11-11 12:15:20 [core.py:58] Initializing a V1 LLM engine (v0.8.5.post1) with config: model='/model', speculative_config=None, tokenizer='/model', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=1024, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='auto', reasoning_backend=None), observability_config=ObservabilityConfig(show_hidden_metrics=False, otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=/model, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=True, use_async_output_proc=False, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[],"max_capture_size":0}
+/venv/lib/python3.10/site-packages/vllm/executor/uniproc_executor.py:29: UserWarning: Failed to get the IP address, using 0.0.0.0 by default.The value can be set by the environment variable VLLM_HOST_IP or HOST_IP.
+  get_ip(), get_open_port())
+WARNING 11-11 12:15:20 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7231a3519f60>
+[W1111 12:15:21.071626966 socket.cpp:204] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[W1111 12:15:21.071988748 socket.cpp:204] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[rank0]:[W1111 12:15:21.073021772 ProcessGroupGloo.cpp:727] Warning: Unable to resolve hostname to a (local) address. Using the loopback address as fallback. Manually set the network interface to bind to with GLOO_SOCKET_IFNAME. (function operator())
+INFO 11-11 12:15:21 [parallel_state.py:1004] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0
+INFO 11-11 12:15:21 [cuda.py:221] Using Flash Attention backend on V1 engine.
+WARNING 11-11 12:15:21 [topk_topp_sampler.py:69] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 11-11 12:15:21 [gpu_model_runner.py:1329] Starting to load model /model...
+Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:02,  1.63it/s]
+Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:01<00:01,  1.74it/s]
+Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:01<00:01,  1.64it/s]
+Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:02<00:00,  1.56it/s]
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:02<00:00,  1.93it/s]
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:02<00:00,  1.78it/s]
+
+INFO 11-11 12:15:24 [loader.py:458] Loading weights took 2.85 seconds
+INFO 11-11 12:15:24 [gpu_model_runner.py:1347] Model loading took 15.2683 GiB and 2.951955 seconds
+INFO 11-11 12:15:25 [kv_cache_utils.py:634] GPU KV cache size: 16,688 tokens
+INFO 11-11 12:15:25 [kv_cache_utils.py:637] Maximum concurrency for 1,024 tokens per request: 16.30x
+INFO 11-11 12:15:25 [core.py:159] init engine (profile, create kv cache, warmup model) took 1.16 seconds
+INFO 11-11 12:15:25 [core_client.py:439] Core engine process 0 ready.

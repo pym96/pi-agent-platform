@@ -1,0 +1,10 @@
+{
+  "start": 1794397930.4278448,
+  "deadline": 1794398008.2050261,
+  "status": "complete",
+  "generation_calls": 0,
+  "CUDA_API_calls": 0,
+  "exit": 0,
+  "cleanup": "owned0_verified",
+  "end": 1794397942.6213987
+}

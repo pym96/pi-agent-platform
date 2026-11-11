@@ -30,4 +30,6 @@ No Pan product development, public deployment, paid model calls or GPU work is i
 
 - Pi13 [complete formal02 paired baseline](docs/evidence/pi-qwen-load-20261107/20261110-formal02/README.md): actual240sent/219complete/19direct rejected/2platform failed, original raw archives and denominator-aware curves; Product execution260831 unchanged. Independent measurement review is separate from final candidate acceptance and Human disclosure.
 
-- Issue21 November11 [isolated vLLM compatibility candidate](docs/evidence/vllm-compat-20261111/README.md): CPU preparation/source tests only; runtime and independent GPU compatibility remain unverified.
+- Issue21 November11 [isolated vLLM compatibility candidate](docs/evidence/vllm-compat-20261111/README.md): CPU152 installation and independent import/file audit are [documented](docs/evidence/vllm-compat-20261111/CPU-PREPARATION.md); first Error804 failure is preserved, and [corrected B GPU smoke](docs/evidence/vllm-compat-20261111/gpu-smoke02-summary.json) produced16 tokens under source d803/native535. Independent R also generated16 tokens; final exact-SHA Handoff and G0 Verdict remain pending.
+
+- Issue21 opt-in loader selection: [module and execution limits](service/scripts/vllm-compat/README.md), SC-LOADER-N11-07. Corrected execution source d803 generated16 tokens on both B and independent R; unchanged runtime8399 was produced under90b. Final Verdict remains pending and any additional GPU execution remains separately gated.

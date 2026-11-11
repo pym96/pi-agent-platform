@@ -1,0 +1,18 @@
+{"epoch": 1794393938.4355412, "event": "command_start", "name": "cpu-lock-recheck", "command": ["/stage/env/bin/python", "/stage/source/service/scripts/vllm-compat/lock.py", "/stage/closure.json", "/stage/wheels"], "deadline": 1794394836.3270686}
+{"epoch": 1794393947.4237113, "event": "command_end", "name": "cpu-lock-recheck", "start": 1794393938.4354753, "end": 1794393947.4235907, "exit": 0, "error": null}
+{"epoch": 1794393947.4238799, "event": "command_start", "name": "cpu-offline-install", "command": ["/stage/env/bin/python", "-m", "pip", "install", "--no-index", "--find-links", "/stage/wheels", "--require-hashes", "--no-deps", "-r", "/stage/requirements.lock"], "deadline": 1794394836.3270686}
+{"epoch": 1794394036.0791519, "event": "command_end", "name": "cpu-offline-install", "start": 1794393947.423828, "end": 1794394036.0790308, "exit": 0, "error": null}
+{"epoch": 1794394036.0793312, "event": "command_start", "name": "cpu-pip-check", "command": ["/stage/env/bin/python", "-m", "pip", "check"], "deadline": 1794394836.3270686}
+{"epoch": 1794394037.547977, "event": "command_end", "name": "cpu-pip-check", "start": 1794394036.0792792, "end": 1794394037.547862, "exit": 0, "error": null}
+{"epoch": 1794394037.5481453, "event": "command_start", "name": "cpu-import-audit", "command": ["/stage/env/bin/python", "/stage/cpu-import-audit.py"], "deadline": 1794394836.3270686}
+{"epoch": 1794394040.9221792, "event": "command_end", "name": "cpu-import-audit", "start": 1794394037.5480955, "end": 1794394040.9220505, "exit": 1, "error": "CalledProcessError(1, ['/stage/env/bin/python', '/stage/cpu-import-audit.py'], None, None)"}
+{"epoch": 1794394996.4434938, "event": "command_start", "name": "cpu-lock-recheck", "command": ["/stage/env/bin/python", "/stage/source/service/scripts/vllm-compat/lock.py", "/stage/closure152.json", "/stage/wheels"], "deadline": 1794395586.9525828}
+{"epoch": 1794395000.41622, "event": "command_end", "name": "cpu-lock-recheck", "start": 1794394996.4434657, "end": 1794395000.4161553, "exit": 0, "error": null}
+{"epoch": 1794395000.4162922, "event": "command_start", "name": "cpu-offline-support-install", "command": ["/stage/env/bin/python", "-m", "pip", "install", "--no-index", "--find-links", "/stage/wheels", "--require-hashes", "--no-deps", "-r", "/stage/support-requirements.lock"], "deadline": 1794395586.9525828}
+{"epoch": 1794395002.0350802, "event": "command_end", "name": "cpu-offline-support-install", "start": 1794395000.4162755, "end": 1794395002.0349665, "exit": 0, "error": null}
+{"epoch": 1794395002.0352561, "event": "command_start", "name": "cpu-pip-check", "command": ["/stage/env/bin/python", "-m", "pip", "check"], "deadline": 1794395586.9525828}
+{"epoch": 1794395003.101822, "event": "command_end", "name": "cpu-pip-check", "start": 1794395002.0352044, "end": 1794395003.1017575, "exit": 0, "error": null}
+{"epoch": 1794395003.1018956, "event": "command_start", "name": "cpu-import-audit", "command": ["/stage/env/bin/python", "/stage/cpu-import-audit.v4.py"], "deadline": 1794395586.9525828}
+{"epoch": 1794395017.321816, "event": "command_end", "name": "cpu-import-audit", "start": 1794395003.1018791, "end": 1794395017.321749, "exit": 0, "error": null}
+{"epoch": 1794395017.3218968, "event": "command_start", "name": "cpu-ldd-audit", "command": ["/stage/env/bin/python", "/stage/cpu-ldd-audit.py"], "deadline": 1794395586.9525828}
+{"epoch": 1794395017.5366602, "event": "command_end", "name": "cpu-ldd-audit", "start": 1794395017.3218794, "end": 1794395017.5365999, "exit": 0, "error": null}

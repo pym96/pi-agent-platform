@@ -1,0 +1,28 @@
+{
+  "external_B_state": "~/.local/state/pi-agent-platform/vllm21-builder-20261111",
+  "external_R_state": "~/.local/state/pi-agent-platform/vllm21-regulator-20261111",
+  "B_immutable_bundles": {
+    "PREINSTALL-PACKET.v1/manifest.json": "02474d8e017c9cb6031ce42436ddd52442049a658095106ce9ff0f2fece26643",
+    "PREINSTALL-152-PACKET.v1/manifest.json": "e454111dd05c5bf412b164edec31105517f87825fbaf9cb519f7295e1911ab14",
+    "CPU-INSTALL-FAILURE.v1/manifest.json": "8cab38244592a6cbb4dd7f72008808851ee025bf3f5a8696670d4902e3885f80",
+    "CPU152-RESULT.v1/manifest.json": "3c1e938f412a8aa095ea5ba5053695c3463f1ab42e6755846d588512bb1a09d2",
+    "CPU152-RESULT.v1/runtime-manifest.json": "8399994fa82aac42c3cd82a0f3e697bb46f70e16d4ba62969a13ce3a76fc8820",
+    "B-GPU-SMOKE01-FAILURE.v1.manifest.json": "b60918a333a3c1b1ad2f47d3c92c4ef70ad61a3d7677167e038102ffcb5ff30d",
+    "B-LOADER01-RESULT.v1.manifest.json": "84371e26b4549b54ae603a2a161a2b83c67e6cd450344cbd7491e90d6f6f589d",
+    "B-GPU-SMOKE02-RESULT.v1.manifest.json": "9d2298bffea2a0a02c273d138828af091a85afb56c0e8fad8e0b963e97a314ac",
+    "SC07-SOURCE.v2.manifest.json": "ae5b18b23fccefb728edc59be6601c199a1b4a4b106c60aa7f3142a0ef29dd62",
+    "CPU-PREP-CLOSEOUT.v1.json": "7ef3c58248ca39673d1addc2fec1ed0372650c028c22daacb5a1d397bc0e0e22"
+  },
+  "R_independent_reports_outside_candidate": {
+    "PREINSTALL-AGREEMENT.v1.json": "d0bb956c70bbbcae640e3ab8937223441d4f9f09270e17c9567f6934197582de",
+    "PREINSTALL-152-AGREEMENT.v1.json": "78c65fc72a5c55b4fb82cde9ac7ee9d5b1e651a4d329d744ba51ed38c88377e9",
+    "CPU-INSTALLED-AUDIT-01.v1.json": "12ecce74e82877b7564f91929b4fc6a53aec1ac03f4a8ecbf85dda1626d83fef",
+    "CPU-INSTALLED-AUDIT-02.v1.json": "5b1925695e3a56e5ed001004db62415b0c62c61c06af2dd27fe6fb64b892aa79",
+    "SC07-SOURCE-REVIEW.v2.json": "b4c2f0c2280ba2570f48d513f93188815706548ad1175717fa249a3e6a8d3797",
+    "CI3-REVIEW.v1.json": "b80bd83bb1b7c4a73c732ce697eb80401037936f4d657529fd5bbd3195a8b86f",
+    "R-GPU01-REVIEW.v1.json": "21c7e9ca7e04b6774566a15da67c189185c4fe34ea67c680437606ddfd213343",
+    "B-GPU02-REVIEW.v1.json": "b1f60cc691da3e91434d5617a25b7a2f891bfa6ee40cf1860d04dae330dbba56",
+    "FINAL-CLOSEOUT-REVIEW.v1.json": "1db511a8262bea151057678089367eefc1819292c19ec6139218fb0d145512a5"
+  },
+  "note": "Rprobes stay outside candidate. These phaseagreements do not replace finalG0Verdict. FormalfinalHandoff mustbind finalremote fullSHA after actualsmokes andRreview."
+}

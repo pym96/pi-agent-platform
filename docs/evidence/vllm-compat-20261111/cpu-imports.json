@@ -1,0 +1,82 @@
+{
+  "start": 1794395003.142142,
+  "end": 1794395007.8126779,
+  "observations": [
+    {
+      "module": "torch",
+      "version": "2.6.0+cu118",
+      "path": "/stage/env/lib/python3.10/site-packages/torch/__init__.py",
+      "import": "pass",
+      "torch_build_cuda": "11.8",
+      "cuda_initialized": false
+    },
+    {
+      "module": "torchvision",
+      "version": "0.21.0+cu118",
+      "path": "/stage/env/lib/python3.10/site-packages/torchvision/__init__.py",
+      "import": "pass"
+    },
+    {
+      "module": "torchaudio",
+      "version": "2.6.0+cu118",
+      "path": "/stage/env/lib/python3.10/site-packages/torchaudio/__init__.py",
+      "import": "pass"
+    },
+    {
+      "module": "setuptools",
+      "version": "75.8.0",
+      "path": "/stage/env/lib/python3.10/site-packages/setuptools/__init__.py",
+      "import": "pass"
+    },
+    {
+      "module": "triton",
+      "version": "3.2.0",
+      "path": "/stage/env/lib/python3.10/site-packages/triton/__init__.py",
+      "import": "pass"
+    },
+    {
+      "module": "xformers",
+      "version": "0.0.29.post2",
+      "path": "/stage/env/lib/python3.10/site-packages/xformers/__init__.py",
+      "import": "pass"
+    },
+    {
+      "module": "transformers",
+      "version": "4.51.3",
+      "path": "/stage/env/lib/python3.10/site-packages/transformers/__init__.py",
+      "import": "pass"
+    },
+    {
+      "module": "tokenizers",
+      "version": "0.21.1",
+      "path": "/stage/env/lib/python3.10/site-packages/tokenizers/__init__.py",
+      "import": "pass"
+    },
+    {
+      "module": "numpy",
+      "version": "1.26.4",
+      "path": "/stage/env/lib/python3.10/site-packages/numpy/__init__.py",
+      "import": "pass"
+    },
+    {
+      "module": "vllm",
+      "version": "0.8.5.post1+cu118",
+      "path": "/stage/env/lib/python3.10/site-packages/vllm/__init__.py",
+      "import": "pass"
+    },
+    {
+      "module": "ray",
+      "version": "2.43.0",
+      "path": "/stage/env/lib/python3.10/site-packages/ray/__init__.py",
+      "import": "pass"
+    },
+    {
+      "module": "cupy",
+      "version": "13.4.1",
+      "path": "/stage/env/lib/python3.10/site-packages/cupy/__init__.py",
+      "import": "pass"
+    }
+  ],
+  "cuda_init_called": false,
+  "failed": false
+}

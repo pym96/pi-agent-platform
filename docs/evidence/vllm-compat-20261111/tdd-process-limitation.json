@@ -1,0 +1,24 @@
+{
+  "original_red": {
+    "command": "python3 -m unittest discover -s service/scripts/vllm-compat -p test_contract.py -k root_distribution_metadata",
+    "exit": 1,
+    "absolute_start": null,
+    "absolute_end": null,
+    "test_duration_s": 0.02,
+    "source_sha": "6de962bf04d8dac8b0b1464a382cc95575b77189 + new behavioral test, prior to lock edit",
+    "log": "ray-metadata-red.log"
+  },
+  "original_green": {
+    "command": "python3 -m unittest discover -s service/scripts/vllm-compat -p test_contract.py",
+    "exit": 0,
+    "absolute_start": null,
+    "absolute_end": null,
+    "tests": 10,
+    "duration_s": 1.61,
+    "source_sha": "90b27c7ab148019ee9c55e76efbd9d207776a853",
+    "log": "ray-metadata-green.log"
+  },
+  "timing_limitation": "Original command absolute start/end not persisted. No retrospective invented timestamps; tool call execution order supplies red-before-sourceedit ordering. Original6de implementation preceded tests, retained as process deviation; Ray fix actual red-before-minimal-change.",
+  "old_lock_sha256": "2d13d5601724f6c42b265f07ebb62d284ae4a267273b561b66e6e5a2daf063c7",
+  "new_lock_sha256": "7c5fd8dfee4123549d8c6aef23e3248fef358db3bbcca1ae8e1133f0809a4e07"
+}

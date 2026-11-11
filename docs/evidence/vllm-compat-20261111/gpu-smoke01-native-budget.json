@@ -1,0 +1,10 @@
+{
+  "epoch": 1794396862.192832,
+  "absolute_deadline": 1794397078.7739751,
+  "cleanup_reserve_s": 15,
+  "native_limit_s": 201.58114314079285,
+  "command": [
+    "/venv/bin/python",
+    "/probe/smoke.py"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "epoch": 1794399308.4168499,
+  "absolute_deadline": 1794399468.395212,
+  "cleanup_reserve_s": 15,
+  "native_limit_s": 144.97836208343506,
+  "command": [
+    "/usr/bin/python3",
+    "/probe/driver.py",
+    "--",
+    "/venv/bin/python",
+    "/probe/smoke.py"
+  ]
+}

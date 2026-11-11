@@ -1,0 +1,97 @@
+{
+  "status": "CPU_STAGE_INDEPENDENTLY_AUDITED_NO_GPU",
+  "source_sha": "90b27c7ab148019ee9c55e76efbd9d207776a853",
+  "closure152_sha256": "f7208b90f2b16cff673a49b2cda994f9708b5b30bc08d35f8a0a141b6d502e68",
+  "requirements152_sha256": "5d15e2eaea06b4ef1a667a809ea7c5fbe36ecdb1808c57272738864354ac4a32",
+  "artifact_count": 152,
+  "wheel_bytes": 3509693145,
+  "runtime_manifest_sha256": "8399994fa82aac42c3cd82a0f3e697bb46f70e16d4ba62969a13ce3a76fc8820",
+  "runtime_regular_files": 47523,
+  "runtime_regular_bytes": 7361033759,
+  "runtime_symlinks": [
+    {
+      "path": "env/bin/python",
+      "target": "python3"
+    },
+    {
+      "path": "env/bin/python3",
+      "target": "/usr/bin/python3"
+    },
+    {
+      "path": "env/bin/python3.10",
+      "target": "python3"
+    },
+    {
+      "path": "env/lib64",
+      "target": "lib"
+    }
+  ],
+  "CPU_import_modules": 12,
+  "model_calls": 0,
+  "first_entry": {
+    "start": 1794393936.3270686,
+    "end": 1794394048.1292636,
+    "exit": 1,
+    "offline_151_install_exit": 0,
+    "pip_check_exit": 0,
+    "failure": "Triton3.2 unconditional undeclared setuptools import; no ABIerror inferred",
+    "frozen_failure_manifest_sha256": "8cab38244592a6cbb4dd7f72008808851ee025bf3f5a8696670d4902e3885f80"
+  },
+  "supplemental_entry": {
+    "start": 1794394986.9525828,
+    "deadline": 1794395586.9525828,
+    "end": 1794395020.1683233,
+    "exit": 0,
+    "outer_sha256": "abb1fb7521ccbc0c1e31c08a1a1393fed832ee543bca368f1e93777f7fb5f54b",
+    "install": "Only officialsetuptools75.8.0; corevariantsunchanged",
+    "pipeline": [
+      "Product152lock_recheck",
+      "support_only_hashed_offline_install",
+      "pip_check",
+      "12imports_and_fullinstalledmanifest",
+      "13ldd_observations"
+    ]
+  },
+  "CPU_result_manifest_sha256": "3c1e938f412a8aa095ea5ba5053695c3463f1ab42e6755846d588512bb1a09d2",
+  "postCPU_cleanup": {
+    "epoch": 1794395243.4616268,
+    "exact_owned_removed": 4,
+    "remaining_ids": [],
+    "hostruntime_and_partials_hashed_before_removal": true
+  },
+  "CPU_void_limitation": "UnspecifiedPlatform, caught vllm._C missinglibcuda and3ldd unresolved ONLYlibcuda. No undefinedsymbol observation; CUDA binaryload and generation remainunverified. SC04b authorizes samevoid independentaudit, no CPUdriver mounts/changes.",
+  "Triton_log_correction": "Independent R audit02 observed real builtins.module Triton3.2.0 at env/triton/__init__.py after vLLM import; upstream placeholder log alone was misleading. Raw log retained.",
+  "independent_CPU_audit01": {
+    "disposition": "FAILED_PARTIAL_NOT_COMPATIBILITY_PASS",
+    "reported_regular_files_matched": 47523,
+    "reported_symlinks_matched": 4,
+    "outer_seconds": 239.244,
+    "exit": 137,
+    "OOMKilled": false,
+    "imports_final_json_present": false,
+    "observation": "OpenBLAS thread63/64 creationfailed under R PidsLimit128 versus B512; exactblockedline andcausality notestablished",
+    "cleanup": "Actualstop/rm before originaldeadline11:18:14; later11:19:14 was cleanup-only verification, not a shifted removaltime.",
+    "next": "ProspectiveRprobe-controlrepair/newboundedGO required; no replay of oldentry"
+  },
+  "independent_CPU_audit02": {
+    "disposition": "CPU_AUDIT_COMPLETE_NOT_GPU_COMPATIBILITY_PASS",
+    "outer_start_utc": "2026-11-11T11:27:38.499Z",
+    "outer_end_utc": "2026-11-11T11:28:50.894Z",
+    "exit": 0,
+    "regular_files_matched": 47523,
+    "regular_bytes_matched": 7361033759,
+    "symlinks_matched": 4,
+    "imports_passed": 12,
+    "pip_check_exit": 0,
+    "post_vllm_triton": "real builtins.module, v3.2.0, env/triton/__init__.py",
+    "ldd": "13 binaries, only3 unresolved libcuda.so.1 under NVIDIAvoid",
+    "remaining_owned_ids": [],
+    "verified_release_utc": "2026-11-11T11:28:52.429Z",
+    "compiler_availability": "gcc/clang/cc/g++/c++ and Python.h absent; no compiler executed, no build failure asserted",
+    "report": "External R CPU-INSTALLED-AUDIT-02.v1.json; probes remain outside candidate",
+    "report_sha256": "5b1925695e3a56e5ed001004db62415b0c62c61c06af2dd27fe6fb64b892aa79",
+    "manifest_sha256": "aa4e19654439bc02970db9d3abff827f9acf0606aa89ac9bef762a772f7bf828"
+  },
+  "GPU_seconds_at_CPU_phase_closeout": 0,
+  "later_GPU_stage": "gpu-smoke01-summary.json; actualfirstGPU failed CUDAinitError804, generation0"
+}

@@ -1,0 +1,15 @@
+{
+  "observed_epoch": 1794399172.724552,
+  "original_CPU_prep_stop_epoch": 1794399071,
+  "status": "CPU_DEPENDENCY_INSTALL_SOURCE_PREPARATION_STOPPED",
+  "last_remote_source_preparation_end": 1794398820.6091478,
+  "source_sha": "d8035e6e227ade35e30f4b8d248c2d59a57fef07",
+  "runtime_manifest_sha256": "8399994fa82aac42c3cd82a0f3e697bb46f70e16d4ba62969a13ce3a76fc8820",
+  "runtime_produced_under_source": "90b27c7ab148019ee9c55e76efbd9d207776a853",
+  "all_B_native_CPU_transport_handles_collected": true,
+  "last_inventory": "SC07-CPU-inventory.v1.json complete/owned0",
+  "remaining_CPU_dependency_install_permission": "none under expiredoriginalprep; any newprep needsprospectiveMasterdecision",
+  "GPU_phase": "separate exactGO required; noGPUnow; cumulative14.773076036seconds/generate0",
+  "poststop_local_work": "CIartifact independentreview/Evidence/preciseGPUGO preparation only; no dependency/install/sourcebehavior edit",
+  "CPU_interval_accounting": "Per-entryactual start/end/exit retained in rawreceipts; no invented zero for earlier unknown/missing timing; original absolutewindow not extended"
+}

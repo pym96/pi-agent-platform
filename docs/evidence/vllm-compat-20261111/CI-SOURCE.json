@@ -1,0 +1,131 @@
+{
+  "source_CI1": {
+    "source_sha": "6de962bf04d8dac8b0b1464a382cc95575b77189",
+    "run": 42989243224,
+    "conclusion": "success",
+    "artifact_sha256": "0ef98563d9654cfa9dafc7bd863a2e44ee1a65584965e0cfa8f2d96b3cfe6ec9",
+    "suites": 15,
+    "tests": 211,
+    "skipped": 0
+  },
+  "source_CI2": {
+    "epoch": 1794392949.958499,
+    "run": 43003385021,
+    "head_sha": "90b27c7ab148019ee9c55e76efbd9d207776a853",
+    "event": "push",
+    "conclusion": "success",
+    "artifact_id": 13847755827,
+    "actual_bytes": 1207075,
+    "actual_sha256": "6e3c86e358a529bf9c7613b9405fe02f49e74eccf7c08c1db582a3996742423b",
+    "advertised_sha256": "6e3c86e358a529bf9c7613b9405fe02f49e74eccf7c08c1db582a3996742423b",
+    "zip_crc": "pass",
+    "suites": [
+      {
+        "path": "vllm21/summary.json",
+        "tests": 10,
+        "skipped": 0
+      },
+      {
+        "path": "watch-cleanup-tests/summary.json",
+        "tests": 4,
+        "skipped": 0
+      },
+      {
+        "path": "load13/summary.json",
+        "tests": 26,
+        "skipped": 0
+      },
+      {
+        "path": "ng-entry/platform-tests.json",
+        "tests": 3,
+        "skipped": 0
+      },
+      {
+        "path": "ng-entry/go-tests-summary.json",
+        "tests": 7,
+        "skipped": 0
+      },
+      {
+        "path": "ng-entry/lab-tests.json",
+        "tests": 4,
+        "skipped": 0
+      },
+      {
+        "path": "ng-entry/measurement-tests.json",
+        "tests": 8,
+        "skipped": 0
+      },
+      {
+        "path": "ng-entry/required-cli-tests.json",
+        "tests": 9,
+        "skipped": 0
+      },
+      {
+        "path": "pi-e2e12-cpu/required-entry-tests.json",
+        "tests": 5,
+        "skipped": 0
+      },
+      {
+        "path": "pi-e2e12-cpu/device-proof-tests.json",
+        "tests": 1,
+        "skipped": 0
+      },
+      {
+        "path": "pi-e2e12-cpu/measurement-tests.json",
+        "tests": 10,
+        "skipped": 0
+      },
+      {
+        "path": "python310-analyzer/summary.json",
+        "tests": 10,
+        "skipped": 0
+      },
+      {
+        "path": "pi-e2e12-cpu/sdk/summary.json",
+        "tests": 13,
+        "skipped": 0
+      },
+      {
+        "path": "pi-e2e12-cpu/inference/summary.json",
+        "tests": 51,
+        "skipped": 0
+      },
+      {
+        "path": "ng-entry/inference/summary.json",
+        "tests": 51,
+        "skipped": 0
+      }
+    ],
+    "total_tests": 212,
+    "total_skipped": 0,
+    "synthetic_CI_not_GPU": true
+  },
+  "new_CI_used": 3,
+  "new_CI_cap": 6,
+  "minimum_final_and_main_reserved": 2,
+  "historical_Nov10_issue21_CI_used": 2,
+  "historical_Nov10_issue21_CI_cap": 4,
+  "historical_issue13_CI_used": 8,
+  "meaning": "Source-onlysyntheticCPUdiagnostics; noCUDA/modelcompatibilityproof.",
+  "source_CI3": {
+    "run": 43017500456,
+    "source_sha": "d8035e6e227ade35e30f4b8d248c2d59a57fef07",
+    "event": "push",
+    "conclusion": "success",
+    "created_at": "2026-11-11T12:06:37Z",
+    "updated_at": "2026-11-11T12:09:19Z",
+    "artifact": 13853831117,
+    "artifact_bytes": 1206346,
+    "artifact_sha256": "0ce7f81033c7571b4669521dc0b54f4d87b438d86d9d93c477092957cdaf2a7b",
+    "actual_B_zip_digest_matches": true,
+    "actual_B_CRC_bad_files": 0,
+    "R_independent_report_sha256": "b80bd83bb1b7c4a73c732ce697eb80401037936f4d657529fd5bbd3195a8b86f",
+    "R_independent_manifest_sha256": "7713af8da1730ba189248bdeac1d3cc89201c8901e301d8c54e6d7435a96ea0e",
+    "independently_checked_required_suites": 15,
+    "required_tests": 218,
+    "skipped": 0,
+    "new_vllm_tests": 16,
+    "meaning": "Sourcepublicationchecks, notbythemselvesG0compatibilityacceptance"
+  },
+  "count_scope": "SnapshotbeforefinalEvidencepublication: sourceCI1\u20133 actual. FinalCI4 actualartifact and later mainCI are externalHandoff/Verdict/controlreceipts, not preclaimed."
+}

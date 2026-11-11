@@ -1,0 +1,120 @@
+{
+  "status": "R_ACTUAL_SCOPED_GENERATION_REPORTED_AND_RAW_MANIFEST_IDENTITIES_CHECKED_FINAL_VERDICT_PENDING",
+  "source_sha": "d8035e6e227ade35e30f4b8d248c2d59a57fef07",
+  "runtime_manifest_sha256": "8399994fa82aac42c3cd82a0f3e697bb46f70e16d4ba62969a13ce3a76fc8820",
+  "runtime_produced_under_source": "90b27c7ab148019ee9c55e76efbd9d207776a853",
+  "independent_report_sha256": "21c7e9ca7e04b6774566a15da67c189185c4fe34ea67c680437606ddfd213343",
+  "independent_manifest_sha256": "c094fc476b6818fbffcce031ce40ce78bc5a6155d9f1b2e03b028d93e8a9e9dd",
+  "B_checked_external_manifest_files": 29,
+  "B_external_manifest_mismatches": 0,
+  "R_probe_code_in_candidate": false,
+  "actual": {
+    "logical_generations": 1,
+    "prompt_tokens": 31,
+    "output_tokens": 16,
+    "output": {
+      "request_id": "0",
+      "prompt_token_ids": [
+        151644,
+        872,
+        198,
+        852,
+        279,
+        25780,
+        504,
+        220,
+        16,
+        1526,
+        220,
+        17,
+        19,
+        11,
+        31683,
+        72692,
+        11,
+        448,
+        902,
+        1008,
+        1467,
+        13,
+        151645,
+        198,
+        151644,
+        77091,
+        198,
+        151667,
+        271,
+        151668,
+        271
+      ],
+      "token_ids": [
+        16,
+        11,
+        17,
+        11,
+        18,
+        11,
+        19,
+        11,
+        20,
+        11,
+        21,
+        11,
+        22,
+        11,
+        23,
+        11
+      ],
+      "text": "1,2,3,4,5,6,7,8,",
+      "finish_reason": "length",
+      "stop_reason": null
+    },
+    "packages": {
+      "vllm": "0.8.5.post1+cu118",
+      "torch": "2.6.0+cu118",
+      "transformers": "4.51.3",
+      "tokenizers": "0.21.1",
+      "xformers": "0.0.29.post2",
+      "triton": "3.2.0"
+    },
+    "actual_engine": {
+      "class": "vllm.v1.engine.llm_engine.LLMEngine",
+      "distributed_executor_backend": "uni"
+    },
+    "device": {
+      "name": "NVIDIA GeForce RTX 4090",
+      "torch_cuda": "11.8",
+      "current_device": 0
+    },
+    "parent_cuda_initialized_before_vllm_import": false,
+    "parent_cuda_initialized_before_LLM": false,
+    "driver_mappings": [
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.535.309.01",
+        "realpath": "/usr/lib/x86_64-linux-gnu/libcuda.so.535.309.01",
+        "bytes": 29384912,
+        "sha256": "e649879a93439c72083bfc255d87727dcea196413e47152c8ee96ba467935d86"
+      }
+    ],
+    "container_start": "2026-11-11T12:22:26.070123761Z",
+    "container_finish": "2026-11-11T12:22:44.700676193Z",
+    "container_seconds_decimal": "18.630552432",
+    "R_cumulative_seconds_decimal": "18.630552432",
+    "R_remaining_seconds_decimal": "341.369447568",
+    "B_plus_R_device_seconds_decimal": "52.116880687",
+    "native_watch_exit": 0,
+    "stop_rm_exit": 0,
+    "owned0_release_epoch": 1794399819.096123,
+    "deadline_epoch": 1794399837.8551521,
+    "archive_bytes": 15052,
+    "archive_sha256": "d727bbc183e35b306b29e4a0c673f5d366b5a156d845b7641666e1e257553c16"
+  },
+  "timing_limitation": {
+    "readonly_archive_SCP_start": 1794399845.233991,
+    "readonly_archive_SCP_end": 1794399845.8726132,
+    "seconds_after_GO_deadline_start": 7.378838777542114,
+    "note": "Native execution, exactstop/rm and freshowned0release all completed before originaldeadline. Readonlyarchive retrieval began8seconds afterdeadline; no CUDA/API/model/source rerun, install or rollingextension. Reported immediately toMaster. No furtherSSH."
+  },
+  "qualification": "B and R each now have one actual bounded nonempty generation with fixed152/runtime8399/model/d803, CUDA11.8/V1uni/BF16/TP1/eager. FlashInfer warning interpretation reuses actualwheel source review in B-GPU02-REVIEW.v1; no compiler/toolchain changes or proof for otherJIT/Raycgraph/CuPy paths. This phase is not final accepted: finalremoteEvidenceSHA/Handoff/rawCI/cost/cleanup checks remain.",
+  "attribution": "Regulator independently executed and reviewed its own native probe; Builder references qualified observed results, not an acceptance verdict."
+}

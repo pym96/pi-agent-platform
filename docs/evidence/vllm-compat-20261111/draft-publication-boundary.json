@@ -1,0 +1,24 @@
+{
+  "start": 1794399816.290317,
+  "end": 1794399817.056959,
+  "exit": 0,
+  "command": [
+    "gh",
+    "repo",
+    "view",
+    "pym96/pi-agent-platform",
+    "--json",
+    "visibility,isPrivate,url"
+  ],
+  "actual_repository": {
+    "isPrivate": false,
+    "url": "https://github.com/pym96/pi-agent-platform",
+    "visibility": "PUBLIC"
+  },
+  "new_draft_absent_from_HEAD_exit": 128,
+  "decision": "Master confirmed no Human authorization for publicblog/Xdraftbody. Preserve body onlyexternalprivateBstate; candidate status/digestpointer only; no delete/rewritehistory or publicposting.",
+  "attribution": "Builder observed publicvisibility and protected draft beforepublication; Master confirmed originalno-publicationconstraint; Human disclosureauthority unchanged.",
+  "private_body_sha256": "52d821d71026c68c4f3895f6757f351b66b8a35dbfc7b305a1ccb044b09bac55",
+  "candidate_pointer_sha256": "4e32b4b619c6050168f73fa97b7f7115b166cbce695c8da96b3902dcad0b183b",
+  "this_new_draft_body_pushed": false
+}

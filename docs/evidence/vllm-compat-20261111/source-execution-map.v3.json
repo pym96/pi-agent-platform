@@ -1,0 +1,19 @@
+{
+  "source_sha": "d8035e6e227ade35e30f4b8d248c2d59a57fef07",
+  "prior_executed_source": "90b27c7ab148019ee9c55e76efbd9d207776a853",
+  "runtime_produced_under_source": "90b27c7ab148019ee9c55e76efbd9d207776a853",
+  "runtime_manifest_sha256": "8399994fa82aac42c3cd82a0f3e697bb46f70e16d4ba62969a13ce3a76fc8820",
+  "runtime_bytes_changed": false,
+  "source_files": {
+    "driver.py": "2f8780f46df52208050d359889f58939a215b61cd6c37d5dc67056009484b607",
+    "launch.py": "5ce6c52e891f4472ed0730cc1980ac06af946aae2947da4eae9ead2a017bdcbb",
+    "test_contract.py": "46ec5d689545bf32bb00f84e456fdcfe04a0ee2560288edfde91b456347a94fc",
+    "README.md": "57e35eed2731ebed974aca7dbcfc4b87df4d6e36fc024137f52f231e1c8b201b",
+    "native.py": "691f5f862d0191e51ff7062e07da0bd999dc983a0a334e0012a7458e1e437062",
+    "watch.py": "0a5a2a7cee7a0fc81597710685a62e8a6289989b6853f0d55d728a216b94d31f",
+    "smoke.py": "47ba4b2ba35e307d840eb020e2629ca2f33db9b26ce0d3dea8450bb779d72776",
+    "lock.py": "7c5fd8dfee4123549d8c6aef23e3248fef358db3bbcca1ae8e1133f0809a4e07"
+  },
+  "history": "source-restore-map.json describes6de; source-execution-map.v2.json describes90b. Rejected0e41 was never the remote candidate HEAD or a CI target; it remains an ancestor in published d803 history. d803 correctedtuplekey/deletedmapping andpassedR/CI3 beforeBsuccess.",
+  "actual_B_generation_packet_manifest_sha256": "9d2298bffea2a0a02c273d138828af091a85afb56c0e8fad8e0b963e97a314ac"
+}

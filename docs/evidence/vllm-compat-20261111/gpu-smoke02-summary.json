@@ -1,0 +1,101 @@
+{
+  "status": "B_ACTUAL_GPU_GENERATION_COMPLETE_INDEPENDENT_R_AND_FINAL_G0_PENDING",
+  "source_sha": "d8035e6e227ade35e30f4b8d248c2d59a57fef07",
+  "runtime_manifest_sha256": "8399994fa82aac42c3cd82a0f3e697bb46f70e16d4ba62969a13ce3a76fc8820",
+  "runtime_produced_under_source": "90b27c7ab148019ee9c55e76efbd9d207776a853",
+  "go_sha256": "2b606d789f7a844f5387f8dc289e958cac3dcf3485b2e8f886d0349b914e9637",
+  "cid": "3ba43c6915a7c3b715d55556ecc4ea6de4d0f11a69ea1bfa5c778e45a00b2ada",
+  "container_started_at": "2026-11-11T12:15:08.124676171Z",
+  "container_finished_at": "2026-11-11T12:15:26.83792839Z",
+  "container_seconds_decimal": "18.713252219",
+  "B_cumulative_container_seconds_decimal": "33.486328255",
+  "B_remaining_container_seconds_decimal": "566.513671745",
+  "outer_seconds": 19.325568199157715,
+  "actual_model_generate_calls": 1,
+  "B_cumulative_generate_calls": 1,
+  "prompt_token_count": 31,
+  "output": {
+    "text": "1,2,3,4,5,6,7,8,",
+    "token_ids": [
+      16,
+      11,
+      17,
+      11,
+      18,
+      11,
+      19,
+      11,
+      20,
+      11,
+      21,
+      11,
+      22,
+      11,
+      23,
+      11
+    ],
+    "finish_reason": "length",
+    "stop_reason": null
+  },
+  "model_config": {
+    "model": "/model",
+    "dtype": "bfloat16",
+    "max_model_len": 1024,
+    "max_num_seqs": 1,
+    "tensor_parallel_size": 1,
+    "enable_prefix_caching": false,
+    "enforce_eager": true,
+    "gpu_memory_utilization": 0.8,
+    "swap_space": 0,
+    "cpu_offload_gb": 0,
+    "seed": 0,
+    "trust_remote_code": false
+  },
+  "sampling": {
+    "temperature": 0,
+    "max_tokens": 16,
+    "n": 1
+  },
+  "driver_gate": {
+    "status": "selected",
+    "CUDA_API_calls": 0,
+    "ML_imports": [],
+    "private_dir": "/tmp/pi21-driver-f1fab8e2d0ad49ed92565809707e4a70",
+    "expected_native_sha256": "e649879a93439c72083bfc255d87727dcea196413e47152c8ee96ba467935d86",
+    "mappings": [
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.535.309.01",
+        "realpath": "/usr/lib/x86_64-linux-gnu/libcuda.so.535.309.01",
+        "bytes": 29384912,
+        "sha256": "e649879a93439c72083bfc255d87727dcea196413e47152c8ee96ba467935d86"
+      }
+    ],
+    "LD_LIBRARY_PATH": "/tmp/pi21-driver-f1fab8e2d0ad49ed92565809707e4a70:/usr/local/nvidia/lib:/usr/local/nvidia/lib64"
+  },
+  "actual_execution": "CUDAplatform/V1engine/uniproc_executor/FlashAttention/model5shardsloaded/engineReady/one16tokengeneration",
+  "compiler_scope": "Cachedbase remainswithoutCC/Python.h; successful fixed eager path did not report a compiler error. No compiler/toolchain installation/mount/copy performed; do not generalize to other JIT paths.",
+  "warnings_preserved": "tokenizer fork parallelism, IPfallback/Gloo loopback, FlashInfer absent->PyTorch-native top-p/top-k sampler log. Actual engine/model/dtype fixed; warning semantics subject to R actual/source review, no silent CPU alternate-engine claim.",
+  "No804_this_attempt": true,
+  "cleanup": {
+    "epoch": 1794399364.4013984,
+    "owned": {
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "GPU0": {
+      "exit": 0,
+      "stdout": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead, 535.309.01, 6 MiB, 0 %\n",
+      "stderr": ""
+    },
+    "GPU0compute": {
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "previous_failed_attempt": "B-GPU-SMOKE01-FAILURE.v1 preserved Error804/generate0/13.581239770s",
+  "previous_noinit_diagnosis": "B-LOADER01-RESULT.v1 preserved1.191836266s/noCUDAAPI/model0",
+  "remaining_scope": "IndependentRactualgeneration and exactfinalEvidenceSHA/Handoff/Verdict stillrequired; noacceptance/facts/publicpromotion",
+  "frozen_epoch": 1794399433.5424051
+}
