@@ -37,3 +37,5 @@ No Pan product development, public deployment, paid model calls or GPU work is i
 - Current Pi #24 G2 candidate: [functional integration evidence](docs/evidence/pi-vllm-serve-20261111/README.md), baseline accepted b0ed. Native V1 adapter CPU development is in progress; GPU/remote CI/final acceptance remain separately gated. Earlier pending entries above are historical at their recorded scope.
 
 - Pi24 SC-VERSION04: [first startup failure and exact module/distribution identity repair](docs/evidence/pi-vllm-serve-20261111/README.md), with [official wheel CPU fixture provenance](service/inference/tests/fixtures/vllm_identity/README.md). Executiona5 failed before model construction; local repair/CPU evidence is not a new model result or acceptance.
+
+- Pi24 C04@1.3: [retired P1 and explicit fixed P2 entry bounds](service/scripts/vllm-serve/README.md), [failure/provenance notes](docs/evidence/pi-vllm-serve-20261111/README.md). New local control-source/CPU checks remain separate from sourceCI3, future model authorization and final acceptance.

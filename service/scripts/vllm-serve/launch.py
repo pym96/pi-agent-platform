@@ -2,6 +2,17 @@
 import argparse,datetime,hashlib,json,math,os,pathlib,subprocess,sys,time
 UUID='GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead'
 ROOT=pathlib.Path('/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111')
+# Frozen Master P2 allocation; hashes identify bytes, not signatures or authority.
+HUMAN_GLOBAL_END=1794420671.0
+PHASE={'schema': 'pi24-phase-window/v1',
+ 'id': 'pi24-nov11-p2',
+ 'contract_sha256': '06b694ed12c3aebb62cd2bc870e13148998817b2dc96a30f373165665300d9f8',
+ 'start_epoch': 1794411000.0,
+ 'builder_latest_start_epoch': 1794414900.0,
+ 'regulator_latest_start_epoch': 1794415800.0,
+ 'all_owned_stop_epoch': 1794416400.0,
+ 'end_epoch': 1794417600.0,
+ 'global_end_epoch': 1794420671.0}
 def sha(path):
  h=hashlib.sha256()
  with pathlib.Path(path).open('rb') as f:
@@ -12,9 +23,13 @@ def validate(path,digest):
  if sha(path)!=digest:raise ValueError('GO hash mismatch')
  g=json.loads(pathlib.Path(path).read_text());now=time.time()
  if g.get('issue')!=24 or g.get('role') not in ('builder','regulator'):raise ValueError('GO identity')
- role=g['role'];latest=epoch('2026-11-11T15:20:00Z' if role=='builder' else '2026-11-11T15:35:00Z')
- cap=900 if role=='builder' else 300
- if now>latest or not 30<g['deadline_epoch']-now<=g['max_duration_s']<=cap or g['deadline_epoch']>epoch('2026-11-11T15:45:00Z'):raise ValueError('GO expired or over budget')
+ phase=g.get('phase')
+ if type(phase) is not dict or phase!=PHASE:raise ValueError('fixed P2 phase identity/bounds required')
+ for value in [now,g.get('deadline_epoch'),g.get('max_duration_s'),*[phase[k] for k in phase if k.endswith('_epoch')]]:
+  if type(value) not in (int,float) or not math.isfinite(value):raise ValueError('finite phase/GO time required')
+ if not (phase['start_epoch']<=phase['builder_latest_start_epoch']<=phase['regulator_latest_start_epoch']<=phase['all_owned_stop_epoch']<=phase['end_epoch']<=phase['global_end_epoch']==HUMAN_GLOBAL_END):raise ValueError('phase ordering/global boundary')
+ role=g['role'];latest=phase[role+'_latest_start_epoch'];cap=900 if role=='builder' else 300
+ if not phase['start_epoch']<=now<=latest or not 30<g['deadline_epoch']-now<=g['max_duration_s']<=cap or g['deadline_epoch']>phase['all_owned_stop_epoch']:raise ValueError('GO expired or over budget')
  if g['gpu_uuid']!=UUID or g['mode'] not in ('vllm','transformers'):raise ValueError('GO device/backend')
  if not g['nonce'] or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_' for c in g['nonce']):raise ValueError('GO nonce')
  if not 1<=g['max_attempts']<=(64 if role=='builder' else 16):raise ValueError('attempt cap')
