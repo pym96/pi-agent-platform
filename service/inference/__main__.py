@@ -3,6 +3,8 @@ import argparse
 import asyncio
 import json
 import time
+import os
+from pathlib import Path
 from aiohttp import web
 from .app import create_app
 
@@ -12,6 +14,9 @@ async def main(args):
     if args.backend=='transformers':
         from .transformers_backend import TransformersBackend
         backend=TransformersBackend(args.model_path)
+        identity={'backend':backend.identity,'torch_intraop_threads':backend.torch.get_num_threads(),'torch_interop_threads':backend.torch.get_num_interop_threads(),'dtype':str(backend.model.dtype),'device':str(backend.model.device)}
+        print(json.dumps({'event':'backend_identity',**identity}),flush=True)
+        if os.environ.get('INFERENCE_IDENTITY_RECEIPT'):Path(os.environ['INFERENCE_IDENTITY_RECEIPT']).write_text(json.dumps(identity,indent=2))
     elif args.backend=='vllm':
         from .vllm_backend import VllmBackend
         backend=await VllmBackend.load(args.model_path)

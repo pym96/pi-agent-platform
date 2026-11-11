@@ -140,7 +140,14 @@ class Client:
   finally:self.write('progress.json',{'planned':[x['id'] for x in planned],'completed':results,'not_completed':[x['id'] for x in planned if x['id'] not in results]})
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--plan',required=True);p.add_argument('--out',required=True);p.add_argument('--model',required=True);p.add_argument('--api',required=True);p.add_argument('--deadline',type=float,required=True);p.add_argument('--project',required=True);p.add_argument('--sha',required=True);p.add_argument('--nonce',required=True);p.add_argument('--api-cid');a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--plan',required=True);p.add_argument('--out',required=True);p.add_argument('--endpoints',required=True);p.add_argument('--endpoints-sha256',required=True);p.add_argument('--deadline',type=float,required=True);p.add_argument('--project',required=True);p.add_argument('--sha',required=True);p.add_argument('--nonce',required=True);p.add_argument('--api-cid');a=p.parse_args()
  owner=OwnedDocker(a.project,a.sha,a.nonce)
- Client(json.loads(pathlib.Path(a.plan).read_text()),a.out,a.model,a.api,a.deadline,owner,a.api_cid).run()
+ from endpoints import verify_file
+ mapping=verify_file(owner,a.endpoints,a.endpoints_sha256)
+ def url(role):
+  row=mapping['endpoints'].get(role)
+  return '' if row is None else 'http://'+row['ip']+':'+str(row['port'])
+ api_row=mapping['endpoints'].get('api')
+ if a.api_cid!=(None if api_row is None else api_row['cid']):raise ValueError('API restart CID differs from endpoint map')
+ Client(json.loads(pathlib.Path(a.plan).read_text()),a.out,url('model'),url('api'),a.deadline,owner,a.api_cid).run()
 if __name__=='__main__':main()

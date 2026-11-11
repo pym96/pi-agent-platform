@@ -76,6 +76,7 @@ jobs:
       - name: Required opt-in vLLM serving ownership and entry checks
         run: |
           mkdir -p "$RUNNER_TEMP/vllm24"
+          export G2_TEST_EVIDENCE="$RUNNER_TEMP/vllm24/raw"
           python service/scripts/nginx-entry/strict_suite.py --start-dir service/scripts/vllm-serve --pattern 'test_*.py' --out "$RUNNER_TEMP/vllm24/summary.json" > "$RUNNER_TEMP/vllm24/tests.log" 2>&1
       - name: Required isolated vLLM CPU guards and closure checker
         run: |

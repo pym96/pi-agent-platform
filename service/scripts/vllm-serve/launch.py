@@ -18,7 +18,7 @@ def validate(path,digest):
  if g['gpu_uuid']!=UUID or g['mode'] not in ('vllm','transformers'):raise ValueError('GO device/backend')
  if not g['nonce'] or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_' for c in g['nonce']):raise ValueError('GO nonce')
  if not 1<=g['max_attempts']<=(64 if role=='builder' else 16):raise ValueError('attempt cap')
- for key in ('source_sha','runtime_manifest_sha256','model_manifest_sha256','entry_sha256','watch_sha256','plan_sha256','driver_sha256','native_sha256','compose_sha256','assets_sha256'):
+ for key in ('source_sha','network_id','runtime_manifest_sha256','model_manifest_sha256','entry_sha256','watch_sha256','plan_sha256','driver_sha256','native_sha256','compose_sha256','assets_sha256'):
   value=g[key]
   if len(value)!=(40 if key=='source_sha' else 64) or any(c not in '0123456789abcdef' for c in value):raise ValueError('bad '+key)
  if sha(__file__)!=g['entry_sha256']:raise ValueError('entry changed')
@@ -51,11 +51,10 @@ def execute(g,path,digest):
  for row in json.loads((root/'sdk-files.json').read_text()):
   if sha(pathlib.Path(assets['sdk']['path'])/row['path'])!=row['sha256']:raise ValueError('SDK bytes changed')
  role=g['role'];project='pi-vllm24-'+('b' if role=='builder' else 'r');offset=0 if role=='builder' else 10
- ports=[18481+offset,18482+offset,18483+offset]
- for port in ports:
-  with socket.socket() as sock:sock.bind(('127.0.0.1',port))
  docker=OwnedDocker(project,g['source_sha'],g['nonce']);known={}
  if docker.discover(known):raise ValueError('preexisting task containers')
+ from endpoints import network,resolve
+ net=network(docker,g['network_id'])
  snapshots=[]
  for i in range(2):
   uuid=subprocess.check_output(['nvidia-smi','-i','0','--query-gpu=uuid','--format=csv,noheader'],text=True,timeout=5).strip()
@@ -66,11 +65,13 @@ def execute(g,path,digest):
  if validate(path,digest)!=g:raise ValueError('GO changed')
  (root/('consumed-'+g['nonce'])).touch(exist_ok=False)
  out=root/('run-'+g['nonce']);out.mkdir();(out/'preflight.json').write_text(json.dumps(snapshots,indent=2));(out/'plan.json').write_bytes((root/g['plan_file']).read_bytes())
+ # Docker cannot create a nested SDK mount target in a read-only source mount.
+ (source/'service/pi/node_modules').mkdir(exist_ok=True)
  data=out/'data';data.mkdir();(data/'pg-data').mkdir(mode=0o777);(data/'pg-data').chmod(0o777);(data/'pi-data').mkdir()
- env=dict(os.environ,GOMAXPROCS='1',G2_PROJECT=project,G2_ROOT=str(root),G2_DATA_ROOT=str(data),SOURCE_SHA=g['source_sha'],G2_NONCE=g['nonce'],G2_RUNTIME=str(runtime_root/'env'),G2_OUT=str(out),DEADLINE_EPOCH=str(g['deadline_epoch']),GENERATION_TIMEOUT=str(g['generation_timeout']),MAX_ATTEMPTS=str(g['max_attempts']),MODEL_PORT=str(ports[0]),PI_PORT=str(ports[1]),API_PORT=str(ports[2]),NODE_ROOT=str(pathlib.Path(assets['files']['node']['path']).parents[1]),PI_MODULES=assets['sdk']['path'],G2_API=assets['files']['api']['path'])
+ env=dict(os.environ,GOMAXPROCS='1',G2_PROJECT=project,G2_ROOT=str(root),G2_DATA_ROOT=str(data),SOURCE_SHA=g['source_sha'],G2_NONCE=g['nonce'],G2_RUNTIME=str(runtime_root/'env'),G2_OUT=str(out),DEADLINE_EPOCH=str(g['deadline_epoch']),GENERATION_TIMEOUT=str(g['generation_timeout']),MAX_ATTEMPTS=str(g['max_attempts']),NODE_ROOT=str(pathlib.Path(assets['files']['node']['path']).parents[1]),PI_MODULES=assets['sdk']['path'],G2_API=assets['files']['api']['path'],G2_NETWORK=net['Name'])
  compose=['docker','compose','-p',project,'-f',str(source/'service/compose.vllm.yaml')]
  if g['mode']=='transformers':
-  override={'services':{'model':{'image':'sha256:7e8449fcd1ce73c68dc35292e94182a3b09ddf155eba052fafcb0b6cf174c1c2','entrypoint':['python','-m','service.inference','--backend','transformers','--host','0.0.0.0','--port','8082','--generation-timeout',str(g['generation_timeout']),'--max-attempts',str(g['max_attempts']),'--deadline-epoch',str(g['deadline_epoch'])],'environment':{'PYTHONPATH':'/source:/deps'},'volumes':['/media/usv012/pjx/pi-agent-platform/experiments/7-qwen-load-20261021/deps:/deps:ro']}}}
+  override={'services':{'model':{'image':'sha256:7e8449fcd1ce73c68dc35292e94182a3b09ddf155eba052fafcb0b6cf174c1c2','entrypoint':['python','/source/service/scripts/vllm-compat/native.py','--deadline',str(g['deadline_epoch']),'--receipt','/evidence/native-budget.json','--','python','-m','service.inference','--backend','transformers','--host','0.0.0.0','--port','8082','--generation-timeout',str(g['generation_timeout']),'--max-attempts',str(g['max_attempts']),'--deadline-epoch',str(g['deadline_epoch'])],'environment':{'PYTHONPATH':'/source:/deps','OMP_NUM_THREADS':'6'},'volumes':['/media/usv012/pjx/pi-agent-platform/experiments/7-qwen-load-20261021/deps:/deps:ro']}}}
   (out/'fallback.json').write_text(json.dumps(override));compose+=['-f',str(out/'fallback.json')]
  watch=None;client=None;serial=0;failure=None;stop=out/'stop-watch'
  def call(args,key,check=True,timeout=60):
@@ -89,18 +90,21 @@ def execute(g,path,digest):
   services=['pg','model','pi','api'] if full else ['model']
   call([*compose,'up','--pull','never','--no-build','-d',*services],'compose-up',timeout=min(120,max(1,g['deadline_epoch']-time.time()-25)))
   docker.discover(known);api_cid=next((cid for cid,row in known.items() if row['Config']['Labels'].get('com.docker.compose.service')=='api'),None)
+  mapping=resolve(docker,list(known),g['network_id']);(out/'endpoint-map.json').write_text(json.dumps(mapping,indent=2))
+  model_url='http://'+mapping['endpoints']['model']['ip']+':8082'
+  api_url='' if not full else 'http://'+mapping['endpoints']['api']['ip']+':8080'
   while time.time()<g['deadline_epoch']-25:
    if watch.poll() is not None:raise RuntimeError('watch lost during startup')
    try:
-    with urllib.request.urlopen('http://127.0.0.1:'+str(ports[0])+'/health',timeout=1) as r:h=json.load(r)
+    with urllib.request.urlopen(model_url+'/health',timeout=1) as r:h=json.load(r)
     if h['ready']:
      if full:
-      with urllib.request.urlopen('http://127.0.0.1:'+str(ports[2])+'/health',timeout=1) as r:assert r.status==200
+      with urllib.request.urlopen(api_url+'/health',timeout=1) as r:assert r.status==200
      (out/'ready.json').write_text(json.dumps(h));break
    except (OSError,ValueError):pass
    time.sleep(.2)
   else:raise RuntimeError('readiness deadline')
-  args=[sys.executable,str(here/'client.py'),'--plan',str(out/'plan.json'),'--out',str(out/'client'),'--model','http://127.0.0.1:'+str(ports[0]),'--api','http://127.0.0.1:'+str(ports[2]),'--deadline',str(g['deadline_epoch']-20),'--project',project,'--sha',g['source_sha'],'--nonce',g['nonce']]
+  args=[sys.executable,str(here/'client.py'),'--plan',str(out/'plan.json'),'--out',str(out/'client'),'--endpoints',str(out/'endpoint-map.json'),'--endpoints-sha256',sha(out/'endpoint-map.json'),'--deadline',str(g['deadline_epoch']-20),'--project',project,'--sha',g['source_sha'],'--nonce',g['nonce']]
   if api_cid:args+=['--api-cid',api_cid]
   with (out/'client.log').open('w') as log:
    client=subprocess.Popen(args,stdout=log,stderr=subprocess.STDOUT,cwd=source,env=env)
@@ -132,7 +136,14 @@ def execute(g,path,digest):
   try:docker.discover(known)
   except Exception as e:refresh_error=repr(e)
   result=docker.cleanup(known)
-  value={'failure':failure,'inventory_error':refresh_error,'client_exit':None if client is None else client.poll(),'watch_exit':None if watch is None else watch.poll(),**result}
+  network_cleanup=None
+  if result['success'] and not refresh_error:
+   try:
+    from endpoints import remove
+    network_cleanup=remove(docker,g['network_id'])
+   except Exception as e:refresh_error=repr(e)
+  cleanup_success=result['success'] and not refresh_error
+  value={'overall_success':not failure and cleanup_success,'cleanup_success':cleanup_success,'network_cleanup':network_cleanup,'failure':failure,'inventory_error':refresh_error,'client_exit':None if client is None else client.poll(),'watch_exit':None if watch is None else watch.poll(),**result}
   (out/'outcome.json').write_text(json.dumps(value,indent=2))
   if failure or refresh_error or not result['success']:raise RuntimeError('execution or cleanup failed/unknown')
 

@@ -44,12 +44,12 @@ services:
       TOKENIZERS_PARALLELISM: 'false'
       LOAD_TRACE: /evidence/model-trace.jsonl
       NATIVE_TRACE: /evidence/native-trace.jsonl
+      INFERENCE_IDENTITY_RECEIPT: /evidence/backend-identity.json
     volumes:
       - ..:/source:ro
       - ${G2_RUNTIME:?fixed existing env}:/venv:ro
       - /media/usv012/pjx/agent/Qwen3-8B:/model:ro
       - ${G2_OUT:?new run evidence}:/evidence
-    ports: ['127.0.0.1:${MODEL_PORT:?owned loopback}:8082']
     cpus: 6
     mem_limit: 28g
     memswap_limit: 28g
@@ -66,7 +66,6 @@ services:
     entrypoint: [/node/bin/node, /source/service/pi/server.mjs]
     environment: {PI_DATA: /data, HOME: /data/home, PI_TRACE: /data/bridge.jsonl, MODEL_URL: 'http://model:8082/v1', MODEL_ID: Qwen3-8B, MODEL_KIND: qwen}
     volumes: ['..:/source:ro', '${NODE_ROOT:?existing Node}:/node:ro', '${PI_MODULES:?existing locked modules}:/source/service/pi/node_modules:ro', '${G2_DATA_ROOT:?new owned data root}/pi-data:/data']
-    ports: ['127.0.0.1:${PI_PORT:?owned loopback}:8081']
     cpus: 2
     mem_limit: 4g
     memswap_limit: 4g
@@ -82,7 +81,6 @@ services:
     entrypoint: [/api]
     environment: {DATABASE_URL: 'postgres://pan:isolated-local-only@pg:5432/pan?sslmode=disable', PI_URL: 'http://pi:8081', MODEL_KIND: qwen, GOMAXPROCS: '1'}
     volumes: ['${G2_API:?unchanged Go binary}:/api:ro']
-    ports: ['127.0.0.1:${API_PORT:?owned loopback}:8080']
     depends_on: {pg: {condition: service_healthy}}
     cpus: 1
     mem_limit: 2g
@@ -94,4 +92,6 @@ services:
     security_opt: [no-new-privileges:true]
     labels: {workorder: '24', execution-sha: '${SOURCE_SHA:?full SHA}', pi24.nonce: '${G2_NONCE:?once nonce}'}
 networks:
-  default: {internal: true}
+  default:
+    external: true
+    name: ${G2_NETWORK:?exact owned internal network name}

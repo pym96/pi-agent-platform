@@ -177,3 +177,41 @@ def test_native_trace_start_failure_does_not_leak_active_slot(monkeypatch):
                 assert inspect_stream(response.status,await response.text())['success']
             assert backend.active==0
     asyncio.run(scenario())
+
+def test_health_exposes_logical_native_starts_for_replay_accounting():
+    async def scenario():
+        backend=VllmBackend(Engine(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+        async with serve(backend) as (client,url):
+            async with client.get(url+'/health') as response:assert (await response.json())['calls']==0
+            async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:await response.read()
+            async with client.get(url+'/health') as response:assert (await response.json())['calls']==1
+    asyncio.run(scenario())
+
+@pytest.mark.parametrize('budget',[1,128,None])
+def test_budget_edges_and_default_use_native_token_counts(budget):
+    class EdgeEngine(Engine):
+        async def generate(self,prompt,sampling_params,request_id):
+            self.requests.append((prompt,sampling_params,request_id));count=min(2,sampling_params.max_tokens)
+            yield NS(prompt_token_ids=[10,11,12],finished=True,outputs=[NS(text='x'*count,token_ids=list(range(count)),finish_reason='length' if count==sampling_params.max_tokens else 'stop')])
+    async def scenario():
+        engine=EdgeEngine();backend=VllmBackend(engine,Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+        payload=dict(PAYLOAD)
+        if budget is None:payload.pop('max_tokens')
+        else:payload['max_tokens']=budget
+        async with serve(backend) as (client,url):
+            async with client.post(url+'/v1/chat/completions',json=payload) as response:
+                result=inspect_stream(response.status,await response.text(),128 if budget is None else budget)
+                assert result['success'] and result['usage']['completion_tokens']==min(2,128 if budget is None else budget)
+        assert engine.requests[0][1].max_tokens==(128 if budget is None else budget)
+    asyncio.run(scenario())
+
+def test_actual_template_context_limit_precedes_native_generation():
+    class LongTokenizer(Tokenizer):
+        def apply_chat_template(self,*args,**kwargs):return list(range(1000))
+    async def scenario():
+        engine=Engine();backend=VllmBackend(engine,LongTokenizer(),sampling_factory=lambda **kw:NS(**kw))
+        async with serve(backend) as (client,url):
+            async with client.post(url+'/v1/chat/completions',json={**PAYLOAD,'max_tokens':128}) as response:
+                assert response.status==400 and (await response.json())['error']['code']=='context_limit'
+        assert not engine.requests and backend.calls==0
+    asyncio.run(scenario())

@@ -55,7 +55,7 @@ def create_app(backend, queue_timeout=1.0, generation_timeout=2.0, max_queue=8, 
 
     async def health(request):
         return web.json_response({'backend':backend.identity,'model':'Qwen3-8B','ready':backend.ready,
-            'active_generation':backend.active,'queued':waiting,'max_active_generation':1,'max_context':1024,'attempts':attempts,'max_attempts':max_attempts})
+            'active_generation':backend.active,'calls':backend.calls,'queued':waiting,'max_active_generation':1,'max_context':1024,'attempts':attempts,'max_attempts':max_attempts})
 
     async def completion(request):
         nonlocal waiting,attempts
