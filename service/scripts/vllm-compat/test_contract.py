@@ -64,6 +64,23 @@ else:sys.exit(7)
 
 
 class WheelContract(unittest.TestCase):
+ def test_root_distribution_metadata_ignores_vendored_metadata(self):
+  import importlib.util,zipfile
+  spec=importlib.util.spec_from_file_location('wheel_lock_nested',HERE/'lock.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+  with tempfile.TemporaryDirectory() as d:
+   root=pathlib.Path(d);w=root/'w';w.mkdir();rows=[]
+   for name,version in m.PINNED.items():
+    f=w/(name+'-fixture.whl')
+    with zipfile.ZipFile(f,'w') as z:
+     z.writestr(name+'.dist-info/METADATA','Name: '+name+'\nVersion: '+version+'\n')
+     z.writestr(name+'/thirdparty_files/vendor.dist-info/METADATA','Name: vendor\nVersion: 1\nRequires-Dist: vendor-private-missing==1\n')
+    rows.append(dict(name=name,version=version,filename=f.name,size=f.stat().st_size,sha256=hashlib.sha256(f.read_bytes()).hexdigest(),url=m.XFORMERS if name=='xformers' else 'https://files.pythonhosted.org/'+f.name))
+   lock=root/'lock';lock.write_text(json.dumps(rows));self.assertEqual(m.validate(lock,w)['artifacts'],len(m.PINNED))
+   target=w/rows[0]['filename']
+   with zipfile.ZipFile(target,'a') as z:z.writestr('other.dist-info/METADATA','Name: other\nVersion: 1\n')
+   rows[0].update(size=target.stat().st_size,sha256=hashlib.sha256(target.read_bytes()).hexdigest());lock.write_text(json.dumps(rows))
+   with self.assertRaisesRegex(ValueError,'metadata ambiguous'):m.validate(lock,w)
+
  def test_sealed_wheel_closure_rejects_corruption_and_source_drift(self):
   import importlib.util,zipfile
   spec=importlib.util.spec_from_file_location('wheel_lock',HERE/'lock.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)

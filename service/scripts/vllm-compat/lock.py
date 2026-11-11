@@ -19,7 +19,7 @@ def validate(lock,wheels):
    for chunk in iter(lambda:b.read(1024*1024),b''):h.update(chunk)
   if h.hexdigest()!=row['sha256'] or f.stat().st_size!=row['size']:raise ValueError('artifact bytes mismatch')
   with zipfile.ZipFile(f) as z:
-   metadata=[n for n in z.namelist() if n.endswith('.dist-info/METADATA')]
+   metadata=[n for n in z.namelist() if n.count('/')==1 and n.endswith('.dist-info/METADATA')]
    if len(metadata)!=1:raise ValueError('wheel metadata ambiguous')
    m=email.message_from_bytes(z.read(metadata[0]))
   if (canonicalize_name(m['Name']),m['Version'])!=(canonicalize_name(row['name']),row['version']):raise ValueError('wheel identity mismatch')
