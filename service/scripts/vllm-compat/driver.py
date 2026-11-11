@@ -18,7 +18,12 @@ def prepare(directory,library,digest,environment):
  env=dict(environment);env['LD_LIBRARY_PATH']=str(directory)+(os.pathsep+env['LD_LIBRARY_PATH'] if env.get('LD_LIBRARY_PATH') else '')
  return env
 def verify_mapping(maps,library,digest):
- library=pathlib.Path(library).resolve();paths={line.split()[-1] for line in maps.splitlines() if 'libcuda.so' in line and line.split()[-1].startswith('/')}
+ library=pathlib.Path(library).resolve();paths=set()
+ for line in maps.splitlines():
+  if 'libcuda.so' not in line:continue
+  fields=line.split(maxsplit=5)
+  if len(fields)!=6 or not fields[5].startswith('/') or fields[5].endswith(' (deleted)'):raise ValueError('ambiguous or deleted driver mapping')
+  paths.add(fields[5])
  if not paths or any(pathlib.Path(p).resolve()!=library for p in paths):raise ValueError('native driver mapped path mismatch')
  if sha(library)!=digest:raise ValueError('native driver mapped hash mismatch')
  return [{'path':p,'realpath':str(library),'bytes':library.stat().st_size,'sha256':digest} for p in sorted(paths)]

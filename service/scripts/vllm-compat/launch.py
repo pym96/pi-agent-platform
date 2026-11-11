@@ -38,7 +38,7 @@ def execute(g,go_path,go_digest):
  model=pathlib.Path(g['model_path']).resolve()
  if model!=pathlib.Path('/media/usv012/pjx/agent/Qwen3-8B') or not model.is_dir():raise ValueError('model snapshot mismatch')
  model_manifest=source/'docs/evidence/qwen-load-20261021/model-files.json'
- if sha(model_manifest)!=g['model_manifest_sha256','driver_sha256']:raise ValueError('model manifest mismatch')
+ if sha(model_manifest)!=g['model_manifest_sha256']:raise ValueError('model manifest mismatch')
  model_files=json.loads(model_manifest.read_text())
  if not any(r['path'].endswith('.safetensors') for r in model_files):raise ValueError('model manifest missing weights')
  for row in model_files:

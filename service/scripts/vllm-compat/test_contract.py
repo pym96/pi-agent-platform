@@ -119,6 +119,24 @@ class NativeDeadlineContract(unittest.TestCase):
    marker=pathlib.Path(d)/'must-not-exist';p=subprocess.run([sys.executable,str(HERE/'native.py'),'--deadline',str(time.time()+14),'--receipt',d+'/receipt','--',sys.executable,'-c','open('+repr(str(marker))+',"w").write("executed")'],capture_output=True,text=True,timeout=3)
    self.assertEqual(p.returncode,2);self.assertFalse(marker.exists());self.assertIn('deadline rejected',p.stderr)
 
+class LauncherModelPreflight(unittest.TestCase):
+ def test_valid_model_manifest_reaches_cached_image_check(self):
+  import importlib.util
+  from unittest.mock import Mock,patch
+  spec=importlib.util.spec_from_file_location('model_preflight',HERE/'launch.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);RealPath=pathlib.Path
+  with tempfile.TemporaryDirectory() as d:
+   base=RealPath(d).resolve();root=base/'builder';source=root/'source';env=root/'env';env.mkdir(parents=True);(env/'one').write_bytes(b'env');probe=source/'service/scripts/vllm-compat/smoke.py';probe.parent.mkdir(parents=True);probe.write_bytes(b'probe');model=base/'model';model.mkdir();(model/'weights.safetensors').write_bytes(b'weights');manifest=source/'docs/evidence/qwen-load-20261021/model-files.json';manifest.parent.mkdir(parents=True);manifest.write_text(json.dumps([{'path':'weights.safetensors','bytes':7,'sha256':m.sha(model/'weights.safetensors')} ]));runtime=root/'runtime-manifest.json';runtime.write_text(json.dumps({'files':[{'path':'env/one','sha256':m.sha(env/'one')}]}));g={'role':'builder','runtime_manifest_sha256':m.sha(runtime),'probe_sha256':m.sha(probe),'source_sha':'a'*40,'watch_sha256':m.sha(HERE/'watch.py'),'driver_sha256':m.sha(HERE/'driver.py'),'model_path':'/media/usv012/pjx/agent/Qwen3-8B','model_manifest_sha256':m.sha(manifest),'image':'sha256:08619d6d884b3b456661f883a4e4420bd85a81aee560a86f7f26021b75dd6229'}
+   def path(v):
+    if str(v)=='/media/usv012/pjx/pi-agent-platform/experiments/21-vllm-compat-20261111':return base
+    if str(v)=='/media/usv012/pjx/agent/Qwen3-8B':return model
+    return RealPath(v)
+   P=Mock(side_effect=path);P.cwd.return_value=root
+   def output(a,**kw):
+    if a[0]=='git':return 'a'*40 if 'rev-parse' in a else ''
+    raise RuntimeError('model identity passed before cached image')
+   with patch.object(m.pathlib,'Path',P),patch.object(m.subprocess,'check_output',side_effect=output):
+    with self.assertRaisesRegex(RuntimeError,'model identity passed'):m.execute(g,'unused','unused')
+
 class DriverSelectionContract(unittest.TestCase):
  def module(self):
   import importlib.util
@@ -152,7 +170,7 @@ class DriverSelectionContract(unittest.TestCase):
   with tempfile.TemporaryDirectory() as d:
    root,f,h=self.fixture(d);maps='000-fff r-xp 0 0 0 '+str(f)+'\n';self.assertEqual(m.verify_mapping(maps,f,h)[0]['sha256'],h)
    wrong=root/'libcuda.so.550.fixture';wrong.write_bytes(f.read_bytes())
-   for text in ['',maps.replace(str(f),str(wrong))]:
+   for text in ['',maps.replace(str(f),str(wrong)),maps+'000-fff r-xp 0 0 0 '+str(wrong)+' (deleted)\n']:
     with self.assertRaises(ValueError):m.verify_mapping(text,f,h)
    f.write_bytes(b'tamperednative')
    with self.assertRaises(ValueError):m.verify_mapping(maps,f,h)
