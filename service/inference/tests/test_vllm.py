@@ -159,3 +159,21 @@ def test_invalid_native_lifecycle_never_produces_success(fault):
                 body=await response.text();assert not inspect_stream(response.status,body)['success']
                 assert 'backend_failure' in body
     asyncio.run(scenario())
+
+def test_native_trace_start_failure_does_not_leak_active_slot(monkeypatch):
+    import service.inference.vllm_backend as module
+    once=True
+    def fail_once(event,**values):
+        nonlocal once
+        if once and event=='native_start':once=False;raise OSError('trace denied')
+    monkeypatch.setattr(module,'trace',fail_once)
+    async def scenario():
+        backend=VllmBackend(Engine(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+        async with serve(backend) as (client,url):
+            async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:
+                assert not inspect_stream(response.status,await response.text())['success']
+            assert backend.active==0
+            async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:
+                assert inspect_stream(response.status,await response.text())['success']
+            assert backend.active==0
+    asyncio.run(scenario())

@@ -1,0 +1,97 @@
+# Pi24 opt-in V1 serving. Exact Master GO is required by the foreground launcher.
+name: ${G2_PROJECT:?pi-vllm24-b or pi-vllm24-r}
+services:
+  pg:
+    image: postgres@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24
+    user: '70:70'
+    command: [postgres, -c, shared_buffers=32MB, -c, max_connections=32, -c, max_wal_size=64MB, -c, min_wal_size=32MB]
+    environment: {POSTGRES_USER: pan, POSTGRES_PASSWORD: isolated-local-only, POSTGRES_DB: pan, PGDATA: /var/lib/postgresql/data/pgdata}
+    volumes: ['${G2_DATA_ROOT:?new owned data root}/pg-data:/var/lib/postgresql/data']
+    cpus: 1
+    mem_limit: 1g
+    memswap_limit: 1g
+    read_only: true
+    tmpfs: ['/tmp:size=64m', '/var/run/postgresql:size=16m,uid=70,gid=70']
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 512
+    labels: {workorder: '24', execution-sha: '${SOURCE_SHA:?full SHA}', pi24.nonce: '${G2_NONCE:?once nonce}'}
+    healthcheck: {test: [CMD-SHELL, 'pg_isready -h 127.0.0.1 -U pan -d pan'], interval: 1s, timeout: 2s, retries: 30}
+  model:
+    image: sha256:08619d6d884b3b456661f883a4e4420bd85a81aee560a86f7f26021b75dd6229
+    runtime: nvidia
+    user: '1001:1001'
+    working_dir: /source
+    entrypoint: [/usr/bin/python3, /source/service/scripts/vllm-compat/native.py, --deadline, '${DEADLINE_EPOCH:?exact deadline}', --receipt, /evidence/native-budget.json, --, /usr/bin/python3, /source/service/scripts/vllm-compat/driver.py, --, /venv/bin/python, -m, service.inference, --backend, vllm, --host, 0.0.0.0, --port, '8082', --queue-timeout, '2', --generation-timeout, '${GENERATION_TIMEOUT:-30}', --max-attempts, '${MAX_ATTEMPTS:?bounded attempts}', --deadline-epoch, '${DEADLINE_EPOCH:?exact deadline}']
+    environment:
+      NVIDIA_VISIBLE_DEVICES: GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+      CUDA_VISIBLE_DEVICES: '0'
+      VLLM_USE_V1: '1'
+      VLLM_WORKER_MULTIPROC_METHOD: spawn
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONPATH: /source
+      HOME: /tmp
+      HF_HUB_OFFLINE: '1'
+      HF_HOME: /tmp/hf
+      VLLM_CACHE_ROOT: /tmp/vllm
+      TRITON_CACHE_DIR: /tmp/triton
+      TORCHINDUCTOR_CACHE_DIR: /tmp/torchinductor
+      XDG_CACHE_HOME: /tmp/cache
+      OPENBLAS_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '4'
+      TOKENIZERS_PARALLELISM: 'false'
+      LOAD_TRACE: /evidence/model-trace.jsonl
+      NATIVE_TRACE: /evidence/native-trace.jsonl
+    volumes:
+      - ..:/source:ro
+      - ${G2_RUNTIME:?fixed existing env}:/venv:ro
+      - /media/usv012/pjx/agent/Qwen3-8B:/model:ro
+      - ${G2_OUT:?new run evidence}:/evidence
+    ports: ['127.0.0.1:${MODEL_PORT:?owned loopback}:8082']
+    cpus: 6
+    mem_limit: 28g
+    memswap_limit: 28g
+    pids_limit: 512
+    read_only: true
+    tmpfs: [/tmp:size=1g]
+    shm_size: 1g
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    labels: {workorder: '24', execution-sha: '${SOURCE_SHA:?full SHA}', pi24.nonce: '${G2_NONCE:?once nonce}'}
+  pi:
+    image: python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+    user: '1001:1001'
+    entrypoint: [/node/bin/node, /source/service/pi/server.mjs]
+    environment: {PI_DATA: /data, HOME: /data/home, PI_TRACE: /data/bridge.jsonl, MODEL_URL: 'http://model:8082/v1', MODEL_ID: Qwen3-8B, MODEL_KIND: qwen}
+    volumes: ['..:/source:ro', '${NODE_ROOT:?existing Node}:/node:ro', '${PI_MODULES:?existing locked modules}:/source/service/pi/node_modules:ro', '${G2_DATA_ROOT:?new owned data root}/pi-data:/data']
+    ports: ['127.0.0.1:${PI_PORT:?owned loopback}:8081']
+    cpus: 2
+    mem_limit: 4g
+    memswap_limit: 4g
+    pids_limit: 512
+    read_only: true
+    tmpfs: [/tmp:size=128m]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    labels: {workorder: '24', execution-sha: '${SOURCE_SHA:?full SHA}', pi24.nonce: '${G2_NONCE:?once nonce}'}
+  api:
+    image: python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+    user: '1001:1001'
+    entrypoint: [/api]
+    environment: {DATABASE_URL: 'postgres://pan:isolated-local-only@pg:5432/pan?sslmode=disable', PI_URL: 'http://pi:8081', MODEL_KIND: qwen, GOMAXPROCS: '1'}
+    volumes: ['${G2_API:?unchanged Go binary}:/api:ro']
+    ports: ['127.0.0.1:${API_PORT:?owned loopback}:8080']
+    depends_on: {pg: {condition: service_healthy}}
+    cpus: 1
+    mem_limit: 2g
+    memswap_limit: 2g
+    pids_limit: 512
+    read_only: true
+    tmpfs: [/tmp:size=64m]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    labels: {workorder: '24', execution-sha: '${SOURCE_SHA:?full SHA}', pi24.nonce: '${G2_NONCE:?once nonce}'}
+networks:
+  default: {internal: true}

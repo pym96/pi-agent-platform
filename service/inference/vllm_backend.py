@@ -62,9 +62,9 @@ class VllmBackend:
 
     async def stream(self,prepared,cancel):
         tokens,budget=prepared;ident=uuid.uuid4().hex;sent='';final=None;previous_tokens=[]
-        self.active+=1;self.calls+=1
-        trace("native_start",native_id=ident,prompt_token_ids=tokens,budget=budget,calls=self.calls)
+        trace("native_start",native_id=ident,prompt_token_ids=tokens,budget=budget,calls=self.calls+1)
         stream=self.engine.generate({'prompt_token_ids':tokens},self.sampling_factory(temperature=0,max_tokens=budget,seed=0),ident)
+        self.active+=1;self.calls+=1
         pending=None;aborted=False
         async def stop():
             nonlocal aborted

@@ -1,8 +1,8 @@
 name: Pi Qwen CPU contracts
 on:
   push:
-    branches: [main, workorder/21-candidate]
-    paths: ['service/**', 'docs/evidence/pi-qwen-e2e-20261031/**', 'docs/evidence/pi-qwen-load-20261107/**', 'docs/evidence/vllm-compat-20261111/**', '.github/workflows/ci.yml']
+    branches: [main, workorder/24-candidate]
+    paths: ['service/**', 'docs/evidence/pi-qwen-e2e-20261031/**', 'docs/evidence/pi-qwen-load-20261107/**', 'docs/evidence/vllm-compat-20261111/**', 'docs/evidence/pi-vllm-serve-20261111/**', '.github/workflows/ci.yml']
 permissions:
   contents: read
 concurrency:
@@ -73,6 +73,10 @@ jobs:
           echo "NG_DEPS=$RUNNER_TEMP/ng-deps" >> "$GITHUB_ENV"
           docker pull python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
           docker pull nginx@sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284
+      - name: Required opt-in vLLM serving ownership and entry checks
+        run: |
+          mkdir -p "$RUNNER_TEMP/vllm24"
+          python service/scripts/nginx-entry/strict_suite.py --start-dir service/scripts/vllm-serve --pattern 'test_*.py' --out "$RUNNER_TEMP/vllm24/summary.json" > "$RUNNER_TEMP/vllm24/tests.log" 2>&1
       - name: Required isolated vLLM CPU guards and closure checker
         run: |
           mkdir -p "$RUNNER_TEMP/vllm21"
@@ -110,5 +114,6 @@ jobs:
             ${{ runner.temp }}/python310-analyzer
             ${{ runner.temp }}/load13
             ${{ runner.temp }}/vllm21
+            ${{ runner.temp }}/vllm24
           if-no-files-found: error
           retention-days: 14
