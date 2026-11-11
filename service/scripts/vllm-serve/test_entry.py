@@ -10,3 +10,12 @@ class EntryTests(unittest.TestCase):
    self.assertEqual(r.returncode,2);self.assertIn('GO rejected',r.stderr)
    self.assertNotIn('docker',r.stderr.lower());self.assertNotIn('nvidia-smi',r.stderr.lower())
 if __name__=='__main__':unittest.main()
+
+class ClientEntryTests(unittest.TestCase):
+ def test_client_cli_imports_from_its_source_with_clean_host_environment(self):
+  import os
+  env=dict(os.environ);env.pop('PYTHONPATH',None)
+  with tempfile.TemporaryDirectory() as cwd:
+   r=subprocess.run([sys.executable,str(HERE/'client.py'),'--help'],cwd=cwd,env=env,capture_output=True,text=True,timeout=5)
+  self.assertEqual(r.returncode,0,r.stderr);self.assertIn('--endpoints-sha256',r.stdout)
+  self.assertNotIn('--model ',r.stdout);self.assertNotIn('--api ',r.stdout)

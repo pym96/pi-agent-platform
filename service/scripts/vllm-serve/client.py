@@ -1,5 +1,6 @@
 """Finite functional matrix client. All requests/partial streams survive assertion failure."""
-import argparse,json,pathlib,time,urllib.request,urllib.error,uuid
+import argparse,json,pathlib,time,urllib.request,urllib.error,uuid,sys
+sys.path.insert(0,str(pathlib.Path(__file__).resolve().parents[3]))
 from service.inference.oracle import inspect_stream
 from owned import OwnedDocker
 TERMINAL={'completed','interrupted','cancelled'}
@@ -103,10 +104,10 @@ class Client:
    if path.exists():
     rows=[json.loads(line) for line in path.read_text().splitlines() if line]
     starts=[r for r in rows if r['event']=='native_start']
-    if starts:
+    if starts and starts[-1].get('calls')==before['calls']+1:
      native_id=starts[-1]['native_id']
-     outputs=[r for r in rows if r.get('native_id')==native_id and r['event']=='native_output' and not r['finished']]
-     if outputs and self.health()['active_generation']==1:native_witness=outputs[-1];break
+     outputs=[r for r in rows if r.get('native_id')==native_id and r['event']=='native_output']
+     if outputs and not outputs[-1]['finished'] and self.health()['active_generation']==1:native_witness=outputs[-1];break
    time.sleep(.005)
   assert native_witness is not None,'native streaming execution never observed'
   queued=self.submit(session,spec['id']+'-queued',spec['queued_prompt']);history=self.history(session)

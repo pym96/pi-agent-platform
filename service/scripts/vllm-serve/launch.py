@@ -50,6 +50,13 @@ def execute(g,path,digest):
  if sha(root/'sdk-files.json')!=assets['sdk']['manifest_sha256']:raise ValueError('SDK manifest changed')
  for row in json.loads((root/'sdk-files.json').read_text()):
   if sha(pathlib.Path(assets['sdk']['path'])/row['path'])!=row['sha256']:raise ValueError('SDK bytes changed')
+ if g['mode']=='transformers':
+  original=pathlib.Path('/media/usv012/pjx/pi-agent-platform/experiments/7-qwen-load-20261021')
+  dep_manifest=original/'deps-manifest.json'
+  if sha(dep_manifest)!='0daa116e06671a31c9b57f69a7664aa30c5e33d04898eda18f08451bfa93a1e3':raise ValueError('original fallback dependency manifest changed')
+  for row in json.loads(dep_manifest.read_text()):
+   file=original/'deps'/row['path']
+   if file.stat().st_size!=row['bytes'] or sha(file)!=row['sha256']:raise ValueError('original fallback dependency bytes changed')
  role=g['role'];project='pi-vllm24-'+('b' if role=='builder' else 'r');offset=0 if role=='builder' else 10
  docker=OwnedDocker(project,g['source_sha'],g['nonce']);known={}
  if docker.discover(known):raise ValueError('preexisting task containers')
@@ -68,7 +75,7 @@ def execute(g,path,digest):
  # Docker cannot create a nested SDK mount target in a read-only source mount.
  (source/'service/pi/node_modules').mkdir(exist_ok=True)
  data=out/'data';data.mkdir();(data/'pg-data').mkdir(mode=0o777);(data/'pg-data').chmod(0o777);(data/'pi-data').mkdir()
- env=dict(os.environ,GOMAXPROCS='1',G2_PROJECT=project,G2_ROOT=str(root),G2_DATA_ROOT=str(data),SOURCE_SHA=g['source_sha'],G2_NONCE=g['nonce'],G2_RUNTIME=str(runtime_root/'env'),G2_OUT=str(out),DEADLINE_EPOCH=str(g['deadline_epoch']),GENERATION_TIMEOUT=str(g['generation_timeout']),MAX_ATTEMPTS=str(g['max_attempts']),NODE_ROOT=str(pathlib.Path(assets['files']['node']['path']).parents[1]),PI_MODULES=assets['sdk']['path'],G2_API=assets['files']['api']['path'],G2_NETWORK=net['Name'])
+ env=dict(os.environ,PYTHONPATH=str(source),GOMAXPROCS='1',G2_PROJECT=project,G2_ROOT=str(root),G2_DATA_ROOT=str(data),SOURCE_SHA=g['source_sha'],G2_NONCE=g['nonce'],G2_RUNTIME=str(runtime_root/'env'),G2_OUT=str(out),DEADLINE_EPOCH=str(g['deadline_epoch']),GENERATION_TIMEOUT=str(g['generation_timeout']),MAX_ATTEMPTS=str(g['max_attempts']),NODE_ROOT=str(pathlib.Path(assets['files']['node']['path']).parents[1]),PI_MODULES=assets['sdk']['path'],G2_API=assets['files']['api']['path'],G2_NETWORK=net['Name'])
  compose=['docker','compose','-p',project,'-f',str(source/'service/compose.vllm.yaml')]
  if g['mode']=='transformers':
   override={'services':{'model':{'image':'sha256:7e8449fcd1ce73c68dc35292e94182a3b09ddf155eba052fafcb0b6cf174c1c2','entrypoint':['python','/source/service/scripts/vllm-compat/native.py','--deadline',str(g['deadline_epoch']),'--receipt','/evidence/native-budget.json','--','python','-m','service.inference','--backend','transformers','--host','0.0.0.0','--port','8082','--generation-timeout',str(g['generation_timeout']),'--max-attempts',str(g['max_attempts']),'--deadline-epoch',str(g['deadline_epoch'])],'environment':{'PYTHONPATH':'/source:/deps','OMP_NUM_THREADS':'6'},'volumes':['/media/usv012/pjx/pi-agent-platform/experiments/7-qwen-load-20261021/deps:/deps:ro']}}}
