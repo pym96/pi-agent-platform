@@ -15,7 +15,7 @@ def validate(path,digest,now=None):
  if now>latest:raise ValueError('last new GPU start elapsed')
  if g['deadline_epoch']>1794419471 or not 15<g['deadline_epoch']-now<=g['max_duration_s']<=cap:raise ValueError('GO expired or over budget')
  if g['model_revision']!='b968826d9c46dd6066d109eabc6255188de91218':raise ValueError('model mismatch')
- for k in ['source_sha','probe_sha256','runtime_manifest_sha256','launcher_sha256','watch_sha256','model_manifest_sha256']:
+ for k in ['source_sha','probe_sha256','runtime_manifest_sha256','launcher_sha256','watch_sha256','model_manifest_sha256','driver_sha256']:
   if len(g[k])!=(40 if k=='source_sha' else 64) or any(c not in '0123456789abcdef' for c in g[k]):raise ValueError('bad '+k)
  if g['launcher_sha256']!=sha(__file__):raise ValueError('launcher hash mismatch')
  if not g['nonce'] or '/' in g['nonce']:raise ValueError('nonce mismatch')
@@ -27,6 +27,7 @@ def execute(g,go_path,go_digest):
  if sha(manifest)!=g['runtime_manifest_sha256'] or sha(probe)!=g['probe_sha256']:raise ValueError('runtime/probe mismatch')
  if subprocess.check_output(['git','-C',str(source),'rev-parse','HEAD'],text=True).strip()!=g['source_sha'] or subprocess.check_output(['git','-C',str(source),'status','--porcelain'],text=True).strip():raise ValueError('source mismatch or dirty')
  if sha(pathlib.Path(__file__).with_name('watch.py'))!=g['watch_sha256']:raise ValueError('watch mismatch')
+ if sha(pathlib.Path(__file__).with_name('driver.py'))!=g['driver_sha256']:raise ValueError('driver selector mismatch')
  files=json.loads(manifest.read_text())['files']
  if not files:raise ValueError('empty runtime manifest')
  expected={str(f.relative_to(root)) for f in (root/'env').rglob('*') if f.is_file() and not f.is_symlink()}
@@ -37,7 +38,7 @@ def execute(g,go_path,go_digest):
  model=pathlib.Path(g['model_path']).resolve()
  if model!=pathlib.Path('/media/usv012/pjx/agent/Qwen3-8B') or not model.is_dir():raise ValueError('model snapshot mismatch')
  model_manifest=source/'docs/evidence/qwen-load-20261021/model-files.json'
- if sha(model_manifest)!=g['model_manifest_sha256']:raise ValueError('model manifest mismatch')
+ if sha(model_manifest)!=g['model_manifest_sha256','driver_sha256']:raise ValueError('model manifest mismatch')
  model_files=json.loads(model_manifest.read_text())
  if not any(r['path'].endswith('.safetensors') for r in model_files):raise ValueError('model manifest missing weights')
  for row in model_files:
@@ -60,7 +61,7 @@ def execute(g,go_path,go_digest):
  out=root/('run-'+g['nonce']);out.mkdir();(out/'preflight.json').write_text(json.dumps([first,second]))
  remain=math.floor(g['deadline_epoch']-time.time()-15)
  if remain<=0:raise ValueError('deadline elapsed')
- args=['docker','create','--cidfile',str(out/'cid'),'--name',project+'-smoke','--label','com.docker.compose.project='+project,'--label','pi21.nonce='+g['nonce'],'--gpus','device='+UUID,'--network','none','--read-only','--cap-drop','ALL','--security-opt','no-new-privileges','--init','--cpus','8','--memory','24g','--pids-limit','1024','--user',str(os.getuid())+':'+str(os.getgid()),'--tmpfs','/tmp:size=1073741824','--shm-size','1g','--env','HOME=/tmp','--env','XDG_CACHE_HOME=/tmp/cache','--env','TRITON_CACHE_DIR=/tmp/triton','--env','TORCHINDUCTOR_CACHE_DIR=/tmp/torchinductor','--env','CUDA_VISIBLE_DEVICES=0','--env','HF_HUB_OFFLINE=1','--env','HF_HOME=/tmp/hf','--env','VLLM_CACHE_ROOT=/tmp/vllm','--mount','type=bind,src='+str(root/'env')+',dst=/venv,readonly','--mount','type=bind,src='+str(model)+',dst=/model,readonly','--mount','type=bind,src='+str(probe.parent)+',dst=/probe,readonly','--mount','type=bind,src='+str(out)+',dst=/evidence','--entrypoint','/usr/bin/python3',g['image'],'/probe/native.py','--deadline',str(g['deadline_epoch']),'--receipt','/evidence/native-budget.json','--','/venv/bin/python','/probe/smoke.py']
+ args=['docker','create','--cidfile',str(out/'cid'),'--name',project+'-smoke','--label','com.docker.compose.project='+project,'--label','pi21.nonce='+g['nonce'],'--gpus','device='+UUID,'--network','none','--read-only','--cap-drop','ALL','--security-opt','no-new-privileges','--init','--cpus','8','--memory','24g','--pids-limit','1024','--user',str(os.getuid())+':'+str(os.getgid()),'--tmpfs','/tmp:size=1073741824','--shm-size','1g','--env','HOME=/tmp','--env','XDG_CACHE_HOME=/tmp/cache','--env','TRITON_CACHE_DIR=/tmp/triton','--env','TORCHINDUCTOR_CACHE_DIR=/tmp/torchinductor','--env','CUDA_VISIBLE_DEVICES=0','--env','HF_HUB_OFFLINE=1','--env','HF_HOME=/tmp/hf','--env','VLLM_CACHE_ROOT=/tmp/vllm','--mount','type=bind,src='+str(root/'env')+',dst=/venv,readonly','--mount','type=bind,src='+str(model)+',dst=/model,readonly','--mount','type=bind,src='+str(probe.parent)+',dst=/probe,readonly','--mount','type=bind,src='+str(out)+',dst=/evidence','--entrypoint','/usr/bin/python3',g['image'],'/probe/native.py','--deadline',str(g['deadline_epoch']),'--receipt','/evidence/native-budget.json','--','/usr/bin/python3','/probe/driver.py','--','/venv/bin/python','/probe/smoke.py']
  stop=out/'stop-watch';ready=out/'watch-ready';watch=None;cid=None
  result={'status':'unknown','start_epoch':time.time(),'cid':None}
  def watch_args():return [sys.executable,str(pathlib.Path(__file__).with_name('watch.py')),'--cid',cid,'--nonce',g['nonce'],'--deadline',str(g['deadline_epoch']-15),'--stop-file',str(stop),'--out',str(out/'watch.jsonl'),'--ready',str(ready)]

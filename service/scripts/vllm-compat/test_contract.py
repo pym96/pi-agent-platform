@@ -8,7 +8,7 @@ class Contract(unittest.TestCase):
  def test_go_rejections_before_gpu_commands(self):
   import importlib.util
   spec=importlib.util.spec_from_file_location('launcher',HERE/'launch.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
-  good=dict(issue=21,role='builder',gpu_uuid=m.UUID,deadline_epoch=time.time()+30,max_duration_s=300,model_revision='b968826d9c46dd6066d109eabc6255188de91218',source_sha='a'*40,probe_sha256='b'*64,runtime_manifest_sha256='c'*64,launcher_sha256=m.sha(HERE/'launch.py'),watch_sha256=m.sha(HERE/'watch.py'),model_manifest_sha256='f'*64,nonce='cpu-probe')
+  good=dict(issue=21,role='builder',gpu_uuid=m.UUID,deadline_epoch=time.time()+30,max_duration_s=300,model_revision='b968826d9c46dd6066d109eabc6255188de91218',source_sha='a'*40,probe_sha256='b'*64,runtime_manifest_sha256='c'*64,launcher_sha256=m.sha(HERE/'launch.py'),watch_sha256=m.sha(HERE/'watch.py'),driver_sha256=m.sha(HERE/'driver.py'),model_manifest_sha256='f'*64,nonce='cpu-probe')
   with tempfile.TemporaryDirectory() as d:
    f=pathlib.Path(d)/'go.json'
    for patch in [{'deadline_epoch':time.time()-1},{'deadline_epoch':time.time()+10},{'issue':13},{'role':'master'},{'gpu_uuid':'GPU-other'},{'max_duration_s':301},{'launcher_sha256':'d'*64},{'model_revision':'latest'},{'source_sha':'z'*40}]:
@@ -23,7 +23,7 @@ class Contract(unittest.TestCase):
   spec=importlib.util.spec_from_file_location('launcher_window',HERE/'launch.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
   with tempfile.TemporaryDirectory() as d:
    f=pathlib.Path(d)/'go.json'
-   base=dict(issue=21,role='builder',gpu_uuid=m.UUID,deadline_epoch=1794385400,max_duration_s=300,model_revision='b968826d9c46dd6066d109eabc6255188de91218',source_sha='a'*40,probe_sha256='b'*64,runtime_manifest_sha256='c'*64,launcher_sha256=m.sha(HERE/'launch.py'),watch_sha256=m.sha(HERE/'watch.py'),model_manifest_sha256='f'*64,nonce='window-probe')
+   base=dict(issue=21,role='builder',gpu_uuid=m.UUID,deadline_epoch=1794385400,max_duration_s=300,model_revision='b968826d9c46dd6066d109eabc6255188de91218',source_sha='a'*40,probe_sha256='b'*64,runtime_manifest_sha256='c'*64,launcher_sha256=m.sha(HERE/'launch.py'),watch_sha256=m.sha(HERE/'watch.py'),driver_sha256=m.sha(HERE/'driver.py'),model_manifest_sha256='f'*64,nonce='window-probe')
    for role,cap,last in [('builder',300,1794418271),('regulator',180,1794418871)]:
     good={**base,'role':role,'max_duration_s':cap,'deadline_epoch':1794385200+cap};f.write_text(json.dumps(good));self.assertEqual(m.validate(f,m.sha(f),now=1794385200)['role'],role)
     for patch,now in [({'max_duration_s':cap+1},1794385200),({'deadline_epoch':1794419472},1794419300),({'deadline_epoch':last+2},last+1),({'deadline_epoch':1794325116},1794385200)]:
@@ -118,5 +118,47 @@ class NativeDeadlineContract(unittest.TestCase):
   with tempfile.TemporaryDirectory() as d:
    marker=pathlib.Path(d)/'must-not-exist';p=subprocess.run([sys.executable,str(HERE/'native.py'),'--deadline',str(time.time()+14),'--receipt',d+'/receipt','--',sys.executable,'-c','open('+repr(str(marker))+',"w").write("executed")'],capture_output=True,text=True,timeout=3)
    self.assertEqual(p.returncode,2);self.assertFalse(marker.exists());self.assertIn('deadline rejected',p.stderr)
+
+class DriverSelectionContract(unittest.TestCase):
+ def module(self):
+  import importlib.util
+  s=importlib.util.spec_from_file_location('native_driver_selection',HERE/'driver.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
+ def fixture(self,d):
+  root=pathlib.Path(d).resolve();f=root/'libcuda.so.535.fixture';f.write_bytes(b'native535fixture');return root,f,hashlib.sha256(f.read_bytes()).hexdigest()
+ def test_private_links_and_fresh_child_environment(self):
+  import os,stat
+  m=self.module()
+  with tempfile.TemporaryDirectory() as d:
+   root,f,h=self.fixture(d);private=root/'private';env=m.prepare(private,f,h,{'LD_LIBRARY_PATH':'original-path'})
+   self.assertEqual((private/'libcuda.so.1').resolve(),f);self.assertEqual(stat.S_IMODE(private.stat().st_mode),0o700)
+   p=subprocess.run([sys.executable,'-c','import os;print(os.environ["LD_LIBRARY_PATH"])'],env={**os.environ,**env},capture_output=True,text=True,timeout=3)
+   self.assertEqual(p.returncode,0);self.assertEqual(p.stdout.strip(),str(private)+os.pathsep+'original-path')
+ def test_missing_wrong_hash_and_preload_fail_before_directory(self):
+  m=self.module()
+  with tempfile.TemporaryDirectory() as d:
+   root,f,h=self.fixture(d)
+   for path,digest,env in [(root/'missing',h,{}),(f,'0'*64,{}),(f,h,{'LD_PRELOAD':'foreign.so'})]:
+    with self.assertRaises((ValueError,FileNotFoundError)):m.prepare(root/'private',path,digest,env)
+    self.assertFalse((root/'private').exists())
+ def test_unsafe_existing_private_directory_and_symlink_preserved(self):
+  m=self.module()
+  with tempfile.TemporaryDirectory() as d:
+   root,f,h=self.fixture(d);foreign=root/'foreign';foreign.mkdir();marker=foreign/'keep';marker.write_text('unchanged');link=root/'private';link.symlink_to(foreign,target_is_directory=True)
+   for path in [foreign,link]:
+    with self.assertRaises((ValueError,FileExistsError)):m.prepare(path,f,h,{})
+   self.assertEqual(marker.read_text(),'unchanged');self.assertEqual(link.resolve(),foreign)
+ def test_actual_mapping_requires_native_path_and_current_hash(self):
+  m=self.module()
+  with tempfile.TemporaryDirectory() as d:
+   root,f,h=self.fixture(d);maps='000-fff r-xp 0 0 0 '+str(f)+'\n';self.assertEqual(m.verify_mapping(maps,f,h)[0]['sha256'],h)
+   wrong=root/'libcuda.so.550.fixture';wrong.write_bytes(f.read_bytes())
+   for text in ['',maps.replace(str(f),str(wrong))]:
+    with self.assertRaises(ValueError):m.verify_mapping(text,f,h)
+   f.write_bytes(b'tamperednative')
+   with self.assertRaises(ValueError):m.verify_mapping(maps,f,h)
+ def test_import_has_no_library_or_model_load(self):
+  import ctypes
+  from unittest.mock import patch
+  with patch.object(ctypes,'CDLL',side_effect=AssertionError('loadduringimport')):self.assertTrue(callable(self.module().main))
 
 if __name__=='__main__':unittest.main()
