@@ -35,3 +35,5 @@ No Pan product development, public deployment, paid model calls or GPU work is i
 - Issue21 opt-in loader selection: [module and execution limits](service/scripts/vllm-compat/README.md), SC-LOADER-N11-07. Corrected execution source d803 generated16 tokens on both B and independent R; unchanged runtime8399 was produced under90b. Final Verdict remains pending and any additional GPU execution remains separately gated.
 
 - Current Pi #24 G2 candidate: [functional integration evidence](docs/evidence/pi-vllm-serve-20261111/README.md), baseline accepted b0ed. Native V1 adapter CPU development is in progress; GPU/remote CI/final acceptance remain separately gated. Earlier pending entries above are historical at their recorded scope.
+
+- Pi24 SC-VERSION04: [first startup failure and exact module/distribution identity repair](docs/evidence/pi-vllm-serve-20261111/README.md), with [official wheel CPU fixture provenance](service/inference/tests/fixtures/vllm_identity/README.md). Executiona5 failed before model construction; local repair/CPU evidence is not a new model result or acceptance.

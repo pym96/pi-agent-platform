@@ -88,9 +88,22 @@ def test_overbudget_native_terminal_is_explicit_failure():
                 assert '"finish_reason": "length"' not in body
     asyncio.run(scenario())
 
-def test_load_selects_fixed_v1_uni_configuration_without_fallback(monkeypatch):
-    import sys
+def official_identity_loader(monkeypatch):
+    """Real wheel version sources/metadata; package root, Args and engine are seams."""
+    import sys,importlib,importlib.metadata,hashlib,json,pathlib
     from types import ModuleType
+    fixture=pathlib.Path(__file__).parent/'fixtures/vllm_identity'
+    provenance=json.loads((fixture/'provenance.json').read_text())
+    for row in provenance['files']:
+        assert hashlib.sha256((fixture/row['path']).read_bytes()).hexdigest()==row['sha256']
+    monkeypatch.syspath_prepend(str(fixture))
+    root=ModuleType('vllm');root.__path__=[str(fixture/'vllm')]
+    monkeypatch.setitem(sys.modules,'vllm',root)
+    for name in ['vllm.version','vllm._version']:monkeypatch.delitem(sys.modules,name,raising=False)
+    real=importlib.import_module('vllm.version');root.__version__=real.__version__
+    root.SamplingParams=lambda **kw:NS(**kw)
+    assert root.__version__=='0.8.5.post1'
+    assert importlib.metadata.version('vllm')=='0.8.5.post1+cu118'
     configured={};engine=Engine()
     async def tokenizer():return Tokenizer()
     engine.get_tokenizer=tokenizer
@@ -100,18 +113,22 @@ def test_load_selects_fixed_v1_uni_configuration_without_fallback(monkeypatch):
         @classmethod
         def from_engine_args(cls,args):return engine
     for name,attrs in {
-        'vllm':{'__version__':'0.8.5.post1+cu118','SamplingParams':lambda **kw:NS(**kw)},
         'vllm.engine':{},'vllm.engine.arg_utils':{'AsyncEngineArgs':Args},
         'vllm.v1':{},'vllm.v1.engine':{},'vllm.v1.engine.async_llm':{'AsyncLLM':AsyncEngine},
     }.items():
         module=ModuleType(name);module.__dict__.update(attrs);monkeypatch.setitem(sys.modules,name,module)
     monkeypatch.setenv('VLLM_USE_V1','1')
+    return root,configured
+
+def test_load_selects_fixed_v1_uni_configuration_without_fallback(monkeypatch):
+    root,configured=official_identity_loader(monkeypatch)
     backend=asyncio.run(VllmBackend.load('/model'))
     assert backend.ready
     assert configured['model']=='/model' and configured['dtype']=='bfloat16'
     assert configured['max_num_seqs']==1 and configured['max_model_len']==1024
     assert configured['distributed_executor_backend']=='uni'
     assert configured['enforce_eager'] is True and configured['enable_prefix_caching'] is False
+
 
 def test_cli_exposes_vllm_and_rejects_unknown_backend():
     import subprocess,sys
@@ -215,3 +232,19 @@ def test_actual_template_context_limit_precedes_native_generation():
                 assert response.status==400 and (await response.json())['error']['code']=='context_limit'
         assert not engine.requests and backend.calls==0
     asyncio.run(scenario())
+
+
+def test_wrong_or_missing_runtime_identity_rejects_before_native_construction(monkeypatch):
+    import importlib.metadata
+    import pytest
+    for kind in ['wrong_module','missing_module','wrong_distribution','missing_distribution']:
+        with monkeypatch.context() as patch:
+            module,constructed=official_identity_loader(patch)
+            if kind=='wrong_module':module.__version__='0.8.5.post1+cu118'
+            if kind=='missing_module':del module.__version__
+            if kind=='wrong_distribution':patch.setattr(importlib.metadata,'version',lambda name:'0.8.5.post1')
+            if kind=='missing_distribution':
+                def missing(name):raise importlib.metadata.PackageNotFoundError(name)
+                patch.setattr(importlib.metadata,'version',missing)
+            with pytest.raises(ValueError):asyncio.run(VllmBackend.load('/model'))
+            assert not constructed

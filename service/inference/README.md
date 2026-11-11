@@ -47,3 +47,5 @@ Independent Regulator performs at most six sequential calls with `scripts/smoke.
 Cancellation awaits the fixed-version EngineCore utility response for `abort_requests` after the normal abort IPC. That response establishes scheduler handling, followed by iterator closure. It does not establish immediate GPU kernel preemption. Failed acknowledgements quarantine readiness and retain an unknown active request until the external owned-container stop; they are never reported as settled. The public adapter holds its single slot through this process.
 
 Run the full existing inference wrapper (it includes `tests/test_vllm.py`) in a dedicated CPU environment. [Candidate evidence](../../docs/evidence/pi-vllm-serve-20261111/README.md) distinguishes CPU tests from separately authorized real-model stages.
+
+Pi24 SC-VERSION04: the adapter checks exact module `0.8.5.post1` and exact distribution `0.8.5.post1+cu118` separately. The [official wheel identity fixture](tests/fixtures/vllm_identity/README.md) executes the real version source and distribution metadata; its documented native seams remain CPU substitutes.

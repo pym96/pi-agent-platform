@@ -1,0 +1,22 @@
+{
+  "wheel": "vllm-0.8.5.post1+cu118-cp38-abi3-manylinux1_x86_64.whl",
+  "wheel_sha256": "a593a2e5f455b0e47bf297ea31153dad9c2b2c44ddb13e194ba0a247e597e34a",
+  "files": [
+    {
+      "path": "vllm/_version.py",
+      "bytes": 526,
+      "sha256": "545a7ea19397a13b42cce389cb16235fb4daf92d06ddcd6af52cc8f2b4531a2b"
+    },
+    {
+      "path": "vllm/version.py",
+      "bytes": 1306,
+      "sha256": "14e519ce4c0c4742b31cbbf882be91db91f0ba58a4a41f47f15bdeaf7557f2c1"
+    },
+    {
+      "path": "vllm-0.8.5.post1+cu118.dist-info/METADATA",
+      "bytes": 14853,
+      "sha256": "7919f74de2bddd33cb8d65f14270e4310a3c2695a9fe0a260fc4d02fb42e8921"
+    }
+  ],
+  "scope": "Official identity source only; test stubs package root and native dependencies, never loads CUDA or model."
+}

@@ -4,6 +4,7 @@ import asyncio
 import os
 import json
 import time
+from importlib import metadata
 from .app import InputError
 
 def trace(event,**values):
@@ -31,14 +32,17 @@ class VllmBackend:
     async def load(cls,model_path):
         if os.environ.get('VLLM_USE_V1')!='1':raise ValueError('explicit VLLM_USE_V1=1 required')
         import vllm
-        if vllm.__version__!='0.8.5.post1+cu118':raise ValueError('fixed vLLM version required')
+        if getattr(vllm,'__version__',None)!='0.8.5.post1':raise ValueError('fixed vLLM module version required')
+        try:distribution_version=metadata.version('vllm')
+        except metadata.PackageNotFoundError as exc:raise ValueError('fixed vLLM distribution metadata required') from exc
+        if distribution_version!='0.8.5.post1+cu118':raise ValueError('fixed vLLM distribution version required')
         from vllm.engine.arg_utils import AsyncEngineArgs
         from vllm.v1.engine.async_llm import AsyncLLM
         config=dict(model=model_path,dtype='bfloat16',max_model_len=1024,max_num_seqs=1,
             tensor_parallel_size=1,distributed_executor_backend='uni',enable_prefix_caching=False,
             enforce_eager=True,gpu_memory_utilization=.8,swap_space=0,cpu_offload_gb=0,
             seed=0,trust_remote_code=False,disable_log_stats=True)
-        trace('engine_start',config=config,vllm_version=vllm.__version__)
+        trace('engine_start',config=config,vllm_version=vllm.__version__,vllm_distribution_version=distribution_version)
         engine=AsyncLLM.from_engine_args(AsyncEngineArgs(**config))
         try:tokenizer=await engine.get_tokenizer()
         except BaseException:
