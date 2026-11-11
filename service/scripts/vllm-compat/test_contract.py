@@ -11,7 +11,7 @@ class Contract(unittest.TestCase):
   good=dict(issue=21,role='builder',gpu_uuid=m.UUID,deadline_epoch=time.time()+30,max_duration_s=300,model_revision='b968826d9c46dd6066d109eabc6255188de91218',source_sha='a'*40,probe_sha256='b'*64,runtime_manifest_sha256='c'*64,launcher_sha256=m.sha(HERE/'launch.py'),watch_sha256=m.sha(HERE/'watch.py'),model_manifest_sha256='f'*64,nonce='cpu-probe')
   with tempfile.TemporaryDirectory() as d:
    f=pathlib.Path(d)/'go.json'
-   for patch in [{'deadline_epoch':time.time()-1},{'issue':13},{'role':'master'},{'gpu_uuid':'GPU-other'},{'max_duration_s':301},{'launcher_sha256':'d'*64},{'model_revision':'latest'},{'source_sha':'z'*40}]:
+   for patch in [{'deadline_epoch':time.time()-1},{'deadline_epoch':time.time()+10},{'issue':13},{'role':'master'},{'gpu_uuid':'GPU-other'},{'max_duration_s':301},{'launcher_sha256':'d'*64},{'model_revision':'latest'},{'source_sha':'z'*40}]:
     g={**good,**patch};f.write_text(json.dumps(g));p=subprocess.run([sys.executable,str(HERE/'launch.py'),'--go',str(f),'--go-sha256',m.sha(f)],capture_output=True,text=True,timeout=3)
     self.assertEqual(p.returncode,2,(patch,p.stdout,p.stderr));self.assertIn('GO rejected',p.stderr)
    f.write_text(json.dumps(good));self.assertEqual(m.validate(f,m.sha(f))['issue'],21)
@@ -74,6 +74,7 @@ class WheelContract(unittest.TestCase):
     with zipfile.ZipFile(f,'w') as z:z.writestr(name+'.dist-info/METADATA','Name: '+name+'\nVersion: '+version+'\n')
     rows.append(dict(name=name,version=version,filename=f.name,size=f.stat().st_size,sha256=hashlib.sha256(f.read_bytes()).hexdigest(),url=m.XFORMERS if name=='xformers' else 'https://files.pythonhosted.org/'+f.name))
    lock=root/'lock';lock.write_text(json.dumps(rows));self.assertEqual(m.validate(lock,w)['artifacts'],len(m.PINNED))
+   next(r for r in rows if r['name']=='triton')['url']='https://download-r2.pytorch.org/whl/triton-fixture.whl';lock.write_text(json.dumps(rows));self.assertEqual(m.validate(lock,w)['artifacts'],len(m.PINNED))
    target=w/rows[0]['filename'];original=target.read_bytes();target.write_bytes(original+b'bad')
    with self.assertRaisesRegex(ValueError,'bytes mismatch'):m.validate(lock,w)
    target.write_bytes(original);rows[0]['url']='https://untrusted.invalid/wheel';lock.write_text(json.dumps(rows))
@@ -84,4 +85,21 @@ class WheelContract(unittest.TestCase):
    with self.assertRaisesRegex(ValueError,'transitive'):m.validate(lock,w)
    lock.write_text('[]')
    with self.assertRaisesRegex(ValueError,'empty'):m.validate(lock,w)
+
+
+class NativeDeadlineContract(unittest.TestCase):
+ def test_absolute_native_timeout_terminates_actual_cpu_child(self):
+  with tempfile.TemporaryDirectory() as d:
+   receipt=pathlib.Path(d)/'receipt.json';pidfile=pathlib.Path(d)/'pid'
+   command=[sys.executable,'-c','import os,pathlib,time;pathlib.Path('+repr(str(pidfile))+').write_text(str(os.getpid()));time.sleep(10)']
+   start=time.time();p=subprocess.run([sys.executable,str(HERE/'native.py'),'--deadline',str(start+15.25),'--receipt',str(receipt),'--',*command],capture_output=True,text=True,timeout=4)
+   self.assertEqual(p.returncode,124,p.stderr);self.assertLess(time.time()-start,3)
+   data=json.loads(receipt.read_text());self.assertEqual(data['cleanup_reserve_s'],15);self.assertGreater(data['native_limit_s'],0);self.assertLess(data['native_limit_s'],.3)
+   import os
+   with self.assertRaises(ProcessLookupError):os.kill(int(pidfile.read_text()),0)
+ def test_expired_native_deadline_never_executes_command(self):
+  with tempfile.TemporaryDirectory() as d:
+   marker=pathlib.Path(d)/'must-not-exist';p=subprocess.run([sys.executable,str(HERE/'native.py'),'--deadline',str(time.time()+14),'--receipt',d+'/receipt','--',sys.executable,'-c','open('+repr(str(marker))+',"w").write("executed")'],capture_output=True,text=True,timeout=3)
+   self.assertEqual(p.returncode,2);self.assertFalse(marker.exists());self.assertIn('deadline rejected',p.stderr)
+
 if __name__=='__main__':unittest.main()

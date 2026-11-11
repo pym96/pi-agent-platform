@@ -13,3 +13,5 @@ Product preflight tooling; opt-in only. It does not change the default Go/Pi/Tra
 The independent Regulator's probes and logs remain outside this candidate. See [attempt evidence](../../../docs/evidence/vllm-compat-20261111/README.md). G0 requires actual Builder and independent Regulator generation; CPU tests/download metadata do not establish compatibility.
 
 November11 uses roots `21-vllm-compat-20261111/{builder,regulator}`, projects `pi-vllm21-n11-b/r`, at most8CPU/24GiB per active container, absolute stop17:51:11Z and separate role start ceilings. A single new GO allows at most300seconds Builder or180seconds Regulator, within cumulative WorkOrder budgets. Importing the smoke probe has no runtime/model side effects; actual execution is protected by its main guard.
+
+`native.py` computes the absolute engine timeout inside the container immediately before GNU timeout starts, leaving15seconds for cleanup; late or nonfinite deadlines reject before executing the model command. The independent watchdog uses the same earlier engine deadline. HOME/XDG/Triton/TorchInductor caches live under bounded `/tmp`, while weights/runtime/source are read-only.

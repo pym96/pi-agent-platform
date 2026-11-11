@@ -1,7 +1,7 @@
 {
-  "start_epoch": 1794385445.543287,
-  "end_epoch": 1794385447.43666,
-  "duration_s": 1.8933730125427246,
+  "start_epoch": 1794386092.987666,
+  "end_epoch": 1794386094.47635,
+  "duration_s": 1.4886841773986816,
   "exit": 0,
   "gpu_seconds": 0,
   "model_calls": 0

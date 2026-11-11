@@ -13,7 +13,7 @@ def validate(path,digest,now=None):
  cap=300 if g['role']=='builder' else 180
  latest=1794418271 if g['role']=='builder' else 1794418871
  if now>latest:raise ValueError('last new GPU start elapsed')
- if g['deadline_epoch']>1794419471 or not 0<g['deadline_epoch']-now<=g['max_duration_s']<=cap:raise ValueError('GO expired or over budget')
+ if g['deadline_epoch']>1794419471 or not 15<g['deadline_epoch']-now<=g['max_duration_s']<=cap:raise ValueError('GO expired or over budget')
  if g['model_revision']!='b968826d9c46dd6066d109eabc6255188de91218':raise ValueError('model mismatch')
  for k in ['source_sha','probe_sha256','runtime_manifest_sha256','launcher_sha256','watch_sha256','model_manifest_sha256']:
   if len(g[k])!=(40 if k=='source_sha' else 64) or any(c not in '0123456789abcdef' for c in g[k]):raise ValueError('bad '+k)
@@ -58,12 +58,12 @@ def execute(g,go_path,go_digest):
  if validate(go_path,go_digest)!=g:raise ValueError('GO changed')
  nonce=root/('consumed-'+g['nonce']);nonce.touch(exist_ok=False)
  out=root/('run-'+g['nonce']);out.mkdir();(out/'preflight.json').write_text(json.dumps([first,second]))
- remain=math.floor(g['deadline_epoch']-time.time())
+ remain=math.floor(g['deadline_epoch']-time.time()-15)
  if remain<=0:raise ValueError('deadline elapsed')
- args=['docker','create','--cidfile',str(out/'cid'),'--name',project+'-smoke','--label','com.docker.compose.project='+project,'--label','pi21.nonce='+g['nonce'],'--gpus','device='+UUID,'--network','none','--read-only','--cap-drop','ALL','--security-opt','no-new-privileges','--init','--cpus','8','--memory','24g','--pids-limit','1024','--user',str(os.getuid())+':'+str(os.getgid()),'--tmpfs','/tmp:size=1073741824','--shm-size','1g','--env','CUDA_VISIBLE_DEVICES=0','--env','HF_HUB_OFFLINE=1','--env','HF_HOME=/tmp/hf','--env','VLLM_CACHE_ROOT=/tmp/vllm','--mount','type=bind,src='+str(root/'env')+',dst=/venv,readonly','--mount','type=bind,src='+str(model)+',dst=/model,readonly','--mount','type=bind,src='+str(probe.parent)+',dst=/probe,readonly','--mount','type=bind,src='+str(out)+',dst=/evidence','--entrypoint','timeout',g['image'],'--signal=TERM','--kill-after=2s',str(remain)+'s','/venv/bin/python','/probe/smoke.py']
+ args=['docker','create','--cidfile',str(out/'cid'),'--name',project+'-smoke','--label','com.docker.compose.project='+project,'--label','pi21.nonce='+g['nonce'],'--gpus','device='+UUID,'--network','none','--read-only','--cap-drop','ALL','--security-opt','no-new-privileges','--init','--cpus','8','--memory','24g','--pids-limit','1024','--user',str(os.getuid())+':'+str(os.getgid()),'--tmpfs','/tmp:size=1073741824','--shm-size','1g','--env','HOME=/tmp','--env','XDG_CACHE_HOME=/tmp/cache','--env','TRITON_CACHE_DIR=/tmp/triton','--env','TORCHINDUCTOR_CACHE_DIR=/tmp/torchinductor','--env','CUDA_VISIBLE_DEVICES=0','--env','HF_HUB_OFFLINE=1','--env','HF_HOME=/tmp/hf','--env','VLLM_CACHE_ROOT=/tmp/vllm','--mount','type=bind,src='+str(root/'env')+',dst=/venv,readonly','--mount','type=bind,src='+str(model)+',dst=/model,readonly','--mount','type=bind,src='+str(probe.parent)+',dst=/probe,readonly','--mount','type=bind,src='+str(out)+',dst=/evidence','--entrypoint','/usr/bin/python3',g['image'],'/probe/native.py','--deadline',str(g['deadline_epoch']),'--receipt','/evidence/native-budget.json','--','/venv/bin/python','/probe/smoke.py']
  stop=out/'stop-watch';ready=out/'watch-ready';watch=None;cid=None
  result={'status':'unknown','start_epoch':time.time(),'cid':None}
- def watch_args():return [sys.executable,str(pathlib.Path(__file__).with_name('watch.py')),'--cid',cid,'--nonce',g['nonce'],'--deadline',str(g['deadline_epoch']),'--stop-file',str(stop),'--out',str(out/'watch.jsonl'),'--ready',str(ready)]
+ def watch_args():return [sys.executable,str(pathlib.Path(__file__).with_name('watch.py')),'--cid',cid,'--nonce',g['nonce'],'--deadline',str(g['deadline_epoch']-15),'--stop-file',str(stop),'--out',str(out/'watch.jsonl'),'--ready',str(ready)]
  try:
   created=time.time()
   try:creation=subprocess.run(args,capture_output=True,text=True,timeout=20)

@@ -4,7 +4,7 @@ from pip._vendor.packaging.requirements import Requirement
 from pip._vendor.packaging.utils import canonicalize_name
 from pip._vendor.packaging.markers import default_environment
 PINNED={'vllm':'0.8.5.post1+cu118','torch':'2.6.0+cu118','torchvision':'0.21.0+cu118','torchaudio':'2.6.0+cu118','xformers':'0.0.29.post2','transformers':'4.51.3','tokenizers':'0.21.1','triton':'3.2.0','numpy':'1.26.4'}
-HOSTS={'github.com','release-assets.githubusercontent.com','objects.githubusercontent.com','download.pytorch.org','pypi.org','files.pythonhosted.org'}
+HOSTS={'github.com','release-assets.githubusercontent.com','objects.githubusercontent.com','download.pytorch.org','download-r2.pytorch.org','pypi.org','files.pythonhosted.org'}
 XFORMERS='https://download.pytorch.org/whl/cu118/xformers-0.0.29.post2-cp310-cp310-manylinux_2_28_x86_64.whl'
 def validate(lock,wheels):
  rows=json.loads(pathlib.Path(lock).read_text());root=pathlib.Path(wheels);names={};files=set();total=0;metadata_by_name={}
