@@ -6,7 +6,7 @@ class EntryTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as d:
    d=pathlib.Path(d);go=d/'go.json';go.write_text(json.dumps({'issue':24,'deadline_epoch':1}))
    digest=hashlib.sha256(go.read_bytes()).hexdigest()
-   r=subprocess.run([sys.executable,str(HERE/'launch.py'),'--go',str(go),'--go-sha256',digest],capture_output=True,text=True,timeout=5)
+   r=subprocess.run([sys.executable,str(HERE/'launch.py'),'--go',str(go),'--go-sha256',digest,'--phase-contract',str(go),'--phase-contract-sha256',digest],capture_output=True,text=True,timeout=5)
    self.assertEqual(r.returncode,2);self.assertIn('GO rejected',r.stderr)
    self.assertNotIn('docker',r.stderr.lower());self.assertNotIn('nvidia-smi',r.stderr.lower())
 if __name__=='__main__':unittest.main()
@@ -21,70 +21,92 @@ class ClientEntryTests(unittest.TestCase):
   self.assertNotIn('--model ',r.stdout);self.assertNotIn('--api ',r.stdout)
 
 
-# Exact values from Master PHASE2-CONTRACT.v1.json, hash06b694..., not the implementation.
-TEST_PHASE={'schema': 'pi24-phase-window/v1', 'id': 'pi24-nov11-p2', 'contract_sha256': '06b694ed12c3aebb62cd2bc870e13148998817b2dc96a30f373165665300d9f8', 'start_epoch': 1794411000.0, 'builder_latest_start_epoch': 1794414900.0, 'regulator_latest_start_epoch': 1794415800.0, 'all_owned_stop_epoch': 1794416400.0, 'end_epoch': 1794417600.0, 'global_end_epoch': 1794420671.0}
-class PhaseWindowTests(unittest.TestCase):
+class IndependentPhaseTests(unittest.TestCase):
  def load_entry(self):
   import importlib.util
-  spec=importlib.util.spec_from_file_location('pi24_phase_entry',HERE/'launch.py')
+  spec=importlib.util.spec_from_file_location('pi24_independent_phase',HERE/'launch.py')
   module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
- def go(self,module,now,role='builder'):
-  g={'issue':24,'role':role,'phase':dict(TEST_PHASE),'deadline_epoch':now+120,'max_duration_s':180,
-     'gpu_uuid':module.UUID,'mode':'vllm','nonce':'cpu-phase-test','max_attempts':8}
+ def phase(self,start=2000000000):
+  import datetime
+  phase={'schema':'pi24-master-phase-contract/v2','id':'simulation-'+str(start),'issue':24}
+  for name,offset in [('start',0),('builder_latest_start',600),('regulator_latest_start',900),('all_owned_stop',1200),('end',1500),('global_end',1800)]:
+   value=start+offset;phase[name+'_epoch']=value
+   phase[name]=datetime.datetime.fromtimestamp(value,datetime.timezone.utc).isoformat().replace('+00:00','Z')
+  return phase
+ def go(self,module,phase,phase_hash,now,role='builder'):
+  g={'issue':24,'role':role,'phase':phase,'phase_contract_sha256':phase_hash,'deadline_epoch':now+120,'max_duration_s':180,'gpu_uuid':module.UUID,'mode':'vllm','nonce':'cpu-independent-phase','max_attempts':8}
   for key in ('source_sha','network_id','runtime_manifest_sha256','model_manifest_sha256','entry_sha256','watch_sha256','plan_sha256','driver_sha256','native_sha256','compose_sha256','assets_sha256'):
    g[key]='a'*(40 if key=='source_sha' else 64)
   g['entry_sha256']=module.sha(HERE/'launch.py');return g
- def validate(self,module,g,now):
+ def validate(self,module,phase,now,change_go=None,change_phase=None,expected_hash=None):
   from unittest.mock import patch
   with tempfile.TemporaryDirectory() as d:
-   p=pathlib.Path(d)/'go.json';p.write_text(json.dumps(g));digest=module.sha(p)
-   with patch.object(module.time,'time',return_value=now):return module.validate(p,digest)
- def test_fixed_P2_entry_accepts_each_role_after_retired_P1_cutoff(self):
-  module=self.load_entry();now=TEST_PHASE['start_epoch']+1860
+   pp=pathlib.Path(d)/'phase.json';pp.write_text(json.dumps(phase));ph=module.sha(pp)
+   g=self.go(module,phase,ph,now)
+   if change_go:change_go(g)
+   gp=pathlib.Path(d)/'go.json';gp.write_text(json.dumps(g))
+   if change_phase:change_phase(pp)
+   with patch.object(module.time,'time',return_value=now):return module.validate(gp,module.sha(gp),pp,expected_hash or ph),g
+ def test_same_source_accepts_two_independently_bound_phase_files(self):
+  module=self.load_entry();before=module.sha(HERE/'launch.py')
+  for start in [2000000000,2100000000]:
+   phase=self.phase(start);actual,g=self.validate(module,phase,start+60);self.assertEqual(actual,g)
+  self.assertEqual(module.sha(HERE/'launch.py'),before)
+
+ def test_phase_hash_and_go_binding_cannot_be_changed_by_go_caller(self):
+  module=self.load_entry();phase=self.phase();now=phase['start_epoch']+60
+  changes=[lambda g:g.pop('phase_contract_sha256'),lambda g:g.update(phase_contract_sha256='f'*64),lambda g:g.pop('phase'),lambda g:g['phase'].update(id='retired-phase'),lambda g:g['phase'].update(end_epoch=phase['global_end_epoch']+1)]
+  for change in changes:
+   with self.subTest(change=change):
+    # Each GO has its own deep copy so mutations cannot change the frozen input.
+    frozen=json.loads(json.dumps(phase))
+    with self.assertRaises(ValueError):self.validate(module,frozen,now,change_go=change)
+  with self.assertRaises(ValueError):self.validate(module,phase,now,expected_hash='f'*64)
+  with self.assertRaises(ValueError):self.validate(module,phase,now,change_phase=lambda p:p.write_text('{}'))
+ def test_each_role_uses_its_own_last_start_and_original_duration_cap(self):
+  module=self.load_entry();phase=self.phase();start=phase['start_epoch']
   for role in ['builder','regulator']:
-   with self.subTest(role=role):
-    g=self.go(module,now,role);self.assertEqual(self.validate(module,g,now),g)
- def test_phase_identity_and_every_bound_are_exact(self):
-  module=self.load_entry();now=TEST_PHASE['start_epoch']+60
-  for key in TEST_PHASE:
-   with self.subTest(field=key):
-    g=self.go(module,now,'regulator');value=g['phase'][key]
-    g['phase'][key]=value+'x' if isinstance(value,str) else value+1
-    with self.assertRaises(ValueError):self.validate(module,g,now)
-  for phase in [None,{}, {'id':'pi24-nov11-p1'}, {**TEST_PHASE,'extra':True}]:
-   g=self.go(module,now,'regulator');g['phase']=phase
-   with self.assertRaises(ValueError):self.validate(module,g,now)
-  g=self.go(module,now,'regulator');del g['phase']
-  with self.assertRaises(ValueError):self.validate(module,g,now)
- def test_time_role_duration_and_nonfinite_inputs_reject(self):
-  module=self.load_entry();start=TEST_PHASE['start_epoch'];stop=TEST_PHASE['all_owned_stop_epoch']
-  cases=[]
-  for role in ['builder','regulator']:
-   now=TEST_PHASE[role+'_latest_start_epoch']+1;cases.append((self.go(module,now,role),now))
-   now=start+60;g=self.go(module,now,role);g['max_duration_s']=901 if role=='builder' else 301;g['deadline_epoch']=now+g['max_duration_s'];cases.append((g,now))
-  cases.append((self.go(module,start-1),start-1))
-  cases.append((self.go(module,TEST_PHASE['end_epoch']+1),TEST_PHASE['end_epoch']+1))
-  now=TEST_PHASE['regulator_latest_start_epoch'];g=self.go(module,now,'regulator');g['deadline_epoch']=stop+1;cases.append((g,now))
-  now=start+60;g=self.go(module,now);g['deadline_epoch']=now-1;cases.append((g,now))
-  for value in [float('nan'),float('inf'),float('-inf'),True]:
-   g=self.go(module,now);g['deadline_epoch']=value;cases.append((g,now))
-   g=self.go(module,now);g['phase']['all_owned_stop_epoch']=value;cases.append((g,now))
-   g=self.go(module,now);g['max_duration_s']=value;cases.append((g,now))
-  for clock in [float('nan'),float('inf'),float('-inf'),True]:cases.append((self.go(module,now),clock))
-  for g,clock in cases:
-   with self.subTest(role=g['role'],clock=clock,deadline=g['deadline_epoch']):
-    with self.assertRaises(ValueError):self.validate(module,g,clock)
- def test_actual_cli_rejects_tampered_phase_without_tool_execution(self):
-  module=self.load_entry();now=TEST_PHASE['start_epoch']+60;g=self.go(module,now);g['phase']['end_epoch']=TEST_PHASE['global_end_epoch']+1
+   now=phase[role+'_latest_start_epoch']
+   actual,g=self.validate(module,phase,now,change_go=lambda g:g.update(role=role));self.assertEqual(actual,g)
+   with self.assertRaises(ValueError):self.validate(module,phase,now+1,change_go=lambda g:g.update(role=role))
+   with self.assertRaises(ValueError):self.validate(module,phase,start+1,change_go=lambda g:g.update(role=role,max_duration_s=901 if role=='builder' else 301))
+
+ def test_independent_phase_schema_order_utc_and_finite_times(self):
+  module=self.load_entry();baseline=self.phase();now=baseline['start_epoch']+60
+  changes=[lambda p:p.pop('schema'),lambda p:p.update(schema='unknown'),lambda p:p.pop('id'),lambda p:p.update(issue=25),lambda p:p.update(start='2033-05-18T03:33:20+00:00'),lambda p:p.update(start_epoch=p['start_epoch']+1),lambda p:p.update(global_end_epoch=p['end_epoch']-1)]
+  for field in ['start','builder_latest_start','regulator_latest_start','all_owned_stop','end','global_end']:
+   changes.append(lambda p,field=field:p.pop(field+'_epoch'))
+   for value in [True,float('nan'),float('inf'),float('-inf'),'123']:
+    changes.append(lambda p,field=field,value=value:p.update({field+'_epoch':value}))
+  for change in changes:
+   phase=json.loads(json.dumps(baseline));change(phase)
+   with self.subTest(phase=phase):
+    with self.assertRaises((ValueError,KeyError)):self.validate(module,phase,now)
+ def test_early_expired_deadline_and_nonfinite_go_are_rejected(self):
+  module=self.load_entry();phase=self.phase();start=phase['start_epoch'];now=start+60
+  for clock in [start-1,phase['end_epoch']+1,True,float('nan'),float('inf'),float('-inf')]:
+   with self.subTest(clock=clock):
+    with self.assertRaises(ValueError):self.validate(module,phase,clock)
+  for field in ['deadline_epoch','max_duration_s']:
+   for value in [True,float('nan'),float('inf'),float('-inf'),'123']:
+    with self.subTest(field=field,value=value):
+     with self.assertRaises(ValueError):self.validate(module,phase,now,change_go=lambda g:g.update({field:value}))
+  for deadline in [now-1,now+30,now+181,phase['all_owned_stop_epoch']+1]:
+   with self.subTest(deadline=deadline):
+    with self.assertRaises(ValueError):self.validate(module,phase,now,change_go=lambda g:g.update(deadline_epoch=deadline))
+ def test_actual_cli_rejects_changed_go_phase_and_retired_go_before_tools(self):
+  import os
+  module=self.load_entry();phase=self.phase(int(time.time())-60)
   with tempfile.TemporaryDirectory() as d:
-   p=pathlib.Path(d)/'go.json';p.write_text(json.dumps(g))
-   r=subprocess.run([sys.executable,str(HERE/'launch.py'),'--go',str(p),'--go-sha256',module.sha(p)],capture_output=True,text=True,timeout=5)
-  self.assertEqual(r.returncode,2);self.assertIn('GO rejected',r.stderr)
-  self.assertNotIn('Execution failed',r.stderr)
- def test_wrong_go_digest_and_old_P1_go_reject(self):
-  module=self.load_entry();now=TEST_PHASE['start_epoch']+60;g=self.go(module,now)
-  with tempfile.TemporaryDirectory() as d:
-   p=pathlib.Path(d)/'go.json';p.write_text(json.dumps(g))
-   with self.assertRaises(ValueError):module.validate(p,'f'*64)
-  old=self.go(module,now);del old['phase'];old['deadline_epoch']=1794408345.331222
-  with self.assertRaises(ValueError):self.validate(module,old,now)
+   root=pathlib.Path(d);pp=root/'phase.json';pp.write_text(json.dumps(phase));ph=module.sha(pp)
+   marker=root/'external-tool-called'
+   for name in ['docker','nvidia-smi']:
+    tool=root/name;tool.write_text('#!'+sys.executable+'\nfrom pathlib import Path\nPath('+repr(str(marker))+').touch()\n');tool.chmod(0o755)
+   baseline=self.go(module,phase,ph,time.time())
+   changed=json.loads(json.dumps(baseline));changed['phase']['end_epoch']+=1
+   retired=json.loads(json.dumps(baseline));retired['phase']={'schema':'pi24-phase-window/v1','id':'pi24-nov11-p2'};retired.pop('phase_contract_sha256')
+   for g in [changed,retired]:
+    gp=root/'go.json';gp.write_text(json.dumps(g));env=dict(os.environ,PATH=str(root)+os.pathsep+os.environ.get('PATH',''))
+    result=subprocess.run([sys.executable,str(HERE/'launch.py'),'--go',str(gp),'--go-sha256',module.sha(gp),'--phase-contract',str(pp),'--phase-contract-sha256',ph],capture_output=True,text=True,env=env,timeout=5)
+    self.assertEqual(result.returncode,2,result.stderr);self.assertIn('GO rejected',result.stderr);self.assertNotIn('Execution failed',result.stderr)
+    self.assertFalse(marker.exists())

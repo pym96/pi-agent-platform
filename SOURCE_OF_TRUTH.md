@@ -39,3 +39,5 @@ No Pan product development, public deployment, paid model calls or GPU work is i
 - Pi24 SC-VERSION04: [first startup failure and exact module/distribution identity repair](docs/evidence/pi-vllm-serve-20261111/README.md), with [official wheel CPU fixture provenance](service/inference/tests/fixtures/vllm_identity/README.md). Executiona5 failed before model construction; local repair/CPU evidence is not a new model result or acceptance.
 
 - Pi24 C04@1.3: [retired P1 and explicit fixed P2 entry bounds](service/scripts/vllm-serve/README.md), [failure/provenance notes](docs/evidence/pi-vllm-serve-20261111/README.md). New local control-source/CPU checks remain separate from sourceCI3, future model authorization and final acceptance.
+
+- Pi24 C04@1.4 restoration: [independently bound phase input](service/scripts/vllm-serve/README.md) replaces the expired date constant without renewing P1/P2; [restoration and control red/green record](docs/evidence/pi-vllm-serve-20261111/README.md). SourceCI3, affected Linux CPU, full real-model matrices and final independent acceptance remain pending.

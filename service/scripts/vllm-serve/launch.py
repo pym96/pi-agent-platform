@@ -2,32 +2,26 @@
 import argparse,datetime,hashlib,json,math,os,pathlib,subprocess,sys,time
 UUID='GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead'
 ROOT=pathlib.Path('/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111')
-# Frozen Master P2 allocation; hashes identify bytes, not signatures or authority.
-HUMAN_GLOBAL_END=1794420671.0
-PHASE={'schema': 'pi24-phase-window/v1',
- 'id': 'pi24-nov11-p2',
- 'contract_sha256': '06b694ed12c3aebb62cd2bc870e13148998817b2dc96a30f373165665300d9f8',
- 'start_epoch': 1794411000.0,
- 'builder_latest_start_epoch': 1794414900.0,
- 'regulator_latest_start_epoch': 1794415800.0,
- 'all_owned_stop_epoch': 1794416400.0,
- 'end_epoch': 1794417600.0,
- 'global_end_epoch': 1794420671.0}
 def sha(path):
  h=hashlib.sha256()
  with pathlib.Path(path).open('rb') as f:
   for b in iter(lambda:f.read(1024*1024),b''):h.update(b)
  return h.hexdigest()
 def epoch(text):return datetime.datetime.fromisoformat(text.replace('Z','+00:00')).timestamp()
-def validate(path,digest):
+def validate(path,digest,phase_path,phase_digest):
  if sha(path)!=digest:raise ValueError('GO hash mismatch')
  g=json.loads(pathlib.Path(path).read_text());now=time.time()
  if g.get('issue')!=24 or g.get('role') not in ('builder','regulator'):raise ValueError('GO identity')
- phase=g.get('phase')
- if type(phase) is not dict or phase!=PHASE:raise ValueError('fixed P2 phase identity/bounds required')
- for value in [now,g.get('deadline_epoch'),g.get('max_duration_s'),*[phase[k] for k in phase if k.endswith('_epoch')]]:
+ if sha(phase_path)!=phase_digest:raise ValueError('independent phase hash mismatch')
+ phase=json.loads(pathlib.Path(phase_path).read_text())
+ if type(phase) is not dict or phase.get('schema')!='pi24-master-phase-contract/v2' or phase.get('issue')!=24 or not isinstance(phase.get('id'),str) or not phase['id']:raise ValueError('phase schema/identity')
+ if g.get('phase_contract_sha256')!=phase_digest or g.get('phase')!=phase:raise ValueError('GO differs from independently bound phase')
+ for value in [now,g.get('deadline_epoch'),g.get('max_duration_s'),*[phase.get(k+'_epoch') for k in ('start','builder_latest_start','regulator_latest_start','all_owned_stop','end','global_end')]]:
   if type(value) not in (int,float) or not math.isfinite(value):raise ValueError('finite phase/GO time required')
- if not (phase['start_epoch']<=phase['builder_latest_start_epoch']<=phase['regulator_latest_start_epoch']<=phase['all_owned_stop_epoch']<=phase['end_epoch']<=phase['global_end_epoch']==HUMAN_GLOBAL_END):raise ValueError('phase ordering/global boundary')
+ for key in ('start','builder_latest_start','regulator_latest_start','all_owned_stop','end','global_end'):
+  value=phase.get(key)
+  if not isinstance(value,str) or not value.endswith('Z') or epoch(value)!=phase[key+'_epoch']:raise ValueError('UTC phase text/epoch mismatch')
+ if not (phase['start_epoch']<=phase['builder_latest_start_epoch']<=phase['regulator_latest_start_epoch']<=phase['all_owned_stop_epoch']<=phase['end_epoch']<=phase['global_end_epoch']):raise ValueError('phase ordering/global boundary')
  role=g['role'];latest=phase[role+'_latest_start_epoch'];cap=900 if role=='builder' else 300
  if not phase['start_epoch']<=now<=latest or not 30<g['deadline_epoch']-now<=g['max_duration_s']<=cap or g['deadline_epoch']>phase['all_owned_stop_epoch']:raise ValueError('GO expired or over budget')
  if g['gpu_uuid']!=UUID or g['mode'] not in ('vllm','transformers'):raise ValueError('GO device/backend')
@@ -39,7 +33,7 @@ def validate(path,digest):
  if sha(__file__)!=g['entry_sha256']:raise ValueError('entry changed')
  return g
 
-def execute(g,path,digest):
+def execute(g,path,digest,phase_path,phase_digest):
  from owned import OwnedDocker
  import socket,urllib.request
  root=ROOT/g['role'];source=root/'source';here=source/'service/scripts/vllm-serve'
@@ -84,7 +78,7 @@ def execute(g,path,digest):
   snapshots.append({'epoch':time.time(),'uuid':uuid,'pids':pids})
   if uuid!=UUID or pids:raise ValueError('GPU0 busy/identity unknown')
   if i==0:time.sleep(10)
- if validate(path,digest)!=g:raise ValueError('GO changed')
+ if validate(path,digest,phase_path,phase_digest)!=g:raise ValueError('GO changed')
  (root/('consumed-'+g['nonce'])).touch(exist_ok=False)
  out=root/('run-'+g['nonce']);out.mkdir();(out/'preflight.json').write_text(json.dumps(snapshots,indent=2));(out/'plan.json').write_bytes((root/g['plan_file']).read_bytes())
  # Docker cannot create a nested SDK mount target in a read-only source mount.
@@ -170,10 +164,10 @@ def execute(g,path,digest):
   if failure or refresh_error or not result['success']:raise RuntimeError('execution or cleanup failed/unknown')
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--go',required=True);p.add_argument('--go-sha256',required=True);a=p.parse_args()
- try:g=validate(a.go,a.go_sha256)
+ p=argparse.ArgumentParser();p.add_argument('--go',required=True);p.add_argument('--go-sha256',required=True);p.add_argument('--phase-contract',required=True);p.add_argument('--phase-contract-sha256',required=True);a=p.parse_args()
+ try:g=validate(a.go,a.go_sha256,a.phase_contract,a.phase_contract_sha256)
  except Exception as e:print('GO rejected: '+str(e),file=sys.stderr);return 2
- try:execute(g,a.go,a.go_sha256)
+ try:execute(g,a.go,a.go_sha256,a.phase_contract,a.phase_contract_sha256)
  except Exception as e:print('Execution failed: '+repr(e),file=sys.stderr);return 3
  return 0
 if __name__=='__main__':raise SystemExit(main())
