@@ -1,8 +1,8 @@
 name: Pi Qwen CPU contracts
 on:
   push:
-    branches: [main, workorder/24-candidate]
-    paths: ['service/**', 'docs/evidence/pi-qwen-e2e-20261031/**', 'docs/evidence/pi-qwen-load-20261107/**', 'docs/evidence/vllm-compat-20261111/**', 'docs/evidence/pi-vllm-serve-20261111/**', '.github/workflows/ci.yml']
+    branches: [main, workorder/28-candidate]
+    paths: ['service/**', 'docs/evidence/pi-qwen-e2e-20261031/**', 'docs/evidence/pi-qwen-load-20261107/**', 'docs/evidence/vllm-compat-20261111/**', 'docs/evidence/pi-vllm-serve-20261111/**', 'docs/evidence/pi-engine-compare-20261114/**', '.github/workflows/ci.yml']
 permissions:
   contents: read
 concurrency:
@@ -54,6 +54,16 @@ jobs:
           export TMPDIR="$RUNNER_TEMP/python310-vllm21/tmp"
           python --version > "$RUNNER_TEMP/python310-vllm21/version.txt"
           python service/scripts/nginx-entry/strict_suite.py --start-dir service/scripts/vllm-compat --pattern 'test_*.py' --out "$RUNNER_TEMP/python310-vllm21/summary.json" > "$RUNNER_TEMP/python310-vllm21/tests.log" 2>&1
+      - name: Required server Python3.10 engine comparison and inference invariance
+        run: |
+          python -m pip install -r service/inference/requirements-test.txt
+          mkdir -p "$RUNNER_TEMP/python310-compare28"
+          export PYTHONPATH="$GITHUB_WORKSPACE"
+          export PYTHONDONTWRITEBYTECODE=1
+          export COMPARE_TEST_EVIDENCE="$RUNNER_TEMP/python310-compare28/raw"
+          python --version > "$RUNNER_TEMP/python310-compare28/version.txt"
+          python service/scripts/nginx-entry/strict_suite.py --start-dir service/scripts/inference-compare --pattern 'test_*.py' --out "$RUNNER_TEMP/python310-compare28/summary.json" > "$RUNNER_TEMP/python310-compare28/tests.log" 2>&1
+          python service/inference/scripts/run_tests.py --out "$RUNNER_TEMP/python310-compare28/inference" > "$RUNNER_TEMP/python310-compare28/inference-entry.log" 2>&1
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -84,6 +94,13 @@ jobs:
           mkdir -p "$RUNNER_TEMP/vllm24"
           export G2_TEST_EVIDENCE="$RUNNER_TEMP/vllm24/raw"
           python service/scripts/nginx-entry/strict_suite.py --start-dir service/scripts/vllm-serve --pattern 'test_*.py' --out "$RUNNER_TEMP/vllm24/summary.json" > "$RUNNER_TEMP/vllm24/tests.log" 2>&1
+      - name: Required engine comparison measurement and stage guards
+        run: |
+          mkdir -p "$RUNNER_TEMP/compare28"
+          export PYTHONPATH="$GITHUB_WORKSPACE"
+          export PYTHONDONTWRITEBYTECODE=1
+          export COMPARE_TEST_EVIDENCE="$RUNNER_TEMP/compare28/raw"
+          python service/scripts/nginx-entry/strict_suite.py --start-dir service/scripts/inference-compare --pattern 'test_*.py' --out "$RUNNER_TEMP/compare28/summary.json" > "$RUNNER_TEMP/compare28/tests.log" 2>&1
       - name: Required isolated vLLM CPU guards and closure checker
         run: |
           mkdir -p "$RUNNER_TEMP/vllm21"
@@ -123,5 +140,7 @@ jobs:
             ${{ runner.temp }}/load13
             ${{ runner.temp }}/vllm21
             ${{ runner.temp }}/vllm24
+            ${{ runner.temp }}/python310-compare28
+            ${{ runner.temp }}/compare28
           if-no-files-found: error
           retention-days: 14

@@ -1,5 +1,7 @@
 # Inference HTTP API and pytest QA — Pi #9
 
+Pi28 adds default-off `TF_TOKEN_TRACE` observation and [invariance/error tests](tests/test_transformers_observation.py) for the existing Transformers Streamer. The [comparison guide](../scripts/inference-compare/README.md) defines actual-ID provenance, staged execution permission and raw replay. Default generation/template/decode/cancel behavior remains the accepted implementation; CPU observation fixtures do not establish a real-model result.
+
 Opt-in Product module derived from the frozen #7 Transformers adapter. It does not replace the Go/Pi service or deploy by default. CPU fixtures are deterministic; real Qwen verification is a separate, explicitly authorized stage.
 
 ## CPU reproduction

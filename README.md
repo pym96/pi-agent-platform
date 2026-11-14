@@ -1,5 +1,7 @@
 # Pi Agent Platform
 
+Current work is [#28 matched engine measurement](service/scripts/inference-compare/README.md), a Product opt-in measurement candidate based on accepted #24 exact `28a2cf1c5f1d7d692a487d7dd4aae39682f60537`; see [current source and phase status](SOURCE_OF_TRUTH.md). Older pending candidate notes below are historical snapshots. Original Transformers and fixed single-sequence vLLM remain Product inference implementations; local CPU checks are separate from model permission, performance results and independent acceptance.
+
 An independent experimental Go/PostgreSQL service built around the upstream Pi SDK. Submit a text task, follow committed events over SSE, reconnect by cursor, and retrieve persisted history after restart. Pi owns finalized model context; PostgreSQL owns task state and observable events. Uncertain execution is exposed without automatic model resend.
 
 The default endpoint is a deterministic local streaming fixture consumed by **actual Pi 1.3.0**, not an LLM. No paid API, GPU, frontend or Redis is required. This is a private single-owner development stack, not a production or public multi-user service.
