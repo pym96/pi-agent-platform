@@ -1,0 +1,121 @@
+{
+  "schema": "pi24-sc06-local-handoff/v1",
+  "issue": 24,
+  "SessionRole": "Working Agent (Builder)",
+  "status": "LOCAL_REPAIR_READY_FOR_INDEPENDENT_PARTIAL_REVIEW_NOT_FINAL",
+  "source_sha": "d42579518034f235a55fdbdbfd1d72b0f1134544",
+  "parent": "df740e46da7cad585ef29763f19a280869d7c728",
+  "clean": true,
+  "phase_contract_sha256": "77b6d5aa360e46cdde73fa36bdff344c89769973e56c48733b43ac258d763887",
+  "phase_id": "pi24-nov14-recovery01-r2",
+  "changed": [
+    "SOURCE_OF_TRUTH.md",
+    "docs/evidence/pi-vllm-serve-20261111/README.md",
+    "service/scripts/vllm-compat/test_contract.py"
+  ],
+  "fixture_now": 1794385200,
+  "fixture_clock": "existing validate(now=...) only; no system clock mutation",
+  "negative_reasons": {
+    "deadline_past": "GO expired or over budget",
+    "deadline_under15": "GO expired or over budget",
+    "issue_role_gpu": "GO identity mismatch",
+    "duration_overcap": "GO expired or over budget",
+    "launcher_hash": "launcher hash mismatch",
+    "model_revision": "model mismatch",
+    "source_hex": "bad source_sha",
+    "digest": "GO hash mismatch"
+  },
+  "real_CLI": "actual current time denies historicalGO: last new GPU start elapsed; exact Docker/NVML tripwire markers absent",
+  "summary": {
+    "tests": 16,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0,
+    "expected_failures": 0,
+    "unexpected_successes": 0,
+    "success": true
+  },
+  "raw": {
+    "CI3-minimal-reproduction.log": {
+      "sha256": "28ff5fd8d0d6bb685c9436fd9e10c223a10783f565cc922c7c471017521d855b",
+      "bytes": 1116
+    },
+    "SC06-target-green.log": {
+      "sha256": "06e514f0aaca2195def37a23faf50b2546a36dc9b10c83ee5ee5d58de9fb477b",
+      "bytes": 98
+    },
+    "SC06-G0-strict.log": {
+      "sha256": "bb1197c5b0b4ac1964e8d104253c3bb3080714741bb2298f3341fb793a4b26fe",
+      "bytes": 2476
+    },
+    "SC06-G0-strict-summary.json": {
+      "sha256": "afe36eba8732d0b0f57e142d31503d665b0f488db9cc5098f09336262157ba55",
+      "bytes": 140
+    }
+  },
+  "unchanged": {
+    "service/scripts/vllm-compat/launch.py": {
+      "sha256": "5ce6c52e891f4472ed0730cc1980ac06af946aae2947da4eae9ead2a017bdcbb",
+      "same_as_df740": true
+    },
+    "service/scripts/vllm-compat/watch.py": {
+      "sha256": "0a5a2a7cee7a0fc81597710685a62e8a6289989b6853f0d55d728a216b94d31f",
+      "same_as_df740": true
+    },
+    "service/scripts/vllm-compat/native.py": {
+      "sha256": "691f5f862d0191e51ff7062e07da0bd999dc983a0a334e0012a7458e1e437062",
+      "same_as_df740": true
+    },
+    "service/scripts/vllm-compat/driver.py": {
+      "sha256": "2f8780f46df52208050d359889f58939a215b61cd6c37d5dc67056009484b607",
+      "same_as_df740": true
+    },
+    "service/scripts/vllm-compat/lock.py": {
+      "sha256": "7c5fd8dfee4123549d8c6aef23e3248fef358db3bbcca1ae8e1133f0809a4e07",
+      "same_as_df740": true
+    },
+    "service/scripts/vllm-serve/launch.py": {
+      "sha256": "d5e07f695b3680a7239d0dcc30a1735120148c2fc57ef4a42b3ce7ecddffec7d",
+      "same_as_df740": true
+    },
+    "service/scripts/vllm-serve/test_entry.py": {
+      "sha256": "9a2edde82129a496eb2dcaa97b844addee7b45ab72ab479b26ce776a6a8eb3f1",
+      "same_as_df740": true
+    },
+    "service/scripts/vllm-serve/watch.py": {
+      "sha256": "d8a069ac818bf41149853f86a2b2031656abfe82d4919b825eaa656a3bfb36f4",
+      "same_as_df740": true
+    },
+    "service/scripts/vllm-serve/client.py": {
+      "sha256": "8dca1cb862aca6cc5da9d3aa7c258e593bd85243d80d41d0c8d27708989aa0b4",
+      "same_as_df740": true
+    },
+    "service/inference/vllm_backend.py": {
+      "sha256": "757d7475d06c7f7360781eb8680b4f4b91165b5c0e3c1eaa5d50a491f67ce167",
+      "same_as_df740": true
+    },
+    "service/inference/app.py": {
+      "sha256": "59333618b9700f7a6a1e43c04d33b6ac115f634828cd88ac2172b008e6fb5085",
+      "same_as_df740": true
+    },
+    "service/compose.vllm.yaml": {
+      "sha256": "1e7de456ab4c8e278775bacef257be1be402b4b605efe2a8015382b27cd4d799",
+      "same_as_df740": true
+    },
+    "service/compose.qwen.yaml": {
+      "sha256": "d151247ab808d8757b6c2e83dc7d006a706b10e4f252b5adeeedc90f06c9b54e",
+      "same_as_df740": true
+    }
+  },
+  "external_entry": {
+    "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/gpu_entry_phase4.py",
+    "sha256": "fc516576352995b3ad351fe34f34eab31ef31e04b0c485ca471327ae66a3344f",
+    "bytes": 4712,
+    "delta_from_prior": "SOURCE literal only; phase interface and all guards byteunchanged"
+  },
+  "readonly_other_required_scan": "rg of test fixture clock/date assumptions found original role window test already uses explicit now; dynamic watchdog/native/load tests use relative deadlines; no further changes authorized or made; pattern search is not proof of all future suites",
+  "CI_actual_used": 3,
+  "CI_total": 6,
+  "server_model_push_new": 0,
+  "facts_resume_promotion": false
+}

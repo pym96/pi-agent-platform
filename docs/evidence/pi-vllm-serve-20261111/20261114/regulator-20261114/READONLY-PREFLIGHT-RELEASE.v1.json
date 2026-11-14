@@ -1,0 +1,52 @@
+{
+  "schema": "pi24-nov14-regulator-readonly-release/v1",
+  "SessionRole": "Regulator Agent",
+  "issue": 24,
+  "created_utc": "2026-11-14T01:34:42.358138+00:00",
+  "GO_sha256": "b621be9f069fe696735950e87f12badf9c7ac6a7442cc6048e7a39de4d287761",
+  "raw": {
+    "file": "readonly-preflight-raw.v1.json",
+    "sha256": "82cc3a05bb0f9f3e617318e8512cfed28bdb79fe2b2107ae13b1511d39f80d1d",
+    "bytes": 9482
+  },
+  "actual_local_start_epoch": 1794620052.724725,
+  "actual_local_end_epoch": 1794620058.8717241,
+  "observed_wall_s": 6.14699912071228,
+  "CPU_charge_conservative_s": 7,
+  "source_CPU_old_upper_s": 4226.435738517761,
+  "CPU_after_this_upper_s": 4233.435738517761,
+  "phase_fresh_resource_observations": {
+    "gpu0_uuid": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead",
+    "driver": "535.309.01",
+    "name": "RTX4090",
+    "memory_used_MiB": 6,
+    "utilization_percent": 0,
+    "compute_snapshot": "exit0 empty at1794620053.071..089 only; not resource lease",
+    "B_containers": 0,
+    "R_containers": 0,
+    "B_networks": 0,
+    "R_retained_empty_internal_network": "efda9ddfe404e78be2860ebb7aab82c4f0402a092a2e25182f24d759207030d0",
+    "disk_free_bytes": 3048095399936,
+    "B_disk_total": "unknown: bounded du timeout with PG permission denied",
+    "R_disk_total": "unknown: du74726428B is partial/error1 with PG permission denied",
+    "runtime_model_paths": "both exist, not content revalidated",
+    "affinity": "allowed0..151; no affinity changed"
+  },
+  "device_s": 0,
+  "native": 0,
+  "completionPOST": 0,
+  "mutations": 0,
+  "release": {
+    "all_own_SSH_completed": true,
+    "all_own_children_stopped": true,
+    "no_new_containers_networks_watch": true,
+    "retained_old_R_inert_network_not_removed": true,
+    "next_action": "local only; separate exact GO required for any new server operation"
+  },
+  "limitations": [
+    "Read-only snapshot does not establish full source/runtime/file integrity or model availability.",
+    "Disk partial values are not full totals and unknown is not zero.",
+    "No query of other GPU or process ownership.",
+    "No acceptance/fact/resume promotion."
+  ]
+}

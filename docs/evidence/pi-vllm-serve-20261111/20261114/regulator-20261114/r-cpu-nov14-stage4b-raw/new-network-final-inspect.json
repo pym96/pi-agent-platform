@@ -1,0 +1,14 @@
+{
+  "name": "new-network-final-inspect",
+  "args": [
+    "docker",
+    "network",
+    "inspect",
+    "c17c961d716ff2347e4d08151291df46c99ba5a47435bf0c17b5fe47397eaa75"
+  ],
+  "start": 1794621934.8096457,
+  "end": 1794621934.8211951,
+  "exit": 0,
+  "stdout": "[\n    {\n        \"Name\": \"pi-vllm24-r-pi24-r-nov14-normal01\",\n        \"Id\": \"c17c961d716ff2347e4d08151291df46c99ba5a47435bf0c17b5fe47397eaa75\",\n        \"Created\": \"2026-11-14T10:02:41.947636393+08:00\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": {},\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.22.0.0/16\",\n                    \"Gateway\": \"172.22.0.1\"\n                }\n            ]\n        },\n        \"Internal\": true,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Containers\": {},\n        \"Options\": {},\n        \"Labels\": {\n            \"com.docker.compose.project\": \"pi-vllm24-r\",\n            \"execution-sha\": \"d42579518034f235a55fdbdbfd1d72b0f1134544\",\n            \"pi24.nonce\": \"pi24-r-nov14-normal01\",\n            \"pi24.phase\": \"pi24-nov14-recovery01-r2\",\n            \"pi24.phase-sha256\": \"77b6d5aa360e46cdde73fa36bdff344c89769973e56c48733b43ac258d763887\",\n            \"workorder\": \"24\"\n        }\n    }\n]\n",
+  "stderr": ""
+}

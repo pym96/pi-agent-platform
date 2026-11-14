@@ -1,0 +1,27 @@
+{
+  "schema": "pi24-regulator-existing-CPU-budget-prereview/v1",
+  "at": 1794411161.344844,
+  "B_proposal_sha256": "c3d0fc005a86f953c2c9723e8b6de166fbe95e1e4740f6df75195d0aa0437c68",
+  "B_proposed_sums_and_recorded_internal_receipt_deltas_match": true,
+  "own_R_known_StageA_upper_s": 353.17659425735474,
+  "own_R_affected_stage_observed_upper_s": 177,
+  "own_R_affected_stage_charged_s": 180,
+  "own_R_total_charged_s": 533.1765942573547,
+  "proposal_R_533_177_s_is_upper": true,
+  "proposal_combined_after_new120plus180_s": 4004.4357385177614,
+  "conservative_crosscheck": {
+    "reason": "Internal prep execution0.36/0.54s plus2s transport reserve is not itself a measured fullSSH/SCP upper. For sufficiency reserve full180 each instead; readonly observe reserve full45 instead33. These are allowed-slot reservations, not measured CPU usage.",
+    "B_upper_s": 3537.2587385177612,
+    "R_charged_upper_s": 533.177,
+    "P2_new_B120_R180_s": 300,
+    "combined_after_requested_s": 4370.435738517761,
+    "extra_possible_old_inventory_to_formalRelease_transfer_reserve_s": 156,
+    "combined_even_with_extra156_s": 4526.435738517761,
+    "cap_s": 5400,
+    "remaining_after_extra156_s": 873.5642614822391
+  },
+  "known_label_correction": "normal02 row basis text mistakenly mentions normal01GPUperiod; actual normal02 boundaries and135.987040996s are used, upper146 retained. No newGPU cost.",
+  "unknown_not_zero": "No fresh disk claim; prior exact volumes/raw retained, updated disk to be measured on next authorized preparation/closeout. No new server work for accounting.",
+  "result": "P2 proposed120/180 CPU reservation fits90min even conservative full-slot and extra transfer reservations; counters not reset.",
+  "not_execution_permission": true
+}

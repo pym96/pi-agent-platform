@@ -1,0 +1,13 @@
+{
+  "name": "source-before-status",
+  "args": [
+    "git",
+    "status",
+    "--porcelain"
+  ],
+  "start": 1794621761.4722302,
+  "end": 1794621761.5214832,
+  "exit": 0,
+  "stdout": "",
+  "stderr": ""
+}

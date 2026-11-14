@@ -1,0 +1,1118 @@
+{
+  "spec": {
+    "id": "r-platform",
+    "action": "platform",
+    "budget": 128,
+    "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-platform",
+    "session": "g2-r-platform"
+  },
+  "task": {
+    "id": "f95969a8cf264463fb93f59c210e55ff",
+    "session": "g2-r-platform",
+    "key": "r-platform",
+    "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-platform",
+    "status": "queued"
+  },
+  "terminal": {
+    "id": "f95969a8cf264463fb93f59c210e55ff",
+    "session": "g2-r-platform",
+    "key": "r-platform",
+    "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-platform",
+    "status": "completed"
+  },
+  "events": [
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 1,
+      "kind": "queued",
+      "data": {
+        "task": "f95969a8cf264463fb93f59c210e55ff"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 2,
+      "kind": "running",
+      "data": {}
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 3,
+      "kind": "runtime",
+      "data": {
+        "task": "f95969a8cf264463fb93f59c210e55ff",
+        "clock": "pi-performance.now",
+        "tools": [],
+        "package": "@earendil-works/pi-coding-agent",
+        "session": "g2-r-platform",
+        "version": "1.3.0",
+        "modelCall": "eaf21aff-c0a1-4406-b8a6-07963817ecbc",
+        "contextOwner": "Pi SessionManager",
+        "receivedMono": 20602.512458
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 4,
+      "kind": "text",
+      "data": {
+        "text": "1"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 5,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 6,
+      "kind": "text",
+      "data": {
+        "text": "2"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 7,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 8,
+      "kind": "text",
+      "data": {
+        "text": "3"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 9,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 10,
+      "kind": "text",
+      "data": {
+        "text": "4"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 11,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 12,
+      "kind": "text",
+      "data": {
+        "text": "5"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 13,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 14,
+      "kind": "text",
+      "data": {
+        "text": "6"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 15,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 16,
+      "kind": "text",
+      "data": {
+        "text": "7"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 17,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 18,
+      "kind": "text",
+      "data": {
+        "text": "8"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 19,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 20,
+      "kind": "text",
+      "data": {
+        "text": "9"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 21,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 22,
+      "kind": "text",
+      "data": {
+        "text": "1"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 23,
+      "kind": "text",
+      "data": {
+        "text": "0"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 24,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 25,
+      "kind": "text",
+      "data": {
+        "text": "1"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 26,
+      "kind": "text",
+      "data": {
+        "text": "1"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 27,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 28,
+      "kind": "text",
+      "data": {
+        "text": "1"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 29,
+      "kind": "text",
+      "data": {
+        "text": "2"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 30,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 31,
+      "kind": "text",
+      "data": {
+        "text": "1"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 32,
+      "kind": "text",
+      "data": {
+        "text": "3"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 33,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 34,
+      "kind": "text",
+      "data": {
+        "text": "1"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 35,
+      "kind": "text",
+      "data": {
+        "text": "4"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 36,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 37,
+      "kind": "text",
+      "data": {
+        "text": "1"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 38,
+      "kind": "text",
+      "data": {
+        "text": "5"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 39,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 40,
+      "kind": "text",
+      "data": {
+        "text": "1"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 41,
+      "kind": "text",
+      "data": {
+        "text": "6"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 42,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 43,
+      "kind": "text",
+      "data": {
+        "text": "1"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 44,
+      "kind": "text",
+      "data": {
+        "text": "7"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 45,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 46,
+      "kind": "text",
+      "data": {
+        "text": "1"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 47,
+      "kind": "text",
+      "data": {
+        "text": "8"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 48,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 49,
+      "kind": "text",
+      "data": {
+        "text": "1"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 50,
+      "kind": "text",
+      "data": {
+        "text": "9"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 51,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 52,
+      "kind": "text",
+      "data": {
+        "text": "2"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 53,
+      "kind": "text",
+      "data": {
+        "text": "0"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 54,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 55,
+      "kind": "text",
+      "data": {
+        "text": "2"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 56,
+      "kind": "text",
+      "data": {
+        "text": "1"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 57,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 58,
+      "kind": "text",
+      "data": {
+        "text": "2"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 59,
+      "kind": "text",
+      "data": {
+        "text": "2"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 60,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 61,
+      "kind": "text",
+      "data": {
+        "text": "2"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 62,
+      "kind": "text",
+      "data": {
+        "text": "3"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 63,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 64,
+      "kind": "text",
+      "data": {
+        "text": "2"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 65,
+      "kind": "text",
+      "data": {
+        "text": "4"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 66,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 67,
+      "kind": "text",
+      "data": {
+        "text": "2"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 68,
+      "kind": "text",
+      "data": {
+        "text": "5"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 69,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 70,
+      "kind": "text",
+      "data": {
+        "text": "2"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 71,
+      "kind": "text",
+      "data": {
+        "text": "6"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 72,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 73,
+      "kind": "text",
+      "data": {
+        "text": "2"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 74,
+      "kind": "text",
+      "data": {
+        "text": "7"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 75,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 76,
+      "kind": "text",
+      "data": {
+        "text": "2"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 77,
+      "kind": "text",
+      "data": {
+        "text": "8"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 78,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 79,
+      "kind": "text",
+      "data": {
+        "text": "2"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 80,
+      "kind": "text",
+      "data": {
+        "text": "9"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 81,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 82,
+      "kind": "text",
+      "data": {
+        "text": "3"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 83,
+      "kind": "text",
+      "data": {
+        "text": "0"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 84,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 85,
+      "kind": "text",
+      "data": {
+        "text": "3"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 86,
+      "kind": "text",
+      "data": {
+        "text": "1"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 87,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 88,
+      "kind": "text",
+      "data": {
+        "text": "3"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 89,
+      "kind": "text",
+      "data": {
+        "text": "2"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 90,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 91,
+      "kind": "text",
+      "data": {
+        "text": "3"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 92,
+      "kind": "text",
+      "data": {
+        "text": "3"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 93,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 94,
+      "kind": "text",
+      "data": {
+        "text": "3"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 95,
+      "kind": "text",
+      "data": {
+        "text": "4"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 96,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 97,
+      "kind": "text",
+      "data": {
+        "text": "3"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 98,
+      "kind": "text",
+      "data": {
+        "text": "5"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 99,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 100,
+      "kind": "text",
+      "data": {
+        "text": "3"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 101,
+      "kind": "text",
+      "data": {
+        "text": "6"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 102,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 103,
+      "kind": "text",
+      "data": {
+        "text": "3"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 104,
+      "kind": "text",
+      "data": {
+        "text": "7"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 105,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 106,
+      "kind": "text",
+      "data": {
+        "text": "3"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 107,
+      "kind": "text",
+      "data": {
+        "text": "8"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 108,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 109,
+      "kind": "text",
+      "data": {
+        "text": "3"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 110,
+      "kind": "text",
+      "data": {
+        "text": "9"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 111,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 112,
+      "kind": "text",
+      "data": {
+        "text": "4"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 113,
+      "kind": "text",
+      "data": {
+        "text": "0"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 114,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 115,
+      "kind": "text",
+      "data": {
+        "text": "4"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 116,
+      "kind": "text",
+      "data": {
+        "text": "1"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 117,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 118,
+      "kind": "text",
+      "data": {
+        "text": "4"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 119,
+      "kind": "text",
+      "data": {
+        "text": "2"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 120,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 121,
+      "kind": "text",
+      "data": {
+        "text": "4"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 122,
+      "kind": "text",
+      "data": {
+        "text": "3"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 123,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 124,
+      "kind": "text",
+      "data": {
+        "text": "4"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 125,
+      "kind": "text",
+      "data": {
+        "text": "4"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 126,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 127,
+      "kind": "text",
+      "data": {
+        "text": "4"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 128,
+      "kind": "text",
+      "data": {
+        "text": "5"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 129,
+      "kind": "text",
+      "data": {
+        "text": ","
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 130,
+      "kind": "text",
+      "data": {
+        "text": "4"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 131,
+      "kind": "text",
+      "data": {
+        "text": "6"
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 132,
+      "kind": "result",
+      "data": {
+        "text": "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46",
+        "usage": {
+          "cost": {
+            "input": 0,
+            "total": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "input": 65,
+          "output": 128,
+          "cacheRead": 0,
+          "reasoning": 0,
+          "cacheWrite": 0,
+          "totalTokens": 193
+        },
+        "rawUsage": {
+          "total_tokens": 193,
+          "prompt_tokens": 65,
+          "completion_tokens": 128
+        },
+        "verified": true,
+        "modelCall": "eaf21aff-c0a1-4406-b8a6-07963817ecbc",
+        "stopReason": "length",
+        "piResultMono": 23433.720916
+      }
+    },
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "id": 133,
+      "kind": "completed",
+      "data": {}
+    }
+  ],
+  "replay": []
+}

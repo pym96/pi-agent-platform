@@ -1,0 +1,46 @@
+{
+  "network_id": "2874821bc5f8c03dc03e5e6aa32a77167f77e97e5f28168fa123f7f83cf77d1f",
+  "network_name": "pi-vllm24-r-pi24-r-normal01",
+  "labels": {
+    "com.docker.compose.project": "pi-vllm24-r",
+    "execution-sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+    "pi24.nonce": "pi24-r-normal01",
+    "workorder": "24"
+  },
+  "internal": true,
+  "receipts": [
+    {
+      "command": [
+        "network",
+        "create",
+        "--internal",
+        "--label",
+        "workorder=24",
+        "--label",
+        "execution-sha=a5f161b65126d3f5cbd9670bd85099217f38e750",
+        "--label",
+        "com.docker.compose.project=pi-vllm24-r",
+        "--label",
+        "pi24.nonce=pi24-r-normal01",
+        "pi-vllm24-r-pi24-r-normal01"
+      ],
+      "start": 1794407008.2132218,
+      "end": 1794407008.3480296,
+      "exit": 0,
+      "stdout": "2874821bc5f8c03dc03e5e6aa32a77167f77e97e5f28168fa123f7f83cf77d1f\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "network",
+        "inspect",
+        "2874821bc5f8c03dc03e5e6aa32a77167f77e97e5f28168fa123f7f83cf77d1f"
+      ],
+      "start": 1794407008.3480465,
+      "end": 1794407008.3637927,
+      "exit": 0,
+      "stdout": "[\n    {\n        \"Name\": \"pi-vllm24-r-pi24-r-normal01\",\n        \"Id\": \"2874821bc5f8c03dc03e5e6aa32a77167f77e97e5f28168fa123f7f83cf77d1f\",\n        \"Created\": \"2026-11-11T22:23:28.228561518+08:00\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": {},\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.22.0.0/16\",\n                    \"Gateway\": \"172.22.0.1\"\n                }\n            ]\n        },\n        \"Internal\": true,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Containers\": {},\n        \"Options\": {},\n        \"Labels\": {\n            \"com.docker.compose.project\": \"pi-vllm24-r\",\n            \"execution-sha\": \"a5f161b65126d3f5cbd9670bd85099217f38e750\",\n            \"pi24.nonce\": \"pi24-r-normal01\",\n            \"workorder\": \"24\"\n        }\n    }\n]\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "schema": "pi24-source-cpu-ready/v1",
+  "phase": "BUILDER_CPU_RELEASED",
+  "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+  "source_push_authorized": false,
+  "GPU_authorized": false,
+  "verdict": "not_final_acceptance",
+  "release_epoch": 1794406226.1711402,
+  "release_record_sha256": "422f77ad7cbc72130180592723bb54a68bbd65b2a7ece2b653c8bc4eeab4cf92",
+  "source_branch": "workorder/24-candidate",
+  "source_dirty": false,
+  "CPU_fullchain04": {
+    "kind": "synthetic-native-seam with actual SDK/Go/PG",
+    "planned": 9,
+    "completed": 9,
+    "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+    "restart_before_calls": 7,
+    "restart_calls": 8,
+    "restart_witness_native_id": "01074779c2de469d8d1da34e6c7057f1",
+    "restart_witness_finished": false,
+    "raw_directory": "cpu-phase2-raw/cpu-fullchain04"
+  },
+  "actual_fallback_native_CPU": {
+    "image": "sha256:7e8449fcd1ce73c68dc35292e94182a3b09ddf155eba052fafcb0b6cf174c1c2",
+    "elapsed_seconds": 10.856338024139404,
+    "exit": 124,
+    "native_helper_sha256": "691f5f862d0191e51ff7062e07da0bd999dc983a0a334e0012a7458e1e437062",
+    "native_limit_seconds": 8.541590213775635,
+    "running_after": false,
+    "GPU_exposed": false,
+    "raw_directory": "cpu-phase2-raw/cpu-fallback-native02"
+  },
+  "preserved_failures": [
+    "CPU01 missing nested SDK mount target",
+    "CPU02 internal bridge did not publish host ports",
+    "CPU03 stale historical restart witness; exit0 did not establish targeted streaming execution",
+    "native CPU01 attached command timeout8s before expected native timeout; cleanup only success",
+    "TDD02 initial infinite fixture teardown; exact owned PID terminated, finite fixture used thereafter"
+  ],
+  "required_local": {
+    "inference": {
+      "tests": 68,
+      "skip": 0,
+      "source": "7e44; inference module unchanged at a5"
+    },
+    "serving_entry": {
+      "tests": 11,
+      "skip": 0,
+      "source": "a5"
+    }
+  },
+  "server_inventory": {
+    "epoch": 1794406070.8754454,
+    "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+    "source_dirty": "",
+    "owned_containers": "",
+    "owned_networks": "",
+    "readable_regular_files": 2731,
+    "readable_regular_bytes": 114212138,
+    "denied_paths": [
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata"
+    ],
+    "pg_regular_bytes_uid70": 192229043,
+    "combined_regular_bytes": 306441181,
+    "free_bytes": 2528061558784,
+    "CPU_budget_upper_start_epoch": 1794403221.6167068,
+    "GPU_seconds": 0,
+    "real_generations": 0,
+    "completion_POSTs_real_model": 0,
+    "CPU_budget_wall_upper_seconds": 2849.2587385177612,
+    "cpu-phase2.tgz": {
+      "bytes": 308716,
+      "sha256": "d510a7f9ba33c91165ec0b654be52342e8ad55223a6e3f2fafbf7c3ea4f234be"
+    },
+    "cpu-disk01.tgz": {
+      "bytes": 6425,
+      "sha256": "cab29b5870c707b0db55ee4607919001f3fb3c0686222fc869cf7421b4b93fc0"
+    }
+  },
+  "GPU_cost": {
+    "seconds": 0,
+    "real_generations": 0,
+    "real_model_completion_POSTs": 0
+  },
+  "CI_cost": 0,
+  "CPU_wall_upper_seconds_through_last_inventory": 2849.2587385177612,
+  "local_disk_receipt": "local-disk-pre-ci.v1.json",
+  "next": "Independent R reviews raw CPU04/current-witness/native-hardstop/source, then Master separately authorizes SOURCE-CI1 and R server StageA."
+}

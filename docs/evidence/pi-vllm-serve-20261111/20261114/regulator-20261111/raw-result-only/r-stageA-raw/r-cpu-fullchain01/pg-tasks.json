@@ -1,0 +1,21 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "95353a848ac2db69802f1fb0cb9a5afd3c78f23d2830a410b9c85c9f9d20d3d2",
+    "psql",
+    "-U",
+    "pan",
+    "-d",
+    "pan",
+    "-X",
+    "-At",
+    "-c",
+    "SELECT coalesce(json_agg(t),'[]') FROM tasks t;"
+  ],
+  "start": 1794406843.0274405,
+  "end": 1794406843.1061354,
+  "exit": 0,
+  "stdout": "[{\"id\":\"89010dc3085eff001388c50a37d7a86a\",\"session\":\"cpu-g2-r-platform\",\"key\":\"r-platform\",\"prompt\":\"List every integer from 1 through 400, comma-separated, with no explanation. r-platform\",\"status\":\"completed\",\"created_at\":\"2026-11-11T14:20:34.49688+00:00\",\"started_at\":\"2026-11-11T14:20:34.554971+00:00\",\"finished_at\":\"2026-11-11T14:20:36.332487+00:00\"}, \n {\"id\":\"bc35b29be44916bd244a302721036d75\",\"session\":\"cpu-g2-r-sse\",\"key\":\"r-sse-replay\",\"prompt\":\"List every integer from 1 through 400, comma-separated, with no explanation. r-sse-replay\",\"status\":\"completed\",\"created_at\":\"2026-11-11T14:20:38.156171+00:00\",\"started_at\":\"2026-11-11T14:20:38.168219+00:00\",\"finished_at\":\"2026-11-11T14:20:39.834254+00:00\"}, \n {\"id\":\"d3fd128725d0ad530fabd09dcd4dbf47\",\"session\":\"cpu-g2-r-restart\",\"key\":\"r-api-restart\",\"prompt\":\"List every integer from 1 through 400, comma-separated, with no explanation. r-api-restart\",\"status\":\"interrupted\",\"created_at\":\"2026-11-11T14:20:39.921817+00:00\",\"started_at\":\"2026-11-11T14:20:39.938357+00:00\",\"finished_at\":\"2026-11-11T14:20:40.676959+00:00\"}, \n {\"id\":\"f503bb8c2f0020ce34f8b47bbdfc0f71\",\"session\":\"cpu-g2-r-restart\",\"key\":\"r-api-restart-queued\",\"prompt\":\"List every integer from 1 through 400, comma-separated, with no explanation. r-queued-must-not-execute\",\"status\":\"cancelled\",\"created_at\":\"2026-11-11T14:20:40.106418+00:00\",\"started_at\":null,\"finished_at\":\"2026-11-11T14:20:40.676959+00:00\"}, \n {\"id\":\"bba76c970fded9aa2c48837ba4566dc0\",\"session\":\"cpu-g2-r-new\",\"key\":\"r-new-session\",\"prompt\":\"List every integer from 1 through 400, comma-separated, with no explanation. r-new-session\",\"status\":\"completed\",\"created_at\":\"2026-11-11T14:20:41.139897+00:00\",\"started_at\":\"2026-11-11T14:20:41.192702+00:00\",\"finished_at\":\"2026-11-11T14:20:42.871338+00:00\"}]\n",
+  "stderr": ""
+}

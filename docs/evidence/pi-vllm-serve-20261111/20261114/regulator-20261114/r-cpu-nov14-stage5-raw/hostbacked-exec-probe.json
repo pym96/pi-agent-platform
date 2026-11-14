@@ -1,0 +1,13 @@
+{
+  "exit": 0,
+  "stdout": "",
+  "stderr": "",
+  "TMPDIR": "/evidence/tmp",
+  "G2_TEST_EVIDENCE": "/evidence",
+  "mountinfo": [
+    "10908 10900 0:109 / /tmp rw,nosuid,nodev,noexec,relatime - tmpfs tmpfs rw,size=65536k,inode64",
+    "10912 10900 8:0 /pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-nov14-stage5 /evidence rw,relatime - ext4 /dev/sda rw",
+    "10913 10900 8:0 /pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/source /source ro,relatime - ext4 /dev/sda rw"
+  ],
+  "version": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]"
+}

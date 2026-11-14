@@ -1,0 +1,49 @@
+{"event": "received", "attempt": 1, "clock": "model-monotonic", "at": 560026.367759414, "waiting": 0, "active": 0}
+{"event": "validated", "attempt": 1, "clock": "model-monotonic", "at": 560026.368521291, "payload": {"model": "Qwen3-8B", "stream": true, "messages": [{"role": "user", "content": "List every integer from 1 through 400, comma-separated, with no explanation. r-direct16"}], "max_tokens": 16}, "core_hash": "96782838fd9e36c932376fbb9a46548587e248334e307dc4f41e373340c5a913"}
+{"event": "slot_acquired", "attempt": 1, "clock": "model-monotonic", "at": 560026.368863098, "waiting": 0, "active": 0}
+{"event": "prepared", "attempt": 1, "clock": "model-monotonic", "at": 560026.398662546}
+{"event": "execute_start", "attempt": 1, "clock": "model-monotonic", "at": 560026.399089186}
+{"event": "execute_end", "attempt": 1, "clock": "model-monotonic", "at": 560026.73510962, "terminal": {"kind": "finish", "finish_reason": "length", "usage": {"prompt_tokens": 35, "completion_tokens": 16, "total_tokens": 51}}}
+{"event": "settled", "attempt": 1, "clock": "model-monotonic", "at": 560026.73552039}
+{"event": "received", "attempt": 2, "clock": "model-monotonic", "at": 560027.054100708, "waiting": 0, "active": 0}
+{"event": "validated", "attempt": 2, "clock": "model-monotonic", "at": 560027.054557912, "payload": {"model": "Qwen3-8B", "messages": [{"role": "system", "content": "You are a text-only assistant. No tools are available.\n\n<cwd>\n/data/sessions/g2-r-platform/workspace\n</cwd>"}, {"role": "user", "content": "List every integer from 1 through 400, comma-separated, with no explanation. r-platform"}], "stream": true, "max_tokens": 128}, "core_hash": "7c065a86ce9a10fdc5cb6486b529453456aed85cd128eb86ff781450342a6016"}
+{"event": "slot_acquired", "attempt": 2, "clock": "model-monotonic", "at": 560027.054892844, "waiting": 0, "active": 0}
+{"event": "prepared", "attempt": 2, "clock": "model-monotonic", "at": 560027.056917825}
+{"event": "execute_start", "attempt": 2, "clock": "model-monotonic", "at": 560027.057712214}
+{"event": "execute_end", "attempt": 2, "clock": "model-monotonic", "at": 560029.659411981, "terminal": {"kind": "finish", "finish_reason": "length", "usage": {"prompt_tokens": 65, "completion_tokens": 128, "total_tokens": 193}}}
+{"event": "settled", "attempt": 2, "clock": "model-monotonic", "at": 560029.660082902}
+{"event": "received", "attempt": 3, "clock": "model-monotonic", "at": 560029.914322845, "waiting": 0, "active": 0}
+{"event": "validated", "attempt": 3, "clock": "model-monotonic", "at": 560029.915131389, "payload": {"model": "Qwen3-8B", "stream": true, "messages": [{"role": "user", "content": "List every integer from 1 through 400, comma-separated, with no explanation. r-cancel128"}], "max_tokens": 128}, "core_hash": "f22ea7c2c7d6e8e9325147c60d01769783b7e0e5dec74d1895f9cd4d85a2a517"}
+{"event": "slot_acquired", "attempt": 3, "clock": "model-monotonic", "at": 560029.915515035, "waiting": 0, "active": 0}
+{"event": "prepared", "attempt": 3, "clock": "model-monotonic", "at": 560029.917433682}
+{"event": "execute_start", "attempt": 3, "clock": "model-monotonic", "at": 560029.918181631}
+{"event": "execute_end", "attempt": 3, "clock": "model-monotonic", "at": 560029.97062431, "terminal": null}
+{"event": "settled", "attempt": 3, "clock": "model-monotonic", "at": 560029.970791825}
+{"event": "received", "attempt": 4, "clock": "model-monotonic", "at": 560030.009112952, "waiting": 0, "active": 0}
+{"event": "validated", "attempt": 4, "clock": "model-monotonic", "at": 560030.009473685, "payload": {"model": "Qwen3-8B", "stream": true, "messages": [{"role": "user", "content": "List every integer from 1 through 400, comma-separated, with no explanation. r-after-cancel16"}], "max_tokens": 16}, "core_hash": "c9d3010d2e2a242bdc701553f1c5cd6ccb4cba112637c1b9c70d047defbb2a83"}
+{"event": "slot_acquired", "attempt": 4, "clock": "model-monotonic", "at": 560030.009758549, "waiting": 0, "active": 0}
+{"event": "prepared", "attempt": 4, "clock": "model-monotonic", "at": 560030.011135554}
+{"event": "execute_start", "attempt": 4, "clock": "model-monotonic", "at": 560030.011753188}
+{"event": "execute_end", "attempt": 4, "clock": "model-monotonic", "at": 560030.391779234, "terminal": {"kind": "finish", "finish_reason": "length", "usage": {"prompt_tokens": 36, "completion_tokens": 16, "total_tokens": 52}}}
+{"event": "settled", "attempt": 4, "clock": "model-monotonic", "at": 560030.392153917}
+{"event": "received", "attempt": 5, "clock": "model-monotonic", "at": 560030.448739462, "waiting": 0, "active": 0}
+{"event": "validated", "attempt": 5, "clock": "model-monotonic", "at": 560030.449178482, "payload": {"model": "Qwen3-8B", "messages": [{"role": "system", "content": "You are a text-only assistant. No tools are available.\n\n<cwd>\n/data/sessions/g2-r-sse/workspace\n</cwd>"}, {"role": "user", "content": "List every integer from 1 through 400, comma-separated, with no explanation. r-sse-replay"}], "stream": true, "max_tokens": 128}, "core_hash": "1b2136018f25e6b331414046ab494778f3cc11a879b696b8c72d58425c8ab354"}
+{"event": "slot_acquired", "attempt": 5, "clock": "model-monotonic", "at": 560030.449510212, "waiting": 0, "active": 0}
+{"event": "prepared", "attempt": 5, "clock": "model-monotonic", "at": 560030.451278312}
+{"event": "execute_start", "attempt": 5, "clock": "model-monotonic", "at": 560030.451961284}
+{"event": "execute_end", "attempt": 5, "clock": "model-monotonic", "at": 560033.228340552, "terminal": {"kind": "finish", "finish_reason": "length", "usage": {"prompt_tokens": 69, "completion_tokens": 128, "total_tokens": 197}}}
+{"event": "settled", "attempt": 5, "clock": "model-monotonic", "at": 560033.228729301}
+{"event": "received", "attempt": 6, "clock": "model-monotonic", "at": 560033.501439752, "waiting": 0, "active": 0}
+{"event": "validated", "attempt": 6, "clock": "model-monotonic", "at": 560033.501845258, "payload": {"model": "Qwen3-8B", "messages": [{"role": "system", "content": "You are a text-only assistant. No tools are available.\n\n<cwd>\n/data/sessions/g2-r-restart/workspace\n</cwd>"}, {"role": "user", "content": "List every integer from 1 through 400, comma-separated, with no explanation. r-api-restart"}], "stream": true, "max_tokens": 128}, "core_hash": "f0d7cd1778a03c28306d459ace026b3b42746112b1b2395142feb1090efc83fd"}
+{"event": "slot_acquired", "attempt": 6, "clock": "model-monotonic", "at": 560033.502191112, "waiting": 0, "active": 0}
+{"event": "prepared", "attempt": 6, "clock": "model-monotonic", "at": 560033.503979765}
+{"event": "execute_start", "attempt": 6, "clock": "model-monotonic", "at": 560033.504668669}
+{"event": "execute_end", "attempt": 6, "clock": "model-monotonic", "at": 560033.653139673, "terminal": null}
+{"event": "settled", "attempt": 6, "clock": "model-monotonic", "at": 560033.65330884}
+{"event": "received", "attempt": 7, "clock": "model-monotonic", "at": 560034.5637145, "waiting": 0, "active": 0}
+{"event": "validated", "attempt": 7, "clock": "model-monotonic", "at": 560034.564174513, "payload": {"model": "Qwen3-8B", "messages": [{"role": "system", "content": "You are a text-only assistant. No tools are available.\n\n<cwd>\n/data/sessions/g2-r-new/workspace\n</cwd>"}, {"role": "user", "content": "List every integer from 1 through 400, comma-separated, with no explanation. r-new-session"}], "stream": true, "max_tokens": 128}, "core_hash": "e9bc46a2f865a6ac31c149e841aab4f3264b893c16e653719dfa482729978406"}
+{"event": "slot_acquired", "attempt": 7, "clock": "model-monotonic", "at": 560034.564508688, "waiting": 0, "active": 0}
+{"event": "prepared", "attempt": 7, "clock": "model-monotonic", "at": 560034.566395159}
+{"event": "execute_start", "attempt": 7, "clock": "model-monotonic", "at": 560034.567109633}
+{"event": "execute_end", "attempt": 7, "clock": "model-monotonic", "at": 560037.160258359, "terminal": {"kind": "finish", "finish_reason": "length", "usage": {"prompt_tokens": 66, "completion_tokens": 128, "total_tokens": 194}}}
+{"event": "settled", "attempt": 7, "clock": "model-monotonic", "at": 560037.16065157}

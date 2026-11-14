@@ -1,0 +1,30 @@
+{
+  "start_epoch": 1794403330.3499548,
+  "files": {
+    "node": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/1/toolchains/node-v22.23.3/bin/node",
+      "sha256": "fde6a4bf8d0562f7751d1a2d6cb9b417c4cfe107bbcb0aa3e9a24e125e348f48",
+      "bytes": 124827920
+    },
+    "api": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/13-qwen-load-20261107/builder/source/service/bin/service",
+      "sha256": "9042a98be49b12a6a18274f96927864d792ef88dee0d752e5b5fc6f069dac87e",
+      "bytes": 16561288
+    },
+    "sdklock": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/3/builder/source/service/pi/package-lock.json",
+      "sha256": "06267cf15e35052de5e4a518d43d640b8183c00c66be8c18d7c4b66078e08a6c",
+      "bytes": 55985
+    }
+  },
+  "node_version": "v22.23.3",
+  "sdk": {
+    "path": "/media/usv012/pjx/pi-agent-platform/experiments/3/builder/source/service/pi/node_modules",
+    "manifest_sha256": "fac12b65a96b8a7614bc17376b92e03de8a100060978758c65d2134c8b6cd7d3",
+    "files": 15027,
+    "bytes": 111572401
+  },
+  "postgres@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24": "sha256:79bd7c99e923138f136f8009d6bffa66e21e9d4fda5c0c561b00fc9c90cfe537",
+  "python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1": "sha256:df18428df8a0f9189c84e7424d214b4c50092af1f9dca5842a00c41c39bda316",
+  "end_epoch": 1794403369.9232605
+}

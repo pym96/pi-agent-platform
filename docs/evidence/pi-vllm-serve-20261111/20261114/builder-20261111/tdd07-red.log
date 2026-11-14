@@ -1,0 +1,192 @@
+......FF.FF                                                              [100%]
+=================================== FAILURES ===================================
+____ test_invalid_native_lifecycle_never_produces_success[prompt_mismatch] _____
+
+fault = 'prompt_mismatch'
+
+    @pytest.mark.parametrize('fault',['prompt_mismatch','duplicate_finish','no_finish','multiple_outputs','token_rewrite'])
+    def test_invalid_native_lifecycle_never_produces_success(fault):
+        class Invalid(Engine):
+            async def generate(self,*args):
+                row=NS(prompt_token_ids=[10,11,12],finished=True,outputs=[NS(text='hi',token_ids=[20],finish_reason='stop')])
+                if fault=='prompt_mismatch':row.prompt_token_ids=[99]
+                if fault=='no_finish':row.finished=False;row.outputs[0].finish_reason=None
+                if fault=='multiple_outputs':row.outputs*=2
+                if fault=='token_rewrite':
+                    yield NS(prompt_token_ids=[10,11,12],finished=False,outputs=[NS(text='h',token_ids=[30],finish_reason=None)])
+                yield row
+                if fault=='duplicate_finish':yield row
+        async def scenario():
+            backend=VllmBackend(Invalid(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+            async with serve(backend) as (client,url):
+                async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:
+                    body=await response.text();assert not inspect_stream(response.status,body)['success']
+                    assert 'backend_failure' in body
+>       asyncio.run(scenario())
+
+service/inference/tests/test_vllm.py:161: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def scenario():
+        backend=VllmBackend(Invalid(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+        async with serve(backend) as (client,url):
+            async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:
+>               body=await response.text();assert not inspect_stream(response.status,body)['success']
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               assert not True
+
+service/inference/tests/test_vllm.py:159: AssertionError
+____ test_invalid_native_lifecycle_never_produces_success[duplicate_finish] ____
+
+fault = 'duplicate_finish'
+
+    @pytest.mark.parametrize('fault',['prompt_mismatch','duplicate_finish','no_finish','multiple_outputs','token_rewrite'])
+    def test_invalid_native_lifecycle_never_produces_success(fault):
+        class Invalid(Engine):
+            async def generate(self,*args):
+                row=NS(prompt_token_ids=[10,11,12],finished=True,outputs=[NS(text='hi',token_ids=[20],finish_reason='stop')])
+                if fault=='prompt_mismatch':row.prompt_token_ids=[99]
+                if fault=='no_finish':row.finished=False;row.outputs[0].finish_reason=None
+                if fault=='multiple_outputs':row.outputs*=2
+                if fault=='token_rewrite':
+                    yield NS(prompt_token_ids=[10,11,12],finished=False,outputs=[NS(text='h',token_ids=[30],finish_reason=None)])
+                yield row
+                if fault=='duplicate_finish':yield row
+        async def scenario():
+            backend=VllmBackend(Invalid(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+            async with serve(backend) as (client,url):
+                async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:
+                    body=await response.text();assert not inspect_stream(response.status,body)['success']
+                    assert 'backend_failure' in body
+>       asyncio.run(scenario())
+
+service/inference/tests/test_vllm.py:161: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def scenario():
+        backend=VllmBackend(Invalid(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+        async with serve(backend) as (client,url):
+            async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:
+>               body=await response.text();assert not inspect_stream(response.status,body)['success']
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               assert not True
+
+service/inference/tests/test_vllm.py:159: AssertionError
+____ test_invalid_native_lifecycle_never_produces_success[multiple_outputs] ____
+
+fault = 'multiple_outputs'
+
+    @pytest.mark.parametrize('fault',['prompt_mismatch','duplicate_finish','no_finish','multiple_outputs','token_rewrite'])
+    def test_invalid_native_lifecycle_never_produces_success(fault):
+        class Invalid(Engine):
+            async def generate(self,*args):
+                row=NS(prompt_token_ids=[10,11,12],finished=True,outputs=[NS(text='hi',token_ids=[20],finish_reason='stop')])
+                if fault=='prompt_mismatch':row.prompt_token_ids=[99]
+                if fault=='no_finish':row.finished=False;row.outputs[0].finish_reason=None
+                if fault=='multiple_outputs':row.outputs*=2
+                if fault=='token_rewrite':
+                    yield NS(prompt_token_ids=[10,11,12],finished=False,outputs=[NS(text='h',token_ids=[30],finish_reason=None)])
+                yield row
+                if fault=='duplicate_finish':yield row
+        async def scenario():
+            backend=VllmBackend(Invalid(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+            async with serve(backend) as (client,url):
+                async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:
+                    body=await response.text();assert not inspect_stream(response.status,body)['success']
+                    assert 'backend_failure' in body
+>       asyncio.run(scenario())
+
+service/inference/tests/test_vllm.py:161: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def scenario():
+        backend=VllmBackend(Invalid(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+        async with serve(backend) as (client,url):
+            async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:
+>               body=await response.text();assert not inspect_stream(response.status,body)['success']
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               assert not True
+
+service/inference/tests/test_vllm.py:159: AssertionError
+_____ test_invalid_native_lifecycle_never_produces_success[token_rewrite] ______
+
+fault = 'token_rewrite'
+
+    @pytest.mark.parametrize('fault',['prompt_mismatch','duplicate_finish','no_finish','multiple_outputs','token_rewrite'])
+    def test_invalid_native_lifecycle_never_produces_success(fault):
+        class Invalid(Engine):
+            async def generate(self,*args):
+                row=NS(prompt_token_ids=[10,11,12],finished=True,outputs=[NS(text='hi',token_ids=[20],finish_reason='stop')])
+                if fault=='prompt_mismatch':row.prompt_token_ids=[99]
+                if fault=='no_finish':row.finished=False;row.outputs[0].finish_reason=None
+                if fault=='multiple_outputs':row.outputs*=2
+                if fault=='token_rewrite':
+                    yield NS(prompt_token_ids=[10,11,12],finished=False,outputs=[NS(text='h',token_ids=[30],finish_reason=None)])
+                yield row
+                if fault=='duplicate_finish':yield row
+        async def scenario():
+            backend=VllmBackend(Invalid(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+            async with serve(backend) as (client,url):
+                async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:
+                    body=await response.text();assert not inspect_stream(response.status,body)['success']
+                    assert 'backend_failure' in body
+>       asyncio.run(scenario())
+
+service/inference/tests/test_vllm.py:161: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def scenario():
+        backend=VllmBackend(Invalid(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+        async with serve(backend) as (client,url):
+            async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:
+>               body=await response.text();assert not inspect_stream(response.status,body)['success']
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               assert not True
+
+service/inference/tests/test_vllm.py:159: AssertionError
+=========================== short test summary info ============================
+FAILED service/inference/tests/test_vllm.py::test_invalid_native_lifecycle_never_produces_success[prompt_mismatch]
+FAILED service/inference/tests/test_vllm.py::test_invalid_native_lifecycle_never_produces_success[duplicate_finish]
+FAILED service/inference/tests/test_vllm.py::test_invalid_native_lifecycle_never_produces_success[multiple_outputs]
+FAILED service/inference/tests/test_vllm.py::test_invalid_native_lifecycle_never_produces_success[token_rewrite]
+4 failed, 7 passed in 0.45s

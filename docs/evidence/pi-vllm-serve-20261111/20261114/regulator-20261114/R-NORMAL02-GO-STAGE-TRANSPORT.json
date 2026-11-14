@@ -1,0 +1,24 @@
+{
+  "start": 1794627652.137679,
+  "end": 1794627652.39764,
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "HostKeyAlias=58.199.168.63",
+    "-o",
+    "ConnectTimeout=10",
+    "-o",
+    "ServerAliveInterval=5",
+    "-o",
+    "ServerAliveCountMax=2",
+    "wt@58.199.171.85",
+    "cd /media/usv012/pjx && export CUDA_VISIBLE_DEVICES=0 && cd /media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator && exec taskset -c 0,1 python3 -c 'import pathlib,sys,hashlib,json,time\np=pathlib.Path(sys.argv[1]);data=sys.stdin.buffer.read();h=hashlib.sha256(data).hexdigest()\nassert h==sys.argv[2] and not p.exists() and not p.is_symlink()\nwith p.open('\"'\"'xb'\"'\"') as f:f.write(data)\nprint(json.dumps({'\"'\"'event'\"'\"':'\"'\"'GO_staged'\"'\"','\"'\"'epoch'\"'\"':time.time(),'\"'\"'path'\"'\"':str(p),'\"'\"'sha256'\"'\"':h}),flush=True)\n' /media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/R-GPU-NORMAL-NOV14-GO01.json ab31c89f744e9d94af7f6682596f5c85b3361b9ee034f8d1210efe086874f9d6"
+  ],
+  "exit": 0,
+  "stdout_base64": "eyJldmVudCI6ICJHT19zdGFnZWQiLCAiZXBvY2giOiAxNzk0NjI3NjUyLjM5NDY4MDUsICJwYXRoIjogIi9tZWRpYS91c3YwMTIvcGp4L3BpLWFnZW50LXBsYXRmb3JtL2V4cGVyaW1lbnRzLzI0LXZsbG0tc2VydmUtMjAyNjExMTEvcmVndWxhdG9yL1ItR1BVLU5PUk1BTC1OT1YxNC1HTzAxLmpzb24iLCAic2hhMjU2IjogImFiMzFjODlmNzQ0ZTlkOTRhZjdmNjY4MjU5NmY1Yzg1YjMzNjFiOWVlMDM0ZjhkMTIxMGVmZTA4Njg3NGY5ZDYifQo=",
+  "stderr_base64": ""
+}

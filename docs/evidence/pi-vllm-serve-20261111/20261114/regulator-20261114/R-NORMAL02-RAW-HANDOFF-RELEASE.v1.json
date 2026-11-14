@@ -1,0 +1,107 @@
+{
+  "schema": "pi24-R-real-normal-raw-release/v1",
+  "status": "ALL_ACTUAL_HANDLES_ENDED_RAWSEALED_SEMANTIC_REVIEW_PENDING",
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "GO_sha256": "ab31c89f744e9d94af7f6682596f5c85b3361b9ee034f8d1210efe086874f9d6",
+  "archive": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/r-normal02-nov14-raw.tgz",
+  "archive_sha256": "133cc2ba55277dc08a81018fcca8dd69f0c02e50f1621929e6f4492eddddc785",
+  "archive_bytes": 423420,
+  "manifest_sha256": "fe126c46850846ce04e70dd380f25ed7687db8306ee13ea7e91b66b9615848b1",
+  "manifest_files": 139,
+  "manifest_bad": 0,
+  "all_SSH_SCP_ended": true,
+  "collection_end_utc": "2026-11-14T03:43:21.763500+00:00",
+  "actualcloseout": {
+    "R_containers": [],
+    "R_networks": [],
+    "nonce_consumed": true,
+    "GPU0commands": [
+      {
+        "command": [
+          "nvidia-smi",
+          "-i",
+          "0",
+          "--query-gpu=uuid",
+          "--format=csv,noheader"
+        ],
+        "start": 1794627800.93406,
+        "end": 1794627800.975801,
+        "exit": 0,
+        "stdout": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "nvidia-smi",
+          "-i",
+          "0",
+          "--query-compute-apps=pid,gpu_uuid",
+          "--format=csv,noheader"
+        ],
+        "start": 1794627800.9758031,
+        "end": 1794627801.0153468,
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    ]
+  },
+  "Productoutcome": {
+    "overall_success": true,
+    "cleanup_success": true,
+    "client_exit": 0,
+    "watch_exit": 0,
+    "failure": null,
+    "inventory_error": null,
+    "network_cleanup": {
+      "success": true,
+      "network_id": "c61d7fd94ae102b909dfcf55d2cece73f97a6ec379f334eaef1b7d39333a37cd",
+      "state": "removed"
+    }
+  },
+  "CPU_rows": [
+    {
+      "file": "R-NORMAL02-GO-STAGE-TRANSPORT.json",
+      "sha256": "b332d2ad99d8f24a50804cb71e547821f49d33a60a892358ff17fcfd9719c093",
+      "wall_s": 0.2599608898162842,
+      "ceil_s": 1
+    },
+    {
+      "file": "R-NORMAL02-FOREGROUND-TRANSPORT-RESULT.json",
+      "sha256": "8d83ef97bab10f705d0785a71065a406e62c2747cd379b9efa466da826c9ae29",
+      "wall_s": 74.10368824005127,
+      "ceil_s": 75
+    },
+    {
+      "file": "R-NORMAL02-RAW-COLLECTION-SSH.json",
+      "sha256": "ca4a02ba24288aeca430ee6a9dad76af7d7835647a85bfb586c2dab21548565b",
+      "wall_s": 1.1610081195831299,
+      "ceil_s": 2
+    }
+  ],
+  "CPU_increment_s": 78,
+  "CPU_prior_s": 4586.4357385,
+  "CPU_cumulative_upper_s": 4664.4357385,
+  "Nov14_remaining_s": 662,
+  "R_device_Created_to_rm_upper_s": 35.16040301322937,
+  "R_native_start": 7,
+  "R_native_settled": 7,
+  "R_POST": 9,
+  "device_source": {
+    "CID": "f928be28210c9e7e179cc9264d9553767b5349e73916be9db684dd8dc86964c9",
+    "Created": "2026-11-14T03:41:26.206044302Z",
+    "successful_rm": {
+      "command": [
+        "rm",
+        "f928be28210c9e7e179cc9264d9553767b5349e73916be9db684dd8dc86964c9"
+      ],
+      "start": 1794627721.2100067,
+      "end": 1794627721.3664472,
+      "exit": 0,
+      "stdout": "f928be28210c9e7e179cc9264d9553767b5349e73916be9db684dd8dc86964c9\n",
+      "stderr": ""
+    }
+  },
+  "no_auto_retry_no_more_server_authorization": true,
+  "note": "Actual originalraw/cleanup/ledger only. Semantic protocol/native/PG/restart review follows locally; not finalaccepted."
+}

@@ -1,0 +1,51 @@
+.....F                                                                   [100%]
+=================================== FAILURES ===================================
+____ test_failed_native_abort_quarantines_backend_without_false_settlement _____
+
+    def test_failed_native_abort_quarantines_backend_without_false_settlement():
+        class BrokenAbort(Engine):
+            async def generate(self,*args):
+                yield NS(prompt_token_ids=[10,11,12],finished=False,outputs=[NS(text='hi',token_ids=[20],finish_reason=None)])
+                await asyncio.sleep(.3)
+            async def abort(self,ident):raise RuntimeError('native_ack_failed')
+        async def scenario():
+            backend=VllmBackend(BrokenAbort(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw));cancel=asyncio.Event()
+            stream=backend.stream(await backend.prepare(PAYLOAD['messages'],8),cancel)
+            assert (await anext(stream))['text']=='hi';cancel.set()
+            try:await anext(stream)
+            except RuntimeError as exc:assert str(exc)=='native_ack_failed'
+            else:raise AssertionError('missing native failure')
+            assert not backend.ready and backend.active==1
+            async with serve(backend) as (client,url):
+                async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:
+                    assert response.status==503
+>       asyncio.run(scenario())
+
+service/inference/tests/test_vllm.py:140: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def scenario():
+        backend=VllmBackend(BrokenAbort(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw));cancel=asyncio.Event()
+        stream=backend.stream(await backend.prepare(PAYLOAD['messages'],8),cancel)
+        assert (await anext(stream))['text']=='hi';cancel.set()
+        try:await anext(stream)
+        except RuntimeError as exc:assert str(exc)=='native_ack_failed'
+        else:raise AssertionError('missing native failure')
+>       assert not backend.ready and backend.active==1
+E       assert (not True)
+E        +  where True = <service.inference.vllm_backend.VllmBackend object at 0x107a96650>.ready
+
+service/inference/tests/test_vllm.py:136: AssertionError
+=========================== short test summary info ============================
+FAILED service/inference/tests/test_vllm.py::test_failed_native_abort_quarantines_backend_without_false_settlement
+1 failed, 5 passed in 0.39s

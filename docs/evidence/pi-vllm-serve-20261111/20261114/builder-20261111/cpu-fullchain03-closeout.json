@@ -1,0 +1,31 @@
+{
+  "epoch": 1794405405.4849062,
+  "sha256": "95fe678ae3da534601084cd0d290adf7ec6eb1bbc7696468b314b939148b69f4",
+  "bytes": 272047,
+  "owned_containers": "",
+  "progress": {
+    "planned": [
+      "direct16",
+      "direct64",
+      "cancel128",
+      "aftercancel16",
+      "platform-a",
+      "platform-b",
+      "sse-replay",
+      "api-restart",
+      "new-session"
+    ],
+    "completed": [
+      "direct16",
+      "direct64",
+      "cancel128",
+      "aftercancel16",
+      "platform-a",
+      "platform-b",
+      "sse-replay",
+      "api-restart",
+      "new-session"
+    ],
+    "not_completed": []
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "schema": "pi24-R-Bfallback01-real-stage-review/v1",
+  "status": "EXPLICIT_TRANSFORMERS_FALLBACK_STAGE_PASS_NOT_FINAL_ACCEPTED",
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "GO_sha256": "d9a81549ff1f04929ed43869cbecc140e6a0ab38436aa49f8372c409e12a86e4",
+  "B_handoff_sha256": "795c6b9a44576756954b1d9e76dad5f8794ae5845c7041a403abe43649274aa0",
+  "raw_archive_sha256": "41b8942d74adbdb38aaca42fb968fa6b55669a80dd11f4e825486559c71cbf67",
+  "raw_manifest_sha256": "fc8e778baf456e18169d3a37b80bc8b2cc0c633f18b44e6cb91750256c2bda78",
+  "raw_manifest_files": 34,
+  "actual_backend_identity": {
+    "backend": "transformers-serialized/Qwen3-8B",
+    "torch_intraop_threads": 6,
+    "torch_interop_threads": 76,
+    "dtype": "torch.bfloat16",
+    "device": "cuda:0"
+  },
+  "independent_strictSSE_oracle": {
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 34,
+      "completion_tokens": 16,
+      "total_tokens": 50
+    },
+    "content": "1,2,3,4,5,6,7,8,",
+    "frame_count": 19
+  },
+  "model_execution_order": [
+    {
+      "event": "execute_start",
+      "attempt": 1,
+      "clock": "model-monotonic",
+      "at": 559215.831443498
+    },
+    {
+      "event": "execute_end",
+      "attempt": 1,
+      "clock": "model-monotonic",
+      "at": 559217.320786787,
+      "terminal": {
+        "kind": "finish",
+        "finish_reason": "length",
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 16,
+          "total_tokens": 50
+        }
+      }
+    },
+    {
+      "event": "settled",
+      "attempt": 1,
+      "clock": "model-monotonic",
+      "at": 559217.32131171
+    }
+  ],
+  "actual_post_idle": {
+    "backend": "transformers-serialized/Qwen3-8B",
+    "model": "Qwen3-8B",
+    "ready": true,
+    "active_generation": 0,
+    "calls": 1,
+    "queued": 0,
+    "max_active_generation": 1,
+    "max_context": 1024,
+    "attempts": 1,
+    "max_attempts": 32
+  },
+  "fallback_image": "sha256:7e8449fcd1ce73c68dc35292e94182a3b09ddf155eba052fafcb0b6cf174c1c2",
+  "fallback_resource": {
+    "CPU": 6,
+    "RAM_GiB": 28,
+    "OMP": 6,
+    "MKL": 1,
+    "OpenBLAS": 1,
+    "capdrop": "ALL",
+    "ROroot": true,
+    "no_public_ports": true
+  },
+  "original_fallback_semantics": "Actual original cachedimage/depsRO, explicitmode, native.py hardstop command+actualnativebudget receipt; known BF16cuda0/intraop6 preserved. TF completionusage counts actual generated token values in fixed source streamer. No vLLM token-ID trace expected or invented.",
+  "original_Torch_interop_limitation": "Actual interop pool76 unchanged and explicitly recorded; original exception fixes intraop/OMP6, not a claim all threadpools6. Cgroup6CPU bound remains.",
+  "cleanup": "Exact fallback modelCID+lastBnetwork removed; Bcontainers/networks0/outer+freshcloseoutGPU0empty, allSSH ended; R c61 untouched",
+  "device_increment_s": 35.223883390426636,
+  "B_device_cumulative_upper_s": 174.16961550712585,
+  "B_generation_cumulative_includingTF": 12,
+  "B_POST_cumulative": 14,
+  "CPU_rows": [
+    {
+      "file": "FALLBACK01-GO-STAGE-TRANSPORT.json",
+      "sha256": "a3bc79a7c78161c441bc88aaf1dca50016cde4390819855c1cf2bffb8af19507",
+      "wall_s": 0.30510902404785156,
+      "ceil_s": 1
+    },
+    {
+      "file": "FALLBACK01-FOREGROUND-TRANSPORT-RESULT.json",
+      "sha256": "f78235eb7d330ab294aa6ff35bf6aefc33766f90427aa4f89f297fc4e97fe755",
+      "wall_s": 76.72216510772705,
+      "ceil_s": 77
+    },
+    {
+      "file": "FALLBACK01-RAW-COLLECTION-SSH.json",
+      "sha256": "dd994e978a2248950453ab2603e7463a56578a320f8469451dc15030fc7a2d97",
+      "wall_s": 0.5209531784057617,
+      "ceil_s": 1
+    }
+  ],
+  "CPU_increment_s": 79,
+  "CPU_cumulative_upper_s": 4585.4357385,
+  "Nov14_1100_remaining_s": 741,
+  "criteria": {
+    "C01": "Explicit TF identity/successfulstrictSSE/realfixed-source tokenusage/nohiddenbackend switch",
+    "C02": "execute_end then settled/posthealth idle/ownedcleanup actual",
+    "C03": "All original B normal/deadline/recovery/fallback profiles now independently stage-reviewed; own R realnormal still pending",
+    "C04": "Exactsource/phase/GO/34hashmanifest/runtimeimage/depsentry/nativehardstop/resourceledger/cleanup coherent; finalsameSHA EvidenceCI/Handoff pending"
+  },
+  "limits": [
+    "Local independent actual B\u539f\u4ef6\u5ba1\uff1bno R SSH/GPU/model thisphase.",
+    "Native TF tokenIDs not retained as vLLM trace; usage corroborated through unchanged actual implementation + strictwire/modeltrace, limitation explicit.",
+    "No crossengine speed/batching/C10K/P95 benefit claim.",
+    "OwnRrealnormal/finalEvidenceCI and exactSHA finalVerdict remain; stage PASS does not integrate."
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/FALLBACK01-HANDOFF-RELEASE.v1.json",
+      "sha256": "795c6b9a44576756954b1d9e76dad5f8794ae5845c7041a403abe43649274aa0"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/B-fallback01-original/FALLBACK01-NOV14-MANIFEST.json",
+      "sha256": "fc8e778baf456e18169d3a37b80bc8b2cc0c633f18b44e6cb91750256c2bda78"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/review_fallback01.py",
+      "sha256": "975751279b965bfae6e0e00043ba7ecc61bf558ba98844b12ca5f0061385b5db"
+    }
+  ]
+}

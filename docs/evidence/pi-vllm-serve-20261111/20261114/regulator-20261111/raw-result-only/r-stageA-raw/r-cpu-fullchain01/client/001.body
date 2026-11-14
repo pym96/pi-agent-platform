@@ -1,0 +1,38 @@
+data: {"choices": [{"delta": {"role": "assistant", "content": ""}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "0,"}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "1,"}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "2,"}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "3,"}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "4,"}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "5,"}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "6,"}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "7,"}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "8,"}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "9,"}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "10,"}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "11,"}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "12,"}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "13,"}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "14,"}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "15,"}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {}, "finish_reason": "length"}], "usage": {"prompt_tokens": 12, "completion_tokens": 16, "total_tokens": 28}}
+
+data: [DONE]
+

@@ -1,0 +1,59 @@
+{
+  "schema": "pi24-regulator-P2-contract-prereview/v1",
+  "at": 1794410842.76274,
+  "contract_sha256": "06b694ed12c3aebb62cd2bc870e13148998817b2dc96a30f373165665300d9f8",
+  "phase_id": "pi24-nov11-p2",
+  "result": "PROSPECTIVE_CONTRACT_FEASIBLE; not implementation approval/server/model GO",
+  "criteria": {
+    "C-G2-01": "1.0",
+    "C-G2-02": "1.0",
+    "C-G2-03": "1.1",
+    "C-G2-04": "1.3"
+  },
+  "authority": "Master has explicitly identified original CI4 as derived allocation under original Human10h, now prospectively5. GPU/native/POST/CPU/disk/global unchanged; oldP1 remainsINCOMPLETE.",
+  "exact_epochs_independently_verified": {
+    "start": 1794411000.0,
+    "builder_latest_start": 1794414900.0,
+    "regulator_latest_start": 1794415800.0,
+    "all_owned_stop": 1794416400.0,
+    "end": 1794417600.0,
+    "global_end": 1794420671.0
+  },
+  "remaining_device": {
+    "B_s": 1144.8307058811188,
+    "B_native": 32,
+    "B_POST": 64,
+    "R_s": 360,
+    "R_native": 8,
+    "R_POST": 16
+  },
+  "matrix_reservation_example": {
+    "B_lifecycles_s": [
+      360,
+      180,
+      180,
+      180
+    ],
+    "B_device_prior_plus_requested_caps_s": 955.1692941188812,
+    "B_normal_plus_deadline_recovery_fallback_native_expected": 12,
+    "R_lifecycle_s": 300,
+    "R_native_expected": 7,
+    "not_actual_performance_or_permission": true
+  },
+  "implementation_prereview_requirements_from_C04_1_3": [
+    "Only exact frozen P2 id/hash/allbounds, not arbitrary caller-selected global-valid windows.",
+    "Original P1 exactGO/missingphase/unknownphase/mismatchedphasecontracthash/changedbounds/wrongsource/expired/future/rolelatest/nonfinite/inverted/overduration/allstop/global rejected before Docker/NVML/model.",
+    "Source clock validator and outer consume same validated definition; no direct bypass of expired launch checks.",
+    "B900/R300 perGO caps retained, no reset of prior55.169294/device/native/POST/CI.",
+    "Fixed source+externalentry+plan+actualnetwork+phasecontract+GO binding and original native/watch/hardstop/ownedcleanup persist.",
+    "New sourceCI3 actualsuccess plus independent affectedCPU before any model; finalEvidenceCI4/mainCI5 preserved.",
+    "Hash is integrity/provenance, not cryptographic authorization; execution authority is recorded exactMasterGO."
+  ],
+  "review_limits": [
+    "No new Product source reviewed yet.",
+    "No GPU availability guarantee from three historicalidle snapshots.",
+    "No standard relaxation to count CPU/HOLD as C03 realmatrix.",
+    "No permission to revive oldGO, extend P2 automatically, change models or otherGPUs."
+  ],
+  "technical_final_acceptance": false
+}

@@ -1,0 +1,6 @@
+      - name: Required server Python3.10 full isolated vLLM guards
+        run: |
+          mkdir -p "$RUNNER_TEMP/python310-vllm21/tmp"
+          export TMPDIR="$RUNNER_TEMP/python310-vllm21/tmp"
+          python --version > "$RUNNER_TEMP/python310-vllm21/version.txt"
+          python service/scripts/nginx-entry/strict_suite.py --start-dir service/scripts/vllm-compat --pattern 'test_*.py' --out "$RUNNER_TEMP/python310-vllm21/summary.json" > "$RUNNER_TEMP/python310-vllm21/tests.log" 2>&1

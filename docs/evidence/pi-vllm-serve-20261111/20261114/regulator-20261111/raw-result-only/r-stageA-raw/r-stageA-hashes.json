@@ -1,0 +1,62 @@
+{
+  "start": 1794406861.8622687,
+  "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+  "affinity": [
+    0,
+    1
+  ],
+  "results": [
+    {
+      "kind": "runtime",
+      "manifest_sha256": "8399994fa82aac42c3cd82a0f3e697bb46f70e16d4ba62969a13ce3a76fc8820",
+      "count": 47523,
+      "bytes": 7361033759,
+      "verified": true
+    },
+    {
+      "kind": "model",
+      "manifest_sha256": "4380c0c2174d1ba6a4698f37d06d05cfb01d3652a19fccdeeb414a96b573a1a8",
+      "count": 16,
+      "bytes": 16397474242,
+      "verified": true
+    },
+    {
+      "kind": "node",
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/1/toolchains/node-v22.23.3/bin/node",
+      "sha256": "fde6a4bf8d0562f7751d1a2d6cb9b417c4cfe107bbcb0aa3e9a24e125e348f48",
+      "bytes": 124827920,
+      "verified": true
+    },
+    {
+      "kind": "api",
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/13-qwen-load-20261107/builder/source/service/bin/service",
+      "sha256": "9042a98be49b12a6a18274f96927864d792ef88dee0d752e5b5fc6f069dac87e",
+      "bytes": 16561288,
+      "verified": true
+    },
+    {
+      "kind": "sdklock",
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/3/builder/source/service/pi/package-lock.json",
+      "sha256": "06267cf15e35052de5e4a518d43d640b8183c00c66be8c18d7c4b66078e08a6c",
+      "bytes": 55985,
+      "verified": true
+    },
+    {
+      "kind": "sdk",
+      "manifest_sha256": "fac12b65a96b8a7614bc17376b92e03de8a100060978758c65d2134c8b6cd7d3",
+      "count": 15027,
+      "bytes": 111572401,
+      "verified": true
+    },
+    {
+      "kind": "fallback-deps",
+      "manifest_sha256": "0daa116e06671a31c9b57f69a7664aa30c5e33d04898eda18f08451bfa93a1e3",
+      "count": 2349,
+      "bytes": 69437791,
+      "verified": true
+    }
+  ],
+  "source_clean": true,
+  "end": 1794406920.4776742,
+  "success": true
+}

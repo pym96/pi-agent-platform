@@ -1,0 +1,13 @@
+{
+  "name": "source-new-status",
+  "args": [
+    "git",
+    "status",
+    "--porcelain"
+  ],
+  "start": 1794621932.187612,
+  "end": 1794621932.1957805,
+  "exit": 0,
+  "stdout": "",
+  "stderr": ""
+}

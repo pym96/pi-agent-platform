@@ -1,0 +1,17 @@
+E
+======================================================================
+ERROR: test_go_rejections_before_gpu_commands (test_contract.Contract.test_go_rejections_before_gpu_commands)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-vllm24-nov14-candidate/service/scripts/vllm-compat/test_contract.py", line 17, in test_go_rejections_before_gpu_commands
+    f.write_text(json.dumps(good));self.assertEqual(m.validate(f,m.sha(f))['issue'],21)
+                                                    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-vllm24-nov14-candidate/service/scripts/vllm-compat/launch.py", line 15, in validate
+    if now>latest:raise ValueError('last new GPU start elapsed')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: last new GPU start elapsed
+
+----------------------------------------------------------------------
+Ran 1 test in 0.425s
+
+FAILED (errors=1)

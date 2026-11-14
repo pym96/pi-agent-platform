@@ -1,0 +1,51 @@
+{
+  "reused_inspected": {
+    "Name": "pi-vllm24-r-pi24-r-nov14-normal01",
+    "Id": "c17c961d716ff2347e4d08151291df46c99ba5a47435bf0c17b5fe47397eaa75",
+    "Created": "2026-11-14T10:02:41.947636393+08:00",
+    "Scope": "local",
+    "Driver": "bridge",
+    "EnableIPv6": false,
+    "IPAM": {
+      "Driver": "default",
+      "Options": {},
+      "Config": [
+        {
+          "Subnet": "172.22.0.0/16",
+          "Gateway": "172.22.0.1"
+        }
+      ]
+    },
+    "Internal": true,
+    "Attachable": false,
+    "Ingress": false,
+    "ConfigFrom": {
+      "Network": ""
+    },
+    "ConfigOnly": false,
+    "Containers": {},
+    "Options": {},
+    "Labels": {
+      "com.docker.compose.project": "pi-vllm24-r",
+      "execution-sha": "d42579518034f235a55fdbdbfd1d72b0f1134544",
+      "pi24.nonce": "pi24-r-nov14-normal01",
+      "pi24.phase": "pi24-nov14-recovery01-r2",
+      "pi24.phase-sha256": "77b6d5aa360e46cdde73fa36bdff344c89769973e56c48733b43ac258d763887",
+      "workorder": "24"
+    }
+  },
+  "new_retained": {
+    "network_id": "c17c961d716ff2347e4d08151291df46c99ba5a47435bf0c17b5fe47397eaa75",
+    "network_name": "pi-vllm24-r-pi24-r-nov14-normal01",
+    "labels": {
+      "com.docker.compose.project": "pi-vllm24-r",
+      "execution-sha": "d42579518034f235a55fdbdbfd1d72b0f1134544",
+      "pi24.nonce": "pi24-r-nov14-normal01",
+      "pi24.phase": "pi24-nov14-recovery01-r2",
+      "pi24.phase-sha256": "77b6d5aa360e46cdde73fa36bdff344c89769973e56c48733b43ac258d763887",
+      "workorder": "24"
+    },
+    "internal": true,
+    "existing_reused": true
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "planned": [
+    "r-direct16",
+    "r-platform",
+    "r-cancel128",
+    "r-after-cancel16",
+    "r-sse-replay",
+    "r-api-restart",
+    "r-new-session"
+  ],
+  "completed": [
+    "r-direct16",
+    "r-platform",
+    "r-cancel128",
+    "r-after-cancel16",
+    "r-sse-replay",
+    "r-api-restart",
+    "r-new-session"
+  ],
+  "not_completed": []
+}

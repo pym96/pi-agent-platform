@@ -1,0 +1,66 @@
+{
+  "schema": "pi24-builder-CPU-budget-conservative/v1",
+  "as_of": "existing receipts through GPU0-OBSERVE02, no new server audit",
+  "entries": [
+    {
+      "name": "original CPU source preparation",
+      "upper_seconds": 2849.2587385177612,
+      "basis": "CPU-RELEASE-FINAL.v1; continuous first-server to lastinventory includes idle/local waits; do not add those again"
+    },
+    {
+      "name": "CPU GPU-prep01",
+      "start": 1794407586.361574,
+      "end": 1794407586.7242854,
+      "observed_seconds": 0.36271142959594727,
+      "upper_seconds": 3,
+      "basis": "actual CPU receipt; ceil plus2s transport reserve, no new containers"
+    },
+    {
+      "name": "CPU GPU-prep02",
+      "start": 1794409464.6948588,
+      "end": 1794409465.2372823,
+      "observed_seconds": 0.5424234867095947,
+      "upper_seconds": 3,
+      "basis": "actual CPU receipt; ceil plus2s transport reserve, no new containers"
+    },
+    {
+      "name": "normal01 entire owned slot conservative CPU allocation",
+      "start": 1794408023.3384907,
+      "end": 1794408149.5421484,
+      "observed_seconds": 126.20365762710571,
+      "upper_seconds": 137,
+      "basis": "full foreground start through finalinventory, includes idle/diagnostics and normal01 GPU period too (intentional conservative CPU double count), plus10s transfer/closeout reserve; not new GPU cost"
+    },
+    {
+      "name": "normal02 entire owned slot conservative CPU allocation",
+      "start": 1794409683.5900517,
+      "end": 1794409819.5770926,
+      "observed_seconds": 135.9870409965515,
+      "upper_seconds": 146,
+      "basis": "full foreground start through finalinventory, includes idle/diagnostics and normal01 GPU period too (intentional conservative CPU double count), plus10s transfer/closeout reserve; not new GPU cost"
+    },
+    {
+      "name": "readonly observe02",
+      "start": 1794410341.8137417,
+      "end": 1794410371.8599892,
+      "observed_seconds": 30.046247482299805,
+      "upper_seconds": 33,
+      "basis": "actual30.046248s + ceil/2s transport reserve; expiredobserve01 not run"
+    }
+  ],
+  "builder_upper_seconds": 3171.2587385177612,
+  "regulator_prior_plus_maxaffected_stage_upper_seconds_for_sufficiency_only": 533.177,
+  "combined_upper_seconds": 3704.4357385177614,
+  "new_requested_builder_CPU_s": 120,
+  "new_requested_R_CPU_s": 180,
+  "after_requested_upper_seconds": 4004.4357385177614,
+  "total_limit_seconds": 5400,
+  "remaining_after_requested_upper_seconds": 1395.5642614822386,
+  "regulator_actual_ledger_owned_by_R": true,
+  "server_disk_latest_formal_actual_bytes": 306441181,
+  "disk_actual_basis": "CPU-RELEASE-FINAL.v1 plus later known retained PG/logs not fully recounted; do not claim current exact disk or unknown as zero. B/R known baseline and added archives are far below2GiB but fresh closeout must inventory known retained data; no SSH for this ledger.",
+  "local_known_artifacts": "CI1/2 zip1.2MiB each + extractions, normal01 raw554793B and normal02raw5282B; oldactual93405247B predates these. No new disk audit implied.",
+  "source_sha": "471a317ef687a168306608b1bece931f9b3a2b63",
+  "device_s_separate": 55.169294118881226,
+  "gen_POST": 0
+}

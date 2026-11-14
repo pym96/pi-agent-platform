@@ -1,0 +1,14 @@
+{
+  "schema": "pi24-R-fallbackGO-control/v1",
+  "status": "CONTROL_BINDINGS_PASS_NOT_RUNTIME_SUCCESS",
+  "GO_sha256": "d9a81549ff1f04929ed43869cbecc140e6a0ab38436aa49f8372c409e12a86e4",
+  "review_epoch": 1794626846.653163,
+  "checks": [
+    "Actual own exact-source Product.validate realclock independentv3 passed.",
+    "Frozen originalplan27ca/noncefallback01/netcf97/carrier884c/outer95af/shell611e/query917f actualprefix preserved; no new logging seam.",
+    "Explicit Transformers original cachedimage7e8449/deps0daa/TorchOMP6 authorized fallback exception; vLLM default unchanged.",
+    "CPU4506.4357385/new1100 remaining820; prior device138.94573211669922/native11POST13; only R c61 retained after Bfallbackcleanup."
+  ],
+  "no_R_SSH_GPU": true,
+  "remaining": "Await real original fallback backendidentity/strictSSE16/nonempty/realusage and lifecyclecleanup. OwnRnormal/finalEvidenceCI remain."
+}

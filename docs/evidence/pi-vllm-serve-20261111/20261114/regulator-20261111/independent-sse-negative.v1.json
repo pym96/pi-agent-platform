@@ -1,0 +1,62 @@
+{
+  "fixture_only": true,
+  "positive": 1,
+  "negative": [
+    {
+      "case": "missing_done",
+      "result": "rejected",
+      "reason": "incomplete success"
+    },
+    {
+      "case": "missing_terminal",
+      "result": "rejected",
+      "reason": "DONE without terminal"
+    },
+    {
+      "case": "double_terminal",
+      "result": "rejected",
+      "reason": "event after terminal"
+    },
+    {
+      "case": "after_done",
+      "result": "rejected",
+      "reason": "event after DONE"
+    },
+    {
+      "case": "double_done",
+      "result": "rejected",
+      "reason": "event after DONE"
+    },
+    {
+      "case": "partial_then_error",
+      "result": "rejected",
+      "reason": "error or invalid event"
+    },
+    {
+      "case": "empty_content",
+      "result": "rejected",
+      "reason": "incomplete success"
+    },
+    {
+      "case": "bad_sum",
+      "result": "rejected",
+      "reason": "usage bounds"
+    },
+    {
+      "case": "over_budget",
+      "result": "rejected",
+      "reason": "usage bounds"
+    },
+    {
+      "case": "bool_count",
+      "result": "rejected",
+      "reason": "usage values"
+    },
+    {
+      "case": "truncated_frame",
+      "result": "rejected",
+      "reason": "incomplete frame at EOF"
+    }
+  ],
+  "oracle_sha256": "9b845065312927ab59e701b6937199e280412d89efaf129d71ab3d7e240139a6"
+}

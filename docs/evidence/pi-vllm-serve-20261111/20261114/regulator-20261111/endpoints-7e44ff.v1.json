@@ -1,0 +1,206 @@
+{
+  "source": "7e44ff2bdcfdb3523b708a926b3812fca6c394c6",
+  "fixture_only": true,
+  "positive": {
+    "project": "pi-vllm24-r",
+    "source_sha": "3333333333333333333333333333333333333333",
+    "nonce": "r-private-endpoint",
+    "network_id": "2222222222222222222222222222222222222222222222222222222222222222",
+    "network_name": "r-owned-network",
+    "endpoints": {
+      "model": {
+        "cid": "1111111111111111111111111111111111111111111111111111111111111111",
+        "ip": "172.23.0.2",
+        "port": 8082
+      }
+    }
+  },
+  "negative": [
+    {
+      "fault": "source",
+      "result": "rejected",
+      "reason": "exact object ownership mismatch",
+      "commands": [
+        [
+          "network",
+          "inspect",
+          "2222222222222222222222222222222222222222222222222222222222222222"
+        ],
+        [
+          "inspect",
+          "1111111111111111111111111111111111111111111111111111111111111111"
+        ]
+      ]
+    },
+    {
+      "fault": "nonce",
+      "result": "rejected",
+      "reason": "exact object ownership mismatch",
+      "commands": [
+        [
+          "network",
+          "inspect",
+          "2222222222222222222222222222222222222222222222222222222222222222"
+        ],
+        [
+          "inspect",
+          "1111111111111111111111111111111111111111111111111111111111111111"
+        ]
+      ]
+    },
+    {
+      "fault": "network_owner",
+      "result": "rejected",
+      "reason": "network ownership/internal mismatch",
+      "commands": [
+        [
+          "network",
+          "inspect",
+          "2222222222222222222222222222222222222222222222222222222222222222"
+        ]
+      ]
+    },
+    {
+      "fault": "noninternal",
+      "result": "rejected",
+      "reason": "network ownership/internal mismatch",
+      "commands": [
+        [
+          "network",
+          "inspect",
+          "2222222222222222222222222222222222222222222222222222222222222222"
+        ]
+      ]
+    },
+    {
+      "fault": "network_id",
+      "result": "rejected",
+      "reason": "endpoint network mismatch",
+      "commands": [
+        [
+          "network",
+          "inspect",
+          "2222222222222222222222222222222222222222222222222222222222222222"
+        ],
+        [
+          "inspect",
+          "1111111111111111111111111111111111111111111111111111111111111111"
+        ]
+      ]
+    },
+    {
+      "fault": "membership",
+      "result": "rejected",
+      "reason": "network membership/IP mismatch",
+      "commands": [
+        [
+          "network",
+          "inspect",
+          "2222222222222222222222222222222222222222222222222222222222222222"
+        ],
+        [
+          "inspect",
+          "1111111111111111111111111111111111111111111111111111111111111111"
+        ]
+      ]
+    },
+    {
+      "fault": "public_ip",
+      "result": "rejected",
+      "reason": "private IPv4 required",
+      "commands": [
+        [
+          "network",
+          "inspect",
+          "2222222222222222222222222222222222222222222222222222222222222222"
+        ],
+        [
+          "inspect",
+          "1111111111111111111111111111111111111111111111111111111111111111"
+        ]
+      ]
+    },
+    {
+      "fault": "extra_network",
+      "result": "rejected",
+      "reason": "endpoint network mismatch",
+      "commands": [
+        [
+          "network",
+          "inspect",
+          "2222222222222222222222222222222222222222222222222222222222222222"
+        ],
+        [
+          "inspect",
+          "1111111111111111111111111111111111111111111111111111111111111111"
+        ]
+      ]
+    },
+    {
+      "fault": "host_published",
+      "result": "rejected",
+      "reason": "published ports forbidden",
+      "commands": [
+        [
+          "network",
+          "inspect",
+          "2222222222222222222222222222222222222222222222222222222222222222"
+        ],
+        [
+          "inspect",
+          "1111111111111111111111111111111111111111111111111111111111111111"
+        ]
+      ]
+    },
+    {
+      "fault": "runtime_published",
+      "result": "rejected",
+      "reason": "published ports forbidden",
+      "commands": [
+        [
+          "network",
+          "inspect",
+          "2222222222222222222222222222222222222222222222222222222222222222"
+        ],
+        [
+          "inspect",
+          "1111111111111111111111111111111111111111111111111111111111111111"
+        ]
+      ]
+    },
+    {
+      "fault": "notrunning",
+      "result": "rejected",
+      "reason": "endpoint container not running",
+      "commands": [
+        [
+          "network",
+          "inspect",
+          "2222222222222222222222222222222222222222222222222222222222222222"
+        ],
+        [
+          "inspect",
+          "1111111111111111111111111111111111111111111111111111111111111111"
+        ]
+      ]
+    },
+    {
+      "fault": "wrong_network_identity",
+      "result": "rejected",
+      "reason": "network identity",
+      "commands": [
+        [
+          "network",
+          "inspect",
+          "2222222222222222222222222222222222222222222222222222222222222222"
+        ]
+      ]
+    },
+    {
+      "fault": "valid_hash_stale_live_map",
+      "result": "rejected",
+      "reason": "endpoint map differs from exact live ownership"
+    }
+  ],
+  "actualHTTP_sent": 0
+}

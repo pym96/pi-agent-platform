@@ -1,0 +1,21 @@
+test_endpoint_map_hash_and_live_identity_both_required (test_endpoints.EndpointTests.test_endpoint_map_hash_and_live_identity_both_required) ... ok
+test_exact_membership_resolves_fixed_model_port (test_endpoints.EndpointTests.test_exact_membership_resolves_fixed_model_port) ... ok
+test_private_address_alone_never_authorizes_endpoint (test_endpoints.EndpointTests.test_private_address_alone_never_authorizes_endpoint) ... ok
+test_client_cli_imports_from_its_source_with_clean_host_environment (test_entry.ClientEntryTests.test_client_cli_imports_from_its_source_with_clean_host_environment) ... ok
+test_invalid_go_never_reaches_external_tools (test_entry.EntryTests.test_invalid_go_never_reaches_external_tools) ... ok
+test_actual_cli_rejects_tampered_phase_without_tool_execution (test_entry.PhaseWindowTests.test_actual_cli_rejects_tampered_phase_without_tool_execution) ... ok
+test_fixed_P2_entry_accepts_each_role_after_retired_P1_cutoff (test_entry.PhaseWindowTests.test_fixed_P2_entry_accepts_each_role_after_retired_P1_cutoff) ... ok
+test_phase_identity_and_every_bound_are_exact (test_entry.PhaseWindowTests.test_phase_identity_and_every_bound_are_exact) ... ok
+test_time_role_duration_and_nonfinite_inputs_reject (test_entry.PhaseWindowTests.test_time_role_duration_and_nonfinite_inputs_reject) ... ok
+test_wrong_go_digest_and_old_P1_go_reject (test_entry.PhaseWindowTests.test_wrong_go_digest_and_old_P1_go_reject) ... ok
+test_failed_inventory_is_unknown_not_empty_cleanup_success (test_owned.OwnedTests.test_failed_inventory_is_unknown_not_empty_cleanup_success) ... ok
+test_label_mismatch_never_stops_object (test_owned.OwnedTests.test_label_mismatch_never_stops_object) ... ok
+test_multicid_cleanup_attempts_known_other_after_first_unknown (test_owned.ReconciliationTests.test_multicid_cleanup_attempts_known_other_after_first_unknown) ... ok
+test_deadline_stops_owned_child_and_keeps_foreign (test_watch.WatchTests.test_deadline_stops_owned_child_and_keeps_foreign) ... ok
+test_foreign_gpu_fixture_stops_only_owned_child (test_watch.WatchTests.test_foreign_gpu_fixture_stops_only_owned_child) ... ok
+test_unknown_inventory_keeps_failure_but_cleans_known_child (test_watch.WatchTests.test_unknown_inventory_keeps_failure_but_cleans_known_child) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.717s
+
+OK

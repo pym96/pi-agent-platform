@@ -1,0 +1,7 @@
+{
+  "phase": "privateprobeinitialsetup",
+  "error": "AssertionError: CPU03 restart-request8 has no native_output atall, so cannot select a nonexistent actual output prefix",
+  "correction": "Use actual new-session request9 unfinished and finished prefixes for positive/finished negatives; preserve actual previous7 stale-history negative unchanged",
+  "product_code_changed": false,
+  "time": 1794405709.6206641
+}

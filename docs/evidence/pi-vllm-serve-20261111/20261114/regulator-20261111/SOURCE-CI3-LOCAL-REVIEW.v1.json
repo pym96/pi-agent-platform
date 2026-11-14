@@ -1,0 +1,69 @@
+{
+  "schema": "pi24-regulator-local-review/v1",
+  "created_utc": "2026-11-11T15:43:10.341033+00:00",
+  "session_role": "Regulator Agent",
+  "issue": 24,
+  "stage": "SOURCE_CI3_LOCAL_AFFECTED_REVIEW",
+  "source_full_sha": "a0f2b4e3a416e548b307df3c9cc326887ed14d6c",
+  "source_clean": true,
+  "phase_contract_sha256": "06b694ed12c3aebb62cd2bc870e13148998817b2dc96a30f373165665300d9f8",
+  "criterion": "C04@1.3; unchanged C01/C02@1.0 C03@1.1 remain blocking",
+  "verdict": "LOCAL_AFFECTED_REVIEW_NO_KNOWN_BLOCKER_FOR_SINGLE_SOURCE_CI3",
+  "not_final_accepted": true,
+  "checks": {
+    "phase_cases": 47,
+    "own_serving_tests": 16,
+    "skip": 0,
+    "actual_cli_negative_cases": 3,
+    "outer_to_actual_product_validator_cases": 3,
+    "old_actual_471a_p2_projection": "RED retained; prospective P2 requirement, not retroactive P1 verdict",
+    "source_diff": "5 existing files; no additions/moves",
+    "outer_tail": "sample function and main tail from run-output construction AST identical to prior f961; actual CPU hardstop evidence reused",
+    "byte_identity": "engine/app/native/watch/client/owned/endpoints/Go/Pi/compose unchanged; prior independent affected checks reused"
+  },
+  "seams_and_limits": [
+    "Mac tests explicitly substitute private ROOT, affinity, owned Docker/NVML transport and Popen boundary; not a real Linux model load",
+    "phase hash provides integrity/provenance, not cryptographic signature or execution authority",
+    "own initial probe fixture used wrong R max_attempts; validator rejected correctly; original fixture error retained",
+    "no server/SSH/container/model/GPU/CI operation in this review; source not yet remote CI3",
+    "final acceptance still requires actual source CI3, authorized affected server CPU, real B and R matrix, original raw Evidence and final CI"
+  ],
+  "prior_review_refs": {
+    "stageA": "50f4c10d0765315d364834942206d6a4bacccb830b548bcb76ab2813a164e613",
+    "version02_cpu_ci2": "5901c613811a1ce61e180f064bb2d4e4848ecf73bd0fd43e07df561163f3803f"
+  },
+  "artifacts": {
+    "phase_contract_probe.py": {
+      "sha256": "887d8d3e283192e6973e2e9153adae85953536c187ee5c0cb792cc48880d2ed5",
+      "bytes": 6691
+    },
+    "phase-a0f2-independent.v1.json": {
+      "sha256": "36c944ed96f2f28d9a39b5279837798d0448b9c5941f34ddc3f8a0c7b3746b8e",
+      "bytes": 9600
+    },
+    "phase-private-probe-fixture-failure.v1.json": {
+      "sha256": "44adfa7a56e9804a6d6d60c053d94a9ebaa4540f877865b300000dbe03560a77",
+      "bytes": 228
+    },
+    "outer_phase_binding_probe.py": {
+      "sha256": "14a5a2372e1818abba1336611488b2ea6c3df8e6947713d314a5274eeae13870",
+      "bytes": 3789
+    },
+    "outer-phase-binding-a0f2.v1.json": {
+      "sha256": "bcd100d7e3c8a17e515debd55d227a4d1cc6fb6625b9574c2f27a867e3e6798a",
+      "bytes": 1284
+    },
+    "phase-471a-old-red.v1.json": {
+      "sha256": "b22e7081888143d6f5e0112015160f50aa232014aba7628a974c2e4e38827884",
+      "bytes": 306
+    },
+    "serve-a0f2-independent.log": {
+      "sha256": "8d6feb4ffb13e985637aefd42bc8a12a04e9d518571f4325f88ec0cdd8bcedab",
+      "bytes": 2365
+    }
+  },
+  "product_launch_sha256": "8021f265c36b165f9ef9f976bba5d28e5f6e3f4ce79ec3d4ea8420c6191716ea",
+  "builder_external_entry_sha256": "9b23eccf3ce56f7880fc0d0f9c5d081f1bbf20e36dd7d2029f342514bcaa4019",
+  "feedback": "Read current root feedback immediately before review: no pending items",
+  "authority_boundary": "Master alone may issue one sourceCI3 push and subsequent separate affected serverCPU/model GO; this review grants none"
+}

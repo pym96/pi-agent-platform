@@ -1,0 +1,59 @@
+{
+  "criteria": "C-G2-03@1.1",
+  "kind": "synthetic-CPU-no-model",
+  "role": "regulator",
+  "generation_timeout": 30,
+  "steps": [
+    {
+      "id": "r-direct16",
+      "action": "direct",
+      "budget": 16,
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-direct16"
+    },
+    {
+      "id": "r-platform",
+      "action": "platform",
+      "budget": 128,
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-platform",
+      "session": "cpu-g2-r-platform"
+    },
+    {
+      "id": "r-cancel128",
+      "action": "disconnect",
+      "budget": 128,
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-cancel128"
+    },
+    {
+      "id": "r-after-cancel16",
+      "action": "direct",
+      "budget": 16,
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-after-cancel16"
+    },
+    {
+      "id": "r-sse-replay",
+      "action": "sse_disconnect",
+      "budget": 128,
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-sse-replay",
+      "session": "cpu-g2-r-sse"
+    },
+    {
+      "id": "r-api-restart",
+      "action": "restart",
+      "budget": 128,
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-api-restart",
+      "session": "cpu-g2-r-restart",
+      "queued_prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-queued-must-not-execute"
+    },
+    {
+      "id": "r-new-session",
+      "action": "platform",
+      "budget": 128,
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-new-session",
+      "session": "cpu-g2-r-new"
+    }
+  ],
+  "native_usual": 7,
+  "native_cap": 8,
+  "completionPOST_cap": 16,
+  "retry": 0
+}

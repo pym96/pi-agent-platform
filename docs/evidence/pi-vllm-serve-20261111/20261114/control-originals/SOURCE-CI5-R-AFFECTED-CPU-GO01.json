@@ -1,0 +1,46 @@
+{
+  "schema": "pi24-nov14-sourceCI5-and-conditional-R-CPU-go/v1",
+  "issued_at": "2026-11-14T02:16:13.758976+00:00",
+  "issue": 24,
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "B_local_handoff_sha256": "0b5210fb1fc709a55b6345eff2e4263717d6b5e098c56e9015da58aa912539c9",
+  "R_local_review_sha256": "ac45f125eb0fa748c78fa777025c16c63b2e6235d037e96da973752478146339",
+  "phase_contract_sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+  "builder_permission": "exact9ea36 once push workorder/24-candidate SOURCECI5 only, no main/amend/rerun/server/model",
+  "B_push_absolute_stop": "2026-11-14T02:35:00Z",
+  "regulator_permission_conditional": {
+    "only_after": "Actualremote exact9ea36 and sole SOURCECI5 allrequiredsuccess including actualPython3.10 version/full16; independentactualartifact/source; B noSSH and oldRcpu allrelease",
+    "local": "Fresh origin exactd425 + independent actualCI4 artifact/source/requiredsuite checks",
+    "server": "Once affected LinuxCPU max180s and absolute02:45Zstop; firstcd/media/usv012/pjx/exportCUDA0; exactRroot/project only except explicitlyRO two ownWO roots PG diskstat; no model/CUDA/GPU",
+    "allowed": [
+      "stage exactcleannewsource + same phase-contract bytes/hash + fixed externalRentry/probe; derive from own independentclone/bundle, no reset of dirty user data",
+      "cached08619 image/runc/VOID/noDeviceRequests/ROsource/no modelmount, <=2CPU4GiB; actual17serving + affected16G0/finite<=60s nativeCPU probe + actualphaseCLI oldGO/tamper rejection + own hosttaskset0,1 affinity/RSS",
+      "Exact inspect current oldR c17c961d716ff2347e4d08151291df46c99ba5a47435bf0c17b5fe47397eaa75/labelsource d425/phase77b6/noncepi24-r-nov14-normal01 as emptyInternal before removal. Oldefda alreadygone: do not operate it. Then create one new emptyInternal IPv6false/unpublished Rnetwork labelsource9ea36/phase82f15/noncepi24-r-nov14-normal02, recordactualID, noBnetworkmutation.",
+      "bounded PG diskcount inside cached runc/VOID/networknone/capdropALL/noNewPriv/ROroot, user numeric matching actual ownPG directory owner (e.g999) to count only exact WO PG bind dirs RO; no host permission/owner change/no extra capabilities or foreignmount; timeout<=60s inside same180s envelope",
+      "disk account B+R roots via disjoint readable files and PG readonly inode/bytes; error remainsunknown notpartialexact; local roots/source/raw totals too; record alreadyexistingROcache separately",
+      "fullraw/stdout/errors/UTC/stoprm andfinalinventory with retainednewinertnetwork explicit; release server on completion",
+      "Probe setup sets G2_TEST_EVIDENCE=/evidence and TMPDIR=/evidence/tmp in existingownRWmount, mkdir onlyownpath; before tests actualtiny executable probe verifies exec/records errors+mountflags ifreadable, no mount/hostpermission/caps change. Preserve priorEACCES/noexecinference limitation.",
+      "Inside same cached3.10 environment run focused preservedoldPath-test negative and newfixture positive with unchangedProduct and correctHERE; full original16+17serving/ownphaseCLI preserved. No fakePythonversion/no install."
+    ]
+  },
+  "budgets": {
+    "CPU_prepare_old_plus_readonly_upper_s": 4240.4357385,
+    "new_CPU_original600_remaining_s": 586,
+    "this_R_CPU_cap_s": 180,
+    "B_device_used_s": 55.169294118881226,
+    "R_device_used_s": 0,
+    "native_POST_new": 0,
+    "CI_total": 7,
+    "CI_used_before_push": 4,
+    "CI_this_ifactual": 5,
+    "reserved_final_main": [
+      6,
+      7
+    ],
+    "other_original_limits": "unchanged"
+  },
+  "no_model_or_autostart": true,
+  "no_new_dependencies_or_images": true,
+  "no_role_or_scope_expansion": true,
+  "supersedes_unused_failed_condition": "prior81c47 conditionalCPU attempts ended, GO02 failed+released; B1839 not activated and retired; no oldsource/phaseGO reuse"
+}

@@ -1,0 +1,15 @@
+{
+  "start": 1794408965.872688,
+  "end": 1794408968.33984,
+  "command": [
+    "git",
+    "-c",
+    "http.proxy=",
+    "push",
+    "origin",
+    "471a317ef687a168306608b1bece931f9b3a2b63:refs/heads/workorder/24-candidate"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "To https://github.com/pym96/pi-agent-platform.git\n   a5f161b..471a317  471a317ef687a168306608b1bece931f9b3a2b63 -> workorder/24-candidate\n"
+}

@@ -1,0 +1,90 @@
+{
+  "schema": "pi24-nov14-builder-restoration/v1",
+  "SessionRole": "Working Agent (Builder)",
+  "issue": 24,
+  "observed_utc": "2026-11-14T01:32:24.313496+00:00",
+  "candidate": "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-vllm24-nov14-candidate",
+  "branch": "workorder/24-candidate",
+  "source": "a0f2b4e3a416e548b307df3c9cc326887ed14d6c",
+  "origin_main": "b0ed1c4d6f26d8a3b0c454030606dd598a4f0166",
+  "archive_peeled": "471a317ef687a168306608b1bece931f9b3a2b63",
+  "clean": true,
+  "bundle_verify": "actual exit0 after fetching exact archive prerequisite471a",
+  "external_bindings": [
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111/source-phase05.bundle",
+      "bytes": 5739,
+      "sha256": "3d9bbc4312466fe1c31374152017e19c720b4f3ba2659dc78b2cf10a34f14514",
+      "matches": true
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111/gpu_entry_phase2.py",
+      "bytes": 4459,
+      "sha256": "9b23eccf3ce56f7880fc0d0f9c5d081f1bbf20e36dd7d2029f342514bcaa4019",
+      "matches": true
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111/gpu_entry_phase2.diff",
+      "bytes": 1288,
+      "sha256": "67b770230e22934a0a3bed1da83f1e2fe067909e407dc179b54538573244ffc9",
+      "matches": true
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111/PHASE2-GO-BLOCK.json",
+      "bytes": 418,
+      "sha256": "7e8747f37f22aad29174bb4aec893379c5fd140452b29e614cc71e97cfc65e20",
+      "matches": true
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111/tdd14-phase-projection-red.log",
+      "bytes": 9677,
+      "sha256": "eae8a9d79cd860dbcda179299edf8151c32ca0b3bd5216cbe4c9016bf669d55a",
+      "matches": true
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111/tdd14-phase-serving-final-summary.json",
+      "bytes": 140,
+      "sha256": "afe36eba8732d0b0f57e142d31503d665b0f488db9cc5098f09336262157ba55",
+      "matches": true
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111/tdd14-phase-serving-final-green.log",
+      "bytes": 2489,
+      "sha256": "b6ee7b3d37c237a0724cd99e208168a82fa8d2f5da4beb70be91e6fa62cca982",
+      "matches": true
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111/CPU-BUDGET-P2-PROPOSAL.v1.json",
+      "bytes": 3173,
+      "sha256": "c3d0fc005a86f953c2c9723e8b6de166fbe95e1e4740f6df75195d0aa0437c68",
+      "matches": true
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111/NORMAL01-FAILURE-RELEASE.v1.json",
+      "bytes": 1198,
+      "sha256": "31ca559293ed30c69e1f567b5f7273b548e8c17946933c274e319a2c27de93ac",
+      "matches": true
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111/NORMAL02-PRECHECK-RELEASE.v1.json",
+      "bytes": 5062,
+      "sha256": "248c00a9e7fbba0c41b3032a7c906e4359a40e5def9f8420362d8a9c833dfd9b",
+      "matches": true
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111/GPU0-OBSERVE02.json",
+      "bytes": 1243,
+      "sha256": "232688ac44713060acb3143fbf3362b95372ba0c2c6e3de3b38c141eb447a2bf",
+      "matches": true
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111/SOURCE-CI2-READBACK.v1.json",
+      "bytes": 4959,
+      "sha256": "14b2ab02036ac3b514f25495a48293805b9f6a90cef2946caca8c3dfb9385c14",
+      "matches": true
+    }
+  ],
+  "old_workspace_modified": false,
+  "SSH_GPU_push_tests": false,
+  "status": "READ_ONLY_RESTORATION_COMPLETE_WAIT_READY_LOCAL_REPAIR"
+}

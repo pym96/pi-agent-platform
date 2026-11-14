@@ -1,0 +1,30 @@
+{
+  "HEAD": "df740e46da7cad585ef29763f19a280869d7c728",
+  "clean": true,
+  "handoff_sha": "9dd6da469ede0dcb9647837f33529a594e264c6bd1bb28c78ecf21bd06e0eedc",
+  "changed_vs_a0": [
+    "SOURCE_OF_TRUTH.md",
+    "docs/evidence/pi-vllm-serve-20261111/README.md",
+    "service/scripts/vllm-serve/README.md",
+    "service/scripts/vllm-serve/launch.py",
+    "service/scripts/vllm-serve/test_entry.py"
+  ],
+  "B_handoff_bindings": {
+    "service/scripts/vllm-serve/launch.py": true,
+    "service/scripts/vllm-serve/test_entry.py": true,
+    "service/scripts/vllm-serve/watch.py": true,
+    "service/scripts/vllm-compat/driver.py": true,
+    "service/scripts/vllm-compat/native.py": true,
+    "service/compose.vllm.yaml": true
+  },
+  "B_raw_bindings": {
+    "serve-strict.log": true,
+    "phase-controls-green.log": true,
+    "phase-data-red.log": true,
+    "phase-binding-green.log": true,
+    "phase-data-green.log": true
+  },
+  "outer_binding": true,
+  "executeAST_before_normalizing_signature_and_validation_call": false,
+  "executeAST_after_only_phase_forwarding_normalization": true
+}

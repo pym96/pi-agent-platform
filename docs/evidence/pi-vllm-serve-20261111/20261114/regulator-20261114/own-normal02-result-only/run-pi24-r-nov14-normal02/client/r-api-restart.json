@@ -1,0 +1,48 @@
+{
+  "spec": {
+    "id": "r-api-restart",
+    "action": "restart",
+    "budget": 128,
+    "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-api-restart",
+    "session": "g2-r-restart",
+    "queued_prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-queued-must-not-execute"
+  },
+  "task": {
+    "id": "a89704e4465e44e321faf02655ccb5c7",
+    "session": "g2-r-restart",
+    "key": "r-api-restart",
+    "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-api-restart",
+    "status": "interrupted"
+  },
+  "queued": {
+    "id": "1eef99b38b7e42b2e14cfcc7f82ce209",
+    "session": "g2-r-restart",
+    "key": "r-api-restart-queued",
+    "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-queued-must-not-execute",
+    "status": "cancelled"
+  },
+  "no_resend_before": {
+    "backend": "vllm-0.8.5.post1+cu118/V1-uni/Qwen3-8B",
+    "model": "Qwen3-8B",
+    "ready": true,
+    "active_generation": 0,
+    "calls": 6,
+    "queued": 0,
+    "max_active_generation": 1,
+    "max_context": 1024,
+    "attempts": 6,
+    "max_attempts": 8
+  },
+  "no_resend_after": {
+    "backend": "vllm-0.8.5.post1+cu118/V1-uni/Qwen3-8B",
+    "model": "Qwen3-8B",
+    "ready": true,
+    "active_generation": 0,
+    "calls": 6,
+    "queued": 0,
+    "max_active_generation": 1,
+    "max_context": 1024,
+    "attempts": 6,
+    "max_attempts": 8
+  }
+}

@@ -1,0 +1,62 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+________ test_load_selects_fixed_v1_uni_configuration_without_fallback _________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10bbcf490>
+
+    def test_load_selects_fixed_v1_uni_configuration_without_fallback(monkeypatch):
+        root,configured=official_identity_loader(monkeypatch)
+>       backend=asyncio.run(VllmBackend.load('/model'))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+service/inference/tests/test_vllm.py:125: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'service.inference.vllm_backend.VllmBackend'>
+model_path = '/model'
+
+    @classmethod
+    async def load(cls,model_path):
+        if os.environ.get('VLLM_USE_V1')!='1':raise ValueError('explicit VLLM_USE_V1=1 required')
+        import vllm
+>       if vllm.__version__!='0.8.5.post1+cu118':raise ValueError('fixed vLLM version required')
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: fixed vLLM version required
+
+service/inference/vllm_backend.py:34: ValueError
+__ test_wrong_or_missing_runtime_identity_rejects_before_native_construction ___
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10ad628b0>
+
+    def test_wrong_or_missing_runtime_identity_rejects_before_native_construction(monkeypatch):
+        import importlib.metadata
+        import pytest
+        from contextlib import ExitStack
+        for kind in ['wrong_module','missing_module','wrong_distribution','missing_distribution']:
+            with monkeypatch.context() as patch:
+                module,constructed=official_identity_loader(patch)
+                if kind=='wrong_module':module.__version__='0.8.5.post1+cu118'
+                if kind=='missing_module':del module.__version__
+                if kind=='wrong_distribution':patch.setattr(importlib.metadata,'version',lambda name:'0.8.5.post1')
+                if kind=='missing_distribution':
+                    def missing(name):raise importlib.metadata.PackageNotFoundError(name)
+                    patch.setattr(importlib.metadata,'version',missing)
+>               with pytest.raises(ValueError):asyncio.run(VllmBackend.load('/model'))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+E               Failed: DID NOT RAISE <class 'ValueError'>
+
+service/inference/tests/test_vllm.py:250: Failed
+=========================== short test summary info ============================
+FAILED service/inference/tests/test_vllm.py::test_load_selects_fixed_v1_uni_configuration_without_fallback
+FAILED service/inference/tests/test_vllm.py::test_wrong_or_missing_runtime_identity_rejects_before_native_construction
+2 failed, 16 deselected in 0.18s

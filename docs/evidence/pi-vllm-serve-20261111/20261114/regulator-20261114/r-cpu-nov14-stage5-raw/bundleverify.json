@@ -1,0 +1,14 @@
+{
+  "name": "bundleverify",
+  "args": [
+    "git",
+    "bundle",
+    "verify",
+    "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/source-phase5.bundle"
+  ],
+  "start": 1794622864.9325726,
+  "end": 1794622864.9349089,
+  "exit": 0,
+  "stdout": "\u8fd9\u4e2a\u5305\u4e2d\u542b\u6709\u8fd9\u4e2a\u5f15\u7528\uff1a\n9ea36d3221d024a6d8330322d330809fa9e283a6 HEAD\n\u8fd9\u4e2a\u5305\u9700\u8981\u8fd9\u4e2a\u5f15\u7528\uff1a\nd42579518034f235a55fdbdbfd1d72b0f1134544 \n",
+  "stderr": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/source-phase5.bundle \u53ef\u4ee5\n"
+}

@@ -1,0 +1,309 @@
+{
+  "schema": "pi24-remaining-profiles-CPUprep-handoff-release/v1",
+  "role": "Working Agent (Builder)",
+  "workorder": 24,
+  "GO_sha256": "d0c4d49fe6c92574df1decb921bcba74b1218bc98dfcf476ef697fbc939391b3",
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "phase_sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+  "SSH_original": {
+    "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/REMAINING-PROFILES-CPU-PREP01-SSH.json",
+    "sha256": "4f48c1a021214bd757b59c680cb5d4a753a4d5c237a2b74ba2604815f125058f",
+    "start": 1794625736.289932,
+    "end": 1794625737.207393,
+    "exit": 0,
+    "wall_s": 0.9174609184265137
+  },
+  "raw": {
+    "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/REMAINING-PROFILES-CPU-PREP01.json",
+    "sha256": "098071a06d13b2f5fd63755c21a3c91b318e37f36dce3ab22a4802cbe907bd02"
+  },
+  "remote_script": {
+    "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/REMAINING-PROFILES-CPU-PREP01-REMOTE.py",
+    "sha256": "4f8ed10e9d71436cbf93e1bf98b299638753523aea1cac39bf60a65703891aae"
+  },
+  "CPU_ledger": {
+    "prior_s": 4387.4357385,
+    "increment_ceil_s": 1,
+    "cumulative_s": 4388.4357385,
+    "new600_remaining_s": 438
+  },
+  "device_native_POST_unchanged": {
+    "B_device_s": 94.72067499160767,
+    "native": 9,
+    "completion_POST": 11
+  },
+  "networks": {
+    "deadline": {
+      "Id": "56dcda90e41ec939466fe2a076d54d6c0af3f6a98ceebf72c470609736c4a4ce",
+      "Internal": true,
+      "EnableIPv6": false,
+      "Containers": {},
+      "Labels": {
+        "com.docker.compose.project": "pi-vllm24-b",
+        "execution-sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+        "pi24.nonce": "pi24-b-nov14-deadline01",
+        "pi24.phase-contract-sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+        "workorder": "24"
+      }
+    },
+    "recovery": {
+      "Id": "29eaf5e27b7dd58ff2296a85d8b82c798672194479aec2995a32cbaa88d98ffc",
+      "Internal": true,
+      "EnableIPv6": false,
+      "Containers": {},
+      "Labels": {
+        "com.docker.compose.project": "pi-vllm24-b",
+        "execution-sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+        "pi24.nonce": "pi24-b-nov14-recovery01",
+        "pi24.phase-contract-sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+        "workorder": "24"
+      }
+    },
+    "fallback": {
+      "Id": "cf97a390694df09401f1b2eeee04f7451fbb3d0c7c2e6b65e07ac63df00000c4",
+      "Internal": true,
+      "EnableIPv6": false,
+      "Containers": {},
+      "Labels": {
+        "com.docker.compose.project": "pi-vllm24-b",
+        "execution-sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+        "pi24.nonce": "pi24-b-nov14-fallback01",
+        "pi24.phase-contract-sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+        "workorder": "24"
+      }
+    }
+  },
+  "bindings": {
+    "source/service/scripts/vllm-serve/launch.py": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/source/service/scripts/vllm-serve/launch.py",
+      "sha256": "d5e07f695b3680a7239d0dcc30a1735120148c2fc57ef4a42b3ce7ecddffec7d",
+      "bytes": 14392
+    },
+    "source/service/scripts/vllm-serve/watch.py": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/source/service/scripts/vllm-serve/watch.py",
+      "sha256": "d8a069ac818bf41149853f86a2b2031656abfe82d4919b825eaa656a3bfb36f4",
+      "bytes": 3261
+    },
+    "source/service/scripts/vllm-compat/driver.py": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/source/service/scripts/vllm-compat/driver.py",
+      "sha256": "2f8780f46df52208050d359889f58939a215b61cd6c37d5dc67056009484b607",
+      "bytes": 4063
+    },
+    "source/service/scripts/vllm-compat/native.py": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/source/service/scripts/vllm-compat/native.py",
+      "sha256": "691f5f862d0191e51ff7062e07da0bd999dc983a0a334e0012a7458e1e437062",
+      "bytes": 1197
+    },
+    "source/service/compose.vllm.yaml": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/source/service/compose.vllm.yaml",
+      "sha256": "1e7de456ab4c8e278775bacef257be1be402b4b605efe2a8015382b27cd4d799",
+      "bytes": 4660
+    },
+    "asset-inventory.json": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/asset-inventory.json",
+      "sha256": "7a9a7e728bbf92411371ac497a896c47ce5bee1f86a9cfea6fbd9a690a78cd54",
+      "bytes": 1416
+    },
+    "sdk-files.json": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/sdk-files.json",
+      "sha256": "fac12b65a96b8a7614bc17376b92e03de8a100060978758c65d2134c8b6cd7d3",
+      "bytes": 2265484
+    },
+    "plan-normal.json": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/plan-normal.json",
+      "sha256": "deb0910ecccedafec8c535dec1d877de560e2cb1cc09800c4e0f4bdf274ea059",
+      "bytes": 2185
+    },
+    "plan-deadline.json": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/plan-deadline.json",
+      "sha256": "bb123d1270075df14f36efe44528075f25a6e79a8646ab65d980e95c6802095d",
+      "bytes": 331
+    },
+    "plan-recovery.json": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/plan-recovery.json",
+      "sha256": "6740c2f8a53e69f4dba903fdda050624a44bd98b71b1d680d22ee636d7ad7469",
+      "bytes": 333
+    },
+    "plan-fallback.json": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/plan-fallback.json",
+      "sha256": "27ca9074a45acf747b0cf859212901d4f4f52a7d6eafad6153352d465319e8f6",
+      "bytes": 323
+    },
+    "PHASE-CONTRACT.v3.json": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/PHASE-CONTRACT.v3.json",
+      "sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+      "bytes": 2054
+    },
+    "gpu_entry_nov14_r3.py": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/gpu_entry_nov14_r3.py",
+      "sha256": "95af5de69016a7cf027d390395f7c1fefd0fbc96c053aaa000ef452bdb6e497a",
+      "bytes": 4712
+    },
+    "entry_nov14_r3.sh": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/entry_nov14_r3.sh",
+      "sha256": "611e0cc4fbbfaaf618c7caf62c044d9a9966bd24ed2c29e632c11fd7fadee0f9",
+      "bytes": 414
+    },
+    "nvml-normal02-bin/nvidia-smi": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/nvml-normal02-bin/nvidia-smi",
+      "sha256": "917f97350b53c3b2ddcbd0f105900b32a6b786434ce7ca3c971a8a43c6d2dc4e",
+      "bytes": 1644
+    }
+  },
+  "query_binding": {
+    "real_binary": "/usr/bin/nvidia-smi",
+    "real_resolved": "/usr/bin/nvidia-smi",
+    "real_binary_sha256": "2da08a20450594c3cdf1e677c1d2e46101a0b2d45ee5d3d6b67b87ae50522af2",
+    "wrapper_path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/nvml-normal02-bin/nvidia-smi",
+    "wrapper_sha256": "917f97350b53c3b2ddcbd0f105900b32a6b786434ce7ca3c971a8a43c6d2dc4e",
+    "wrapper_bytes": 1644,
+    "original_PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "effective_PATH": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/nvml-normal02-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "log_path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/NVML-QUERY-RAW-NOV14-V2.jsonl",
+    "log_exists": false
+  },
+  "query_log_preserved_prefix": {
+    "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/NVML-QUERY-RAW-NOV14-V2.jsonl",
+    "sha256": "5d25092faa24dfc7f4ce4341127448c11ad21e4d7bca3942845c475e77422c8e",
+    "bytes": 30511,
+    "method": "full existing bytes hashed; no truncate/query invoked"
+  },
+  "markers": {
+    "pi24-b-nov14-normal02": {
+      "exists": true,
+      "mode": 33204,
+      "bytes": 0,
+      "mtime_ns": 1794624914562230401
+    },
+    "pi24-b-nov14-deadline01": {
+      "exists": false
+    },
+    "pi24-b-nov14-recovery01": {
+      "exists": false
+    },
+    "pi24-b-nov14-fallback01": {
+      "exists": false
+    }
+  },
+  "model_transports": {
+    "deadline": {
+      "command": [
+        "sh",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/entry_nov14_r3.sh",
+        "--go",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/B-GPU-DEADLINE-NOV14-GO01.json",
+        "--go-sha256",
+        "<Master-exact-GO-hash>"
+      ],
+      "PATH": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/nvml-normal02-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "cwd": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder",
+      "CUDA_VISIBLE_DEVICES": "0",
+      "host_affinity": [
+        0,
+        1
+      ],
+      "network_id": "56dcda90e41ec939466fe2a076d54d6c0af3f6a98ceebf72c470609736c4a4ce",
+      "nonce": "pi24-b-nov14-deadline01",
+      "plan_sha256": "bb123d1270075df14f36efe44528075f25a6e79a8646ab65d980e95c6802095d"
+    },
+    "recovery": {
+      "command": [
+        "sh",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/entry_nov14_r3.sh",
+        "--go",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/B-GPU-RECOVERY-NOV14-GO01.json",
+        "--go-sha256",
+        "<Master-exact-GO-hash>"
+      ],
+      "PATH": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/nvml-normal02-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "cwd": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder",
+      "CUDA_VISIBLE_DEVICES": "0",
+      "host_affinity": [
+        0,
+        1
+      ],
+      "network_id": "29eaf5e27b7dd58ff2296a85d8b82c798672194479aec2995a32cbaa88d98ffc",
+      "nonce": "pi24-b-nov14-recovery01",
+      "plan_sha256": "6740c2f8a53e69f4dba903fdda050624a44bd98b71b1d680d22ee636d7ad7469"
+    },
+    "fallback": {
+      "command": [
+        "sh",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/entry_nov14_r3.sh",
+        "--go",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/B-GPU-FALLBACK-NOV14-GO01.json",
+        "--go-sha256",
+        "<Master-exact-GO-hash>"
+      ],
+      "PATH": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/nvml-normal02-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "cwd": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder",
+      "CUDA_VISIBLE_DEVICES": "0",
+      "host_affinity": [
+        0,
+        1
+      ],
+      "network_id": "cf97a390694df09401f1b2eeee04f7451fbb3d0c7c2e6b65e07ac63df00000c4",
+      "nonce": "pi24-b-nov14-fallback01",
+      "plan_sha256": "27ca9074a45acf747b0cf859212901d4f4f52a7d6eafad6153352d465319e8f6"
+    }
+  },
+  "foreground_templates": {
+    "deadline": {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/deadline01_foreground_transport.py",
+      "sha256": "9b9717dbde2494e86fc7e3419b62cb6fbce0c5ba3498a062ec8bf2058ca09001",
+      "bytes": 4807,
+      "not_executed": true,
+      "only_normal_template_changes": "profile-specific nonce, network ID, GO path, local once marker/artifact names; PATH/wrapper/realbinary/commands/timeout lifecycle otherwise retained"
+    },
+    "recovery": {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/recovery01_foreground_transport.py",
+      "sha256": "dde221e682c9b11cb157d9d66c69c974ada629eb45d9aacdcdbce3391f6aef57",
+      "bytes": 4807,
+      "not_executed": true,
+      "only_normal_template_changes": "profile-specific nonce, network ID, GO path, local once marker/artifact names; PATH/wrapper/realbinary/commands/timeout lifecycle otherwise retained"
+    },
+    "fallback": {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/fallback01_foreground_transport.py",
+      "sha256": "884cde55d9135ef3658d832ffced23ea18edca79a4d3ddd19f8e4e920f9223b4",
+      "bytes": 4807,
+      "not_executed": true,
+      "only_normal_template_changes": "profile-specific nonce, network ID, GO path, local once marker/artifact names; PATH/wrapper/realbinary/commands/timeout lifecycle otherwise retained"
+    }
+  },
+  "disk_snapshot": {
+    "scope": "B own readable tree regular/symlink sizes; physical pg-data explicitly excluded, not zero",
+    "apparent_bytes": 126484352,
+    "allocated_bytes": 133943296,
+    "files": 2950,
+    "errors": [],
+    "excluded_physical_PG": [
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-nov14-normal02/data/pg-data",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-normal01/data/pg-data",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data"
+    ],
+    "normal02_last_running_PG_du_bytes": 48273926,
+    "normal02_PG_du_source": "run-pi24-b-nov14-normal02/pg-disk.json exit0 at1794624953.007008",
+    "prior_R_full_BplusR_apparent_bytes": 486552798,
+    "prior_R_full_BplusR_allocated_bytes": 500457472,
+    "fresh_full_PG_bytes": "unknown; prior original and normal runtime actual snapshots retained, no container permitted here"
+  },
+  "free_bytes": 3047968899072,
+  "release": {
+    "all_SSH_SCP_ended": true,
+    "B_containers0": true,
+    "retained_B_empty_internal_networks": 3,
+    "NVML_queries": 0,
+    "container_starts": 0,
+    "CUDA_model_calls": 0,
+    "R_c61_untouched": true,
+    "no_retry": true
+  },
+  "limitations": [
+    "Physical PG fresh full bytes unknown; own-tree readable fresh0errors explicitly excludes6PG roots. Prior independent full original snapshot and normal02 runtime actual du retained, not claimed fresh/current0.",
+    "All3 templates local prepared only, not executed; each requires independent R stage review and new exact Master GO.",
+    "Not final accepted and no C10K/p95 performance claim."
+  ]
+}

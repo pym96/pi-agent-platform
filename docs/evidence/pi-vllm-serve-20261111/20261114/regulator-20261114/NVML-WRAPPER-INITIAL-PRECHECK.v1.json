@@ -1,0 +1,12 @@
+{
+  "schema": "pi24-nov14-R-NVML-wrapper-precheck/v1",
+  "issue": 24,
+  "SessionRole": "Regulator Agent",
+  "at": "2026-11-14T02:40:51.197310+00:00",
+  "wrapper_sha256": "ad5c340f8e334cb1e2935277a42de7a3cf9859be25b6a43d83ac4509bfc3747d",
+  "normal_path": "absoluteREAL /usr/bin/nvidia-smi +unchangedargv; originalstdout/stderrbytes written; sameexit/signal; O_APPEND singlewritelines/pidcorrelation",
+  "limitation": "subprocess.run lacks childtimeout: caller timeout5 cankillwrapper while realquery grandchild survives, changing priorbounded query/allownedrelease. Requires correction under same originalbound beforeunreservedpass.",
+  "classification": "existingC04 query/cleanup seam, notnewCriterion",
+  "no_R_SSH_GPU_model": true,
+  "not_final_accepted": true
+}

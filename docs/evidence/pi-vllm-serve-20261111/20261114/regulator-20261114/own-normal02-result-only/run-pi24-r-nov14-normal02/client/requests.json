@@ -1,0 +1,1671 @@
+[
+  {
+    "id": "001",
+    "method": "POST",
+    "url": "http://172.22.0.4:8082/v1/chat/completions",
+    "payload": {
+      "model": "Qwen3-8B",
+      "stream": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "List every integer from 1 through 400, comma-separated, with no explanation. r-direct16"
+        }
+      ],
+      "max_tokens": 16
+    },
+    "start_epoch": 1794627708.332512,
+    "start_monotonic": 560026.365145577,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/event-stream",
+      "Transfer-Encoding": "chunked",
+      "Date": "Sat, 14 Nov 2026 03:41:48 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627708.7041605,
+    "body_file": "001.body"
+  },
+  {
+    "id": "002",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627708.7048059,
+    "start_monotonic": 560026.73743981,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:48 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627708.7076359,
+    "body_file": "002.body"
+  },
+  {
+    "id": "003",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627708.7083638,
+    "start_monotonic": 560026.740997752,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:48 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627708.71084,
+    "body_file": "003.body"
+  },
+  {
+    "id": "004",
+    "method": "POST",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-platform/tasks",
+    "payload": {
+      "key": "r-platform",
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-platform"
+    },
+    "start_epoch": 1794627708.711239,
+    "start_monotonic": 560026.743872995,
+    "state": "received",
+    "status": 202,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:48 GMT",
+      "Content-Length": "204",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627708.7234857,
+    "body_file": "004.body"
+  },
+  {
+    "id": "005",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-platform/events",
+    "payload": null,
+    "start_epoch": 1794627708.7238915,
+    "start_monotonic": 560026.756525408,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Cache-Control": "no-cache",
+      "Content-Type": "text/event-stream",
+      "Date": "Sat, 14 Nov 2026 03:41:48 GMT",
+      "Connection": "close",
+      "Transfer-Encoding": "chunked"
+    },
+    "end_epoch": 1794627711.8674543,
+    "body_file": "005.body"
+  },
+  {
+    "id": "006",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-platform/tasks",
+    "payload": null,
+    "start_epoch": 1794627711.8676975,
+    "start_monotonic": 560029.900331104,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:51 GMT",
+      "Content-Length": "209",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627711.8700304,
+    "body_file": "006.body"
+  },
+  {
+    "id": "007",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627711.870406,
+    "start_monotonic": 560029.903039562,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:51 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627711.8758872,
+    "body_file": "007.body"
+  },
+  {
+    "id": "008",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627711.8773642,
+    "start_monotonic": 560029.909997559,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:51 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627711.8795986,
+    "body_file": "008.body"
+  },
+  {
+    "id": "009",
+    "method": "POST",
+    "url": "http://172.22.0.4:8082/v1/chat/completions",
+    "payload": {
+      "model": "Qwen3-8B",
+      "stream": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "List every integer from 1 through 400, comma-separated, with no explanation. r-cancel128"
+        }
+      ],
+      "max_tokens": 128
+    },
+    "start_epoch": 1794627711.8802133,
+    "start_monotonic": 560029.912846605,
+    "state": "disconnected",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/event-stream",
+      "Transfer-Encoding": "chunked",
+      "Date": "Sat, 14 Nov 2026 03:41:51 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627711.9137566,
+    "body_file": "009.body"
+  },
+  {
+    "id": "010",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627711.9141173,
+    "start_monotonic": 560029.94675083,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:51 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627711.9169319,
+    "body_file": "010.body"
+  },
+  {
+    "id": "011",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627711.967448,
+    "start_monotonic": 560030.000082103,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:51 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627711.9720578,
+    "body_file": "011.body"
+  },
+  {
+    "id": "012",
+    "method": "POST",
+    "url": "http://172.22.0.4:8082/v1/chat/completions",
+    "payload": {
+      "model": "Qwen3-8B",
+      "stream": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "List every integer from 1 through 400, comma-separated, with no explanation. r-after-cancel16"
+        }
+      ],
+      "max_tokens": 16
+    },
+    "start_epoch": 1794627711.9740424,
+    "start_monotonic": 560030.006676484,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/event-stream",
+      "Transfer-Encoding": "chunked",
+      "Date": "Sat, 14 Nov 2026 03:41:51 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627712.3618202,
+    "body_file": "012.body"
+  },
+  {
+    "id": "013",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627712.3628893,
+    "start_monotonic": 560030.39552291,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:52 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627712.3665245,
+    "body_file": "013.body"
+  },
+  {
+    "id": "014",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627712.3677688,
+    "start_monotonic": 560030.400402665,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:52 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627712.3710475,
+    "body_file": "014.body"
+  },
+  {
+    "id": "015",
+    "method": "POST",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": {
+      "key": "r-sse-replay",
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-sse-replay"
+    },
+    "start_epoch": 1794627712.3719187,
+    "start_monotonic": 560030.404552467,
+    "state": "received",
+    "status": 202,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:52 GMT",
+      "Content-Length": "203",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627712.3895147,
+    "body_file": "015.body"
+  },
+  {
+    "id": "016",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/events",
+    "payload": null,
+    "start_epoch": 1794627712.3903618,
+    "start_monotonic": 560030.422995604,
+    "state": "disconnected",
+    "status": 200,
+    "headers": {
+      "Cache-Control": "no-cache",
+      "Content-Type": "text/event-stream",
+      "Date": "Sat, 14 Nov 2026 03:41:52 GMT",
+      "Connection": "close",
+      "Transfer-Encoding": "chunked"
+    },
+    "end_epoch": 1794627712.4568913,
+    "body_file": "016.body"
+  },
+  {
+    "id": "017",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627712.4574041,
+    "start_monotonic": 560030.490037981,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:52 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627712.4602785,
+    "body_file": "017.body"
+  },
+  {
+    "id": "018",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627712.510932,
+    "start_monotonic": 560030.543565706,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:52 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627712.5134537,
+    "body_file": "018.body"
+  },
+  {
+    "id": "019",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627712.5641212,
+    "start_monotonic": 560030.596755101,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:52 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627712.5670726,
+    "body_file": "019.body"
+  },
+  {
+    "id": "020",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627712.6176999,
+    "start_monotonic": 560030.650334061,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:52 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627712.6230667,
+    "body_file": "020.body"
+  },
+  {
+    "id": "021",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627712.6748075,
+    "start_monotonic": 560030.707441741,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:52 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627712.6803217,
+    "body_file": "021.body"
+  },
+  {
+    "id": "022",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627712.7320855,
+    "start_monotonic": 560030.764719746,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:52 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627712.7373838,
+    "body_file": "022.body"
+  },
+  {
+    "id": "023",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627712.7891605,
+    "start_monotonic": 560030.821794438,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:52 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627712.7947924,
+    "body_file": "023.body"
+  },
+  {
+    "id": "024",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627712.8466637,
+    "start_monotonic": 560030.879298523,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:52 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627712.8520448,
+    "body_file": "024.body"
+  },
+  {
+    "id": "025",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627712.9039466,
+    "start_monotonic": 560030.936581767,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:52 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627712.9095335,
+    "body_file": "025.body"
+  },
+  {
+    "id": "026",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627712.9614882,
+    "start_monotonic": 560030.994122857,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:52 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627712.9672525,
+    "body_file": "026.body"
+  },
+  {
+    "id": "027",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.019265,
+    "start_monotonic": 560031.051899832,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.024955,
+    "body_file": "027.body"
+  },
+  {
+    "id": "028",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.076983,
+    "start_monotonic": 560031.109616919,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.0816412,
+    "body_file": "028.body"
+  },
+  {
+    "id": "029",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.1323583,
+    "start_monotonic": 560031.164992137,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.1345,
+    "body_file": "029.body"
+  },
+  {
+    "id": "030",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.1850388,
+    "start_monotonic": 560031.21767294,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.1876328,
+    "body_file": "030.body"
+  },
+  {
+    "id": "031",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.2385375,
+    "start_monotonic": 560031.271171188,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.2430737,
+    "body_file": "031.body"
+  },
+  {
+    "id": "032",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.293675,
+    "start_monotonic": 560031.326309296,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.3002994,
+    "body_file": "032.body"
+  },
+  {
+    "id": "033",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.3526435,
+    "start_monotonic": 560031.385277932,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.3595576,
+    "body_file": "033.body"
+  },
+  {
+    "id": "034",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.4119477,
+    "start_monotonic": 560031.444581891,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.4188755,
+    "body_file": "034.body"
+  },
+  {
+    "id": "035",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.4712498,
+    "start_monotonic": 560031.503884045,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.4778244,
+    "body_file": "035.body"
+  },
+  {
+    "id": "036",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.5303035,
+    "start_monotonic": 560031.562937473,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.5370448,
+    "body_file": "036.body"
+  },
+  {
+    "id": "037",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.5895677,
+    "start_monotonic": 560031.622201821,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.59615,
+    "body_file": "037.body"
+  },
+  {
+    "id": "038",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.6487215,
+    "start_monotonic": 560031.681355324,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.6557617,
+    "body_file": "038.body"
+  },
+  {
+    "id": "039",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.7083886,
+    "start_monotonic": 560031.741022521,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.7157142,
+    "body_file": "039.body"
+  },
+  {
+    "id": "040",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.7683468,
+    "start_monotonic": 560031.800980457,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.7708702,
+    "body_file": "040.body"
+  },
+  {
+    "id": "041",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.8215458,
+    "start_monotonic": 560031.854179207,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.8240116,
+    "body_file": "041.body"
+  },
+  {
+    "id": "042",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.87469,
+    "start_monotonic": 560031.907323859,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.877807,
+    "body_file": "042.body"
+  },
+  {
+    "id": "043",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.9293919,
+    "start_monotonic": 560031.962025428,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.9336069,
+    "body_file": "043.body"
+  },
+  {
+    "id": "044",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627713.9845905,
+    "start_monotonic": 560032.017224126,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:53 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627713.9878154,
+    "body_file": "044.body"
+  },
+  {
+    "id": "045",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627714.0394304,
+    "start_monotonic": 560032.072064684,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:54 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627714.0484176,
+    "body_file": "045.body"
+  },
+  {
+    "id": "046",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627714.101408,
+    "start_monotonic": 560032.134042118,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:54 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627714.1089115,
+    "body_file": "046.body"
+  },
+  {
+    "id": "047",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627714.1619425,
+    "start_monotonic": 560032.194576838,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:54 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627714.1696455,
+    "body_file": "047.body"
+  },
+  {
+    "id": "048",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627714.222704,
+    "start_monotonic": 560032.255338012,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:54 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627714.2303574,
+    "body_file": "048.body"
+  },
+  {
+    "id": "049",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627714.2834895,
+    "start_monotonic": 560032.31612345,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:54 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627714.2916517,
+    "body_file": "049.body"
+  },
+  {
+    "id": "050",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627714.345081,
+    "start_monotonic": 560032.377714835,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:54 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627714.3531916,
+    "body_file": "050.body"
+  },
+  {
+    "id": "051",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627714.4063544,
+    "start_monotonic": 560032.438988201,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:54 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627714.4145808,
+    "body_file": "051.body"
+  },
+  {
+    "id": "052",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627714.4678867,
+    "start_monotonic": 560032.500519907,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:54 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627714.4712713,
+    "body_file": "052.body"
+  },
+  {
+    "id": "053",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627714.5233493,
+    "start_monotonic": 560032.555983236,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:54 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627714.525878,
+    "body_file": "053.body"
+  },
+  {
+    "id": "054",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627714.578425,
+    "start_monotonic": 560032.611058526,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:54 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627714.5828176,
+    "body_file": "054.body"
+  },
+  {
+    "id": "055",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627714.633658,
+    "start_monotonic": 560032.666291895,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:54 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627714.6362362,
+    "body_file": "055.body"
+  },
+  {
+    "id": "056",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627714.6871006,
+    "start_monotonic": 560032.719734629,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:54 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627714.695744,
+    "body_file": "056.body"
+  },
+  {
+    "id": "057",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627714.7495272,
+    "start_monotonic": 560032.782161367,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:54 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627714.759051,
+    "body_file": "057.body"
+  },
+  {
+    "id": "058",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627714.8126218,
+    "start_monotonic": 560032.845255788,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:54 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627714.8224394,
+    "body_file": "058.body"
+  },
+  {
+    "id": "059",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627714.8761206,
+    "start_monotonic": 560032.90875459,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:54 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627714.8856628,
+    "body_file": "059.body"
+  },
+  {
+    "id": "060",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627714.9392722,
+    "start_monotonic": 560032.971906375,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:54 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627714.9481568,
+    "body_file": "060.body"
+  },
+  {
+    "id": "061",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627715.001877,
+    "start_monotonic": 560033.034511341,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:55 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627715.0185957,
+    "body_file": "061.body"
+  },
+  {
+    "id": "062",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627715.0760026,
+    "start_monotonic": 560033.108636598,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:55 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627715.0853949,
+    "body_file": "062.body"
+  },
+  {
+    "id": "063",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627715.139275,
+    "start_monotonic": 560033.171908973,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:55 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627715.1461875,
+    "body_file": "063.body"
+  },
+  {
+    "id": "064",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627715.198333,
+    "start_monotonic": 560033.230966439,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:55 GMT",
+      "Content-Length": "206",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627715.2047837,
+    "body_file": "064.body"
+  },
+  {
+    "id": "065",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/tasks",
+    "payload": null,
+    "start_epoch": 1794627715.2590714,
+    "start_monotonic": 560033.291704786,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:55 GMT",
+      "Content-Length": "208",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627715.262177,
+    "body_file": "065.body"
+  },
+  {
+    "id": "066",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-sse/events",
+    "payload": null,
+    "start_epoch": 1794627715.263102,
+    "start_monotonic": 560033.295735385,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Cache-Control": "no-cache",
+      "Content-Type": "text/event-stream",
+      "Date": "Sat, 14 Nov 2026 03:41:55 GMT",
+      "Connection": "close",
+      "Transfer-Encoding": "chunked"
+    },
+    "end_epoch": 1794627715.4116845,
+    "body_file": "066.body"
+  },
+  {
+    "id": "067",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627715.4130669,
+    "start_monotonic": 560033.445700257,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:55 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627715.4175525,
+    "body_file": "067.body"
+  },
+  {
+    "id": "068",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627715.4188216,
+    "start_monotonic": 560033.451455069,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:55 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627715.4226985,
+    "body_file": "068.body"
+  },
+  {
+    "id": "069",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627715.425021,
+    "start_monotonic": 560033.457654448,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:55 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627715.4288905,
+    "body_file": "069.body"
+  },
+  {
+    "id": "070",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627715.4303088,
+    "start_monotonic": 560033.462942214,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:55 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627715.4341254,
+    "body_file": "070.body"
+  },
+  {
+    "id": "071",
+    "method": "POST",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-restart/tasks",
+    "payload": {
+      "key": "r-api-restart",
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-api-restart"
+    },
+    "start_epoch": 1794627715.4354372,
+    "start_monotonic": 560033.468070617,
+    "state": "received",
+    "status": 202,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:55 GMT",
+      "Content-Length": "209",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627715.4467988,
+    "body_file": "071.body"
+  },
+  {
+    "id": "072",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627715.5082903,
+    "start_monotonic": 560033.540924208,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:55 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627715.5125089,
+    "body_file": "072.body"
+  },
+  {
+    "id": "073",
+    "method": "POST",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-restart/tasks",
+    "payload": {
+      "key": "r-api-restart-queued",
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-queued-must-not-execute"
+    },
+    "start_epoch": 1794627715.5138876,
+    "start_monotonic": 560033.546521347,
+    "state": "received",
+    "status": 202,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:55 GMT",
+      "Content-Length": "228",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627715.5221188,
+    "body_file": "073.body"
+  },
+  {
+    "id": "074",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-restart/tasks",
+    "payload": null,
+    "start_epoch": 1794627715.524083,
+    "start_monotonic": 560033.556716517,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:55 GMT",
+      "Content-Length": "440",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627715.5277808,
+    "body_file": "074.body"
+  },
+  {
+    "id": "075",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627715.5291784,
+    "start_monotonic": 560033.561811825,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:55 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627715.5332973,
+    "body_file": "075.body"
+  },
+  {
+    "id": "076",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/health",
+    "payload": null,
+    "start_epoch": 1794627716.0772762,
+    "start_monotonic": 560034.109909839,
+    "state": "sent"
+  },
+  {
+    "id": "077",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/health",
+    "payload": null,
+    "start_epoch": 1794627716.1292245,
+    "start_monotonic": 560034.161858252,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:56 GMT",
+      "Content-Length": "55",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627716.1355534,
+    "body_file": "077.body"
+  },
+  {
+    "id": "078",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-restart/tasks",
+    "payload": null,
+    "start_epoch": 1794627716.1372733,
+    "start_monotonic": 560034.169907057,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:56 GMT",
+      "Content-Length": "447",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627716.142126,
+    "body_file": "078.body"
+  },
+  {
+    "id": "079",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-restart/tasks",
+    "payload": null,
+    "start_epoch": 1794627716.1436098,
+    "start_monotonic": 560034.176243368,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:56 GMT",
+      "Content-Length": "447",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627716.1472282,
+    "body_file": "079.body"
+  },
+  {
+    "id": "080",
+    "method": "POST",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-restart/tasks",
+    "payload": {
+      "key": "blocked",
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-api-restart"
+    },
+    "start_epoch": 1794627716.1501215,
+    "start_monotonic": 560034.182754896,
+    "state": "received",
+    "status": 429,
+    "headers": {
+      "Content-Type": "text/plain; charset=utf-8",
+      "X-Content-Type-Options": "nosniff",
+      "Date": "Sat, 14 Nov 2026 03:41:56 GMT",
+      "Content-Length": "18",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627716.1600032,
+    "body_file": "080.body"
+  },
+  {
+    "id": "081",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627716.1629422,
+    "start_monotonic": 560034.195575589,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:56 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627716.1697845,
+    "body_file": "081.body"
+  },
+  {
+    "id": "082",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627716.1712954,
+    "start_monotonic": 560034.203929031,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:56 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627716.1758282,
+    "body_file": "082.body"
+  },
+  {
+    "id": "083",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627716.477418,
+    "start_monotonic": 560034.510052534,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:56 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627716.485563,
+    "body_file": "083.body"
+  },
+  {
+    "id": "084",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627716.488611,
+    "start_monotonic": 560034.521245017,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:56 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627716.4957461,
+    "body_file": "084.body"
+  },
+  {
+    "id": "085",
+    "method": "POST",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-new/tasks",
+    "payload": {
+      "key": "r-new-session",
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-new-session"
+    },
+    "start_epoch": 1794627716.498505,
+    "start_monotonic": 560034.531138978,
+    "state": "received",
+    "status": 202,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:56 GMT",
+      "Content-Length": "205",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627716.5123866,
+    "body_file": "085.body"
+  },
+  {
+    "id": "086",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-new/events",
+    "payload": null,
+    "start_epoch": 1794627716.5151012,
+    "start_monotonic": 560034.547734848,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Cache-Control": "no-cache",
+      "Content-Type": "text/event-stream",
+      "Date": "Sat, 14 Nov 2026 03:41:56 GMT",
+      "Connection": "close",
+      "Transfer-Encoding": "chunked"
+    },
+    "end_epoch": 1794627719.2460003,
+    "body_file": "086.body"
+  },
+  {
+    "id": "087",
+    "method": "GET",
+    "url": "http://172.22.0.5:8080/sessions/g2-r-new/tasks",
+    "payload": null,
+    "start_epoch": 1794627719.247893,
+    "start_monotonic": 560037.280527004,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Date": "Sat, 14 Nov 2026 03:41:59 GMT",
+      "Content-Length": "210",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627719.253629,
+    "body_file": "087.body"
+  },
+  {
+    "id": "088",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627719.2553575,
+    "start_monotonic": 560037.287990926,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:59 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627719.2615542,
+    "body_file": "088.body"
+  },
+  {
+    "id": "089",
+    "method": "GET",
+    "url": "http://172.22.0.4:8082/health",
+    "payload": null,
+    "start_epoch": 1794627719.26452,
+    "start_monotonic": 560037.297153336,
+    "state": "received",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Length": "221",
+      "Date": "Sat, 14 Nov 2026 03:41:59 GMT",
+      "Server": "Python/3.10 aiohttp/3.14.5",
+      "Connection": "close"
+    },
+    "end_epoch": 1794627719.2694507,
+    "body_file": "089.body"
+  }
+]

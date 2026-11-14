@@ -1,0 +1,80 @@
+{"tests": 16, "skipped": 0, "failures": 2, "errors": 1, "expected_failures": 0, "unexpected_successes": 0, "success": false}
+test_go_rejections_before_gpu_commands (test_contract.Contract) ... ok
+test_missing_go_never_executes (test_contract.Contract) ... ok
+test_probe_import_has_no_runtime_or_model_side_effect (test_contract.Contract) ... ok
+test_role_caps_and_absolute_window (test_contract.Contract) ... ok
+test_actual_mapping_requires_native_path_and_current_hash (test_contract.DriverSelectionContract) ... ok
+test_import_has_no_library_or_model_load (test_contract.DriverSelectionContract) ... ok
+test_missing_wrong_hash_and_preload_fail_before_directory (test_contract.DriverSelectionContract) ... ok
+test_private_links_and_fresh_child_environment (test_contract.DriverSelectionContract) ... ok
+test_unsafe_existing_private_directory_and_symlink_preserved (test_contract.DriverSelectionContract) ... ok
+test_valid_model_manifest_reaches_cached_image_check (test_contract.LauncherModelPreflight) ... ERROR
+test_absolute_native_timeout_terminates_actual_cpu_child (test_contract.NativeDeadlineContract) ... ok
+test_expired_native_deadline_never_executes_command (test_contract.NativeDeadlineContract) ... ok
+test_deadline_stops_exact_owned_cpu_process (test_contract.WatchContract) ... FAIL
+test_mismatched_ownership_preserves_foreign_process (test_contract.WatchContract) ... FAIL
+test_root_distribution_metadata_ignores_vendored_metadata (test_contract.WheelContract) ... ok
+test_sealed_wheel_closure_rejects_corruption_and_source_drift (test_contract.WheelContract) ... ok
+
+======================================================================
+ERROR: test_valid_model_manifest_reaches_cached_image_check (test_contract.LauncherModelPreflight)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/source/service/scripts/vllm-compat/test_contract.py", line 149, in test_valid_model_manifest_reaches_cached_image_check
+    with self.assertRaisesRegex(RuntimeError,'model identity passed'):m.execute(g,'unused','unused')
+  File "/source/service/scripts/vllm-compat/launch.py", line 27, in execute
+    if sha(manifest)!=g['runtime_manifest_sha256'] or sha(probe)!=g['probe_sha256']:raise ValueError('runtime/probe mismatch')
+  File "/source/service/scripts/vllm-compat/launch.py", line 6, in sha
+    with pathlib.Path(path).open('rb') as f:
+  File "/usr/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/usr/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/usr/lib/python3.10/unittest/mock.py", line 1179, in _execute_mock_call
+    result = effect(*args, **kwargs)
+  File "/source/service/scripts/vllm-compat/test_contract.py", line 143, in path
+    return RealPath(v)
+  File "/usr/lib/python3.10/pathlib.py", line 960, in __new__
+    self = cls._from_parts(args)
+  File "/usr/lib/python3.10/pathlib.py", line 594, in _from_parts
+    drv, root, parts = self._parse_args(args)
+  File "/usr/lib/python3.10/pathlib.py", line 587, in _parse_args
+    return cls._flavour.parse_parts(parts)
+AttributeError: type object 'Path' has no attribute '_flavour'
+
+======================================================================
+FAIL: test_deadline_stops_exact_owned_cpu_process (test_contract.WatchContract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/source/service/scripts/vllm-compat/test_contract.py", line 73, in test_deadline_stops_exact_owned_cpu_process
+    def test_deadline_stops_exact_owned_cpu_process(self):self.exercise()
+  File "/source/service/scripts/vllm-compat/test_contract.py", line 70, in exercise
+    self.assertEqual(p.returncode,0,p.stderr);child.wait(timeout=2);self.assertNotEqual(child.returncode,0);self.assertTrue(pathlib.Path(str(state)+'.removed').exists());self.assertIn('owned_cleanup_complete',pathlib.Path(d+'/events').read_text())
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/source/service/scripts/vllm-compat/watch.py", line 7, in <module>
+    initial=cmd(['docker','inspect',a.cid]);record({'event':'initial-inspect','exit':initial.returncode,'stdout':initial.stdout,'stderr':initial.stderr})
+  File "/source/service/scripts/vllm-compat/watch.py", line 4, in cmd
+    def cmd(args):return subprocess.run(args,capture_output=True,text=True,timeout=8)
+  File "/usr/lib/python3.10/subprocess.py", line 503, in run
+    with Popen(*popenargs, **kwargs) as process:
+  File "/usr/lib/python3.10/subprocess.py", line 971, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.10/subprocess.py", line 1863, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: 'docker'
+
+
+======================================================================
+FAIL: test_mismatched_ownership_preserves_foreign_process (test_contract.WatchContract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/source/service/scripts/vllm-compat/test_contract.py", line 74, in test_mismatched_ownership_preserves_foreign_process
+    def test_mismatched_ownership_preserves_foreign_process(self):self.exercise(True)
+  File "/source/service/scripts/vllm-compat/test_contract.py", line 68, in exercise
+    self.assertEqual(p.returncode,3);self.assertIsNone(child.poll());self.assertFalse(pathlib.Path(d+'/ready').exists());self.assertFalse(pathlib.Path(str(state)+'.removed').exists())
+AssertionError: 1 != 3
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.829s
+
+FAILED (failures=2, errors=1)

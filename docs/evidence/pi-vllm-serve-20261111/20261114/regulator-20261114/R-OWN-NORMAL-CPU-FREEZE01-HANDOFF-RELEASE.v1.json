@@ -1,0 +1,250 @@
+{
+  "schema": "pi24-R-own-normal-CPUfreeze-release/v1",
+  "SessionRole": "Regulator Agent",
+  "issue": 24,
+  "status": "CPU_STAGE_COMPLETE_NOT_MODEL_AUTHORIZED",
+  "GO_sha256": "187c68a60f62764ec75b6c2cb5711047ebd2faef35a91a935b743b40df92b6a1",
+  "trigger_UTC": "2026-11-14T03:37:29.641581Z",
+  "start_utc": "2026-11-14T03:37:50.559077+00:00",
+  "end_utc": "2026-11-14T03:37:51.220676+00:00",
+  "wall_s": 0.6615991592407227,
+  "server_wall_s": 0.3585948944091797,
+  "all_SSH_SCP_ended": true,
+  "actual_CPU_commands": 9,
+  "all_commands_exit0": true,
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "source_clean": true,
+  "bindings": {
+    "phase-contract-nov14-v3.json": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/phase-contract-nov14-v3.json",
+      "sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+      "bytes": 2054
+    },
+    "r_gpu_entry_phase5.py": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r_gpu_entry_phase5.py",
+      "sha256": "c414361b6d722ae86f6986083b9c2882a8df12d448e400e183b27f4d7ffd7426",
+      "bytes": 4716
+    },
+    "r-gpu-entry-phase5.sh": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-gpu-entry-phase5.sh",
+      "sha256": "01967195ae8815c8485f072cebcf18d45f25164d4ae02a31c8f811c5e8a0f496",
+      "bytes": 208
+    },
+    "r-plan-normal.json": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-plan-normal.json",
+      "sha256": "1531b4a0c4511630e8d6c812e3807e2e5a6b47537af5d78e9b43ae813bf88d3e",
+      "bytes": 1860
+    },
+    "asset-inventory.json": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/asset-inventory.json",
+      "sha256": "7a9a7e728bbf92411371ac497a896c47ce5bee1f86a9cfea6fbd9a690a78cd54",
+      "bytes": 1416
+    },
+    "sdk-files.json": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/sdk-files.json",
+      "sha256": "fac12b65a96b8a7614bc17376b92e03de8a100060978758c65d2134c8b6cd7d3",
+      "bytes": 2265484
+    },
+    "source/service/scripts/vllm-serve/launch.py": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/source/service/scripts/vllm-serve/launch.py",
+      "sha256": "d5e07f695b3680a7239d0dcc30a1735120148c2fc57ef4a42b3ce7ecddffec7d",
+      "bytes": 14392
+    },
+    "source/service/scripts/vllm-serve/watch.py": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/source/service/scripts/vllm-serve/watch.py",
+      "sha256": "d8a069ac818bf41149853f86a2b2031656abfe82d4919b825eaa656a3bfb36f4",
+      "bytes": 3261
+    },
+    "source/service/scripts/vllm-compat/driver.py": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/source/service/scripts/vllm-compat/driver.py",
+      "sha256": "2f8780f46df52208050d359889f58939a215b61cd6c37d5dc67056009484b607",
+      "bytes": 4063
+    },
+    "source/service/scripts/vllm-compat/native.py": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/source/service/scripts/vllm-compat/native.py",
+      "sha256": "691f5f862d0191e51ff7062e07da0bd999dc983a0a334e0012a7458e1e437062",
+      "bytes": 1197
+    },
+    "source/service/compose.vllm.yaml": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/source/service/compose.vllm.yaml",
+      "sha256": "1e7de456ab4c8e278775bacef257be1be402b4b605efe2a8015382b27cd4d799",
+      "bytes": 4660
+    }
+  },
+  "query_binding": {
+    "real_binary": "/usr/bin/nvidia-smi",
+    "real_resolved": "/usr/bin/nvidia-smi",
+    "real_binary_sha256": "2da08a20450594c3cdf1e677c1d2e46101a0b2d45ee5d3d6b67b87ae50522af2",
+    "wrapper_path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/nvml-normal02-bin/nvidia-smi",
+    "wrapper_sha256": "46d16fa43b6caec4cfd3f5b29839f2c1bfc23e32571dcee47b73bb23e61f943a",
+    "wrapper_bytes": 1648,
+    "original_PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "effective_PATH": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/nvml-normal02-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "log_path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/NVML-QUERY-RAW-R-NOV14-V2.jsonl",
+    "log_exists_at_CPU_freeze": false
+  },
+  "model_transport": {
+    "command": [
+      "sh",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-gpu-entry-phase5.sh",
+      "--go",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/R-GPU-NORMAL-NOV14-GO01.json",
+      "--go-sha256",
+      "<Master-exact-GO-hash>",
+      "--phase-contract",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/phase-contract-nov14-v3.json",
+      "--phase-contract-sha256",
+      "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec"
+    ],
+    "PATH": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/nvml-normal02-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "cwd": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "host_affinity": [
+      0,
+      1
+    ],
+    "network_id": "c61d7fd94ae102b909dfcf55d2cece73f97a6ec379f334eaef1b7d39333a37cd",
+    "nonce": "pi24-r-nov14-normal02",
+    "plan_file": "r-plan-normal.json",
+    "plan_sha256": "1531b4a0c4511630e8d6c812e3807e2e5a6b47537af5d78e9b43ae813bf88d3e"
+  },
+  "network": {
+    "Name": "pi-vllm24-r-pi24-r-nov14-normal02",
+    "Id": "c61d7fd94ae102b909dfcf55d2cece73f97a6ec379f334eaef1b7d39333a37cd",
+    "Created": "2026-11-14T10:21:05.359202197+08:00",
+    "Scope": "local",
+    "Driver": "bridge",
+    "EnableIPv6": false,
+    "IPAM": {
+      "Driver": "default",
+      "Options": {},
+      "Config": [
+        {
+          "Subnet": "172.22.0.0/16",
+          "Gateway": "172.22.0.1"
+        }
+      ]
+    },
+    "Internal": true,
+    "Attachable": false,
+    "Ingress": false,
+    "ConfigFrom": {
+      "Network": ""
+    },
+    "ConfigOnly": false,
+    "Containers": {},
+    "Options": {},
+    "Labels": {
+      "com.docker.compose.project": "pi-vllm24-r",
+      "execution-sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+      "pi24.nonce": "pi24-r-nov14-normal02",
+      "pi24.phase": "pi24-nov14-recovery01-r3",
+      "pi24.phase-sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+      "workorder": "24"
+    }
+  },
+  "consumed_marker": {
+    "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/consumed-pi24-r-nov14-normal02",
+    "exists": false,
+    "method": "actual lstat FileNotFoundError"
+  },
+  "CPU_probe": {
+    "cpu_only": true,
+    "model_started": false,
+    "sample": {
+      "epoch": 1794627471.13408,
+      "pid": 4035187,
+      "affinity": [
+        0,
+        1
+      ],
+      "rss_bytes": 17162240,
+      "descendants": {
+        "4035187": {
+          "ppid": 4035144,
+          "rss_bytes": 17162240,
+          "allowed": "0-1"
+        }
+      }
+    }
+  },
+  "disk_before": {
+    "apparent_bytes": 74897066,
+    "allocated_bytes": 81489920,
+    "files": 2688,
+    "PG_excluded": [
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data"
+    ],
+    "errors": [],
+    "method": "own R readable regular/symlink sizes only, no physicalPG census; lstat nofollow; unchanged oldPG excluded not zero"
+  },
+  "disk_after": {
+    "apparent_bytes": 74898714,
+    "allocated_bytes": 81494016,
+    "files": 2689,
+    "PG_excluded": [
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data"
+    ],
+    "errors": [],
+    "method": "own R readable regular/symlink sizes only, no physicalPG census; lstat nofollow; unchanged oldPG excluded not zero"
+  },
+  "staged_regular_delta_bytes": 1648,
+  "free_bytes": 3047964708864,
+  "retained_networks": {
+    "R": "c61d7fd94ae102b909dfcf55d2cece73f97a6ec379f334eaef1b7d39333a37cd",
+    "R_state": "exact original emptyInternal IPv6false network unchanged",
+    "B": "actual Docker inventories Bcontainers0/Bnetworks0"
+  },
+  "resource_ledger": {
+    "CPU_prior_after_fallback_s": 4585.4357385,
+    "CPU_stage_ceil_s": 1,
+    "CPU_cumulative_upper_s": 4586.4357385,
+    "CPU_global_total_s": 5400,
+    "Nov14_reserve_s": 1100,
+    "Nov14_consumed_s": 360,
+    "Nov14_remaining_s": 740,
+    "R_device_native_POST_used": 0,
+    "B_device_s": 174.16961550712585,
+    "B_generation": 12,
+    "B_POST": 14,
+    "CI_used_total": [
+      5,
+      7
+    ]
+  },
+  "no_NVML_CUDA_model_container_networkmutations": true,
+  "original_R_matrix": "plan1531,7usualnative/cap8/POSTcap16; realruntime separate preciseGO<=300s required",
+  "carrier": {
+    "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/r_normal02_foreground_transport.v2.py",
+    "sha256": "ba5bbb9a321cf2561eccf4a74212542e419047d83fb872315d845a4ebe8ff971"
+  },
+  "private_probe_correction": "First postcollection assertion incorrectly assumed Bwrapper1644B; R LOG literal is4bytes longer, actual frozenR46d was1648B all along and actualdelta1648. Corrected only local reporting assertion, no source/runtime change or repeatSSH.",
+  "limits": [
+    "Own R readable disk excludes onePGroot at this snapshot, errors0; physicalPG not freshcounted in no-containerstage; prior completeCPU5 snapshot retained.",
+    "No GPU idle assertion: no NVML query authorized; GPU0dualidle/runtime/model/SDK fullhash/watch/nativehardstop must run inside later exactGO.",
+    "Only frozenRwrapper staged1648B; receipt written afteraftersnapshot adds its ownsmallbytes.",
+    "Use actual postfallback4585.4357+1; originalconditionalGO pre-fallbacksnapshot is historical, not reset."
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/R-OWN-NORMAL-CPU-FREEZE01-SSH.json",
+      "sha256": "af2750d5c6e2556f6dcaeb549f1b0b4ec9fb4a6996d0655aa7c6e1119608552a"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/R-OWN-NORMAL-CPU-FREEZE01-ACTUAL.json",
+      "sha256": "f68574c1658313f074babeb81536f4114bbea889b40fdb18806ff29283d03616"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/R-OWN-NORMAL-CPU-FREEZE01-REMOTE.py",
+      "sha256": "69e9f3b860c882761681877e36b2296c498ad8883fcb02da4e99af080777a236"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/execute_r_cpu_freeze_once.py",
+      "sha256": "5b842af1fab7259adc57145ae8bc9b19c158b4c51fb93afb2b507bb07ded5c40"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/R-OWN-NORMAL-LOCAL-INPUTS.v2.json",
+      "sha256": "32bf38fff2d04400a1d2ed4e21856426dd7d031c03d9561967036ecb0f6372b3"
+    }
+  ]
+}

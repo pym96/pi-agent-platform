@@ -1,0 +1,1 @@
+{"test":"disconnect", "cause":"test fixture waited forever while old adapter lacked abort watcher", "owned_pytest_pid":6246, "action":"SIGTERM exact owned test, replaced fixture infinite wait with .8s", "no_server_or_gpu":true}

@@ -1,0 +1,222 @@
+{
+  "spec": {
+    "id": "r-new-session",
+    "action": "platform",
+    "budget": 128,
+    "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-new-session",
+    "session": "cpu-g2-r-new"
+  },
+  "task": {
+    "id": "bba76c970fded9aa2c48837ba4566dc0",
+    "session": "cpu-g2-r-new",
+    "key": "r-new-session",
+    "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-new-session",
+    "status": "queued"
+  },
+  "terminal": {
+    "id": "bba76c970fded9aa2c48837ba4566dc0",
+    "session": "cpu-g2-r-new",
+    "key": "r-new-session",
+    "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-new-session",
+    "status": "completed"
+  },
+  "events": [
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 51,
+      "kind": "queued",
+      "data": {
+        "task": "bba76c970fded9aa2c48837ba4566dc0"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 52,
+      "kind": "running",
+      "data": {}
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 53,
+      "kind": "runtime",
+      "data": {
+        "task": "bba76c970fded9aa2c48837ba4566dc0",
+        "clock": "pi-performance.now",
+        "tools": [],
+        "package": "@earendil-works/pi-coding-agent",
+        "session": "cpu-g2-r-new",
+        "version": "1.3.0",
+        "modelCall": "24859d52-25d2-4344-a554-2e2cebd51ebe",
+        "contextOwner": "Pi SessionManager",
+        "receivedMono": 13700.63408
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 54,
+      "kind": "text",
+      "data": {
+        "text": "0,"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 55,
+      "kind": "text",
+      "data": {
+        "text": "1,"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 56,
+      "kind": "text",
+      "data": {
+        "text": "2,"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 57,
+      "kind": "text",
+      "data": {
+        "text": "3,"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 58,
+      "kind": "text",
+      "data": {
+        "text": "4,"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 59,
+      "kind": "text",
+      "data": {
+        "text": "5,"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 60,
+      "kind": "text",
+      "data": {
+        "text": "6,"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 61,
+      "kind": "text",
+      "data": {
+        "text": "7,"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 62,
+      "kind": "text",
+      "data": {
+        "text": "8,"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 63,
+      "kind": "text",
+      "data": {
+        "text": "9,"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 64,
+      "kind": "text",
+      "data": {
+        "text": "10,"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 65,
+      "kind": "text",
+      "data": {
+        "text": "11,"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 66,
+      "kind": "text",
+      "data": {
+        "text": "12,"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 67,
+      "kind": "text",
+      "data": {
+        "text": "13,"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 68,
+      "kind": "text",
+      "data": {
+        "text": "14,"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 69,
+      "kind": "text",
+      "data": {
+        "text": "15,"
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 70,
+      "kind": "result",
+      "data": {
+        "text": "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,",
+        "usage": {
+          "cost": {
+            "input": 0,
+            "total": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "input": 24,
+          "output": 16,
+          "cacheRead": 0,
+          "reasoning": 0,
+          "cacheWrite": 0,
+          "totalTokens": 40
+        },
+        "rawUsage": {
+          "total_tokens": 40,
+          "prompt_tokens": 24,
+          "completion_tokens": 16
+        },
+        "verified": true,
+        "modelCall": "24859d52-25d2-4344-a554-2e2cebd51ebe",
+        "stopReason": "stop",
+        "piResultMono": 15348.56991
+      }
+    },
+    {
+      "task": "bba76c970fded9aa2c48837ba4566dc0",
+      "id": 71,
+      "kind": "completed",
+      "data": {}
+    }
+  ],
+  "replay": []
+}

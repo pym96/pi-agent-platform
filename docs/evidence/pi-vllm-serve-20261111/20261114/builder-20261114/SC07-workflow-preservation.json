@@ -1,0 +1,13 @@
+{
+  "parent": "d42579518034f235a55fdbdbfd1d72b0f1134544",
+  "existing_workflow_byte_preserved_after_removing_two_additions": true,
+  "new_step": "Required server Python3.10 full isolated vLLM guards",
+  "full_suite": "strict_suite.py --start-dir service/scripts/vllm-compat --pattern test_*.py",
+  "interpreter": "existing setup-python3.10 step active; immediately before existing3.12 switch",
+  "new_dependencies": false,
+  "TMPDIR": "RUNNER_TEMP/python310-vllm21/tmp only for newstep",
+  "artifact_added": "RUNNER_TEMP/python310-vllm21",
+  "local_python": "3.14.0 (main, Oct  7 2025, 09:34:52) [Clang 17.0.0 (clang-1700.4.4.1)]",
+  "local_python310_available": null,
+  "compatibility_310_afterfix": "not yet verified: wait actualCI5 and R same cachedLinux"
+}

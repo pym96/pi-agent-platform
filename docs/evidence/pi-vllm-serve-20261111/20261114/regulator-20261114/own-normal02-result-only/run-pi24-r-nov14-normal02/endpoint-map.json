@@ -1,0 +1,24 @@
+{
+  "project": "pi-vllm24-r",
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "nonce": "pi24-r-nov14-normal02",
+  "network_id": "c61d7fd94ae102b909dfcf55d2cece73f97a6ec379f334eaef1b7d39333a37cd",
+  "network_name": "pi-vllm24-r-pi24-r-nov14-normal02",
+  "endpoints": {
+    "model": {
+      "cid": "f928be28210c9e7e179cc9264d9553767b5349e73916be9db684dd8dc86964c9",
+      "ip": "172.22.0.4",
+      "port": 8082
+    },
+    "pi": {
+      "cid": "4914cf045e7c22d5d5faaca41d7b96729fc67c07627480948cfa6f9a11bd61b0",
+      "ip": "172.22.0.2",
+      "port": 8081
+    },
+    "api": {
+      "cid": "17b91c2702845edf94d8340a27dacb58ae2e9922db1efece8b3ef653e4fc02a3",
+      "ip": "172.22.0.5",
+      "port": 8080
+    }
+  }
+}

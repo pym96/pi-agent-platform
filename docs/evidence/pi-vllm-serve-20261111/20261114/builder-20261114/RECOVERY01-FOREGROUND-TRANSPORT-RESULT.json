@@ -1,0 +1,26 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "HostKeyAlias=58.199.168.63",
+    "-o",
+    "ConnectTimeout=10",
+    "-o",
+    "ServerAliveInterval=5",
+    "-o",
+    "ServerAliveCountMax=2",
+    "wt@58.199.171.85",
+    "cd /media/usv012/pjx && export CUDA_VISIBLE_DEVICES=0 && cd /media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder && exec taskset -c 0,1 python3 -c 'import pathlib,sys,hashlib,os,json,time\nroot=pathlib.Path('\"'\"'/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder'\"'\"')\nsha=lambda p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()\nassert sha(sys.argv[1])==sys.argv[2]\nassert sha(root/'\"'\"'nvml-normal02-bin/nvidia-smi'\"'\"')=='\"'\"'917f97350b53c3b2ddcbd0f105900b32a6b786434ce7ca3c971a8a43c6d2dc4e'\"'\"'\nassert sha('\"'\"'/usr/bin/nvidia-smi'\"'\"')=='\"'\"'2da08a20450594c3cdf1e677c1d2e46101a0b2d45ee5d3d6b67b87ae50522af2'\"'\"'\nos.environ['\"'\"'PATH'\"'\"']='\"'\"'/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/nvml-normal02-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'\"'\"'\nprint(json.dumps({'\"'\"'event'\"'\"':'\"'\"'foreground_outer_exec'\"'\"','\"'\"'pid'\"'\"':os.getpid(),'\"'\"'epoch'\"'\"':time.time(),'\"'\"'go_sha256'\"'\"':sys.argv[2],'\"'\"'PATH'\"'\"':os.environ['\"'\"'PATH'\"'\"']}),flush=True)\nos.execv('\"'\"'/bin/sh'\"'\"',['\"'\"'sh'\"'\"',str(root/'\"'\"'entry_nov14_r3.sh'\"'\"'),'\"'\"'--go'\"'\"',sys.argv[1],'\"'\"'--go-sha256'\"'\"',sys.argv[2]])\n' /media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/B-GPU-RECOVERY-NOV14-GO01.json f909992a3e719032a14131c5c55cf818c756a737d33b20ef19024aa1620a370e"
+  ],
+  "GO_sha256": "f909992a3e719032a14131c5c55cf818c756a737d33b20ef19024aa1620a370e",
+  "start": 1794626457.357976,
+  "end": 1794626513.425142,
+  "exit": 0,
+  "unknown": null,
+  "all_foreground_SSH_ended": true,
+  "no_retry": true
+}

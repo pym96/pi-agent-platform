@@ -1,0 +1,29 @@
+{
+  "schema": "pi24-nov14-B-CPU-GPU-prep-go/v1",
+  "issue": 24,
+  "role": "builder",
+  "issued_at": "2026-11-14T02:05:51.595096+00:00",
+  "conditional_before_server": "Master explicitly forwards R CPU_GO02 successful report+formalrelease/allSSH-SCPfinished. Not just prior failedrelease or B inference. If R unresolved do not server.",
+  "local_now": "Prepare exactsource incrementalbundle/entry shell + source/phase/plan/assets expectedbindings only; no tests repeated/no server yet",
+  "server_once_max_wall_s": 120,
+  "absolute_stop": "2026-11-14T02:25:00Z",
+  "source_sha": "d42579518034f235a55fdbdbfd1d72b0f1134544",
+  "entry_sha256": "d5e07f695b3680a7239d0dcc30a1735120148c2fc57ef4a42b3ce7ecddffec7d",
+  "outer_entry_sha256": "fc516576352995b3ad351fe34f34eab31ef31e04b0c485ca471327ae66a3344f",
+  "phase_contract_sha256": "77b6d5aa360e46cdde73fa36bdff344c89769973e56c48733b43ac258d763887",
+  "phase_contract_file": "PHASE-CONTRACT.v2.json",
+  "normal_plan_sha256": "deb0910ecccedafec8c535dec1d877de560e2cb1cc09800c4e0f4bdf274ea059",
+  "normal_nonce": "pi24-b-nov14-normal01",
+  "allowed": [
+    "firstcd/media/usv012/pjx+CUDA0; own builder exactroot/projects only; fresh source clean+oldidentity before FF update exactd425 via localbundle, no reset/dirtyuser overwrite",
+    "stage independentlyboundphasev2 exactbytes, unchanged rawplans/assetmanifest sourcehelper hashes; no env/model/cache duplication",
+    "fresh inspect noB containers/nets before create one emptyinternalIPv6false/unpublishednetwork with project/source/phase/nonce, actualID+labels/members; do not touch R c17network",
+    "freeze host outer script taskset0,1 (actualallowedaffinity includes0,1) and source entry/watch/driver/native/compose+phase/plan/assets; actualsmall CPU affinity/RSS/import probe noCUDA",
+    "ownroot freshdisk/free lightcounts reconcile R completePGledger ifavailable; unknown notzero; localnewfootprint inventory",
+    "fullraw+hashreceipt/actualnetworkID/completephaseentryargs/allSSH-SCPended/formalrelease for R local review and Master newGPU GO"
+  ],
+  "noContainerStart_noCUDA_noModel_noCI_noNewDeps": true,
+  "noAutoRetryOrGPUStart": true,
+  "budgets": "unchanged CPU total5400 (4236.4357 beforeRGO02 actualpending), within remainingnew600; Bdevice55.169/nativePOST0/Rdevice0; CI4of6/final5main6; all other original limits",
+  "model_GOs": "not authorized by this CPU preparation; every lifecycle separate exactGO"
+}

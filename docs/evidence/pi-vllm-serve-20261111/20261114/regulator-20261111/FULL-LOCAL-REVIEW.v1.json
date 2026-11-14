@@ -1,0 +1,135 @@
+{
+  "schema": "pi24-regulator-full-local-review/v1",
+  "issue": 24,
+  "SessionRole": "Regulator Agent",
+  "candidate_sha": "985d8b1b4090d7b39aa29f4f7996f0d6d47d7dbd",
+  "candidate_kind": "local-only independently detached fetched commit, not remote final Handoff",
+  "recommend_source_push": false,
+  "technical_acceptance": false,
+  "blocking_implementation_findings": [
+    {
+      "id": "R24-IMPL-01",
+      "criterion": "C-G2-03@1.1",
+      "finding": "Productclient platform()/restart() reads health.calls absent from actualHTTP app. Independent real loopback call reproduced KeyError(calls), before nativefixturecalls0.",
+      "raw": "health-client-red.v1/result.json"
+    },
+    {
+      "id": "R24-IMPL-02",
+      "criterion": "C-G2-02@1.0",
+      "finding": "Transformers fallback compose override replaces model.entrypoint with direct server python and omits unchanged native.py absoluteharddeadline. Independent nativehelper hardstop already tested; future correctedfallback requires actual startup native-budget/entry/stop proof, not Compose text only."
+    }
+  ],
+  "contract_adjudications": [
+    {
+      "id": "SC-G2-PLATFORM-BUDGET-01",
+      "status": "prospectively resolved C03@1.1 allplatform128 beforeGPU"
+    },
+    {
+      "id": "SC-G2-FALLBACK-OMP-02",
+      "status": "prospectively resolved G2.2/C04@1.1 onlylegacyfallback actualTorchintra6/OMP6 and6CPU/BLAS1; defaultbackendunchanged, vLLMOMP4"
+    }
+  ],
+  "actual_CPU_results": {
+    "required_inference": {
+      "success": true,
+      "exit_code": 0,
+      "tests": 63,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xfail_reports": [],
+      "duration_seconds": 1.325358041038271,
+      "command": [
+        "/Users/panyiming/.local/state/pi-agent-platform/inference9-regulator-20261021/venv/bin/python",
+        "-m",
+        "pytest",
+        "-p",
+        "service.inference.scripts.required_pytest",
+        "service/inference/tests",
+        "-q",
+        "--junitxml=/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261111/inference-985d8b/junit.xml"
+      ],
+      "python": "3.14.0 (main, Oct  7 2025, 09:34:52) [Clang 17.0.0 (clang-1700.4.4.1)]"
+    },
+    "new_entry_owned": {
+      "tests": 4,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": true
+    },
+    "independent_watch_runtime": "2 true owned CPU childprocess cleanup scenarios:deadline andinventoryfailure. Foreignchildsurvives; inventoryfailure remainsunknown/exitfailure despite knownownedchildremoved. Productwatch.run invoked unchanged withprivateCPUfixtureDocker, not pretending thisbypassesCLIrootguard test."
+  },
+  "notes": [
+    "Green63+4 localrequired tests did not expose realclient/app health mismatch; rawcounterexample retained, no greenCI/GPU claim.",
+    "Trace-start IOfailure original local04ccc case corrected byBbefore985d; B12adaptertests nowincluded63total, later exactsource recheckstillrequired.",
+    "Native cancellation C02 localNativeEngine ACK probes andactualfixedofficialscheduler source remain reviewed; actualGPU ACK pending.",
+    "DefaultGo/Pi/oldbackend/compose.qwen must remain baselineidentity; no runtime/model/image/downloadinstallation authority."
+  ],
+  "next": [
+    "B fix authorizedimplementation and actual CPU fullchain; new localSHA",
+    "R re-run affectedclient/fallbackhardstop paths + inspectentry/watch/plan/assetinventory",
+    "Master separate singlesourcepush; freshoriginStageA/sourceCI before laterGPU GO"
+  ],
+  "source_clean": true,
+  "server_cpu_seconds": 0,
+  "device_seconds": 0,
+  "native_model_generate": 0,
+  "model_completion_posts": 0,
+  "ci_triggers": 0,
+  "created_epoch": 1794404642.620922,
+  "rawfiles": [
+    {
+      "path": "health_client_probe.py",
+      "bytes": 1406,
+      "sha256": "1e1a84a5efeff626021cae72bc630ecf7582522d102cbebf36ad4f31973fae3a"
+    },
+    {
+      "path": "health-client-red.v1/result.json",
+      "bytes": 183,
+      "sha256": "4b66e1ef509ce8353c1afcdc439ee48bc8551fe4c18412febcbdd3531f538979"
+    },
+    {
+      "path": "health-client-red.v1/requests.json",
+      "bytes": 535,
+      "sha256": "25da6626ee2dca27a685633e01de95f5293f5e88ac9b8138750098ce2a552ec1"
+    },
+    {
+      "path": "inference-985d8b/summary.json",
+      "bytes": 615,
+      "sha256": "182112fadef28061b77687806dac725cb5152b663f95e717eb139a0dc1c3fce8"
+    },
+    {
+      "path": "serve-985d8b.json",
+      "bytes": 139,
+      "sha256": "e905bfca1ff2ddfaae3aaab9794a1966396625a0930172af8be8bd3473b3aae3"
+    },
+    {
+      "path": "watch_process_probe.py",
+      "bytes": 4036,
+      "sha256": "2b3f596184eae6edf544c1e31da04fa2be8734a6bfd5e2d39fc33f8994a50eab"
+    },
+    {
+      "path": "watch-process-deadline.v1/result.json",
+      "bytes": 1653,
+      "sha256": "b5386bb97941ccf657600cd77f05ab9c56862c12cf018d2750bb86573e7fe802"
+    },
+    {
+      "path": "watch-process-deadline.v1/events.jsonl",
+      "bytes": 4476,
+      "sha256": "13c1eb7d4585d0854a19295a0200a3392f1a8e1f0832794da61d84e04f6ec167"
+    },
+    {
+      "path": "watch-process-inventory_failure.v1/result.json",
+      "bytes": 1518,
+      "sha256": "2ec42bf95223f9ecc4e9eb9b5c79f0ee02b5541b804b50a3b92fe035af3c4bd9"
+    },
+    {
+      "path": "watch-process-inventory_failure.v1/events.jsonl",
+      "bytes": 3385,
+      "sha256": "536bbebfc6362dab1d772173446fc410a6709aed0b46d380c2104a2d7752efa3"
+    }
+  ]
+}

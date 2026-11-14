@@ -1,0 +1,17 @@
+E
+======================================================================
+ERROR: test_same_source_accepts_two_independently_bound_phase_files (test_entry.IndependentPhaseTests.test_same_source_accepts_two_independently_bound_phase_files)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-vllm24-nov14-candidate/service/scripts/vllm-serve/test_entry.py", line 122, in test_same_source_accepts_two_independently_bound_phase_files
+    phase=self.phase(start);actual,g=self.validate(module,phase,start+60);self.assertEqual(actual,g)
+                                     ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-vllm24-nov14-candidate/service/scripts/vllm-serve/test_entry.py", line 118, in validate
+    with patch.object(module.time,'time',return_value=now):return module.validate(gp,module.sha(gp),pp,expected_hash or ph),g
+                                                                  ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: validate() takes 2 positional arguments but 4 were given
+
+----------------------------------------------------------------------
+Ran 1 test in 0.063s
+
+FAILED (errors=1)

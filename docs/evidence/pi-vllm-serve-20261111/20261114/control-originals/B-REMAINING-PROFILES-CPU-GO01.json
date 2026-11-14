@@ -1,0 +1,83 @@
+{
+  "schema": "pi24-remaining-profiles-CPUprep/v1",
+  "issue": 24,
+  "role": "builder",
+  "issued_at": "2026-11-14T03:06:16.534465+00:00",
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "phase_contract_sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+  "normal_independent_review_sha256": "40fa0b431e48b8f527a567ee96157570fd38e09a8a648074c7f98c8b992f0096",
+  "normal_raw_archive_sha256": "8155a88dd1d7775bcfeaa869efb6242c40a884b6d0d2539b0b92c156746ce64a",
+  "normal_raw_manifest_sha256": "02932107a833a0a656a19d59d4b9ac218ca85506ebb308e75a581832b42aec85",
+  "authority": "Master forwards independentnormal STAGE_PASS/rawsealed/allSSHrelease now; Bonly oneCPUprepare attempt, Rlocalonly; not model authority",
+  "once_wall_cap_s": 60,
+  "absolute_stop": "2026-11-14T03:20:00Z",
+  "profiles": {
+    "deadline": {
+      "nonce": "pi24-b-nov14-deadline01",
+      "plan_sha256": "bb123d1270075df14f36efe44528075f25a6e79a8646ab65d980e95c6802095d"
+    },
+    "recovery": {
+      "nonce": "pi24-b-nov14-recovery01",
+      "plan_sha256": "6740c2f8a53e69f4dba903fdda050624a44bd98b71b1d680d22ee636d7ad7469"
+    },
+    "fallback": {
+      "nonce": "pi24-b-nov14-fallback01",
+      "plan_sha256": "27ca9074a45acf747b0cf859212901d4f4f52a7d6eafad6153352d465319e8f6"
+    }
+  },
+  "allowed": [
+    "First cd /media/usv012/pjx/exportCUDA_VISIBLE_DEVICES=0, exactBroot/hosttaskset0,1. Freshclean9ea/sourcehelpers/phase82f/outer95af/shell611e/unchangedquerywrapper917f/real2da/PATH/log and allthreeoriginalplans hashchecks; noProduct edits",
+    "FreshBprojectcontainers0/networks0 expected; normal02 consumedmarker preserved positiveactualstat, allthreefuture nonce markers absent; unexpected state stops, never delete marker or foreignobjects",
+    "Create exactly3 distinct emptyInternal IPv6false/unpublished networks owned by pi-vllm24-b/source9ea/phase82f and each frozenprofile nonce. RecordactualIDs/labels/members; old2b84 alreadyremoved do not removeagain. Do not touch R c61",
+    "Freeze forthcoming eachmodel transport using same reviewed shell/outer/querywrapper/PATH/log; onlyexactGOpath/hash substituted later. Preserve existingNVMLlog bytes/prefix receipt; no actualrealquery or model here",
+    "Bounded freshfree/diskdelta inventory + raw/time/actualceilledger/fullhandoff/explicit3retainedemptyBnetworks + allSSH-SCPended formalrelease for R local review"
+  ],
+  "forbidden": "NoNVMLquery/CUDA/model/containerstart/CI/newdeps/images/hostpermissions/newobservationseam/dirtyreset/nonceerase/foreignPID/otherGPU. No autonomousmodelprofile or retry.",
+  "budgets": {
+    "CPU_upper_used_s": 4387.4357385,
+    "CPU_total_s": 5400,
+    "new600_remaining_s": 439,
+    "conservative_normal2_CPU_charge_s": 134,
+    "normal2_CPU_rows": [
+      {
+        "file": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/NORMAL02-GO-STAGE-TRANSPORT.json",
+        "sha256": "5ee010c08ffcc5ed404706f5aea071e07afb25a3530a98f14c854f7a923cc331",
+        "wall_s": 0.4420359134674072,
+        "ceil_s": 1
+      },
+      {
+        "file": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/NORMAL02-FOREGROUND-TRANSPORT-RESULT.json",
+        "sha256": "65029bfed368cffe78e53777a6851842c7af5cdd85a2f723f0d0c25dad9096ea",
+        "wall_s": 129.48839712142944,
+        "ceil_s": 130
+      },
+      {
+        "file": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/NORMAL02-OBSERVE01-SSH.json",
+        "sha256": "14fa37d6b7c581b4e043fb9b904528363bed38b3f96475664a863f69361c4219",
+        "wall_s": 0.42642807960510254,
+        "ceil_s": 1
+      },
+      {
+        "file": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/NORMAL02-RAW-COLLECTION-SSH.json",
+        "sha256": "9c76e445a4b0562f9230597d43166274224dffeb98d60103f08ed01f2fa9a019",
+        "wall_s": 1.0081770420074463,
+        "ceil_s": 2
+      }
+    ],
+    "B_device_used_s": 94.72067499160767,
+    "B_native_used": 9,
+    "B_completionPOST_used": 11,
+    "B_device_total_s": 1200,
+    "B_native_total": 32,
+    "B_POST_total": 64,
+    "R_device_native_POST_used": 0,
+    "CI_used": 5,
+    "CI_total": 7,
+    "final_main_reserved": [
+      6,
+      7
+    ],
+    "other": "all originalphase/deadlines/resources unchanged; this actualCPUceil charged; wholeforeground charged CPUupper conservatively, GPUdevice independentactual39.5513808727 not129s"
+  },
+  "next": "R local review3net identities/remainingprofiles stage; eachactualmodel lifecycle needs newexactMasterGO"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "source-checkout",
+  "args": [
+    "git",
+    "checkout",
+    "--detach",
+    "d42579518034f235a55fdbdbfd1d72b0f1134544"
+  ],
+  "start": 1794621932.178691,
+  "end": 1794621932.187496,
+  "exit": 0,
+  "stdout": "",
+  "stderr": "HEAD \u76ee\u524d\u4f4d\u4e8e d425795 test(compat): replay legacy GO fixture at its authorized time\n"
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "pi24-regulator-B-normal02-local-entry-review/v1",
+  "at": 1794409524.954617,
+  "source_sha": "471a317ef687a168306608b1bece931f9b3a2b63",
+  "outer_sha256": "f9617d319e8020e34935b22e2643f1a1363f8374229f2a87ecafc8716465d330",
+  "shell_sha256": "e3ff42c186c74cc81aa8e8e401cfeb4142ba0d2013a84cf85cab705a59545ad7",
+  "only_outer_change": "SOURCE constant a5\u2192471a; all behavior byteidentity after literal substitution",
+  "prior_behavior_negative_review": "B-NORMAL-ENTRY-LOCAL-REVIEW.v1 5b480d9e8198fd15942e01e2c2b50b19e1aad801dffa29b0eba38a86a15ddb89",
+  "actual_source_CPU_CI2_review": "5901c613811a1ce61e180f064bb2d4e4848ecf73bd0fd43e07df561163f3803f",
+  "actual_B_prep_sha256": "c706853140ed72879401d0350ef59c27cbbe8b976442172643fdedcaef83ab14",
+  "actual_B_network": {
+    "Name": "pi-vllm24-b-pi24-b-normal02",
+    "Id": "39d61be608ba636779a4222a2bd72dba6b9a149dbd13ebb5db0348f96e302db1",
+    "Created": "2026-11-11T23:04:24.977652027+08:00",
+    "Scope": "local",
+    "Driver": "bridge",
+    "EnableIPv6": false,
+    "IPAM": {
+      "Driver": "default",
+      "Options": {},
+      "Config": [
+        {
+          "Subnet": "172.23.0.0/16",
+          "Gateway": "172.23.0.1"
+        }
+      ]
+    },
+    "Internal": true,
+    "Attachable": false,
+    "Ingress": false,
+    "ConfigFrom": {
+      "Network": ""
+    },
+    "ConfigOnly": false,
+    "Containers": {},
+    "Options": {},
+    "Labels": {
+      "com.docker.compose.project": "pi-vllm24-b",
+      "execution-sha": "471a317ef687a168306608b1bece931f9b3a2b63",
+      "pi24.nonce": "pi24-b-normal02",
+      "workorder": "24"
+    }
+  },
+  "actual_affinity": [
+    0,
+    1
+  ],
+  "actual_RSS_bytes": 16973824,
+  "frozen_plan_helpers_assets_unchanged": true,
+  "reviewed_GO_draft_sha256": "55100451cc6a957a17ae86db9aa9e33c82f6ba0cfa788d98f06ad849168e6206",
+  "draft_is_not_GO": true,
+  "blocking_findings": [],
+  "recommendation": "No known affected identity/entry blocker to Master issuing one exact NORMAL02 GO with current literal <=360s deadline and actual new network/source bindings; previous startupfail cost55.169294s retained. Remaining real matrices and final acceptance pending.",
+  "technical_final_acceptance": false
+}

@@ -1,0 +1,16 @@
+....F                                                                    [100%]
+=================================== FAILURES ===================================
+______________ test_cli_exposes_vllm_and_rejects_unknown_backend _______________
+
+    def test_cli_exposes_vllm_and_rejects_unknown_backend():
+        import subprocess,sys
+        help_run=subprocess.run([sys.executable,'-m','service.inference','--help'],capture_output=True,text=True,timeout=5)
+>       assert help_run.returncode==0 and 'vllm' in help_run.stdout
+E       AssertionError: assert (0 == 0 and 'vllm' in 'usage: python -m service.inference [-h] [--max-attempts MAX_ATTEMPTS]\n                                   [--host {12... PORT\n  --deadline-epoch DEADLINE_EPOCH\n  --queue-timeout QUEUE_TIMEOUT\n  --generation-timeout GENERATION_TIMEOUT\n')
+E        +  where 0 = CompletedProcess(args=['/Users/panyiming/.local/state/pi-agent-platform/e2e12-builder-20261023/venv/bin/python', '-m',...eadline-epoch DEADLINE_EPOCH\n  --queue-timeout QUEUE_TIMEOUT\n  --generation-timeout GENERATION_TIMEOUT\n', stderr='').returncode
+E        +  and   'usage: python -m service.inference [-h] [--max-attempts MAX_ATTEMPTS]\n                                   [--host {12... PORT\n  --deadline-epoch DEADLINE_EPOCH\n  --queue-timeout QUEUE_TIMEOUT\n  --generation-timeout GENERATION_TIMEOUT\n' = CompletedProcess(args=['/Users/panyiming/.local/state/pi-agent-platform/e2e12-builder-20261023/venv/bin/python', '-m',...eadline-epoch DEADLINE_EPOCH\n  --queue-timeout QUEUE_TIMEOUT\n  --generation-timeout GENERATION_TIMEOUT\n', stderr='').stdout
+
+service/inference/tests/test_vllm.py:119: AssertionError
+=========================== short test summary info ============================
+FAILED service/inference/tests/test_vllm.py::test_cli_exposes_vllm_and_rejects_unknown_backend
+1 failed, 4 passed in 0.29s

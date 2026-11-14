@@ -1,0 +1,18 @@
+: connected
+
+id: 22
+event: queued
+data: {"task":"bc35b29be44916bd244a302721036d75","id":22,"kind":"queued","data":{"task":"bc35b29be44916bd244a302721036d75"}}
+
+id: 23
+event: running
+data: {"task":"bc35b29be44916bd244a302721036d75","id":23,"kind":"running","data":{}}
+
+id: 24
+event: runtime
+data: {"task":"bc35b29be44916bd244a302721036d75","id":24,"kind":"runtime","data":{"task":"bc35b29be44916bd244a302721036d75","clock":"pi-performance.now","tools":[],"package":"@earendil-works/pi-coding-agent","session":"cpu-g2-r-sse","version":"1.3.0","modelCall":"7ef18267-9ccf-47b2-ab24-1b5cfe1ba310","contextOwner":"Pi SessionManager","receivedMono":10672.603365}}
+
+id: 25
+event: text
+data: {"task":"bc35b29be44916bd244a302721036d75","id":25,"kind":"text","data":{"text":"0,"}}
+

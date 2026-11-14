@@ -1,0 +1,58 @@
+{
+  "schema": "pi24-criteria-delivery-status/v1",
+  "criteria_source": "Versioned WorkOrder; this status does not redefine or add criteria",
+  "criteria": {
+    "C-G2-01@1.0": {
+      "status": "B_AND_R_ACTUAL_STAGE_PASS; FINAL_EXACT_SHA_AND_CI_PENDING",
+      "observed": "Fixed vLLM module/distribution/runtime identity, successful direct budget16/64 and platform128 generations; explicit original TF fallback16.",
+      "evidence": [
+        "regulator-20261114/B-NORMAL02-REAL-INDEPENDENT-REVIEW.v1.json",
+        "regulator-20261114/B-FALLBACK01-REAL-INDEPENDENT-REVIEW.v1.json"
+      ],
+      "remaining": "Final exact-SHA independent candidate/raw/provenance/inventory review and actual finalEvidenceCI6. Master integration/mainCI7 follows accepted Verdict; not a pre-Verdict requirement."
+    },
+    "C-G2-02@1.0": {
+      "status": "B_AND_R_ACTUAL_STAGE_PASS; FINAL_EXACT_SHA_AND_CI_PENDING",
+      "observed": "Real direct/API-loss abort ACK and native settlement; explicit deadline and post-idle; separately new-engine recovery16. Durable platform SSE/PG replay, running API interruption/queued cancellation/session block/no resend are also verified in normal raw.",
+      "evidence": [
+        "regulator-20261114/B-DEADLINE01-REAL-INDEPENDENT-REVIEW.v1.json",
+        "regulator-20261114/B-RECOVERY01-REAL-INDEPENDENT-REVIEW.v1.json"
+      ],
+      "remaining": "Final exact-SHA independent candidate/raw/provenance/inventory review and actual finalEvidenceCI6. Master integration/mainCI7 follows accepted Verdict; not a pre-Verdict requirement."
+    },
+    "C-G2-03@1.1": {
+      "status": "B_AND_R_ACTUAL_STAGE_PASS; FINAL_EXACT_SHA_AND_CI_PENDING",
+      "observed": "Builder complete frozen normal9 + explicit deadline + separate fresh-engine recovery + explicit original TF fallback, all IDs/native/SSE/PG/payloads and denominators retained.",
+      "evidence": [
+        "regulator-20261114/B-NORMAL02-REAL-INDEPENDENT-REVIEW.v1.json",
+        "regulator-20261114/B-DEADLINE01-REAL-INDEPENDENT-REVIEW.v1.json",
+        "regulator-20261114/B-RECOVERY01-REAL-INDEPENDENT-REVIEW.v1.json",
+        "regulator-20261114/B-FALLBACK01-REAL-INDEPENDENT-REVIEW.v1.json"
+      ],
+      "remaining": "Final exact-SHA independent candidate/raw/provenance/inventory review and actual finalEvidenceCI6. Master integration/mainCI7 follows accepted Verdict; not a pre-Verdict requirement."
+    },
+    "C-G2-04@1.4": {
+      "status": "B_AND_R_ACTUAL_STAGE_PASS; FINAL_EXACT_SHA_AND_CI_PENDING",
+      "observed": "Exact independently bound phase/source/runtime/model/SDK/network; real doubleGPU0idle>=10s, bounded observer child/watch/native, actual resource and cost/cleanup receipts.",
+      "evidence": [
+        "regulator-20261114/B-NORMAL02-FINAL-HANDOFF-CROSSCHECK.v1.json",
+        "regulator-20261114/B-REMAINING-PROFILES-CPU-INDEPENDENT-REVIEW.v1.json"
+      ],
+      "remaining": "Final exact-SHA independent candidate/raw/provenance/inventory review and actual finalEvidenceCI6. Master integration/mainCI7 follows accepted Verdict; not a pre-Verdict requirement."
+    }
+  },
+  "not_claimed": [
+    "Final accepted",
+    "C10K connections or simultaneous model execution",
+    "p95/TTFT/throughput optimization",
+    "Same old engine continuation after deadline",
+    "Human independent implementation or approved resume/public facts"
+  ],
+  "independent_R_own_actual_execution": {
+    "state": "Actual complete and independently semantic-stage PASS; final exact-SHA Verdict pending",
+    "native": 7,
+    "POST": 9,
+    "release": "regulator-20261114/R-NORMAL02-RAW-HANDOFF-RELEASE.v1.json",
+    "semantic_report": "regulator-20261114/R-NORMAL02-REAL-INDEPENDENT-REVIEW.v1.json"
+  }
+}

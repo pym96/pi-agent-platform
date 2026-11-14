@@ -1,0 +1,14 @@
+{
+  "name": "strict-and-phase-run",
+  "args": [
+    "docker",
+    "start",
+    "-a",
+    "4e6768f75031ad776abd1c8d3d23f7181800a13a5acc8a317320dec1e77f0a0c"
+  ],
+  "start": 1794622865.6479988,
+  "end": 1794622871.5684652,
+  "exit": 0,
+  "stdout": "{\"uid\": 1001, \"version\": \"3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]\", \"old_Path_same_env_expected_error\": true, \"serving_tests\": {\"tests\": 17, \"skipped\": 0, \"failures\": 0, \"errors\": 0, \"expected_failures\": 0, \"unexpected_successes\": 0, \"success\": true}, \"G0_tests\": {\"tests\": 16, \"skipped\": 0, \"failures\": 0, \"errors\": 0, \"expected_failures\": 0, \"unexpected_successes\": 0, \"success\": true}, \"own_phase_cases\": 67, \"CUDA_init\": false, \"model\": false}\n",
+  "stderr": ""
+}

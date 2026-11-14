@@ -1,0 +1,1 @@
+{"backend": "vllm-0.8.5.post1+cu118/V1-uni/Qwen3-8B", "model": "Qwen3-8B", "ready": true, "active_generation": 0, "calls": 0, "queued": 0, "max_active_generation": 1, "max_context": 1024, "attempts": 0, "max_attempts": 8}

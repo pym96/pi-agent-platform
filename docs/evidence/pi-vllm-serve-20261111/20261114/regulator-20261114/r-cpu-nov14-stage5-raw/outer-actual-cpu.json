@@ -1,0 +1,16 @@
+{
+  "name": "outer-actual-cpu",
+  "args": [
+    "taskset",
+    "-c",
+    "0,1",
+    "python3",
+    "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r_gpu_entry_phase5.py",
+    "--cpu-probe"
+  ],
+  "start": 1794622865.0184674,
+  "end": 1794622865.1548977,
+  "exit": 0,
+  "stdout": "{\"cpu_only\": true, \"model_started\": false, \"sample\": {\"epoch\": 1794622865.1478567, \"pid\": 3949798, \"affinity\": [0, 1], \"rss_bytes\": 17133568, \"descendants\": {\"3949798\": {\"ppid\": 3949739, \"rss_bytes\": 17133568, \"allowed\": \"0-1\"}}}}\n",
+  "stderr": ""
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "pi24-nov14-sc06-local-review/v1",
+  "SessionRole": "Regulator Agent",
+  "issue": 24,
+  "at": "2026-11-14T01:53:58.628238+00:00",
+  "stage": "LOCAL_AFFECTED_SOURCE_ONLY",
+  "source_full_sha": "d42579518034f235a55fdbdbfd1d72b0f1134544",
+  "clean": true,
+  "not_yet_remote": true,
+  "result": "NO_KNOWN_LOCAL_BLOCKER_FOR_ONCE_SOURCECI4",
+  "not_final_accepted": true,
+  "checks": {
+    "independent_clean_detached_exactsource": true,
+    "changed_files": "test_contract.py plus2notes only",
+    "G0_strict": 16,
+    "skip": 0,
+    "independent_clock_cases": 11,
+    "valid_and9invalid_same_historicalnow": 1794385200,
+    "each_invalid_exact_error_not_expiry_mask": true,
+    "actual_CLI_current_rejects_old_GO_before_tools": true,
+    "production_G0_fivehelpers_and_all_listedProductbytes": "unchanged",
+    "external_only_SOURCE_literal_change": true,
+    "B_handoff_raw_bytebindings": "all match",
+    "old_red": "actualCI3 artifact c01a57 and independent current-vs-historical minimalrepro8d4d preserved"
+  },
+  "phase_contract_sha256": "77b6d5aa360e46cdde73fa36bdff344c89769973e56c48733b43ac258d763887",
+  "new_external_entry_sha256": "fc516576352995b3ad351fe34f34eab31ef31e04b0c485ca471327ae66a3344f",
+  "reuse_unmodified_checks": "df740 local review39ff0661:67phase/17serving/4outer; Product interface bytes same",
+  "scope_and_limits": [
+    "No source repair by Regulator.",
+    "No actual systemclock change, server, CI, CUDA or model action.",
+    "Old SOURCECI3CPU GO not activated and retired.",
+    "Actual sourceCI4success/new affectedLinuxCPU and fresh exact modelGO still required.",
+    "Full B/R realmatrix/finalEvidenceCI5/independentexactSHA Verdict/mainCI6 remain incomplete."
+  ],
+  "artifacts": {
+    "SC06-independent-d42579.v1.json": {
+      "sha256": "361e5bf6cab95aa58575a12323ff7d71bd6e8a0371c91c7a8ba8eb83a7a4891f",
+      "bytes": 3130
+    },
+    "G0-16-independent-d42579.json": {
+      "sha256": "afe36eba8732d0b0f57e142d31503d665b0f488db9cc5098f09336262157ba55",
+      "bytes": 140
+    },
+    "G0-16-independent-d42579.log": {
+      "sha256": "66400177f32c651f6612b580059c53da77d44ccbe7b682f5395bda01f6e84719",
+      "bytes": 2476
+    },
+    "CI3-expired-fixture-minimal-repro.v1.json": {
+      "sha256": "8d4d9402d1f35f240aa965daa085c225c6ed2ba66bc92d8410aebd037d4cad8c",
+      "bytes": 652
+    }
+  }
+}

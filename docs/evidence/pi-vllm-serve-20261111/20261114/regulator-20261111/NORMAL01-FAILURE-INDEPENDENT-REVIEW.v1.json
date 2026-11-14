@@ -1,0 +1,52 @@
+{
+  "schema": "pi24-regulator-normal01-startup-failure/v1",
+  "at": 1794408404.7804558,
+  "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+  "result": "STARTUP_FAILURE; source repair required; not matrix coverage or acceptance",
+  "actual_version_identity": {
+    "official_wheel_sha256": "a593a2e5f455b0e47bf297ea31153dad9c2b2c44ddb13e194ba0a247e597e34a",
+    "module___version__": "0.8.5.post1",
+    "distribution_Metadata_Version": "0.8.5.post1+cu118",
+    "module_source_sha256": "545a7ea19397a13b42cce389cb16235fb4daf92d06ddcd6af52cc8f2b4531a2b",
+    "metadata_sha256": "7919f74de2bddd33cb8d65f14270e4310a3c2695a9fe0a260fc4d02fb42e8921",
+    "same_as_accepted_runtime8399": true,
+    "G0_CPUimports_version_field_source": "cpu-import-audit.v4.py line5 md.version(distribution), not m.__version__"
+  },
+  "verified_cause": "a5 VllmBackend.load line34 incorrectly compares module __version__ against distribution local-version suffix; genuine unchanged official artifact cannot pass. Failure before engine_start/from_engine_args.",
+  "reviewer_accountability": "R initial source gate checked fixed distribution/runtime hashes but did not independently compare module guard against actual wheel _version.py. R CPU fixtures bypassed load; B fake load fixture assigned distribution string to module attribute. Initial SOURCE/StageA no-known-blocker judgment missed this defect; prior records preserved unchanged.",
+  "originals": {
+    "archive_sha256": "2d7d0b64ecd6306299a6ce09dfb942c2124dda4f0fb09bb697cb3e31f1fa278d",
+    "manifest_sha256": "b11fb6d8b82dfd19c47077243114d7ccd14b4fdd6fa7ed954792af3ca3cbdd24",
+    "actual_raw_files_verified": 31
+  },
+  "lifecycle": {
+    "model_CID": "21ceec7444848f29dc788337e78bbcd5b43995d5681b4188fc57b075ee0988dc",
+    "actual_container_running_s_nanosecond_timestamp_difference": "6.952327922",
+    "conservative_creation_through_successful_rm_upper_s": 55.169294118881226,
+    "native_generate": 0,
+    "completion_POSTs": 0,
+    "PG_tasks_events_sessions_all_empty": true,
+    "native_trace_ready_client_absent": true,
+    "model_exit": 1,
+    "OOMKilled": false,
+    "GPU_failure_cost_included": true,
+    "host_RSS_samples": 276,
+    "host_RSS_sampled_peak": 161599488,
+    "affinity_all_0_1": true
+  },
+  "cleanup": {
+    "Product_failure": "KeyboardInterrupt after observed failed startup",
+    "Product_overall_success": false,
+    "Product_cleanup_success": true,
+    "watch_exit": 0,
+    "four_CIDs_exact_removed": true,
+    "B_network20eb_removed": true,
+    "B_owned_container_network_inventory_empty": true,
+    "R_network2874821_untouched": true,
+    "outer_launcher_exit": 3,
+    "post_GPU0_processes_empty": true,
+    "release_sha256": "31ca559293ed30c69e1f567b5f7273b548e8c17946933c274e319a2c27de93ac"
+  },
+  "recommendation": "Repair exact module+distribution identity distinction under original C01; no startswith/relaxed versions/no dependency or runtime edits. Need actual unchanged-wheel CPU load seam negative/positive before proposed sourceCI2. Any rerun only separate new exact Master GO, preserving original failure and cost.",
+  "technical_final_acceptance": false
+}

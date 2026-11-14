@@ -1,0 +1,15 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "38ea172833a35f546a68822a34ed50a0f55b786429e01c1903ffc7b06e0817f9",
+    "/venv/bin/python",
+    "-c",
+    "import glob,json; print(json.dumps(glob.glob(\"/dev/nvidia*\")))"
+  ],
+  "start": 1794406832.578418,
+  "end": 1794406832.6772318,
+  "exit": 0,
+  "stdout": "[]\n",
+  "stderr": ""
+}

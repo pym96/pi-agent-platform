@@ -1,0 +1,62 @@
+{
+  "schema": "pi24-nov14-regulator-restoration-prereview/v1",
+  "SessionRole": "Regulator Agent",
+  "issue": 24,
+  "created_utc": "2026-11-14T01:32:21.906635+00:00",
+  "stage": "LOCAL_RESTORATION_CONTRACT_PREREVIEW",
+  "result": "NO_KNOWN_CONTRACT_OR_RECOVERY_BLOCKER_FOR_LOCAL_NARROW_REPAIR",
+  "not_final_accepted": true,
+  "source": {
+    "fresh_origin_main": "b0ed1c4d6f26d8a3b0c454030606dd598a4f0166",
+    "fresh_archival_tag_peeled": "471a317ef687a168306608b1bece931f9b3a2b63",
+    "bundle_sha256": "3d9bbc4312466fe1c31374152017e19c720b4f3ba2659dc78b2cf10a34f14514",
+    "bundle_verify": "PASS requires471a",
+    "recovered_full_sha": "a0f2b4e3a416e548b307df3c9cc326887ed14d6c",
+    "clean": true,
+    "both_baseline_and_archive_ancestors": true,
+    "bundle_diff": "5 existing authorized files; phase constants still P2, not current executable source"
+  },
+  "binding_checks": {
+    "12_B_attachments": "all size/hash match",
+    "R_prior_6d069": "hash match; local-only scope retained",
+    "new_phase_sha256": "a44ec7447f1efe11a2ba931df463baf6b176d9daedc72dbfc5bb267834064947"
+  },
+  "criteria": {
+    "C01": "1.0 unchanged",
+    "C02": "1.0 unchanged",
+    "C03": "1.1 complete real matrix remains blocking",
+    "C04": "1.4 executable: independent phase file/hash authority binding plus GO hash; original UTC/resource/exactSHA/CI/independent evidence gates remain; two simulated frozen phases are tests only"
+  },
+  "CPU_audit": {
+    "prior_R_independent_record": "P2-CPU-BUDGET-INDEPENDENT-REVIEW.v1.json",
+    "old_reserved_total_s": 4526.435738517761,
+    "future_B120_R180_not_executed_s": 300,
+    "old_conservative_upper_s": 4226.435738517761,
+    "proposed_new_CPU_s": 600,
+    "after_proposed_new_CPU_upper_s": 4826.435738517761,
+    "cap_s": 5400,
+    "remaining_unallocated_s": 573.5642614822391,
+    "limitation": "conservative bound, not precise measured actual; local CPU tests not falsely charged as server CPU slot; no fresh server cost or inventory implied"
+  },
+  "authority_and_limits": [
+    "This report grants no push, CI, SSH, GPU or model permission.",
+    "Old P1/P2 GO remain retired; no dates silently shifted.",
+    "New exact source implementation/negative probes and actual CI3/affected Linux CPU still required before every separately authorized real model lifecycle.",
+    "Prior Mac substitutes do not prove Linux or GPU execution.",
+    "No final Verdict or fact/resume promotion."
+  ],
+  "raw_artifacts": {
+    "restoration-bindings.v1.json": {
+      "sha256": "f3d44e430ba0408983e9fb4451f4e7d0b2a4e7204855340475a00a08763bc32b",
+      "bytes": 2141
+    },
+    "recovery-git-raw.v1.json": {
+      "sha256": "55d59d9ad9d08b5c8e083be07aabb1a67c63a92e6f312463a326d6afaac15ef3",
+      "bytes": 5665
+    },
+    "fresh-clone.log": {
+      "sha256": "90b221a5b02773dafcbe6fa5ccbef4ab8e9c05c3ec83bfd97447aa8ad13a73ca",
+      "bytes": 99
+    }
+  }
+}

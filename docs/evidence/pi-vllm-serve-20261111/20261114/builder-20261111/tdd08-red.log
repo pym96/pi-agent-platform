@@ -1,0 +1,14 @@
+F
+======================================================================
+FAIL: test_invalid_go_never_reaches_external_tools (test_entry.EntryTests.test_invalid_go_never_reaches_external_tools)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-vllm24-candidate/service/scripts/vllm-serve/test_entry.py", line 10, in test_invalid_go_never_reaches_external_tools
+    self.assertEqual(r.returncode,2);self.assertIn('GO rejected',r.stderr)
+                                     ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'GO rejected' not found in "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-vllm24-candidate/service/scripts/vllm-serve/launch.py': [Errno 2] No such file or directory\n"
+
+----------------------------------------------------------------------
+Ran 1 test in 0.018s
+
+FAILED (failures=1)

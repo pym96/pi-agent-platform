@@ -1,0 +1,86 @@
+{
+  "schema": "pi24-regulator-B-normal-entry-local-review/v1",
+  "at": 1794407792.787601,
+  "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+  "stageA_review_sha256": "50f4c10d0765315d364834942206d6a4bacccb830b548bcb76ab2813a164e613",
+  "bindings": {
+    "gpu_entry.py": "660d5c6aec2be0821cbf14e97bfcd56de3f221d02e7bc8c32044a6f5798996c5",
+    "gpu-entry.sh": "e3ff42c186c74cc81aa8e8e401cfeb4142ba0d2013a84cf85cab705a59545ad7",
+    "NORMAL-GO-DRAFT.v1.json": "0ba06808e55e878f09c3209e14c4fc9ee2d8da38011816952039d09388f2a3c7",
+    "CPU-GPU-PREP01.json": "e16ee14feece044a812a0eedb341bc1b64bff145d0b26bb89177c7579c5966cd",
+    "outer-entry-negative.v1.json": "85c7b6d9a496bf181e5f49a5dba6fcc8c21895de3fefa76c3c10b0cb13a7b5dc"
+  },
+  "source_helpers_and_actual_plan_hashes_match": true,
+  "actual_network": {
+    "id": "20eb2483e876273dd4956426b711a91e1899aabebe50cbbef811c7d04683ba5f",
+    "Internal": true,
+    "Containers": {},
+    "nonce": "pi24-b-normal01",
+    "source": "a5f161b65126d3f5cbd9670bd85099217f38e750"
+  },
+  "actual_CPUprobe_affinity": [
+    0,
+    1
+  ],
+  "actual_CPUprobe_RSS_bytes": 17022976,
+  "literal_host_chain": "gpu-entry.sh \u2192 exec taskset -c 0,1 python3 gpu_entry.py \u2192 exact source launch.py \u2192 watch/client descendants",
+  "resource_mechanism": "Own helper processes inherit 2-CPU affinity. Own /proc descendant RSS sampled every0.25s and stop on >1GiB; this is observed stop, not cgroup hard-memory guarantee. Container10CPU/35GiB + helper2CPU/<1GiB respects stated overall boundary subject actual samples.",
+  "negative_probe": {
+    "schema": "pi24-regulator-outer-entry-CPU-projection/v1",
+    "entry_sha256": "660d5c6aec2be0821cbf14e97bfcd56de3f221d02e7bc8c32044a6f5798996c5",
+    "explicit_substitutions": [
+      "ROOT to own temporary directory",
+      "Linux sched_getaffinity/sample to fixed fixture; no actual Linux resource claim",
+      "Docker inventory/cleanup stub empty",
+      "nvidia-smi stub; zero GPU access"
+    ],
+    "actual_unmodified_behavior": "main GO validation, child Popen/start_new_session, absolute deadline, killpg TERM then KILL/wait, result exit/receipt",
+    "cases": [
+      {
+        "case": "wrong_GO_digest",
+        "rejected_before_child": true
+      },
+      {
+        "case": "TERM_ignored_private_CPU_child",
+        "exit": 3,
+        "elapsed": 3.046909809112549,
+        "private_child_pid": 37747,
+        "child_alive_after": false,
+        "receipt": {
+          "end": 1794407747.229729,
+          "launcher_exit": -9,
+          "failure": "TimeoutError('outer absolute deadline')",
+          "inventory_error": null,
+          "cleanup": {
+            "success": true,
+            "containers": {},
+            "errors": []
+          },
+          "post_gpu0": {
+            "uuid": {
+              "exit": 0,
+              "stdout": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead\n",
+              "stderr": ""
+            },
+            "processes": {
+              "exit": 0,
+              "stdout": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead\n",
+              "stderr": ""
+            }
+          }
+        }
+      }
+    ],
+    "success": true
+  },
+  "private_probe_correction_record": "outer-entry-private-probe-failure.v1.json",
+  "no_known_local_blocker": true,
+  "required_before_execution": [
+    "Master sets new literal deadline current issue+<=360s and removes draft_only/replaces draft note; exact complete GO hash must bind entry, source, assets and actual network.",
+    "Preflight fixed GPU0 UUID and two idle snapshots\u226510s remain required by actual Product entry.",
+    "No new dependency/toolchain/compiler or silent V1\u2192V0 fallback; preserve errors/SC.",
+    "Native abort ACK denotes scheduler removal only; actualGPU trace/old deadline slot settlement/normal sameengine recovery remain pending."
+  ],
+  "recommendation": "No known local blocker to Master issuing one exact B NORMAL realGPU GO for this unchanged source and frozen plan. Not itself GO or acceptance.",
+  "technical_final_acceptance": false
+}

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "git",
+    "-c",
+    "http.proxy=",
+    "push",
+    "--porcelain",
+    "origin",
+    "a5f161b65126d3f5cbd9670bd85099217f38e750:refs/heads/workorder/24-candidate"
+  ],
+  "start_epoch": 1794406558.710287,
+  "end_epoch": 1794406561.3807008,
+  "exit": 0,
+  "stdout": "To https://github.com/pym96/pi-agent-platform.git\n*\ta5f161b65126d3f5cbd9670bd85099217f38e750:refs/heads/workorder/24-candidate\t[new branch]\nDone\n",
+  "stderr": "remote: \nremote: Create a pull request for 'workorder/24-candidate' on GitHub by visiting:        \nremote:      https://github.com/pym96/pi-agent-platform/pull/new/workorder/24-candidate        \nremote: \n",
+  "go_sha256": "374c104fac66b48864012c7722c4f53bc64c3fe41cd8e8845ac0afa0b7f871cd",
+  "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750"
+}

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "docker",
+    "logs",
+    "4914cf045e7c22d5d5faaca41d7b96729fc67c07627480948cfa6f9a11bd61b0"
+  ],
+  "start": 1794627719.3798294,
+  "end": 1794627719.3902245,
+  "exit": 0,
+  "stdout": "{\"event\":\"ready\",\"port\":8081,\"tools\":[],\"concurrency\":2}\n",
+  "stderr": "{\"event\":\"pi_failure\",\"task\":\"a89704e4465e44e321faf02655ccb5c7\",\"session\":\"g2-r-restart\",\"clock\":\"pi-performance.now\",\"at\":27391.086304,\"reason\":\"This operation was aborted\"}\n"
+}

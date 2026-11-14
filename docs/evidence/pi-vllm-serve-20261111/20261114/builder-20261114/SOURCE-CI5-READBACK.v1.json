@@ -1,0 +1,167 @@
+{
+  "schema": "pi24-sourceCI5-readback/v1",
+  "issue": 24,
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "run_id": 43545423673,
+  "status": "completed",
+  "conclusion": "success",
+  "updated_at": "2026-11-14T02:20:40Z",
+  "all_job_steps_success": true,
+  "artifact": {
+    "id": 14094106302,
+    "bytes": 1215264,
+    "official_and_actual_sha256": "0c37c68910339020d312fbc2ba4286da0347584b21102c0a0f2d377609953b6d",
+    "files": 1673,
+    "manifest_sha256": "62665afab1d2c4a94c2be11e833996fd6988a0cbe929761fe2772d1b1fd45292"
+  },
+  "actual_Python310_version": "Python 3.10.22",
+  "suites": {
+    "python310-vllm21/summary.json": {
+      "tests": 16,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": true
+    },
+    "vllm21/summary.json": {
+      "tests": 16,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": true
+    },
+    "vllm24/summary.json": {
+      "tests": 17,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": true
+    },
+    "python310-analyzer/summary.json": {
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "missing_required": [],
+      "collected": [
+        "test_measurements.MeasurementEvidenceTests.test_cpu_fixture_cannot_be_relabelled_gpu",
+        "test_measurements.MeasurementEvidenceTests.test_failure_cannot_disappear_from_denominator",
+        "test_measurements.MeasurementEvidenceTests.test_first_content_requires_raw_content_frame",
+        "test_measurements.MeasurementEvidenceTests.test_frame_cannot_occur_after_settled",
+        "test_measurements.MeasurementEvidenceTests.test_historical_gpu3_cannot_be_relabelled_current_gpu0",
+        "test_measurements.MeasurementEvidenceTests.test_pg_five_digit_fraction_preserves_queue_span",
+        "test_measurements.MeasurementEvidenceTests.test_pg_fraction_precision_and_timezone_preserve_instants",
+        "test_measurements.MeasurementEvidenceTests.test_pg_invalid_or_naive_timestamps_fail_closed",
+        "test_measurements.MeasurementEvidenceTests.test_pg_negative_queue_interval_is_not_clamped",
+        "test_measurements.MeasurementEvidenceTests.test_settled_call_must_match_runtime_result"
+      ],
+      "success": true
+    },
+    "load13/summary.json": {
+      "tests": 26,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": true
+    },
+    "pi-e2e12-cpu/inference/summary.json": {
+      "success": true,
+      "exit_code": 0,
+      "tests": 69,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xfail_reports": [],
+      "duration_seconds": 1.7689523999999892,
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.16/x64/bin/python",
+        "-m",
+        "pytest",
+        "-p",
+        "service.inference.scripts.required_pytest",
+        "service/inference/tests",
+        "-q",
+        "--junitxml=/home/runner/work/_temp/pi-e2e12-cpu/inference/junit.xml"
+      ],
+      "python": "3.12.16 (main, Oct 26 2026, 02:50:49) [GCC 13.3.0]"
+    },
+    "ng-entry/inference/summary.json": {
+      "success": true,
+      "exit_code": 0,
+      "tests": 69,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xfail_reports": [],
+      "duration_seconds": 2.770222212999954,
+      "command": [
+        "/usr/local/bin/python",
+        "-m",
+        "pytest",
+        "-p",
+        "service.inference.scripts.required_pytest",
+        "service/inference/tests",
+        "-q",
+        "--junitxml=/evidence/inference/junit.xml"
+      ],
+      "python": "3.12.15 (main, Oct  6 2026, 02:02:22) [GCC 14.2.0]"
+    },
+    "pi-e2e12-cpu/sdk/summary.json": {
+      "command": [
+        "node",
+        "--test",
+        "--test-reporter=junit",
+        "service/pi/tests/budget.test.mjs",
+        "service/pi/tests/wire.test.mjs"
+      ],
+      "exit_code": 0,
+      "success": true,
+      "tests": 13,
+      "collected": [
+        "actual SDK explicit-stream wire preserves smaller output budget",
+        "actual Pi SDK must not complete missing upstream usage",
+        "actual Pi SDK successful stream has verified raw usage and mapped budget",
+        "actual Pi SDK rejects missing DONE",
+        "actual Pi SDK rejects inconsistent usage",
+        "actual Pi SDK rejects partial then error",
+        "actual Pi SDK rejects empty content",
+        "actual Pi SDK rejects missing terminal",
+        "actual Pi SDK rejects usage beyond budget",
+        "actual Pi SDK rejects null usage",
+        "actual Pi SDK rejects damaged intermediate usage",
+        "actual Pi SDK rejects data after DONE",
+        "content reaches client before complete upstream terminal"
+      ],
+      "missing_required": [],
+      "failures": 0,
+      "skipped": 0
+    },
+    "watch-cleanup-tests/summary.json": {
+      "tests": 4,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": true
+    }
+  },
+  "CI_actual_used": 5,
+  "CI_total": 7,
+  "reserved_final_main": [
+    6,
+    7
+  ],
+  "new_B_server_model_POST": 0,
+  "accepted": "not final; same cached server independent CPU and complete real B/R model matrices pending"
+}

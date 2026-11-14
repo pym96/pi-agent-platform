@@ -1,0 +1,33 @@
+{
+  "issue": 24,
+  "role": "builder",
+  "nonce": "pi24-b-normal01",
+  "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+  "network_id": "20eb2483e876273dd4956426b711a91e1899aabebe50cbbef811c7d04683ba5f",
+  "mode": "vllm",
+  "gpu_uuid": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead",
+  "deadline_epoch": 1794408060.0,
+  "max_duration_s": 360,
+  "generation_timeout": 30,
+  "max_attempts": 32,
+  "plan_file": "plan-normal.json",
+  "runtime_manifest_sha256": "8399994fa82aac42c3cd82a0f3e697bb46f70e16d4ba62969a13ce3a76fc8820",
+  "model_manifest_sha256": "4380c0c2174d1ba6a4698f37d06d05cfb01d3652a19fccdeeb414a96b573a1a8",
+  "entry_sha256": "bdeb6987479c3ba355885e141e317fc882842aa9f07696c2c38c4cb7ca67df80",
+  "watch_sha256": "d8a069ac818bf41149853f86a2b2031656abfe82d4919b825eaa656a3bfb36f4",
+  "plan_sha256": "deb0910ecccedafec8c535dec1d877de560e2cb1cc09800c4e0f4bdf274ea059",
+  "driver_sha256": "2f8780f46df52208050d359889f58939a215b61cd6c37d5dc67056009484b607",
+  "native_sha256": "691f5f862d0191e51ff7062e07da0bd999dc983a0a334e0012a7458e1e437062",
+  "compose_sha256": "1e7de456ab4c8e278775bacef257be1be402b4b605efe2a8015382b27cd4d799",
+  "assets_sha256": "7a9a7e728bbf92411371ac497a896c47ce5bee1f86a9cfea6fbd9a690a78cd54",
+  "outer_entry_sha256": "660d5c6aec2be0821cbf14e97bfcd56de3f221d02e7bc8c32044a6f5798996c5",
+  "shell_entry_sha256": "e3ff42c186c74cc81aa8e8e401cfeb4142ba0d2013a84cf85cab705a59545ad7",
+  "host_affinity": [
+    0,
+    1
+  ],
+  "max_host_rss_bytes": 1073741824,
+  "outer_absolute_stop_epoch": 1794411900.0,
+  "draft_only": true,
+  "note": "NOT GO. Master sets literal current deadline <=360s at issue; exact hashed authorization required."
+}

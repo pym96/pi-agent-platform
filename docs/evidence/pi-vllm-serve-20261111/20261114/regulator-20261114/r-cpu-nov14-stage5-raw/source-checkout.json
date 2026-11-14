@@ -1,0 +1,14 @@
+{
+  "name": "source-checkout",
+  "args": [
+    "git",
+    "checkout",
+    "--detach",
+    "9ea36d3221d024a6d8330322d330809fa9e283a6"
+  ],
+  "start": 1794622864.9702775,
+  "end": 1794622864.9831858,
+  "exit": 0,
+  "stdout": "",
+  "stderr": "\u4e4b\u524d\u7684 HEAD \u4f4d\u7f6e\u662f d425795 test(compat): replay legacy GO fixture at its authorized time\nHEAD \u76ee\u524d\u4f4d\u4e8e 9ea36d3 test(compat): preserve concrete Path factory on server Python\n"
+}

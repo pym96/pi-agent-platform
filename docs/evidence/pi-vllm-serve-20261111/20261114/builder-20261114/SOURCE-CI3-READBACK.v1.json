@@ -1,0 +1,103 @@
+{
+  "schema": "pi24-sourceCI3-readback/v1",
+  "issue": 24,
+  "source_sha": "df740e46da7cad585ef29763f19a280869d7c728",
+  "run_id": 43542368969,
+  "attempt": 1,
+  "status": "completed",
+  "conclusion": "failure",
+  "updated_at": "2026-11-14T01:45:15Z",
+  "artifact": {
+    "id": 14091354107,
+    "bytes": 7277,
+    "sha256": "c01a57e78a3f47655582547f3c351a0e735ab68e7c9825a114f2b69eb868f937",
+    "downloaded_sha256": "c01a57e78a3f47655582547f3c351a0e735ab68e7c9825a114f2b69eb868f937",
+    "files": 15,
+    "manifest_sha256": "57ec9446559c083b6d211fbeab4b1bbd6158bcf00e86ed852ea4afc8fda44e47"
+  },
+  "passed": {
+    "vllm24": {
+      "tests": 17,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": true
+    },
+    "python310": {
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "missing_required": [],
+      "collected": [
+        "test_measurements.MeasurementEvidenceTests.test_cpu_fixture_cannot_be_relabelled_gpu",
+        "test_measurements.MeasurementEvidenceTests.test_failure_cannot_disappear_from_denominator",
+        "test_measurements.MeasurementEvidenceTests.test_first_content_requires_raw_content_frame",
+        "test_measurements.MeasurementEvidenceTests.test_frame_cannot_occur_after_settled",
+        "test_measurements.MeasurementEvidenceTests.test_historical_gpu3_cannot_be_relabelled_current_gpu0",
+        "test_measurements.MeasurementEvidenceTests.test_pg_five_digit_fraction_preserves_queue_span",
+        "test_measurements.MeasurementEvidenceTests.test_pg_fraction_precision_and_timezone_preserve_instants",
+        "test_measurements.MeasurementEvidenceTests.test_pg_invalid_or_naive_timestamps_fail_closed",
+        "test_measurements.MeasurementEvidenceTests.test_pg_negative_queue_interval_is_not_clamped",
+        "test_measurements.MeasurementEvidenceTests.test_settled_call_must_match_runtime_result"
+      ],
+      "success": true
+    }
+  },
+  "failed": {
+    "vllm21": {
+      "tests": 16,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 1,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": false
+    },
+    "cause": "unchanged test_contract.py positive calls old fixed-window validate with present wallclock; actual old launcher correctly refuses expired deadline",
+    "locally_reproduced": "one selected unittest actual error last new GPU start elapsed"
+  },
+  "raw": {
+    "CI3-artifact-manifest.json": {
+      "bytes": 2478,
+      "sha256": "57ec9446559c083b6d211fbeab4b1bbd6158bcf00e86ed852ea4afc8fda44e47"
+    },
+    "CI3-artifact.zip": {
+      "bytes": 7277,
+      "sha256": "c01a57e78a3f47655582547f3c351a0e735ab68e7c9825a114f2b69eb868f937"
+    },
+    "CI3-artifacts.json": {
+      "bytes": 783,
+      "sha256": "b76bc452f2af5c910017e8f7854946b9109106b548d10a11a9b72eb29565712a"
+    },
+    "CI3-failure.log": {
+      "bytes": 3046,
+      "sha256": "e81d2324709afa1ad8adcdff8c6a36d77241cdb85730e10387e3d12c15897bdb"
+    },
+    "CI3-jobs-final.json": {
+      "bytes": 5310,
+      "sha256": "0af738999cd8c3a043a35d432330f28a48d449b3ddb0b7212033232b78d7572b"
+    },
+    "CI3-minimal-reproduction.log": {
+      "bytes": 1116,
+      "sha256": "28ff5fd8d0d6bb685c9436fd9e10c223a10783f565cc922c7c471017521d855b"
+    },
+    "CI3-run-final.json": {
+      "bytes": 12881,
+      "sha256": "a360f510f38a84f6481bfb816890391f523ba2284083f0b437d53fafb00129e2"
+    },
+    "CI3-run-initial.json": {
+      "bytes": 12393,
+      "sha256": "299b5f0038b462e3131131d4089b64e5d781a1339f38f3dda7e8ec399858c805"
+    }
+  },
+  "CI_used": 3,
+  "CI_total": 5,
+  "server_permission_condition_activated": false,
+  "server_GPU_POST_new": 0,
+  "rerun": false
+}

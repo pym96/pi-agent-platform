@@ -1,0 +1,159 @@
+{
+  "schema": "pi24-R-Bdeadline01-real-stage-review/v1",
+  "status": "EXPLICIT_REAL_GENERATION_DEADLINE_STAGE_PASS_NOT_FINAL_ACCEPTED",
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "GO_sha256": "224fd21962f5c692e17ee61bb0d698e9d4cc7ebddb0a48cc92937188c91b3158",
+  "raw_archive_sha256": "694d5c2c91cf9c7001fc8c6210a784148b2a9e2e916dcdbbc4bb142f00c150a6",
+  "raw_manifest_sha256": "6a9a8bf85d710ff75958e4acdb78677971043b58baa27721401fb612c0e3e355",
+  "raw_manifest_files": 34,
+  "B_handoff_sha256": "0962b0f1c223ca53a2a9d275cff2b2ed08c4148f1a7fe53c10a28c4a0ab48d83",
+  "criteria": {
+    "C-G2-01@1.0": "Actual HTTP200 stream has assistant header -> explicit generation_deadline error -> oneDONE, no successfinish/usage; independent success oracle correctly rejects.",
+    "C-G2-02@1.0": "Actual native start -> abort_sent -> scheduler_abort_ack -> native_settled(aborted,trueactive0) -> execute_end -> modelsettled; subsequent real HTTPhealth readytrue active0queue0/calls1.",
+    "C-G2-03@1.1": "B real explicit deadline covered; generation did not finish normally. Recovery direct16 in new engine lifecycle remains separately required; no claim that engine restart proves old slot settlement.",
+    "C-G2-04@1.4": "All34 originalfiles hash/size match, exactGO/source/phase/plan, GPU0dualidle, firstqueryprefix retained, ownedmodelCID+deadline net removed, other2emptyBnets retained/Rnetuntouched; allSSH ended in actualtransport originals."
+  },
+  "native_id": "6ab687fe5061479883fc6ff53e9bc2da",
+  "native_control_order": [
+    {
+      "event": "native_start",
+      "at": 558512.760967683,
+      "clock": "model-monotonic",
+      "native_id": "6ab687fe5061479883fc6ff53e9bc2da",
+      "prompt_token_ids": [
+        151644,
+        872,
+        198,
+        852,
+        1449,
+        7546,
+        504,
+        220,
+        16,
+        1526,
+        220,
+        19,
+        15,
+        15,
+        11,
+        31683,
+        72692,
+        11,
+        448,
+        902,
+        16148,
+        13,
+        21428,
+        16,
+        17,
+        23,
+        151645,
+        198,
+        151644,
+        77091,
+        198,
+        151667,
+        271,
+        151668,
+        271
+      ],
+      "budget": 128,
+      "calls": 1
+    },
+    {
+      "event": "abort_sent",
+      "at": 558512.762677605,
+      "clock": "model-monotonic",
+      "native_id": "6ab687fe5061479883fc6ff53e9bc2da"
+    },
+    {
+      "event": "scheduler_abort_ack",
+      "at": 558512.837207941,
+      "clock": "model-monotonic",
+      "native_id": "6ab687fe5061479883fc6ff53e9bc2da"
+    },
+    {
+      "event": "native_settled",
+      "at": 558512.837499445,
+      "clock": "model-monotonic",
+      "native_id": "6ab687fe5061479883fc6ff53e9bc2da",
+      "aborted": true,
+      "active": 0
+    }
+  ],
+  "model_execution_end": {
+    "event": "execute_end",
+    "attempt": 1,
+    "clock": "model-monotonic",
+    "at": 558512.837554534,
+    "terminal": null
+  },
+  "post_idle_actual": {
+    "backend": "vllm-0.8.5.post1+cu118/V1-uni/Qwen3-8B",
+    "model": "Qwen3-8B",
+    "ready": true,
+    "active_generation": 0,
+    "calls": 1,
+    "queued": 0,
+    "max_active_generation": 1,
+    "max_context": 1024,
+    "attempts": 1,
+    "max_attempts": 32
+  },
+  "independent_success_oracle_rejection": "error or invalid event",
+  "new_actual_GPU0_queries": 43,
+  "other_retained_empty_B_networks": {
+    "recovery": "29eaf5e27b7dd58ff2296a85d8b82c798672194479aec2995a32cbaa88d98ffc",
+    "fallback": "cf97a390694df09401f1b2eeee04f7451fbb3d0c7c2e6b65e07ac63df00000c4"
+  },
+  "device_increment_s": 22.273882389068604,
+  "B_device_cumulative_upper_s": 116.99455738067627,
+  "B_native_cumulative": 10,
+  "B_POST_cumulative": 12,
+  "CPU_rows": [
+    {
+      "file": "DEADLINE01-GO-STAGE-TRANSPORT.json",
+      "sha256": "3c9a608c9c0c52550b475ded902264827eb0b1529ceecbb50ae5946e920a77ee",
+      "wall_s": 0.30408596992492676,
+      "ceil_s": 1
+    },
+    {
+      "file": "DEADLINE01-FOREGROUND-TRANSPORT-RESULT.json",
+      "sha256": "11055c9e5513881d15e359a2d599f7b210a82f98d1f9d9850c9ac1d83d6932ed",
+      "wall_s": 56.649569034576416,
+      "ceil_s": 57
+    },
+    {
+      "file": "DEADLINE01-RAW-COLLECTION-SSH.json",
+      "sha256": "c2bae06608894f466f0133063e361e005f4ba09746438dc4fcf6107419628a64",
+      "wall_s": 0.5716657638549805,
+      "ceil_s": 1
+    }
+  ],
+  "CPU_increment_s": 59,
+  "CPU_cumulative_upper_s": 4447.4357385,
+  "Nov14_1100_remaining_s": 879,
+  "host_RSS_max_bytes": 162107392,
+  "private_probe_correction": "Initial device converter used datetime.fromisoformat which truncates Docker9digit fraction to6digits and differed submicrosecond. Parse preserved9digit fraction with Decimal then float-compatible epoch to match original accounting; no Product or experiment change. Closeout raw uses B_networks, not Handoff retained_B_networks; own selector corrected to actual raw schema.",
+  "recompute_clock": "Only compare native and model events labelled model-monotonic. Posthealth HTTP epoch follows POST response epoch; no cross-clock subtraction. Device/GO use epochUTC.",
+  "limits": [
+    "No R SSH/GPU/model this audit; actual B originalGPU stream recomputed locally.",
+    "Explicitdeadline has no generatedoutput/success usage; not falsely counted as successful inference.",
+    "Original B recovery/fallback and own R real matrix/finalexactsource EvidenceCI still pending.",
+    "No batching/C10K/P95/latency-throughput improvement claim; config stays single-slot."
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/DEADLINE01-HANDOFF-RELEASE.v1.json",
+      "sha256": "0962b0f1c223ca53a2a9d275cff2b2ed08c4148f1a7fe53c10a28c4a0ab48d83"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/B-deadline01-original/DEADLINE01-NOV14-MANIFEST.json",
+      "sha256": "6a9a8bf85d710ff75958e4acdb78677971043b58baa27721401fb612c0e3e355"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/review_deadline01.py",
+      "sha256": "c2b6b57b231030d362540ec8b977dc3509cab1883043c6c8af05b2bca8372377"
+    }
+  ]
+}

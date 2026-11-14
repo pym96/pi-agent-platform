@@ -1,0 +1,7 @@
+正克隆到 'source'...
+warning: 远程 HEAD 指向一个不存在的引用，无法检出。
+
+HEAD 目前位于 985d8b1 Add bounded Pi24 serving entry, exact ownership watchdog and functional client
+{"pytest": false, "aiohttp": false, "psycopg": false}
+
+['/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/stage-b-20261102.py', '/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/source-444096.bundle', '/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/service-linux-amd64', '/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/source', '/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/evidence', '/media/usv012/pjx/pi-agent-platform/experiments/12-pi-qwen-e2e-20261031/builder/resume-20261107']

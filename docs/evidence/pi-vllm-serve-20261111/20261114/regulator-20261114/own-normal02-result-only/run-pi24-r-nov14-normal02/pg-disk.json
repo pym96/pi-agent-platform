@@ -1,0 +1,15 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "1f2f866a1c27754980c491d9040386eeacf52ff6ff9da6f5caeb7f2e985facfb",
+    "du",
+    "-sb",
+    "/var/lib/postgresql/data"
+  ],
+  "start": 1794627719.6499963,
+  "end": 1794627719.726422,
+  "exit": 0,
+  "stdout": "48249350\t/var/lib/postgresql/data\n",
+  "stderr": ""
+}

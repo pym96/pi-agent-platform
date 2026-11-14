@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r_stageA_close.py", line 18, in <module>
+    readbytes=sum(p.stat().st_size for p in rows);assert len(errors)==1 and errors[0]['path']==str(root/'r-cpu-fullchain01/data/pg-data'),errors
+AssertionError: [{'path': '/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata', 'error': "PermissionError(13, 'Permission denied')"}]

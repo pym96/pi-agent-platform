@@ -1,0 +1,40 @@
+{
+  "end": 1794627726.496253,
+  "launcher_exit": 0,
+  "failure": null,
+  "inventory_error": null,
+  "cleanup": {
+    "success": true,
+    "containers": {},
+    "errors": [],
+    "receipts": [
+      {
+        "command": [
+          "ps",
+          "-a",
+          "-q",
+          "--no-trunc",
+          "--filter",
+          "label=com.docker.compose.project=pi-vllm24-r"
+        ],
+        "start": 1794627726.3962688,
+        "end": 1794627726.4095273,
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    ]
+  },
+  "post_gpu0": {
+    "uuid": {
+      "exit": 0,
+      "stdout": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead\n",
+      "stderr": ""
+    },
+    "processes": {
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  }
+}

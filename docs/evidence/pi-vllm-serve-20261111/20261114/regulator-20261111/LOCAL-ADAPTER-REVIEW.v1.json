@@ -1,0 +1,81 @@
+{
+  "schema": "pi24-regulator-local-adapter-review/v1",
+  "issue": 24,
+  "role": "Regulator Agent",
+  "source_sha": "04ccc7feed6956100044b07ecd03c218247d80df",
+  "source_kind": "local candidate commit object fetched from B path into independent own clone; not yet remote final identity",
+  "source_clean": true,
+  "criteria": {
+    "C-G2-01@1.0": "local strict protocol26 and Product11 pass; actualGPU identity/token validation pending",
+    "C-G2-02@1.0": "own2 ProductNativeEngine delayedutility/failure HTTP cases pass, existing official scheduler ACK chain read; own true uncooperative backend hardstop observed; realGPU/platform lifecycle pending",
+    "C-G2-03@1.1": "unexecuted; only prospective plan with platform128 accepted",
+    "C-G2-04@1.0": "remoteSHA/CI/entry/watch/runtime/realraw/finalHandoff pending"
+  },
+  "official_ack_chain": "AsyncLLM.abort sendsIPC; NativeEngine second call_utility_async(abort_requests,[id]) invokes Core abort_requests then scheduler.finish_requests; scheduler removes running/waiting, freesKV, deletesrequest before utilityresult. This supports logical scheduler cancellation acknowledgement, not immediate GPU kernel preemption.",
+  "probe_failure_preserved": "Uncooperative probe v1 read fullHTTP EOF and timed out1s, emergencyexactowned cleanup performed; v2 observes actual error+DONE without fullEOF then waits nativehelper kill-after2, exit-9/ownPIDgone/3.025988817s. Both remain separate, v1 not relabeled pass.",
+  "files": [
+    {
+      "path": "protocol_probe.py",
+      "bytes": 4586,
+      "sha256": "4b9b78307070935396049231d6a1bfa127b4db70d3755db2b05519268d9e8c9c"
+    },
+    {
+      "path": "protocol-04ccc7-green.v1.json",
+      "bytes": 29727,
+      "sha256": "aef3bb1934d40936b31420a45360936a3f89f2ee547ce2ba97ddc1afee4964dc"
+    },
+    {
+      "path": "native_ack_probe.py",
+      "bytes": 3852,
+      "sha256": "50771e3dfa96188a7041aed602ce30afffb07eb0d593a25287dc2243bfeec04c"
+    },
+    {
+      "path": "native-ack-04ccc7.v1.json",
+      "bytes": 2648,
+      "sha256": "0b5ce30c1d3def3272f1219653dbc9c00093c797fa0316bb7f215d8a443c97d7"
+    },
+    {
+      "path": "product-04ccc7-vllm.log",
+      "bytes": 99,
+      "sha256": "d961e7f6b6dd24fa6b039248ba68eed4f270639c065c53eff985693f09cbfab4"
+    },
+    {
+      "path": "uncooperative_probe.v1.py",
+      "bytes": 2747,
+      "sha256": "dd48d70904e7c7bdb6c909757bde2366710e01ca8b0edc63b00138600c302215"
+    },
+    {
+      "path": "uncooperative_probe.py",
+      "bytes": 2901,
+      "sha256": "9736a3f1c81e6ec0de55e5d8ee71f419eb1abe1da91cc6d08bcc27fa5e75408f"
+    },
+    {
+      "path": "uncooperative_child.py",
+      "bytes": 991,
+      "sha256": "47488a2bd2d9ca69a8e850835e3d6c5fc921a05c0fea5e689860fcb06badccd7"
+    },
+    {
+      "path": "uncooperative-outer-stop.v1/result.json",
+      "bytes": 1310,
+      "sha256": "bbf5c34ecf22b8f2750a232c3fab88288a3ef841fe3a76aa6aa1c3474e0307a2"
+    },
+    {
+      "path": "uncooperative-outer-stop.v2/result.json",
+      "bytes": 1809,
+      "sha256": "cda86855a86b965439925e444ff15737ea3400e85a0446114b930c636aae534c"
+    },
+    {
+      "path": "uncooperative-outer-stop.v2/native-budget.json",
+      "bytes": 607,
+      "sha256": "dcc74bf40033433071e30b50a0260f32c0f883f3d44465340985f1d0d78ad240"
+    }
+  ],
+  "not_an_acceptance": true,
+  "push_permission": false,
+  "server_cpu_seconds": 0,
+  "device_seconds": 0,
+  "native_model_generations": 0,
+  "model_completion_posts": 0,
+  "ci_triggers": 0,
+  "created_epoch": 1794403604.150303
+}

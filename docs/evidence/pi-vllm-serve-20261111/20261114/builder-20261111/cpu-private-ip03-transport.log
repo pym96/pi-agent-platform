@@ -1,0 +1,1 @@
+{"failure": null, "cleanup": true, "result": {"status": 200, "body": "{\"backend\": \"scripted-vllm-seam/CPU-NO-MODEL\", \"model\": \"Qwen3-8B\", \"ready\": true, \"active_generation\": 0, \"queued\": 0, \"max_active_generation\": 1, \"max_context\": 1024, \"attempts\": 0, \"max_attempts\": null}"}}

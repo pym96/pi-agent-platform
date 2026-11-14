@@ -1,0 +1,25 @@
+{
+  "spec": {
+    "id": "r-cancel128",
+    "action": "disconnect",
+    "budget": 128,
+    "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-cancel128"
+  },
+  "request": "009",
+  "result": {
+    "success": false,
+    "reason": "missing_done"
+  },
+  "post_idle": {
+    "backend": "vllm-0.8.5.post1+cu118/V1-uni/Qwen3-8B",
+    "model": "Qwen3-8B",
+    "ready": true,
+    "active_generation": 0,
+    "calls": 3,
+    "queued": 0,
+    "max_active_generation": 1,
+    "max_context": 1024,
+    "attempts": 3,
+    "max_attempts": 8
+  }
+}

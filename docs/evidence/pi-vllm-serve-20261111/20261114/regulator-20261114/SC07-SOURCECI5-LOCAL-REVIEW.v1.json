@@ -1,0 +1,76 @@
+{
+  "schema": "pi24-nov14-SC07-local-review/v1",
+  "SessionRole": "Regulator Agent",
+  "issue": 24,
+  "at": "2026-11-14T02:14:16.816180+00:00",
+  "source_full_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "clean": true,
+  "stage": "LOCAL_AFFECTED_SOURCE_ONLY",
+  "result": "NO_KNOWN_LOCAL_BLOCKER_FOR_ONCE_SOURCECI5",
+  "not_final_accepted": true,
+  "changed_files": [
+    ".github/workflows/ci.yml",
+    "SOURCE_OF_TRUTH.md",
+    "docs/evidence/pi-vllm-serve-20261111/README.md",
+    "service/scripts/vllm-compat/test_contract.py"
+  ],
+  "checks": {
+    "G0fullsuite_local": 16,
+    "skip": 0,
+    "local_python": "3.14.0 (main, Oct  7 2025, 09:34:52) [Clang 17.0.0 (clang-1700.4.4.1)]",
+    "local_310_available": false,
+    "all_original_assertions_byte_preserved_except_one_factory": true,
+    "workflow_original_byte_preserved_after_only2additions_removed": true,
+    "new_required_step_placement": "after existing setup-python3.10/analyzer before existing3.12 switch",
+    "actual_310_version_artifact_required_later": true,
+    "no_new_dependencies": true,
+    "original_310_red_B_copy_matches_own_R_actual_bytes": true,
+    "B_handoff_unchanged": {
+      "service/scripts/vllm-compat/launch.py": true,
+      "service/scripts/vllm-compat/watch.py": true,
+      "service/scripts/vllm-compat/native.py": true,
+      "service/scripts/vllm-compat/driver.py": true,
+      "service/scripts/vllm-compat/lock.py": true,
+      "service/scripts/vllm-serve/launch.py": true,
+      "service/scripts/vllm-serve/test_entry.py": true,
+      "service/scripts/vllm-serve/watch.py": true,
+      "service/scripts/vllm-serve/client.py": true,
+      "service/inference/vllm_backend.py": true,
+      "service/inference/app.py": true,
+      "service/compose.vllm.yaml": true,
+      "service/compose.qwen.yaml": true
+    },
+    "Braw_binding": {
+      "SC07-R-actual-python310-red.log": true,
+      "SC07-local-G0-strict-summary.json": true,
+      "SC07-local-G0-strict.log": true,
+      "SC07-CI-added-block.txt": true,
+      "SC07-workflow-preservation.json": true
+    },
+    "outer_only_SOURCE_literal_changed": true
+  },
+  "phase_contract_sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+  "new_outer_sha256": "95af5de69016a7cf027d390395f7c1fefd0fbc96c053aaa000ef452bdb6e497a",
+  "reuse": "67phase/17serving/4outer andSC06 timecase evidence; these source bytes unchanged",
+  "limits": [
+    "This local Python3.14 pass is not Python3.10 compatibility proof.",
+    "Actual sourceCI5 required Python3.10 full16/version artifact plus new R same cachedLinux oldPath red/newfixture green remain required.",
+    "Existing CPU failure raw/cost and tmpfs noexec inference limitation retained.",
+    "No SSH/model/CUDA/CI in this review; no source implementation fix byRegulator.",
+    "Complete17+16+phase+PGdisk Linux stage and all real B/R matrices remain incomplete; no final acceptance."
+  ],
+  "artifacts": {
+    "SC07-G0-independent16.json": {
+      "sha256": "afe36eba8732d0b0f57e142d31503d665b0f488db9cc5098f09336262157ba55",
+      "bytes": 140
+    },
+    "SC07-G0-independent16.log": {
+      "sha256": "c8d07a3930ac68a1f2ca0c0f7f90b75a5a8f8dd329eb199b4e0aa61083b3b988",
+      "bytes": 2476
+    },
+    "CPU4B-PARTIAL-RELEASE.v1.json": {
+      "sha256": "96a6710c51555c481fc549f79103fa1a68b713eac1444181113cbd0e56128539",
+      "bytes": 2347
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schema": "pi24-regulator-matrix-draft/v1",
+  "status": "DRAFT_NOT_EXECUTABLE_NO_SERVER_GO",
+  "role": "regulator",
+  "criterion": "C-G2-03@1.1",
+  "contract_sha256": "3a377c419b34fb88b4047df5512a139288779f7c04b0466f02577b45bc1f8ca9",
+  "source_sha": null,
+  "entry_sha256": null,
+  "watch_sha256": null,
+  "device": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead",
+  "native_generate_usual": 7,
+  "native_cap": 8,
+  "completion_post_cap": 16,
+  "gpu_lifecycle_total_cap_seconds": 360,
+  "per_lifecycle_cap_seconds": 300,
+  "retry": 0,
+  "automatic_resume": false,
+  "cases": [
+    {
+      "id": "r-direct-normal",
+      "path": "direct",
+      "max_tokens": 16,
+      "expect": "nonempty terminal native usage and DONE"
+    },
+    {
+      "id": "r-platform-normal",
+      "path": "Go\u2192Pi\u2192engine",
+      "max_tokens": 128,
+      "expect": "PG completed with runtime/text/result and mapped/native usage"
+    },
+    {
+      "id": "r-direct-disconnect",
+      "path": "direct",
+      "max_tokens": 128,
+      "trigger": "first nonempty content SSE delta, not role frame",
+      "expect": "client disconnected, native abort processed by scheduler before logical slot released"
+    },
+    {
+      "id": "r-direct-recovery",
+      "path": "direct",
+      "max_tokens": 16,
+      "expect": "complete after old scheduler settlement; no execution overlap"
+    },
+    {
+      "id": "r-platform-subscription-disconnect",
+      "path": "Go\u2192Pi\u2192engine",
+      "max_tokens": 128,
+      "trigger": "received SSE event then close subscription only",
+      "expect": "PG completed; Last-Event-ID replay ordered/dedup/native request count unchanged"
+    },
+    {
+      "id": "r-platform-restart-running",
+      "path": "Go\u2192Pi\u2192engine",
+      "max_tokens": 128,
+      "trigger": "actual native execute_start + PG running, then same-session queued task accepted before precise owned API SIGKILL/start",
+      "expect": "PG interrupted + blocked session; no automatic model resend"
+    },
+    {
+      "id": "r-platform-restart-queued",
+      "path": "Go\u2192Pi\u2192engine",
+      "max_tokens": 128,
+      "expect": "accepted queued while first running, PG cancelled after API recovery, zero native generation for this task"
+    },
+    {
+      "id": "r-platform-blocked-session",
+      "path": "Go API only",
+      "max_tokens": null,
+      "expect": "same uncertain session rejects new task with429, no native model call"
+    },
+    {
+      "id": "r-platform-new-session-recovery",
+      "path": "Go\u2192Pi\u2192engine",
+      "max_tokens": 128,
+      "expect": "new session completes through real Pi/native/PG"
+    }
+  ],
+  "observations": [
+    "client planned/sent/not_sent/terminal-category conservation with raw payloads; native completionPOST counters separate from task/subscription/health/SQL requests",
+    "same-clock model execute/settle and scheduler abort utility ACK; never subtract Pi/Go/model different monotonic clocks",
+    "Pi task/modelCall + nativeID/promptIDs or true token counts + PG task/events association",
+    "old aborted/native request must not leak/resend during later recovery and bounded final closeout observation",
+    "final exactowned stop/rm/watch/ports and freshGPU0 identity/accounting"
+  ],
+  "fallback": "B actual originalTransformers direct16 raw reviewed plus originalbaseline code/config byteidentity and CPU unknownbackend negative; R no extraGPU fallback generation",
+  "created_epoch": 1794403283.163944
+}

@@ -1,0 +1,11 @@
+{
+  "id": "SC-G2-RUNTIME-VERSION-04",
+  "status": "proposed-await-Master",
+  "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+  "problem": "Frozen Product compares vllm.__version__ to wheel distribution local-version string; real official runtime reports module0.8.5.post1 and distribution0.8.5.post1+cu118. CPU stub incorrectly encoded the distribution string into module.__version__.",
+  "observed_failure": "normal01 model exits1 before engine_start; no ready/no native_start/no clientPOST",
+  "requested_scope": "Correct module and distribution as two independently checked identities, preserve locked runtime8399 and original V1/uni/greedy/maxseq1 options. Add real extracted identity CPU regression, wrong module/distribution negative cases. No runtime/image install or original Go/Pi change. New SHA needs R scoped independent review and Master sourceCI2 before retry.",
+  "budget": "Already55.169294118881226sGPU/native0/POST0/CI1. Preserve failures; no automatic retry; original deadlines/caps unchanged.",
+  "evidence": "normal01-raw/normal01-actual-module-version.json + normal01-close-observation.json; release31ca559293ed30c69e1f567b5f7273b548e8c17946933c274e319a2c27de93ac",
+  "attribution": "Builder wrote faulty guard and inaccurate CPU stub; Regulator/sourceCI passed its existing scope; real execution changed the conclusion. Human direction, Builder implementation and Regulator independent review remain separate."
+}

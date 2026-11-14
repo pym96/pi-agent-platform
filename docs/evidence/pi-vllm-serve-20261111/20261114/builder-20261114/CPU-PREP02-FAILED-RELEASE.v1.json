@@ -1,0 +1,92 @@
+{
+  "schema": "pi24-nov14-B-prep02-failure-release/v1",
+  "issue": 24,
+  "SessionRole": "Working Agent (Builder)",
+  "status": "PARTIAL_PREPARATION_NOT_READY_NO_AUTO_RETRY",
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "source_clean": true,
+  "start_utc": "2026-11-14T02:28:24.414149+00:00",
+  "end_utc": "2026-11-14T02:28:24.874454+00:00",
+  "local_SSH_wall_s": 0.46030592918395996,
+  "server_wall_s": 0.1457996368408203,
+  "CPU_conservative_charge_s": 1,
+  "CPU_new_cumulative_upper_s": 4250.4357385,
+  "all_SSH_SCP_ended": true,
+  "new_model_CUDA_container_network": 0,
+  "known_B_inventory": "fresh ps and network ls empty before any network operation; failure occurred before network-create/CPUprobe, so none created by this attempt; no later fresh query implied",
+  "R_network": "c61... untouched",
+  "cause": "Builder prep script additionally checked all downstream plans before staging them. Normal plan existed and verified; unstaged plan-deadline.json missing. Not Product failure.",
+  "preserved_inputs": {
+    "source-nov14-9ea.bundle": {
+      "sha256": "126a42ff8ae34e5a1a8ed337066a6e8b61356acb5ac7b766d39b246136aebd50",
+      "bytes": 18262
+    },
+    "PHASE-CONTRACT.v3.json": {
+      "sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+      "bytes": 2054
+    },
+    "gpu_entry_nov14_r3.py": {
+      "sha256": "95af5de69016a7cf027d390395f7c1fefd0fbc96c053aaa000ef452bdb6e497a",
+      "bytes": 4712
+    },
+    "entry_nov14_r3.sh": {
+      "sha256": "611e0cc4fbbfaaf618c7caf62c044d9a9966bd24ed2c29e632c11fd7fadee0f9",
+      "bytes": 414
+    }
+  },
+  "bindings": {
+    "source/service/scripts/vllm-serve/launch.py": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/source/service/scripts/vllm-serve/launch.py",
+      "sha256": "d5e07f695b3680a7239d0dcc30a1735120148c2fc57ef4a42b3ce7ecddffec7d",
+      "bytes": 14392
+    },
+    "source/service/scripts/vllm-serve/watch.py": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/source/service/scripts/vllm-serve/watch.py",
+      "sha256": "d8a069ac818bf41149853f86a2b2031656abfe82d4919b825eaa656a3bfb36f4",
+      "bytes": 3261
+    },
+    "source/service/scripts/vllm-compat/driver.py": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/source/service/scripts/vllm-compat/driver.py",
+      "sha256": "2f8780f46df52208050d359889f58939a215b61cd6c37d5dc67056009484b607",
+      "bytes": 4063
+    },
+    "source/service/scripts/vllm-compat/native.py": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/source/service/scripts/vllm-compat/native.py",
+      "sha256": "691f5f862d0191e51ff7062e07da0bd999dc983a0a334e0012a7458e1e437062",
+      "bytes": 1197
+    },
+    "source/service/compose.vllm.yaml": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/source/service/compose.vllm.yaml",
+      "sha256": "1e7de456ab4c8e278775bacef257be1be402b4b605efe2a8015382b27cd4d799",
+      "bytes": 4660
+    },
+    "asset-inventory.json": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/asset-inventory.json",
+      "sha256": "7a9a7e728bbf92411371ac497a896c47ce5bee1f86a9cfea6fbd9a690a78cd54",
+      "bytes": 1416
+    },
+    "sdk-files.json": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/sdk-files.json",
+      "sha256": "fac12b65a96b8a7614bc17376b92e03de8a100060978758c65d2134c8b6cd7d3",
+      "bytes": 2265484
+    },
+    "plan-normal.json": {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/plan-normal.json",
+      "sha256": "deb0910ecccedafec8c535dec1d877de560e2cb1cc09800c4e0f4bdf274ea059",
+      "bytes": 2185
+    }
+  },
+  "raw": {
+    "CPU-PREP02-SSH.json": "7013f04dd56121b271a9d269c15adab63df3eb046ab5aaea6eb95807bcd37020",
+    "CPU-PREP02-PARTIAL.json": "14acedb1c4e4e768151c2a902ff3d3d38a99aff064062a8c9f7bfdba467ad41e",
+    "CPU-PREP02-remote-script.py": "f1cdb9759b20ab958dede7f84035113382c33d13a8ddfa2ac0875bb6d2ad16a3"
+  },
+  "remaining": [
+    "new explicit bounded CPU completion GO",
+    "stage original downstream plans if within newGO; or only normal plan check",
+    "actual OS-only taskset affinity/RSS CPUprobe",
+    "create exactemptyinternal normalnetwork + recordactualID",
+    "formalrelease and independent R local entry identity review",
+    "separate modelGO"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema": "pi24-nov14-regulator-CPU4b-partial-release/v1",
+  "SessionRole": "Regulator Agent",
+  "issue": 24,
+  "at": "2026-11-14T02:06:42.670752+00:00",
+  "GO_sha256": "3ac401c5b6ba79b7a44053347ab1ff35ab3af7b88710d7e52d15da746740aaee",
+  "source_sha": "d42579518034f235a55fdbdbfd1d72b0f1134544",
+  "CI4_success": "same independently verified43543449279/artifact771f530e",
+  "transport": {
+    "start_epoch": 1794621931.807746,
+    "end_epoch": 1794621934.880724,
+    "wall_s": 3.072978973388672,
+    "returncode": 0,
+    "no_retry": true
+  },
+  "CPU_conservative_charge_s": 4,
+  "CPU_cumulative_upper_s": 4240.4357385,
+  "new600_remaining_s": 586,
+  "Linux_17serving": "actual17PASS/0skip/retainedhostbackedwatchraw",
+  "Linux_16G0": "13pass/2fail/1error/0skip",
+  "SC06_changed_clock_test": "actualPASS onLinux3.10",
+  "failures": {
+    "G0_ModelPreflight": "test_contract137 captures abstract pathlib.Path; test143 RealPath(v) under globally mocked Path triggers missing _flavour in Python3.10. Actual trace retained.",
+    "G0_Watch_two": "PermissionError13 executing fake docker from default/tmp. Actual /tmp tmpfs64m inspected; noexec attribute not directly sampled, so noexec diagnosis is inference from typicalDocker tmpfs and observed EACCES, not a measured mountflags claim."
+  },
+  "proposed_SC": [
+    "Keep Product unchanged, Builder may fix test RealPath to concretetype(pathlib.Path()) under explicit new scope; independent oldred/newgreen in same actualPython3.10 required.",
+    "Probe TMPDIR may use host-backed alreadyowned /evidence/tmp; do not remount /tmp or change host permissions.",
+    "Do not drop16case registered Linux gate or ignore failure to issue modelGO."
+  ],
+  "not_reached": [
+    "own67phaseLinuxprobe",
+    "fullreadable+PGdiskcount"
+  ],
+  "release": {
+    "all_own_SSH_completed": true,
+    "all_CPUcontainers_exactremoved": true,
+    "both_project_containers": 0,
+    "B_networks": 0,
+    "R_c17_emptyInternal_retained": "c17c961d716ff2347e4d08151291df46c99ba5a47435bf0c17b5fe47397eaa75",
+    "this_stage_network_mutations": 0,
+    "old_efda_removal": "only earlierCPU4, not retried"
+  },
+  "GPU_device_native_POST": 0,
+  "disk_total": "UNKNOWN",
+  "raw_manifest": {
+    "sha256": "6987c028e7f5175858617767918532685c9c03c4b67b0f65308fa03b7c536366",
+    "files": 32
+  },
+  "not_final_accepted": true
+}

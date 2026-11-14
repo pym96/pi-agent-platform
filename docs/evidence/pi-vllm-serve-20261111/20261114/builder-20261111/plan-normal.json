@@ -1,0 +1,68 @@
+{
+  "criteria": "C-G2-03@1.1",
+  "kind": "real-model-functional",
+  "role": "builder",
+  "generation_timeout": 30,
+  "steps": [
+    {
+      "id": "direct16",
+      "action": "direct",
+      "budget": 16,
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. direct16"
+    },
+    {
+      "id": "direct64",
+      "action": "direct",
+      "budget": 64,
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. direct64"
+    },
+    {
+      "id": "cancel128",
+      "action": "disconnect",
+      "budget": 128,
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. cancel128"
+    },
+    {
+      "id": "aftercancel16",
+      "action": "direct",
+      "budget": 16,
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. aftercancel16"
+    },
+    {
+      "id": "platform-a",
+      "action": "platform",
+      "budget": 128,
+      "session": "g2-b-platform-a",
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. platform-a"
+    },
+    {
+      "id": "platform-b",
+      "action": "platform",
+      "budget": 128,
+      "session": "g2-b-platform-b",
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. platform-b"
+    },
+    {
+      "id": "sse-replay",
+      "action": "sse_disconnect",
+      "budget": 128,
+      "session": "g2-b-sse-replay",
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. sse-replay"
+    },
+    {
+      "id": "api-restart",
+      "action": "restart",
+      "budget": 128,
+      "session": "g2-b-api-restart",
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. api-restart",
+      "queued_prompt": "List every integer from 1 through 400, comma-separated, with no explanation. queued-must-not-execute"
+    },
+    {
+      "id": "new-session",
+      "action": "platform",
+      "budget": 128,
+      "session": "g2-b-new-session",
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. new-session"
+    }
+  ]
+}

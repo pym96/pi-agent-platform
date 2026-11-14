@@ -1,0 +1,60 @@
+{
+  "schema": "pi24-nov14-normal01-HOLD-release/v1",
+  "issue": 24,
+  "SessionRole": "Working Agent (Builder)",
+  "status": "HOLD_EXPIRED_NO_MODEL_EXECUTION_NO_NONCE_REUSE",
+  "GO_sha256": "2eb275f67c682808d5ee629e5ab0a1f07170964fccb135a1a0139a82ab1cee22",
+  "GO_server_path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/B-GPU-NORMAL-NOV14-GO01.json",
+  "GO_absolute_stop": "2026-11-14T02:42:40.753622Z",
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "stage_start_utc": "2026-11-14T02:39:35.842667+00:00",
+  "stage_end_utc": "2026-11-14T02:39:36.187635+00:00",
+  "stage_actual_wall_s": 0.3449678421020508,
+  "CPU_stage_charge_ceil_s": 1,
+  "CPU_cumulative_upper_s": 4252.4357385,
+  "new600_remaining_s": 574,
+  "all_SSH_SCP_ended": true,
+  "outer_Product_watch_model_calls": 0,
+  "NVML_wrapper_queries": 0,
+  "new_GPU_device_native_POST": 0,
+  "B_device_cumulative_s": 55.169294118881226,
+  "nonce": {
+    "value": "pi24-b-nov14-normal01",
+    "consumed_by_this_GO": false,
+    "basis": "Only actual remote stage script ran: which/resolve/hash and exact wrapper+GO file staging. It did not invoke outer, Product, watchdog, Docker or NVML query; nonce file is written only by Product after gate. No claim of a fresh direct consumed-marker stat; new CPU authorization must verify absence."
+  },
+  "B_network": {
+    "id": "ebbd890f95f601066d7dbcf66d2189f574f5cbb3e49e7482c0dac1decb213486",
+    "state": "retained; latestactualCPUprep03 emptyInternal/IPv6false. Stage had no Docker command or membership change; no fresh later network inspect implied."
+  },
+  "real_binary_and_PATH": {
+    "epoch": 1794623976.177,
+    "real_nvidia_smi": "/usr/bin/nvidia-smi",
+    "real_resolved": "/usr/bin/nvidia-smi",
+    "real_sha256": "2da08a20450594c3cdf1e677c1d2e46101a0b2d45ee5d3d6b67b87ae50522af2",
+    "original_PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "effective_PATH": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/nvml-normal01-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "wrapper_path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/nvml-normal01-bin/nvidia-smi",
+    "wrapper_sha256": "ad5c340f8e334cb1e2935277a42de7a3cf9859be25b6a43d83ac4509bfc3747d",
+    "GO_path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/B-GPU-NORMAL-NOV14-GO01.json",
+    "GO_sha256": "2eb275f67c682808d5ee629e5ab0a1f07170964fccb135a1a0139a82ab1cee22",
+    "model_started": false
+  },
+  "old_wrapper": {
+    "local": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/nvidia-smi-raw-wrapper.py",
+    "server": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/nvml-normal01-bin/nvidia-smi",
+    "sha256": "ad5c340f8e334cb1e2935277a42de7a3cf9859be25b6a43d83ac4509bfc3747d",
+    "status": "preserved/notexecuted/notaccepted: subprocess lacked owned finite timeout"
+  },
+  "new_wrapper_local_only": {
+    "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/nvidia-smi-raw-wrapper-v2.py",
+    "sha256": "917f97350b53c3b2ddcbd0f105900b32a6b786434ce7ca3c971a8a43c6d2dc4e",
+    "tests_sha256": "6566960da4900479d3e42cab41b9590bf7d51de72299cbd780c67a1455338151",
+    "status": "local actualnormal+timeout probes passed; R independent review pending; not staged or authorizedtoexecute"
+  },
+  "raw": {
+    "NORMAL01-wrapper-stage-SSH.json": "64369ebd40ffdef05e1c78c5549ce249004421c155b6a17d067d39f5b4d915e4",
+    "B-GPU-NORMAL-GO01_Master_copy": "2eb275f67c682808d5ee629e5ab0a1f07170964fccb135a1a0139a82ab1cee22"
+  },
+  "remaining": "Master new CPUfreeze authority+fresh nonceabsence/ownednetworkidentity; independent R; then new separate modelGO. No oldGO/nonce revival."
+}

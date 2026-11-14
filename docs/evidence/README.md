@@ -50,4 +50,4 @@ Historical database time fields are transaction-start intervals, not exact queue
 
 - Issue21 November11 [isolated vLLM compatibility candidate](vllm-compat-20261111/README.md): complete152-wheel isolated CPU runtime and independent import/file audit; Error804 diagnosis and corrected B native535/16-token GPU smoke, with independent R16-token generation also complete and final exact-SHA G0 Verdict pending.
 
-- [Pi #24 opt-in vLLM functional integration candidate](pi-vllm-serve-20261111/README.md): local CPU development; no real-model or performance claim.
+- [Pi #24 real-engine functional evidence](pi-vllm-serve-20261111/20261114/README.md): four Builder profiles and R own matrix independently stage-reviewed; final exact-SHA Verdict pending, no performance claim.

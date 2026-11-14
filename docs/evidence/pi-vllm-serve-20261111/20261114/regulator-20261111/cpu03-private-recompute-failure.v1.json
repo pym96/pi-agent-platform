@@ -1,0 +1,7 @@
+{
+  "phase": "privateR CPU03 reanalysis initial assumption",
+  "error": "AssertionError comparing PGjson_agg physical-order eventIDs to orderedSSE; dumpSQLhasnoORDERBY, not Productorderingbug. Also observedSSE event lacks sessionfield because session is routecontext.",
+  "correction": "Sort committedglobalID andcompare actualSSE id/task/kind/data within routed session; preserve originalraw.",
+  "product_code_changed": false,
+  "time": 1794405807.584167
+}

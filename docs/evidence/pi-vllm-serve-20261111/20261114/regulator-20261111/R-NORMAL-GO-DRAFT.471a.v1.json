@@ -1,0 +1,33 @@
+{
+  "issue": 24,
+  "role": "regulator",
+  "nonce": "pi24-r-normal02",
+  "source_sha": "471a317ef687a168306608b1bece931f9b3a2b63",
+  "network_id": "efda9ddfe404e78be2860ebb7aab82c4f0402a092a2e25182f24d759207030d0",
+  "mode": "vllm",
+  "gpu_uuid": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead",
+  "deadline_epoch": 1794411300,
+  "max_duration_s": 300,
+  "generation_timeout": 30,
+  "max_attempts": 16,
+  "plan_file": "r-plan-normal.json",
+  "runtime_manifest_sha256": "8399994fa82aac42c3cd82a0f3e697bb46f70e16d4ba62969a13ce3a76fc8820",
+  "model_manifest_sha256": "4380c0c2174d1ba6a4698f37d06d05cfb01d3652a19fccdeeb414a96b573a1a8",
+  "entry_sha256": "bdeb6987479c3ba355885e141e317fc882842aa9f07696c2c38c4cb7ca67df80",
+  "watch_sha256": "d8a069ac818bf41149853f86a2b2031656abfe82d4919b825eaa656a3bfb36f4",
+  "plan_sha256": "1531b4a0c4511630e8d6c812e3807e2e5a6b47537af5d78e9b43ae813bf88d3e",
+  "driver_sha256": "2f8780f46df52208050d359889f58939a215b61cd6c37d5dc67056009484b607",
+  "native_sha256": "691f5f862d0191e51ff7062e07da0bd999dc983a0a334e0012a7458e1e437062",
+  "compose_sha256": "1e7de456ab4c8e278775bacef257be1be402b4b605efe2a8015382b27cd4d799",
+  "assets_sha256": "7a9a7e728bbf92411371ac497a896c47ce5bee1f86a9cfea6fbd9a690a78cd54",
+  "outer_entry_sha256": "04c4db89615f6535a8ea74d4318794ded92f56087c30c788959af06368367b7c",
+  "shell_entry_sha256": "0f4ff955537ae8ffe48b9bcd5e403588601d2ccaaba999f0b229dc82b84d9756",
+  "host_affinity": [
+    0,
+    1
+  ],
+  "max_host_rss_bytes": 1073741824,
+  "outer_absolute_stop_epoch": 1794411900.0,
+  "draft_only": true,
+  "note": "NOT GO. R local preparation only. Master must bind exact literal current <=300s deadline after B actual release and all prerequisites. No server action authorized by this draft."
+}

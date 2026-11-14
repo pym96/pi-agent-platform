@@ -1,0 +1,49 @@
+{
+  "schema": "pi24-nov14-regulator-CPU4-failed-stage-release/v1",
+  "SessionRole": "Regulator Agent",
+  "issue": 24,
+  "at": "2026-11-14T02:03:37.550256+00:00",
+  "source_full_sha": "d42579518034f235a55fdbdbfd1d72b0f1134544",
+  "CI4_run": 43543449279,
+  "CI4": "actualsuccess/artifact771f530e independently matched/allrequiredsuccess/1670filesdownloaded",
+  "GO_sha256": "81c47d4ade2c43e0aff3aecd5f3bda6098d17aa3392687675a61635a7938e889",
+  "actual_transport": {
+    "start_epoch": 1794621761.121262,
+    "end_epoch": 1794621763.246764,
+    "wall_s": 2.1255030632019043,
+    "returncode": 0,
+    "no_retry": true
+  },
+  "CPU_conservative_charge_s": 3,
+  "cumulative_CPU_upper_s": 4236.4357385,
+  "actual_source_staged_clean": true,
+  "phase_file": "v2 SHA77b6d5aa360e46cdde73fa36bdff344c89769973e56c48733b43ac258d763887",
+  "own_outer_actual": "taskset0,1/affinity0,1/RSS17121280B/PASS",
+  "serving_tests": "17collected/16pass/1fail/0skip",
+  "failure": "watch deadline fixture default TemporaryDirectory under /tmp64MiB triggers disk_pressure beforedeadline; R probe omitted existing G2_TEST_EVIDENCE=/evidence env mapping. Product watch disk gate behaved correctly.",
+  "verified_evidence": "test source defaults tempfile; actual created-inspect /tmp64m and env lacks G2_TEST_EVIDENCE; actual failure log reason disk_pressure; no direct diskfree sample inside failing test retained",
+  "not_executed": [
+    "G0 16 Linux tests",
+    "own67 Linuxphaseprobe",
+    "host readable/PG exact diskcount"
+  ],
+  "next_proposal": "Master may explicitly authorize one new bounded CPU stage with existing G2_TEST_EVIDENCE=/evidence pointing own host evidence mount; preserve this failed raw, no Product change/CI rerun needed",
+  "release": {
+    "SSH_and_all_stage_children_ended": true,
+    "exact_CPU_container_removed": "6bddcfb41dc34810e9e3588d241c045e3de9f9d3c953e63831574b64cc6ad16d",
+    "both_projects_containers": 0,
+    "B_networks": 0,
+    "old_R_efda_removed": true,
+    "new_R_inert_internal_empty_retained": "c17c961d716ff2347e4d08151291df46c99ba5a47435bf0c17b5fe47397eaa75",
+    "nonce": "pi24-r-nov14-normal01",
+    "no_more_server_without_newGO": true
+  },
+  "GPU_device_native_POST": 0,
+  "disk_total": "UNKNOWN; count not reached",
+  "raw_manifest": {
+    "file": "CPU4-RAW-MANIFEST.v1.json",
+    "sha256": "44c09652f49fefeb5f5de3793e2a59b58f06a05c85d9f2ce64574b5a562c90cf",
+    "files": 24
+  },
+  "not_final_accepted": true
+}

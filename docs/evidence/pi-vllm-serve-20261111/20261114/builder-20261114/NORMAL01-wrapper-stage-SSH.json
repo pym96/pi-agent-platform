@@ -1,0 +1,8 @@
+{
+  "start": 1794623975.842667,
+  "end": 1794623976.187635,
+  "exit": 0,
+  "stdout": "{\"epoch\": 1794623976.177, \"real_nvidia_smi\": \"/usr/bin/nvidia-smi\", \"real_resolved\": \"/usr/bin/nvidia-smi\", \"real_sha256\": \"2da08a20450594c3cdf1e677c1d2e46101a0b2d45ee5d3d6b67b87ae50522af2\", \"original_PATH\": \"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin\", \"effective_PATH\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/nvml-normal01-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin\", \"wrapper_path\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/nvml-normal01-bin/nvidia-smi\", \"wrapper_sha256\": \"ad5c340f8e334cb1e2935277a42de7a3cf9859be25b6a43d83ac4509bfc3747d\", \"GO_path\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/B-GPU-NORMAL-NOV14-GO01.json\", \"GO_sha256\": \"2eb275f67c682808d5ee629e5ab0a1f07170964fccb135a1a0139a82ab1cee22\", \"model_started\": false}\n",
+  "stderr": "",
+  "script_sha256": "309a2fe0b9d72a4e064296c1a8de50453aa8b02dad48d3b081f99c92cbe79be5"
+}

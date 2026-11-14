@@ -1,0 +1,46 @@
+{
+  "schema": "pi24-R-normal02-cost-ledger-supplement/v1",
+  "normal_real_review_sha256": "40fa0b431e48b8f527a567ee96157570fd38e09a8a648074c7f98c8b992f0096",
+  "CPU_actual_transport_rows": [
+    {
+      "file": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/NORMAL02-GO-STAGE-TRANSPORT.json",
+      "sha256": "5ee010c08ffcc5ed404706f5aea071e07afb25a3530a98f14c854f7a923cc331",
+      "wall_s": 0.4420359134674072,
+      "ceil_s": 1
+    },
+    {
+      "file": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/NORMAL02-FOREGROUND-TRANSPORT-RESULT.json",
+      "sha256": "65029bfed368cffe78e53777a6851842c7af5cdd85a2f723f0d0c25dad9096ea",
+      "wall_s": 129.48839712142944,
+      "ceil_s": 130
+    },
+    {
+      "file": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/NORMAL02-OBSERVE01-SSH.json",
+      "sha256": "14fa37d6b7c581b4e043fb9b904528363bed38b3f96475664a863f69361c4219",
+      "wall_s": 0.42642807960510254,
+      "ceil_s": 1
+    },
+    {
+      "file": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/NORMAL02-RAW-COLLECTION-SSH.json",
+      "sha256": "9c76e445a4b0562f9230597d43166274224dffeb98d60103f08ed01f2fa9a019",
+      "wall_s": 1.0081770420074463,
+      "ceil_s": 2
+    }
+  ],
+  "algorithm": "Independently recompute each transport end-start and ceil individually, sum four rows. Foreground upper envelope conservative CPU accounting includes all its runtime; not exact CPU utilization. Stage counted once only. Observer and collection separate.",
+  "CPU_charge_s": 134,
+  "CPU_before_s": 4253.4357385,
+  "CPU_after_upper_s": 4387.4357385,
+  "new600_remaining_s": 439,
+  "device_charge_s": 39.55138087272644,
+  "device_algorithm": "Actual modelCID Docker Created UTC through successful watch rm receipt end UTC; conservative owned-device envelope, independent of foreground129.488397s.",
+  "B_device_after_upper_s": 94.72067499160767,
+  "native9_POST11": {
+    "native": 9,
+    "directcompletionPOST": 4,
+    "platformtaskPOST_including429": 7,
+    "totalPOST": 11
+  },
+  "no_R_SSH_GPU": true,
+  "formal_B_ledger_status": "Master bounded budget rows verified from actual originals; B final ledger identity still pending for comparison, not inferred present."
+}

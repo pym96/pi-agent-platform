@@ -1,0 +1,37 @@
+............F                                                            [100%]
+=================================== FAILURES ===================================
+_______ test_health_exposes_logical_native_starts_for_replay_accounting ________
+
+    def test_health_exposes_logical_native_starts_for_replay_accounting():
+        async def scenario():
+            backend=VllmBackend(Engine(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+            async with serve(backend) as (client,url):
+                async with client.get(url+'/health') as response:assert (await response.json())['calls']==0
+                async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:await response.read()
+                async with client.get(url+'/health') as response:assert (await response.json())['calls']==1
+>       asyncio.run(scenario())
+
+service/inference/tests/test_vllm.py:188: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def scenario():
+        backend=VllmBackend(Engine(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+        async with serve(backend) as (client,url):
+>           async with client.get(url+'/health') as response:assert (await response.json())['calls']==0
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           KeyError: 'calls'
+
+service/inference/tests/test_vllm.py:185: KeyError
+=========================== short test summary info ============================
+FAILED service/inference/tests/test_vllm.py::test_health_exposes_logical_native_starts_for_replay_accounting
+1 failed, 12 passed in 0.41s

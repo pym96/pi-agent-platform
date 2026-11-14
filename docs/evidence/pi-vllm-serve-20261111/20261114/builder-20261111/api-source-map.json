@@ -1,0 +1,24 @@
+{
+  "actual_go_blobs": {
+    "service/cmd/load/frame.go": "f5a214cbbfddfeb48745df05a950f6f721e085fb",
+    "service/cmd/load/frame_test.go": "7886355d8b84835c98ac5eae9f19eac41023b39c",
+    "service/cmd/load/main.go": "59c89fc02e9b0583c01cd56b0593401d25f9f2e6",
+    "service/cmd/service/main.go": "3163ae767dcd01eaced0bb35060308e7ee152b12",
+    "service/go.mod": "390f804325806b9ad9d6933e0ce82c552a0a6fc8",
+    "service/go.sum": "7600ae8d6d9cb772cba6b733c77ef95152bc1cf0",
+    "service/internal/api/api.go": "1979c28f01b78f0df48cc4bbf599f0832f1c720c",
+    "service/internal/api/hub_test.go": "44f25e6b30dd00e17320e981dba08c34751f2bb8",
+    "service/internal/api/tail.go": "853722bb4d61d76163dcd91f7b35f92d28d11b4e",
+    "service/internal/api/tail_test.go": "acbf03b10cfb53c17dba905538f0043d494974fe",
+    "service/internal/executor/executor.go": "44711f11fd336198b3247a64dd3e7e6b038f8ca4",
+    "service/internal/executor/stream.go": "2eedf60de2a6cba59170c07ee40d772d5a333abd",
+    "service/internal/executor/stream_test.go": "9696d172633aef0eb573c870cfa0c52eaf7872d5",
+    "service/internal/store/store.go": "6460ffc3d5c677b6baecb1e05fcc334a4ae9146f",
+    "service/internal/store/store_test.go": "25cb0280f093076c26cc63954b311fe65ea79a40"
+  },
+  "all_match_old_build": true,
+  "binary_sha256": "9042a98be49b12a6a18274f96927864d792ef88dee0d752e5b5fc6f069dac87e",
+  "build_vcs_revision": "394e4f15a821ab969a104aae7f8803d3efd3ef72",
+  "source_sha": "985d8b1b4090d7b39aa29f4f7996f0d6d47d7dbd",
+  "package_lock_sha256": "06267cf15e35052de5e4a518d43d640b8183c00c66be8c18d7c4b66078e08a6c"
+}

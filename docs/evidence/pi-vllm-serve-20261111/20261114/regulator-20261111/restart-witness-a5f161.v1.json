@@ -1,0 +1,28 @@
+{
+  "source": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+  "scope": "actualwitnessAST only; nativeGPUexecution remains untested",
+  "original_CPU03_trace_sha256": "2be4e892ae8daed607f3204bfa6fed4cd6076372bd58bbf4d346f2e1228eae1a",
+  "cases": [
+    {
+      "case": "previous_request_history",
+      "before_calls": 7,
+      "old_selected": "23f352976c0d48adbd15dbfbe3c23e4e",
+      "new_selected": null,
+      "expected": null
+    },
+    {
+      "case": "current_request_unfinished",
+      "before_calls": 8,
+      "old_selected": "2c672fd53bfd44339ddc88fbd12481df",
+      "new_selected": "2c672fd53bfd44339ddc88fbd12481df",
+      "expected": "2c672fd53bfd44339ddc88fbd12481df"
+    },
+    {
+      "case": "current_request_already_finished",
+      "before_calls": 8,
+      "old_selected": "2c672fd53bfd44339ddc88fbd12481df",
+      "new_selected": null,
+      "expected": null
+    }
+  ]
+}

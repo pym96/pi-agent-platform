@@ -1,0 +1,70 @@
+: connected
+
+id: 26
+event: text
+data: {"task":"bc35b29be44916bd244a302721036d75","id":26,"kind":"text","data":{"text":"1,"}}
+
+id: 27
+event: text
+data: {"task":"bc35b29be44916bd244a302721036d75","id":27,"kind":"text","data":{"text":"2,"}}
+
+id: 28
+event: text
+data: {"task":"bc35b29be44916bd244a302721036d75","id":28,"kind":"text","data":{"text":"3,"}}
+
+id: 29
+event: text
+data: {"task":"bc35b29be44916bd244a302721036d75","id":29,"kind":"text","data":{"text":"4,"}}
+
+id: 30
+event: text
+data: {"task":"bc35b29be44916bd244a302721036d75","id":30,"kind":"text","data":{"text":"5,"}}
+
+id: 31
+event: text
+data: {"task":"bc35b29be44916bd244a302721036d75","id":31,"kind":"text","data":{"text":"6,"}}
+
+id: 32
+event: text
+data: {"task":"bc35b29be44916bd244a302721036d75","id":32,"kind":"text","data":{"text":"7,"}}
+
+id: 33
+event: text
+data: {"task":"bc35b29be44916bd244a302721036d75","id":33,"kind":"text","data":{"text":"8,"}}
+
+id: 34
+event: text
+data: {"task":"bc35b29be44916bd244a302721036d75","id":34,"kind":"text","data":{"text":"9,"}}
+
+id: 35
+event: text
+data: {"task":"bc35b29be44916bd244a302721036d75","id":35,"kind":"text","data":{"text":"10,"}}
+
+id: 36
+event: text
+data: {"task":"bc35b29be44916bd244a302721036d75","id":36,"kind":"text","data":{"text":"11,"}}
+
+id: 37
+event: text
+data: {"task":"bc35b29be44916bd244a302721036d75","id":37,"kind":"text","data":{"text":"12,"}}
+
+id: 38
+event: text
+data: {"task":"bc35b29be44916bd244a302721036d75","id":38,"kind":"text","data":{"text":"13,"}}
+
+id: 39
+event: text
+data: {"task":"bc35b29be44916bd244a302721036d75","id":39,"kind":"text","data":{"text":"14,"}}
+
+id: 40
+event: text
+data: {"task":"bc35b29be44916bd244a302721036d75","id":40,"kind":"text","data":{"text":"15,"}}
+
+id: 41
+event: result
+data: {"task":"bc35b29be44916bd244a302721036d75","id":41,"kind":"result","data":{"text":"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,","usage":{"cost":{"input":0,"total":0,"output":0,"cacheRead":0,"cacheWrite":0},"input":24,"output":16,"cacheRead":0,"reasoning":0,"cacheWrite":0,"totalTokens":40},"rawUsage":{"total_tokens":40,"prompt_tokens":24,"completion_tokens":16},"verified":true,"modelCall":"7ef18267-9ccf-47b2-ab24-1b5cfe1ba310","stopReason":"stop","piResultMono":12330.647104}}
+
+id: 42
+event: completed
+data: {"task":"bc35b29be44916bd244a302721036d75","id":42,"kind":"completed","data":{}}
+

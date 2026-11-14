@@ -1,0 +1,26 @@
+{
+  "command": [
+    "docker",
+    "compose",
+    "-p",
+    "pi-vllm24-r",
+    "-f",
+    "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/source/service/compose.vllm.yaml",
+    "-f",
+    "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/override.json",
+    "up",
+    "--pull",
+    "never",
+    "--no-build",
+    "-d",
+    "pg",
+    "model",
+    "pi",
+    "api"
+  ],
+  "start": 1794406826.642949,
+  "end": 1794406832.4981105,
+  "exit": 0,
+  "stdout": "",
+  "stderr": " Container pi-vllm24-r-pi-1  Creating\n Container pi-vllm24-r-pg-1  Creating\n Container pi-vllm24-r-model-1  Creating\n Container pi-vllm24-r-pi-1  Created\n Container pi-vllm24-r-pg-1  Created\n Container pi-vllm24-r-api-1  Creating\n Container pi-vllm24-r-model-1  Created\n Container pi-vllm24-r-api-1  Created\n Container pi-vllm24-r-model-1  Starting\n Container pi-vllm24-r-pi-1  Starting\n Container pi-vllm24-r-pg-1  Starting\n Container pi-vllm24-r-pi-1  Started\n Container pi-vllm24-r-model-1  Started\n Container pi-vllm24-r-pg-1  Started\n Container pi-vllm24-r-pg-1  Waiting\n Container pi-vllm24-r-pg-1  Healthy\n Container pi-vllm24-r-api-1  Starting\n Container pi-vllm24-r-api-1  Started\n"
+}

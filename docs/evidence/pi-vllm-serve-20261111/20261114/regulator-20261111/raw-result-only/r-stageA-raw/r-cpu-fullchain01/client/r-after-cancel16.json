@@ -1,0 +1,31 @@
+{
+  "spec": {
+    "id": "r-after-cancel16",
+    "action": "direct",
+    "budget": 16,
+    "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. r-after-cancel16"
+  },
+  "request": "012",
+  "result": {
+    "success": true,
+    "content": "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,",
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 12,
+      "completion_tokens": 16,
+      "total_tokens": 28
+    }
+  },
+  "post_idle": {
+    "backend": "independent-R-CPU-native-seam/NO-MODEL",
+    "model": "Qwen3-8B",
+    "ready": true,
+    "active_generation": 0,
+    "calls": 4,
+    "queued": 0,
+    "max_active_generation": 1,
+    "max_context": 1024,
+    "attempts": 4,
+    "max_attempts": 16
+  }
+}

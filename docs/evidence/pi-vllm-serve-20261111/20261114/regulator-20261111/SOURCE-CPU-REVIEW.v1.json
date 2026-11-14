@@ -1,0 +1,178 @@
+{
+  "schema": "pi24-regulator-source-CPU-review/v1",
+  "SessionRole": "Regulator Agent",
+  "issue": 24,
+  "review_kind": "SOURCE-CI1 local source/CPU gate only; not finaltechnicalacceptance or GPUauthorization",
+  "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+  "source_kind": "B local commit independently fetched anddetached; remoteproof after separatelyauthorizedsinglepush required",
+  "baseline_sha": "b0ed1c4d6f26d8a3b0c454030606dd598a4f0166",
+  "contract": "G2.3",
+  "criteria": [
+    "C-G2-01@1.0",
+    "C-G2-02@1.0",
+    "C-G2-03@1.1",
+    "C-G2-04@1.2"
+  ],
+  "source_clean": true,
+  "recommend_exact_single_SOURCE_CI1_push": true,
+  "blocking_findings": [],
+  "unchanged_accepted_trees": {
+    "service/pi": "585230d743e9533b80133d6f9e613ed00899d3a7",
+    "service/cmd": "877ff808e2594887507012a276e911f8351a73db",
+    "service/internal": "1e2a30051a0f16b25ca7cdb129cd4c19613d9566",
+    "service/go.mod": "390f804325806b9ad9d6933e0ce82c552a0a6fc8",
+    "service/go.sum": "7600ae8d6d9cb772cba6b733c77ef95152bc1cf0",
+    "service/compose.qwen.yaml": "57aa66600386d9f2bb91a62b1a470f9dff29f464",
+    "service/inference/transformers_backend.py": "49383dfb8286a571df3523e0b0d98b284b7a257e",
+    "service/scripts/vllm-compat": "0e591d3e6f51a47f330db58f594da08db0c8cc97",
+    "docs/evidence/vllm-compat-20261111": "b7c6911c44baec4959cf9dbc2fa292eed68d3f07",
+    "docs/evidence/pi-qwen-load-20261107": "61859d3237e87124f2a7e4395021d1fcd41a754f"
+  },
+  "actual_local_required": {
+    "inference": "68/skip0 actuallyexecuted7e44, exactservice/inference tree identicalata5",
+    "serving_entry": {
+      "tests": 11,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": true
+    }
+  },
+  "independent_probes": [
+    "26 actualHTTPprotocol cases baseline excessivebudgetRED\u2192GREEN",
+    "2 actualHTTP NativeEngine utility delay/failure cases",
+    "actualuncooperative CPU backend outerhardstop, ownchildgone/foreignunchanged",
+    "14 actualCLI GOguard cases at985 before networkIDaddition, explicitlynotfullcurrententryexecution",
+    "13 currentendpointnegativecases throughactualOwnedDockertransport +correctmap",
+    "ActualProductClient health.calls0\u21921, oldKeyError fixed",
+    "Literal985vs7e fallbackentry CPUstartupseam olddeadlineoverrun/newnativehardstop",
+    "ActualsourceAST currentrequestwitness stale/unfinished/finished negatives from originalCPU03trace"
+  ],
+  "B_fullchain04_review_sha256": "237529dc70ad0f9242324b95f139d38620ed196d33162aa163eca5a92d8e0684",
+  "actual_B_CPU04": "realPiSDK/Go/PG+syntheticnativefixture;6PGtasks4complete1interrupted1cancelled/92events/21SSEreplayexact/9fixturestarts-settles/nonoverlap; nowcurrent8unfinishedwitness correct; noGPUclaim",
+  "actual_fallback_cached_image_CPU": {
+    "kind": "actual-Docker-CPU-no-GPU-no-model",
+    "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+    "native_sha256": "691f5f862d0191e51ff7062e07da0bd999dc983a0a334e0012a7458e1e437062",
+    "outer_deadline": 1794405900.8742902,
+    "start": 1794405877.089926,
+    "end": 1794405887.946264,
+    "elapsed": 10.856338024139404,
+    "native_exit": 124,
+    "running": false,
+    "stdout": "uncooperative CPU child\n",
+    "stderr": "",
+    "no_device_requests": true,
+    "runtime": "runc",
+    "native_budget": {
+      "epoch": 1794405877.3327,
+      "absolute_deadline": 1794405900.8742902,
+      "cleanup_reserve_s": 15,
+      "native_limit_s": 8.541590213775635,
+      "command": [
+        "python",
+        "-c",
+        "import signal,time;signal.signal(signal.SIGTERM,signal.SIG_IGN);print(\"uncooperative CPU child\",flush=True);time.sleep(60)"
+      ]
+    }
+  },
+  "B_CPU_package": {
+    "ready_sha256": "0d8113e9456ff8ca8667e8d1a59d527c40d3538a45f74378429da9930ef7bfc3",
+    "manifest_sha256": "d413e41dc45c597168ed2371536ef3b5c6f0eec857c17ee0dffecaaa90b051f3",
+    "verified_files": 469,
+    "bad": 0
+  },
+  "budget_and_release": {
+    "epoch": 1794406070.8754454,
+    "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+    "source_dirty": "",
+    "owned_containers": "",
+    "owned_networks": "",
+    "readable_regular_files": 2731,
+    "readable_regular_bytes": 114212138,
+    "denied_paths": [
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata"
+    ],
+    "pg_regular_bytes_uid70": 192229043,
+    "combined_regular_bytes": 306441181,
+    "free_bytes": 2528061558784,
+    "CPU_budget_upper_start_epoch": 1794403221.6167068,
+    "GPU_seconds": 0,
+    "real_generations": 0,
+    "completion_POSTs_real_model": 0,
+    "CPU_budget_wall_upper_seconds": 2849.2587385177612,
+    "cpu-phase2.tgz": {
+      "bytes": 308716,
+      "sha256": "d510a7f9ba33c91165ec0b654be52342e8ad55223a6e3f2fafbf7c3ea4f234be"
+    },
+    "cpu-disk01.tgz": {
+      "bytes": 6425,
+      "sha256": "cab29b5870c707b0db55ee4607919001f3fb3c0686222fc869cf7421b4b93fc0"
+    }
+  },
+  "remaining_required": [
+    "Master singleexactsourcepushGO then actualremoteidentity/CI1",
+    "Fresh ownRserverStageA with releasedslot/newGO; independent runtime/model/SDK/binary/source inventory and actualownCPUchain",
+    "Separatelyfrozen per-lifecycle GPUgo/nonce/plan+actualB completeC03 matrix includingdeadline/fallback; ownR real7native matrix",
+    "FinalEvidence/handoff exactremoteSHA/actualfinalCI/independentfinalVerdict; no futuremainCIprecondition"
+  ],
+  "R_cost": {
+    "server_cpu_seconds": 0,
+    "GPU_seconds": 0,
+    "real_model_generate": 0,
+    "real_model_completionPOST": 0,
+    "CItriggers": 0
+  },
+  "limitations_preserved": [
+    "B CPU01/02failedstartup/readiness",
+    "CPU03stalehistoricalwitness notaccepted asfullmatrixproof",
+    "B fallbackCPU01timeout8s genuinefailure; actual02observed native_exit124",
+    "R privateprobe EOFwaiting andunsortedSQLdump assumptions corrected without changingProduct/raw",
+    "Compilerabsence/FlashInferwarning/upstreamV1alwayschunked no tuning/performance claim",
+    "Publicrepo: no full privateblog/Xbody/resume facts published"
+  ],
+  "created_epoch": 1794406416.079339,
+  "review_refs": [
+    {
+      "path": "LOCAL-ADAPTER-REVIEW.v1.json",
+      "sha256": "5442e97567a517763bf6c19e1a0cb935f8d652bd504987404738dfcc8b394a44"
+    },
+    {
+      "path": "FULL-LOCAL-REVIEW.v1.json",
+      "sha256": "ad307c50a19bd110b6216d4ff965b385d0ac988381b36c705db58d7de020c4ed"
+    },
+    {
+      "path": "CONTRACT-CHANGES-REVIEW.v1.json",
+      "sha256": "05c0610f9fc875592c95f16691ce688a0312926ec25fbf946427841816e6e004"
+    },
+    {
+      "path": "B-CPU03-REVIEW.v1.json",
+      "sha256": "82b6cfbbf08bc6b044a9a5de1b716e7b61626f28a02506a57f157d8d68aa7006"
+    },
+    {
+      "path": "B-CPU04-REVIEW.v1.json",
+      "sha256": "237529dc70ad0f9242324b95f139d38620ed196d33162aa163eca5a92d8e0684"
+    },
+    {
+      "path": "restart-witness-a5f161.v1.json",
+      "sha256": "7449c9e0b379152a215368ac61729bc0f1a9c08ed99318fb8fbd33c29847d266"
+    },
+    {
+      "path": "endpoints-7e44ff.v1.json",
+      "sha256": "1ec8213a32a27c8080c1cd12f65d801e6f38bf574fee38beb74bb3516a091e8f"
+    },
+    {
+      "path": "inference-7e44ff/summary.json",
+      "sha256": "5fad6640f8e01e45d4e2731e3cc8e2c4315f98517bfce382a80a43bd8808e1e2"
+    },
+    {
+      "path": "serve-a5f161.json",
+      "sha256": "68692ad1cfa6fae8979bda7a8f816f4a4df86be4a2ff95e3977e234b881126bd"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "pi24-nov14-regulator-CI3-failure-review/v1",
+  "SessionRole": "Regulator Agent",
+  "issue": 24,
+  "at": "2026-11-14T01:46:17.382145+00:00",
+  "run": 43542368969,
+  "head_sha": "df740e46da7cad585ef29763f19a280869d7c728",
+  "actual_status": "completed",
+  "actual_conclusion": "failure",
+  "actual_updated_at": "2026-11-14T01:45:15Z",
+  "artifact": {
+    "id": 14091354107,
+    "bytes": 7277,
+    "official_and_downloaded_sha256": "c01a57e78a3f47655582547f3c351a0e735ab68e7c9825a114f2b69eb868f937"
+  },
+  "observations": {
+    "new_vllm24_serving": "17success/0skip",
+    "python310_analyzer": "10success/0skip",
+    "old_vllm21_compat": "16tests/0failures/1error/0skip",
+    "old_failure": "test_contract.Contract.test_go_rejections_before_gpu_commands line17 nominal valid GO uses actual Nov14 wallclock; oldG0 launch line15 rejects expired absolute Nov11 laststart correctly",
+    "later_required": "loadmeasurement/e2e/actualcleanup/nginx suites skipped due failure"
+  },
+  "source_scope": "vllm21 Product/test bytes unchanged bydf740; fixture expiry outside initial narrow phase24 repair scope",
+  "next_action": "Master ScopeChallenge and explicit fix/CI budget decision required; do not ignore or rerun failure",
+  "conditional_server_GO": "not activated because no success; no server calls/new CPU/model/native/POST",
+  "prepared_local_only": [
+    "source-phase3.bundle",
+    "r_gpu_entry_phase3.py",
+    "r-gpu-entry-phase3.sh",
+    "linux_phase_probe.py"
+  ],
+  "not_final_accepted": true
+}

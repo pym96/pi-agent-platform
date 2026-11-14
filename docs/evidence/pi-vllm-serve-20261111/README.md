@@ -1,6 +1,6 @@
 # Pi #24 G2 functional integration — candidate
 
-Status: local CPU implementation in progress, not accepted. Baseline `b0ed1c4d6f26d8a3b0c454030606dd598a4f0166`; WorkOrder [#24](https://github.com/pym96/pi-agent-platform/issues/24), C03@1.1/C04@1.4/C01–02@1.0. No new GPU execution or performance conclusion is implied.
+Status: [November14 real Builder evidence](20261114/README.md) covers four completed profiles with independent stage reviews; R own original matrix is also independently stage-reviewed; final exact-SHA acceptance remains pending. Execution source `9ea36d3221d024a6d8330322d330809fa9e283a6`, accepted baseline `b0ed1c4d6f26d8a3b0c454030606dd598a4f0166`; WorkOrder [#24](https://github.com/pym96/pi-agent-platform/issues/24), C03@1.1/C04@1.4/C01–02@1.0. No performance conclusion is implied. Earlier notes below retain their historical status.
 
 The opt-in [adapter](../../../service/inference/vllm_backend.py) preserves the existing single-slot HTTP module and explicit engine selection. Builder CPU red/green originals, including the initial unbounded test-fixture teardown that required stopping the exact owned test process, are retained outside the public checkout. The corrected fixture uses a finite wait. These tests are native-engine fixtures, not real Qwen evidence.
 

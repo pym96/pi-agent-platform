@@ -1,0 +1,308 @@
+{
+  "Id": "f68772eca6f14596fc33a51f2c4dbf1b8bcb5f0ca96e0634d457e6db104a926a",
+  "Created": "2026-11-14T02:21:11.893428151Z",
+  "Path": "timeout",
+  "Args": [
+    "--signal=TERM",
+    "--kill-after=2s",
+    "30s",
+    "python3",
+    "-c",
+    "import pathlib,os,json,stat,time\nseen=set();rows=[]\nfor i in range(6):\n root=pathlib.Path('/pg'+str(i));stack=[root];r={'index':i,'apparent_bytes':0,'allocated_bytes':0,'inodes':0,'regular_files':0,'symlinks':0,'errors':[]}\n while stack:\n  p=stack.pop();st=p.lstat();key=(st.st_dev,st.st_ino)\n  if key in seen:continue\n  seen.add(key);r['inodes']+=1;r['apparent_bytes']+=st.st_size;r['allocated_bytes']+=st.st_blocks*512\n  if stat.S_ISREG(st.st_mode):r['regular_files']+=1\n  elif stat.S_ISLNK(st.st_mode):r['symlinks']+=1\n  elif stat.S_ISDIR(st.st_mode):\n   try:stack.extend(p.iterdir())\n   except Exception as e:r['errors'].append({'path':str(p),'error':repr(e)})\n rows.append(r)\nprint(json.dumps({'uid':os.getuid(),'gid':os.getgid(),'roots':rows,'timestamp':time.time()}))\nassert not any(r['errors'] for r in rows)\n"
+  ],
+  "State": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-14T02:21:12.141556836Z",
+    "FinishedAt": "2026-11-14T02:21:12.474170551Z"
+  },
+  "Image": "sha256:08619d6d884b3b456661f883a4e4420bd85a81aee560a86f7f26021b75dd6229",
+  "ResolvConfPath": "/media/usv012/pjx/docker-data/containers/f68772eca6f14596fc33a51f2c4dbf1b8bcb5f0ca96e0634d457e6db104a926a/resolv.conf",
+  "HostnamePath": "/media/usv012/pjx/docker-data/containers/f68772eca6f14596fc33a51f2c4dbf1b8bcb5f0ca96e0634d457e6db104a926a/hostname",
+  "HostsPath": "/media/usv012/pjx/docker-data/containers/f68772eca6f14596fc33a51f2c4dbf1b8bcb5f0ca96e0634d457e6db104a926a/hosts",
+  "LogPath": "/media/usv012/pjx/docker-data/containers/f68772eca6f14596fc33a51f2c4dbf1b8bcb5f0ca96e0634d457e6db104a926a/f68772eca6f14596fc33a51f2c4dbf1b8bcb5f0ca96e0634d457e6db104a926a-json.log",
+  "Name": "/charming_joliot",
+  "RestartCount": 0,
+  "Driver": "overlay2",
+  "Platform": "linux",
+  "MountLabel": "",
+  "ProcessLabel": "",
+  "AppArmorProfile": "docker-default",
+  "ExecIDs": null,
+  "HostConfig": {
+    "Binds": [
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-normal01/data/pg-data/pgdata:/pg2:ro",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata:/pg3:ro",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata:/pg4:ro",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata:/pg5:ro",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata:/pg0:ro",
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata:/pg1:ro"
+    ],
+    "ContainerIDFile": "",
+    "LogConfig": {
+      "Type": "json-file",
+      "Config": {}
+    },
+    "NetworkMode": "none",
+    "PortBindings": {},
+    "RestartPolicy": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "AutoRemove": false,
+    "VolumeDriver": "",
+    "VolumesFrom": null,
+    "ConsoleSize": [
+      0,
+      0
+    ],
+    "CapAdd": null,
+    "CapDrop": [
+      "ALL"
+    ],
+    "CgroupnsMode": "private",
+    "Dns": [],
+    "DnsOptions": [],
+    "DnsSearch": [],
+    "ExtraHosts": null,
+    "GroupAdd": null,
+    "IpcMode": "private",
+    "Cgroup": "",
+    "Links": null,
+    "OomScoreAdj": 0,
+    "PidMode": "",
+    "Privileged": false,
+    "PublishAllPorts": false,
+    "ReadonlyRootfs": true,
+    "SecurityOpt": [
+      "no-new-privileges:true"
+    ],
+    "Tmpfs": {
+      "/tmp": "size=64m"
+    },
+    "UTSMode": "",
+    "UsernsMode": "",
+    "ShmSize": 67108864,
+    "Runtime": "runc",
+    "Isolation": "",
+    "CpuShares": 0,
+    "Memory": 4294967296,
+    "NanoCpus": 2000000000,
+    "CgroupParent": "",
+    "BlkioWeight": 0,
+    "BlkioWeightDevice": [],
+    "BlkioDeviceReadBps": [],
+    "BlkioDeviceWriteBps": [],
+    "BlkioDeviceReadIOps": [],
+    "BlkioDeviceWriteIOps": [],
+    "CpuPeriod": 0,
+    "CpuQuota": 0,
+    "CpuRealtimePeriod": 0,
+    "CpuRealtimeRuntime": 0,
+    "CpusetCpus": "",
+    "CpusetMems": "",
+    "Devices": [],
+    "DeviceCgroupRules": null,
+    "DeviceRequests": null,
+    "MemoryReservation": 0,
+    "MemorySwap": 4294967296,
+    "MemorySwappiness": null,
+    "OomKillDisable": null,
+    "PidsLimit": 256,
+    "Ulimits": [],
+    "CpuCount": 0,
+    "CpuPercent": 0,
+    "IOMaximumIOps": 0,
+    "IOMaximumBandwidth": 0,
+    "MaskedPaths": [
+      "/proc/asound",
+      "/proc/acpi",
+      "/proc/kcore",
+      "/proc/keys",
+      "/proc/latency_stats",
+      "/proc/timer_list",
+      "/proc/timer_stats",
+      "/proc/sched_debug",
+      "/proc/scsi",
+      "/sys/firmware",
+      "/sys/devices/virtual/powercap"
+    ],
+    "ReadonlyPaths": [
+      "/proc/bus",
+      "/proc/fs",
+      "/proc/irq",
+      "/proc/sys",
+      "/proc/sysrq-trigger"
+    ]
+  },
+  "GraphDriver": {
+    "Data": {
+      "LowerDir": "/media/usv012/pjx/docker-data/overlay2/252924500d84fa7b49092da52cfa261d729b2971472beb957b2d7dedc5c57374-init/diff:/media/usv012/pjx/docker-data/overlay2/zrfobk1z3nf17bdwh6zbvnort/diff:/media/usv012/pjx/docker-data/overlay2/lc31vum1edxqshl5kns3tmxrs/diff:/media/usv012/pjx/docker-data/overlay2/cw4jot0k40ij5qno9nh6p9v5y/diff:/media/usv012/pjx/docker-data/overlay2/k9dtxulmlzm5lwx5hdfsvzn2j/diff:/media/usv012/pjx/docker-data/overlay2/mjmu1sagpaokvbt169rlk31h3/diff:/media/usv012/pjx/docker-data/overlay2/9eh5jpu3pjle9g144f1qoesjs/diff:/media/usv012/pjx/docker-data/overlay2/f123deca9a16cae1ba604166a1dd092e0395b8a9626e688d416becf89d262ba4/diff:/media/usv012/pjx/docker-data/overlay2/0ebaafa7448e74920db345a65a8960de79c2d0311818609b64a87b51886e993b/diff:/media/usv012/pjx/docker-data/overlay2/a144ef0085618c8b1de92e3c67ba2bf71cc84d6f25e298594b3883455f082478/diff:/media/usv012/pjx/docker-data/overlay2/6fd98c0d373f223af363e1183bcd2dec015fe3594c59c5fa19bb02ac067fddfa/diff:/media/usv012/pjx/docker-data/overlay2/98e5d29c55f5337319af92347d58f41461a0851fc24fdf3830b11cf68c774540/diff:/media/usv012/pjx/docker-data/overlay2/325d57cf1b6859c47eed0a86b2fb5c5386bf7442c4aa6484527830fc75b4f922/diff:/media/usv012/pjx/docker-data/overlay2/244bce781146a8a0f91b8efefeaf88932f0033cbf43d3075659a08513265fa34/diff:/media/usv012/pjx/docker-data/overlay2/58ee7d33679b18fd49adceeab206bdf4162394c0551601592c59bbb258bd9957/diff:/media/usv012/pjx/docker-data/overlay2/45126d5f0e16baf7dbc213daf667e34f0e6106a55c6fd05120dac1483ed53082/diff",
+      "MergedDir": "/media/usv012/pjx/docker-data/overlay2/252924500d84fa7b49092da52cfa261d729b2971472beb957b2d7dedc5c57374/merged",
+      "UpperDir": "/media/usv012/pjx/docker-data/overlay2/252924500d84fa7b49092da52cfa261d729b2971472beb957b2d7dedc5c57374/diff",
+      "WorkDir": "/media/usv012/pjx/docker-data/overlay2/252924500d84fa7b49092da52cfa261d729b2971472beb957b2d7dedc5c57374/work"
+    },
+    "Name": "overlay2"
+  },
+  "Mounts": [
+    {
+      "Type": "bind",
+      "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-normal01/data/pg-data/pgdata",
+      "Destination": "/pg2",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata",
+      "Destination": "/pg3",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata",
+      "Destination": "/pg4",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata",
+      "Destination": "/pg5",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata",
+      "Destination": "/pg0",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata",
+      "Destination": "/pg1",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    }
+  ],
+  "Config": {
+    "Hostname": "f68772eca6f1",
+    "Domainname": "",
+    "User": "70:70",
+    "AttachStdin": false,
+    "AttachStdout": true,
+    "AttachStderr": true,
+    "Tty": false,
+    "OpenStdin": false,
+    "StdinOnce": false,
+    "Env": [
+      "G2_TEST_EVIDENCE=/evidence",
+      "TMPDIR=/evidence/tmp",
+      "NVIDIA_VISIBLE_DEVICES=void",
+      "CUDA_VISIBLE_DEVICES=0",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "OMP_NUM_THREADS=2",
+      "OPENBLAS_NUM_THREADS=1",
+      "PATH=/home/codex/.local/bin:/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "NVARCH=x86_64",
+      "NVIDIA_REQUIRE_CUDA=cuda>=12.4 brand=tesla,driver>=470,driver<471 brand=unknown,driver>=470,driver<471 brand=nvidia,driver>=470,driver<471 brand=nvidiartx,driver>=470,driver<471 brand=geforce,driver>=470,driver<471 brand=geforcertx,driver>=470,driver<471 brand=quadro,driver>=470,driver<471 brand=quadrortx,driver>=470,driver<471 brand=titan,driver>=470,driver<471 brand=titanrtx,driver>=470,driver<471 brand=tesla,driver>=525,driver<526 brand=unknown,driver>=525,driver<526 brand=nvidia,driver>=525,driver<526 brand=nvidiartx,driver>=525,driver<526 brand=geforce,driver>=525,driver<526 brand=geforcertx,driver>=525,driver<526 brand=quadro,driver>=525,driver<526 brand=quadrortx,driver>=525,driver<526 brand=titan,driver>=525,driver<526 brand=titanrtx,driver>=525,driver<526 brand=tesla,driver>=535,driver<536 brand=unknown,driver>=535,driver<536 brand=nvidia,driver>=535,driver<536 brand=nvidiartx,driver>=535,driver<536 brand=geforce,driver>=535,driver<536 brand=geforcertx,driver>=535,driver<536 brand=quadro,driver>=535,driver<536 brand=quadrortx,driver>=535,driver<536 brand=titan,driver>=535,driver<536 brand=titanrtx,driver>=535,driver<536",
+      "NV_CUDA_CUDART_VERSION=12.4.127-1",
+      "NV_CUDA_COMPAT_PACKAGE=cuda-compat-12-4",
+      "CUDA_VERSION=12.4.1",
+      "LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64",
+      "NVIDIA_DRIVER_CAPABILITIES=compute,utility",
+      "NV_CUDA_LIB_VERSION=12.4.1-1",
+      "NV_NVTX_VERSION=12.4.127-1",
+      "NV_LIBNPP_VERSION=12.2.5.30-1",
+      "NV_LIBNPP_PACKAGE=libnpp-12-4=12.2.5.30-1",
+      "NV_LIBCUSPARSE_VERSION=12.3.1.170-1",
+      "NV_LIBCUBLAS_PACKAGE_NAME=libcublas-12-4",
+      "NV_LIBCUBLAS_VERSION=12.4.5.8-1",
+      "NV_LIBCUBLAS_PACKAGE=libcublas-12-4=12.4.5.8-1",
+      "NV_LIBNCCL_PACKAGE_NAME=libnccl2",
+      "NV_LIBNCCL_PACKAGE_VERSION=2.21.5-1",
+      "NCCL_VERSION=2.21.5-1",
+      "NV_LIBNCCL_PACKAGE=libnccl2=2.21.5-1+cuda12.4",
+      "NVIDIA_PRODUCT_NAME=CUDA",
+      "HOME=/home/codex",
+      "CODEX_HOME=/home/codex/.codex"
+    ],
+    "Cmd": [
+      "--signal=TERM",
+      "--kill-after=2s",
+      "30s",
+      "python3",
+      "-c",
+      "import pathlib,os,json,stat,time\nseen=set();rows=[]\nfor i in range(6):\n root=pathlib.Path('/pg'+str(i));stack=[root];r={'index':i,'apparent_bytes':0,'allocated_bytes':0,'inodes':0,'regular_files':0,'symlinks':0,'errors':[]}\n while stack:\n  p=stack.pop();st=p.lstat();key=(st.st_dev,st.st_ino)\n  if key in seen:continue\n  seen.add(key);r['inodes']+=1;r['apparent_bytes']+=st.st_size;r['allocated_bytes']+=st.st_blocks*512\n  if stat.S_ISREG(st.st_mode):r['regular_files']+=1\n  elif stat.S_ISLNK(st.st_mode):r['symlinks']+=1\n  elif stat.S_ISDIR(st.st_mode):\n   try:stack.extend(p.iterdir())\n   except Exception as e:r['errors'].append({'path':str(p),'error':repr(e)})\n rows.append(r)\nprint(json.dumps({'uid':os.getuid(),'gid':os.getgid(),'roots':rows,'timestamp':time.time()}))\nassert not any(r['errors'] for r in rows)\n"
+    ],
+    "Image": "sha256:08619d6d884b3b456661f883a4e4420bd85a81aee560a86f7f26021b75dd6229",
+    "Volumes": null,
+    "WorkingDir": "/workspace",
+    "Entrypoint": [
+      "timeout"
+    ],
+    "OnBuild": null,
+    "Labels": {
+      "com.docker.compose.project": "pi-vllm24-r",
+      "execution-sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+      "maintainer": "NVIDIA CORPORATION <cudatools@nvidia.com>",
+      "org.opencontainers.image.ref.name": "ubuntu",
+      "org.opencontainers.image.version": "22.04",
+      "pi24.nonce": "r-cpu-nov14-stage5",
+      "workorder": "24"
+    }
+  },
+  "NetworkSettings": {
+    "Bridge": "",
+    "SandboxID": "",
+    "SandboxKey": "",
+    "Ports": {},
+    "HairpinMode": false,
+    "LinkLocalIPv6Address": "",
+    "LinkLocalIPv6PrefixLen": 0,
+    "SecondaryIPAddresses": null,
+    "SecondaryIPv6Addresses": null,
+    "EndpointID": "",
+    "Gateway": "",
+    "GlobalIPv6Address": "",
+    "GlobalIPv6PrefixLen": 0,
+    "IPAddress": "",
+    "IPPrefixLen": 0,
+    "IPv6Gateway": "",
+    "MacAddress": "",
+    "Networks": {
+      "none": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "MacAddress": "",
+        "DriverOpts": null,
+        "NetworkID": "3c37b84eb2a378f2cafdc543c234ca12143fd1c81a25bf1f13efa086c853661e",
+        "EndpointID": "",
+        "Gateway": "",
+        "IPAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "DNSNames": null
+      }
+    }
+  }
+}

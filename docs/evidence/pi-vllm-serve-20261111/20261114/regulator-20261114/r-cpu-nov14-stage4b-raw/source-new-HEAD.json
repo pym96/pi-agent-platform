@@ -1,0 +1,13 @@
+{
+  "name": "source-new-HEAD",
+  "args": [
+    "git",
+    "rev-parse",
+    "HEAD"
+  ],
+  "start": 1794621932.1959019,
+  "end": 1794621932.1972857,
+  "exit": 0,
+  "stdout": "d42579518034f235a55fdbdbfd1d72b0f1134544\n",
+  "stderr": ""
+}

@@ -1,0 +1,20 @@
+...E...
+======================================================================
+ERROR: test_fixed_P2_entry_accepts_each_role_after_retired_P1_cutoff (test_entry.PhaseWindowTests.test_fixed_P2_entry_accepts_each_role_after_retired_P1_cutoff) (role='builder')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-vllm24-candidate/service/scripts/vllm-serve/test_entry.py", line 46, in test_fixed_P2_entry_accepts_each_role_after_retired_P1_cutoff
+    g=self.go(module,now,role);self.assertEqual(self.validate(module,g,now),g)
+                                                ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-vllm24-candidate/service/scripts/vllm-serve/test_entry.py", line 41, in validate
+    with patch.object(module.time,'time',return_value=now):return module.validate(p,digest)
+                                                                  ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-vllm24-candidate/service/scripts/vllm-serve/launch.py", line 17, in validate
+    if now>latest or not 30<g['deadline_epoch']-now<=g['max_duration_s']<=cap or g['deadline_epoch']>epoch('2026-11-11T15:45:00Z'):raise ValueError('GO expired or over budget')
+                                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: GO expired or over budget
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.231s
+
+FAILED (errors=1)

@@ -1,0 +1,7 @@
+{
+  "proxies": {},
+  "18481": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+  "18483": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+  "inside": "b'{\"backend\": \"scripted-vllm-seam/CPU-NO-MODEL\", \"model\": \"Qwen3-8B\", \"ready\": true, \"active_generation\": 0, \"queued\": 0, \"max_active_generation\": 1, \"max_context\": 1024, \"attempts\": 0, \"max_attempts\": null}'\n",
+  "port": ""
+}

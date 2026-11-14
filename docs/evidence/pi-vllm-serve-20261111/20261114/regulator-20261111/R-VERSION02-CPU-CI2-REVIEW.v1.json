@@ -1,0 +1,171 @@
+{
+  "schema": "pi24-regulator-affected-CPU-version02/v1",
+  "at": 1794409394.395703,
+  "source_sha": "471a317ef687a168306608b1bece931f9b3a2b63",
+  "clean_origin_remote_and_staged_identity": true,
+  "CPU_result": "PASS_IDENTITY_GUARD_BEFORE_ENGINE; not actual model acceptance",
+  "actual_CPU_full_library_import_and_guard_probe": {
+    "epoch": 1794409228.0565565,
+    "actual_vllm_module": "0.8.5.post1",
+    "actual_distribution": "0.8.5.post1+cu118",
+    "cuda_initialized": false,
+    "nvidia_devices": [],
+    "model_mounted": false,
+    "old": {
+      "rejected": "fixed vLLM version required",
+      "factory_calls": 0
+    },
+    "new": {
+      "sentinel": "native model constructor deliberately not executed",
+      "factory_calls": 1
+    },
+    "constructor_args": [
+      {
+        "model": "/model-not-mounted",
+        "dtype": "bfloat16",
+        "max_num_seqs": 1,
+        "max_model_len": 1024
+      }
+    ],
+    "only_substituted_runtime_callable": "AsyncLLM.from_engine_args classmethod; actual root package/Args/tokenizer path unchanged, factory raises before model"
+  },
+  "nonfatal_warning_preserved": "vllm._C libcuda.so.1 missing under runc VOID; full root/AsyncLLM/Args import still completed, constructor sentinel reached; no library mounted or installed.",
+  "first_probe_failure_preserved": {
+    "archive_sha256": "fe73111103d79b21361cdf6b8017e48175143fe212ea64acbe2d29e9b2a5c24d",
+    "cause": "R private Docker omitted original Product TORCHINDUCTOR_CACHE_DIR; uid1001 has no passwd mapping so getpass failed. Actual Product compose already sets cache dirs. No Product changes; second private probe reuses those existing env fields.",
+    "full_import_first_attempt_exit": 1,
+    "CPU_fixture_configuration_error_only": true
+  },
+  "second_probe_archive_sha256": "d1888755d14d395db1f65668d7bd44111f280f365eebf555942dacbac903245e",
+  "actual_runtime_container": {
+    "runtime": "runc",
+    "DeviceRequests": null,
+    "CPU": 2,
+    "RAM_GiB": 4,
+    "native_timeout_s": 15,
+    "no_model_mount": true,
+    "no_nvidia_devices": true
+  },
+  "source_and_binding": {
+    "epoch": 1794409150.3325925,
+    "source_sha": "471a317ef687a168306608b1bece931f9b3a2b63",
+    "source_clean": true,
+    "containers": [],
+    "network": {
+      "Name": "pi-vllm24-r-pi24-r-normal02",
+      "Id": "efda9ddfe404e78be2860ebb7aab82c4f0402a092a2e25182f24d759207030d0",
+      "Created": "2026-11-11T22:58:14.028440806+08:00",
+      "Scope": "local",
+      "Driver": "bridge",
+      "EnableIPv6": false,
+      "IPAM": {
+        "Driver": "default",
+        "Options": {},
+        "Config": [
+          {
+            "Subnet": "172.22.0.0/16",
+            "Gateway": "172.22.0.1"
+          }
+        ]
+      },
+      "Internal": true,
+      "Attachable": false,
+      "Ingress": false,
+      "ConfigFrom": {
+        "Network": ""
+      },
+      "ConfigOnly": false,
+      "Containers": {},
+      "Options": {},
+      "Labels": {
+        "com.docker.compose.project": "pi-vllm24-r",
+        "execution-sha": "471a317ef687a168306608b1bece931f9b3a2b63",
+        "pi24.nonce": "pi24-r-normal02",
+        "workorder": "24"
+      }
+    },
+    "outer_entry_sha256": "04c4db89615f6535a8ea74d4318794ded92f56087c30c788959af06368367b7c",
+    "shell_entry_sha256": "0f4ff955537ae8ffe48b9bcd5e403588601d2ccaaba999f0b229dc82b84d9756",
+    "assets_sha256": "7a9a7e728bbf92411371ac497a896c47ce5bee1f86a9cfea6fbd9a690a78cd54",
+    "runtime_manifest_sha256": "8399994fa82aac42c3cd82a0f3e697bb46f70e16d4ba62969a13ce3a76fc8820",
+    "model_manifest_sha256": "4380c0c2174d1ba6a4698f37d06d05cfb01d3652a19fccdeeb414a96b573a1a8",
+    "GPU_exposed": false,
+    "model_calls": 0,
+    "probe": 1
+  },
+  "network_transition": {
+    "old_a5_network2874_exactremoved": true,
+    "retained_new_471a_network": {
+      "Name": "pi-vllm24-r-pi24-r-normal02",
+      "Id": "efda9ddfe404e78be2860ebb7aab82c4f0402a092a2e25182f24d759207030d0",
+      "Created": "2026-11-11T22:58:14.028440806+08:00",
+      "Scope": "local",
+      "Driver": "bridge",
+      "EnableIPv6": false,
+      "IPAM": {
+        "Driver": "default",
+        "Options": {},
+        "Config": [
+          {
+            "Subnet": "172.22.0.0/16",
+            "Gateway": "172.22.0.1"
+          }
+        ]
+      },
+      "Internal": true,
+      "Attachable": false,
+      "Ingress": false,
+      "ConfigFrom": {
+        "Network": ""
+      },
+      "ConfigOnly": false,
+      "Containers": {},
+      "Options": {},
+      "Labels": {
+        "com.docker.compose.project": "pi-vllm24-r",
+        "execution-sha": "471a317ef687a168306608b1bece931f9b3a2b63",
+        "pi24.nonce": "pi24-r-normal02",
+        "workorder": "24"
+      }
+    }
+  },
+  "new_R_outer_entry": {
+    "sha256": "04c4db89615f6535a8ea74d4318794ded92f56087c30c788959af06368367b7c",
+    "only_change_from_reviewed_R_entry": "SOURCE a5\u2192471a",
+    "shell_sha256": "0f4ff955537ae8ffe48b9bcd5e403588601d2ccaaba999f0b229dc82b84d9756",
+    "behavior_change": false
+  },
+  "stage_ledger": {
+    "conservative_start_epoch": 1794409070,
+    "last_inventory_epoch": 1794409246.222352,
+    "SCP_complete_upper_epoch": 1794409247,
+    "wall_upper_s": 177,
+    "max_wall_s": 180,
+    "absolute_stop": "2026-11-11T15:03:00Z",
+    "owned_compute_containers": 0,
+    "owned_watch_processes": 0,
+    "retained_inert_networks": 1,
+    "GPU_seconds": 0,
+    "real_native_generate": 0,
+    "real_completion_POSTs": 0,
+    "local_state_current_bytes": 207296977,
+    "server_disk_latest_exact_updated_total": null,
+    "server_disk_note": "Last actual regular total101392952B from StageA; new standalone sourcebundle + Git object import + small CPU probe outputs, no new PG. Updated exact total not remeasured after stop; conservatively reserve256MiB for R total pending next authorized inventory, not unknown0.",
+    "R_server_disk_reserved_upper_bytes": 268435456
+  },
+  "CI2": {
+    "official_run": 43043298669,
+    "source_sha": "471a317ef687a168306608b1bece931f9b3a2b63",
+    "status": "success",
+    "official_artifact": 13866337105,
+    "official_and_actual_zip_sha256": "eccb8ab869c38a40e0bd883ad3d28dbeec7be5a85457584c8336ac7e47606177",
+    "all1670_extracted_files_byte_checked": true,
+    "inference_two_entries69_skip0": true,
+    "serving11_skip0": true,
+    "independent_artifact_review_sha256": "eecdb3c5e25532b087a453dc4fc2607130a251e4945ef582cecb8f3ebee0e2c4"
+  },
+  "blocking_findings": [],
+  "recommendation": "Source471a identity repair and affected independent CPU+CI2 gates have no known blocker. Master may issue separate exact B GPU retry after its new owned source/network/entry preparation; R own model still requires independent exact GO. Real V1 startup and all registered B/R model matrices remain pending.",
+  "technical_final_acceptance": false,
+  "server_slot": "RELEASED at15:00:46Z, no further server actions without GO"
+}

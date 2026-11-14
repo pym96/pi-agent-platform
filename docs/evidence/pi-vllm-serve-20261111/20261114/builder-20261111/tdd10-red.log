@@ -1,0 +1,50 @@
+...........F                                                             [100%]
+=================================== FAILURES ===================================
+__________ test_native_trace_start_failure_does_not_leak_active_slot ___________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10a0a3bb0>
+
+    def test_native_trace_start_failure_does_not_leak_active_slot(monkeypatch):
+        import service.inference.vllm_backend as module
+        once=True
+        def fail_once(event,**values):
+            nonlocal once
+            if once and event=='native_start':once=False;raise OSError('trace denied')
+        monkeypatch.setattr(module,'trace',fail_once)
+        async def scenario():
+            backend=VllmBackend(Engine(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+            async with serve(backend) as (client,url):
+                async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:
+                    assert not inspect_stream(response.status,await response.text())['success']
+                assert backend.active==0
+                async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:
+                    assert inspect_stream(response.status,await response.text())['success']
+                assert backend.active==0
+>       asyncio.run(scenario())
+
+service/inference/tests/test_vllm.py:179: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def scenario():
+        backend=VllmBackend(Engine(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+        async with serve(backend) as (client,url):
+            async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:
+                assert not inspect_stream(response.status,await response.text())['success']
+>           assert backend.active==0
+E           assert 1 == 0
+E            +  where 1 = <service.inference.vllm_backend.VllmBackend object at 0x10a1367b0>.active
+
+service/inference/tests/test_vllm.py:175: AssertionError
+=========================== short test summary info ============================
+FAILED service/inference/tests/test_vllm.py::test_native_trace_start_failure_does_not_leak_active_slot
+1 failed, 11 passed in 0.42s

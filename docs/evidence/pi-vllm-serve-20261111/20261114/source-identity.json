@@ -1,0 +1,17 @@
+{
+  "execution_source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "service_git_tree": "d78b6181beb34f82b79767214677bc4378c320ad",
+  "github_git_tree": "b5b0e3de69e75b2592b678eaecf98086aea7dd4f",
+  "all_non_authorized_path_tree_records_sha256": "d9e4b77e303a63b2325314f02719da032148ef14167a30aff1ba012fe7fcfef5",
+  "algorithm": "git ls-tree -r --full-tree exact9ea, retain all lines except authorized Evidence subtree and corresponding two navigation files; original order/newline preserved",
+  "product_expected_unchanged": true,
+  "main_baseline": "b0ed1c4d6f26d8a3b0c454030606dd598a4f0166",
+  "Evidence_commit_sha": "future local commit, separate from execution source9ea",
+  "runtime_manifest_sha256": "8399994fa82aac42c3cd82a0f3e697bb46f70e16d4ba62969a13ce3a76fc8820",
+  "runtime_installed_files_sha256": "55c3c77da794162f392dd960c15bb2141681f8762a9e7aa36d9ff65e36b92f26",
+  "model_manifest_sha256": "4380c0c2174d1ba6a4698f37d06d05cfb01d3652a19fccdeeb414a96b573a1a8",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "SDK_manifest_sha256": "fac12b65a96b8a7614bc17376b92e03de8a100060978758c65d2134c8b6cd7d3",
+  "upstream_full_runtime_reference": "../../vllm-compat-20261111/README.md",
+  "interpretation": "runtime produced under earlier compat source; all actual Nov14 executions use unchanged runtime8399 with source9ea, not newly installed runtime"
+}

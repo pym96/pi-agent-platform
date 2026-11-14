@@ -1,0 +1,22 @@
+{"tests": 16, "skipped": 0, "failures": 0, "errors": 0, "expected_failures": 0, "unexpected_successes": 0, "success": true}
+test_go_rejections_before_gpu_commands (test_contract.Contract.test_go_rejections_before_gpu_commands) ... ok
+test_missing_go_never_executes (test_contract.Contract.test_missing_go_never_executes) ... ok
+test_probe_import_has_no_runtime_or_model_side_effect (test_contract.Contract.test_probe_import_has_no_runtime_or_model_side_effect) ... ok
+test_role_caps_and_absolute_window (test_contract.Contract.test_role_caps_and_absolute_window) ... ok
+test_actual_mapping_requires_native_path_and_current_hash (test_contract.DriverSelectionContract.test_actual_mapping_requires_native_path_and_current_hash) ... ok
+test_import_has_no_library_or_model_load (test_contract.DriverSelectionContract.test_import_has_no_library_or_model_load) ... ok
+test_missing_wrong_hash_and_preload_fail_before_directory (test_contract.DriverSelectionContract.test_missing_wrong_hash_and_preload_fail_before_directory) ... ok
+test_private_links_and_fresh_child_environment (test_contract.DriverSelectionContract.test_private_links_and_fresh_child_environment) ... ok
+test_unsafe_existing_private_directory_and_symlink_preserved (test_contract.DriverSelectionContract.test_unsafe_existing_private_directory_and_symlink_preserved) ... ok
+test_valid_model_manifest_reaches_cached_image_check (test_contract.LauncherModelPreflight.test_valid_model_manifest_reaches_cached_image_check) ... ok
+test_absolute_native_timeout_terminates_actual_cpu_child (test_contract.NativeDeadlineContract.test_absolute_native_timeout_terminates_actual_cpu_child) ... ok
+test_expired_native_deadline_never_executes_command (test_contract.NativeDeadlineContract.test_expired_native_deadline_never_executes_command) ... ok
+test_deadline_stops_exact_owned_cpu_process (test_contract.WatchContract.test_deadline_stops_exact_owned_cpu_process) ... ok
+test_mismatched_ownership_preserves_foreign_process (test_contract.WatchContract.test_mismatched_ownership_preserves_foreign_process) ... ok
+test_root_distribution_metadata_ignores_vendored_metadata (test_contract.WheelContract.test_root_distribution_metadata_ignores_vendored_metadata) ... ok
+test_sealed_wheel_closure_rejects_corruption_and_source_drift (test_contract.WheelContract.test_sealed_wheel_closure_rejects_corruption_and_source_drift) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 1.634s
+
+OK

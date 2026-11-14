@@ -1,0 +1,47 @@
+[
+  {
+    "path": "B-GPU-NORMAL-GO02.json",
+    "bytes": 2001,
+    "sha256": "f3169f8b8edaa4ca37492b823fa01775fa5960e233c49b2e847814aaf06cd6cb"
+  },
+  {
+    "path": "NORMAL02-CLOSEOUT.json",
+    "bytes": 4828,
+    "sha256": "82184f084bce3ce4c48d233e2d5e92e027b5101e1bdde6ccf2971024c888ea77"
+  },
+  {
+    "path": "normal02-observation01.json",
+    "bytes": 520,
+    "sha256": "2cf4eb4057427b883e0bcf3e77d06029674c27ec88e5c8fcd871883a035dd7f0"
+  },
+  {
+    "path": "normal02-observation02.json",
+    "bytes": 1141,
+    "sha256": "c07292acdacfeb3f9810d03d4bb401eade8b57077eb3a34a3d250a04c6c9a631"
+  },
+  {
+    "path": "normal02-start.json",
+    "bytes": 385,
+    "sha256": "bda2240f836d6688b69875eb7563305373592438a9375c0761a23074921fc190"
+  },
+  {
+    "path": "outer-pi24-b-normal02/command.json",
+    "bytes": 587,
+    "sha256": "db9fefbf14eddb67728d1b5123864b073227ef182d8cbaa79d81f3d055619e04"
+  },
+  {
+    "path": "outer-pi24-b-normal02/launcher.log",
+    "bytes": 59,
+    "sha256": "907e4bb8befdd2c1af4adedefe3adf8992b26dde63470d677987ec0e172afceb"
+  },
+  {
+    "path": "outer-pi24-b-normal02/receipt.json",
+    "bytes": 823,
+    "sha256": "a7abf92ccd1c8fe6fd5dbab8e300fc87df3f4ae77f9a3d2233941a763d71cacb"
+  },
+  {
+    "path": "outer-pi24-b-normal02/rss-affinity.jsonl",
+    "bytes": 41368,
+    "sha256": "41815823f281aa3181453ccbc8f535b3ff356e0ecb882226c1ceca6edc188ad9"
+  }
+]

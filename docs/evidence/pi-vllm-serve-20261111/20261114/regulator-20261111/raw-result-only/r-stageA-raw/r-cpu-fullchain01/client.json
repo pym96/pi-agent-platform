@@ -1,0 +1,29 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/source/service/scripts/vllm-serve/client.py",
+    "--plan",
+    "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/plan.json",
+    "--out",
+    "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/client",
+    "--endpoints",
+    "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/endpoint-map.json",
+    "--endpoints-sha256",
+    "a8e89235ead3ddf4df64004763822e352879973ba7ef02c47e6ee1fba8380a88",
+    "--deadline",
+    "1794406986.3661704",
+    "--project",
+    "pi-vllm24-r",
+    "--sha",
+    "a5f161b65126d3f5cbd9670bd85099217f38e750",
+    "--nonce",
+    "r-cpu-fullchain01",
+    "--api-cid",
+    "2b527b3dbb95c7ae652798ffcd197a02b622cbd52b40cbad31df698145124803"
+  ],
+  "start": 1794406832.748399,
+  "end": 1794406842.9087596,
+  "exit": 0,
+  "stdout": "",
+  "stderr": ""
+}

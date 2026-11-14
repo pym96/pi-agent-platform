@@ -1,0 +1,7 @@
+{
+  "source": "471a317ef687a168306608b1bece931f9b3a2b63",
+  "clock": 1794411060.0,
+  "genuine_new_phase_rejected": "ValueError('GO expired or over budget')",
+  "native_Docker_NVML_calls": 0,
+  "meaning": "Old hard-coded phase is correctly retired; red for prospective P2 requirement, never rerun models."
+}

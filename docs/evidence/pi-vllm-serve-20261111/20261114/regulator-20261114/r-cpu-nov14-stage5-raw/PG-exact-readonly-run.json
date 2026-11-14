@@ -1,0 +1,14 @@
+{
+  "name": "PG-exact-readonly-run",
+  "args": [
+    "docker",
+    "start",
+    "-a",
+    "f68772eca6f14596fc33a51f2c4dbf1b8bcb5f0ca96e0634d457e6db104a926a"
+  ],
+  "start": 1794622872.067068,
+  "end": 1794622872.5845568,
+  "exit": 0,
+  "stdout": "{\"uid\": 70, \"gid\": 70, \"roots\": [{\"index\": 0, \"apparent_bytes\": 48246787, \"allocated_bytes\": 48312320, \"inodes\": 1314, \"regular_files\": 1286, \"symlinks\": 0, \"errors\": []}, {\"index\": 1, \"apparent_bytes\": 47852038, \"allocated_bytes\": 47919104, \"inodes\": 1297, \"regular_files\": 1269, \"symlinks\": 0, \"errors\": []}, {\"index\": 2, \"apparent_bytes\": 48205827, \"allocated_bytes\": 48271360, \"inodes\": 1313, \"regular_files\": 1285, \"symlinks\": 0, \"errors\": []}, {\"index\": 3, \"apparent_bytes\": 48246787, \"allocated_bytes\": 48312320, \"inodes\": 1314, \"regular_files\": 1286, \"symlinks\": 0, \"errors\": []}, {\"index\": 4, \"apparent_bytes\": 48366759, \"allocated_bytes\": 48435200, \"inodes\": 1314, \"regular_files\": 1286, \"symlinks\": 0, \"errors\": []}, {\"index\": 5, \"apparent_bytes\": 48238595, \"allocated_bytes\": 48304128, \"inodes\": 1314, \"regular_files\": 1286, \"symlinks\": 0, \"errors\": []}], \"timestamp\": 1794622872.4647856}\n",
+  "stderr": ""
+}

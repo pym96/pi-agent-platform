@@ -1,0 +1,66 @@
+{
+  "schema": "pi24-regulator-source-version-repair-local-review/v1",
+  "at": 1794408764.0623128,
+  "source_sha": "471a317ef687a168306608b1bece931f9b3a2b63",
+  "baseline_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+  "phase": "LOCAL_SOURCE_CI2_GATE_ONLY",
+  "source_clean": true,
+  "fixed_versions": {
+    "module": "0.8.5.post1",
+    "distribution": "0.8.5.post1+cu118"
+  },
+  "actual_official_wheel_and_fixture": {
+    "wheel_sha256": "a593a2e5f455b0e47bf297ea31153dad9c2b2c44ddb13e194ba0a247e597e34a",
+    "provenance_sha256": "11a10bc5ed4060f8a77d42bf9074f393e95d2ee77889e1219f2cf47d0bd2589f",
+    "all_three_sources_byte_equal_to_official_wheel": true,
+    "metadata_lookup": "real importlib.metadata.version over actual full METADATA"
+  },
+  "independent_own_CPU_probe": {
+    "old_source_actual_official_pair": "RED: ValueError fixed vLLM version required before constructor",
+    "new_source_actual_official_pair": "GREEN: exact pair reaches deliberately stopped native constructor once",
+    "wrong_module_wrong_distribution_missing_module_missing_distribution": "all reject before native constructor",
+    "old_raw_sha256": "144c89e34d0196179fd2230966dcf532ef75aae545cf966c196d8eba14100d72",
+    "new_raw_sha256": "ccc4cf5ab054a538b0e854caef491cb810bea1473f7fb8e44e7fed19622b3b20",
+    "probe_sha256": "65661226fd243b518fced4f9359ce24452bc89398005f05e9f05cd4b7ea1e8f3",
+    "boundaries": "Mac root module version bound through official version.py/_version.py; actual dist METADATA lookup. Root native imports/Args/AsyncLLM construction stubbed explicitly; not actual complete Linux vLLM/engine import."
+  },
+  "own_actual_affected_Product_tests": {
+    "count": 18,
+    "passed": 18,
+    "skipped": 0,
+    "log_sha256": "da0f7cba0001c026ff7ad43472267ae87af5ec029e9096efaf7bdd61e01d3f5f"
+  },
+  "byte_identity_reuse": {
+    "paths": [
+      "service/inference/app.py",
+      "service/inference/__main__.py",
+      "service/inference/sequential_backend.py",
+      "service/cmd",
+      "service/internal",
+      "service/pi",
+      "service/scripts/vllm-serve",
+      "service/scripts/vllm-compat",
+      "service/compose.vllm.yaml",
+      "service/compose.qwen.yaml"
+    ],
+    "native_abort_ACK_logic_AST_equal": true,
+    "stream_prepare_close_init_AST_equal": true,
+    "previous_CPU_sources": "R-STAGEA-REVIEW.v1 50f4c10d / CPU chain c9b133bd / Linux11+HTTP26+utility2 / existing app full68, newsource affected adapter18 executed",
+    "old_GPU_failure_and_cost": "NORMAL01-FAILURE-INDEPENDENT-REVIEW.v1 eb8ec168; 55.169294s startupfail remains, native/POST0"
+  },
+  "scope_changes": [
+    "M\tSOURCE_OF_TRUTH.md",
+    "M\tdocs/evidence/pi-vllm-serve-20261111/README.md",
+    "M\tservice/inference/README.md",
+    "A\tservice/inference/tests/fixtures/vllm_identity/README.md",
+    "A\tservice/inference/tests/fixtures/vllm_identity/provenance.json",
+    "A\tservice/inference/tests/fixtures/vllm_identity/vllm-0.8.5.post1+cu118.dist-info/METADATA",
+    "A\tservice/inference/tests/fixtures/vllm_identity/vllm/_version.py",
+    "A\tservice/inference/tests/fixtures/vllm_identity/vllm/version.py",
+    "M\tservice/inference/tests/test_vllm.py",
+    "M\tservice/inference/vllm_backend.py"
+  ],
+  "blocking_findings": [],
+  "recommendation": "No known local repair/source blocker: Master may authorize exactly one sourceCI2 push of this complete SHA. Separate actual affected serverCPU/entry/network and new exact GPU GO still required. CPU full-CUDA-engine import failure under runc/VOID must be recorded, not turned into a new blocking criterion or repaired via unapproved dependencies.",
+  "technical_final_acceptance": false
+}

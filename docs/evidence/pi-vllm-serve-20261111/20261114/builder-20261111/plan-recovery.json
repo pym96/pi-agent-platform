@@ -1,0 +1,14 @@
+{
+  "criteria": "C-G2-03@1.1",
+  "kind": "real-model-functional",
+  "role": "builder",
+  "generation_timeout": 30,
+  "steps": [
+    {
+      "id": "afterdeadline16",
+      "action": "direct",
+      "budget": 16,
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. afterdeadline16"
+    }
+  ]
+}

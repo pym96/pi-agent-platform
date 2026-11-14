@@ -1,0 +1,21 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "95353a848ac2db69802f1fb0cb9a5afd3c78f23d2830a410b9c85c9f9d20d3d2",
+    "psql",
+    "-U",
+    "pan",
+    "-d",
+    "pan",
+    "-X",
+    "-At",
+    "-c",
+    "SELECT coalesce(json_agg(t),'[]') FROM sessions t;"
+  ],
+  "start": 1794406843.2020364,
+  "end": 1794406843.299996,
+  "exit": 0,
+  "stdout": "[{\"id\":\"cpu-g2-r-platform\",\"blocked\":false}, \n {\"id\":\"cpu-g2-r-sse\",\"blocked\":false}, \n {\"id\":\"cpu-g2-r-restart\",\"blocked\":true}, \n {\"id\":\"cpu-g2-r-new\",\"blocked\":false}]\n",
+  "stderr": ""
+}

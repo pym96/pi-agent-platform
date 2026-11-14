@@ -1,0 +1,113 @@
+{
+  "source_full_sha": "d42579518034f235a55fdbdbfd1d72b0f1134544",
+  "clean": true,
+  "changed_vs_df740": [
+    "SOURCE_OF_TRUTH.md",
+    "docs/evidence/pi-vllm-serve-20261111/README.md",
+    "service/scripts/vllm-compat/test_contract.py"
+  ],
+  "independent_cases": [
+    {
+      "changes": {},
+      "fixed_now": 1794385200,
+      "error": null
+    },
+    {
+      "changes": {
+        "deadline_epoch": 1794385199
+      },
+      "fixed_now": 1794385200,
+      "error": "GO expired or over budget"
+    },
+    {
+      "changes": {
+        "deadline_epoch": 1794385210
+      },
+      "fixed_now": 1794385200,
+      "error": "GO expired or over budget"
+    },
+    {
+      "changes": {
+        "issue": 13
+      },
+      "fixed_now": 1794385200,
+      "error": "GO identity mismatch"
+    },
+    {
+      "changes": {
+        "role": "master"
+      },
+      "fixed_now": 1794385200,
+      "error": "GO identity mismatch"
+    },
+    {
+      "changes": {
+        "gpu_uuid": "other"
+      },
+      "fixed_now": 1794385200,
+      "error": "GO identity mismatch"
+    },
+    {
+      "changes": {
+        "max_duration_s": 301
+      },
+      "fixed_now": 1794385200,
+      "error": "GO expired or over budget"
+    },
+    {
+      "changes": {
+        "launcher_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      },
+      "fixed_now": 1794385200,
+      "error": "launcher hash mismatch"
+    },
+    {
+      "changes": {
+        "model_revision": "latest"
+      },
+      "fixed_now": 1794385200,
+      "error": "model mismatch"
+    },
+    {
+      "changes": {
+        "source_sha": "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+      },
+      "fixed_now": 1794385200,
+      "error": "bad source_sha"
+    },
+    {
+      "case": "real-current-CLI-retired-GO",
+      "exit": 2,
+      "stdout": "",
+      "stderr": "GO rejected: last new GPU start elapsed\n",
+      "tools_called": false,
+      "real_epoch": 1794621220.9786081
+    }
+  ],
+  "Braw_bindings": {
+    "CI3-minimal-reproduction.log": true,
+    "SC06-target-green.log": true,
+    "SC06-G0-strict.log": true,
+    "SC06-G0-strict-summary.json": true
+  },
+  "unchangedProduct_bindings": {
+    "service/scripts/vllm-compat/launch.py": true,
+    "service/scripts/vllm-compat/watch.py": true,
+    "service/scripts/vllm-compat/native.py": true,
+    "service/scripts/vllm-compat/driver.py": true,
+    "service/scripts/vllm-compat/lock.py": true,
+    "service/scripts/vllm-serve/launch.py": true,
+    "service/scripts/vllm-serve/test_entry.py": true,
+    "service/scripts/vllm-serve/watch.py": true,
+    "service/scripts/vllm-serve/client.py": true,
+    "service/inference/vllm_backend.py": true,
+    "service/inference/app.py": true,
+    "service/compose.vllm.yaml": true,
+    "service/compose.qwen.yaml": true
+  },
+  "outer_only_SOURCE_literal_changed": true,
+  "new_outer_sha256": "fc516576352995b3ad351fe34f34eab31ef31e04b0c485ca471327ae66a3344f",
+  "phase2_data_sha256": "77b6d5aa360e46cdde73fa36bdff344c89769973e56c48733b43ac258d763887",
+  "reuse_previous_review": "67phase/17serving/4outer df740; Product and phase interface unchanged",
+  "server_model_CI": 0
+}

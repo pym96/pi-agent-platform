@@ -1,0 +1,28 @@
+{
+  "epoch": 1794627688.5413573,
+  "absolute_deadline": 1794627896.840182,
+  "cleanup_reserve_s": 15,
+  "native_limit_s": 193.2988247871399,
+  "command": [
+    "/usr/bin/python3",
+    "/source/service/scripts/vllm-compat/driver.py",
+    "--",
+    "/venv/bin/python",
+    "-m",
+    "service.inference",
+    "--backend",
+    "vllm",
+    "--host",
+    "0.0.0.0",
+    "--port",
+    "8082",
+    "--queue-timeout",
+    "2",
+    "--generation-timeout",
+    "30",
+    "--max-attempts",
+    "8",
+    "--deadline-epoch",
+    "1794627896.840182"
+  ]
+}

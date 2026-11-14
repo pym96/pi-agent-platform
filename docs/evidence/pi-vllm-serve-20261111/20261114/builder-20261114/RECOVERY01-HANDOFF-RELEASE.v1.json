@@ -1,0 +1,292 @@
+{
+  "schema": "pi24-recovery01-handoff-release/v1",
+  "role": "Working Agent (Builder)",
+  "workorder": 24,
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "GO_sha256": "f909992a3e719032a14131c5c55cf818c756a737d33b20ef19024aa1620a370e",
+  "raw_archive_sha256": "e33a3043ea795ed6e98a59842796693cd4a3aaad732583f5e920a40d0be8c43a",
+  "raw_manifest_sha256": "76c4f54403b77dd8d5e09f46fb10e608d076e4960230417445ce5af34918e086",
+  "manifest_files": 34,
+  "bad": [],
+  "outcome": {
+    "overall_success": true,
+    "cleanup_success": true,
+    "network_cleanup": {
+      "success": true,
+      "network_id": "29eaf5e27b7dd58ff2296a85d8b82c798672194479aec2995a32cbaa88d98ffc",
+      "state": "removed"
+    },
+    "failure": null,
+    "inventory_error": null,
+    "client_exit": 0,
+    "watch_exit": 0,
+    "success": true,
+    "containers": {
+      "cbce2c6a17ecf46fc1963981a1f1e17903e982f8f92bdad772cabaeef4cca997": "removed"
+    },
+    "errors": []
+  },
+  "progress": {
+    "planned": [
+      "afterdeadline16"
+    ],
+    "completed": [
+      "afterdeadline16"
+    ],
+    "not_completed": []
+  },
+  "steps": [
+    {
+      "id": "afterdeadline16",
+      "raw": {
+        "spec": {
+          "id": "afterdeadline16",
+          "action": "direct",
+          "budget": 16,
+          "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. afterdeadline16"
+        },
+        "request": "001",
+        "result": {
+          "success": true,
+          "content": "1,2,3,4,5,6,7,8,",
+          "finish_reason": "length",
+          "usage": {
+            "prompt_tokens": 35,
+            "completion_tokens": 16,
+            "total_tokens": 51
+          }
+        },
+        "post_idle": {
+          "backend": "vllm-0.8.5.post1+cu118/V1-uni/Qwen3-8B",
+          "model": "Qwen3-8B",
+          "ready": true,
+          "active_generation": 0,
+          "calls": 1,
+          "queued": 0,
+          "max_active_generation": 1,
+          "max_context": 1024,
+          "attempts": 1,
+          "max_attempts": 32
+        }
+      },
+      "body_file": "001.body",
+      "body_sha256": "5fa06902d571560eae46895705096c4dfdfeecd5b452987e40f2c0c7e1ff23c1",
+      "explicit_generation_deadline": false
+    }
+  ],
+  "native_counts": {
+    "engine_start": 1,
+    "engine_ready": 1,
+    "native_start": 1,
+    "native_output": 16,
+    "native_settled": 1
+  },
+  "native_control_events": [
+    {
+      "event": "engine_start",
+      "at": 558814.87949809,
+      "clock": "model-monotonic",
+      "config": {
+        "model": "/model",
+        "dtype": "bfloat16",
+        "max_model_len": 1024,
+        "max_num_seqs": 1,
+        "tensor_parallel_size": 1,
+        "distributed_executor_backend": "uni",
+        "enable_prefix_caching": false,
+        "enforce_eager": true,
+        "gpu_memory_utilization": 0.8,
+        "swap_space": 0,
+        "cpu_offload_gb": 0,
+        "seed": 0,
+        "trust_remote_code": false,
+        "disable_log_stats": true
+      },
+      "vllm_version": "0.8.5.post1",
+      "vllm_distribution_version": "0.8.5.post1+cu118"
+    },
+    {
+      "event": "engine_ready",
+      "at": 558829.70110788,
+      "clock": "model-monotonic",
+      "engine_type": "vllm.v1.engine.async_llm.AsyncLLM",
+      "config": {
+        "model": "/model",
+        "dtype": "bfloat16",
+        "max_model_len": 1024,
+        "max_num_seqs": 1,
+        "tensor_parallel_size": 1,
+        "distributed_executor_backend": "uni",
+        "enable_prefix_caching": false,
+        "enforce_eager": true,
+        "gpu_memory_utilization": 0.8,
+        "swap_space": 0,
+        "cpu_offload_gb": 0,
+        "seed": 0,
+        "trust_remote_code": false,
+        "disable_log_stats": true
+      },
+      "chunked_prefill_enabled": true,
+      "max_num_batched_tokens": 2048
+    },
+    {
+      "event": "native_start",
+      "at": 558829.868115112,
+      "clock": "model-monotonic",
+      "native_id": "2ff3ccd146bf498e97d4c8a9b80078b6",
+      "prompt_token_ids": [
+        151644,
+        872,
+        198,
+        852,
+        1449,
+        7546,
+        504,
+        220,
+        16,
+        1526,
+        220,
+        19,
+        15,
+        15,
+        11,
+        31683,
+        72692,
+        11,
+        448,
+        902,
+        16148,
+        13,
+        1283,
+        78788,
+        16,
+        21,
+        151645,
+        198,
+        151644,
+        77091,
+        198,
+        151667,
+        271,
+        151668,
+        271
+      ],
+      "budget": 16,
+      "calls": 1
+    },
+    {
+      "event": "native_settled",
+      "at": 558830.201924749,
+      "clock": "model-monotonic",
+      "native_id": "2ff3ccd146bf498e97d4c8a9b80078b6",
+      "aborted": false,
+      "active": 0
+    }
+  ],
+  "POST_count": 1,
+  "device_ledger": {
+    "model_CID": "cbce2c6a17ecf46fc1963981a1f1e17903e982f8f92bdad772cabaeef4cca997",
+    "Created": "2026-11-14T03:21:30.824539647Z",
+    "rm": {
+      "command": [
+        "rm",
+        "cbce2c6a17ecf46fc1963981a1f1e17903e982f8f92bdad772cabaeef4cca997"
+      ],
+      "start": 1794626512.7462146,
+      "end": 1794626512.7757144,
+      "exit": 0,
+      "stdout": "cbce2c6a17ecf46fc1963981a1f1e17903e982f8f92bdad772cabaeef4cca997\n",
+      "stderr": ""
+    },
+    "increment_s": 21.95117473602295,
+    "prior_s": 116.99455738067627,
+    "cumulative_s": 138.94573211669922,
+    "native_cumulative": 11,
+    "POST_cumulative": 13
+  },
+  "CPU_ledger": {
+    "items": [
+      {
+        "kind": "GOstage",
+        "wall_s": 0.2977290153503418,
+        "ceil_s": 1
+      },
+      {
+        "kind": "wholeforeground",
+        "wall_s": 56.0671660900116,
+        "ceil_s": 57
+      },
+      {
+        "kind": "rawcollection",
+        "wall_s": 0.5380499362945557,
+        "ceil_s": 1
+      }
+    ],
+    "prior_s": 4447.4357385,
+    "increment_s": 59,
+    "cumulative_s": 4506.4357385,
+    "Nov14_subreserve": 1100,
+    "remaining_s": 820
+  },
+  "closeout": {
+    "B_containers": [],
+    "retained_B_networks": [
+      "cf97a390694df09401f1b2eeee04f7451fbb3d0c7c2e6b65e07ac63df00000c4"
+    ],
+    "retained_network_inspects": [
+      {
+        "Name": "pi-vllm24-b-pi24-b-nov14-fallback01",
+        "Id": "cf97a390694df09401f1b2eeee04f7451fbb3d0c7c2e6b65e07ac63df00000c4",
+        "Created": "2026-11-14T11:08:57.014651378+08:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+          "Driver": "default",
+          "Options": {},
+          "Config": [
+            {
+              "Subnet": "172.25.0.0/16",
+              "Gateway": "172.25.0.1"
+            }
+          ]
+        },
+        "Internal": true,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+          "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {},
+        "Labels": {
+          "com.docker.compose.project": "pi-vllm24-b",
+          "execution-sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+          "pi24.nonce": "pi24-b-nov14-fallback01",
+          "pi24.phase-contract-sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+          "workorder": "24"
+        }
+      }
+    ],
+    "query_prefix": {
+      "bytes": 30511,
+      "sha256": "5d25092faa24dfc7f4ce4341127448c11ad21e4d7bca3942845c475e77422c8e"
+    },
+    "nonce_consumed": true,
+    "free_bytes": 3047966748672
+  },
+  "release": {
+    "all_SSH_SCP_ended": true,
+    "foreground_exit": 0,
+    "unknown": null,
+    "R_c61_untouched": true,
+    "no_retry": true
+  },
+  "limitations": [
+    "Builder handoff not final accepted; independent R to verify fresh engine direct16 successful SSE/native usage and ready.",
+    "Only recovery fresh lifecycle consumed; fallback requires separate exact Master GO. Prior deadline engine settlement was separately proven, not this new engine continuation.",
+    "Device float clock conversion preserves prior ledger method; Docker exact Created string retained.",
+    "No throughput/C10K/p95 improvement claim."
+  ]
+}

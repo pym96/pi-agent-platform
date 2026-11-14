@@ -1,0 +1,24 @@
+{
+  "start": 1794626823.994217,
+  "end": 1794626824.299326,
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "HostKeyAlias=58.199.168.63",
+    "-o",
+    "ConnectTimeout=10",
+    "-o",
+    "ServerAliveInterval=5",
+    "-o",
+    "ServerAliveCountMax=2",
+    "wt@58.199.171.85",
+    "cd /media/usv012/pjx && export CUDA_VISIBLE_DEVICES=0 && cd /media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder && exec taskset -c 0,1 python3 -c 'import pathlib,sys,hashlib,json,time\np=pathlib.Path(sys.argv[1]);data=sys.stdin.buffer.read();h=hashlib.sha256(data).hexdigest()\nassert h==sys.argv[2] and not p.exists() and not p.is_symlink()\nwith p.open('\"'\"'xb'\"'\"') as f:f.write(data)\nprint(json.dumps({'\"'\"'event'\"'\"':'\"'\"'GO_staged'\"'\"','\"'\"'epoch'\"'\"':time.time(),'\"'\"'path'\"'\"':str(p),'\"'\"'sha256'\"'\"':h}),flush=True)\n' /media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/B-GPU-FALLBACK-NOV14-GO01.json d9a81549ff1f04929ed43869cbecc140e6a0ab38436aa49f8372c409e12a86e4"
+  ],
+  "exit": 0,
+  "stdout_base64": "eyJldmVudCI6ICJHT19zdGFnZWQiLCAiZXBvY2giOiAxNzk0NjI2ODI0LjI5NjA1NDYsICJwYXRoIjogIi9tZWRpYS91c3YwMTIvcGp4L3BpLWFnZW50LXBsYXRmb3JtL2V4cGVyaW1lbnRzLzI0LXZsbG0tc2VydmUtMjAyNjExMTEvYnVpbGRlci9CLUdQVS1GQUxMQkFDSy1OT1YxNC1HTzAxLmpzb24iLCAic2hhMjU2IjogImQ5YTgxNTQ5ZmYxZjA0OTI5ZWQ0Mzg2OWNiZWNjMTQwZTZhMGFiMzg0MzZhYTQ5ZjgzNzJjNDA5ZTEyYTg2ZTQifQo=",
+  "stderr_base64": ""
+}

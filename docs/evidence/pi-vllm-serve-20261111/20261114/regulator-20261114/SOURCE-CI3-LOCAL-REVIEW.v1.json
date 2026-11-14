@@ -1,0 +1,71 @@
+{
+  "schema": "pi24-nov14-regulator-local-source-review/v1",
+  "created_utc": "2026-11-14T01:42:15.095932+00:00",
+  "SessionRole": "Regulator Agent",
+  "issue": 24,
+  "stage": "LOCAL_SOURCE_AFFECTED_REVIEW_NOT_FINAL",
+  "source_full_sha": "df740e46da7cad585ef29763f19a280869d7c728",
+  "source_clean": true,
+  "source_not_yet_remote": true,
+  "phase_contract_sha256": "a44ec7447f1efe11a2ba931df463baf6b176d9daedc72dbfc5bb267834064947",
+  "criteria": {
+    "C01": "1.0 unchanged",
+    "C02": "1.0 unchanged",
+    "C03": "1.1 full real matrix pending",
+    "C04": "1.4 local affected checks"
+  },
+  "result": "NO_KNOWN_LOCAL_BLOCKER_FOR_SINGLE_SOURCE_CI3",
+  "not_final_accepted": true,
+  "checks": {
+    "fresh_independent_detached_source": true,
+    "B_handoff_full_identity": "9dd6da469ede0dcb9647837f33529a594e264c6bd1bb28c78ecf21bd06e0eedc",
+    "B6file_and5raw_and_outer_bindings": "all match",
+    "independent_phase_cases": 67,
+    "phase_valid_2": "same actual source, two independently frozen simulated phase files, actual Product validator; no execute",
+    "phase_invalid_65": "actual CLI exits2; Docker/NVML tripwires untouched",
+    "independent_serving_tests": 17,
+    "skipped": 0,
+    "outer_actual_validator_cases": 4,
+    "outer_command_four_phase_parameters_forwarded": true,
+    "changes_vs_a0": "5 authorized existing files, no adds/moves",
+    "Product_execute_AST": "identical after only new phase parameters/signature/revalidation forwarding normalized; engine/app/Go/Pi/watch/native/driver/compose untouched"
+  },
+  "entry_sha256": "d5e07f695b3680a7239d0dcc30a1735120148c2fc57ef4a42b3ce7ecddffec7d",
+  "outer_entry_sha256": "664b44c9c7bae8911fdaf5331681f5e7228028854a5a458de83f77f5dc75ecd0",
+  "limitations": [
+    "Mac local checks do not prove actual Linux entry/model/GPU behavior.",
+    "Outer probe substitutes privateROOT, affinity, OwnedDocker and NVML; deliberately halts Popen before Product child launch; no server/model.",
+    "Hash assures byte binding, not cryptographic authority against malicious same-account operator; operator authorization remains Master exactGO.",
+    "Own initial overly strict assertion that entire execute AST should be identical failed because new phase args/forwarding are intended; then normalized only those explicit nodes and identity held. This was private review assertion, not Product runtime failure.",
+    "Disk totals remain unknown due old PG permissions; not resolved by local source approval.",
+    "No SSH/CI/model in this local review; prior read-only server6.147s/release separate.",
+    "Actual same-SHA sourceCI3 plus affected Linux CPU and separately authorized complete B/R real matrices, finalEvidenceCI4/exactSHA Verdict/mainCI5 all remain blocking for acceptance."
+  ],
+  "feedback": "current root feedback read, no pending items",
+  "raw_artifacts": {
+    "local_phase_probe.py": {
+      "sha256": "d73191756594e0a189549e65c515da8dd297071b75c7c784b62287ebb1a25c64",
+      "bytes": 5429
+    },
+    "independent-phase-df740e.v1.json": {
+      "sha256": "dce11a33fea2c87aa8c4792b37e7ee7d71f36edd70abd42900cbf96030a320c4",
+      "bytes": 12529
+    },
+    "outer_phase_probe.py": {
+      "sha256": "7842d0ee7c2d83e066e3c5ac3e0fcd8a0d22a2d9ebc1c4c64c992f412ff69742",
+      "bytes": 4028
+    },
+    "outer-phase-df740e.v1.json": {
+      "sha256": "1c8d162eed73858cba550a3391cdb590dc8139fd62c133cc1c1f26d9b6642c48",
+      "bytes": 1942
+    },
+    "serve17-independent.json": {
+      "sha256": "cb84a001c64d006455477f26d46656c2053cf872f92516cf32579bb722a5f237",
+      "bytes": 140
+    },
+    "source-identity-df740e.v1.json": {
+      "sha256": "2d689cdeb88bd995484ec023f79381ab97b4d5c4164eac2487a115caeb27fad9",
+      "bytes": 1082
+    }
+  }
+}

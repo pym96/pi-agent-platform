@@ -1,0 +1,156 @@
+{
+  "schema": "pi24-nov14-regulator-affectedCPU-stage-review/v1",
+  "SessionRole": "Regulator Agent",
+  "issue": 24,
+  "created_utc": "2026-11-14T02:22:44.334736+00:00",
+  "stage": "SOURCE_CI5_REAL_LINUX_AFFECTED_CPU",
+  "result": "AFFECTED_CPU_STAGE_PASS_RELEASED_NOT_FINAL_ACCEPTED",
+  "source_full_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "source_clean": true,
+  "phase_contract_sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+  "GO_sha256": "5bf40e436a389ee9dad13cfa081d3d6d62355f41b5a1e6094006ca2d9aceb8d8",
+  "CI5": {
+    "run": 43545423673,
+    "actual_status": "completed/success",
+    "artifact_id": 14094106302,
+    "artifact_bytes": 1215264,
+    "official_and_downloaded_digest": "0c37c68910339020d312fbc2ba4286da0347584b21102c0a0f2d377609953b6d",
+    "independent_artifact_filecount": 1673,
+    "requiredsteps": "allsuccess, no missing/pending",
+    "new_required_Python310": "actual version.txt Python3.10 and16strict skip0; fullartifact independently checked"
+  },
+  "actual_transport": {
+    "start_epoch": 1794622864.520298,
+    "end_epoch": 1794622872.9599419,
+    "wall_s": 8.439644813537598,
+    "returncode": 0,
+    "no_retry": true
+  },
+  "CPU_conservative_charge_s": 9,
+  "CPU_cumulative_upper_s": 4249.4357385,
+  "new600_remaining_s": 577,
+  "actual_cached_environment": {
+    "image": "sha256:08619d6d884b3b456661f883a4e4420bd85a81aee560a86f7f26021b75dd6229",
+    "runtime": "runc",
+    "NVIDIA_VISIBLE_DEVICES": "void",
+    "DeviceRequests": "empty",
+    "model_mount": "none",
+    "version": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]",
+    "resources": "2CPU4GiB/readOnlyroot/capDropALL/noNewPrivileges/networknone",
+    "serving17": {
+      "tests": 17,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": true
+    },
+    "G0_16": {
+      "tests": 16,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": true
+    },
+    "own_phase_cases": 67,
+    "old_Path_same_environment": "exactpreserved d425 test bytes mountedRO, HERE only projects to unchangedProduct; expected actual_flavour error thennew full16 PASS",
+    "systemclock": "unchanged"
+  },
+  "hostbacked_exec": {
+    "actual_small_executable_exit": 0,
+    "TMPDIR": "/evidence/tmp",
+    "G2_TEST_EVIDENCE": "/evidence",
+    "current_mountflags": "actualcurrent /tmp rw,nosuid,nodev,noexec/64MiB; /evidence rw ext4; sourceRO",
+    "limitation": "current mountinfo does not manufacture missing old failure-time sample"
+  },
+  "external_entry": {
+    "r_gpu_entry_phase5.py": "c414361b6d722ae86f6986083b9c2882a8df12d448e400e183b27f4d7ffd7426",
+    "shell_sha256": "01967195ae8815c8485f072cebcf18d45f25164d4ae02a31c8f811c5e8a0f496",
+    "actual_cpu_probe": "taskset0,1/affinity0,1/RSS17133568B PASS"
+  },
+  "server_disk": {
+    "point_in_time_full_disjoint_snapshot_apparent_bytes": 486552798,
+    "allocated_bytes": 500457472,
+    "PG_exact_roots": 6,
+    "actual_matching_PG_uid_gid": "70:70",
+    "PG_errors": 0,
+    "method": "lstat/no symlink follow/dev+inode dedup; readableB/R excludePGroots, PGrootcounts insidecachedCPU-only containerRO exactmounts/useractualowner; no permissions/caps changed",
+    "preexisting_ROruntime_model_cache": "outside24root and excludedseparately",
+    "after_snapshot": "new small release/raw emissions recordedinmanifest; totals statedas snapshot, not final futuredisk"
+  },
+  "local_disk": {
+    "all_old_new24_B_R_Master_and2candidates_apparent_bytes": 527307895,
+    "allocated_bytes": 639066112,
+    "errors": [],
+    "cap_bytes": 1073741824
+  },
+  "release": {
+    "all_SSH_transfer_and_children_ended": true,
+    "all_new_CPUcontainers_exactremoved": true,
+    "both_B_R_project_containers": 0,
+    "B_networks": 0,
+    "old_c17_removed_after_identity": true,
+    "gone_efda_not_touched": true,
+    "new_R_network_retained": "c61d7fd94ae102b909dfcf55d2cece73f97a6ec379f334eaef1b7d39333a37cd",
+    "network_internal": true,
+    "network_IPv6": false,
+    "network_members": 0,
+    "nonce": "pi24-r-nov14-normal02",
+    "labels": {
+      "com.docker.compose.project": "pi-vllm24-r",
+      "execution-sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+      "pi24.nonce": "pi24-r-nov14-normal02",
+      "pi24.phase": "pi24-nov14-recovery01-r3",
+      "pi24.phase-sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+      "workorder": "24"
+    },
+    "next_action": "localonly pendingMaster per-lifecycle GPU GO"
+  },
+  "device_native_completionPOST": 0,
+  "remaining_final_blocking": [
+    "B complete realnormal/deadline/recovery/fallback matrix with exactresource/raw/lifecyclewitnesses",
+    "R independent realnormal matrix under freshGO",
+    "finalEvidence/exactSHA Handoff/CI6/independentVerdict",
+    "Masteraccepted sameSHA integration/mainCI7"
+  ],
+  "facts_resume_promotion": false,
+  "raw_manifest": {
+    "file": "CPU5-RAW-MANIFEST.v1.json",
+    "sha256": "e626d5385c74cad26782dc3e43c51ff0235cb66f85b7b1dc257e833c5bcdd870",
+    "files": 44,
+    "total_bytes": 497735
+  },
+  "extra_artifacts": {
+    "CI5-INDEPENDENT-ARTIFACT.v1.json": {
+      "sha256": "4671752330393562dcccd0e7b48d73080f742793b1b713c7df12277e5e9bb598",
+      "bytes": 198469
+    },
+    "LOCAL-DISK-ALL24.v1.json": {
+      "sha256": "a65309c3e33ec7343b0a392f0c55810b59490a9d3ffd39c8e1c26f86bde41989",
+      "bytes": 1976
+    },
+    "CPU5-transport-result.json": {
+      "sha256": "11138bc6d00d173b3e8a479d0c0a1b000c9d14a32d3a87ea642b6ff41f41a15e",
+      "bytes": 144
+    },
+    "r_cpu_stage5.py": {
+      "sha256": "7c3afa839f9295eec64e8cbab8e753cd04e3f30ca79649984680b2e889c55cce",
+      "bytes": 10671
+    },
+    "linux_cpu_probe5.py": {
+      "sha256": "2e4e35e56579287091ca7ecacec1c15507076f1f8f12322fb111f654077abedb",
+      "bytes": 2428
+    },
+    "linux_phase_probe5.py": {
+      "sha256": "05dfd05b8e26c955f34458cc7d077e83bf469d55604a65c424b3e8499a25eb54",
+      "bytes": 5423
+    },
+    "old-test-contract-d42579.py": {
+      "sha256": "5b32676afd584ad386b0a021f3e0288a345ecc8be5c315e0d88bcbce0b1805f8",
+      "bytes": 16136
+    }
+  }
+}

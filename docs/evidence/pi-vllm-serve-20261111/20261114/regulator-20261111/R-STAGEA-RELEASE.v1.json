@@ -1,0 +1,58 @@
+{
+  "epoch": 1794407097.2517564,
+  "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+  "source_clean": true,
+  "regular_readable_bytes": 53277237,
+  "readable_files": 2542,
+  "unreadable_dirs": [
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata",
+      "error": "PermissionError(13, 'Permission denied')"
+    }
+  ],
+  "UID70_PG_regular_bytes": 48115715,
+  "total_regular_bytes_before_this_record": 101392952,
+  "owned_containers": [],
+  "retained_inert_network": {
+    "Name": "pi-vllm24-r-pi24-r-normal01",
+    "Id": "2874821bc5f8c03dc03e5e6aa32a77167f77e97e5f28168fa123f7f83cf77d1f",
+    "Created": "2026-11-11T22:23:28.228561518+08:00",
+    "Scope": "local",
+    "Driver": "bridge",
+    "EnableIPv6": false,
+    "IPAM": {
+      "Driver": "default",
+      "Options": {},
+      "Config": [
+        {
+          "Subnet": "172.22.0.0/16",
+          "Gateway": "172.22.0.1"
+        }
+      ]
+    },
+    "Internal": true,
+    "Attachable": false,
+    "Ingress": false,
+    "ConfigFrom": {
+      "Network": ""
+    },
+    "ConfigOnly": false,
+    "Containers": {},
+    "Options": {},
+    "Labels": {
+      "com.docker.compose.project": "pi-vllm24-r",
+      "execution-sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+      "pi24.nonce": "pi24-r-normal01",
+      "workorder": "24"
+    }
+  },
+  "GPU_exposed": false,
+  "model_calls": 0,
+  "real_completion_POSTs": 0,
+  "server_stage_start": 1794406793.48536,
+  "affinity": [
+    0,
+    1
+  ],
+  "self_status": "Name:\tpython3\nUmask:\t0002\nState:\tR (running)\nTgid:\t4066420\nNgid:\t0\nPid:\t4066420\nPPid:\t4066419\nTracerPid:\t0\nUid:\t1001\t1001\t1001\t1001\nGid:\t1001\t1001\t1001\t1001\nFDSize:\t64\nGroups:\t27 999 1001 \nNStgid:\t4066420\nNSpid:\t4066420\nNSpgid:\t4066420\nNSsid:\t4066420\nKthread:\t0\nVmPeak:\t   31076 kB\nVmSize:\t   31076 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   16352 kB\nVmRSS:\t   16352 kB\nRssAnon:\t    7372 kB\nRssFile:\t    8980 kB\nRssShmem:\t       0 kB\nVmData:\t    8264 kB\nVmStk:\t     132 kB\nVmExe:\t    2776 kB\nVmLib:\t    4968 kB\nVmPTE:\t      88 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t1\nSigQ:\t0/2061390\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000000000002\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\t000000,00000000,00000000,00000000,00000003\nCpus_allowed_list:\t0-1\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000003\nMems_allowed_list:\t0-1\nvoluntary_ctxt_switches:\t36\nnonvoluntary_ctxt_switches:\t2\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n"
+}

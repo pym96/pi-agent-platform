@@ -1,0 +1,164 @@
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+______ test_disconnect_waits_for_native_abort_and_close_before_slot_reuse ______
+
+fut = <coroutine object Event.wait at 0x10a08f920>, timeout = 0.3
+
+    async def wait_for(fut, timeout):
+        """Wait for the single Future or coroutine to complete, with timeout.
+    
+        Coroutine will be wrapped in Task.
+    
+        Returns result of the Future or coroutine.  When a timeout occurs,
+        it cancels the task and raises TimeoutError.  To avoid the task
+        cancellation, wrap it in shield().
+    
+        If the wait is cancelled, the task is also cancelled.
+    
+        If the task suppresses the cancellation and returns a value instead,
+        that value is returned.
+    
+        This function is a coroutine.
+        """
+        # The special case for timeout <= 0 is for the following case:
+        #
+        # async def test_waitfor():
+        #     func_started = False
+        #
+        #     async def func():
+        #         nonlocal func_started
+        #         func_started = True
+        #
+        #     try:
+        #         await asyncio.wait_for(func(), 0)
+        #     except asyncio.TimeoutError:
+        #         assert not func_started
+        #     else:
+        #         assert False
+        #
+        # asyncio.run(test_waitfor())
+    
+    
+        if timeout is not None and timeout <= 0:
+            fut = ensure_future(fut)
+    
+            if fut.done():
+                return fut.result()
+    
+            await _cancel_and_wait(fut)
+            try:
+                return fut.result()
+            except exceptions.CancelledError as exc:
+                raise TimeoutError from exc
+    
+        async with timeouts.timeout(timeout):
+>           return await fut
+                   ^^^^^^^^^
+
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/tasks.py:488: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asyncio.locks.Event object at 0x10a035450 [unset]>
+
+    async def wait(self):
+        """Block until the internal flag is true.
+    
+        If the internal flag is true on entry, return True
+        immediately.  Otherwise, block until another task calls
+        set() to set the flag to true, then return True.
+        """
+        if self._value:
+            return True
+    
+        fut = self._get_loop().create_future()
+        self._waiters.append(fut)
+        try:
+>           await fut
+E           asyncio.exceptions.CancelledError
+
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/locks.py:213: CancelledError
+
+The above exception was the direct cause of the following exception:
+
+    def test_disconnect_waits_for_native_abort_and_close_before_slot_reuse():
+        class SlowEngine(Engine):
+            def __init__(self):
+                super().__init__();self.aborting=asyncio.Event();self.settle=asyncio.Event();self.closed=asyncio.Event()
+            async def generate(self,prompt,sampling_params,request_id):
+                if self.requests:
+                    async for item in super().generate(prompt,sampling_params,request_id):yield item
+                    return
+                self.requests.append((prompt,sampling_params,request_id))
+                try:
+                    yield NS(prompt_token_ids=[10,11,12],finished=False,outputs=[NS(text='hi',token_ids=[20],finish_reason=None)])
+                    await asyncio.sleep(.8)
+                finally:self.closed.set()
+            async def abort(self,request_id):
+                self.aborts.append(request_id);self.aborting.set();await self.settle.wait()
+        async def scenario():
+            engine=SlowEngine();backend=VllmBackend(engine,Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+            async with serve(backend,queue_timeout=.05,generation_timeout=1) as (client,url):
+                first=await client.post(url+'/v1/chat/completions',json=PAYLOAD)
+                while b'hi' not in await first.content.readuntil(b'\n\n'):pass
+                first.close()
+                try:
+                    await asyncio.wait_for(engine.aborting.wait(),.3)
+                    assert backend.active==1 and not engine.closed.is_set()
+                    async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as waiting:
+                        assert waiting.status==503 and (await waiting.json())['error']['code']=='queue_deadline'
+                    assert len(engine.requests)==1
+                finally:engine.settle.set()
+                await asyncio.wait_for(engine.closed.wait(),.3)
+                async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as second:
+                    assert inspect_stream(second.status,await second.text())['success']
+                assert backend.active==0 and backend.calls==2
+>       asyncio.run(scenario())
+
+service/inference/tests/test_vllm.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+service/inference/tests/test_vllm.py:65: in scenario
+    await asyncio.wait_for(engine.aborting.wait(),.3)
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/tasks.py:487: in wait_for
+    async with timeouts.timeout(timeout):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Timeout [expired]>
+exc_type = <class 'asyncio.exceptions.CancelledError'>
+exc_val = CancelledError(), exc_tb = <traceback object at 0x10a0f9700>
+
+    async def __aexit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc_val: BaseException | None,
+        exc_tb: TracebackType | None,
+    ) -> bool | None:
+        assert self._state in (_State.ENTERED, _State.EXPIRING)
+    
+        if self._timeout_handler is not None:
+            self._timeout_handler.cancel()
+            self._timeout_handler = None
+    
+        if self._state is _State.EXPIRING:
+            self._state = _State.EXPIRED
+    
+            if self._task.uncancel() <= self._cancelling and exc_type is not None:
+                # Since there are no new cancel requests, we're
+                # handling this.
+                if issubclass(exc_type, exceptions.CancelledError):
+>                   raise TimeoutError from exc_val
+E                   TimeoutError
+
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/timeouts.py:114: TimeoutError
+=========================== short test summary info ============================
+FAILED service/inference/tests/test_vllm.py::test_disconnect_waits_for_native_abort_and_close_before_slot_reuse
+1 failed, 1 passed in 0.94s

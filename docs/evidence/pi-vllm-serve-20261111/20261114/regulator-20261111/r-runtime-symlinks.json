@@ -1,0 +1,22 @@
+[
+  {
+    "path": "env/bin/python",
+    "target": "python3",
+    "actual": "python3"
+  },
+  {
+    "path": "env/bin/python3",
+    "target": "/usr/bin/python3",
+    "actual": "/usr/bin/python3"
+  },
+  {
+    "path": "env/bin/python3.10",
+    "target": "python3",
+    "actual": "python3"
+  },
+  {
+    "path": "env/lib64",
+    "target": "lib",
+    "actual": "lib"
+  }
+]

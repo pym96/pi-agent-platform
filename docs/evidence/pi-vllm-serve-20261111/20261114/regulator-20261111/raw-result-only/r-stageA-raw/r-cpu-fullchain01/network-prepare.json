@@ -1,0 +1,61 @@
+{
+  "network_id": "0fbb2c5db34414e1ddbaf17019e9f4707f07f9164ee5b75ceafa811a147c28d1",
+  "network_name": "pi-vllm24-r-r-cpu-fullchain01",
+  "labels": {
+    "com.docker.compose.project": "pi-vllm24-r",
+    "execution-sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+    "pi24.nonce": "r-cpu-fullchain01",
+    "workorder": "24"
+  },
+  "internal": true,
+  "receipts": [
+    {
+      "command": [
+        "ps",
+        "-a",
+        "-q",
+        "--no-trunc",
+        "--filter",
+        "label=com.docker.compose.project=pi-vllm24-r"
+      ],
+      "start": 1794406826.3666472,
+      "end": 1794406826.3807952,
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "network",
+        "create",
+        "--internal",
+        "--label",
+        "workorder=24",
+        "--label",
+        "execution-sha=a5f161b65126d3f5cbd9670bd85099217f38e750",
+        "--label",
+        "com.docker.compose.project=pi-vllm24-r",
+        "--label",
+        "pi24.nonce=r-cpu-fullchain01",
+        "pi-vllm24-r-r-cpu-fullchain01"
+      ],
+      "start": 1794406826.3808064,
+      "end": 1794406826.4988997,
+      "exit": 0,
+      "stdout": "0fbb2c5db34414e1ddbaf17019e9f4707f07f9164ee5b75ceafa811a147c28d1\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "network",
+        "inspect",
+        "0fbb2c5db34414e1ddbaf17019e9f4707f07f9164ee5b75ceafa811a147c28d1"
+      ],
+      "start": 1794406826.4989192,
+      "end": 1794406826.5124652,
+      "exit": 0,
+      "stdout": "[\n    {\n        \"Name\": \"pi-vllm24-r-r-cpu-fullchain01\",\n        \"Id\": \"0fbb2c5db34414e1ddbaf17019e9f4707f07f9164ee5b75ceafa811a147c28d1\",\n        \"Created\": \"2026-11-11T22:20:26.390869047+08:00\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": {},\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.22.0.0/16\",\n                    \"Gateway\": \"172.22.0.1\"\n                }\n            ]\n        },\n        \"Internal\": true,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Containers\": {},\n        \"Options\": {},\n        \"Labels\": {\n            \"com.docker.compose.project\": \"pi-vllm24-r\",\n            \"execution-sha\": \"a5f161b65126d3f5cbd9670bd85099217f38e750\",\n            \"pi24.nonce\": \"r-cpu-fullchain01\",\n            \"workorder\": \"24\"\n        }\n    }\n]\n",
+      "stderr": ""
+    }
+  ]
+}

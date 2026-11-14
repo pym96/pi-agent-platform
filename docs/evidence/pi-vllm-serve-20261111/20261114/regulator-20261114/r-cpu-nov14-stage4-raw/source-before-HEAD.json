@@ -1,0 +1,13 @@
+{
+  "name": "source-before-HEAD",
+  "args": [
+    "git",
+    "rev-parse",
+    "HEAD"
+  ],
+  "start": 1794621761.5217211,
+  "end": 1794621761.523397,
+  "exit": 0,
+  "stdout": "471a317ef687a168306608b1bece931f9b3a2b63\n",
+  "stderr": ""
+}

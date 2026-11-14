@@ -1,0 +1,235 @@
+{
+  "schema": "pi24-R-ownnormal02-independent-real-review/v1",
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "GO_sha256": "ab31c89f744e9d94af7f6682596f5c85b3361b9ee034f8d1210efe086874f9d6",
+  "status": "NORMAL_REAL_MATRIX_STAGE_PASS_NOT_FINAL_ACCEPTED",
+  "criteria": {
+    "C-G2-01@1.0": "normal actual successful direct/bridge streams and true native token usage independently corroborated; negative CPU evidence reused",
+    "C-G2-02@1.0": "seven nonoverlapping executions+native settlement; direct cancel and actual running APIrestart abort acknowledged before slot reuse; PG3completed1interrupted1cancelled, same-sessionblocked/noresend, new-session128success",
+    "C-G2-03@1.1": "Own original R7steps now actual covered; B originalnormal/deadline/recovery/fallback separate independentreports remain; finalEvidenceCI still pending",
+    "C-G2-04@1.4": "exact9ea/sourceCI5/phase82f/GOab31/originalRplan1531 bound; manifest139 matches raw; GPU0 dual idle10s and actualquery originals;4containers/networkremoved+postGPUempty independently checked; final exactSHA EvidenceCI/Handoff still pending"
+  },
+  "native": [
+    {
+      "native_id": "1d2361c5107a40f09f8ea269e0eb2c89",
+      "calls": 1,
+      "prompt_tokens": 35,
+      "observed_output_tokens": 16,
+      "budget": 16,
+      "aborted": false,
+      "settled": true
+    },
+    {
+      "native_id": "ab36018cb4c646aaad9c31e90be960b0",
+      "calls": 2,
+      "prompt_tokens": 65,
+      "observed_output_tokens": 128,
+      "budget": 128,
+      "aborted": false,
+      "settled": true
+    },
+    {
+      "native_id": "bbc0ff27caf249fe9f8b7ceb81a88551",
+      "calls": 3,
+      "prompt_tokens": 36,
+      "observed_output_tokens": 1,
+      "budget": 128,
+      "aborted": true,
+      "settled": true
+    },
+    {
+      "native_id": "62b62d3f7b2b4872b3d41357d4d3c89c",
+      "calls": 4,
+      "prompt_tokens": 36,
+      "observed_output_tokens": 16,
+      "budget": 16,
+      "aborted": false,
+      "settled": true
+    },
+    {
+      "native_id": "7034e155b9014af889932ac05374a74b",
+      "calls": 5,
+      "prompt_tokens": 69,
+      "observed_output_tokens": 128,
+      "budget": 128,
+      "aborted": false,
+      "settled": true
+    },
+    {
+      "native_id": "a712cd426c9d4e4a96b0cd8b89bafb4f",
+      "calls": 6,
+      "prompt_tokens": 68,
+      "observed_output_tokens": 5,
+      "budget": 128,
+      "aborted": true,
+      "settled": true
+    },
+    {
+      "native_id": "af9a93addc2b4fb9901240d24dd90c43",
+      "calls": 7,
+      "prompt_tokens": 66,
+      "observed_output_tokens": 128,
+      "budget": 128,
+      "aborted": false,
+      "settled": true
+    }
+  ],
+  "successful_direct": [
+    {
+      "request": "001",
+      "usage": {
+        "prompt_tokens": 35,
+        "completion_tokens": 16,
+        "total_tokens": 51
+      },
+      "finish_reason": "length"
+    },
+    {
+      "request": "012",
+      "usage": {
+        "prompt_tokens": 36,
+        "completion_tokens": 16,
+        "total_tokens": 52
+      },
+      "finish_reason": "length"
+    }
+  ],
+  "successful_platform": [
+    {
+      "task": "f95969a8cf264463fb93f59c210e55ff",
+      "session": "g2-r-platform",
+      "usage": {
+        "prompt_tokens": 65,
+        "completion_tokens": 128,
+        "total_tokens": 193
+      },
+      "events": 133,
+      "replay_events": 0
+    },
+    {
+      "task": "0d70197a37cb63a6de22e768f1865aef",
+      "session": "g2-r-sse",
+      "usage": {
+        "prompt_tokens": 69,
+        "completion_tokens": 128,
+        "total_tokens": 197
+      },
+      "events": 133,
+      "replay_events": 129
+    },
+    {
+      "task": "0711759be914942351feaf1b35527c34",
+      "session": "g2-r-new",
+      "usage": {
+        "prompt_tokens": 66,
+        "completion_tokens": 128,
+        "total_tokens": 194
+      },
+      "events": 133,
+      "replay_events": 0
+    }
+  ],
+  "native_start_settled": 7,
+  "native_nonoverlap": true,
+  "scheduler_abort_ack_count": 2,
+  "actual_client_POST": 9,
+  "direct_POST": 3,
+  "platform_POST_including429": 6,
+  "PG_task_status": {
+    "completed": 3,
+    "interrupted": 1,
+    "cancelled": 1
+  },
+  "PG_events": 409,
+  "native_restart_witness": {
+    "native_id": "a712cd426c9d4e4a96b0cd8b89bafb4f",
+    "unfinished": true,
+    "calls_before": 5,
+    "calls_at_restart": 6,
+    "PG_before": "running+queued",
+    "actual_owned_API_KILL_start": true
+  },
+  "watch_samples": 49,
+  "NVML_actual_queries": 57,
+  "GPU0_dual_idle_separation_s": 10.092572212219238,
+  "device_charge_conservative_Created_to_removed_s": 35.16040301322937,
+  "R_device_cumulative_upper_after": 35.16040301322937,
+  "host_RSS_max_bytes": 163549184,
+  "compose_CPU_RAM": {
+    "CPU": 10,
+    "RAM_GiB": 35,
+    "containers": 4
+  },
+  "all_owned_removed_at_closeout": true,
+  "raw_archive_sha256": "133cc2ba55277dc08a81018fcca8dd69f0c02e50f1621929e6f4492eddddc785",
+  "raw_manifest_sha256": "fe126c46850846ce04e70dd380f25ed7687db8306ee13ea7e91b66b9615848b1",
+  "raw_manifest_count": 139,
+  "recompute_notes": [
+    "Raw PG json_agg array order is unspecified; sort committed unique event id, compare to actual platform SSE body parsed id/kind/task/data.",
+    "OpenAI oracle is independent existing R parser, not Product oracle. Native usage is actual tokenID length, not content chunks.",
+    "All native/model comparisons use same explicit model-monotonic clock; Docker Created/removal and GO use UTC epoch; no cross-clock subtraction.",
+    "No retokenization of chat template on Mac; actual engine native prompt IDs cross-counted against raw protocol and bridge result. Actual mapped requests/task/modelCall correlated via bridge+PG.",
+    "Private ownR audit reuses corrected independentB audit logic with originalR7 native mapping. Unreleased draft summary still had B GO shorthand/printedPOST11 despite actual assertions and reportcounts9; corrected narrative before handoff, raw and experiment unchanged."
+  ],
+  "limits": [
+    "Own independent R realGPU execution, original raw independently recomputed; source Product never edited by R.",
+    "V1 chunkedprefill true is baseline engine default, not measured optimization.",
+    "This functional matrix is single-slot; no throughput/TTFT/P95/C10K benefit claim.",
+    "B originalnormal/deadline/recovery/fallback and ownRactualnormal now all separately stage-reviewed. Final EvidenceCI/Handoff exactSHA and finalVerdict still required.",
+    "Original expiredGO/HOLD and earlier failures/cost remain; no budget reset."
+  ],
+  "original_plan_progress": {
+    "planned": [
+      "r-direct16",
+      "r-platform",
+      "r-cancel128",
+      "r-after-cancel16",
+      "r-sse-replay",
+      "r-api-restart",
+      "r-new-session"
+    ],
+    "completed": [
+      "r-direct16",
+      "r-platform",
+      "r-cancel128",
+      "r-after-cancel16",
+      "r-sse-replay",
+      "r-api-restart",
+      "r-new-session"
+    ],
+    "not_completed": []
+  },
+  "planned_POST_conservation": {
+    "planned": 9,
+    "sent": 9,
+    "not_sent": 0,
+    "complete": 5,
+    "rejected": 1,
+    "failed_interrupted": 1,
+    "cancelled_direct_and_queued": 2,
+    "unknown": 0,
+    "basis": "Two successfuldirect + three successfulplatform; one same-session429; one APIinterrupted; one directdisconnect+nativeabort and one queuedcancelled. SDKACK alone never completed."
+  },
+  "actual_resource_release_report_sha256": "7d5fc979d1ca97aae898b52a9cc762cfc92cadb39dcb1a035e445abfb400d111",
+  "actual_CPU_ledger": [
+    {
+      "file": "R-NORMAL02-GO-STAGE-TRANSPORT.json",
+      "sha256": "b332d2ad99d8f24a50804cb71e547821f49d33a60a892358ff17fcfd9719c093",
+      "wall_s": 0.2599608898162842,
+      "ceil_s": 1
+    },
+    {
+      "file": "R-NORMAL02-FOREGROUND-TRANSPORT-RESULT.json",
+      "sha256": "8d83ef97bab10f705d0785a71065a406e62c2747cd379b9efa466da826c9ae29",
+      "wall_s": 74.10368824005127,
+      "ceil_s": 75
+    },
+    {
+      "file": "R-NORMAL02-RAW-COLLECTION-SSH.json",
+      "sha256": "ca4a02ba24288aeca430ee6a9dad76af7d7835647a85bfb586c2dab21548565b",
+      "wall_s": 1.1610081195831299,
+      "ceil_s": 2
+    }
+  ],
+  "recompute_script_sha256": "9c4ffd509bab280bbeac1cbace4ae5589a2d118eb77c25e947baba8285fb71f2"
+}

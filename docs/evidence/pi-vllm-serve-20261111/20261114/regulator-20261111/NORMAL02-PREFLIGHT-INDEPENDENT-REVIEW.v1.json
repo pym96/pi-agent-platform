@@ -1,0 +1,42 @@
+{
+  "schema": "pi24-regulator-normal02-preflight-HOLD/v1",
+  "at": 1794409982.3816729,
+  "source_sha": "471a317ef687a168306608b1bece931f9b3a2b63",
+  "result": "GPU0_BUSY_OR_IDENTITY_UNKNOWN_PREFLIGHT_REFUSAL; NO MODEL EXECUTION; not actual matrix coverage",
+  "raw_archive_sha256": "0bd005aef3058a727ddc9843ce5bc7e5f61c79b39e97aa87a6f9e49c86a2671e",
+  "manifest_sha256": "add93f02170a37c437a146f0b1122dea3935f4651150ad954e1edac749c96073",
+  "actual_raw_files_verified": 9,
+  "preflight_error_exact": "Execution failed: ValueError('GPU0 busy/identity unknown')",
+  "later_actual_GPU0_snapshot": {
+    "uuid": {
+      "exit": 0,
+      "stdout": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead\n",
+      "stderr": ""
+    },
+    "processes": {
+      "exit": 0,
+      "stdout": "4147199, GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead\n",
+      "stderr": ""
+    }
+  },
+  "PID_owner": "unknown; post_snapshot PID4147199 not attributed to any owner; untouched",
+  "first_preflight_snapshot_limitation": "Product aborts before writing preflight.json on first busy/identity failure; exact first PID not persisted. Later post snapshot is actual4147199; do not claim first/later PID same from inference.",
+  "source_control_flow": "GPU preflight is before consumed nonce/outputrun/Compose. Raw confirms run_exists=false, consumed_nonce_exists=false, no owned containers.",
+  "own_new_device_s": 0,
+  "own_new_native_generate": 0,
+  "own_new_completionPOST": 0,
+  "new_zero_basis": "No task container/runtime/model/client ever started; unknown external GPU process duration is not counted0 or attributed as taskcost.",
+  "B_prior_conservative_device_s": 55.169294118881226,
+  "cleanup": {
+    "B_internal_net39d_exact_removed": true,
+    "B_owned_containers_and_networks": 0,
+    "R_inert_network_efda_preserved": true,
+    "conditional_three_network_CPU_GO_not_activated": true,
+    "actual_lastinventory_epoch": 1794409819.5770926,
+    "release_sha256": "248c00a9e7fbba0c41b3032a7c906e4359a40e5def9f8420362d8a9c833dfd9b"
+  },
+  "blocking_Product_findings": [],
+  "remaining_blocker": "External GPU0 availability unknown; registered real B/R matrices still not covered.",
+  "no_retry_authorization": true,
+  "technical_final_acceptance": false
+}

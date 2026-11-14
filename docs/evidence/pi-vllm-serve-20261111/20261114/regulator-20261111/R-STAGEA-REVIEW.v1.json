@@ -1,0 +1,201 @@
+{
+  "schema": "pi24-independent-regulator-stageA/v1",
+  "at": 1794407207.7639549,
+  "role": "Regulator Agent",
+  "issue": 24,
+  "scope": "CPU_SOURCE_STAGEA_ONLY",
+  "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+  "remote_ref": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+  "clean_local_source": true,
+  "contracts": {
+    "C-G2-01": "1.0",
+    "C-G2-02": "1.0",
+    "C-G2-03": "1.1",
+    "C-G2-04": "1.2"
+  },
+  "CPU": {
+    "fullchain": {
+      "planned_steps": 7,
+      "completed": 7,
+      "native_fixture_start_settle": 7,
+      "PG_tasks": {
+        "completed": 3,
+        "interrupted": 1,
+        "cancelled": 1
+      },
+      "PG_events": 71,
+      "SSE_replay_PG_exact_events": 21,
+      "client_POSTs": 9,
+      "current_running_restart_calls": [
+        5,
+        6
+      ],
+      "unfinished_native_id": "138df2618e994df3b8857d7d640cf483"
+    },
+    "required_serving_tests": {
+      "executed": 11,
+      "skipped": 0
+    },
+    "independent_real_HTTP_protocol_cases": 26,
+    "independent_real_HTTP_delayed_and_failed_utility_ACK_cases": 2,
+    "actual_cached_fallback_native_hardstop": {
+      "elapsed_s": 11.205502033233643,
+      "native_limit_s": 8.544049739837646,
+      "native_exit": 124,
+      "stopped_before_deadline": true,
+      "runtime": "runc",
+      "device_requests": null,
+      "GPU_exposed": false
+    }
+  },
+  "RO_hashes": {
+    "start": 1794406861.8622687,
+    "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+    "affinity": [
+      0,
+      1
+    ],
+    "results": [
+      {
+        "kind": "runtime",
+        "manifest_sha256": "8399994fa82aac42c3cd82a0f3e697bb46f70e16d4ba62969a13ce3a76fc8820",
+        "count": 47523,
+        "bytes": 7361033759,
+        "verified": true
+      },
+      {
+        "kind": "model",
+        "manifest_sha256": "4380c0c2174d1ba6a4698f37d06d05cfb01d3652a19fccdeeb414a96b573a1a8",
+        "count": 16,
+        "bytes": 16397474242,
+        "verified": true
+      },
+      {
+        "kind": "node",
+        "path": "/media/usv012/pjx/pi-agent-platform/experiments/1/toolchains/node-v22.23.3/bin/node",
+        "sha256": "fde6a4bf8d0562f7751d1a2d6cb9b417c4cfe107bbcb0aa3e9a24e125e348f48",
+        "bytes": 124827920,
+        "verified": true
+      },
+      {
+        "kind": "api",
+        "path": "/media/usv012/pjx/pi-agent-platform/experiments/13-qwen-load-20261107/builder/source/service/bin/service",
+        "sha256": "9042a98be49b12a6a18274f96927864d792ef88dee0d752e5b5fc6f069dac87e",
+        "bytes": 16561288,
+        "verified": true
+      },
+      {
+        "kind": "sdklock",
+        "path": "/media/usv012/pjx/pi-agent-platform/experiments/3/builder/source/service/pi/package-lock.json",
+        "sha256": "06267cf15e35052de5e4a518d43d640b8183c00c66be8c18d7c4b66078e08a6c",
+        "bytes": 55985,
+        "verified": true
+      },
+      {
+        "kind": "sdk",
+        "manifest_sha256": "fac12b65a96b8a7614bc17376b92e03de8a100060978758c65d2134c8b6cd7d3",
+        "count": 15027,
+        "bytes": 111572401,
+        "verified": true
+      },
+      {
+        "kind": "fallback-deps",
+        "manifest_sha256": "0daa116e06671a31c9b57f69a7664aa30c5e33d04898eda18f08451bfa93a1e3",
+        "count": 2349,
+        "bytes": 69437791,
+        "verified": true
+      }
+    ],
+    "source_clean": true,
+    "end": 1794406920.4776742,
+    "success": true
+  },
+  "runtime_symlinks": [
+    {
+      "path": "env/bin/python",
+      "target": "python3",
+      "actual": "python3"
+    },
+    {
+      "path": "env/bin/python3",
+      "target": "/usr/bin/python3",
+      "actual": "/usr/bin/python3"
+    },
+    {
+      "path": "env/bin/python3.10",
+      "target": "python3",
+      "actual": "python3"
+    },
+    {
+      "path": "env/lib64",
+      "target": "lib",
+      "actual": "lib"
+    }
+  ],
+  "CI1": {
+    "run_id": 43036823260,
+    "source": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+    "status": "completed",
+    "conclusion": "success",
+    "official_artifact": 13862998621,
+    "official_digest": "sha256:176ede46fd9723ba9fd1370d6e823db9109f2c617fcbad0ccffd0ba72076f840",
+    "actual_zip_and_extracted_1670_files_checked": true,
+    "required_suites_skip0": true
+  },
+  "source_and_CPU_blockers": [],
+  "release": {
+    "schema": "pi24-regulator-stageA-local-release/v1",
+    "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+    "stage_first_server_epoch": 1794406793.48536,
+    "last_server_inventory_epoch": 1794407097.2517564,
+    "SCP_complete_epoch": 1794407146.6619542,
+    "server_cpu_conservative_upper_s": 353.17659425735474,
+    "absolute_stop_epoch": 1794407700,
+    "raw_archive_sha256": "974de4132da9a6e8830abf608606e049b6afb5e308cea2cb922c9d32be6de1ed",
+    "server_release_record_sha256": "0521713706bdc0fa6bdcb7450a1a41109db2139badbd93514cc2cef06eb1a257",
+    "fullchain_review_sha256": "c9b133bd77946ce98e18f23ec3b6aa955a3ee81ab13b2eab067d5ac43363890b",
+    "CI1_artifact_review_sha256": "f3240abe64d4f157c2bb9395ec7af70598a4dcddc28c069a9f7d731cd4057e5a",
+    "owned_compute_containers": 0,
+    "owned_watch_processes": 0,
+    "retained_inert_network_id": "2874821bc5f8c03dc03e5e6aa32a77167f77e97e5f28168fa123f7f83cf77d1f",
+    "retained_network_nonce": "pi24-r-normal01",
+    "server_new_regular_bytes_before_release_record": 101392952,
+    "local_state_regular_bytes": 169493480,
+    "real_GPU_seconds": 0,
+    "real_native_generate": 0,
+    "real_completion_POSTs": 0,
+    "technical_result": "CPU_STAGEA_PASS_ONLY; notfinalaccepted/noGPUauthority",
+    "server_slot": "RELEASED; no further server action without explicit GO"
+  },
+  "retained_network": {
+    "id": "2874821bc5f8c03dc03e5e6aa32a77167f77e97e5f28168fa123f7f83cf77d1f",
+    "nonce": "pi24-r-normal01",
+    "Internal": true,
+    "Containers": {},
+    "source": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+    "project": "pi-vllm24-r"
+  },
+  "preserved_private_probe_error": {
+    "record": "r-close-private-probe-failure.v1.json",
+    "description": "Own accounting initially expected permission denial at parent pg-data, actual nested pg-data/pgdata; helper completed/cleaned, corrected own assertion only. Not Product failure; never assumed unreadable bytes0."
+  },
+  "known_limits": [
+    "Native fixture synthetic; no actual vLLM engine execution in this StageA.",
+    "Logical scheduler abort ACK behavior in real vLLM remains to be observed on actual GPU; no physical kernel preemption claim.",
+    "Original fallback CPU tests prove native timeout wiring/process stop; actual Transformers GPU fallback still required in B matrix.",
+    "C03 real B/R Qwen matrices, native source/token IDs/usage, replay/restart, real deadline settlement and final Evidence identity still pending.",
+    "No batching/chunkedprefill/KV optimization or throughput/p95 benefit claimed."
+  ],
+  "recommendation": "No known source/CPU blocker to Master issuing exactly scoped first B real-GPU GO under unchanged WorkOrder. This document does not authorize GPU, final acceptance, integration, fact promotion or disclosure.",
+  "technical_final_acceptance": false,
+  "evidence_bindings": {
+    "R-STAGEA-LOCAL-RELEASE.v1.json": "b8c82f1583aa5bb23d22848a1dd808f90d9ab30a98237e53c65c8a7738052711",
+    "R-STAGEA-RELEASE.v1.json": "0521713706bdc0fa6bdcb7450a1a41109db2139badbd93514cc2cef06eb1a257",
+    "r-stageA-raw.tgz": "974de4132da9a6e8830abf608606e049b6afb5e308cea2cb922c9d32be6de1ed",
+    "R-CPU-STAGEA-FULLCHAIN-REVIEW.v1.json": "c9b133bd77946ce98e18f23ec3b6aa955a3ee81ab13b2eab067d5ac43363890b",
+    "CI1-INDEPENDENT-ARTIFACT-REVIEW.v1.json": "f3240abe64d4f157c2bb9395ec7af70598a4dcddc28c069a9f7d731cd4057e5a",
+    "stageA-serve-tests.log": "6e24af9bbdc9ef8f1584abbb684b194272ef963db01bf4e8584d6b3bf482c48f",
+    "stageA-close-transport.log": "e74fbe8c0bb6c8c9148a4b41fa2501451d3d7229fd582c817d6a28ca23d0c361",
+    "stageA-close02-transport.log": "e46249320ee268eced71cd9c09561ace7cc28d9af62d4ff265a99825d2af8580"
+  }
+}

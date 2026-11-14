@@ -1,0 +1,60 @@
+{
+  "start": 1794410341.8137417,
+  "end": 1794410371.8599892,
+  "samples": [
+    {
+      "offset_s": 0,
+      "epoch": 1794410341.8138044,
+      "queries": {
+        "uuid": {
+          "exit": 0,
+          "stdout": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead\n",
+          "stderr": ""
+        },
+        "compute": {
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "offset_s": 15,
+      "epoch": 1794410356.8287523,
+      "queries": {
+        "uuid": {
+          "exit": 0,
+          "stdout": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead\n",
+          "stderr": ""
+        },
+        "compute": {
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "offset_s": 30,
+      "epoch": 1794410371.8287446,
+      "queries": {
+        "uuid": {
+          "exit": 0,
+          "stdout": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead\n",
+          "stderr": ""
+        },
+        "compute": {
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    }
+  ],
+  "device_query_index": 0,
+  "CUDA_VISIBLE_DEVICES": "0",
+  "model_calls": 0,
+  "container_started": false,
+  "PID_introspection": false,
+  "release": true
+}

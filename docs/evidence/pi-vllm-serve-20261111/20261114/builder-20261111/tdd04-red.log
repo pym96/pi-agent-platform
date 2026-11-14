@@ -1,0 +1,32 @@
+...F                                                                     [100%]
+=================================== FAILURES ===================================
+________ test_load_selects_fixed_v1_uni_configuration_without_fallback _________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x107a3f230>
+
+    def test_load_selects_fixed_v1_uni_configuration_without_fallback(monkeypatch):
+        import sys
+        from types import ModuleType
+        configured={};engine=Engine()
+        async def tokenizer():return Tokenizer()
+        engine.get_tokenizer=tokenizer
+        class Args:
+            def __init__(self,**kw):configured.update(kw)
+        class AsyncEngine:
+            @classmethod
+            def from_engine_args(cls,args):return engine
+        for name,attrs in {
+            'vllm':{'__version__':'0.8.5.post1+cu118','SamplingParams':lambda **kw:NS(**kw)},
+            'vllm.engine':{},'vllm.engine.arg_utils':{'AsyncEngineArgs':Args},
+            'vllm.v1':{},'vllm.v1.engine':{},'vllm.v1.engine.async_llm':{'AsyncLLM':AsyncEngine},
+        }.items():
+            module=ModuleType(name);module.__dict__.update(attrs);monkeypatch.setitem(sys.modules,name,module)
+        monkeypatch.setenv('VLLM_USE_V1','1')
+>       backend=asyncio.run(VllmBackend.load('/model'))
+                            ^^^^^^^^^^^^^^^^
+E       AttributeError: type object 'VllmBackend' has no attribute 'load'
+
+service/inference/tests/test_vllm.py:109: AttributeError
+=========================== short test summary info ============================
+FAILED service/inference/tests/test_vllm.py::test_load_selects_fixed_v1_uni_configuration_without_fallback
+1 failed, 3 passed in 0.16s

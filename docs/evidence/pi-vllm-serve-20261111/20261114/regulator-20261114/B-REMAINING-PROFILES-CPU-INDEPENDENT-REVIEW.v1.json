@@ -1,0 +1,150 @@
+{
+  "schema": "pi24-R-Bremaining-profiles-CPUstage-review/v1",
+  "decision": "THREE_PROFILE_STAGED_IDENTITIES_PASS; supports separately bound deadline then recovery/fallback GO, no model authorization or final accepted",
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "phase_sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+  "handoff_sha256": "d355327f386c5be4cd131f2a92250f0e73ea1010ac8c788ca8642692a30df4fe",
+  "actual_CPU_commands": 13,
+  "wall_s": 0.9174609184265137,
+  "source_clean_and_unchanged_bindings": true,
+  "networks": {
+    "deadline": {
+      "Id": "56dcda90e41ec939466fe2a076d54d6c0af3f6a98ceebf72c470609736c4a4ce",
+      "Internal": true,
+      "EnableIPv6": false,
+      "Containers": {},
+      "Labels": {
+        "com.docker.compose.project": "pi-vllm24-b",
+        "execution-sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+        "pi24.nonce": "pi24-b-nov14-deadline01",
+        "pi24.phase-contract-sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+        "workorder": "24"
+      }
+    },
+    "recovery": {
+      "Id": "29eaf5e27b7dd58ff2296a85d8b82c798672194479aec2995a32cbaa88d98ffc",
+      "Internal": true,
+      "EnableIPv6": false,
+      "Containers": {},
+      "Labels": {
+        "com.docker.compose.project": "pi-vllm24-b",
+        "execution-sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+        "pi24.nonce": "pi24-b-nov14-recovery01",
+        "pi24.phase-contract-sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+        "workorder": "24"
+      }
+    },
+    "fallback": {
+      "Id": "cf97a390694df09401f1b2eeee04f7451fbb3d0c7c2e6b65e07ac63df00000c4",
+      "Internal": true,
+      "EnableIPv6": false,
+      "Containers": {},
+      "Labels": {
+        "com.docker.compose.project": "pi-vllm24-b",
+        "execution-sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+        "pi24.nonce": "pi24-b-nov14-fallback01",
+        "pi24.phase-contract-sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+        "workorder": "24"
+      }
+    }
+  },
+  "actual_nonce_markers": {
+    "pi24-b-nov14-normal02": {
+      "exists": true,
+      "mode": 33204,
+      "bytes": 0,
+      "mtime_ns": 1794624914562230401
+    },
+    "pi24-b-nov14-deadline01": {
+      "exists": false
+    },
+    "pi24-b-nov14-recovery01": {
+      "exists": false
+    },
+    "pi24-b-nov14-fallback01": {
+      "exists": false
+    }
+  },
+  "templates": [
+    {
+      "profile": "deadline",
+      "sha256": "9b9717dbde2494e86fc7e3419b62cb6fbce0c5ba3498a062ec8bf2058ca09001",
+      "only_frozen_binding_substitutions": true
+    },
+    {
+      "profile": "recovery",
+      "sha256": "dde221e682c9b11cb157d9d66c69c974ada629eb45d9aacdcdbce3391f6aef57",
+      "only_frozen_binding_substitutions": true
+    },
+    {
+      "profile": "fallback",
+      "sha256": "884cde55d9135ef3658d832ffced23ea18edca79a4d3ddd19f8e4e920f9223b4",
+      "only_frozen_binding_substitutions": true
+    }
+  ],
+  "query_log_preserved_prefix": {
+    "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/NVML-QUERY-RAW-NOV14-V2.jsonl",
+    "sha256": "5d25092faa24dfc7f4ce4341127448c11ad21e4d7bca3942845c475e77422c8e",
+    "bytes": 30511,
+    "method": "full existing bytes hashed; no truncate/query invoked"
+  },
+  "query_log_description_correction": "query_binding.log_exists=false is inherited historical normal02-preparation field, not current absence: current actual full prefix30511B exists and matches independently sealed normal02 log. Explicit actual prefix supersedes that old existence snapshot; no truncate/query. New GO should preserve this meaning.",
+  "CPU_upper_s": 4388.4357385,
+  "original600_remaining_at_prep": 438,
+  "new1100_consumed_s": 162,
+  "new1100_remaining_s": 938,
+  "allocation_sha256": "399747ecbc6132dc9209e02408b2d81c103b49e0bab859f6d8361637e9a10d75",
+  "device_native_POST_unchanged": {
+    "B_device_s": 94.72067499160767,
+    "native": 9,
+    "completion_POST": 11
+  },
+  "resources": {
+    "CPU_probe_affinity": [
+      0,
+      1
+    ],
+    "CPU_probe_RSS_bytes": 17129472,
+    "free_bytes": 3047968899072,
+    "B_containers_after": 0,
+    "B_emptyInternal_networks_retained": 3,
+    "all_SSH_ended": true
+  },
+  "disk_limits": "Fresh readable B tree 126484352B apparent/133943296B allocated excludes6physicalPG, errors0. Old complete R B+R486552798B/500457472B and normal actual PGdu48273926B retained. Fresh completePG total unknown; no error hidden or PGzero claim.",
+  "limits": [
+    "No R SSH/GPU/model/CI/new suite.",
+    "Stages and free bytes are timestamped observations; original runtime hash/GPU0 dual-idle/watch/native-stop gates remain inside each separately issued exact model GO.",
+    "Only normal real stage passed; actual deadline/recovery/fallback and own R real normal matrix/final sameSHA EvidenceCI remain.",
+    "GlobalCPU5400/GPU/CI/phase deadlines unchanged; local subreserve600->1100 is Master prospective reallocation, no costs reset."
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-master-20261114/B-REMAINING-PROFILES-CPU-GO01.json",
+      "sha256": "d0c4d49fe6c92574df1decb921bcba74b1218bc98dfcf476ef697fbc939391b3"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/REMAINING-PROFILES-CPU-PREP01-HANDOFF-RELEASE.v1.json",
+      "sha256": "d355327f386c5be4cd131f2a92250f0e73ea1010ac8c788ca8642692a30df4fe"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/REMAINING-PROFILES-CPU-PREP01-SSH.json",
+      "sha256": "4f48c1a021214bd757b59c680cb5d4a753a4d5c237a2b74ba2604815f125058f"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/REMAINING-PROFILES-CPU-PREP01.json",
+      "sha256": "098071a06d13b2f5fd63755c21a3c91b318e37f36dce3ab22a4802cbe907bd02"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/REMAINING-PROFILES-CPU-PREP01-REMOTE.py",
+      "sha256": "4f8ed10e9d71436cbf93e1bf98b299638753523aea1cac39bf60a65703891aae"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-master-20261114/CPU-PREP-ALLOCATION.v2.json",
+      "sha256": "399747ecbc6132dc9209e02408b2d81c103b49e0bab859f6d8361637e9a10d75"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/review_remaining_prep.py",
+      "sha256": "f22b1f8d2f02c27c6b943a5a31979d4c7d352d5ce04ca7a5d14bdb46943282b7"
+    }
+  ]
+}

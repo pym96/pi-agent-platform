@@ -1,0 +1,263 @@
+{
+  "schema": "pi24-Nov14-actual-ledgers/v1",
+  "snapshot": "Builder four profiles fully released; before independently owned R CPU/model execution",
+  "prior_old_CPU_s": 4226.4357385,
+  "global_CPU_limit_s": 5400,
+  "Nov14_subreserve_s": 1100,
+  "Nov14_consumed_s_at_snapshot": 359,
+  "Nov14_remaining_s_at_snapshot": 741,
+  "CPU_cumulative_s_at_snapshot": 4585.4357385,
+  "B_device_total_used_s": 174.16961550712585,
+  "B_device_limit_s": 1200,
+  "B_generations_used": 12,
+  "B_generation_limit": 32,
+  "B_completion_POST_used": 14,
+  "B_POST_limit": 64,
+  "R_device_native_POST_at_this_snapshot": 0,
+  "R_budget": {
+    "device_s": 360,
+    "generation": 8,
+    "POST": 16
+  },
+  "CI_used": 5,
+  "CI_total": 7,
+  "final_main_reserved": [
+    6,
+    7
+  ],
+  "profiles": [
+    {
+      "profile": "NORMAL02",
+      "handoff": "builder-20261114/NORMAL02-HANDOFF-RELEASE.v1.json",
+      "device": {
+        "increment_s": 39.55138087272644,
+        "cumulative_s": 94.72067499160767,
+        "native_cumulative": 9,
+        "completion_POST_cumulative": 11,
+        "device_CID": "3ab3250c77ac219365b79dc377957f0a129494293b91cb41202e86d15ee9b50b",
+        "Created": "2026-11-14T02:55:14.772613019Z",
+        "watch_rm_exit": 0,
+        "watch_rm_end": 1794624954.323994
+      },
+      "CPU": {
+        "prior_s": 4253.4357385,
+        "GO_stage_actual_wall_s": 0.4420359134674072,
+        "GO_stage_ceil_s": 1,
+        "foreground_actual_wall_s": 129.48839712142944,
+        "foreground_ceil_s": 130,
+        "observer_actual_wall_s": 0.42642807960510254,
+        "observer_ceil_s": 1,
+        "collection_actual_wall_s": 1.0081770420074463,
+        "collection_ceil_s": 2,
+        "increment_s": 134,
+        "cumulative_s": 4387.4357385,
+        "new600_remaining_s": 439,
+        "note": "Master chose separate ceil stage1+foreground130; exceeds combined-stage/foreground alternative133 by1s. Preserve reconciliation133 as transparent alternative, authoritative cumulative follows Master134 and does not reset prior ledger."
+      }
+    },
+    {
+      "profile": "DEADLINE01",
+      "handoff": "builder-20261114/DEADLINE01-HANDOFF-RELEASE.v1.json",
+      "device": {
+        "model_CID": "ce766587a118f1fdbd38665bc98fe1488bbd8e8adf3ea4018f8d7580908b89fe",
+        "Created": "2026-11-14T03:16:13.563082367Z",
+        "rm": {
+          "command": [
+            "rm",
+            "ce766587a118f1fdbd38665bc98fe1488bbd8e8adf3ea4018f8d7580908b89fe"
+          ],
+          "start": 1794626195.8099318,
+          "end": 1794626195.8369648,
+          "exit": 0,
+          "stdout": "ce766587a118f1fdbd38665bc98fe1488bbd8e8adf3ea4018f8d7580908b89fe\n",
+          "stderr": ""
+        },
+        "increment_s": 22.273882389068604,
+        "prior_s": 94.72067499160767,
+        "cumulative_s": 116.99455738067627,
+        "native_cumulative": 10,
+        "POST_cumulative": 12
+      },
+      "CPU": {
+        "items": [
+          {
+            "kind": "GOstage",
+            "wall_s": 0.30408596992492676,
+            "ceil_s": 1
+          },
+          {
+            "kind": "wholeforeground",
+            "wall_s": 56.649569034576416,
+            "ceil_s": 57
+          },
+          {
+            "kind": "rawcollection",
+            "wall_s": 0.5716657638549805,
+            "ceil_s": 1
+          }
+        ],
+        "prior_s": 4388.4357385,
+        "increment_s": 59,
+        "cumulative_s": 4447.4357385,
+        "Nov14_subreserve": 1100,
+        "remaining_s": 879
+      }
+    },
+    {
+      "profile": "RECOVERY01",
+      "handoff": "builder-20261114/RECOVERY01-HANDOFF-RELEASE.v1.json",
+      "device": {
+        "model_CID": "cbce2c6a17ecf46fc1963981a1f1e17903e982f8f92bdad772cabaeef4cca997",
+        "Created": "2026-11-14T03:21:30.824539647Z",
+        "rm": {
+          "command": [
+            "rm",
+            "cbce2c6a17ecf46fc1963981a1f1e17903e982f8f92bdad772cabaeef4cca997"
+          ],
+          "start": 1794626512.7462146,
+          "end": 1794626512.7757144,
+          "exit": 0,
+          "stdout": "cbce2c6a17ecf46fc1963981a1f1e17903e982f8f92bdad772cabaeef4cca997\n",
+          "stderr": ""
+        },
+        "increment_s": 21.95117473602295,
+        "prior_s": 116.99455738067627,
+        "cumulative_s": 138.94573211669922,
+        "native_cumulative": 11,
+        "POST_cumulative": 13
+      },
+      "CPU": {
+        "items": [
+          {
+            "kind": "GOstage",
+            "wall_s": 0.2977290153503418,
+            "ceil_s": 1
+          },
+          {
+            "kind": "wholeforeground",
+            "wall_s": 56.0671660900116,
+            "ceil_s": 57
+          },
+          {
+            "kind": "rawcollection",
+            "wall_s": 0.5380499362945557,
+            "ceil_s": 1
+          }
+        ],
+        "prior_s": 4447.4357385,
+        "increment_s": 59,
+        "cumulative_s": 4506.4357385,
+        "Nov14_subreserve": 1100,
+        "remaining_s": 820
+      }
+    },
+    {
+      "profile": "FALLBACK01",
+      "handoff": "builder-20261114/FALLBACK01-HANDOFF-RELEASE.v1.json",
+      "device": {
+        "model_CID": "859dca7d0ecbd93abc99ba831d7f41c71cb0f7c4444afe29d18b0be070e1fd6f",
+        "Created": "2026-11-14T03:27:45.128153377Z",
+        "rm": {
+          "command": [
+            "rm",
+            "859dca7d0ecbd93abc99ba831d7f41c71cb0f7c4444afe29d18b0be070e1fd6f"
+          ],
+          "start": 1794626900.322071,
+          "end": 1794626900.3520367,
+          "exit": 0,
+          "stdout": "859dca7d0ecbd93abc99ba831d7f41c71cb0f7c4444afe29d18b0be070e1fd6f\n",
+          "stderr": ""
+        },
+        "increment_s": 35.223883390426636,
+        "prior_s": 138.94573211669922,
+        "cumulative_s": 174.16961550712585,
+        "native_generation_cumulative": 12,
+        "POST_cumulative": 14
+      },
+      "CPU": {
+        "items": [
+          {
+            "kind": "GOstage",
+            "wall_s": 0.30510902404785156,
+            "ceil_s": 1
+          },
+          {
+            "kind": "wholeforeground",
+            "wall_s": 76.72216510772705,
+            "ceil_s": 77
+          },
+          {
+            "kind": "rawcollection",
+            "wall_s": 0.5209531784057617,
+            "ceil_s": 1
+          }
+        ],
+        "prior_s": 4506.4357385,
+        "increment_s": 79,
+        "cumulative_s": 4585.4357385,
+        "Nov14_subreserve": 1100,
+        "remaining_s": 741
+      }
+    }
+  ],
+  "notes": [
+    "Old costs never reset. Failed Nov11 startup55.169294118881226 seconds remains in cumulative device used.",
+    "CPU charges sum separate actualtransport ceil values, including all file hashing/preflight/foreground, plus observer and collection. CPU wall upper is deliberately conservative; it is not measured GPU duration.",
+    "normal02 formal Master ledger134 supersedes the transparent alternative combined-stage133 in local reconciliation. Both records retained.",
+    "TF actual execute_start/calls1 adds one generation but no fabricated vLLM native-ID trace.",
+    "Suballocation600\u21921100 uses original unallocated global5400; old600 snapshots retained. R future actual costs are to be appended, never inferred zero.",
+    "Physical PG fresh full size after new runs remains unknown in CPUprep; prior independent original full inventory and actual running normal02 PG du48273926 are explicitly scoped snapshots."
+  ],
+  "after_R_own_actual_raw_release": {
+    "CPU_cumulative_s": 4664.4357385,
+    "Nov14_remaining_s": 662,
+    "R_CPUfreeze_increment_s": 1,
+    "R_foreground_stage_collection_increment_s": 78,
+    "R_device_s": 35.16040301322937,
+    "R_native": 7,
+    "R_completion_POST": 9,
+    "B_device_s_unchanged": 174.16961550712585,
+    "B_generations_unchanged": 12,
+    "B_POST_unchanged": 14,
+    "source": "regulator-20261114/R-NORMAL02-RAW-HANDOFF-RELEASE.v1.json",
+    "all_R_handles_ended": "2026-11-14T03:43:21.763500+00:00",
+    "R_containers_networks": 0,
+    "semantic_review": "Stage PASS report3eff0ff397f0fdc68860d6cb504978fc1b1ab576f06eb185b1f6ef1387f24c24; final accepted pending"
+  },
+  "B_request_conservation": {
+    "denominator": "Client generation-bearing POST attempts; excludes SSE subscriptions, health GETs, SQL and private bridge transport metadata. API202 alone is not success; use terminal PG task outcome.",
+    "planned": 14,
+    "sent": 14,
+    "not_sent": 0,
+    "complete": 9,
+    "rejected": 1,
+    "failed": 2,
+    "cancelled": 2,
+    "unknown": 0,
+    "normal02": {
+      "sent": 11,
+      "complete": 7,
+      "rejected": 1,
+      "failed": 1,
+      "cancelled": 2,
+      "unknown": 0,
+      "note": "running API task interrupted=failed; same-session queued task cancelled before native; blocked follow-up429=rejected; direct disconnect=cancelled"
+    },
+    "deadline01": {
+      "sent": 1,
+      "failed": 1,
+      "note": "Expected explicit generation_deadline, protocol-scene success is not a completed generation"
+    },
+    "recovery01": {
+      "sent": 1,
+      "complete": 1
+    },
+    "fallback01": {
+      "sent": 1,
+      "complete": 1
+    },
+    "native_generations": 12,
+    "native_not_executed_POST": 2,
+    "native_not_executed_reason": "normal02 queued task cancelled before execution and blocked429"
+  }
+}

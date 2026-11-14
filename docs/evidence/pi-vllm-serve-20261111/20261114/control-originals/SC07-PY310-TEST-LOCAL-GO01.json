@@ -1,0 +1,35 @@
+{
+  "schema": "pi24-nov14-SC07-local-test-portability-go/v1",
+  "issue": 24,
+  "issued_at": "2026-11-14T02:09:00.624310+00:00",
+  "source_parent": "d42579518034f235a55fdbdbfd1d72b0f1134544",
+  "R_actual_failed_CPU_release_sha256": "96a6710c51555c481fc549f79103fa1a68b713eac1444181113cbd0e56128539",
+  "phase_contract_file": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-master-20261114/PHASE-CONTRACT.v3.json",
+  "phase_contract_sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+  "B_allowed_local_changes": [
+    "service/scripts/vllm-compat/test_contract.py only Path test-double portability preservingoriginalassertions, existingG0helper identities untouched",
+    ".github/workflows existingrequiredCPU workflow only append requiredG0strict16 under actualPython3.10 withhost-backed evidence/TMPDIR; preserveeveryexistingstep andnoGPU/no model",
+    "thisWO Evidence/SOT/README notes; candidate-external sourcebound outer SOURCE literal only"
+  ],
+  "requirements": [
+    "historicaltimefixture remainsfixed andalloldproductiondate/source/resourcegates unchanged",
+    "reproduce oldPath-flavour with actual3.10 if locallyalreadyavailable; noinstall. Otherwise use preservedoldreal3.10Rraw and register newCI3.10+newRsameenvironmentoldPathnegative/fixedpositive beforeclaiming3.10fix",
+    "original16fullsuite retained, no skip/deselectto1/testassertionweakening",
+    "Actual3.10CI should use existingsetupPython step/interpreter, addsmallstrict16 artifactsummary; no new dependencyinstallfor thisfix",
+    "temporary executable fixture directory only existingown/evidence/tmp; no mountflag/capability/hostpermission changes; noexec is inferred inoldraw so preservelimit",
+    "R independent exactnewSHA/oldrednewgreen/G0helperbytes+workflowpreservation before once newsourceCI5 (separateGO)",
+    "R newactualCPU afterward original17serve+16G0/phase/completePGdisk unchanged; oldGO02 consumedfailed, B1839conditionnotactivated and retired for oldsource/phase"
+  ],
+  "noPush_noSSH_noModel_noRerun": true,
+  "local_fix_stop": "2026-11-14T02:25:00Z",
+  "CI_total": 7,
+  "CI_used": 4,
+  "CI_reserved": {
+    "source": 5,
+    "final": 6,
+    "main": 7
+  },
+  "CPU_conservative_before_s": 4240.4357385,
+  "new600_remaining_s": 586,
+  "all_other_time_resource_unchanged": true
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "pi24-R-deadline-GO-local-control/v1",
+  "GO_sha256": "224fd21962f5c692e17ee61bb0d698e9d4cc7ebddb0a48cc92937188c91b3158",
+  "status": "CONTROL_BINDINGS_PASS; not actualdeadline success/finalaccepted",
+  "checks": [
+    "Own actual Product validator real clock independent phasev3 passed.",
+    "Exact stage net56dc/source9ea/nonce deadline01/originalplanbb123/generationtimeout.001/180s stop/outer+shell+wrapper+fixedcarrier agree.",
+    "Historical log_exists false removed; actual 30511B preservedprefix bound and append-only growth explicit.",
+    "CPU4388.4357385/global5400/new1100 remaining938, Bdevice94.72067499160767/native9POST11/CI5of7 preserved.",
+    "Two other prepared B networks and R c61 retained; no authority for other profile."
+  ],
+  "reviewed_at_epoch": 1794626151.645762,
+  "no_R_SSH_GPU": true,
+  "remaining": "Await actual client explicitdeadline + native abortACK -> native_settled -> execute_end/settled and readytrue active0queue0, actual ownedcleanup, raw completeness/device/CPU ledger. Recovery new lifecycle separately authorized later."
+}

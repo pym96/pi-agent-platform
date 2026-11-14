@@ -1,0 +1,95 @@
+{
+  "id": "SC-G2-PHASE-WINDOW-05",
+  "status": "proposal-only-no-code-or-server-authorization",
+  "baseline_candidate": "471a317ef687a168306608b1bece931f9b3a2b63",
+  "observed_problem": {
+    "product": "launch.validate hardcodes B15:20/R15:35/all15:45",
+    "external": "outer hardcodes allstop epoch1794411900; these correctly reject late execution; must not simply bypass guard",
+    "old_phase": "Preserve G2.3 INCOMPLETE, old GO/nonce never extended or reused."
+  },
+  "proposed_interface": {
+    "authority": "New Master-authorized exact-hash GO contains versioned phase_window plus WorkOrder/phase envelope provenance hash. Hash passed at foreground entry binds all times; no env override or inferred current-time extension.",
+    "phase_window_fields": [
+      "id",
+      "start_epoch",
+      "builder_latest_start_epoch",
+      "regulator_latest_start_epoch",
+      "all_owned_stop_epoch",
+      "end_epoch",
+      "contract_sha256"
+    ],
+    "global_constant": "Human global_end remains immutable2026-11-11T18:11:11Z / epoch1794420671",
+    "invariants": [
+      "finite numeric bounds; start<=now<=role latest<=all_owned_stop<=end<=Human global",
+      "B latest<=R latest<=all_owned_stop; role-specific latest applied",
+      "now<GO deadline<=all_owned_stop and <=now+GO max_duration; unchanged B900s/R300s per lifecycle cap",
+      "unknown/missing phase/version/hash rejects before Docker/NVML/model",
+      "past signed phase cannot be revived by deadline edit, reused old nonce or changed hash"
+    ],
+    "single_owner_of_validation": "Product launch.validate owns identity/time validation; external fixed outer calls this exact entry validator before launching, replacing duplicated hardcoded15:45 with same validated deadline. Source/entry hashes bind imported function; fixedtaskset/RSS/exactcleanup behavior unchanged."
+  },
+  "narrow_files": [
+    "service/scripts/vllm-serve/launch.py",
+    "service/scripts/vllm-serve/test_entry.py",
+    "external frozen outer entry (new hash)",
+    "this-workorder README/Evidence/SOT identity notes"
+  ],
+  "tests": [
+    "actual oldsource late-but-authorized futurephase rejected RED; new explicit signed phase accepted GREEN with mocked clock, no Docker/NVML invoked",
+    "wrong role latest/expired/future-start/missing phase/NaN or infinity/inverted boundaries/global overflow/tampered digest rejected before tools",
+    "actual CLI reject and external outer binding/absolute deadline CPU probes; retain existing11 serving tests, default Go/Pi/backend unchanged",
+    "R independently reviews exact new localSHA + actual redgreen; CI source3 once required before realGPU; server freshsource/preflight only by newGO"
+  ],
+  "CI_minimum": {
+    "used": 2,
+    "new_source_required": 1,
+    "final_evidence": 1,
+    "main": 1,
+    "total_needed": 5,
+    "no_rerun_or_default_scope_retest": "one required CI source3 contains affected tests and existing required suites; no new engine install"
+  },
+  "remaining_execution": {
+    "B_minimum_distinct_lifecycles": 4,
+    "reason": "normal fullchain; short server-wide generation-timeout; normal-timeout direct16 recovery; originalTransformers fallback each needs independent config/identity. No runtime timeout toggle/proxy payload rewrite.",
+    "B_caps_seconds": [
+      360,
+      180,
+      180,
+      180
+    ],
+    "B_remaining_reserved_upper_s": 900,
+    "B_already_conservative_device_s": 55.169294118881226,
+    "B_total_upper_if_all_caps_spent": 955.1692941188812,
+    "B_planned_native": 12,
+    "B_planned_completionPOST": 12,
+    "B_cap_still": {
+      "device_s": 1200,
+      "native": 32,
+      "POST": 64
+    },
+    "R_minimum_lifecycles": 1,
+    "R_cap_seconds": 300,
+    "R_planned_native": 7,
+    "R_caps_still": {
+      "device_s": 360,
+      "native": 8,
+      "POST": 16
+    },
+    "CPU_preparation_next_upper_s": 120,
+    "note": "Timings are requested safety budgets, not measured throughput or guaranteed completion. Full async engine startup remains unverified; foreign GPU refuses/interrupts and partial failure stay possible."
+  },
+  "prospective_window_suggestion": {
+    "start": "2026-11-11T15:30:00Z",
+    "B_latest": "2026-11-11T15:55:00Z",
+    "R_latest": "2026-11-11T16:05:00Z",
+    "all_owned_stop": "2026-11-11T16:10:00Z",
+    "phase_end": "2026-11-11T16:25:00Z",
+    "rationale": "20min total requested model envelopes + bounded prep/GO exchanges +15min raw/review/finalCI/main closeout, inside originalHuman18:11:11; Master decides after freshsourceCI and prospective authorization. No current execution permission."
+  },
+  "budgets_not_reset": [
+    "prior device55.169s/native0/POST0; prior failures and CI1/2 retained",
+    "B+R CPU preparation cumulative90min/disk2GiB/local1GiB unchanged",
+    "onlyGPU0UUID/taskset0,1/internal bridge/no external API/model/runtime change",
+    "all C01/C02@1.0 C03@1.1 C04@1.2 unchanged; G3 tuning not included"
+  ]
+}

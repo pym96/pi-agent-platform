@@ -1,0 +1,26 @@
+{
+  "kind": "actual-Docker-CPU-no-GPU-no-model",
+  "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+  "native_sha256": "691f5f862d0191e51ff7062e07da0bd999dc983a0a334e0012a7458e1e437062",
+  "outer_deadline": 1794406922.3348112,
+  "start": 1794406898.5399275,
+  "end": 1794406909.7454295,
+  "elapsed": 11.205502033233643,
+  "native_exit": 124,
+  "running": false,
+  "stdout": "uncooperative CPU child\n",
+  "stderr": "",
+  "no_device_requests": true,
+  "runtime": "runc",
+  "native_budget": {
+    "epoch": 1794406898.7907615,
+    "absolute_deadline": 1794406922.3348112,
+    "cleanup_reserve_s": 15,
+    "native_limit_s": 8.544049739837646,
+    "command": [
+      "python",
+      "-c",
+      "import signal,time;signal.signal(signal.SIGTERM,signal.SIG_IGN);print(\"uncooperative CPU child\",flush=True);time.sleep(60)"
+    ]
+  }
+}

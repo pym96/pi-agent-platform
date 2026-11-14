@@ -1,0 +1,26 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "HostKeyAlias=58.199.168.63",
+    "-o",
+    "ConnectTimeout=10",
+    "-o",
+    "ServerAliveInterval=5",
+    "-o",
+    "ServerAliveCountMax=2",
+    "wt@58.199.171.85",
+    "cd /media/usv012/pjx && export CUDA_VISIBLE_DEVICES=0 && cd /media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator && exec taskset -c 0,1 python3 -c 'import pathlib,sys,hashlib,os,json,time\nroot=pathlib.Path('\"'\"'/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator'\"'\"')\nsha=lambda p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()\nassert sha(sys.argv[1])==sys.argv[2]\nassert sha(root/'\"'\"'nvml-normal02-bin/nvidia-smi'\"'\"')=='\"'\"'46d16fa43b6caec4cfd3f5b29839f2c1bfc23e32571dcee47b73bb23e61f943a'\"'\"'\nassert sha('\"'\"'/usr/bin/nvidia-smi'\"'\"')=='\"'\"'2da08a20450594c3cdf1e677c1d2e46101a0b2d45ee5d3d6b67b87ae50522af2'\"'\"'\nos.environ['\"'\"'PATH'\"'\"']='\"'\"'/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/nvml-normal02-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'\"'\"'\nprint(json.dumps({'\"'\"'event'\"'\"':'\"'\"'foreground_outer_exec'\"'\"','\"'\"'pid'\"'\"':os.getpid(),'\"'\"'epoch'\"'\"':time.time(),'\"'\"'go_sha256'\"'\"':sys.argv[2],'\"'\"'PATH'\"'\"':os.environ['\"'\"'PATH'\"'\"']}),flush=True)\nos.execv('\"'\"'/bin/sh'\"'\"',['\"'\"'sh'\"'\"',str(root/'\"'\"'r-gpu-entry-phase5.sh'\"'\"'),'\"'\"'--go'\"'\"',sys.argv[1],'\"'\"'--go-sha256'\"'\"',sys.argv[2],'\"'\"'--phase-contract'\"'\"',str(root/'\"'\"'phase-contract-nov14-v3.json'\"'\"'),'\"'\"'--phase-contract-sha256'\"'\"','\"'\"'82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec'\"'\"'])\n' /media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/R-GPU-NORMAL-NOV14-GO01.json ab31c89f744e9d94af7f6682596f5c85b3361b9ee034f8d1210efe086874f9d6"
+  ],
+  "GO_sha256": "ab31c89f744e9d94af7f6682596f5c85b3361b9ee034f8d1210efe086874f9d6",
+  "start": 1794627652.4006999,
+  "end": 1794627726.504388,
+  "exit": 0,
+  "unknown": null,
+  "all_foreground_SSH_ended": true,
+  "no_retry": true
+}

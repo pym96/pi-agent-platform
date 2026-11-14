@@ -1,0 +1,56 @@
+{
+  "entry_sha256": "664b44c9c7bae8911fdaf5331681f5e7228028854a5a458de83f77f5dc75ecd0",
+  "Product_sha256": "d5e07f695b3680a7239d0dcc30a1735120148c2fc57ef4a42b3ce7ecddffec7d",
+  "cases": [
+    {
+      "case": "tampered_phase",
+      "actual_Product_validator": true,
+      "child_boundary_calls": 0,
+      "rc": null,
+      "rejection": "ValueError('GO differs from independently bound phase')",
+      "command": null
+    },
+    {
+      "case": "bad_independent_hash",
+      "actual_Product_validator": true,
+      "child_boundary_calls": 0,
+      "rc": null,
+      "rejection": "ValueError('independent phase hash mismatch')",
+      "command": null
+    },
+    {
+      "case": "mismatched_outer_stop",
+      "actual_Product_validator": true,
+      "child_boundary_calls": 0,
+      "rc": null,
+      "rejection": "AssertionError()",
+      "command": null
+    },
+    {
+      "case": "valid_phase_reaches_child_boundary",
+      "actual_Product_validator": true,
+      "child_boundary_calls": 1,
+      "rc": 3,
+      "rejection": null,
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "/private/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/pi24-r-outerphase-da38u27w/source/service/scripts/vllm-serve/launch.py",
+        "--go",
+        "/private/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/pi24-r-outerphase-da38u27w/go.json",
+        "--go-sha256",
+        "b9132d9c456d230217838741b68d355a91b07ec8779811da9e8c81d6766516e4",
+        "--phase-contract",
+        "/private/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/pi24-r-outerphase-da38u27w/phase",
+        "--phase-contract-sha256",
+        "b78daa262405fcd99bcdf4d91c8750b53db05e93e40e058813bbdb041cfc0f4c"
+      ]
+    }
+  ],
+  "seams": [
+    "Mac privateROOT",
+    "sched_getaffinity substitute0,1",
+    "Popen stops deliberately before child launch",
+    "OwnedDocker/NVML substituted; no server/CUDA/model"
+  ],
+  "no_wallclock_patch": true
+}

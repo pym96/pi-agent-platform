@@ -1,0 +1,33 @@
+{
+  "at": 1794409723.205653,
+  "GO_sha256": "f3169f8b8edaa4ca37492b823fa01775fa5960e233c49b2e847814aaf06cd6cb",
+  "immutable_fields_match": [
+    "source_sha",
+    "role",
+    "nonce",
+    "network_id",
+    "mode",
+    "gpu_uuid",
+    "entry_sha256",
+    "outer_entry_sha256",
+    "shell_entry_sha256",
+    "watch_sha256",
+    "driver_sha256",
+    "native_sha256",
+    "assets_sha256",
+    "compose_sha256",
+    "plan_sha256",
+    "runtime_manifest_sha256",
+    "model_manifest_sha256",
+    "generation_timeout",
+    "max_attempts",
+    "max_duration_s",
+    "host_affinity",
+    "max_host_rss_bytes"
+  ],
+  "deadline": 1794410005.41302,
+  "B_prior_fail_upper_s": 55.169294118881226,
+  "source_review": "a21dce666fce973edf8f61d0578a34e6dd50d5cae82b5e62a849b0cd8a5f937a",
+  "R_actual_server_actions": false,
+  "CPU_network_followup_condition": "B-CPU-THREE-NETWORKS-GO03 only after successful actualfullnormal matrix and exactstoprm/rawsealed; not on failure/unknown; perprofileGPUstillseparate"
+}

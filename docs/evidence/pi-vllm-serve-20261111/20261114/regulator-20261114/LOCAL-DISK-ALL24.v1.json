@@ -1,0 +1,59 @@
+{
+  "start_epoch": 1794622917.921526,
+  "end_epoch": 1794622918.765982,
+  "roots": [
+    {
+      "root": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111",
+      "apparent_bytes": 72366709,
+      "allocated_bytes": 84615168,
+      "inodes": 4498
+    },
+    {
+      "root": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261111",
+      "apparent_bytes": 235062668,
+      "allocated_bytes": 276828160,
+      "inodes": 18963
+    },
+    {
+      "root": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114",
+      "apparent_bytes": 10471388,
+      "allocated_bytes": 21987328,
+      "inodes": 3922
+    },
+    {
+      "root": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114",
+      "apparent_bytes": 131734602,
+      "allocated_bytes": 165531648,
+      "inodes": 14525
+    },
+    {
+      "root": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-master-20261111",
+      "apparent_bytes": 986244,
+      "allocated_bytes": 1081344,
+      "inodes": 49
+    },
+    {
+      "root": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-master-20261114",
+      "apparent_bytes": 741592,
+      "allocated_bytes": 790528,
+      "inodes": 27
+    },
+    {
+      "root": "/Users/panyiming/Desktop/todo/\u9762\u8bd5/career-planning/60-\u9879\u76ee/pi-agent-platform-vllm24-candidate",
+      "apparent_bytes": 38390752,
+      "allocated_bytes": 44503040,
+      "inodes": 2855
+    },
+    {
+      "root": "/Users/panyiming/Desktop/todo/\u9762\u8bd5/career-planning/60-\u9879\u76ee/pi-agent-platform-vllm24-nov14-candidate",
+      "apparent_bytes": 37553940,
+      "allocated_bytes": 43728896,
+      "inodes": 2879
+    }
+  ],
+  "errors": [],
+  "total_apparent_bytes": 527307895,
+  "total_allocated_bytes": 639066112,
+  "method": "all named24 old+new B/R/Master states and bothcandidate roots, lstat/no symlink follow/dev-inode dedup; oldpreexisting21 runtime/model excluded",
+  "cap": 1073741824
+}

@@ -1,0 +1,5 @@
+来自 ../source-cpu02.bundle
+ * branch            workorder/24-candidate -> FETCH_HEAD
+之前的 HEAD 位置是 985d8b1 Add bounded Pi24 serving entry, exact ownership watchdog and functional client
+HEAD 目前位于 7e44ff2 Bind serving to exact internal endpoints and repair actual startup integration
+{"out": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03", "failure": null, "cleanup": true}

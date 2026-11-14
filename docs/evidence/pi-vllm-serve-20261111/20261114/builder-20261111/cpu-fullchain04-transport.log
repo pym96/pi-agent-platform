@@ -1,0 +1,5 @@
+来自 ../source-cpu03.bundle
+ * branch            workorder/24-candidate -> FETCH_HEAD
+之前的 HEAD 位置是 7e44ff2 Bind serving to exact internal endpoints and repair actual startup integration
+HEAD 目前位于 a5f161b Verify clean-host client entry, current restart witness and original fallback dependencies
+{"out": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04", "failure": null, "cleanup": true}

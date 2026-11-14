@@ -1,0 +1,21 @@
+cpu	Required isolated vLLM CPU guards and closure checker	﻿2026-11-14T01:45:09.1947842Z ##[group]Run mkdir -p "$RUNNER_TEMP/vllm21"
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1948134Z ^[[36;1mmkdir -p "$RUNNER_TEMP/vllm21"^[[0m
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1948732Z ^[[36;1mpython service/scripts/nginx-entry/strict_suite.py --start-dir service/scripts/vllm-compat --pattern 'test_*.py' --out "$RUNNER_TEMP/vllm21/summary.json" > "$RUNNER_TEMP/vllm21/tests.log" 2>&1^[[0m
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1977803Z shell: /usr/bin/bash -e {0}
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1978060Z env:
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1978497Z   TEST_DATABASE_URL: ***127.0.0.1:5432/e2e12?sslmode=disable
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1978768Z   NG_PROJECT: pi-ng15-ci
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1978955Z   NG_OWNER: ci
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1979156Z   SOURCE_SHA: df740e46da7cad585ef29763f19a280869d7c728
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1979570Z   NG_HOST_TEST_DATABASE_URL: ***127.0.0.1:18204/ng_test?sslmode=disable
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1979886Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1980211Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1980566Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1980856Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1981146Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1981537Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib:/opt/hostedtoolcache/Python/3.10.22/x64/lib
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1981974Z   NODE_ROOT: /opt/hostedtoolcache/node/22.23.3/x64
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1982338Z   PI_MODULES: /home/runner/work/pi-agent-platform/pi-agent-platform/service/pi/node_modules
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1982681Z   NG_DEPS: /home/runner/work/_temp/ng-deps
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:09.1982893Z ##[endgroup]
+cpu	Required isolated vLLM CPU guards and closure checker	2026-11-14T01:45:10.4124880Z ##[error]Process completed with exit code 1.

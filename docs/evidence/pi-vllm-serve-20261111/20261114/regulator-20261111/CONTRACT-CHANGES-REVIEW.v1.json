@@ -1,0 +1,36 @@
+{
+  "SessionRole": "Regulator Agent",
+  "issue": 24,
+  "contract": "G2.3",
+  "criteria": [
+    "C-G2-01@1.0",
+    "C-G2-02@1.0",
+    "C-G2-03@1.1",
+    "C-G2-04@1.2"
+  ],
+  "contract_sha256": "88c68381e84034bdc4f97094aa61fab7e39b620865ec81f62c4ea9cf67bc8562",
+  "adjudications": {
+    "SC-G2-PLATFORM-BUDGET-01": "allplatform128; direct16/64/128 unchanged, noGoPiProductchanges",
+    "SC-G2-FALLBACK-OMP-02": "fallbackonly originalTorchintra6/OMP6,BLAS1,6CPU; vLLMOMP<=4,total12CPU36GiB unchanged; actualruntime evidence required",
+    "SC-G2-INTERNAL-ENDPOINTS-03": "internaltrue/privatebridge/nohostportpublish; retiredhostports; validatedexactownedCID+labels/source/nonce+networkID/Internaltrue+actualIPv4/fixedports only; no external nonmasq/relay/sharedchanges"
+  },
+  "B_network_CPU_evidence": {
+    "file": "cpu-private-ip03-result.json",
+    "sha256": "9008d3ad03b187af13fb04c74cb800f2d9b2dfba1078543bbacdaa0ca1d40093",
+    "actual_model_health_private_host_route": 200,
+    "GPUDeviceRequests": null,
+    "Internal": true,
+    "PortBindings": {},
+    "qualification": "CPU fixture only. Initialconnectionrefused and eventual200 bothretained. R read localoriginal only; no independentRserverexecution yet."
+  },
+  "B_CPU01_02": "Bothfailedactualfullchain (mounttargetmissing; localhostportsabsent), despite cleanup.success true. Failure/cleanup separated; no fullchaingreen claim.",
+  "source_push_recommendation": "NO on old985; await newfullSHA/CPUraw/review",
+  "R_cost": {
+    "server_cpu": 0,
+    "GPU_seconds": 0,
+    "native_model_generate": 0,
+    "modelcompletionPOST": 0,
+    "CItriggers": 0
+  },
+  "time": 1794405113.846713
+}

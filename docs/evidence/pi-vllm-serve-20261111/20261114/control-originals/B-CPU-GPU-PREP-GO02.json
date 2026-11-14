@@ -1,0 +1,30 @@
+{
+  "schema": "pi24-nov14-B-CPU-GPU-prep-go/v1",
+  "issue": 24,
+  "role": "builder",
+  "issued_at": "2026-11-14T02:26:14.467106+00:00",
+  "conditional_before_server": "Master now forwards R CPU5 successful formalrelease b70bf2ddecad70fccb8ed2ece2b6a0d2d9e3d112014b3dad6785190fddb61d73: all SSH/SCP/CPUcontainers ended. R remains localonly. This single B CPU preparation is active after reading this GO and current WorkOrder.",
+  "local_now": "Prepare exactsource incrementalbundle/entry shell + source/phase/plan/assets expectedbindings only; no tests repeated/no server yet",
+  "server_once_max_wall_s": 120,
+  "absolute_stop": "2026-11-14T02:55:00Z",
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "entry_sha256": "d5e07f695b3680a7239d0dcc30a1735120148c2fc57ef4a42b3ce7ecddffec7d",
+  "outer_entry_sha256": "95af5de69016a7cf027d390395f7c1fefd0fbc96c053aaa000ef452bdb6e497a",
+  "phase_contract_sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+  "phase_contract_file": "PHASE-CONTRACT.v3.json",
+  "normal_plan_sha256": "deb0910ecccedafec8c535dec1d877de560e2cb1cc09800c4e0f4bdf274ea059",
+  "normal_nonce": "pi24-b-nov14-normal01",
+  "allowed": [
+    "first cd /media/usv012/pjx and CUDA_VISIBLE_DEVICES=0; own builder exactroot/projects only; fresh source clean+oldidentity before FF update exact9ea36d3221d024a6d8330322d330809fa9e283a6 via independently bound localbundle, no reset/dirtyuser overwrite",
+    "stage independentlybound phasev3 exactbytes/hash, unchanged rawplans/assetmanifest sourcehelper hashes; no env/model/cache duplication",
+    "fresh inspect noB containers/nets before create one emptyInternal IPv6false/unpublishednetwork with project pi-vllm24-b/source9ea/phasev3/nonce pi24-b-nov14-normal01, record actualID+labels+members; do not touch R retained c61d7fd94ae102b909dfcf55d2cece73f97a6ec379f334eaef1b7d39333a37cd",
+    "freeze new shell + host outer script taskset0,1 (actualallowedaffinity includes0,1) and source entry/watch/driver/native/compose+phase/plan/assets; actualsmall CPU affinity/RSS/import probe noCUDA",
+    "ownroot freshdisk/free lightcounts reconcile R completePGledger snapshot486552798B, no pretend unchanged futuretotal; localnewfootprint inventory",
+    "fullraw+hashreceipt/actualnetworkID/completephaseentryargs/allSSH-SCPended/formalrelease for independent R local review and Master next separate GPU GO"
+  ],
+  "noContainerStart_noCUDA_noModel_noCI_noNewDeps": true,
+  "noAutoRetryOrGPUStart": true,
+  "budgets": "CPU cumulative conservative4249.4357385 of5400; new600 remaining577; this single prep<=120s charged actualceil; Bdevice55.169294118881226/nativePOST0/Rdevice0; CI5of7/final6main7 reserved; all other original resource and04:20 phase limits unchanged",
+  "model_GOs": "not authorized by this CPU preparation; every lifecycle separate exactGO",
+  "supersedes": "Old B1839 never activated and expired; no oldsource/phase/shell execution permitted. No additional source push, CI or model authority."
+}

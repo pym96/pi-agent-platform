@@ -1,0 +1,14 @@
+{
+  "name": "source-fetch",
+  "args": [
+    "git",
+    "fetch",
+    "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/source-phase4.bundle",
+    "HEAD"
+  ],
+  "start": 1794621761.5255682,
+  "end": 1794621761.5769682,
+  "exit": 0,
+  "stdout": "",
+  "stderr": "\u6765\u81ea /media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/source-phase4.bundle\n * branch            HEAD       -> FETCH_HEAD\n"
+}

@@ -1,0 +1,54 @@
+{
+  "byrole": {
+    "builder": {
+      "apparent_bytes": 121884311,
+      "allocated_bytes": 128843776,
+      "inodes": 3068,
+      "regular_files": 2792,
+      "symlinks": 0
+    },
+    "regulator": {
+      "apparent_bytes": 75511694,
+      "allocated_bytes": 82059264,
+      "inodes": 2912,
+      "regular_files": 2673,
+      "symlinks": 0
+    }
+  },
+  "PG_excluded": [
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-normal01/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70
+    }
+  ],
+  "errors": [],
+  "start": 1794622871.6809888,
+  "end": 1794622871.8776214,
+  "method": "lstat nofollow; globally dedup(dev,ino); excludes full PGroot including root inode"
+}

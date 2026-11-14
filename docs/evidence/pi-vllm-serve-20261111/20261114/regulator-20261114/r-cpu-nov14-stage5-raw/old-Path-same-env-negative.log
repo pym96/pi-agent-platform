@@ -1,0 +1,32 @@
+test_valid_model_manifest_reaches_cached_image_check (R_preserved_old_Path.LauncherModelPreflight) ... ERROR
+
+======================================================================
+ERROR: test_valid_model_manifest_reaches_cached_image_check (R_preserved_old_Path.LauncherModelPreflight)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/old-test-contract.py", line 149, in test_valid_model_manifest_reaches_cached_image_check
+    with self.assertRaisesRegex(RuntimeError,'model identity passed'):m.execute(g,'unused','unused')
+  File "/source/service/scripts/vllm-compat/launch.py", line 27, in execute
+    if sha(manifest)!=g['runtime_manifest_sha256'] or sha(probe)!=g['probe_sha256']:raise ValueError('runtime/probe mismatch')
+  File "/source/service/scripts/vllm-compat/launch.py", line 6, in sha
+    with pathlib.Path(path).open('rb') as f:
+  File "/usr/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/usr/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/usr/lib/python3.10/unittest/mock.py", line 1179, in _execute_mock_call
+    result = effect(*args, **kwargs)
+  File "/old-test-contract.py", line 143, in path
+    return RealPath(v)
+  File "/usr/lib/python3.10/pathlib.py", line 960, in __new__
+    self = cls._from_parts(args)
+  File "/usr/lib/python3.10/pathlib.py", line 594, in _from_parts
+    drv, root, parts = self._parse_args(args)
+  File "/usr/lib/python3.10/pathlib.py", line 587, in _parse_args
+    return cls._flavour.parse_parts(parts)
+AttributeError: type object 'Path' has no attribute '_flavour'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.031s
+
+FAILED (errors=1)

@@ -1,0 +1,1 @@
+{"out": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01", "failure": "RuntimeError('failed up')", "cleanup": true}

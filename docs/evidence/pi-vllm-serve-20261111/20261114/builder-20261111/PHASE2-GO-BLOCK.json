@@ -1,0 +1,13 @@
+{
+  "phase": {
+    "schema": "pi24-phase-window/v1",
+    "id": "pi24-nov11-p2",
+    "contract_sha256": "06b694ed12c3aebb62cd2bc870e13148998817b2dc96a30f373165665300d9f8",
+    "start_epoch": 1794411000.0,
+    "builder_latest_start_epoch": 1794414900.0,
+    "regulator_latest_start_epoch": 1794415800.0,
+    "all_owned_stop_epoch": 1794416400.0,
+    "end_epoch": 1794417600.0,
+    "global_end_epoch": 1794420671.0
+  }
+}

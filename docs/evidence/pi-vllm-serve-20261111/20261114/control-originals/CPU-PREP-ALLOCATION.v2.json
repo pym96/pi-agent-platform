@@ -1,0 +1,17 @@
+{
+  "schema": "pi24-master-CPUreserve-reallocation/v1",
+  "issue": 24,
+  "issued_at": "2026-11-14T03:09:39.717551+00:00",
+  "global_CPU_prepare_s": 5400,
+  "old_conservative_s": 4226.4357385,
+  "used_current_before_remaining_profile_prep_s": 4387.4357385,
+  "nov14_consumed_s": 161.0,
+  "prior_nov14_reserve_s": 600,
+  "new_nov14_reserve_s": 1100,
+  "remaining_before_current_prep_charge_s": 939.0,
+  "total_old_plus_new_allocation_s": 5326.4357385,
+  "unallocated_global_margin_s": 73.5642614999997,
+  "reason": "Normal real foreground conservatively charged whole129.488397s to CPUprepare upper, while actualGPUdevice39.5513809 separate. Reallocate unused global5400 capacity for three original profiles and independentR, no reset/no new globalresource/time allowance.",
+  "unchanged_phase_sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+  "authority": "Master derived subreserve, not Human hard resource ceiling; global5400/wholephase/source/criteria/GPU caps stay unchanged; no execution permission by this record"
+}

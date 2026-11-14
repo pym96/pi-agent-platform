@@ -1,0 +1,11 @@
+{
+  "created_utc": "2026-11-11T15:47:53.891739+00:00",
+  "observation": "collaboration.list_agents reports parent /root errored with Bad Request; B and R running",
+  "source": "a0f2b4e3a416e548b307df3c9cc326887ed14d6c",
+  "review_report_sha256": "6d069effa8f34f5eeb30bb9780f5ca0d46f2d201a3797ba90607f6e305d2225c",
+  "source_ci3_go_observed": false,
+  "server_cpu_go_observed": false,
+  "model_go_observed": false,
+  "actions": "R remains local; no SSH/server/container/GPU, no delegated authority inferred; report to Master and B; preserve P2 cutoff and all prior budgets",
+  "future": "Requires Master recovery and published exact GO; neither role may self-authorize"
+}

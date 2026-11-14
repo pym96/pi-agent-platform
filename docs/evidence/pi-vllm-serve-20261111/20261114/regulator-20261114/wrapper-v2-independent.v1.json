@@ -1,0 +1,192 @@
+{
+  "source_wrapper": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/nvidia-smi-raw-wrapper-v2.py",
+  "source_sha256": "917f97350b53c3b2ddcbd0f105900b32a6b786434ce7ca3c971a8a43c6d2dc4e",
+  "cases": [
+    {
+      "case": "normal",
+      "argv": [
+        "-i",
+        "0",
+        "--query-compute-apps=pid,gpu_uuid",
+        "--format=csv,noheader"
+      ],
+      "exit": 7,
+      "stdout_base64": "MCwgR1BVLXRlc3QK/w==",
+      "stderr_base64": "Zml4dHVyZS1zdGRlcnIK/g==",
+      "elapsed_s": 0.35720525000215275,
+      "child_still_exists": false,
+      "records": [
+        {
+          "event": "start",
+          "pid": 8590,
+          "epoch": 1794624450.335998,
+          "command": [
+            "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/pi24-R-wrapper-ikpyvi5x/real-nvidia-fixture",
+            "-i",
+            "0",
+            "--query-compute-apps=pid,gpu_uuid",
+            "--format=csv,noheader"
+          ]
+        },
+        {
+          "event": "complete",
+          "pid": 8590,
+          "start": 1794624450.335998,
+          "end": 1794624450.6611829,
+          "command": [
+            "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/pi24-R-wrapper-ikpyvi5x/real-nvidia-fixture",
+            "-i",
+            "0",
+            "--query-compute-apps=pid,gpu_uuid",
+            "--format=csv,noheader"
+          ],
+          "exit": 7,
+          "stdout_base64": "MCwgR1BVLXRlc3QK/w==",
+          "stderr_base64": "Zml4dHVyZS1zdGRlcnIK/g==",
+          "stdout": "0, GPU-test\n\\xff",
+          "stderr": "fixture-stderr\n\\xfe"
+        }
+      ]
+    },
+    {
+      "case": "idle",
+      "argv": [
+        "-i",
+        "0",
+        "--query-compute-apps=pid,gpu_uuid",
+        "--format=csv,noheader"
+      ],
+      "exit": 0,
+      "stdout_base64": "",
+      "stderr_base64": "",
+      "elapsed_s": 0.05955887500022072,
+      "child_still_exists": false,
+      "records": [
+        {
+          "event": "start",
+          "pid": 8592,
+          "epoch": 1794624450.698882,
+          "command": [
+            "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/pi24-R-wrapper-ikpyvi5x/real-nvidia-fixture",
+            "-i",
+            "0",
+            "--query-compute-apps=pid,gpu_uuid",
+            "--format=csv,noheader"
+          ]
+        },
+        {
+          "event": "complete",
+          "pid": 8592,
+          "start": 1794624450.698882,
+          "end": 1794624450.726017,
+          "command": [
+            "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/pi24-R-wrapper-ikpyvi5x/real-nvidia-fixture",
+            "-i",
+            "0",
+            "--query-compute-apps=pid,gpu_uuid",
+            "--format=csv,noheader"
+          ],
+          "exit": 0,
+          "stdout_base64": "",
+          "stderr_base64": "",
+          "stdout": "",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "case": "signal",
+      "argv": [
+        "-i",
+        "0",
+        "--query-compute-apps=pid,gpu_uuid",
+        "--format=csv,noheader"
+      ],
+      "exit": -15,
+      "stdout_base64": "",
+      "stderr_base64": "",
+      "elapsed_s": 0.05199420799908694,
+      "child_still_exists": false,
+      "records": [
+        {
+          "event": "start",
+          "pid": 8594,
+          "epoch": 1794624450.756829,
+          "command": [
+            "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/pi24-R-wrapper-ikpyvi5x/real-nvidia-fixture",
+            "-i",
+            "0",
+            "--query-compute-apps=pid,gpu_uuid",
+            "--format=csv,noheader"
+          ]
+        },
+        {
+          "event": "complete",
+          "pid": 8594,
+          "start": 1794624450.756829,
+          "end": 1794624450.78191,
+          "command": [
+            "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/pi24-R-wrapper-ikpyvi5x/real-nvidia-fixture",
+            "-i",
+            "0",
+            "--query-compute-apps=pid,gpu_uuid",
+            "--format=csv,noheader"
+          ],
+          "exit": -15,
+          "stdout_base64": "",
+          "stderr_base64": "",
+          "stdout": "",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "case": "timeout",
+      "argv": [
+        "-i",
+        "0",
+        "--query-compute-apps=pid,gpu_uuid",
+        "--format=csv,noheader"
+      ],
+      "exit": 124,
+      "stdout_base64": "cGFydGlhbP8=",
+      "stderr_base64": "ZXJyb3L+TlZNTCBxdWVyeSB3cmFwcGVyIHRpbWVvdXQ7IHJlc3VsdCB1bmtub3duCg==",
+      "elapsed_s": 4.040798082998663,
+      "child_still_exists": false,
+      "records": [
+        {
+          "event": "start",
+          "pid": 8596,
+          "epoch": 1794624450.808966,
+          "command": [
+            "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/pi24-R-wrapper-ikpyvi5x/real-nvidia-fixture",
+            "-i",
+            "0",
+            "--query-compute-apps=pid,gpu_uuid",
+            "--format=csv,noheader"
+          ]
+        },
+        {
+          "event": "wrapper_timeout",
+          "pid": 8596,
+          "start": 1794624450.808966,
+          "end": 1794624454.814409,
+          "command": [
+            "/var/folders/y0/l5kd4xvd2ls8bkp65s5db8mh0000gn/T/pi24-R-wrapper-ikpyvi5x/real-nvidia-fixture",
+            "-i",
+            "0",
+            "--query-compute-apps=pid,gpu_uuid",
+            "--format=csv,noheader"
+          ],
+          "result": "unknown",
+          "exit": null,
+          "wrapper_exit": 124,
+          "stdout_base64": "cGFydGlhbP8=",
+          "stderr_base64": "ZXJyb3L+"
+        }
+      ]
+    }
+  ],
+  "seams": "Only REAL/LOG literal assignments projected to localprivate CPU executable/log; sourceimplementation leftsame; no actualNVML/server/GPU/model",
+  "all_pass": true
+}

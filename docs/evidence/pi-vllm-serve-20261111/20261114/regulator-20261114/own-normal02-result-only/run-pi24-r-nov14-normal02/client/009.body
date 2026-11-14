@@ -1,0 +1,3 @@
+data: {"choices": [{"delta": {"role": "assistant", "content": ""}, "finish_reason": null}]}
+
+data: {"choices": [{"delta": {"content": "1"}, "finish_reason": null}]}

@@ -1,0 +1,4 @@
+{
+  "time": 1794407744.144356,
+  "cause": "Mac tempfile /var path aliases /private/var; initial R projected ROOT was unresolved so exact root assertion triggered. No child started. Resolve own temporary ROOT and rerun exact main; no Product or external B entry change."
+}

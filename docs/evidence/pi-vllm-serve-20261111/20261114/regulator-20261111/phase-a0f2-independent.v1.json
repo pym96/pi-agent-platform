@@ -1,0 +1,341 @@
+{
+  "schema": "pi24-independent-exact-phase-contract-probe/v1",
+  "source_path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261111/source-local-a0f2b4",
+  "entry_sha256": "8021f265c36b165f9ef9f976bba5d28e5f6e3f4ce79ec3d4ea8420c6191716ea",
+  "contract_sha256": "06b694ed12c3aebb62cd2bc870e13148998817b2dc96a30f373165665300d9f8",
+  "cases": [
+    {
+      "case": "valid_builder",
+      "accepted": true,
+      "expected_accept": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "case": "exact_latest_builder",
+      "accepted": true,
+      "expected_accept": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "case": "beyond_latest_builder",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('GO expired or over budget')"
+    },
+    {
+      "case": "over_role_duration_builder",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('GO expired or over budget')"
+    },
+    {
+      "case": "valid_regulator",
+      "accepted": true,
+      "expected_accept": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "case": "exact_latest_regulator",
+      "accepted": true,
+      "expected_accept": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "case": "beyond_latest_regulator",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('GO expired or over budget')"
+    },
+    {
+      "case": "over_role_duration_regulator",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('GO expired or over budget')"
+    },
+    {
+      "case": "before_phase_start",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('GO expired or over budget')"
+    },
+    {
+      "case": "after_phase_end",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('GO expired or over budget')"
+    },
+    {
+      "case": "exact_retired_B-GPU-NORMAL-GO01.json",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "exact_retired_B-GPU-NORMAL-GO02.json",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "tampered_fixed_phase_schema",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "tampered_fixed_phase_id",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "tampered_fixed_phase_contract_sha256",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "tampered_fixed_phase_start_epoch",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "tampered_fixed_phase_builder_latest_start_epoch",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "tampered_fixed_phase_regulator_latest_start_epoch",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "tampered_fixed_phase_all_owned_stop_epoch",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "tampered_fixed_phase_end_epoch",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "tampered_fixed_phase_global_end_epoch",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "phase_missing",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "phase_empty",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "phase_retired",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "phase_extra",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "nonfinite_or_wrongtype_deadline_epoch_nan",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('finite phase/GO time required')"
+    },
+    {
+      "case": "nonfinite_or_wrongtype_deadline_epoch_inf",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('finite phase/GO time required')"
+    },
+    {
+      "case": "nonfinite_or_wrongtype_deadline_epoch_-inf",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('finite phase/GO time required')"
+    },
+    {
+      "case": "nonfinite_or_wrongtype_deadline_epoch_True",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('finite phase/GO time required')"
+    },
+    {
+      "case": "nonfinite_or_wrongtype_deadline_epoch_120",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('finite phase/GO time required')"
+    },
+    {
+      "case": "nonfinite_or_wrongtype_max_duration_s_nan",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('finite phase/GO time required')"
+    },
+    {
+      "case": "nonfinite_or_wrongtype_max_duration_s_inf",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('finite phase/GO time required')"
+    },
+    {
+      "case": "nonfinite_or_wrongtype_max_duration_s_-inf",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('finite phase/GO time required')"
+    },
+    {
+      "case": "nonfinite_or_wrongtype_max_duration_s_True",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('finite phase/GO time required')"
+    },
+    {
+      "case": "nonfinite_or_wrongtype_max_duration_s_120",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('finite phase/GO time required')"
+    },
+    {
+      "case": "invalid_clock_nan",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('finite phase/GO time required')"
+    },
+    {
+      "case": "invalid_clock_inf",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('finite phase/GO time required')"
+    },
+    {
+      "case": "invalid_clock_True",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('finite phase/GO time required')"
+    },
+    {
+      "case": "expired_GO",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('GO expired or over budget')"
+    },
+    {
+      "case": "wrong_GO_full_hash",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('GO hash mismatch')"
+    },
+    {
+      "case": "inverted_bounds",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "beyond_Human_global",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "GO_beyond_allstop",
+      "accepted": false,
+      "expected_accept": false,
+      "pass": true,
+      "error": "ValueError('GO expired or over budget')"
+    },
+    {
+      "case": "actual_CLI_wrong_hash",
+      "pass": true,
+      "exit": 2,
+      "tools_invoked": false
+    },
+    {
+      "case": "actual_CLI_late_stop",
+      "pass": true,
+      "exit": 2,
+      "tools_invoked": false
+    },
+    {
+      "case": "actual_CLI_no_phase",
+      "pass": true,
+      "exit": 2,
+      "tools_invoked": false
+    },
+    {
+      "case": "old_source_actual_execute_branch_private_ROOT_and_git_readback_seams",
+      "pass": true,
+      "only_calls": [
+        [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ]
+      ]
+    }
+  ],
+  "total": 47,
+  "failures": 0,
+  "clock_projections": "validate unit cases use explicit mocked UTC; actual CLI uses real current time. Old-source execute case explicitly projects privateROOT and read-onlygit readback; zero Docker/NVML/model."
+}

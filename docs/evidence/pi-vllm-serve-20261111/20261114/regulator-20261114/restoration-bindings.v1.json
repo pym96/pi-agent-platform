@@ -1,0 +1,70 @@
+{
+  "source-phase05.bundle": {
+    "sha256": "3d9bbc4312466fe1c31374152017e19c720b4f3ba2659dc78b2cf10a34f14514",
+    "bytes": 5739,
+    "pass": true
+  },
+  "gpu_entry_phase2.py": {
+    "sha256": "9b23eccf3ce56f7880fc0d0f9c5d081f1bbf20e36dd7d2029f342514bcaa4019",
+    "bytes": 4459,
+    "pass": true
+  },
+  "gpu_entry_phase2.diff": {
+    "sha256": "67b770230e22934a0a3bed1da83f1e2fe067909e407dc179b54538573244ffc9",
+    "bytes": 1288,
+    "pass": true
+  },
+  "PHASE2-GO-BLOCK.json": {
+    "sha256": "7e8747f37f22aad29174bb4aec893379c5fd140452b29e614cc71e97cfc65e20",
+    "bytes": 418,
+    "pass": true
+  },
+  "tdd14-phase-projection-red.log": {
+    "sha256": "eae8a9d79cd860dbcda179299edf8151c32ca0b3bd5216cbe4c9016bf669d55a",
+    "bytes": 9677,
+    "pass": true
+  },
+  "tdd14-phase-serving-final-summary.json": {
+    "sha256": "afe36eba8732d0b0f57e142d31503d665b0f488db9cc5098f09336262157ba55",
+    "bytes": 140,
+    "pass": true
+  },
+  "tdd14-phase-serving-final-green.log": {
+    "sha256": "b6ee7b3d37c237a0724cd99e208168a82fa8d2f5da4beb70be91e6fa62cca982",
+    "bytes": 2489,
+    "pass": true
+  },
+  "CPU-BUDGET-P2-PROPOSAL.v1.json": {
+    "sha256": "c3d0fc005a86f953c2c9723e8b6de166fbe95e1e4740f6df75195d0aa0437c68",
+    "bytes": 3173,
+    "pass": true
+  },
+  "NORMAL01-FAILURE-RELEASE.v1.json": {
+    "sha256": "31ca559293ed30c69e1f567b5f7273b548e8c17946933c274e319a2c27de93ac",
+    "bytes": 1198,
+    "pass": true
+  },
+  "NORMAL02-PRECHECK-RELEASE.v1.json": {
+    "sha256": "248c00a9e7fbba0c41b3032a7c906e4359a40e5def9f8420362d8a9c833dfd9b",
+    "bytes": 5062,
+    "pass": true
+  },
+  "GPU0-OBSERVE02.json": {
+    "sha256": "232688ac44713060acb3143fbf3362b95372ba0c2c6e3de3b38c141eb447a2bf",
+    "bytes": 1243,
+    "pass": true
+  },
+  "SOURCE-CI2-READBACK.v1.json": {
+    "sha256": "14b2ab02036ac3b514f25495a48293805b9f6a90cef2946caca8c3dfb9385c14",
+    "bytes": 4959,
+    "pass": true
+  },
+  "R_local_review": {
+    "sha256": "6d069effa8f34f5eeb30bb9780f5ca0d46f2d201a3797ba90607f6e305d2225c",
+    "pass": true
+  },
+  "phase": {
+    "sha256": "a44ec7447f1efe11a2ba931df463baf6b176d9daedc72dbfc5bb267834064947",
+    "pass": true
+  }
+}

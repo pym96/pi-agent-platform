@@ -1,0 +1,24 @@
+E
+======================================================================
+ERROR: test_owned (unittest.loader._FailedTest.test_owned)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_owned
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-vllm24-candidate/service/scripts/vllm-serve/test_owned.py", line 3, in <module>
+    spec=importlib.util.spec_from_file_location('owned',pathlib.Path(__file__).with_name('owned.py'));m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+                                                                                                                                              ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "<frozen importlib._bootstrap_external>", line 758, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 895, in get_code
+  File "<frozen importlib._bootstrap_external>", line 953, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-vllm24-candidate/service/scripts/vllm-serve/owned.py'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

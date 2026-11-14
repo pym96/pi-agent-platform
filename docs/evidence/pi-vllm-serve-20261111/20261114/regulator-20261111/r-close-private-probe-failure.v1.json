@@ -1,0 +1,6 @@
+{
+  "kind": "R private accounting assertion, no Product or experiment failure",
+  "time": 1794407082.497979,
+  "raw_log": "stageA-close-transport.log",
+  "reason": "Postgres data is mounted pg-data/pgdata; host walk denied nested pgdata, initial expectation was parent pg-data. UID70 helper actually completed and exact cleanup succeeded. Correct expected traversal boundary; no missing bytes assumed0."
+}

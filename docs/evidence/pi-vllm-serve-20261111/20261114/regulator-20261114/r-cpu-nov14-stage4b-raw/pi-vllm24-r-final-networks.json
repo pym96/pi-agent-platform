@@ -1,0 +1,18 @@
+{
+  "name": "pi-vllm24-r-final-networks",
+  "args": [
+    "docker",
+    "network",
+    "ls",
+    "--no-trunc",
+    "--filter",
+    "label=com.docker.compose.project=pi-vllm24-r",
+    "--format",
+    "{{json .}}"
+  ],
+  "start": 1794621934.79767,
+  "end": 1794621934.8095105,
+  "exit": 0,
+  "stdout": "{\"CreatedAt\":\"2026-11-14 10:02:41.947636393 +0800 CST\",\"Driver\":\"bridge\",\"ID\":\"c17c961d716ff2347e4d08151291df46c99ba5a47435bf0c17b5fe47397eaa75\",\"IPv6\":\"false\",\"Internal\":\"true\",\"Labels\":\"workorder=24,com.docker.compose.project=pi-vllm24-r,execution-sha=d42579518034f235a55fdbdbfd1d72b0f1134544,pi24.nonce=pi24-r-nov14-normal01,pi24.phase=pi24-nov14-recovery01-r2,pi24.phase-sha256=77b6d5aa360e46cdde73fa36bdff344c89769973e56c48733b43ac258d763887\",\"Name\":\"pi-vllm24-r-pi24-r-nov14-normal01\",\"Scope\":\"local\"}\n",
+  "stderr": ""
+}

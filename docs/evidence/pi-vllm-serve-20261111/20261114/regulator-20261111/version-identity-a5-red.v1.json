@@ -1,0 +1,62 @@
+{
+  "schema": "pi24-independent-real-version-declaration-load-probe/v1",
+  "time": 1794408684.804441,
+  "source_path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261111/source-local-a5f161",
+  "wheel_sha256": "a593a2e5f455b0e47bf297ea31153dad9c2b2c44ddb13e194ba0a247e597e34a",
+  "actual_module_source_sha256": "545a7ea19397a13b42cce389cb16235fb4daf92d06ddcd6af52cc8f2b4531a2b",
+  "actual_METADATA_sha256": "7919f74de2bddd33cb8d65f14270e4310a3c2695a9fe0a260fc4d02fb42e8921",
+  "actual_module_decl": "0.8.5.post1",
+  "cases": [
+    {
+      "case": "genuine_official_pair",
+      "module": "0.8.5.post1",
+      "distribution": "0.8.5.post1+cu118",
+      "constructor_boundary_reached": false,
+      "constructor_calls": 0,
+      "error": "ValueError('fixed vLLM version required')",
+      "pass": false
+    },
+    {
+      "case": "wrong_module",
+      "module": "0.8.5.post2",
+      "distribution": "0.8.5.post1+cu118",
+      "constructor_boundary_reached": false,
+      "constructor_calls": 0,
+      "error": "ValueError('fixed vLLM version required')",
+      "pass": true
+    },
+    {
+      "case": "wrong_distribution",
+      "module": "0.8.5.post1",
+      "distribution": "0.8.5.post1+cu128",
+      "constructor_boundary_reached": false,
+      "constructor_calls": 0,
+      "error": "ValueError('fixed vLLM version required')",
+      "pass": true
+    },
+    {
+      "case": "missing_module",
+      "module": null,
+      "distribution": "0.8.5.post1+cu118",
+      "constructor_boundary_reached": false,
+      "constructor_calls": 0,
+      "error": "AttributeError(\"module 'vllm' has no attribute '__version__'\")",
+      "pass": true
+    },
+    {
+      "case": "missing_distribution",
+      "module": "0.8.5.post1",
+      "distribution": null,
+      "constructor_boundary_reached": false,
+      "constructor_calls": 0,
+      "error": "ValueError('fixed vLLM version required')",
+      "pass": true
+    }
+  ],
+  "success": false,
+  "explicit_seams": [
+    "Linux vllm.__init__ not executed on Mac; root __version__ bound via actual wheel version.py/_version.py import chain",
+    "Actual official full dist METADATA used by real importlib.metadata.version",
+    "Native AsyncEngineArgs and AsyncLLM imports/factory substituted; full Product load method executes to construction boundary. No full Linux vllm import/engine/CUDA claim."
+  ]
+}

@@ -1,0 +1,334 @@
+{
+  "schema": "pi24-deadline01-handoff-release/v1",
+  "role": "Working Agent (Builder)",
+  "workorder": 24,
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "GO_sha256": "224fd21962f5c692e17ee61bb0d698e9d4cc7ebddb0a48cc92937188c91b3158",
+  "raw_archive_sha256": "694d5c2c91cf9c7001fc8c6210a784148b2a9e2e916dcdbbc4bb142f00c150a6",
+  "raw_manifest_sha256": "6a9a8bf85d710ff75958e4acdb78677971043b58baa27721401fb612c0e3e355",
+  "manifest_files": 34,
+  "bad": [],
+  "outcome": {
+    "overall_success": true,
+    "cleanup_success": true,
+    "network_cleanup": {
+      "success": true,
+      "network_id": "56dcda90e41ec939466fe2a076d54d6c0af3f6a98ceebf72c470609736c4a4ce",
+      "state": "removed"
+    },
+    "failure": null,
+    "inventory_error": null,
+    "client_exit": 0,
+    "watch_exit": 0,
+    "success": true,
+    "containers": {
+      "ce766587a118f1fdbd38665bc98fe1488bbd8e8adf3ea4018f8d7580908b89fe": "removed"
+    },
+    "errors": []
+  },
+  "progress": {
+    "planned": [
+      "deadline128"
+    ],
+    "completed": [
+      "deadline128"
+    ],
+    "not_completed": []
+  },
+  "steps": [
+    {
+      "id": "deadline128",
+      "raw": {
+        "spec": {
+          "id": "deadline128",
+          "action": "deadline",
+          "budget": 128,
+          "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. deadline128"
+        },
+        "request": "001",
+        "result": {
+          "success": false,
+          "reason": "stream_error"
+        },
+        "post_idle": {
+          "backend": "vllm-0.8.5.post1+cu118/V1-uni/Qwen3-8B",
+          "model": "Qwen3-8B",
+          "ready": true,
+          "active_generation": 0,
+          "calls": 1,
+          "queued": 0,
+          "max_active_generation": 1,
+          "max_context": 1024,
+          "attempts": 1,
+          "max_attempts": 32
+        }
+      },
+      "body_file": "001.body",
+      "body_sha256": "4753cf61c9cad1a2e375e4215b7b68db0a811ecc1c764889b1103e9d3f17d15b",
+      "explicit_generation_deadline": true
+    }
+  ],
+  "native_counts": {
+    "engine_start": 1,
+    "engine_ready": 1,
+    "native_start": 1,
+    "abort_sent": 1,
+    "scheduler_abort_ack": 1,
+    "native_settled": 1
+  },
+  "native_control_events": [
+    {
+      "event": "engine_start",
+      "at": 558497.462219965,
+      "clock": "model-monotonic",
+      "config": {
+        "model": "/model",
+        "dtype": "bfloat16",
+        "max_model_len": 1024,
+        "max_num_seqs": 1,
+        "tensor_parallel_size": 1,
+        "distributed_executor_backend": "uni",
+        "enable_prefix_caching": false,
+        "enforce_eager": true,
+        "gpu_memory_utilization": 0.8,
+        "swap_space": 0,
+        "cpu_offload_gb": 0,
+        "seed": 0,
+        "trust_remote_code": false,
+        "disable_log_stats": true
+      },
+      "vllm_version": "0.8.5.post1",
+      "vllm_distribution_version": "0.8.5.post1+cu118"
+    },
+    {
+      "event": "engine_ready",
+      "at": 558512.6538761,
+      "clock": "model-monotonic",
+      "engine_type": "vllm.v1.engine.async_llm.AsyncLLM",
+      "config": {
+        "model": "/model",
+        "dtype": "bfloat16",
+        "max_model_len": 1024,
+        "max_num_seqs": 1,
+        "tensor_parallel_size": 1,
+        "distributed_executor_backend": "uni",
+        "enable_prefix_caching": false,
+        "enforce_eager": true,
+        "gpu_memory_utilization": 0.8,
+        "swap_space": 0,
+        "cpu_offload_gb": 0,
+        "seed": 0,
+        "trust_remote_code": false,
+        "disable_log_stats": true
+      },
+      "chunked_prefill_enabled": true,
+      "max_num_batched_tokens": 2048
+    },
+    {
+      "event": "native_start",
+      "at": 558512.760967683,
+      "clock": "model-monotonic",
+      "native_id": "6ab687fe5061479883fc6ff53e9bc2da",
+      "prompt_token_ids": [
+        151644,
+        872,
+        198,
+        852,
+        1449,
+        7546,
+        504,
+        220,
+        16,
+        1526,
+        220,
+        19,
+        15,
+        15,
+        11,
+        31683,
+        72692,
+        11,
+        448,
+        902,
+        16148,
+        13,
+        21428,
+        16,
+        17,
+        23,
+        151645,
+        198,
+        151644,
+        77091,
+        198,
+        151667,
+        271,
+        151668,
+        271
+      ],
+      "budget": 128,
+      "calls": 1
+    },
+    {
+      "event": "abort_sent",
+      "at": 558512.762677605,
+      "clock": "model-monotonic",
+      "native_id": "6ab687fe5061479883fc6ff53e9bc2da"
+    },
+    {
+      "event": "scheduler_abort_ack",
+      "at": 558512.837207941,
+      "clock": "model-monotonic",
+      "native_id": "6ab687fe5061479883fc6ff53e9bc2da"
+    },
+    {
+      "event": "native_settled",
+      "at": 558512.837499445,
+      "clock": "model-monotonic",
+      "native_id": "6ab687fe5061479883fc6ff53e9bc2da",
+      "aborted": true,
+      "active": 0
+    }
+  ],
+  "POST_count": 1,
+  "device_ledger": {
+    "model_CID": "ce766587a118f1fdbd38665bc98fe1488bbd8e8adf3ea4018f8d7580908b89fe",
+    "Created": "2026-11-14T03:16:13.563082367Z",
+    "rm": {
+      "command": [
+        "rm",
+        "ce766587a118f1fdbd38665bc98fe1488bbd8e8adf3ea4018f8d7580908b89fe"
+      ],
+      "start": 1794626195.8099318,
+      "end": 1794626195.8369648,
+      "exit": 0,
+      "stdout": "ce766587a118f1fdbd38665bc98fe1488bbd8e8adf3ea4018f8d7580908b89fe\n",
+      "stderr": ""
+    },
+    "increment_s": 22.273882389068604,
+    "prior_s": 94.72067499160767,
+    "cumulative_s": 116.99455738067627,
+    "native_cumulative": 10,
+    "POST_cumulative": 12
+  },
+  "CPU_ledger": {
+    "items": [
+      {
+        "kind": "GOstage",
+        "wall_s": 0.30408596992492676,
+        "ceil_s": 1
+      },
+      {
+        "kind": "wholeforeground",
+        "wall_s": 56.649569034576416,
+        "ceil_s": 57
+      },
+      {
+        "kind": "rawcollection",
+        "wall_s": 0.5716657638549805,
+        "ceil_s": 1
+      }
+    ],
+    "prior_s": 4388.4357385,
+    "increment_s": 59,
+    "cumulative_s": 4447.4357385,
+    "Nov14_subreserve": 1100,
+    "remaining_s": 879
+  },
+  "closeout": {
+    "B_containers": [],
+    "retained_B_networks": [
+      "cf97a390694df09401f1b2eeee04f7451fbb3d0c7c2e6b65e07ac63df00000c4",
+      "29eaf5e27b7dd58ff2296a85d8b82c798672194479aec2995a32cbaa88d98ffc"
+    ],
+    "retained_network_inspects": [
+      {
+        "Name": "pi-vllm24-b-pi24-b-nov14-fallback01",
+        "Id": "cf97a390694df09401f1b2eeee04f7451fbb3d0c7c2e6b65e07ac63df00000c4",
+        "Created": "2026-11-14T11:08:57.014651378+08:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+          "Driver": "default",
+          "Options": {},
+          "Config": [
+            {
+              "Subnet": "172.25.0.0/16",
+              "Gateway": "172.25.0.1"
+            }
+          ]
+        },
+        "Internal": true,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+          "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {},
+        "Labels": {
+          "com.docker.compose.project": "pi-vllm24-b",
+          "execution-sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+          "pi24.nonce": "pi24-b-nov14-fallback01",
+          "pi24.phase-contract-sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+          "workorder": "24"
+        }
+      },
+      {
+        "Name": "pi-vllm24-b-pi24-b-nov14-recovery01",
+        "Id": "29eaf5e27b7dd58ff2296a85d8b82c798672194479aec2995a32cbaa88d98ffc",
+        "Created": "2026-11-14T11:08:56.869940103+08:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+          "Driver": "default",
+          "Options": {},
+          "Config": [
+            {
+              "Subnet": "172.24.0.0/16",
+              "Gateway": "172.24.0.1"
+            }
+          ]
+        },
+        "Internal": true,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+          "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {},
+        "Labels": {
+          "com.docker.compose.project": "pi-vllm24-b",
+          "execution-sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+          "pi24.nonce": "pi24-b-nov14-recovery01",
+          "pi24.phase-contract-sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+          "workorder": "24"
+        }
+      }
+    ],
+    "query_prefix": {
+      "bytes": 30511,
+      "sha256": "5d25092faa24dfc7f4ce4341127448c11ad21e4d7bca3942845c475e77422c8e"
+    },
+    "nonce_consumed": true,
+    "free_bytes": 3047967895552
+  },
+  "release": {
+    "all_SSH_SCP_ended": true,
+    "foreground_exit": 0,
+    "unknown": null,
+    "R_c61_untouched": true,
+    "no_retry": true
+  },
+  "limitations": [
+    "Builder handoff not final accepted; independent R to verify explicit timeout/ACK/settlement and ready.",
+    "Only deadline lifecycle consumed; recovery/fallback require separate exact Master GO.",
+    "Device float clock conversion preserves prior ledger method; Docker exact Created string retained.",
+    "No throughput/C10K/p95 improvement claim."
+  ]
+}

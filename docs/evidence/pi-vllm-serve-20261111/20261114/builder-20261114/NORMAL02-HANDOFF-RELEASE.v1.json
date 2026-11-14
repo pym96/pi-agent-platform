@@ -1,0 +1,81 @@
+{
+  "schema": "pi24-normal02-handoff-release/v1",
+  "role": "Working Agent (Builder)",
+  "workorder": 24,
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "normal02_GO_sha256": "8cd96f3b65fdbdfae1083c162e7257300c64aa3ed09362fd8e4745450a351ad1",
+  "reconciliation": {
+    "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/NORMAL02-LOCAL-RECONCILIATION.v1.json",
+    "sha256": "5702cdb422a340e4ce34614dc67efe545162c8700b3328644a82618a04d1840f"
+  },
+  "raw": {
+    "archive": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/normal02-nov14-raw.tgz",
+    "sha256": "8155a88dd1d7775bcfeaa869efb6242c40a884b6d0d2539b0b92c156746ce64a",
+    "manifest_sha256": "02932107a833a0a656a19d59d4b9ac218ca85506ebb308e75a581832b42aec85",
+    "regular_files": 142,
+    "bad": 0
+  },
+  "CPU_ledger_authoritative_master_conservative": {
+    "prior_s": 4253.4357385,
+    "GO_stage_actual_wall_s": 0.4420359134674072,
+    "GO_stage_ceil_s": 1,
+    "foreground_actual_wall_s": 129.48839712142944,
+    "foreground_ceil_s": 130,
+    "observer_actual_wall_s": 0.42642807960510254,
+    "observer_ceil_s": 1,
+    "collection_actual_wall_s": 1.0081770420074463,
+    "collection_ceil_s": 2,
+    "increment_s": 134,
+    "cumulative_s": 4387.4357385,
+    "new600_remaining_s": 439,
+    "note": "Master chose separate ceil stage1+foreground130; exceeds combined-stage/foreground alternative133 by1s. Preserve reconciliation133 as transparent alternative, authoritative cumulative follows Master134 and does not reset prior ledger."
+  },
+  "device_ledger": {
+    "increment_s": 39.55138087272644,
+    "cumulative_s": 94.72067499160767,
+    "native_cumulative": 9,
+    "completion_POST_cumulative": 11,
+    "device_CID": "3ab3250c77ac219365b79dc377957f0a129494293b91cb41202e86d15ee9b50b",
+    "Created": "2026-11-14T02:55:14.772613019Z",
+    "watch_rm_exit": 0,
+    "watch_rm_end": 1794624954.323994
+  },
+  "coverage": {
+    "completed_steps": 9,
+    "PG_events": 543,
+    "PG_task_statuses": {
+      "completed": 4,
+      "interrupted": 1,
+      "cancelled": 1
+    },
+    "native_starts": 9,
+    "settlements": 9,
+    "abort_ack_pairs": 2,
+    "all_9_steps_raw": "normal02-nov14-raw/run-pi24-b-nov14-normal02/client",
+    "independent_stage_report_sha256": "40fa0b431e48b8f527a567ee96157570fd38e09a8a648074c7f98c8b992f0096"
+  },
+  "release": {
+    "all_SSH_SCP_ended": true,
+    "transport_exit": 0,
+    "B_owned_containers": 0,
+    "B_owned_networks": 0,
+    "normal02_nonce_consumed": true,
+    "R_c61_network_untouched": true,
+    "GPU0_UUID": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead",
+    "fresh_closeout_compute_exit0_empty": true,
+    "no_unknown": true,
+    "no_retry": true
+  },
+  "limitations": [
+    "Not final accepted; deadline/recovery/explicit TF fallback and independent final review remain.",
+    "No C10K/p95/throughput improvement claim; max active generation1 unchanged.",
+    "Current normal02 GO consumed; no further model run without separate Master GO.",
+    "Logical raw PG dumps included; physical PG retained server and excluded from tgz."
+  ],
+  "contributions": {
+    "Human": "Direction, hardware and access scope, GPU0-only requirement",
+    "Builder_Agent": "Source seam/test fixture repairs and bounded normal02 execution/collection/reconciliation",
+    "Regulator_Agent": "Independent source/CPU/wrapper/raw semantic review",
+    "upstream": "Qwen3-8B/vLLM/Pi SDK/model engine generation"
+  }
+}

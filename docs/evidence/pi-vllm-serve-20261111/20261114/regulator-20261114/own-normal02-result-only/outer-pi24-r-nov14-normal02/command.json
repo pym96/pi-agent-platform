@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/source/service/scripts/vllm-serve/launch.py",
+    "--go",
+    "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/R-GPU-NORMAL-NOV14-GO01.json",
+    "--go-sha256",
+    "ab31c89f744e9d94af7f6682596f5c85b3361b9ee034f8d1210efe086874f9d6",
+    "--phase-contract",
+    "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/phase-contract-nov14-v3.json",
+    "--phase-contract-sha256",
+    "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec"
+  ],
+  "go_sha256": "ab31c89f744e9d94af7f6682596f5c85b3361b9ee034f8d1210efe086874f9d6",
+  "entry_sha256": "c414361b6d722ae86f6986083b9c2882a8df12d448e400e183b27f4d7ffd7426",
+  "start": 1794627652.7107577
+}

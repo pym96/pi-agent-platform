@@ -1,0 +1,53 @@
+{
+  "old_removed": {
+    "success": true,
+    "network_id": "2874821bc5f8c03dc03e5e6aa32a77167f77e97e5f28168fa123f7f83cf77d1f",
+    "state": "removed"
+  },
+  "new_retained": {
+    "network_id": "efda9ddfe404e78be2860ebb7aab82c4f0402a092a2e25182f24d759207030d0",
+    "network_name": "pi-vllm24-r-pi24-r-normal02",
+    "labels": {
+      "com.docker.compose.project": "pi-vllm24-r",
+      "execution-sha": "471a317ef687a168306608b1bece931f9b3a2b63",
+      "pi24.nonce": "pi24-r-normal02",
+      "workorder": "24"
+    },
+    "internal": true,
+    "receipts": [
+      {
+        "command": [
+          "network",
+          "create",
+          "--internal",
+          "--label",
+          "workorder=24",
+          "--label",
+          "execution-sha=471a317ef687a168306608b1bece931f9b3a2b63",
+          "--label",
+          "com.docker.compose.project=pi-vllm24-r",
+          "--label",
+          "pi24.nonce=pi24-r-normal02",
+          "pi-vllm24-r-pi24-r-normal02"
+        ],
+        "start": 1794409094.0189683,
+        "end": 1794409094.1281457,
+        "exit": 0,
+        "stdout": "efda9ddfe404e78be2860ebb7aab82c4f0402a092a2e25182f24d759207030d0\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "network",
+          "inspect",
+          "efda9ddfe404e78be2860ebb7aab82c4f0402a092a2e25182f24d759207030d0"
+        ],
+        "start": 1794409094.1281672,
+        "end": 1794409094.1437752,
+        "exit": 0,
+        "stdout": "[\n    {\n        \"Name\": \"pi-vllm24-r-pi24-r-normal02\",\n        \"Id\": \"efda9ddfe404e78be2860ebb7aab82c4f0402a092a2e25182f24d759207030d0\",\n        \"Created\": \"2026-11-11T22:58:14.028440806+08:00\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": {},\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.22.0.0/16\",\n                    \"Gateway\": \"172.22.0.1\"\n                }\n            ]\n        },\n        \"Internal\": true,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Containers\": {},\n        \"Options\": {},\n        \"Labels\": {\n            \"com.docker.compose.project\": \"pi-vllm24-r\",\n            \"execution-sha\": \"471a317ef687a168306608b1bece931f9b3a2b63\",\n            \"pi24.nonce\": \"pi24-r-normal02\",\n            \"workorder\": \"24\"\n        }\n    }\n]\n",
+        "stderr": ""
+      }
+    ]
+  }
+}

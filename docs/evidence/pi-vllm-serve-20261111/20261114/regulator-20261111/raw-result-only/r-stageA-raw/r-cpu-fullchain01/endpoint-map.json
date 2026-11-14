@@ -1,0 +1,24 @@
+{
+  "project": "pi-vllm24-r",
+  "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+  "nonce": "r-cpu-fullchain01",
+  "network_id": "0fbb2c5db34414e1ddbaf17019e9f4707f07f9164ee5b75ceafa811a147c28d1",
+  "network_name": "pi-vllm24-r-r-cpu-fullchain01",
+  "endpoints": {
+    "model": {
+      "cid": "38ea172833a35f546a68822a34ed50a0f55b786429e01c1903ffc7b06e0817f9",
+      "ip": "172.22.0.4",
+      "port": 8082
+    },
+    "api": {
+      "cid": "2b527b3dbb95c7ae652798ffcd197a02b622cbd52b40cbad31df698145124803",
+      "ip": "172.22.0.5",
+      "port": 8080
+    },
+    "pi": {
+      "cid": "b39a55696bd464132965e1d85558a2a7149daf6a17add58ef5d6a2591e58b962",
+      "ip": "172.22.0.2",
+      "port": 8081
+    }
+  }
+}

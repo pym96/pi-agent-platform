@@ -1,0 +1,43 @@
+..F                                                                      [100%]
+=================================== FAILURES ===================================
+_____________ test_overbudget_native_terminal_is_explicit_failure ______________
+
+    def test_overbudget_native_terminal_is_explicit_failure():
+        class OverBudget(Engine):
+            async def generate(self,prompt,sampling_params,request_id):
+                yield NS(prompt_token_ids=[10,11,12],finished=True,outputs=[NS(text='excess',token_ids=list(range(9)),finish_reason='length')])
+        async def scenario():
+            backend=VllmBackend(OverBudget(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+            async with serve(backend) as (client,url):
+                async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:
+                    body=await response.text()
+                    assert not inspect_stream(response.status,body)['success']
+                    assert 'backend_failure' in body and body.count('data: [DONE]')==1
+                    assert '"finish_reason": "length"' not in body
+>       asyncio.run(scenario())
+
+service/inference/tests/test_vllm.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    async def scenario():
+        backend=VllmBackend(OverBudget(),Tokenizer(),sampling_factory=lambda **kw:NS(**kw))
+        async with serve(backend) as (client,url):
+            async with client.post(url+'/v1/chat/completions',json=PAYLOAD) as response:
+                body=await response.text()
+>               assert not inspect_stream(response.status,body)['success']
+E               assert not True
+
+service/inference/tests/test_vllm.py:86: AssertionError
+=========================== short test summary info ============================
+FAILED service/inference/tests/test_vllm.py::test_overbudget_native_terminal_is_explicit_failure
+1 failed, 2 passed in 0.15s

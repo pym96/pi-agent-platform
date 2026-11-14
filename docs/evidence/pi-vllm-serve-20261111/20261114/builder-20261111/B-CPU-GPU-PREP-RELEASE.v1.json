@@ -1,0 +1,25 @@
+{
+  "role": "builder",
+  "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+  "last_server_end_epoch": 1794407586.7242854,
+  "cpu_prepare_this_seconds": 0.36271142959594727,
+  "cpu_prepare_builder_upper_seconds": 2849.621449947357,
+  "compute_containers": 0,
+  "model_calls": 0,
+  "GPU_lifecycle_seconds": 0,
+  "completionPOST": 0,
+  "CI_used": 1,
+  "retained_network": {
+    "id": "20eb2483e876273dd4956426b711a91e1899aabebe50cbbef811c7d04683ba5f",
+    "nonce": "pi24-b-normal01",
+    "Internal": true,
+    "members": {}
+  },
+  "R_network_untouched": true,
+  "release": true,
+  "cpu_raw": {
+    "path": "CPU-GPU-PREP01.json",
+    "sha256": "e16ee14feece044a812a0eedb341bc1b64bff145d0b26bb89177c7579c5966cd"
+  },
+  "no_further_SSH_without_Master_GO": true
+}

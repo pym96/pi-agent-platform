@@ -1,0 +1,109 @@
+{
+  "schema": "pi24-R-normal02-CPUfreeze-local-review/v1",
+  "utc": "2026-11-14T02:51:34.849885+00:00",
+  "issue": 24,
+  "SessionRole": "Regulator Agent",
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "phase_sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+  "decision": "STAGED_NORMAL02_IDENTITIES_AND_RELEASE_PASS; supports separate exact prospective normal02 model GO, not runtime or final accepted",
+  "handoff_sha256": "0ce9bcb682651d857c41b0d6139042fd7b1f68e689854b4648731cb059a43882",
+  "observations": {
+    "raw_actual_wire_equals_receipt": true,
+    "actual_CPU_commands": 12,
+    "all_exit_zero": true,
+    "SSH_wall_s": 0.887444019317627,
+    "markers": {
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/consumed-pi24-b-nov14-normal01": {
+        "exists": false,
+        "method": "actual os.lstat FileNotFoundError"
+      },
+      "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/consumed-pi24-b-nov14-normal02": {
+        "exists": false,
+        "method": "actual os.lstat FileNotFoundError"
+      }
+    },
+    "wrapper_query_binding": {
+      "real_binary": "/usr/bin/nvidia-smi",
+      "real_resolved": "/usr/bin/nvidia-smi",
+      "real_binary_sha256": "2da08a20450594c3cdf1e677c1d2e46101a0b2d45ee5d3d6b67b87ae50522af2",
+      "wrapper_path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/nvml-normal02-bin/nvidia-smi",
+      "wrapper_sha256": "917f97350b53c3b2ddcbd0f105900b32a6b786434ce7ca3c971a8a43c6d2dc4e",
+      "wrapper_bytes": 1644,
+      "original_PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "effective_PATH": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/nvml-normal02-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "log_path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/NVML-QUERY-RAW-NOV14-V2.jsonl",
+      "log_exists": false
+    },
+    "unchanged_source_helpers_and_original_plans": true,
+    "old_empty_internal_network_removed": "ebbd890f95f601066d7dbcf66d2189f574f5cbb3e49e7482c0dac1decb213486",
+    "new_empty_internal_IPv6false_network": "2b84ec0582c09a61880404a2b043151adfcc5d6c3e0130be641f33156beab978",
+    "new_nonce": "pi24-b-nov14-normal02",
+    "CPU_probe": {
+      "cpu_only": true,
+      "model_started": false,
+      "sample": {
+        "epoch": 1794624574.6478984,
+        "pid": 3976849,
+        "affinity": [
+          0,
+          1
+        ],
+        "rss_bytes": 17166336,
+        "descendants": {
+          "3976849": {
+            "ppid": 3976818,
+            "rss_bytes": 17166336,
+            "allowed": "0-1"
+          }
+        }
+      }
+    },
+    "B_containers_at_end": 0,
+    "all_SSH_ended": true,
+    "R_network_not_touched": "c61d7fd94ae102b909dfcf55d2cece73f97a6ec379f334eaef1b7d39333a37cd",
+    "free_bytes": 3048023519232,
+    "CPU_cumulative_upper_s": 4253.4357385,
+    "new600_remaining_s": 573,
+    "new_GPU_native_POST": 0
+  },
+  "reused_evidence": [
+    "SourceCI5 exact9ea actual requiredsuccess + own artifact",
+    "Own clean-source SC07/actual Linux16+17+67 b70bf2dd",
+    "Own wrapper-v2 normal/nonUTF8/signal/actual timeout+childgone report6cfbeac8",
+    "Own B prep03 f9240c12 frozen original plans/helpers/entry/assets"
+  ],
+  "limits": [
+    "Local independent audit of actual B CPU original receipts; no R SSH/GPU/query/model this phase.",
+    "Marker absence/network state are timestamped CPUfreeze snapshots, not future guarantees; new precise GO runtime gates still apply.",
+    "Real runtime/model/SDK complete hashing/GPU0 dual-idle/independent watch/native stop occur inside actual new model GO; CPUfreeze cannot stand for them.",
+    "This receipt measures free bytes and exact staged file sizes; no new full disjoint owned disk census here. Previous complete CPU5 census snapshot plus later raw growth retained, not called future exact total.",
+    "No new gates/suites; original expired normal01 GO remains retired and original failed wrapper/HOLD cost preserved.",
+    "All real normal/deadline/recovery/fallback/R matrices and final exact-source Evidence CI remain pending."
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-master-20261114/B-NORMAL02-CPU-FREEZE-GO01.json",
+      "sha256": "48a1040c025710a53e4dac1aa4087b4ec135985b30161ea7d6b7266056a08282"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/NORMAL02-CPU-FREEZE01-HANDOFF-RELEASE.v1.json",
+      "sha256": "0ce9bcb682651d857c41b0d6139042fd7b1f68e689854b4648731cb059a43882"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/NORMAL02-CPU-FREEZE01-SSH.json",
+      "sha256": "5d7341500f4e207bd465c1a9e487b6dcc71142292366da912cdd7521934e2d63"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/NORMAL02-CPU-FREEZE01-SUCCESS.json",
+      "sha256": "9add8631496275e3eb41886248c960f8aab67ca8b8a92a0204fa648a4e0219af"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/NORMAL02-CPU-freeze-remote-script.py",
+      "sha256": "845a4bc86b1368b69746f70728d4b79fdb4925eb71aa92d6dc09f8e9f0550242"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/execute_normal02_cpu_freeze_once.py",
+      "sha256": "4b15f2585bb4e57bbcd3f7895eecf807d1ee8fac09f586114ef52e53cebdc7b3"
+    }
+  ]
+}

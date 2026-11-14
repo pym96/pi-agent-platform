@@ -1,0 +1,49 @@
+{
+  "schema": "pi24-normal02-CPUfreeze/v1",
+  "issue": 24,
+  "role": "builder",
+  "issued_at": "2026-11-14T02:47:25.939354+00:00",
+  "local_now": "Prepare bounded exact CPUfreeze transport and staged hashes only; no further test duplication or SSH until Master forwards independent R finalwrapper pass.",
+  "conditional_server": "Only after Master explicitly forwards independent R local report binding wrapper917f and actual normal+finite timeout cases with no unresolved blocker. Silence, B selftests or a stage report do not activate server.",
+  "once_wall_cap_s": 60,
+  "absolute_stop": "2026-11-14T03:05:00Z",
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "phase_contract_sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+  "oldGO_retired_sha256": "2eb275f67c682808d5ee629e5ab0a1f07170964fccb135a1a0139a82ab1cee22",
+  "old_HOLD_release_sha256": "deab30f3fda5cb4276cd28ec9f79273cbeb6e7e4290509ec9df749f00c88450e",
+  "old_nonce": "pi24-b-nov14-normal01",
+  "new_nonce": "pi24-b-nov14-normal02",
+  "old_B_network": "ebbd890f95f601066d7dbcf66d2189f574f5cbb3e49e7482c0dac1decb213486",
+  "wrapper_source_sha256": "917f97350b53c3b2ddcbd0f105900b32a6b786434ce7ca3c971a8a43c6d2dc4e",
+  "wrapper_destination": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/nvml-normal02-bin/nvidia-smi",
+  "real_binary": "/usr/bin/nvidia-smi",
+  "real_binary_sha256": "2da08a20450594c3cdf1e677c1d2e46101a0b2d45ee5d3d6b67b87ae50522af2",
+  "outer_entry_sha256": "95af5de69016a7cf027d390395f7c1fefd0fbc96c053aaa000ef452bdb6e497a",
+  "shell_sha256": "611e0cc4fbbfaaf618c7caf62c044d9a9966bd24ed2c29e632c11fd7fadee0f9",
+  "normal_plan_sha256": "deb0910ecccedafec8c535dec1d877de560e2cb1cc09800c4e0f4bdf274ea059",
+  "allowed": [
+    "first cd /media/usv012/pjx/export CUDA_VISIBLE_DEVICES=0; own builder root only; no Rnetwork/container mutation",
+    "fresh sourceHEADcleanexact9ea and sourcehelper/phase/outer/shell/normalplan/assets binding checks; actual originalnormal01 consumedmarker absence; any unexpected marker/object/dirtysource stops, never remove a marker",
+    "stage new exactwrapper917f at newnormal02 path, preserve oldad5c/oldGO/raw untouched, bind actual realbinary path/hash and exact effectivePATH, privatequerylog path; CPU-only import/affinity/RSS probe using existing frozen outer, no realNVMLquery",
+    "inspect oldexactBebbd project/source9ea/nonceoldnormal01/phase82f/emptyInternal before remove; create only one new internaltrue/IPv6false/unpublished Bnormal02 net, labels source9ea/phase82f/newnonce; record actualID and members; do not touch R c61",
+    "freeze all forthcoming model transport inputs before GPU GO, raw stagedbytes/command/PATH/identity/resources/time/free/diskdelta plus formal allSSH-SCPended release, handoff to R local review"
+  ],
+  "forbidden": "no container start/CUDA/NVML/model/CI/newdeps/newimages/driver/firewall/sharednetwork/foreignPID/dirtyreset/marker deletion; no model auth or automatic retry",
+  "budgets": {
+    "CPU_upper_used_s": 4252.4357385,
+    "CPU_total_s": 5400,
+    "new600_remaining_s": 574,
+    "actualceil_charge": true,
+    "B_device_used_s": 55.169294118881226,
+    "B_native_POST_used": 0,
+    "R_device_native_POST_used": 0,
+    "CI_used": 5,
+    "CI_total": 7,
+    "CI_final_main_reserved": [
+      6,
+      7
+    ],
+    "other_limits": "unchanged phase04:20/last03:35, only GPU0, servernew2GiB/local1GiB/free20GiB"
+  },
+  "no_model_authorization": true
+}

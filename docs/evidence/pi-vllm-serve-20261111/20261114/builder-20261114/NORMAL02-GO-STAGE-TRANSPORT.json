@@ -1,0 +1,24 @@
+{
+  "start": 1794624829.660751,
+  "end": 1794624830.102787,
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "HostKeyAlias=58.199.168.63",
+    "-o",
+    "ConnectTimeout=10",
+    "-o",
+    "ServerAliveInterval=5",
+    "-o",
+    "ServerAliveCountMax=2",
+    "wt@58.199.171.85",
+    "cd /media/usv012/pjx && export CUDA_VISIBLE_DEVICES=0 && cd /media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder && exec taskset -c 0,1 python3 -c 'import pathlib,sys,hashlib,json,time\np=pathlib.Path(sys.argv[1]);data=sys.stdin.buffer.read();h=hashlib.sha256(data).hexdigest()\nassert h==sys.argv[2] and not p.exists() and not p.is_symlink()\nwith p.open('\"'\"'xb'\"'\"') as f:f.write(data)\nprint(json.dumps({'\"'\"'event'\"'\"':'\"'\"'GO_staged'\"'\"','\"'\"'epoch'\"'\"':time.time(),'\"'\"'path'\"'\"':str(p),'\"'\"'sha256'\"'\"':h}),flush=True)\n' /media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/B-GPU-NORMAL-NOV14-GO02.json 8cd96f3b65fdbdfae1083c162e7257300c64aa3ed09362fd8e4745450a351ad1"
+  ],
+  "exit": 0,
+  "stdout_base64": "eyJldmVudCI6ICJHT19zdGFnZWQiLCAiZXBvY2giOiAxNzk0NjI0ODMwLjEwMDU3NzQsICJwYXRoIjogIi9tZWRpYS91c3YwMTIvcGp4L3BpLWFnZW50LXBsYXRmb3JtL2V4cGVyaW1lbnRzLzI0LXZsbG0tc2VydmUtMjAyNjExMTEvYnVpbGRlci9CLUdQVS1OT1JNQUwtTk9WMTQtR08wMi5qc29uIiwgInNoYTI1NiI6ICI4Y2Q5NmYzYjY1ZmRiZGZhZTEwODNjMTYyZTcyNTczMDBjNjRhYTNlZDA5MzYyZmQ4ZTQ3NDU0NTBhMzUxYWQxIn0K",
+  "stderr_base64": ""
+}

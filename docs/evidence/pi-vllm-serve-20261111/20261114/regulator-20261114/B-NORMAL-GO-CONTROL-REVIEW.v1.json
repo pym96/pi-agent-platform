@@ -1,0 +1,24 @@
+{
+  "schema": "pi24-nov14-R-controlGO-binding-review/v1",
+  "SessionRole": "Regulator Agent",
+  "issue": 24,
+  "at": "2026-11-14T02:37:42.029616+00:00",
+  "GO_sha256": "2eb275f67c682808d5ee629e5ab0a1f07170964fccb135a1a0139a82ab1cee22",
+  "result": "CONTROL_BINDINGS_CONSISTENT_NO_KNOWN_LOCAL_BLOCKER",
+  "source": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "phase_sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+  "checks": [
+    "actualProduct.validate uses realwallclock/independentphase4args and returns identicalGO",
+    "fullphase byteidentity/newCI5 source/artifact/RCPU/preentryreport identities exact",
+    "Bnormal nonce/network/helper/plan/outer/shell identities consistent withcurrenthandoff",
+    "issued+360=deadline<allstop; prior55.169device retained andtotal1200not exceeded",
+    "no obsolete d425/CI4 local authorization field innewGO"
+  ],
+  "no_SSH_model_or_GPU": true,
+  "not_final_accepted": true,
+  "limits": [
+    "The frozen phase budgetmetadata describes issuance allocation; currentGO CIactual andbeforecost preserve subsequent actualconsumption. Phase server_model_permission=false meansphase alone grants none; this exactMasterGO separately grants the bounded lifecycle.",
+    "ActualGPU0 doubleidle/fullruntime-model-SDK hashes/watch/nativehardstop belongto runtimegates; this local review cannot claim them executed.",
+    "Await B originalraw andnormalmatrix/lifecycle/cleanup, not success fromactiveprocess orCPUprep."
+  ]
+}

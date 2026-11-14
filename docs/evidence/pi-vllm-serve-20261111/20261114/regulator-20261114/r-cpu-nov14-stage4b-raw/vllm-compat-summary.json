@@ -1,0 +1,9 @@
+{
+  "tests": 16,
+  "skipped": 0,
+  "failures": 2,
+  "errors": 1,
+  "expected_failures": 0,
+  "unexpected_successes": 0,
+  "success": false
+}

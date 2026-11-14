@@ -1,0 +1,79 @@
+{
+  "SessionRole": "Regulator Agent",
+  "session": "/root/g2_24_regulator",
+  "issue": 24,
+  "criteria": "C-G2-01..04@1.0",
+  "status": "INITIAL_LOCAL_ONLY_REVIEW_NOT_ACCEPTANCE",
+  "contract_sha256": "df31c47ec168682c850745660593ce561ffa2da37d8f5eb1931e05b913c53219",
+  "AGENTS_sha256": "a36533d64f1b391a2ed60608808ccf1662f3fd6ac500b1460dd8f5e49e824e9b",
+  "feedback": "no pending items at initial read",
+  "baseline_origin": "https://github.com/pym96/pi-agent-platform.git",
+  "baseline_sha": "b0ed1c4d6f26d8a3b0c454030606dd598a4f0166",
+  "baseline_clean": true,
+  "official_wheel_sha256": "a593a2e5f455b0e47bf297ea31153dad9c2b2c44ddb13e194ba0a247e597e34a",
+  "extracted_source": {
+    "official-source/vllm/engine/arg_utils.py": {
+      "bytes": 77963,
+      "sha256": "65dfb922f57b5b242ac226024ae6a8041cc141b5b003831ea0d372d37d9e1caa"
+    },
+    "official-source/vllm/engine/async_llm_engine.py": {
+      "bytes": 51183,
+      "sha256": "3558f4d4d6d8c7228ded61172665f372206170c666bce3f41f3677e74b2093ca"
+    },
+    "official-source/vllm/outputs.py": {
+      "bytes": 20255,
+      "sha256": "760048580d15ad0f4a5e1aeeff4fcdb40694df9bab1d370d9ea86b5e4396c52e"
+    },
+    "official-source/vllm/v1/core/sched/scheduler.py": {
+      "bytes": 39010,
+      "sha256": "a60d1e2e480ae72b911356c8c268bbeb99b0ec84cdf1537560aa50da01f0209f"
+    },
+    "official-source/vllm/v1/engine/async_llm.py": {
+      "bytes": 20982,
+      "sha256": "e83f905bd879e4e9c87fb4ce458aa453f31d06bdde945822282ca251d7c54a74"
+    },
+    "official-source/vllm/v1/engine/core.py": {
+      "bytes": 29223,
+      "sha256": "c01b04e57ddff7f24f96c144ce441a6dacca66f6facf0b97148fb7e680f28b18"
+    },
+    "official-source/vllm/v1/engine/core_client.py": {
+      "bytes": 36362,
+      "sha256": "5e6d623e14fc4571e3ddb38ef44d4b88c0521874086abb925743efc129802805"
+    },
+    "official-source/vllm/v1/engine/output_processor.py": {
+      "bytes": 15837,
+      "sha256": "fb0eede9943da0f762667a7cb9ca708dff20c3b5a663f24ee05987f2bb0846eb"
+    },
+    "official-source/vllm/v1/engine/processor.py": {
+      "bytes": 16896,
+      "sha256": "3934fea3e5fbdc04c7157efe391dbc1c6edcea5cbe8d6b703e9b30e55747f96a"
+    }
+  },
+  "probe_sha256": "4b9b78307070935396049231d6a1bfa127b4db70d3755db2b05519268d9e8c9c",
+  "baseline_probe_sha256": "405bf3b2e4ba5fecf0795fed191fef1b72b7b62bdc66efef19c23d808f34c2c4",
+  "baseline_probe_result": "26 actual loopback cases:25 passed,1 known excessive-completion-budget failure; CPU fixture only",
+  "native_budget_feasibility": {
+    "required_usual_generations": 7,
+    "cap": 8,
+    "queued_request": "must be cancelled before native generate; counted only if actually started",
+    "completion_post_cap": 16,
+    "retry_authority": false
+  },
+  "review_attention": [
+    "Native cancellation: AsyncLLM.abort only sends IPC ABORT, generator aclose alone does not invoke CancelledError handler; actual scheduler settlement needs proof, never claim immediate kernel preemption",
+    "Restart test requires actual native execute_start and PG running before owned API kill, queued task must remain nonnative, new session recovery/no resend independently correlated",
+    "HTTP budget/terminal/error invariants and all required negatives real loopback, exact completion usage from native engine",
+    "Fresh own server staging and GPU entry require explicit Master GO and released Builder slot; local preparation grants no remote permission"
+  ],
+  "contract_contradictions_found": [],
+  "technical_acceptance": false,
+  "costs": {
+    "server_cpu_seconds": 0,
+    "gpu_exposed_seconds": 0,
+    "native_generate": 0,
+    "completion_posts_model": 0,
+    "new_download_bytes": 0,
+    "ci_triggers": 0
+  },
+  "created_epoch": 1794403053.619838
+}

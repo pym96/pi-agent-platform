@@ -1,0 +1,44 @@
+{
+  "schema": "pi24-nov14-sourceCI4-and-conditional-R-CPU-go/v1",
+  "issued_at": "2026-11-14T01:55:34.538706+00:00",
+  "issue": 24,
+  "source_sha": "d42579518034f235a55fdbdbfd1d72b0f1134544",
+  "B_local_handoff_sha256": "04198736fd52454d09f1d8e579fa6326f47d71f8687c326c9a69b32f0e0654b2",
+  "R_local_review_sha256": "6889f9304f16786f1e226266520bc255fbd273efa07a0eb26d56873f655b9aaa",
+  "phase_contract_sha256": "77b6d5aa360e46cdde73fa36bdff344c89769973e56c48733b43ac258d763887",
+  "builder_permission": "exact d425 once push workorder/24-candidate only sourceCI4; no main/amend/otherSHA/rerun/server/model",
+  "B_push_absolute_stop": "2026-11-14T02:10:00Z",
+  "regulator_permission_conditional": {
+    "only_after": "Actualremote exactd425 and sole SOURCE-CI4 actualsuccess/no pending required checks; B no server and R priorrelease",
+    "local": "Fresh origin exactd425 + independent actualCI4 artifact/source/requiredsuite checks",
+    "server": "Once affected LinuxCPU max180s and absolute02:20Zstop; firstcd/media/usv012/pjx/exportCUDA0; exactRroot/project only except explicitlyRO two ownWO roots PG diskstat; no model/CUDA/GPU",
+    "allowed": [
+      "stage exactcleannewsource + same phase-contract bytes/hash + fixed externalRentry/probe; derive from own independentclone/bundle, no reset of dirty user data",
+      "cached08619 image/runc/VOID/noDeviceRequests/ROsource/no modelmount, <=2CPU4GiB; actual17serving + affected16G0/finite<=60s nativeCPU probe + actualphaseCLI oldGO/tamper rejection + own hosttaskset0,1 affinity/RSS",
+      "exactinspect oldR efda source471 emptyInternal identity before remove; create new internal/IPv6false/no published port emptynetwork sourceD425/phase+noncepi24-r-nov14-normal01, recordactualID; noBnet mutation",
+      "bounded PG diskcount inside cached runc/VOID/networknone/capdropALL/noNewPriv/ROroot, user numeric matching actual ownPG directory owner (e.g999) to count only exact WO PG bind dirs RO; no host permission/owner change/no extra capabilities or foreignmount; timeout<=60s inside same180s envelope",
+      "disk account B+R roots via disjoint readable files and PG readonly inode/bytes; error remainsunknown notpartialexact; local roots/source/raw totals too; record alreadyexistingROcache separately",
+      "fullraw/stdout/errors/UTC/stoprm andfinalinventory with retainednewinertnetwork explicit; release server on completion"
+    ]
+  },
+  "budgets": {
+    "CPU_prepare_old_plus_readonly_upper_s": 4233.4357385,
+    "new_CPU_original600_remaining_s": 593,
+    "this_R_CPU_cap_s": 180,
+    "B_device_used_s": 55.169294118881226,
+    "R_device_used_s": 0,
+    "native_POST_new": 0,
+    "CI_total": 6,
+    "CI_used_before_push": 3,
+    "CI_this_ifactual": 4,
+    "reserved_final_main": [
+      5,
+      6
+    ],
+    "other_original_limits": "unchanged"
+  },
+  "no_model_or_autostart": true,
+  "no_new_dependencies_or_images": true,
+  "no_role_or_scope_expansion": true,
+  "supersedes_unused_failed_condition": "048ff55cf982328dc16225d04c121329c2e8c1345100be16ef323d40f98c48b8 never activated, retired"
+}

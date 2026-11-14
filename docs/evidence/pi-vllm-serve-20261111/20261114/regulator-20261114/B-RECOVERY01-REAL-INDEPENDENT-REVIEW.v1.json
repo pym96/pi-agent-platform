@@ -1,0 +1,90 @@
+{
+  "schema": "pi24-R-Brecovery01-real-stage-review/v1",
+  "status": "NEW_ENGINE_DIRECT16_RECOVERY_STAGE_PASS_NOT_FINAL_ACCEPTED",
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "GO_sha256": "f909992a3e719032a14131c5c55cf818c756a737d33b20ef19024aa1620a370e",
+  "GO_control_validation": "post-run static fullbinding reviewed; no clock projection or expiredGO execution",
+  "B_handoff_sha256": "d76d866a80d49be2dd3dbe2bf5b33dc572b4b9f1e8bfdfa1cf6d332caac41536",
+  "raw_archive_sha256": "e33a3043ea795ed6e98a59842796693cd4a3aaad732583f5e920a40d0be8c43a",
+  "raw_manifest_sha256": "76c4f54403b77dd8d5e09f46fb10e608d076e4960230417445ce5af34918e086",
+  "raw_manifest_files": 34,
+  "independent_direct_oracle": {
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 35,
+      "completion_tokens": 16,
+      "total_tokens": 51
+    },
+    "content": "1,2,3,4,5,6,7,8,",
+    "frame_count": 19
+  },
+  "native_id": "2ff3ccd146bf498e97d4c8a9b80078b6",
+  "native_prompt_ID_count": 35,
+  "native_completion_ID_count": 16,
+  "post_idle_actual": {
+    "backend": "vllm-0.8.5.post1+cu118/V1-uni/Qwen3-8B",
+    "model": "Qwen3-8B",
+    "ready": true,
+    "active_generation": 0,
+    "calls": 1,
+    "queued": 0,
+    "max_active_generation": 1,
+    "max_context": 1024,
+    "attempts": 1,
+    "max_attempts": 32
+  },
+  "old_deadline_settlement_source": "B-DEADLINE01-REAL-INDEPENDENT-REVIEW.v1.json/e07c7c0e; separate old lifecycle already proved ACK->settled. This run is a new engine and cannot itself prove old slot continuation.",
+  "cleanup": "Actual modelCID successfulstop/rm, exact recovery netremoved; Bcontainers0 and only fallback emptyInternal retained; outer/freshpostGPU0empty; allSSHended.",
+  "device_increment_s": 21.95117473602295,
+  "B_device_cumulative_upper_s": 138.94573211669922,
+  "B_native_cumulative": 11,
+  "B_POST_cumulative": 13,
+  "CPU_rows": [
+    {
+      "file": "RECOVERY01-GO-STAGE-TRANSPORT.json",
+      "sha256": "26012add457bc4c5f0fd6aa5cd03f1fa13d625a9cdcfc1c15de6a273dcfd080f",
+      "wall_s": 0.2977290153503418,
+      "ceil_s": 1
+    },
+    {
+      "file": "RECOVERY01-FOREGROUND-TRANSPORT-RESULT.json",
+      "sha256": "e81a30773b5a7bf5a1af2b46e8a1776625a5977a196757bc5e8dbc7cec3f0631",
+      "wall_s": 56.0671660900116,
+      "ceil_s": 57
+    },
+    {
+      "file": "RECOVERY01-RAW-COLLECTION-SSH.json",
+      "sha256": "0fc47d57688d5f81ed0ec4694c4d60ff9ad6640a6155caba1ba466dfffdd0b21",
+      "wall_s": 0.5380499362945557,
+      "ceil_s": 1
+    }
+  ],
+  "CPU_increment_s": 59,
+  "CPU_cumulative_upper_s": 4506.4357385,
+  "Nov14_1100_remaining_s": 820,
+  "criteria": {
+    "C01": "Actual successful strictSSE/nonemptylength/usage35+16=51 matches native realtokenIDs",
+    "C02": "Native singleexecution settled before actualposthealth idle",
+    "C03": "Original B postdeadline recovery direct16 covered in newlifecycle, fallback/Ractualmatrix remain",
+    "C04": "Exact source/CI/phase/GO/plan/frozenentry, manifest and actualcleanup+resourceledger coherent"
+  },
+  "limits": [
+    "No R SSH/GPU/model in this audit.",
+    "Not finalaccepted; explicit fallback, ownRrealmatrix and finalEvidenceCI still required.",
+    "No throughput/p95/C10K/batching improvement claim."
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/RECOVERY01-HANDOFF-RELEASE.v1.json",
+      "sha256": "d76d866a80d49be2dd3dbe2bf5b33dc572b4b9f1e8bfdfa1cf6d332caac41536"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/B-recovery01-original/RECOVERY01-NOV14-MANIFEST.json",
+      "sha256": "76c4f54403b77dd8d5e09f46fb10e608d076e4960230417445ce5af34918e086"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/review_recovery01.py",
+      "sha256": "d2afd7e9e1a6e29704161b82689e153f94993bc348e47794cf28449e6b8c570a"
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "schema": "pi24-nov14-regulator-Bnormal-preentry-review/v1",
+  "SessionRole": "Regulator Agent",
+  "issue": 24,
+  "created_utc": "2026-11-14T02:35:38.986993+00:00",
+  "source_full_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "phase_contract_sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+  "stage": "LOCAL_PRE_NORMAL_GPU_ENTRY_REVIEW",
+  "result": "NO_KNOWN_PREENTRY_BLOCKER_FOR_MASTER_ONCE_NORMAL_GO",
+  "not_model_authorization": true,
+  "not_final_accepted": true,
+  "checks": {
+    "handoff_raw_hashes": {
+      "CPU-PREP03-SSH.json": true,
+      "CPU-PREP03-SUCCESS.json": true,
+      "CPU-PREP03-remote-script.py": true,
+      "execute_cpu_prep03_once.py": true
+    },
+    "wire_stdout_equals_stored_success": true,
+    "all11CPUcommands_exit0": true,
+    "sourcebindings_to_independent_exactclone": {
+      "source/service/scripts/vllm-serve/launch.py": true,
+      "source/service/scripts/vllm-serve/watch.py": true,
+      "source/service/scripts/vllm-compat/driver.py": true,
+      "source/service/scripts/vllm-compat/native.py": true,
+      "source/service/compose.vllm.yaml": true
+    },
+    "all4plans_match_originalfrozenbytes": {
+      "plan-normal.json": true,
+      "plan-deadline.json": true,
+      "plan-recovery.json": true,
+      "plan-fallback.json": true
+    },
+    "normal_plan_kind": "real-model-functional",
+    "bundleverify": "The bundle contains this ref:\n9ea36d3221d024a6d8330322d330809fa9e283a6 refs/heads/workorder/24-candidate\nThe bundle requires this ref:\n471a317ef687a168306608b1bece931f9b3a2b63 \nThe bundle uses this hash algorithm: sha1\n/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/source-nov14-9ea.bundle is okay\n",
+    "server_source_clean_twice": true,
+    "network_ID_internal_IPv6_labels_empty": true,
+    "Bcontainers": 0,
+    "B_retained_networks": 1,
+    "R_c61_untouched": true,
+    "actualCPU_shell_probe": "firstcwd/CUDA0/role-root/taskset0,1/RSS17072128B",
+    "outer_equals_previouslyreviewed_phase5bytes": true,
+    "shell_fixed_independent_phase_lastargs": true
+  },
+  "entry": {
+    "outer_sha256": "95af5de69016a7cf027d390395f7c1fefd0fbc96c053aaa000ef452bdb6e497a",
+    "shell_sha256": "611e0cc4fbbfaaf618c7caf62c044d9a9966bd24ed2c29e632c11fd7fadee0f9",
+    "Product_launch_sha256": "d5e07f695b3680a7239d0dcc30a1735120148c2fc57ef4a42b3ce7ecddffec7d",
+    "normal_plan_sha256": "deb0910ecccedafec8c535dec1d877de560e2cb1cc09800c4e0f4bdf274ea059",
+    "assets_sha256": "7a9a7e728bbf92411371ac497a896c47ce5bee1f86a9cfea6fbd9a690a78cd54",
+    "network": {
+      "Name": "pi-vllm24-b-pi24-b-nov14-normal01",
+      "Id": "ebbd890f95f601066d7dbcf66d2189f574f5cbb3e49e7482c0dac1decb213486",
+      "Created": "2026-11-14T10:32:31.716818898+08:00",
+      "Scope": "local",
+      "Driver": "bridge",
+      "EnableIPv6": false,
+      "IPAM": {
+        "Driver": "default",
+        "Options": {},
+        "Config": [
+          {
+            "Subnet": "172.23.0.0/16",
+            "Gateway": "172.23.0.1"
+          }
+        ]
+      },
+      "Internal": true,
+      "Attachable": false,
+      "Ingress": false,
+      "ConfigFrom": {
+        "Network": ""
+      },
+      "ConfigOnly": false,
+      "Containers": {},
+      "Options": {},
+      "Labels": {
+        "com.docker.compose.project": "pi-vllm24-b",
+        "execution-sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+        "pi24.nonce": "pi24-b-nov14-normal01",
+        "pi24.phase-contract-sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+        "workorder": "24"
+      }
+    }
+  },
+  "resources": {
+    "aggregate": "normal4containers10CPU35GiB + ownhosttaskset0,1/RSSmonitor1GiB =12CPU36GiB, <=6containers",
+    "watch_native_driver_compose": "unchangedbytehashes/prioractualCPUstopproof",
+    "disk": "priorfullRCPU5snapshot486552798Bapparent/500457472Ballocated plus26429stagedbytes andsmallGit/raw delta; notnewexactPGcensus",
+    "free_bytes": 3048024600576,
+    "CPU_cumulative_upper_s": 4251.4357385,
+    "new600_remaining_s": 575,
+    "device_B_already_s": 55.169294118881226,
+    "R_device_s": 0,
+    "new_native_POST": 0,
+    "CI_used": 5,
+    "CI_total": 7,
+    "final_main_reserved": [
+      6,
+      7
+    ]
+  },
+  "CPU_prep3_actual": {
+    "start_epoch": 1794623551.154676,
+    "end_epoch": 1794623551.911422,
+    "wall_s": 0.7567460536956787,
+    "ceilcharge_s": 1,
+    "allSSHended": true
+  },
+  "limits": [
+    "No server/model operation by R in this review.",
+    "Smallbindings/manifests checked; fresh fullruntime/model/SDK bytehash andGPU0 doubleidle>=10s remain Productexecute gates before nonceconsume.",
+    "Master fresh literalGO must bind allfullsource/runtime/model/device/entry/watch/plan/assets/network/nonce/deadline and independentwatch/nativehardstop.",
+    "Only normal preparation reviewed; otherprofiles/Rmodel each needseparateGO.",
+    "OriginalBprep02missingplan/Rprobeerrors/5bf40mixedlocalfield timing limitation retained; no silentrewrite.",
+    "Own first private assertion incorrectly expected plan.kind=gpu; actual immutable plan says real-model-functional. Removed invented check, retained byteidentity; no Product failure or new Criterion.",
+    "FullC01/02@1.0 C03@1.1 C04@1.4 realmatrices/finalexactSHA gates remain incomplete."
+  ]
+}

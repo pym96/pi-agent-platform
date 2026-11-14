@@ -1,0 +1,90 @@
+{
+  "schema": "pi24-nov14-R-NVML-wrapper-local-review/v1",
+  "utc": "2026-11-14T02:48:17.894817+00:00",
+  "SessionRole": "Regulator Agent",
+  "issue": 24,
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "wrapper_sha256": "917f97350b53c3b2ddcbd0f105900b32a6b786434ce7ca3c971a8a43c6d2dc4e",
+  "criterion": "C-G2-04@1.4 existing original-query evidence/resource-stop seam; no new acceptance criterion",
+  "decision": "LOCAL_WRAPPER_V2_SEAM_PASS; supports separate prospective CPU freeze/staging; not runtime/model authorization or final accepted",
+  "independent_observations": [
+    "Immutable v2 bytes read; REAL absolute /usr/bin/nvidia-smi; original argv forwarded without filtering or extra queries; fixed owned log with append-only per-record writes.",
+    "Actual local OS subprocess cases: non-UTF8 stdout/stderr and exit7 preserved; idle exit0 preserved; child SIGTERM -> wrapper -15 preserved.",
+    "Actual sleeping child emits non-UTF8 partial stdout/stderr, wrapper timeout4 returns124, logs result unknown/exit null plus exact partial base64; after wrapper returns child PID absent.",
+    "Each case actual argv -i 0 unchanged; start and terminal receipts PID-associated and base64 decodes to exact child bytes.",
+    "Own clean exact source launch and watch actual nvidia-smi calls all specify -i 0 and caller timeout5; wrapper timeout4 is inside caller5. Wrapper intentionally does not rewrite caller device selection.",
+    "Original stage raw exit0 identity matches HOLD release, real binary SHA2da08a20450594c3cdf1e677c1d2e46101a0b2d45ee5d3d6b67b87ae50522af2, effective PATH only prepends owned nvml-normal01-bin to original PATH. Stage wrapper was old ad5c; v2 is local only."
+  ],
+  "cases": [
+    {
+      "case": "normal",
+      "exit": 7,
+      "elapsed_s": 0.35720525000215275,
+      "child_still_exists": false
+    },
+    {
+      "case": "idle",
+      "exit": 0,
+      "elapsed_s": 0.05955887500022072,
+      "child_still_exists": false
+    },
+    {
+      "case": "signal",
+      "exit": -15,
+      "elapsed_s": 0.05199420799908694,
+      "child_still_exists": false
+    },
+    {
+      "case": "timeout",
+      "exit": 124,
+      "elapsed_s": 4.040798082998663,
+      "child_still_exists": false
+    }
+  ],
+  "private_probe_correction": "First private projected wrapper was named signal.py and shadowed Python stdlib signal, causing circular import. Actual exception diagnosed and filename changed to case_signal.py; source wrapper unchanged. Subsequent independent four cases pass. This was R fixture failure, not Product defect.",
+  "hold_release_review": {
+    "status": "HOLD_EXPIRED_NO_MODEL_EXECUTION_NO_NONCE_REUSE",
+    "CPU_cumulative_upper_s": 4252.4357385,
+    "new600_remaining_s": 574,
+    "all_SSH_SCP_ended_reported": true,
+    "nonce_absence": "No fresh marker stat; control-flow-only no invocation supports unconsumed claim. Requires prospective CPU freeze fresh check; original expired GO never revived.",
+    "network": "ebbd retained based on prep03/stage no Docker change; not a fresh network snapshot."
+  },
+  "limits": [
+    "Mac CPU substitute only, not Linux/NVML/GPU evidence.",
+    "No SSH, CI, GPU, model, nonce consumption or candidate modification by this local review.",
+    "Logging filesystem latency and exceptional OS/process scheduling are not universally bounded by the local tests; existing outer/watch resource stops remain required.",
+    "Real v2 server bytes/PATH/realbinary and new nonce/network identity still require prospective exact CPU staging.",
+    "Original failed wrapper and HOLD/cost evidence retained; all real B/R functional matrices and final same-source Evidence CI remain pending."
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/nvidia-smi-raw-wrapper-v2.py",
+      "sha256": "917f97350b53c3b2ddcbd0f105900b32a6b786434ce7ca3c971a8a43c6d2dc4e"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/wrapper-v2-independent.v1.json",
+      "sha256": "5577d80cc546911b49e6e1ce8b57f7e65109a34357ba6768bd22347c6b9ab223"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/wrapper_probe.py",
+      "sha256": "6ae5ad9119335853d8beae0c7607bdefd298ca7026a896a5bc64f1e81e993e47"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/NORMAL01-HOLD-RELEASE.v1.json",
+      "sha256": "deab30f3fda5cb4276cd28ec9f79273cbeb6e7e4290509ec9df749f00c88450e"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/NORMAL01-wrapper-stage-SSH.json",
+      "sha256": "64369ebd40ffdef05e1c78c5549ce249004421c155b6a17d067d39f5b4d915e4"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/QUERY-WRAPPER-V2-LOCAL-TESTS.json",
+      "sha256": "6566960da4900479d3e42cab41b9590bf7d51de72299cbd780c67a1455338151"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/NVML-WRAPPER-INITIAL-PRECHECK.v1.json",
+      "sha256": "2774c658ea718442ca480292a78941698364aa994ccd722fb4303e9c31078de2"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "SC-G2-PLATFORM-BUDGET-01",
+  "issue": 24,
+  "SessionRole": "Regulator Agent",
+  "status": "requires prospective Master adjudication before GPU matrix",
+  "criterion": "C-G2-03@1.0",
+  "baseline": "b0ed1c4d6f26d8a3b0c454030606dd598a4f0166",
+  "observed": "Go executor POST /run only session/task/prompt; Pi qwen model maxTokens128; streamQwen defaults maxTokens128. No task32/64/16 budget configuration path found. Contract fixed platform32/SSE64/queued16/newsession32 contradicts banned Go/Pi Product change.",
+  "evidence": [
+    {
+      "path": "service/cmd/service/main.go",
+      "sha256": "a4e8752356f6548173ce5b3c2fb0dcac1eadc2c7adcf89ee5182f63257672a4c"
+    },
+    {
+      "path": "service/internal/executor/executor.go",
+      "sha256": "7032de5ac549e4bb21309d241986cde71ae1295aecc09a4588f094b62bb06def"
+    },
+    {
+      "path": "service/pi/server.mjs",
+      "sha256": "7c40284bd25dd16435a152bfa33eca3018cf57b11a3ec4cc99f8a15ff72c5a6c"
+    },
+    {
+      "path": "service/pi/qwen-provider.mjs",
+      "sha256": "1afce0dc22dc2a3a7c54023d184e150e6371756579d6fdd80dc32a47843b8ffb"
+    },
+    {
+      "path": "service/pi/qwen-bridge.mjs",
+      "sha256": "c3ac223e82bcc858038ac95029c4f380fbcce449c63baea2bae2507218619a05"
+    }
+  ],
+  "options": [
+    "Explicit narrowly scoped opt-in budget configuration seam with unchanged default128 and exact allowed paths/CPU tests",
+    "Prospectively freeze C03 platform actual budget128 while preserving direct16/64/128 boundary tests; no retrospective substitution"
+  ],
+  "prohibited_substitution": [
+    "Prompt request to produce N tokens is not max_tokens N",
+    "Unrecorded proxy mutation cannot preserve Pi mapped-payload identity"
+  ],
+  "upstream_summary_correction": "Initial local review reported no contradictions before reading actual Pi budget propagation path. This record corrects that with source evidence.",
+  "server_gpu_cost": 0,
+  "created_epoch": 1794403144.127739
+}

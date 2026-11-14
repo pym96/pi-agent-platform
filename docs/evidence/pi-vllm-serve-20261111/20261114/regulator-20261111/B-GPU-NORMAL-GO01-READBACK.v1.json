@@ -1,0 +1,76 @@
+{
+  "at": 1794408029.463111,
+  "GO_sha256": "05580429e78f2a115e8e80639047c9bfd89d3129546d9a71a5d4ea8fa74546f8",
+  "source_sha": "a5f161b65126d3f5cbd9670bd85099217f38e750",
+  "verified_against_local_entry_review": "5b480d9e8198fd15942e01e2c2b50b19e1aad801dffa29b0eba38a86a15ddb89",
+  "changes_from_reviewed_draft": {
+    "B_cumulative_native_limit": [
+      null,
+      32
+    ],
+    "criterion": [
+      null,
+      "C-G2-03@1.1"
+    ],
+    "B_cumulative_completionPOST_before": [
+      null,
+      0
+    ],
+    "authorization": [
+      null,
+      "GO once: B normal matrix only; no automatic retry or other lifecycle"
+    ],
+    "global_end": [
+      null,
+      "2026-11-11T18:11:11Z"
+    ],
+    "draft_only": [
+      true,
+      null
+    ],
+    "B_cumulative_completionPOST_limit": [
+      null,
+      64
+    ],
+    "B_cumulative_native_generate_before": [
+      null,
+      0
+    ],
+    "entry_review_sha256": [
+      null,
+      "5b480d9e8198fd15942e01e2c2b50b19e1aad801dffa29b0eba38a86a15ddb89"
+    ],
+    "outer_absolute_stop_epoch": [
+      1794411900.0,
+      1794408345.331222
+    ],
+    "B_cumulative_gpu_s_before": [
+      null,
+      0
+    ],
+    "deadline_epoch": [
+      1794408060.0,
+      1794408345.331222
+    ],
+    "issued_epoch": [
+      null,
+      1794407985.331222
+    ],
+    "note": [
+      "NOT GO. Master sets literal current deadline <=360s at issue; exact hashed authorization required.",
+      null
+    ],
+    "B_cumulative_gpu_limit_s": [
+      null,
+      1200
+    ],
+    "source_stageA_review_sha256": [
+      null,
+      "50f4c10d0765315d364834942206d6a4bacccb830b548bcb76ab2813a164e613"
+    ]
+  },
+  "identity_changes": false,
+  "duration_exact_s": 360,
+  "R_server_actions": false,
+  "pending": "B actualstartup/fullraw; not accepted"
+}

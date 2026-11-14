@@ -1,0 +1,102 @@
+[
+  {
+    "args": [
+      "rev-parse",
+      "origin/main"
+    ],
+    "rc": 0,
+    "output": "b0ed1c4d6f26d8a3b0c454030606dd598a4f0166\n"
+  },
+  {
+    "args": [
+      "rev-parse",
+      "archive/24-incomplete-20261112-471a317ef687^{}"
+    ],
+    "rc": 0,
+    "output": "471a317ef687a168306608b1bece931f9b3a2b63\n"
+  },
+  {
+    "args": [
+      "bundle",
+      "verify",
+      "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111/source-phase05.bundle"
+    ],
+    "rc": 0,
+    "output": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111/source-phase05.bundle is okay\nThe bundle contains this ref:\na0f2b4e3a416e548b307df3c9cc326887ed14d6c refs/heads/workorder/24-candidate\nThe bundle requires this ref:\n471a317ef687a168306608b1bece931f9b3a2b63 \nThe bundle uses this hash algorithm: sha1\n"
+  },
+  {
+    "args": [
+      "fetch",
+      "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111/source-phase05.bundle",
+      "workorder/24-candidate:refs/heads/recovered-a0"
+    ],
+    "rc": 0,
+    "output": "From /Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111/source-phase05.bundle\n * [new branch]      workorder/24-candidate -> recovered-a0\n"
+  },
+  {
+    "args": [
+      "rev-parse",
+      "recovered-a0"
+    ],
+    "rc": 0,
+    "output": "a0f2b4e3a416e548b307df3c9cc326887ed14d6c\n"
+  },
+  {
+    "args": [
+      "merge-base",
+      "--is-ancestor",
+      "b0ed1c4d6f26d8a3b0c454030606dd598a4f0166",
+      "recovered-a0"
+    ],
+    "rc": 0,
+    "output": ""
+  },
+  {
+    "args": [
+      "merge-base",
+      "--is-ancestor",
+      "471a317ef687a168306608b1bece931f9b3a2b63",
+      "recovered-a0"
+    ],
+    "rc": 0,
+    "output": ""
+  },
+  {
+    "args": [
+      "checkout",
+      "--detach",
+      "recovered-a0"
+    ],
+    "rc": 0,
+    "output": "HEAD is now at a0f2b4e fix(serving): bind exact phase contract at shared entry\n"
+  },
+  {
+    "args": [
+      "status",
+      "--porcelain"
+    ],
+    "rc": 0,
+    "output": ""
+  },
+  {
+    "args": [
+      "diff",
+      "--stat",
+      "471a317ef687a168306608b1bece931f9b3a2b63",
+      "recovered-a0"
+    ],
+    "rc": 0,
+    "output": " SOURCE_OF_TRUTH.md                             |  2 +\n docs/evidence/pi-vllm-serve-20261111/README.md |  6 +++\n service/scripts/vllm-serve/README.md           |  4 ++\n service/scripts/vllm-serve/launch.py           | 21 ++++++--\n service/scripts/vllm-serve/test_entry.py       | 69 ++++++++++++++++++++++++++\n 5 files changed, 99 insertions(+), 3 deletions(-)\n"
+  },
+  {
+    "args": [
+      "diff",
+      "471a317ef687a168306608b1bece931f9b3a2b63",
+      "recovered-a0",
+      "--",
+      "service/scripts/vllm-serve/launch.py"
+    ],
+    "rc": 0,
+    "output": "diff --git a/service/scripts/vllm-serve/launch.py b/service/scripts/vllm-serve/launch.py\nindex 45fb7a5..cd90286 100644\n--- a/service/scripts/vllm-serve/launch.py\n+++ b/service/scripts/vllm-serve/launch.py\n@@ -2,6 +2,17 @@\n import argparse,datetime,hashlib,json,math,os,pathlib,subprocess,sys,time\n UUID='GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead'\n ROOT=pathlib.Path('/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111')\n+# Frozen Master P2 allocation; hashes identify bytes, not signatures or authority.\n+HUMAN_GLOBAL_END=1794420671.0\n+PHASE={'schema': 'pi24-phase-window/v1',\n+ 'id': 'pi24-nov11-p2',\n+ 'contract_sha256': '06b694ed12c3aebb62cd2bc870e13148998817b2dc96a30f373165665300d9f8',\n+ 'start_epoch': 1794411000.0,\n+ 'builder_latest_start_epoch': 1794414900.0,\n+ 'regulator_latest_start_epoch': 1794415800.0,\n+ 'all_owned_stop_epoch': 1794416400.0,\n+ 'end_epoch': 1794417600.0,\n+ 'global_end_epoch': 1794420671.0}\n def sha(path):\n  h=hashlib.sha256()\n  with pathlib.Path(path).open('rb') as f:\n@@ -12,9 +23,13 @@ def validate(path,digest):\n  if sha(path)!=digest:raise ValueError('GO hash mismatch')\n  g=json.loads(pathlib.Path(path).read_text());now=time.time()\n  if g.get('issue')!=24 or g.get('role') not in ('builder','regulator'):raise ValueError('GO identity')\n- role=g['role'];latest=epoch('2026-11-11T15:20:00Z' if role=='builder' else '2026-11-11T15:35:00Z')\n- cap=900 if role=='builder' else 300\n- if now>latest or not 30<g['deadline_epoch']-now<=g['max_duration_s']<=cap or g['deadline_epoch']>epoch('2026-11-11T15:45:00Z'):raise ValueError('GO expired or over budget')\n+ phase=g.get('phase')\n+ if type(phase) is not dict or phase!=PHASE:raise ValueError('fixed P2 phase identity/bounds required')\n+ for value in [now,g.get('deadline_epoch'),g.get('max_duration_s'),*[phase[k] for k in phase if k.endswith('_epoch')]]:\n+  if type(value) not in (int,float) or not math.isfinite(value):raise ValueError('finite phase/GO time required')\n+ if not (phase['start_epoch']<=phase['builder_latest_start_epoch']<=phase['regulator_latest_start_epoch']<=phase['all_owned_stop_epoch']<=phase['end_epoch']<=phase['global_end_epoch']==HUMAN_GLOBAL_END):raise ValueError('phase ordering/global boundary')\n+ role=g['role'];latest=phase[role+'_latest_start_epoch'];cap=900 if role=='builder' else 300\n+ if not phase['start_epoch']<=now<=latest or not 30<g['deadline_epoch']-now<=g['max_duration_s']<=cap or g['deadline_epoch']>phase['all_owned_stop_epoch']:raise ValueError('GO expired or over budget')\n  if g['gpu_uuid']!=UUID or g['mode'] not in ('vllm','transformers'):raise ValueError('GO device/backend')\n  if not g['nonce'] or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_' for c in g['nonce']):raise ValueError('GO nonce')\n  if not 1<=g['max_attempts']<=(64 if role=='builder' else 16):raise ValueError('attempt cap')\n"
+  }
+]

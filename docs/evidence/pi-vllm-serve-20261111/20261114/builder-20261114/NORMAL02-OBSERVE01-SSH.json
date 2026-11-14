@@ -1,0 +1,7 @@
+{
+  "start": 1794624891.652103,
+  "end": 1794624892.078531,
+  "exit": 0,
+  "stdout": "{\"epoch\": 1794624892.0486293, \"commands\": [{\"command\": [\"docker\", \"ps\", \"-a\", \"-q\", \"--no-trunc\", \"--filter\", \"label=com.docker.compose.project=pi-vllm24-b\", \"--filter\", \"label=pi24.nonce=pi24-b-nov14-normal02\", \"--filter\", \"label=com.docker.compose.service=model\"], \"exit\": 0, \"stdout\": \"\", \"stderr\": \"\"}], \"model_rows\": [], \"outer-pi24-b-nov14-normal02/launcher.log\": \"\", \"observer_maxrss_KiB\": 10944}\n",
+  "stderr": ""
+}

@@ -1,0 +1,137 @@
+{
+  "schema": "pi24-builder-normal02-closeout/v1",
+  "epoch": 1794409819.5770926,
+  "source_sha": "471a317ef687a168306608b1bece931f9b3a2b63",
+  "overall_success": false,
+  "reason": "GPU0 busy/identity unknown preflight refused before run directory/nonce consumption/container launch",
+  "model_started": false,
+  "new_device_seconds": 0,
+  "cumulative_device_seconds": 55.169294118881226,
+  "native_generate": 0,
+  "completionPOST": 0,
+  "run_exists": false,
+  "consumed_nonce_exists": false,
+  "containers": [],
+  "network_cleanup": {
+    "success": true,
+    "network_id": "39d61be608ba636779a4222a2bd72dba6b9a149dbd13ebb5db0348f96e302db1",
+    "state": "removed"
+  },
+  "owned_B_networks": [],
+  "receipts": [
+    {
+      "command": [
+        "ps",
+        "-a",
+        "-q",
+        "--no-trunc",
+        "--filter",
+        "label=com.docker.compose.project=pi-vllm24-b"
+      ],
+      "start": 1794409819.377325,
+      "end": 1794409819.3936348,
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "network",
+        "inspect",
+        "39d61be608ba636779a4222a2bd72dba6b9a149dbd13ebb5db0348f96e302db1"
+      ],
+      "start": 1794409819.3936481,
+      "end": 1794409819.40651,
+      "exit": 0,
+      "stdout": "[\n    {\n        \"Name\": \"pi-vllm24-b-pi24-b-normal02\",\n        \"Id\": \"39d61be608ba636779a4222a2bd72dba6b9a149dbd13ebb5db0348f96e302db1\",\n        \"Created\": \"2026-11-11T23:04:24.977652027+08:00\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": {},\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.23.0.0/16\",\n                    \"Gateway\": \"172.23.0.1\"\n                }\n            ]\n        },\n        \"Internal\": true,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Containers\": {},\n        \"Options\": {},\n        \"Labels\": {\n            \"com.docker.compose.project\": \"pi-vllm24-b\",\n            \"execution-sha\": \"471a317ef687a168306608b1bece931f9b3a2b63\",\n            \"pi24.nonce\": \"pi24-b-normal02\",\n            \"workorder\": \"24\"\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "network",
+        "rm",
+        "39d61be608ba636779a4222a2bd72dba6b9a149dbd13ebb5db0348f96e302db1"
+      ],
+      "start": 1794409819.40654,
+      "end": 1794409819.5522654,
+      "exit": 0,
+      "stdout": "39d61be608ba636779a4222a2bd72dba6b9a149dbd13ebb5db0348f96e302db1\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "network",
+        "ls",
+        "-q",
+        "--no-trunc"
+      ],
+      "start": 1794409819.5522683,
+      "end": 1794409819.5656636,
+      "exit": 0,
+      "stdout": "1e38eae97a8c206a194e28d3aec26cf8a02498a33ebda8eed46849240c67aa52\n0d93b7b6704bee52817e26816e3403d2ec1995c2985cb9486363ebc11edf7d56\n3c37b84eb2a378f2cafdc543c234ca12143fd1c81a25bf1f13efa086c853661e\nfdf4733b3d11425d0dfe63825ef3d1c3a58f774ed38f926a577c1fef12331ea8\nf41e37f8350a7b9a339d95b1044056b5ff5513d0053260b1102ec52258fa2161\nefda9ddfe404e78be2860ebb7aab82c4f0402a092a2e25182f24d759207030d0\n53580f106cf2b5c7eca1ffacd708f50538755cc770800a643744af97274bb038\n9453e51c924fcab05bb1365d2752a803ed1b1559685f5255f9e1b6a4eca80513\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "network",
+        "ls",
+        "-q",
+        "--no-trunc",
+        "--filter",
+        "label=com.docker.compose.project=pi-vllm24-b"
+      ],
+      "start": 1794409819.565673,
+      "end": 1794409819.5770888,
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "outer": {
+    "end": 1794409743.6726406,
+    "launcher_exit": 3,
+    "failure": "launcher exit 3",
+    "inventory_error": null,
+    "cleanup": {
+      "success": true,
+      "containers": {},
+      "errors": [],
+      "receipts": [
+        {
+          "command": [
+            "ps",
+            "-a",
+            "-q",
+            "--no-trunc",
+            "--filter",
+            "label=com.docker.compose.project=pi-vllm24-b"
+          ],
+          "start": 1794409743.6267824,
+          "end": 1794409743.6426299,
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      ]
+    },
+    "post_gpu0": {
+      "uuid": {
+        "exit": 0,
+        "stdout": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead\n",
+        "stderr": ""
+      },
+      "processes": {
+        "exit": 0,
+        "stdout": "4147199, GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead\n",
+        "stderr": ""
+      }
+    }
+  },
+  "release": true,
+  "R_network_untouched": true,
+  "conditional_three_network_CPU_GO_activated": false,
+  "raw_archive_sha256": "0bd005aef3058a727ddc9843ce5bc7e5f61c79b39e97aa87a6f9e49c86a2671e",
+  "raw_files": 9,
+  "manifest_sha256": "add93f02170a37c437a146f0b1122dea3935f4651150ad954e1edac749c96073",
+  "SCP_transport_finished": true
+}

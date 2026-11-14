@@ -1,0 +1,21 @@
+{
+  "files": [
+    "plan.json",
+    "cpu-no-devices.json",
+    "watch.jsonl",
+    "watch-ready",
+    "native-trace.jsonl",
+    "up.json",
+    "override.json",
+    "cpu-model-inspect.json",
+    "watch-stdout.log",
+    "config.json"
+  ],
+  "up.json": "{\n  \"command\": [\n    \"docker\",\n    \"compose\",\n    \"-p\",\n    \"pi-vllm24-b\",\n    \"-f\",\n    \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/source/service/compose.vllm.yaml\",\n    \"-f\",\n    \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/override.json\",\n    \"up\",\n    \"--pull\",\n    \"never\",\n    \"--no-build\",\n    \"-d\",\n    \"pg\",\n    \"model\",\n    \"pi\",\n    \"api\"\n  ],\n  \"start\": 1794404535.7326221,\n  \"end\": 1794404542.2550786,\n  \"exit\": 0,\n  \"stdout\": \"\",\n  \"stderr\": \" Container pi-vllm24-b-model-1  Creating\\n Container pi-vllm24-b-pi-1  Creating\\n Container pi-vllm24-b-pg-1  Creating\\n Container pi-vllm24-b-pi-1  Created\\n Container pi-vllm24-b-pg-1  Created\\n Container pi-vllm24-b-api-1  Creating\\n Container pi-vllm24-b-model-1  Created\\n Container pi-vllm24-b-api-1  Created\\n Container pi-vllm24-b-pi-1  Starting\\n Container pi-vllm24-b-pg-1  Starting\\n Container pi-vllm24-b-model-1  Starting\\n Container pi-vllm24-b-pi-1  Started\\n Container pi-vllm24-b-pg-1  Started\\n Container pi-vllm24-b-pg-1  Waiting\\n Container pi-vllm24-b-model-1  Started\\n Container pi-vllm24-b-pg-1  Healthy\\n Container pi-vllm24-b-api-1  Starting\\n Container pi-vllm24-b-api-1  Started\\n\"\n}",
+  "watch-stdout.log": "",
+  "containers": "e42e68a5ece2 pi-vllm24-b-api-1 Up 57 seconds\nbf37eaea8070 pi-vllm24-b-model-1 Up About a minute\nd5da8d93521f pi-vllm24-b-pg-1 Up About a minute (healthy)\n546f6caf709d pi-vllm24-b-pi-1 Up About a minute\n",
+  "pi-vllm24-b-model-1": "",
+  "pi-vllm24-b-pi-1": "{\"event\":\"ready\",\"port\":8081,\"tools\":[],\"concurrency\":2}\n",
+  "pi-vllm24-b-api-1": "2026/11/11 13:42:22 Pi service listening :8080; executor concurrency=2 queue=128 SSE=11000\n",
+  "pi-vllm24-b-pg-1": "PostgreSQL init process complete; ready for start up.\n\n2026-11-11 13:42:21.119 UTC [1] LOG:  starting PostgreSQL 17.11 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit\n2026-11-11 13:42:21.119 UTC [1] LOG:  listening on IPv4 address \"0.0.0.0\", port 5432\n2026-11-11 13:42:21.119 UTC [1] LOG:  listening on IPv6 address \"::\", port 5432\n2026-11-11 13:42:21.123 UTC [1] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"\n2026-11-11 13:42:21.135 UTC [62] LOG:  database system was shut down at 2026-11-11 13:42:20 UTC\n2026-11-11 13:42:21.144 UTC [1] LOG:  database system is ready to accept connections\n"
+}

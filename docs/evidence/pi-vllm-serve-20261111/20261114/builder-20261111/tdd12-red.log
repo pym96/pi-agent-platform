@@ -1,0 +1,18 @@
+F.
+======================================================================
+FAIL: test_client_cli_imports_from_its_source_with_clean_host_environment (test_entry.ClientEntryTests.test_client_cli_imports_from_its_source_with_clean_host_environment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-vllm24-candidate/service/scripts/vllm-serve/test_entry.py", line 20, in test_client_cli_imports_from_its_source_with_clean_host_environment
+    self.assertEqual(r.returncode,0,r.stderr);self.assertIn('--endpoints-sha256',r.stdout)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/Users/panyiming/Desktop/todo/面试/career-planning/60-项目/pi-agent-platform-vllm24-candidate/service/scripts/vllm-serve/client.py", line 3, in <module>
+    from service.inference.oracle import inspect_stream
+ModuleNotFoundError: No module named 'service'
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.093s
+
+FAILED (failures=1)

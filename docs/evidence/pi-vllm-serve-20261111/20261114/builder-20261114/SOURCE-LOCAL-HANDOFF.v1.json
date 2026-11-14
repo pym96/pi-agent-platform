@@ -1,0 +1,91 @@
+{
+  "schema": "pi24-nov14-local-source-handoff/v1",
+  "status": "SOURCE_LOCAL_REVIEW_ONLY_NOT_FINAL",
+  "SessionRole": "Working Agent (Builder)",
+  "issue": 24,
+  "source_sha": "df740e46da7cad585ef29763f19a280869d7c728",
+  "clean": true,
+  "baseline": "b0ed1c4d6f26d8a3b0c454030606dd598a4f0166",
+  "restored_parent": "a0f2b4e3a416e548b307df3c9cc326887ed14d6c",
+  "observed_utc": "2026-11-14T01:37:00.333338+00:00",
+  "criteria": {
+    "C-G2-01": "1.0",
+    "C-G2-02": "1.0",
+    "C-G2-03": "1.1",
+    "C-G2-04": "1.4"
+  },
+  "affected_test_summary": {
+    "tests": 17,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0,
+    "expected_failures": 0,
+    "unexpected_successes": 0,
+    "success": true
+  },
+  "files": {
+    "service/scripts/vllm-serve/launch.py": {
+      "sha256": "d5e07f695b3680a7239d0dcc30a1735120148c2fc57ef4a42b3ce7ecddffec7d",
+      "bytes": 14392
+    },
+    "service/scripts/vllm-serve/test_entry.py": {
+      "sha256": "9a2edde82129a496eb2dcaa97b844addee7b45ab72ab479b26ce776a6a8eb3f1",
+      "bytes": 8257
+    },
+    "service/scripts/vllm-serve/watch.py": {
+      "sha256": "d8a069ac818bf41149853f86a2b2031656abfe82d4919b825eaa656a3bfb36f4",
+      "bytes": 3261
+    },
+    "service/scripts/vllm-compat/driver.py": {
+      "sha256": "2f8780f46df52208050d359889f58939a215b61cd6c37d5dc67056009484b607",
+      "bytes": 4063
+    },
+    "service/scripts/vllm-compat/native.py": {
+      "sha256": "691f5f862d0191e51ff7062e07da0bd999dc983a0a334e0012a7458e1e437062",
+      "bytes": 1197
+    },
+    "service/compose.vllm.yaml": {
+      "sha256": "1e7de456ab4c8e278775bacef257be1be402b4b605efe2a8015382b27cd4d799",
+      "bytes": 4660
+    }
+  },
+  "external_entry": {
+    "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/gpu_entry_phase3.py",
+    "sha256": "664b44c9c7bae8911fdaf5331681f5e7228028854a5a458de83f77f5dc75ecd0",
+    "bytes": 4712
+  },
+  "raw": {
+    "serve-strict.log": {
+      "sha256": "936e147a3469bdbb3c3906f54858dd5bf1e38729791dc5e5272097cbd015cf6f",
+      "bytes": 2772
+    },
+    "phase-controls-green.log": {
+      "sha256": "a0e507b4714c86d3bf3b51338713e2c35a2370af6ca2fbe422d60efc6186f582",
+      "bytes": 106
+    },
+    "phase-data-red.log": {
+      "sha256": "2042e37448c1e9cad3503e0fdd888f9f2fd8951b615418d9856f68ebee11c280",
+      "bytes": 1354
+    },
+    "phase-binding-green.log": {
+      "sha256": "53b9e1863c6ce1abb6314d3569779b6dd3e0b0b3003ae969d22f03b0c4f1cf96",
+      "bytes": 103
+    },
+    "phase-data-green.log": {
+      "sha256": "76e4dd0da49684bfecf1d0b1e43bef5ffc0afd07b37a4a33fcb60d2406e7b8d3",
+      "bytes": 98
+    }
+  },
+  "server_calls": 0,
+  "GPU_native_POST": 0,
+  "push_CI": 0,
+  "budget_reset": false,
+  "independent_final_acceptance": false,
+  "remaining": [
+    "independent local source review",
+    "explicit sourceCI3 authorization",
+    "new affected real Linux CPU and exact server identities",
+    "per-lifecycle explicit GPU GO and full original B/R matrices",
+    "final EvidenceCI4/exactSHA Verdict/mainCI5"
+  ]
+}

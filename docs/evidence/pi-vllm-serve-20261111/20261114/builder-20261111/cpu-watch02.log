@@ -1,0 +1,13 @@
+test_invalid_go_never_reaches_external_tools (test_entry.EntryTests.test_invalid_go_never_reaches_external_tools) ... ok
+test_failed_inventory_is_unknown_not_empty_cleanup_success (test_owned.OwnedTests.test_failed_inventory_is_unknown_not_empty_cleanup_success) ... ok
+test_label_mismatch_never_stops_object (test_owned.OwnedTests.test_label_mismatch_never_stops_object) ... ok
+test_multicid_cleanup_attempts_known_other_after_first_unknown (test_owned.ReconciliationTests.test_multicid_cleanup_attempts_known_other_after_first_unknown) ... ok
+test_deadline_stops_owned_child_and_keeps_foreign (test_watch.WatchTests.test_deadline_stops_owned_child_and_keeps_foreign) ... ok
+test_foreign_gpu_fixture_stops_only_owned_child (test_watch.WatchTests.test_foreign_gpu_fixture_stops_only_owned_child) ... ok
+test_unknown_inventory_keeps_failure_but_cleans_known_child (test_watch.WatchTests.test_unknown_inventory_keeps_failure_but_cleans_known_child) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.592s
+
+OK
+{"tests": 7, "skipped": 0, "failures": 0, "errors": 0, "expected_failures": 0, "unexpected_successes": 0, "success": true}

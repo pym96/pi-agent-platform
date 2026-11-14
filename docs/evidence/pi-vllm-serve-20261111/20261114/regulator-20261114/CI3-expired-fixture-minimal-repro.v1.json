@@ -1,0 +1,21 @@
+{
+  "stage": "MINIMAL_DIAGNOSIS_ONLY",
+  "Product_source_unmodified": true,
+  "systemclock_unmodified": true,
+  "execute_not_called": true,
+  "rows": [
+    {
+      "case": "current-real-wallclock",
+      "now_arg": null,
+      "result": null,
+      "error": "ValueError('last new GPU start elapsed')"
+    },
+    {
+      "case": "explicit-old-fixture-clock",
+      "now_arg": 1794385200,
+      "result": 21,
+      "error": null
+    }
+  ],
+  "interpretation": "Nominal valid historical G0 fixture needs explicit test-time now; production expiration correctly rejects actual Nov14. Do not modify runtimeGO dates or Product expiry to make fixture pass."
+}

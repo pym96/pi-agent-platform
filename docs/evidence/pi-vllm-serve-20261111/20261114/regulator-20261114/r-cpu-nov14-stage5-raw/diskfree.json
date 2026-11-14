@@ -1,0 +1,13 @@
+{
+  "name": "diskfree",
+  "args": [
+    "df",
+    "-B1",
+    "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111"
+  ],
+  "start": 1794622872.68888,
+  "end": 1794622872.6912973,
+  "exit": 0,
+  "stdout": "\u6587\u4ef6\u7cfb\u7edf               1B\u7684\u5757           \u5df2\u7528          \u53ef\u7528 \u5df2\u7528% \u6302\u8f7d\u70b9\n/dev/sda       19919928582144 15871807860736 3048074498048   84% /media/usv012\n",
+  "stderr": ""
+}

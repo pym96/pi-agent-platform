@@ -1,0 +1,118 @@
+{
+  "exact_disjoint_snapshot": true,
+  "readable": {
+    "builder": {
+      "apparent_bytes": 121884311,
+      "allocated_bytes": 128843776,
+      "inodes": 3068,
+      "regular_files": 2792,
+      "symlinks": 0
+    },
+    "regulator": {
+      "apparent_bytes": 75511694,
+      "allocated_bytes": 82059264,
+      "inodes": 2912,
+      "regular_files": 2673,
+      "symlinks": 0
+    }
+  },
+  "PG_mount_bindings": [
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-normal01/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70
+    }
+  ],
+  "PG": {
+    "uid": 70,
+    "gid": 70,
+    "roots": [
+      {
+        "index": 0,
+        "apparent_bytes": 48246787,
+        "allocated_bytes": 48312320,
+        "inodes": 1314,
+        "regular_files": 1286,
+        "symlinks": 0,
+        "errors": []
+      },
+      {
+        "index": 1,
+        "apparent_bytes": 47852038,
+        "allocated_bytes": 47919104,
+        "inodes": 1297,
+        "regular_files": 1269,
+        "symlinks": 0,
+        "errors": []
+      },
+      {
+        "index": 2,
+        "apparent_bytes": 48205827,
+        "allocated_bytes": 48271360,
+        "inodes": 1313,
+        "regular_files": 1285,
+        "symlinks": 0,
+        "errors": []
+      },
+      {
+        "index": 3,
+        "apparent_bytes": 48246787,
+        "allocated_bytes": 48312320,
+        "inodes": 1314,
+        "regular_files": 1286,
+        "symlinks": 0,
+        "errors": []
+      },
+      {
+        "index": 4,
+        "apparent_bytes": 48366759,
+        "allocated_bytes": 48435200,
+        "inodes": 1314,
+        "regular_files": 1286,
+        "symlinks": 0,
+        "errors": []
+      },
+      {
+        "index": 5,
+        "apparent_bytes": 48238595,
+        "allocated_bytes": 48304128,
+        "inodes": 1314,
+        "regular_files": 1286,
+        "symlinks": 0,
+        "errors": []
+      }
+    ],
+    "timestamp": 1794622872.4647856
+  },
+  "total_apparent_bytes": 486552798,
+  "total_allocated_bytes": 500457472,
+  "start": 1794622871.6809888,
+  "end": 1794622872.6886647,
+  "excluded_preexisting_ROruntime_model_cache": "outside issue24 roots, not counted as new",
+  "limitation": "point-in-time own roots; further output additions accounted at closeout, host andPG scans sequential"
+}

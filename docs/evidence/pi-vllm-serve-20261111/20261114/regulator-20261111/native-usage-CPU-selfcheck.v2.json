@@ -1,0 +1,98 @@
+{
+  "schema": "pi24-independent-native-usage-recompute/v1",
+  "root": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261111/r-stageA-raw/r-cpu-fullchain01",
+  "native_start_settled": 7,
+  "single_slot_nonoverlap": true,
+  "all_native_prompt_and_cumulative_output_ID_invariants": true,
+  "all_success_usage_and_text_exactly_match_native_IDs": true,
+  "aborts_have_actual_scheduler_ACK_before_settled": true,
+  "rows": [
+    {
+      "step": "r-direct16",
+      "action": "direct",
+      "native_id": "c4139a214937486c89ab108abdcd1d93",
+      "budget": 16,
+      "settled": true,
+      "aborted": false,
+      "independent_native_usage": {
+        "prompt_tokens": 12,
+        "completion_tokens": 16,
+        "total_tokens": 28
+      }
+    },
+    {
+      "step": "r-platform",
+      "action": "platform",
+      "native_id": "3623937d17394e7aa90a6ca70cdd1803",
+      "budget": 128,
+      "settled": true,
+      "aborted": false,
+      "independent_native_usage": {
+        "prompt_tokens": 24,
+        "completion_tokens": 16,
+        "total_tokens": 40
+      },
+      "PG_task": "89010dc3085eff001388c50a37d7a86a"
+    },
+    {
+      "step": "r-cancel128",
+      "action": "disconnect",
+      "native_id": "d5070aff987749de8a14913e69a2d51e",
+      "budget": 128,
+      "settled": true,
+      "aborted": true,
+      "scheduler_abort_ACK_before_settlement": true
+    },
+    {
+      "step": "r-after-cancel16",
+      "action": "direct",
+      "native_id": "eee5cbf8c15a47709076381d96cdd770",
+      "budget": 16,
+      "settled": true,
+      "aborted": false,
+      "independent_native_usage": {
+        "prompt_tokens": 12,
+        "completion_tokens": 16,
+        "total_tokens": 28
+      }
+    },
+    {
+      "step": "r-sse-replay",
+      "action": "sse_disconnect",
+      "native_id": "4fd463ba427c4fe5b57133ab9e6734a4",
+      "budget": 128,
+      "settled": true,
+      "aborted": false,
+      "independent_native_usage": {
+        "prompt_tokens": 24,
+        "completion_tokens": 16,
+        "total_tokens": 40
+      },
+      "PG_task": "bc35b29be44916bd244a302721036d75"
+    },
+    {
+      "step": "r-api-restart",
+      "action": "restart",
+      "native_id": "138df2618e994df3b8857d7d640cf483",
+      "budget": 128,
+      "settled": true,
+      "aborted": true,
+      "scheduler_abort_ACK_before_settlement": true
+    },
+    {
+      "step": "r-new-session",
+      "action": "platform",
+      "native_id": "dc34ac9b886442c7804e6775b0b1f85d",
+      "budget": 128,
+      "settled": true,
+      "aborted": false,
+      "independent_native_usage": {
+        "prompt_tokens": 24,
+        "completion_tokens": 16,
+        "total_tokens": 40
+      },
+      "PG_task": "bba76c970fded9aa2c48837ba4566dc0"
+    }
+  ],
+  "limitation": "Core ACK interpreted only as logical scheduler removal per pinned source, never immediate GPU-kernel preemption."
+}

@@ -1,0 +1,148 @@
+{
+  "run_id": 43043298669,
+  "url": "https://github.com/pym96/pi-agent-platform/actions/runs/43043298669",
+  "head_sha": "471a317ef687a168306608b1bece931f9b3a2b63",
+  "status": "completed",
+  "conclusion": "success",
+  "updated_at": "2026-11-11T14:59:08Z",
+  "artifact_id": 13866337105,
+  "artifact_sha256": "eccb8ab869c38a40e0bd883ad3d28dbeec7be5a85457584c8336ac7e47606177",
+  "artifact_bytes": 1212886,
+  "artifact_files": 1670,
+  "artifact_manifest_sha256": "19d48c23a55320f98274819688ea82ed2e07d54e427f6088d1082e8e25062cf0",
+  "required_summaries": {
+    "vllm24": {
+      "tests": 11,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": true
+    },
+    "vllm21": {
+      "tests": 16,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": true
+    },
+    "watch-cleanup-tests": {
+      "tests": 4,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": true
+    },
+    "load13": {
+      "tests": 26,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "success": true
+    },
+    "python310-analyzer": {
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "missing_required": [],
+      "collected": [
+        "test_measurements.MeasurementEvidenceTests.test_cpu_fixture_cannot_be_relabelled_gpu",
+        "test_measurements.MeasurementEvidenceTests.test_failure_cannot_disappear_from_denominator",
+        "test_measurements.MeasurementEvidenceTests.test_first_content_requires_raw_content_frame",
+        "test_measurements.MeasurementEvidenceTests.test_frame_cannot_occur_after_settled",
+        "test_measurements.MeasurementEvidenceTests.test_historical_gpu3_cannot_be_relabelled_current_gpu0",
+        "test_measurements.MeasurementEvidenceTests.test_pg_five_digit_fraction_preserves_queue_span",
+        "test_measurements.MeasurementEvidenceTests.test_pg_fraction_precision_and_timezone_preserve_instants",
+        "test_measurements.MeasurementEvidenceTests.test_pg_invalid_or_naive_timestamps_fail_closed",
+        "test_measurements.MeasurementEvidenceTests.test_pg_negative_queue_interval_is_not_clamped",
+        "test_measurements.MeasurementEvidenceTests.test_settled_call_must_match_runtime_result"
+      ],
+      "success": true
+    },
+    "pi-e2e12-cpu/sdk": {
+      "command": [
+        "node",
+        "--test",
+        "--test-reporter=junit",
+        "service/pi/tests/budget.test.mjs",
+        "service/pi/tests/wire.test.mjs"
+      ],
+      "exit_code": 0,
+      "success": true,
+      "tests": 13,
+      "collected": [
+        "actual SDK explicit-stream wire preserves smaller output budget",
+        "actual Pi SDK must not complete missing upstream usage",
+        "actual Pi SDK successful stream has verified raw usage and mapped budget",
+        "actual Pi SDK rejects missing DONE",
+        "actual Pi SDK rejects inconsistent usage",
+        "actual Pi SDK rejects partial then error",
+        "actual Pi SDK rejects empty content",
+        "actual Pi SDK rejects missing terminal",
+        "actual Pi SDK rejects usage beyond budget",
+        "actual Pi SDK rejects null usage",
+        "actual Pi SDK rejects damaged intermediate usage",
+        "actual Pi SDK rejects data after DONE",
+        "content reaches client before complete upstream terminal"
+      ],
+      "missing_required": [],
+      "failures": 0,
+      "skipped": 0
+    },
+    "pi-e2e12-cpu/inference": {
+      "success": true,
+      "exit_code": 0,
+      "tests": 69,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xfail_reports": [],
+      "duration_seconds": 1.7185372659999985,
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.16/x64/bin/python",
+        "-m",
+        "pytest",
+        "-p",
+        "service.inference.scripts.required_pytest",
+        "service/inference/tests",
+        "-q",
+        "--junitxml=/home/runner/work/_temp/pi-e2e12-cpu/inference/junit.xml"
+      ],
+      "python": "3.12.16 (main, Oct 26 2026, 02:50:49) [GCC 13.3.0]"
+    },
+    "ng-entry/inference": {
+      "success": true,
+      "exit_code": 0,
+      "tests": 69,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xfail_reports": [],
+      "duration_seconds": 2.4709057690000122,
+      "command": [
+        "/usr/local/bin/python",
+        "-m",
+        "pytest",
+        "-p",
+        "service.inference.scripts.required_pytest",
+        "service/inference/tests",
+        "-q",
+        "--junitxml=/evidence/inference/junit.xml"
+      ],
+      "python": "3.12.15 (main, Oct  6 2026, 02:02:22) [GCC 14.2.0]"
+    }
+  },
+  "CI_used": 2,
+  "CI_total": 4,
+  "GPU_success_claim": false
+}

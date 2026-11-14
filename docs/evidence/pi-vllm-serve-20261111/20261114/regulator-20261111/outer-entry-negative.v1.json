@@ -1,0 +1,48 @@
+{
+  "schema": "pi24-regulator-outer-entry-CPU-projection/v1",
+  "entry_sha256": "660d5c6aec2be0821cbf14e97bfcd56de3f221d02e7bc8c32044a6f5798996c5",
+  "explicit_substitutions": [
+    "ROOT to own temporary directory",
+    "Linux sched_getaffinity/sample to fixed fixture; no actual Linux resource claim",
+    "Docker inventory/cleanup stub empty",
+    "nvidia-smi stub; zero GPU access"
+  ],
+  "actual_unmodified_behavior": "main GO validation, child Popen/start_new_session, absolute deadline, killpg TERM then KILL/wait, result exit/receipt",
+  "cases": [
+    {
+      "case": "wrong_GO_digest",
+      "rejected_before_child": true
+    },
+    {
+      "case": "TERM_ignored_private_CPU_child",
+      "exit": 3,
+      "elapsed": 3.046909809112549,
+      "private_child_pid": 37747,
+      "child_alive_after": false,
+      "receipt": {
+        "end": 1794407747.229729,
+        "launcher_exit": -9,
+        "failure": "TimeoutError('outer absolute deadline')",
+        "inventory_error": null,
+        "cleanup": {
+          "success": true,
+          "containers": {},
+          "errors": []
+        },
+        "post_gpu0": {
+          "uuid": {
+            "exit": 0,
+            "stdout": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead\n",
+            "stderr": ""
+          },
+          "processes": {
+            "exit": 0,
+            "stdout": "GPU-3c2dd9d8-e925-9c8e-373e-efc7b1222ead\n",
+            "stderr": ""
+          }
+        }
+      }
+    }
+  ],
+  "success": true
+}

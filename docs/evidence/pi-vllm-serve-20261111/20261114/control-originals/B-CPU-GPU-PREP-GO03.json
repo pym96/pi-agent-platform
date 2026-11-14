@@ -1,0 +1,33 @@
+{
+  "schema": "pi24-nov14-B-CPU-GPU-prep-go/v1",
+  "issue": 24,
+  "role": "builder",
+  "issued_at": "2026-11-14T02:29:35.684905+00:00",
+  "conditional_before_server": "Master forwards B failedrelease c97f55cdfa54ae461d0854de1949a5a26c46c5f257f9590dfe80fe50fd8f2d8b; all SSH ended, no Bnetwork/container/model created. R remainslocal. This is one new completion attempt after readingGO, no reuse of GO02.",
+  "local_now": "Prepare exactsource incrementalbundle/entry shell + source/phase/plan/assets expectedbindings only; no tests repeated/no server yet",
+  "server_once_max_wall_s": 60,
+  "absolute_stop": "2026-11-14T02:55:00Z",
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "entry_sha256": "d5e07f695b3680a7239d0dcc30a1735120148c2fc57ef4a42b3ce7ecddffec7d",
+  "outer_entry_sha256": "95af5de69016a7cf027d390395f7c1fefd0fbc96c053aaa000ef452bdb6e497a",
+  "phase_contract_sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec",
+  "phase_contract_file": "PHASE-CONTRACT.v3.json",
+  "normal_plan_sha256": "deb0910ecccedafec8c535dec1d877de560e2cb1cc09800c4e0f4bdf274ea059",
+  "normal_nonce": "pi24-b-nov14-normal01",
+  "allowed": [
+    "Stage only existing frozen downstream plan-deadline.json bb123d1270075df14f36efe44528075f25a6e79a8646ab65d980e95c6802095d, plan-recovery.json 6740c2f8a53e69f4dba903fdda050624a44bd98b71b1d680d22ee636d7ad7469, plan-fallback.json 27ca9074a45acf747b0cf859212901d4f4f52a7d6eafad6153352d465319e8f6; no content changes. Preserve allnormal bindings and finish prior actualCPUprobe/networkcreate/fullraw-release. Fixed local preparation script may only correct missing-stage ordering, noProduct change.",
+    "first cd /media/usv012/pjx and CUDA_VISIBLE_DEVICES=0; own builder exactroot/projects only; fresh source clean+oldidentity before FF update exact9ea36d3221d024a6d8330322d330809fa9e283a6 via independently bound localbundle, no reset/dirtyuser overwrite",
+    "stage independentlybound phasev3 exactbytes/hash, unchanged rawplans/assetmanifest sourcehelper hashes; no env/model/cache duplication",
+    "fresh inspect noB containers/nets before create one emptyInternal IPv6false/unpublishednetwork with project pi-vllm24-b/source9ea/phasev3/nonce pi24-b-nov14-normal01, record actualID+labels+members; do not touch R retained c61d7fd94ae102b909dfcf55d2cece73f97a6ec379f334eaef1b7d39333a37cd",
+    "freeze new shell + host outer script taskset0,1 (actualallowedaffinity includes0,1) and source entry/watch/driver/native/compose+phase/plan/assets; actualsmall CPU affinity/RSS/import probe noCUDA",
+    "ownroot freshdisk/free lightcounts reconcile R completePGledger snapshot486552798B, no pretend unchanged futuretotal; localnewfootprint inventory",
+    "fullraw+hashreceipt/actualnetworkID/completephaseentryargs/allSSH-SCPended/formalrelease for independent R local review and Master next separate GPU GO"
+  ],
+  "noContainerStart_noCUDA_noModel_noCI_noNewDeps": true,
+  "noAutoRetryOrGPUStart": true,
+  "budgets": "CPU current4250.4357385/5400; new600remaining576; this singleattempt<=60s/actualceil; CI5of7/final6main7; Bdevice55.169294118881226/nativePOST0/R0, unchanged original otherlimits/abs02:55/phase04:20",
+  "model_GOs": "not authorized by this CPU preparation; every lifecycle separate exactGO",
+  "supersedes": "GO02 consumedfailed; no source/CI rerun, no model start, no repeated network creation if unexpected existingobjects. Unexpected state stops and preservesraw.",
+  "known_source_current": "already FF exact9ea clean; no bundle/source mutation needed; verify again before any operation",
+  "outer_shell_sha256": "611e0cc4fbbfaaf618c7caf62c044d9a9966bd24ed2c29e632c11fd7fadee0f9"
+}

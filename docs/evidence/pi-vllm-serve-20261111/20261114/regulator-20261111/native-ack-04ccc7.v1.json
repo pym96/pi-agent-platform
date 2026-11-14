@@ -1,0 +1,98 @@
+{
+  "schema": "pi24-independent-native-ack/v1",
+  "fixture_only": true,
+  "source_sha": "04ccc7feed6956100044b07ecd03c218247d80df",
+  "cases": [
+    {
+      "utility_failure": false,
+      "events": [
+        [
+          "generate",
+          "31b76c98ff85493896db08a8180b9b49",
+          381815.807556791
+        ],
+        [
+          "ordinary_abort_sent",
+          "31b76c98ff85493896db08a8180b9b49",
+          381815.807862666
+        ],
+        [
+          "utility_enter",
+          "31b76c98ff85493896db08a8180b9b49",
+          381815.807865041
+        ],
+        [
+          "scheduler_ack",
+          "31b76c98ff85493896db08a8180b9b49",
+          381815.850565708
+        ],
+        [
+          "iterator_closed",
+          "31b76c98ff85493896db08a8180b9b49",
+          381815.850623875
+        ],
+        [
+          "generate",
+          "de50a53f21694f48a24e253958b518fe",
+          381815.857101083
+        ],
+        [
+          "iterator_closed",
+          "de50a53f21694f48a24e253958b518fe",
+          381815.857205833
+        ]
+      ],
+      "http": [
+        {
+          "before_ack_status": 503,
+          "body": "{\"error\": {\"code\": \"queue_deadline\"}}"
+        },
+        {
+          "after_ack_status": 200,
+          "body": "data: {\"choices\": [{\"delta\": {\"role\": \"assistant\", \"content\": \"\"}, \"finish_reason\": null}]}\n\ndata: {\"choices\": [{\"delta\": {\"content\": \"native seam fixture\"}, \"finish_reason\": null}]}\n\ndata: {\"choices\": [{\"delta\": {}, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 2, \"completion_tokens\": 1, \"total_tokens\": 3}}\n\ndata: [DONE]\n\n"
+        }
+      ],
+      "native_fixture_calls": 2,
+      "ready": true,
+      "active": 0
+    },
+    {
+      "utility_failure": true,
+      "events": [
+        [
+          "generate",
+          "d97f79d3d4714b3d9a8db5ab85d7a7fc",
+          381815.858476375
+        ],
+        [
+          "ordinary_abort_sent",
+          "d97f79d3d4714b3d9a8db5ab85d7a7fc",
+          381815.858767083
+        ],
+        [
+          "utility_enter",
+          "d97f79d3d4714b3d9a8db5ab85d7a7fc",
+          381815.858769833
+        ],
+        [
+          "iterator_closed",
+          "d97f79d3d4714b3d9a8db5ab85d7a7fc",
+          381815.901485666
+        ]
+      ],
+      "http": [
+        {
+          "before_ack_status": 503,
+          "body": "{\"error\": {\"code\": \"queue_deadline\"}}"
+        },
+        {
+          "after_failed_ack_status": 503,
+          "body": "{\"error\": {\"code\": \"model_unavailable\"}}"
+        }
+      ],
+      "native_fixture_calls": 1,
+      "ready": false,
+      "active": 1
+    }
+  ]
+}

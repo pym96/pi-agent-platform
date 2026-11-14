@@ -1,0 +1,247 @@
+{
+  "schema": "pi24-fallback01-handoff-release/v1",
+  "role": "Working Agent (Builder)",
+  "workorder": 24,
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "GO_sha256": "d9a81549ff1f04929ed43869cbecc140e6a0ab38436aa49f8372c409e12a86e4",
+  "raw_archive_sha256": "41b8942d74adbdb38aaca42fb968fa6b55669a80dd11f4e825486559c71cbf67",
+  "raw_manifest_sha256": "fc8e778baf456e18169d3a37b80bc8b2cc0c633f18b44e6cb91750256c2bda78",
+  "manifest_files": 34,
+  "bad": [],
+  "outcome": {
+    "overall_success": true,
+    "cleanup_success": true,
+    "network_cleanup": {
+      "success": true,
+      "network_id": "cf97a390694df09401f1b2eeee04f7451fbb3d0c7c2e6b65e07ac63df00000c4",
+      "state": "removed"
+    },
+    "failure": null,
+    "inventory_error": null,
+    "client_exit": 0,
+    "watch_exit": 0,
+    "success": true,
+    "containers": {
+      "859dca7d0ecbd93abc99ba831d7f41c71cb0f7c4444afe29d18b0be070e1fd6f": "removed"
+    },
+    "errors": []
+  },
+  "progress": {
+    "planned": [
+      "fallback16"
+    ],
+    "completed": [
+      "fallback16"
+    ],
+    "not_completed": []
+  },
+  "fallback16": {
+    "spec": {
+      "id": "fallback16",
+      "action": "direct",
+      "budget": 16,
+      "prompt": "List every integer from 1 through 400, comma-separated, with no explanation. fallback16"
+    },
+    "request": "001",
+    "result": {
+      "success": true,
+      "content": "1,2,3,4,5,6,7,8,",
+      "finish_reason": "length",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 16,
+        "total_tokens": 50
+      }
+    },
+    "post_idle": {
+      "backend": "transformers-serialized/Qwen3-8B",
+      "model": "Qwen3-8B",
+      "ready": true,
+      "active_generation": 0,
+      "calls": 1,
+      "queued": 0,
+      "max_active_generation": 1,
+      "max_context": 1024,
+      "attempts": 1,
+      "max_attempts": 32
+    }
+  },
+  "ready": {
+    "backend": "transformers-serialized/Qwen3-8B",
+    "model": "Qwen3-8B",
+    "ready": true,
+    "active_generation": 0,
+    "calls": 0,
+    "queued": 0,
+    "max_active_generation": 1,
+    "max_context": 1024,
+    "attempts": 0,
+    "max_attempts": 32
+  },
+  "backend_identity": {
+    "backend": "transformers-serialized/Qwen3-8B",
+    "torch_intraop_threads": 6,
+    "torch_interop_threads": 76,
+    "dtype": "torch.bfloat16",
+    "device": "cuda:0"
+  },
+  "model_trace_counts": {
+    "received": 1,
+    "validated": 1,
+    "slot_acquired": 1,
+    "prepared": 1,
+    "execute_start": 1,
+    "execute_end": 1,
+    "settled": 1
+  },
+  "model_trace": [
+    {
+      "event": "received",
+      "attempt": 1,
+      "clock": "model-monotonic",
+      "at": 559215.784992321,
+      "waiting": 0,
+      "active": 0
+    },
+    {
+      "event": "validated",
+      "attempt": 1,
+      "clock": "model-monotonic",
+      "at": 559215.786057336,
+      "payload": {
+        "model": "Qwen3-8B",
+        "stream": true,
+        "messages": [
+          {
+            "role": "user",
+            "content": "List every integer from 1 through 400, comma-separated, with no explanation. fallback16"
+          }
+        ],
+        "max_tokens": 16
+      },
+      "core_hash": "3fc33a25a5d548adb517055f3eb2252e22a91a4cddeb4be0ec816354f7ad9910"
+    },
+    {
+      "event": "slot_acquired",
+      "attempt": 1,
+      "clock": "model-monotonic",
+      "at": 559215.786205146,
+      "waiting": 0,
+      "active": 0
+    },
+    {
+      "event": "prepared",
+      "attempt": 1,
+      "clock": "model-monotonic",
+      "at": 559215.830994996
+    },
+    {
+      "event": "execute_start",
+      "attempt": 1,
+      "clock": "model-monotonic",
+      "at": 559215.831443498
+    },
+    {
+      "event": "execute_end",
+      "attempt": 1,
+      "clock": "model-monotonic",
+      "at": 559217.320786787,
+      "terminal": {
+        "kind": "finish",
+        "finish_reason": "length",
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 16,
+          "total_tokens": 50
+        }
+      }
+    },
+    {
+      "event": "settled",
+      "attempt": 1,
+      "clock": "model-monotonic",
+      "at": 559217.32131171
+    }
+  ],
+  "vllm_native_trace": "absent as expected for explicit Transformers backend; real generate entry counted conservatively from execute_start plus calls1 and completed16 usage",
+  "POST_count": 1,
+  "device_ledger": {
+    "model_CID": "859dca7d0ecbd93abc99ba831d7f41c71cb0f7c4444afe29d18b0be070e1fd6f",
+    "Created": "2026-11-14T03:27:45.128153377Z",
+    "rm": {
+      "command": [
+        "rm",
+        "859dca7d0ecbd93abc99ba831d7f41c71cb0f7c4444afe29d18b0be070e1fd6f"
+      ],
+      "start": 1794626900.322071,
+      "end": 1794626900.3520367,
+      "exit": 0,
+      "stdout": "859dca7d0ecbd93abc99ba831d7f41c71cb0f7c4444afe29d18b0be070e1fd6f\n",
+      "stderr": ""
+    },
+    "increment_s": 35.223883390426636,
+    "prior_s": 138.94573211669922,
+    "cumulative_s": 174.16961550712585,
+    "native_generation_cumulative": 12,
+    "POST_cumulative": 14
+  },
+  "actual_model_resource_binding": {
+    "image": "sha256:7e8449fcd1ce73c68dc35292e94182a3b09ddf155eba052fafcb0b6cf174c1c2",
+    "NanoCpus": 6000000000,
+    "Memory": 30064771072,
+    "thread_env": [
+      "MKL_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "OMP_NUM_THREADS=6"
+    ]
+  },
+  "CPU_ledger": {
+    "items": [
+      {
+        "kind": "GOstage",
+        "wall_s": 0.30510902404785156,
+        "ceil_s": 1
+      },
+      {
+        "kind": "wholeforeground",
+        "wall_s": 76.72216510772705,
+        "ceil_s": 77
+      },
+      {
+        "kind": "rawcollection",
+        "wall_s": 0.5209531784057617,
+        "ceil_s": 1
+      }
+    ],
+    "prior_s": 4506.4357385,
+    "increment_s": 79,
+    "cumulative_s": 4585.4357385,
+    "Nov14_subreserve": 1100,
+    "remaining_s": 741
+  },
+  "closeout": {
+    "B_containers": [],
+    "retained_B_networks": [],
+    "query_prefix": {
+      "bytes": 30511,
+      "sha256": "5d25092faa24dfc7f4ce4341127448c11ad21e4d7bca3942845c475e77422c8e"
+    },
+    "nonce_consumed": true,
+    "free_bytes": 3047964884992
+  },
+  "release": {
+    "all_SSH_SCP_ended": true,
+    "foreground_exit": 0,
+    "unknown": null,
+    "R_c61_untouched": true,
+    "no_retry": true,
+    "B_model_authorization_remaining": false
+  },
+  "limitations": [
+    "Builder handoff not final accepted; independent R actual fallback oracle/resource and final matrix review still needed.",
+    "No vLLM native token-ID trace for TF; usage/actual backend/thread entry and frozen Transformers implementation are explicit separate evidence.",
+    "Actual Torch interop threads76 is recorded unchanged; original scoped6 thread exception concerns intraop/OMP, do not claim all thread pools6.",
+    "Only fallback lifecycle consumed; no further B model permission.",
+    "No crossengine speed/throughput/C10K/p95 improvement claim."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "strict-and-phase-run",
+  "args": [
+    "docker",
+    "start",
+    "-a",
+    "c56d744fda535ca602ac747313a955f8e2df7d36c378aea4047b3c819658e5ec"
+  ],
+  "start": 1794621932.484377,
+  "end": 1794621934.6524825,
+  "exit": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/cpu-probe.py\", line 5, in <module>\n    p=subprocess.run(cmd,capture_output=True,text=True,timeout=20);(out/(folder+'-tests.log')).write_text(p.stdout+p.stderr);v=json.loads((out/(folder+'-summary.json')).read_text());assert p.returncode==0 and v['tests']==expected and v['skipped']==0 and v['success'];rows.append(v)\nAssertionError\n"
+}

@@ -1,0 +1,78 @@
+{
+  "wrapper_source_sha256": "917f97350b53c3b2ddcbd0f105900b32a6b786434ce7ca3c971a8a43c6d2dc4e",
+  "tests": "actual OS child processes; fixture projects only REAL and LOG constants, no server or NVML/GPU",
+  "results": [
+    {
+      "kind": "normal-raw-byte-and-argv-exit-transparency",
+      "exit": 7,
+      "stdout_hex": "4750552d74657374ff0a",
+      "stderr_hex": "737464657272fe",
+      "actual_args": [
+        "-i",
+        "0",
+        "--query-gpu=uuid",
+        "--format=csv,noheader"
+      ],
+      "rows": [
+        {
+          "event": "start",
+          "pid": 5371,
+          "epoch": 1794624211.5987258,
+          "command": [
+            "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/query-wrapper-test-77h66b21/real",
+            "-i",
+            "0",
+            "--query-gpu=uuid",
+            "--format=csv,noheader"
+          ]
+        },
+        {
+          "event": "complete",
+          "pid": 5371,
+          "start": 1794624211.5987258,
+          "end": 1794624212.5212119,
+          "command": [
+            "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/query-wrapper-test-77h66b21/real",
+            "-i",
+            "0",
+            "--query-gpu=uuid",
+            "--format=csv,noheader"
+          ],
+          "exit": 7,
+          "stdout_base64": "R1BVLXRlc3T/Cg==",
+          "stderr_base64": "c3RkZXJy/g==",
+          "stdout": "GPU-test\\xff\n",
+          "stderr": "stderr\\xfe"
+        }
+      ]
+    },
+    {
+      "kind": "actual-timeout-child-kill-wait-unknown",
+      "elapsed_s": 4.0550761222839355,
+      "exit": 124,
+      "child_pid": 5403,
+      "child_still_exists": false,
+      "stdout_hex": "7061727469616c0a",
+      "stderr_hex": "7061727469616c6572726f720a4e564d4c20717565727920777261707065722074696d656f75743b20726573756c7420756e6b6e6f776e0a",
+      "row": {
+        "event": "wrapper_timeout",
+        "pid": 5394,
+        "start": 1794624212.5612538,
+        "end": 1794624216.56704,
+        "command": [
+          "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/query-wrapper-test-77h66b21/real",
+          "-i",
+          "0",
+          "--query-gpu=uuid",
+          "--format=csv,noheader"
+        ],
+        "result": "unknown",
+        "exit": null,
+        "wrapper_exit": 124,
+        "stdout_base64": "cGFydGlhbAo=",
+        "stderr_base64": "cGFydGlhbGVycm9yCg=="
+      }
+    }
+  ],
+  "success": true
+}

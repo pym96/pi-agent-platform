@@ -1,0 +1,34 @@
+{
+  "entry_sha256": "9b23eccf3ce56f7880fc0d0f9c5d081f1bbf20e36dd7d2029f342514bcaa4019",
+  "actual_Product_entry_sha256": "8021f265c36b165f9ef9f976bba5d28e5f6e3f4ce79ec3d4ea8420c6191716ea",
+  "cases": [
+    {
+      "case": "tampered_phase",
+      "Product_validator_actual": true,
+      "child_boundary_calls": 0,
+      "return": null,
+      "rejection": "ValueError('fixed P2 phase identity/bounds required')"
+    },
+    {
+      "case": "mismatched_outer_stop",
+      "Product_validator_actual": true,
+      "child_boundary_calls": 0,
+      "return": null,
+      "rejection": "AssertionError()"
+    },
+    {
+      "case": "valid_phase_reaches_child_boundary",
+      "Product_validator_actual": true,
+      "child_boundary_calls": 1,
+      "return": 3,
+      "rejection": null
+    }
+  ],
+  "explicit_seams": [
+    "Mac privateROOT projected",
+    "Linux sched_getaffinity stub0,1",
+    "Popen stops at deliberate CPU boundary; no actual Product child/model",
+    "OwnedDocker and nvidia metadata substituted; zero GPU access"
+  ],
+  "actual_new_validation": "New outer calls actual new Product validate; rejects changed phase/outerstop before child, permits fixed phase to child boundary. Prior process/deadline/cleanup tail AST unchanged and prior actual CPU hardstop proof reused."
+}

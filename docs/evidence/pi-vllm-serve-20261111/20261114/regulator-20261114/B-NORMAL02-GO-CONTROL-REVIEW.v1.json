@@ -1,0 +1,38 @@
+{
+  "schema": "pi24-R-normal02-GO-control-review/v1",
+  "utc": "2026-11-14T02:54:21.606714+00:00",
+  "decision": "CONTROL_BINDINGS_PASS; actual B runtime pending, not final accepted",
+  "source_sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "GO_sha256": "8cd96f3b65fdbdfae1083c162e7257300c64aa3ed09362fd8e4745450a351ad1",
+  "transport_sha256": "c5f258ee0431490f925762ba1ee78863a8a9bb4a4aad3a41c8ee8d68fc0dd404",
+  "checks": [
+    "Own actual exact-source validate with real current clock+independent phasev3 returned exact GO.",
+    "Source/phase/actual2b84/network nonce normal02/outer95af/shell611e/normaldeb091/all helper+asset hashes and entire query binding+frozen transport agree reviewed CPUfreeze.",
+    "CI5 exactsource actualsuccess/budget/device/CPU4253.4357385/360s outerstop reviewed.",
+    "Entire carrier read: only exact GO/hash inputs, exclusive GOstage, fixed PATH+frozen shell exec, Strict host identity/cwd/CUDA/taskset; local once marker, foreground base64 raw, absolute deadline/no retry."
+  ],
+  "private_probe_correction": "AST literal_eval cannot resolve ROOT+literal in template constants; changed private read to importlib module import with __main__ inactive, no carrier execution. No Product/template change.",
+  "limits": [
+    "No R SSH/NVML/GPU/model; importing template does not run main.",
+    "Actual source/watch/native cleanup and all real matrices still pending.",
+    "No added runtime gate/suite; original expired GO not revived."
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-master-20261114/B-GPU-NORMAL-GO02.json",
+      "sha256": "8cd96f3b65fdbdfae1083c162e7257300c64aa3ed09362fd8e4745450a351ad1"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114/normal02_foreground_transport.py",
+      "sha256": "c5f258ee0431490f925762ba1ee78863a8a9bb4a4aad3a41c8ee8d68fc0dd404"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-master-20261114/PHASE-CONTRACT.v3.json",
+      "sha256": "82f15dcf6523c8bbea36bd79741fc8c9745fd838024004ad592979ad2b6830ec"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/NORMAL02-CPUFREEZE-INDEPENDENT-REVIEW.v1.json",
+      "sha256": "db85ef5860c832a3fabf87c144f554879be46fc8f95d7fef3c3bf032a056b76b"
+    }
+  ]
+}
