@@ -41,6 +41,7 @@ class TransformersBackend:
         from transformers.generation.streamers import BaseStreamer
         encoded,prompt_tokens,budget=prepared
         observation_call=self.calls+1
+        observation={'generation_status':'unknown','generation_error':None}
         loop=asyncio.get_running_loop();queue=asyncio.Queue();stop=threading.Event();tokens=[];backend=self
         class Streamer(BaseStreamer):
             first=True
@@ -67,8 +68,11 @@ class TransformersBackend:
                     backend.model.generate(**encoded,streamer=Streamer(),max_new_tokens=budget,
                         do_sample=False,use_cache=True,stopping_criteria=StoppingCriteriaList([Cancel()]))
                 if profiler is not None:profiler.export_chrome_trace(profile_path)
+                if os.environ.get('TF_TOKEN_TRACE'):observation['generation_status']='returned'
                 loop.call_soon_threadsafe(queue.put_nowait,('finish',None))
-            except Exception:loop.call_soon_threadsafe(queue.put_nowait,('error',None))
+            except Exception as error:
+                if os.environ.get('TF_TOKEN_TRACE'):observation.update(generation_status='failed',generation_error=repr(error))
+                loop.call_soon_threadsafe(queue.put_nowait,('error',None))
         async def watch():await cancel.wait();stop.set()
         self.active+=1;self.calls+=1
         worker=asyncio.create_task(asyncio.to_thread(generate));watcher=asyncio.create_task(watch())
@@ -89,4 +93,5 @@ class TransformersBackend:
             self.active-=1
             if os.environ.get('TF_TOKEN_TRACE'):
                 observe('tf_settled',call=observation_call,output_ids=list(tokens),cancelled=cancel.is_set(),
-                    finish_reason='length' if len(tokens)>=budget else 'stop',active=self.active)
+                    finish_reason=('length' if len(tokens)>=budget else 'stop') if observation['generation_status']=='returned' and not cancel.is_set() else None,
+                    active=self.active,**observation)

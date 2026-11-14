@@ -27,6 +27,14 @@ def fixture(root):
     return go,ph
 
 class AuthorityTests(unittest.TestCase):
+    def test_named_lifecycle_cannot_be_relabelled_in_go_and_plan_together(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);go,ph=fixture(root)
+            plan=json.loads((root/'plan.json').read_text());plan['blocks'][1]['arm']='A'
+            go['plan_sha256']=write(root/'plan.json',plan);go['models'][1]['arm']='A'
+            gh=write(root/'go.json',go)
+            with self.assertRaises(ValueError):validate(root/'go.json',gh,root/'phase.json',ph,now=1000)
+
     def test_independent_phase_wrong_identity_and_budget_reject_before_tools(self):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d);go,ph=fixture(root);gh=write(root/'go.json',go)

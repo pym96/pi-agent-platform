@@ -73,9 +73,10 @@ def validate(path,go_digest,phase_path,phase_digest,now=None):
     models=g.get('models',[])
     if [m.get('id') for m in models]!=expected or [b.get('id') for b in plan.get('blocks',[])]!=expected:raise ValueError('pre-registered exact lifecycle sequence')
     cap=16 if stage=='pilot' else 130 if stage=='formal' else 18
-    lower=now;nonces=set()
-    for model,block in zip(models,plan['blocks']):
-        if model.get('arm') not in ('A','B') or model['arm']!=block.get('arm'):raise ValueError('arm identity')
+    lower=times[0];nonces=set()
+    for ident,model,block in zip(expected,models,plan['blocks']):
+        expected_arm=ident[-1] if stage in ('pilot','review') else ident[0]
+        if model.get('arm')!=expected_arm or block.get('arm')!=expected_arm:raise ValueError('named lifecycle arm identity')
         if type(model.get('max_attempts')) is not int or model['max_attempts']!=cap or block.get('max_attempts')!=cap:raise ValueError('model attempt cap')
         nonce(model.get('nonce'))
         if model['nonce'] in nonces:raise ValueError('duplicate model nonce')
