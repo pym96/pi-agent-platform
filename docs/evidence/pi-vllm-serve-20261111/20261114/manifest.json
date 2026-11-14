@@ -1465,8 +1465,8 @@
     },
     {
       "path": "external-state-map.json",
-      "bytes": 261375,
-      "sha256": "18fda7258472e4a039e24fa5bd929e34ed65f311833e5d4060ceca29bb097e87"
+      "bytes": 261283,
+      "sha256": "813225273a764fb728321e0f5b84a29fdef46dd9219b9b6db72ede7595a0a8d9"
     },
     {
       "path": "regulator-20261111/B-CPU03-REVIEW.v1.json",
@@ -2900,13 +2900,8 @@
     },
     {
       "path": "regulator-20261114/own-normal02-result-only/README.md",
-      "bytes": 519,
-      "sha256": "44d5f80b84a7b1d0e230890465ad72bb68126cf6abbd7dc2b0999ba6d292dac9"
-    },
-    {
-      "path": "regulator-20261114/own-normal02-result-only/nvml-normal02-bin/nvidia-smi",
-      "bytes": 1648,
-      "sha256": "46d16fa43b6caec4cfd3f5b29839f2c1bfc23e32571dcee47b73bb23e61f943a"
+      "bytes": 527,
+      "sha256": "1a49c6ca35c3668c6ae641b31e8fb3699799e1c961fb26bd4ee7e1c887afc54e"
     },
     {
       "path": "regulator-20261114/own-normal02-result-only/outer-pi24-r-nov14-normal02/command.json",

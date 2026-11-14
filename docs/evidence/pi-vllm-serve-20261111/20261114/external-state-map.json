@@ -4765,6 +4765,12 @@
         "original_member": "r-gpu-entry-phase5.sh",
         "bytes": 208,
         "sha256": "01967195ae8815c8485f072cebcf18d45f25164d4ae02a31c8f811c5e8a0f496"
+      },
+      {
+        "original_archive": "r-normal02-nov14-raw.tgz",
+        "original_member": "nvml-normal02-bin/nvidia-smi",
+        "bytes": 1648,
+        "sha256": "46d16fa43b6caec4cfd3f5b29839f2c1bfc23e32571dcee47b73bb23e61f943a"
       }
     ],
     "regular_result_members": [
@@ -5715,13 +5721,6 @@
       },
       {
         "original_archive": "r-normal02-nov14-raw.tgz",
-        "original_member": "nvml-normal02-bin/nvidia-smi",
-        "bytes": 1648,
-        "sha256": "46d16fa43b6caec4cfd3f5b29839f2c1bfc23e32571dcee47b73bb23e61f943a",
-        "path": "regulator-20261114/own-normal02-result-only/nvml-normal02-bin/nvidia-smi"
-      },
-      {
-        "original_archive": "r-normal02-nov14-raw.tgz",
         "original_member": "R-OWN-NORMAL-CPU-FREEZE01.json",
         "bytes": 12512,
         "sha256": "f68574c1658313f074babeb81536f4114bbea889b40fdb18806ff29283d03616",
@@ -5735,6 +5734,6 @@
         "path": "regulator-20261114/own-normal02-result-only/R-NORMAL02-NOV14-MANIFEST.json"
       }
     ],
-    "note": "C04/AGENTS4 independent probes do not enter candidate. Non-executable members copied byte-for-byte; original full archive retained externally with complete hash. Original manifest retains references to2 excluded entries; not mislabeled a self-contained candidate-only original archive."
+    "note": "C04/AGENTS4 independent probes do not enter candidate. Non-executable members copied byte-for-byte; original full archive retained externally with complete hash. Original manifest retains references to3 excluded entries; not mislabeled a self-contained candidate-only original archive."
   }
 }
