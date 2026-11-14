@@ -134,7 +134,7 @@ class LauncherModelPreflight(unittest.TestCase):
  def test_valid_model_manifest_reaches_cached_image_check(self):
   import importlib.util
   from unittest.mock import Mock,patch
-  spec=importlib.util.spec_from_file_location('model_preflight',HERE/'launch.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);RealPath=pathlib.Path
+  spec=importlib.util.spec_from_file_location('model_preflight',HERE/'launch.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);RealPath=type(pathlib.Path())
   with tempfile.TemporaryDirectory() as d:
    base=RealPath(d).resolve();root=base/'builder';source=root/'source';env=root/'env';env.mkdir(parents=True);(env/'one').write_bytes(b'env');probe=source/'service/scripts/vllm-compat/smoke.py';probe.parent.mkdir(parents=True);probe.write_bytes(b'probe');model=base/'model';model.mkdir();(model/'weights.safetensors').write_bytes(b'weights');manifest=source/'docs/evidence/qwen-load-20261021/model-files.json';manifest.parent.mkdir(parents=True);manifest.write_text(json.dumps([{'path':'weights.safetensors','bytes':7,'sha256':m.sha(model/'weights.safetensors')} ]));runtime=root/'runtime-manifest.json';runtime.write_text(json.dumps({'files':[{'path':'env/one','sha256':m.sha(env/'one')}]}));g={'role':'builder','runtime_manifest_sha256':m.sha(runtime),'probe_sha256':m.sha(probe),'source_sha':'a'*40,'watch_sha256':m.sha(HERE/'watch.py'),'driver_sha256':m.sha(HERE/'driver.py'),'model_path':'/media/usv012/pjx/agent/Qwen3-8B','model_manifest_sha256':m.sha(manifest),'image':'sha256:08619d6d884b3b456661f883a4e4420bd85a81aee560a86f7f26021b75dd6229'}
    def path(v):

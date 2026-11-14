@@ -48,6 +48,12 @@ jobs:
           mkdir -p "$RUNNER_TEMP/python310-analyzer"
           python --version > "$RUNNER_TEMP/python310-analyzer/version.txt"
           python service/scripts/pi-qwen-e2e/measurement_gate.py --out "$RUNNER_TEMP/python310-analyzer/summary.json" > "$RUNNER_TEMP/python310-analyzer/tests.log" 2>&1
+      - name: Required server Python3.10 full isolated vLLM guards
+        run: |
+          mkdir -p "$RUNNER_TEMP/python310-vllm21/tmp"
+          export TMPDIR="$RUNNER_TEMP/python310-vllm21/tmp"
+          python --version > "$RUNNER_TEMP/python310-vllm21/version.txt"
+          python service/scripts/nginx-entry/strict_suite.py --start-dir service/scripts/vllm-compat --pattern 'test_*.py' --out "$RUNNER_TEMP/python310-vllm21/summary.json" > "$RUNNER_TEMP/python310-vllm21/tests.log" 2>&1
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -113,6 +119,7 @@ jobs:
             ${{ runner.temp }}/ng-preflight
             ${{ runner.temp }}/watch-cleanup-tests
             ${{ runner.temp }}/python310-analyzer
+            ${{ runner.temp }}/python310-vllm21
             ${{ runner.temp }}/load13
             ${{ runner.temp }}/vllm21
             ${{ runner.temp }}/vllm24
