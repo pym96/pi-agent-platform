@@ -15,18 +15,18 @@
     },
     {
       "path": "HANDOFF.md",
-      "bytes": 2645,
-      "sha256": "dec3d500b4325bf80283fdf6fae4ea756db0ff077364bb391664e2272bd7ae8a"
+      "bytes": 3298,
+      "sha256": "130f94b668cdd04dffd3a939b48bd69e6755696ddb0be768d16e1d05140c1d1a"
     },
     {
       "path": "README.md",
-      "bytes": 6612,
-      "sha256": "e656e2618a81e67f5de08961d8d36cb0ad1fcece24869e9b4154f6ff9e77085a"
+      "bytes": 9158,
+      "sha256": "c636b71454195f600327c3d9d416a30182f3e3b8814353caf38774461284ae44"
     },
     {
       "path": "actual-ledgers.json",
-      "bytes": 9163,
-      "sha256": "b61a2e863be1da8e33b58e9d5bc10d5951ea326c22efa54035bf77f6e6a7988f"
+      "bytes": 10617,
+      "sha256": "15c1fad2b4dc9ab38626c2e782844bc52b07c67576960817155ca9b97c6bdf04"
     },
     {
       "path": "builder-20261111/B-CPU-GPU-PREP-RELEASE.v1.json",
@@ -1460,13 +1460,13 @@
     },
     {
       "path": "criterion-status.json",
-      "bytes": 3699,
-      "sha256": "8fcc1d0284b9c9806744961729d4655111a54394e8ca40ad6f3cd05df09c529a"
+      "bytes": 4233,
+      "sha256": "41cc4ec2c1b10d7f433cba8161526a6c361d6a53f207f8b6b866c55d967e0e52"
     },
     {
       "path": "external-state-map.json",
-      "bytes": 261283,
-      "sha256": "813225273a764fb728321e0f5b84a29fdef46dd9219b9b6db72ede7595a0a8d9"
+      "bytes": 263902,
+      "sha256": "ab35f23b8647ba94cb7f876d66b64936d829c102d6ac08ad97c5a741dd7f5c72"
     },
     {
       "path": "regulator-20261111/B-CPU03-REVIEW.v1.json",
@@ -2749,6 +2749,11 @@
       "sha256": "a65309c3e33ec7343b0a392f0c55810b59490a9d3ffd39c8e1c26f86bde41989"
     },
     {
+      "path": "regulator-20261114/LOCAL-DISK-FINAL24.v1.json",
+      "bytes": 2042,
+      "sha256": "b80827d332e1b19bfae088ea1519c5e068143aa6dcc1764bafe80932e39e663f"
+    },
+    {
       "path": "regulator-20261114/NORMAL02-CPUFREEZE-INDEPENDENT-REVIEW.v1.json",
       "bytes": 5676,
       "sha256": "db85ef5860c832a3fabf87c144f554879be46fc8f95d7fef3c3bf032a056b76b"
@@ -2762,6 +2767,26 @@
       "path": "regulator-20261114/NVML-WRAPPER-V2-INDEPENDENT-REVIEW.v1.json",
       "bytes": 5216,
       "sha256": "6cfbeac812f7b881db8cb70fc1abdfa931a37083995b37aafee58e5d5a74269b"
+    },
+    {
+      "path": "regulator-20261114/PREFINAL-298b06-INDEPENDENT-REVIEW.v1.json",
+      "bytes": 5436,
+      "sha256": "0d4c2f5d20d43a3efcea790b9f32e4e30c497f9d595ee9aea27f3b39a612ac24"
+    },
+    {
+      "path": "regulator-20261114/R-FINAL-DISK-INVENTORY01-ACTUAL.json",
+      "bytes": 79121,
+      "sha256": "a5ccb76e585fa86997e08985b0a421e01c4f84de1440a7f3f376802406a0249c"
+    },
+    {
+      "path": "regulator-20261114/R-FINAL-DISK-INVENTORY01-SSH.json",
+      "bytes": 79195,
+      "sha256": "b5b6180a343fe5588aeb59fdc2d6062540b5671ff9ef22a3fbe06dad32bfaff6"
+    },
+    {
+      "path": "regulator-20261114/R-FINAL-INVENTORY-HANDOFF-RELEASE.v1.json",
+      "bytes": 7402,
+      "sha256": "2effe155a4a28c71be739347e46d47500a137414aeeb81b11d2d515846d8af4a"
     },
     {
       "path": "regulator-20261114/R-NORMAL02-FOREGROUND-RAW.jsonl",

@@ -1,0 +1,59 @@
+{
+  "start_epoch": 1794628700.0483332,
+  "end_epoch": 1794628700.774373,
+  "roots": [
+    {
+      "root": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261111",
+      "apparent_bytes": 72366709,
+      "allocated_bytes": 84615168,
+      "inodes": 4498
+    },
+    {
+      "root": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261111",
+      "apparent_bytes": 235062668,
+      "allocated_bytes": 276828160,
+      "inodes": 18963
+    },
+    {
+      "root": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-builder-20261114",
+      "apparent_bytes": 21203084,
+      "allocated_bytes": 32698368,
+      "inodes": 4284
+    },
+    {
+      "root": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114",
+      "apparent_bytes": 210705244,
+      "allocated_bytes": 253702144,
+      "inodes": 18489
+    },
+    {
+      "root": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-master-20261111",
+      "apparent_bytes": 986244,
+      "allocated_bytes": 1081344,
+      "inodes": 49
+    },
+    {
+      "root": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-master-20261114",
+      "apparent_bytes": 848691,
+      "allocated_bytes": 946176,
+      "inodes": 51
+    },
+    {
+      "root": "/Users/panyiming/Desktop/todo/\u9762\u8bd5/career-planning/60-\u9879\u76ee/pi-agent-platform-vllm24-candidate",
+      "apparent_bytes": 38390752,
+      "allocated_bytes": 44503040,
+      "inodes": 2855
+    },
+    {
+      "root": "/Users/panyiming/Desktop/todo/\u9762\u8bd5/career-planning/60-\u9879\u76ee/pi-agent-platform-vllm24-nov14-candidate",
+      "apparent_bytes": 76529375,
+      "allocated_bytes": 87146496,
+      "inodes": 4624
+    }
+  ],
+  "errors": [],
+  "total_apparent_bytes": 656092767,
+  "total_allocated_bytes": 781520896,
+  "method": "all original24 namedold/newB/R/Masterstates+bothcandidate roots, nofollow lstat and global(dev,ino)dedup; includes freshindependentprefinalclone and newraw. excludes preexisting21runtime/model outsideownroots",
+  "cap": 1073741824
+}

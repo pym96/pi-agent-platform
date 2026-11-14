@@ -1,0 +1,214 @@
+{
+  "schema": "pi24-R-final-complete-inventory-release/v1",
+  "SessionRole": "Regulator Agent",
+  "issue": 24,
+  "GO_sha256": "c1955d0ff159430ff89003ce860d7091179c15a4ff7a81db0f64abea2fadedb1",
+  "status": "ACTUAL_COMPLETE_WO24_DISJOINT_DISK_SNAPSHOT_PASS_AND_RELEASED",
+  "start_UTC": "2026-11-14T03:57:17.777131+00:00",
+  "end_UTC": "2026-11-14T03:57:19.229822+00:00",
+  "wall_s": 1.452690839767456,
+  "all_SSH_SCP_ended": true,
+  "host_and_8PG_apparent_bytes": 598383655,
+  "host_and_8PG_allocated_bytes": 613675008,
+  "free_bytes": 3047910899712,
+  "actual_host_errors": [],
+  "actual_PG_roots": [
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70,
+      "dev": 2048,
+      "ino": 75146319
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70,
+      "dev": 2048,
+      "ino": 75142145
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-normal01/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70,
+      "dev": 2048,
+      "ino": 75173780
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70,
+      "dev": 2048,
+      "ino": 75144829
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-nov14-normal02/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70,
+      "dev": 2048,
+      "ino": 75175268
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70,
+      "dev": 2048,
+      "ino": 75143472
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/run-pi24-r-nov14-normal02/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70,
+      "dev": 2048,
+      "ino": 75176839
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70,
+      "dev": 2048,
+      "ino": 75172300
+    }
+  ],
+  "actual_PG": {
+    "uid": 70,
+    "gid": 70,
+    "roots": [
+      {
+        "index": 0,
+        "apparent_bytes": 48246787,
+        "allocated_bytes": 48312320,
+        "inodes": 1314,
+        "errors": []
+      },
+      {
+        "index": 1,
+        "apparent_bytes": 47852038,
+        "allocated_bytes": 47919104,
+        "inodes": 1297,
+        "errors": []
+      },
+      {
+        "index": 2,
+        "apparent_bytes": 48205827,
+        "allocated_bytes": 48271360,
+        "inodes": 1313,
+        "errors": []
+      },
+      {
+        "index": 3,
+        "apparent_bytes": 48246787,
+        "allocated_bytes": 48312320,
+        "inodes": 1314,
+        "errors": []
+      },
+      {
+        "index": 4,
+        "apparent_bytes": 48361672,
+        "allocated_bytes": 48427008,
+        "inodes": 1314,
+        "errors": []
+      },
+      {
+        "index": 5,
+        "apparent_bytes": 48366759,
+        "allocated_bytes": 48435200,
+        "inodes": 1314,
+        "errors": []
+      },
+      {
+        "index": 6,
+        "apparent_bytes": 48345288,
+        "allocated_bytes": 48410624,
+        "inodes": 1314,
+        "errors": []
+      },
+      {
+        "index": 7,
+        "apparent_bytes": 48238595,
+        "allocated_bytes": 48304128,
+        "inodes": 1314,
+        "errors": []
+      }
+    ],
+    "epoch": 1794628638.5846682
+  },
+  "cross_boundary_hardlink_semantics": "Host seen(dev,ino) passed via stdin intoPG traversal; PG root dev/ino assertedsamehostbinding; every inode countedonce including crossboundaries, no symlinkfollowing. Bothsequential scans constitute point-in-timebounded snapshot, not atomicfilesystemfreeze.",
+  "after_measurement_output_accounting": {
+    "server_receipt_serialized_bytes": 79121,
+    "additional_allocated_directory_and_receipt_reserve_bytes": 1048576,
+    "allocated_snapshot_plus_reserve_bytes": 614723584,
+    "under_server_2GiB": true,
+    "note": "Remote write_text receipt occurs after snapshot; exact serializedrecordbytescomputedlocally,1MiB explicitconservative additionalreserve covers its allocatedfile/direntry overhead, not invented actualdu."
+  },
+  "helper_runtime": {
+    "image": "sha256:08619d6d884b3b456661f883a4e4420bd85a81aee560a86f7f26021b75dd6229",
+    "user": "70:70",
+    "CPU": 2,
+    "RAM_GiB": 1,
+    "runtime": "runc",
+    "GPUrequest": null,
+    "network": "none",
+    "rootRO": true,
+    "mounts": "only8precisePGRO",
+    "capdrop": "ALL",
+    "NNP": true,
+    "state_ended": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-14T03:57:18.341968172Z",
+      "FinishedAt": "2026-11-14T03:57:18.59634016Z"
+    },
+    "helperCID": "9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c"
+  },
+  "final_two_projects_containers_networks": 0,
+  "no_NVML_model": true,
+  "CPU_before_s": 4664.4357385,
+  "CPU_increment_ceil_s": 2,
+  "CPU_cumulative_upper_s": 4666.4357385,
+  "Nov14_1100_remaining_s": 660,
+  "local_global_disk": {
+    "report": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/LOCAL-DISK-FINAL24.v1.json",
+    "sha256": "b80827d332e1b19bfae088ea1519c5e068143aa6dcc1764bafe80932e39e663f",
+    "apparent_bytes": 656092767,
+    "allocated_bytes": 781520896,
+    "cap_bytes": 1073741824,
+    "errors": [],
+    "measurement_precedes_thissmallreport": true
+  },
+  "limits": [
+    "No GPUquery/currentidle refresh inthisCPUonlyinventory; last successful RnormalGPU0closeout retained.",
+    "Actual helperstart/stop/rm and inventories in originalcommands, no model/newnetwork/permissions mutation.",
+    "Sourcecandidate298 prefinalidentity distinct from pending newEvidencecandidate.",
+    "No authorization for moreSSH/CI/push/model; finalEvidenceCI/Verdict stillpending."
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/R-FINAL-DISK-INVENTORY01-ACTUAL.json",
+      "sha256": "a5ccb76e585fa86997e08985b0a421e01c4f84de1440a7f3f376802406a0249c"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/R-FINAL-DISK-INVENTORY01-SSH.json",
+      "sha256": "b5b6180a343fe5588aeb59fdc2d6062540b5671ff9ef22a3fbe06dad32bfaff6"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/r_final_disk_inventory_remote.py",
+      "sha256": "5c1e7039a0c36beca2b4aaba3408d19f2f53592bb3477315e859d1ec819a5eb1"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/execute_r_final_inventory_once.py",
+      "sha256": "3a5c29d29f3ed045714185678bb41b7ca99bc8c022ea2f2542ec2492160a0a51"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/LOCAL-DISK-FINAL24.v1.json",
+      "sha256": "b80827d332e1b19bfae088ea1519c5e068143aa6dcc1764bafe80932e39e663f"
+    }
+  ]
+}

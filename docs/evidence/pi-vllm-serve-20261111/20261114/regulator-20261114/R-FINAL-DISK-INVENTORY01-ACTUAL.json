@@ -1,0 +1,1048 @@
+{
+  "schema": "pi24-R-final-disjoint-disk-inventory/v1",
+  "start": 1794628638.0341923,
+  "commands": [
+    {
+      "command": [
+        "docker",
+        "ps",
+        "-a",
+        "-q",
+        "--no-trunc",
+        "--filter",
+        "label=com.docker.compose.project=pi-vllm24-b"
+      ],
+      "start": 1794628638.0342648,
+      "end": 1794628638.0492692,
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "ls",
+        "--no-trunc",
+        "-q",
+        "--filter",
+        "label=com.docker.compose.project=pi-vllm24-b"
+      ],
+      "start": 1794628638.049274,
+      "end": 1794628638.0607376,
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "ps",
+        "-a",
+        "-q",
+        "--no-trunc",
+        "--filter",
+        "label=com.docker.compose.project=pi-vllm24-r"
+      ],
+      "start": 1794628638.0607417,
+      "end": 1794628638.0725381,
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "ls",
+        "--no-trunc",
+        "-q",
+        "--filter",
+        "label=com.docker.compose.project=pi-vllm24-r"
+      ],
+      "start": 1794628638.0725422,
+      "end": 1794628638.0839646,
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "create",
+        "--interactive",
+        "--pull",
+        "never",
+        "--runtime",
+        "runc",
+        "--network",
+        "none",
+        "--read-only",
+        "--user",
+        "70:70",
+        "--cpus",
+        "2",
+        "--memory",
+        "1g",
+        "--memory-swap",
+        "1g",
+        "--pids-limit",
+        "128",
+        "--tmpfs",
+        "/tmp:size=64m",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges:true",
+        "-e",
+        "NVIDIA_VISIBLE_DEVICES=void",
+        "-e",
+        "CUDA_VISIBLE_DEVICES=0",
+        "-e",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "--label",
+        "com.docker.compose.project=pi-vllm24-r",
+        "--label",
+        "workorder=24",
+        "--label",
+        "execution-sha=9ea36d3221d024a6d8330322d330809fa9e283a6",
+        "--label",
+        "pi24.nonce=r-final-inventory-nov14-01",
+        "-v",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata:/pg0:ro",
+        "-v",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata:/pg1:ro",
+        "-v",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-normal01/data/pg-data/pgdata:/pg2:ro",
+        "-v",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata:/pg3:ro",
+        "-v",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-nov14-normal02/data/pg-data/pgdata:/pg4:ro",
+        "-v",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata:/pg5:ro",
+        "-v",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/run-pi24-r-nov14-normal02/data/pg-data/pgdata:/pg6:ro",
+        "-v",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata:/pg7:ro",
+        "--entrypoint",
+        "timeout",
+        "sha256:08619d6d884b3b456661f883a4e4420bd85a81aee560a86f7f26021b75dd6229",
+        "--signal=TERM",
+        "--kill-after=2s",
+        "25s",
+        "python3",
+        "-c",
+        "import pathlib,os,json,stat,time,sys\nbind=json.load(sys.stdin);seen={tuple(x) for x in bind['host_seen']};rows=[]\nfor i in range(8):\n root=pathlib.Path('/pg'+str(i));st=root.lstat();assert [st.st_dev,st.st_ino]==bind['roots'][i];stack=[root];r={'index':i,'apparent_bytes':0,'allocated_bytes':0,'inodes':0,'errors':[]}\n while stack:\n  p=stack.pop();st=p.lstat();key=(st.st_dev,st.st_ino)\n  if key in seen:continue\n  seen.add(key);r['inodes']+=1;r['apparent_bytes']+=st.st_size;r['allocated_bytes']+=st.st_blocks*512\n  if stat.S_ISDIR(st.st_mode):\n   try:stack.extend(p.iterdir())\n   except Exception as e:r['errors'].append({'path':str(p),'error':repr(e)})\n rows.append(r)\nprint(json.dumps({'uid':os.getuid(),'gid':os.getgid(),'roots':rows,'epoch':time.time()}))\nassert not any(r['errors'] for r in rows)\n"
+      ],
+      "start": 1794628638.1380126,
+      "end": 1794628638.2520661,
+      "exit": 0,
+      "stdout": "9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "inspect",
+        "9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c"
+      ],
+      "start": 1794628638.2520752,
+      "end": 1794628638.2661319,
+      "exit": 0,
+      "stdout": "[\n    {\n        \"Id\": \"9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c\",\n        \"Created\": \"2026-11-14T03:57:18.152953853Z\",\n        \"Path\": \"timeout\",\n        \"Args\": [\n            \"--signal=TERM\",\n            \"--kill-after=2s\",\n            \"25s\",\n            \"python3\",\n            \"-c\",\n            \"import pathlib,os,json,stat,time,sys\\nbind=json.load(sys.stdin);seen={tuple(x) for x in bind['host_seen']};rows=[]\\nfor i in range(8):\\n root=pathlib.Path('/pg'+str(i));st=root.lstat();assert [st.st_dev,st.st_ino]==bind['roots'][i];stack=[root];r={'index':i,'apparent_bytes':0,'allocated_bytes':0,'inodes':0,'errors':[]}\\n while stack:\\n  p=stack.pop();st=p.lstat();key=(st.st_dev,st.st_ino)\\n  if key in seen:continue\\n  seen.add(key);r['inodes']+=1;r['apparent_bytes']+=st.st_size;r['allocated_bytes']+=st.st_blocks*512\\n  if stat.S_ISDIR(st.st_mode):\\n   try:stack.extend(p.iterdir())\\n   except Exception as e:r['errors'].append({'path':str(p),'error':repr(e)})\\n rows.append(r)\\nprint(json.dumps({'uid':os.getuid(),'gid':os.getgid(),'roots':rows,'epoch':time.time()}))\\nassert not any(r['errors'] for r in rows)\\n\"\n        ],\n        \"State\": {\n            \"Status\": \"created\",\n            \"Running\": false,\n            \"Paused\": false,\n            \"Restarting\": false,\n            \"OOMKilled\": false,\n            \"Dead\": false,\n            \"Pid\": 0,\n            \"ExitCode\": 0,\n            \"Error\": \"\",\n            \"StartedAt\": \"0001-01-01T00:00:00Z\",\n            \"FinishedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        \"Image\": \"sha256:08619d6d884b3b456661f883a4e4420bd85a81aee560a86f7f26021b75dd6229\",\n        \"ResolvConfPath\": \"\",\n        \"HostnamePath\": \"\",\n        \"HostsPath\": \"\",\n        \"LogPath\": \"\",\n        \"Name\": \"/optimistic_engelbart\",\n        \"RestartCount\": 0,\n        \"Driver\": \"overlay2\",\n        \"Platform\": \"linux\",\n        \"MountLabel\": \"\",\n        \"ProcessLabel\": \"\",\n        \"AppArmorProfile\": \"\",\n        \"ExecIDs\": null,\n        \"HostConfig\": {\n            \"Binds\": [\n                \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/run-pi24-r-nov14-normal02/data/pg-data/pgdata:/pg6:ro\",\n                \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata:/pg7:ro\",\n                \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata:/pg0:ro\",\n                \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata:/pg1:ro\",\n                \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-normal01/data/pg-data/pgdata:/pg2:ro\",\n                \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata:/pg3:ro\",\n                \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-nov14-normal02/data/pg-data/pgdata:/pg4:ro\",\n                \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata:/pg5:ro\"\n            ],\n            \"ContainerIDFile\": \"\",\n            \"LogConfig\": {\n                \"Type\": \"json-file\",\n                \"Config\": {}\n            },\n            \"NetworkMode\": \"none\",\n            \"PortBindings\": {},\n            \"RestartPolicy\": {\n                \"Name\": \"no\",\n                \"MaximumRetryCount\": 0\n            },\n            \"AutoRemove\": false,\n            \"VolumeDriver\": \"\",\n            \"VolumesFrom\": null,\n            \"ConsoleSize\": [\n                0,\n                0\n            ],\n            \"CapAdd\": null,\n            \"CapDrop\": [\n                \"ALL\"\n            ],\n            \"CgroupnsMode\": \"private\",\n            \"Dns\": [],\n            \"DnsOptions\": [],\n            \"DnsSearch\": [],\n            \"ExtraHosts\": null,\n            \"GroupAdd\": null,\n            \"IpcMode\": \"private\",\n            \"Cgroup\": \"\",\n            \"Links\": null,\n            \"OomScoreAdj\": 0,\n            \"PidMode\": \"\",\n            \"Privileged\": false,\n            \"PublishAllPorts\": false,\n            \"ReadonlyRootfs\": true,\n            \"SecurityOpt\": [\n                \"no-new-privileges:true\"\n            ],\n            \"Tmpfs\": {\n                \"/tmp\": \"size=64m\"\n            },\n            \"UTSMode\": \"\",\n            \"UsernsMode\": \"\",\n            \"ShmSize\": 67108864,\n            \"Runtime\": \"runc\",\n            \"Isolation\": \"\",\n            \"CpuShares\": 0,\n            \"Memory\": 1073741824,\n            \"NanoCpus\": 2000000000,\n            \"CgroupParent\": \"\",\n            \"BlkioWeight\": 0,\n            \"BlkioWeightDevice\": [],\n            \"BlkioDeviceReadBps\": [],\n            \"BlkioDeviceWriteBps\": [],\n            \"BlkioDeviceReadIOps\": [],\n            \"BlkioDeviceWriteIOps\": [],\n            \"CpuPeriod\": 0,\n            \"CpuQuota\": 0,\n            \"CpuRealtimePeriod\": 0,\n            \"CpuRealtimeRuntime\": 0,\n            \"CpusetCpus\": \"\",\n            \"CpusetMems\": \"\",\n            \"Devices\": [],\n            \"DeviceCgroupRules\": null,\n            \"DeviceRequests\": null,\n            \"MemoryReservation\": 0,\n            \"MemorySwap\": 1073741824,\n            \"MemorySwappiness\": null,\n            \"OomKillDisable\": false,\n            \"PidsLimit\": 128,\n            \"Ulimits\": [],\n            \"CpuCount\": 0,\n            \"CpuPercent\": 0,\n            \"IOMaximumIOps\": 0,\n            \"IOMaximumBandwidth\": 0,\n            \"MaskedPaths\": [\n                \"/proc/asound\",\n                \"/proc/acpi\",\n                \"/proc/kcore\",\n                \"/proc/keys\",\n                \"/proc/latency_stats\",\n                \"/proc/timer_list\",\n                \"/proc/timer_stats\",\n                \"/proc/sched_debug\",\n                \"/proc/scsi\",\n                \"/sys/firmware\",\n                \"/sys/devices/virtual/powercap\"\n            ],\n            \"ReadonlyPaths\": [\n                \"/proc/bus\",\n                \"/proc/fs\",\n                \"/proc/irq\",\n                \"/proc/sys\",\n                \"/proc/sysrq-trigger\"\n            ]\n        },\n        \"GraphDriver\": {\n            \"Data\": {\n                \"LowerDir\": \"/media/usv012/pjx/docker-data/overlay2/3dafcd2c1bd4cdccf9e868cee3fe2b27e422d56f5e2d4a74b37012587d8ddf9b-init/diff:/media/usv012/pjx/docker-data/overlay2/zrfobk1z3nf17bdwh6zbvnort/diff:/media/usv012/pjx/docker-data/overlay2/lc31vum1edxqshl5kns3tmxrs/diff:/media/usv012/pjx/docker-data/overlay2/cw4jot0k40ij5qno9nh6p9v5y/diff:/media/usv012/pjx/docker-data/overlay2/k9dtxulmlzm5lwx5hdfsvzn2j/diff:/media/usv012/pjx/docker-data/overlay2/mjmu1sagpaokvbt169rlk31h3/diff:/media/usv012/pjx/docker-data/overlay2/9eh5jpu3pjle9g144f1qoesjs/diff:/media/usv012/pjx/docker-data/overlay2/f123deca9a16cae1ba604166a1dd092e0395b8a9626e688d416becf89d262ba4/diff:/media/usv012/pjx/docker-data/overlay2/0ebaafa7448e74920db345a65a8960de79c2d0311818609b64a87b51886e993b/diff:/media/usv012/pjx/docker-data/overlay2/a144ef0085618c8b1de92e3c67ba2bf71cc84d6f25e298594b3883455f082478/diff:/media/usv012/pjx/docker-data/overlay2/6fd98c0d373f223af363e1183bcd2dec015fe3594c59c5fa19bb02ac067fddfa/diff:/media/usv012/pjx/docker-data/overlay2/98e5d29c55f5337319af92347d58f41461a0851fc24fdf3830b11cf68c774540/diff:/media/usv012/pjx/docker-data/overlay2/325d57cf1b6859c47eed0a86b2fb5c5386bf7442c4aa6484527830fc75b4f922/diff:/media/usv012/pjx/docker-data/overlay2/244bce781146a8a0f91b8efefeaf88932f0033cbf43d3075659a08513265fa34/diff:/media/usv012/pjx/docker-data/overlay2/58ee7d33679b18fd49adceeab206bdf4162394c0551601592c59bbb258bd9957/diff:/media/usv012/pjx/docker-data/overlay2/45126d5f0e16baf7dbc213daf667e34f0e6106a55c6fd05120dac1483ed53082/diff\",\n                \"MergedDir\": \"/media/usv012/pjx/docker-data/overlay2/3dafcd2c1bd4cdccf9e868cee3fe2b27e422d56f5e2d4a74b37012587d8ddf9b/merged\",\n                \"UpperDir\": \"/media/usv012/pjx/docker-data/overlay2/3dafcd2c1bd4cdccf9e868cee3fe2b27e422d56f5e2d4a74b37012587d8ddf9b/diff\",\n                \"WorkDir\": \"/media/usv012/pjx/docker-data/overlay2/3dafcd2c1bd4cdccf9e868cee3fe2b27e422d56f5e2d4a74b37012587d8ddf9b/work\"\n            },\n            \"Name\": \"overlay2\"\n        },\n        \"Mounts\": [\n            {\n                \"Type\": \"bind\",\n                \"Source\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata\",\n                \"Destination\": \"/pg7\",\n                \"Mode\": \"ro\",\n                \"RW\": false,\n                \"Propagation\": \"rprivate\"\n            },\n            {\n                \"Type\": \"bind\",\n                \"Source\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata\",\n                \"Destination\": \"/pg0\",\n                \"Mode\": \"ro\",\n                \"RW\": false,\n                \"Propagation\": \"rprivate\"\n            },\n            {\n                \"Type\": \"bind\",\n                \"Source\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata\",\n                \"Destination\": \"/pg1\",\n                \"Mode\": \"ro\",\n                \"RW\": false,\n                \"Propagation\": \"rprivate\"\n            },\n            {\n                \"Type\": \"bind\",\n                \"Source\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-normal01/data/pg-data/pgdata\",\n                \"Destination\": \"/pg2\",\n                \"Mode\": \"ro\",\n                \"RW\": false,\n                \"Propagation\": \"rprivate\"\n            },\n            {\n                \"Type\": \"bind\",\n                \"Source\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata\",\n                \"Destination\": \"/pg3\",\n                \"Mode\": \"ro\",\n                \"RW\": false,\n                \"Propagation\": \"rprivate\"\n            },\n            {\n                \"Type\": \"bind\",\n                \"Source\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-nov14-normal02/data/pg-data/pgdata\",\n                \"Destination\": \"/pg4\",\n                \"Mode\": \"ro\",\n                \"RW\": false,\n                \"Propagation\": \"rprivate\"\n            },\n            {\n                \"Type\": \"bind\",\n                \"Source\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata\",\n                \"Destination\": \"/pg5\",\n                \"Mode\": \"ro\",\n                \"RW\": false,\n                \"Propagation\": \"rprivate\"\n            },\n            {\n                \"Type\": \"bind\",\n                \"Source\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/run-pi24-r-nov14-normal02/data/pg-data/pgdata\",\n                \"Destination\": \"/pg6\",\n                \"Mode\": \"ro\",\n                \"RW\": false,\n                \"Propagation\": \"rprivate\"\n            }\n        ],\n        \"Config\": {\n            \"Hostname\": \"9343e5520cba\",\n            \"Domainname\": \"\",\n            \"User\": \"70:70\",\n            \"AttachStdin\": true,\n            \"AttachStdout\": true,\n            \"AttachStderr\": true,\n            \"Tty\": false,\n            \"OpenStdin\": true,\n            \"StdinOnce\": true,\n            \"Env\": [\n                \"NVIDIA_VISIBLE_DEVICES=void\",\n                \"CUDA_VISIBLE_DEVICES=0\",\n                \"PYTHONDONTWRITEBYTECODE=1\",\n                \"PATH=/home/codex/.local/bin:/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\",\n                \"NVARCH=x86_64\",\n                \"NVIDIA_REQUIRE_CUDA=cuda>=12.4 brand=tesla,driver>=470,driver<471 brand=unknown,driver>=470,driver<471 brand=nvidia,driver>=470,driver<471 brand=nvidiartx,driver>=470,driver<471 brand=geforce,driver>=470,driver<471 brand=geforcertx,driver>=470,driver<471 brand=quadro,driver>=470,driver<471 brand=quadrortx,driver>=470,driver<471 brand=titan,driver>=470,driver<471 brand=titanrtx,driver>=470,driver<471 brand=tesla,driver>=525,driver<526 brand=unknown,driver>=525,driver<526 brand=nvidia,driver>=525,driver<526 brand=nvidiartx,driver>=525,driver<526 brand=geforce,driver>=525,driver<526 brand=geforcertx,driver>=525,driver<526 brand=quadro,driver>=525,driver<526 brand=quadrortx,driver>=525,driver<526 brand=titan,driver>=525,driver<526 brand=titanrtx,driver>=525,driver<526 brand=tesla,driver>=535,driver<536 brand=unknown,driver>=535,driver<536 brand=nvidia,driver>=535,driver<536 brand=nvidiartx,driver>=535,driver<536 brand=geforce,driver>=535,driver<536 brand=geforcertx,driver>=535,driver<536 brand=quadro,driver>=535,driver<536 brand=quadrortx,driver>=535,driver<536 brand=titan,driver>=535,driver<536 brand=titanrtx,driver>=535,driver<536\",\n                \"NV_CUDA_CUDART_VERSION=12.4.127-1\",\n                \"NV_CUDA_COMPAT_PACKAGE=cuda-compat-12-4\",\n                \"CUDA_VERSION=12.4.1\",\n                \"LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64\",\n                \"NVIDIA_DRIVER_CAPABILITIES=compute,utility\",\n                \"NV_CUDA_LIB_VERSION=12.4.1-1\",\n                \"NV_NVTX_VERSION=12.4.127-1\",\n                \"NV_LIBNPP_VERSION=12.2.5.30-1\",\n                \"NV_LIBNPP_PACKAGE=libnpp-12-4=12.2.5.30-1\",\n                \"NV_LIBCUSPARSE_VERSION=12.3.1.170-1\",\n                \"NV_LIBCUBLAS_PACKAGE_NAME=libcublas-12-4\",\n                \"NV_LIBCUBLAS_VERSION=12.4.5.8-1\",\n                \"NV_LIBCUBLAS_PACKAGE=libcublas-12-4=12.4.5.8-1\",\n                \"NV_LIBNCCL_PACKAGE_NAME=libnccl2\",\n                \"NV_LIBNCCL_PACKAGE_VERSION=2.21.5-1\",\n                \"NCCL_VERSION=2.21.5-1\",\n                \"NV_LIBNCCL_PACKAGE=libnccl2=2.21.5-1+cuda12.4\",\n                \"NVIDIA_PRODUCT_NAME=CUDA\",\n                \"HOME=/home/codex\",\n                \"CODEX_HOME=/home/codex/.codex\"\n            ],\n            \"Cmd\": [\n                \"--signal=TERM\",\n                \"--kill-after=2s\",\n                \"25s\",\n                \"python3\",\n                \"-c\",\n                \"import pathlib,os,json,stat,time,sys\\nbind=json.load(sys.stdin);seen={tuple(x) for x in bind['host_seen']};rows=[]\\nfor i in range(8):\\n root=pathlib.Path('/pg'+str(i));st=root.lstat();assert [st.st_dev,st.st_ino]==bind['roots'][i];stack=[root];r={'index':i,'apparent_bytes':0,'allocated_bytes':0,'inodes':0,'errors':[]}\\n while stack:\\n  p=stack.pop();st=p.lstat();key=(st.st_dev,st.st_ino)\\n  if key in seen:continue\\n  seen.add(key);r['inodes']+=1;r['apparent_bytes']+=st.st_size;r['allocated_bytes']+=st.st_blocks*512\\n  if stat.S_ISDIR(st.st_mode):\\n   try:stack.extend(p.iterdir())\\n   except Exception as e:r['errors'].append({'path':str(p),'error':repr(e)})\\n rows.append(r)\\nprint(json.dumps({'uid':os.getuid(),'gid':os.getgid(),'roots':rows,'epoch':time.time()}))\\nassert not any(r['errors'] for r in rows)\\n\"\n            ],\n            \"Image\": \"sha256:08619d6d884b3b456661f883a4e4420bd85a81aee560a86f7f26021b75dd6229\",\n            \"Volumes\": null,\n            \"WorkingDir\": \"/workspace\",\n            \"Entrypoint\": [\n                \"timeout\"\n            ],\n            \"OnBuild\": null,\n            \"Labels\": {\n                \"com.docker.compose.project\": \"pi-vllm24-r\",\n                \"execution-sha\": \"9ea36d3221d024a6d8330322d330809fa9e283a6\",\n                \"maintainer\": \"NVIDIA CORPORATION <cudatools@nvidia.com>\",\n                \"org.opencontainers.image.ref.name\": \"ubuntu\",\n                \"org.opencontainers.image.version\": \"22.04\",\n                \"pi24.nonce\": \"r-final-inventory-nov14-01\",\n                \"workorder\": \"24\"\n            }\n        },\n        \"NetworkSettings\": {\n            \"Bridge\": \"\",\n            \"SandboxID\": \"\",\n            \"SandboxKey\": \"\",\n            \"Ports\": {},\n            \"HairpinMode\": false,\n            \"LinkLocalIPv6Address\": \"\",\n            \"LinkLocalIPv6PrefixLen\": 0,\n            \"SecondaryIPAddresses\": null,\n            \"SecondaryIPv6Addresses\": null,\n            \"EndpointID\": \"\",\n            \"Gateway\": \"\",\n            \"GlobalIPv6Address\": \"\",\n            \"GlobalIPv6PrefixLen\": 0,\n            \"IPAddress\": \"\",\n            \"IPPrefixLen\": 0,\n            \"IPv6Gateway\": \"\",\n            \"MacAddress\": \"\",\n            \"Networks\": {\n                \"none\": {\n                    \"IPAMConfig\": null,\n                    \"Links\": null,\n                    \"Aliases\": null,\n                    \"MacAddress\": \"\",\n                    \"DriverOpts\": null,\n                    \"NetworkID\": \"\",\n                    \"EndpointID\": \"\",\n                    \"Gateway\": \"\",\n                    \"IPAddress\": \"\",\n                    \"IPPrefixLen\": 0,\n                    \"IPv6Gateway\": \"\",\n                    \"GlobalIPv6Address\": \"\",\n                    \"GlobalIPv6PrefixLen\": 0,\n                    \"DNSNames\": null\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "start",
+        "-a",
+        "-i",
+        "9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c"
+      ],
+      "start": 1794628638.2716584,
+      "end": 1794628638.9232612,
+      "exit": 0,
+      "stdout": "{\"uid\": 70, \"gid\": 70, \"roots\": [{\"index\": 0, \"apparent_bytes\": 48246787, \"allocated_bytes\": 48312320, \"inodes\": 1314, \"errors\": []}, {\"index\": 1, \"apparent_bytes\": 47852038, \"allocated_bytes\": 47919104, \"inodes\": 1297, \"errors\": []}, {\"index\": 2, \"apparent_bytes\": 48205827, \"allocated_bytes\": 48271360, \"inodes\": 1313, \"errors\": []}, {\"index\": 3, \"apparent_bytes\": 48246787, \"allocated_bytes\": 48312320, \"inodes\": 1314, \"errors\": []}, {\"index\": 4, \"apparent_bytes\": 48361672, \"allocated_bytes\": 48427008, \"inodes\": 1314, \"errors\": []}, {\"index\": 5, \"apparent_bytes\": 48366759, \"allocated_bytes\": 48435200, \"inodes\": 1314, \"errors\": []}, {\"index\": 6, \"apparent_bytes\": 48345288, \"allocated_bytes\": 48410624, \"inodes\": 1314, \"errors\": []}, {\"index\": 7, \"apparent_bytes\": 48238595, \"allocated_bytes\": 48304128, \"inodes\": 1314, \"errors\": []}], \"epoch\": 1794628638.5846682}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "inspect",
+        "9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c"
+      ],
+      "start": 1794628638.9234018,
+      "end": 1794628639.1383665,
+      "exit": 0,
+      "stdout": "[\n    {\n        \"Id\": \"9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c\",\n        \"Created\": \"2026-11-14T03:57:18.152953853Z\",\n        \"Path\": \"timeout\",\n        \"Args\": [\n            \"--signal=TERM\",\n            \"--kill-after=2s\",\n            \"25s\",\n            \"python3\",\n            \"-c\",\n            \"import pathlib,os,json,stat,time,sys\\nbind=json.load(sys.stdin);seen={tuple(x) for x in bind['host_seen']};rows=[]\\nfor i in range(8):\\n root=pathlib.Path('/pg'+str(i));st=root.lstat();assert [st.st_dev,st.st_ino]==bind['roots'][i];stack=[root];r={'index':i,'apparent_bytes':0,'allocated_bytes':0,'inodes':0,'errors':[]}\\n while stack:\\n  p=stack.pop();st=p.lstat();key=(st.st_dev,st.st_ino)\\n  if key in seen:continue\\n  seen.add(key);r['inodes']+=1;r['apparent_bytes']+=st.st_size;r['allocated_bytes']+=st.st_blocks*512\\n  if stat.S_ISDIR(st.st_mode):\\n   try:stack.extend(p.iterdir())\\n   except Exception as e:r['errors'].append({'path':str(p),'error':repr(e)})\\n rows.append(r)\\nprint(json.dumps({'uid':os.getuid(),'gid':os.getgid(),'roots':rows,'epoch':time.time()}))\\nassert not any(r['errors'] for r in rows)\\n\"\n        ],\n        \"State\": {\n            \"Status\": \"exited\",\n            \"Running\": false,\n            \"Paused\": false,\n            \"Restarting\": false,\n            \"OOMKilled\": false,\n            \"Dead\": false,\n            \"Pid\": 0,\n            \"ExitCode\": 0,\n            \"Error\": \"\",\n            \"StartedAt\": \"2026-11-14T03:57:18.341968172Z\",\n            \"FinishedAt\": \"2026-11-14T03:57:18.59634016Z\"\n        },\n        \"Image\": \"sha256:08619d6d884b3b456661f883a4e4420bd85a81aee560a86f7f26021b75dd6229\",\n        \"ResolvConfPath\": \"/media/usv012/pjx/docker-data/containers/9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c/resolv.conf\",\n        \"HostnamePath\": \"/media/usv012/pjx/docker-data/containers/9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c/hostname\",\n        \"HostsPath\": \"/media/usv012/pjx/docker-data/containers/9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c/hosts\",\n        \"LogPath\": \"/media/usv012/pjx/docker-data/containers/9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c/9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c-json.log\",\n        \"Name\": \"/optimistic_engelbart\",\n        \"RestartCount\": 0,\n        \"Driver\": \"overlay2\",\n        \"Platform\": \"linux\",\n        \"MountLabel\": \"\",\n        \"ProcessLabel\": \"\",\n        \"AppArmorProfile\": \"docker-default\",\n        \"ExecIDs\": null,\n        \"HostConfig\": {\n            \"Binds\": [\n                \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/run-pi24-r-nov14-normal02/data/pg-data/pgdata:/pg6:ro\",\n                \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata:/pg7:ro\",\n                \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata:/pg0:ro\",\n                \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata:/pg1:ro\",\n                \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-normal01/data/pg-data/pgdata:/pg2:ro\",\n                \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata:/pg3:ro\",\n                \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-nov14-normal02/data/pg-data/pgdata:/pg4:ro\",\n                \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata:/pg5:ro\"\n            ],\n            \"ContainerIDFile\": \"\",\n            \"LogConfig\": {\n                \"Type\": \"json-file\",\n                \"Config\": {}\n            },\n            \"NetworkMode\": \"none\",\n            \"PortBindings\": {},\n            \"RestartPolicy\": {\n                \"Name\": \"no\",\n                \"MaximumRetryCount\": 0\n            },\n            \"AutoRemove\": false,\n            \"VolumeDriver\": \"\",\n            \"VolumesFrom\": null,\n            \"ConsoleSize\": [\n                0,\n                0\n            ],\n            \"CapAdd\": null,\n            \"CapDrop\": [\n                \"ALL\"\n            ],\n            \"CgroupnsMode\": \"private\",\n            \"Dns\": [],\n            \"DnsOptions\": [],\n            \"DnsSearch\": [],\n            \"ExtraHosts\": null,\n            \"GroupAdd\": null,\n            \"IpcMode\": \"private\",\n            \"Cgroup\": \"\",\n            \"Links\": null,\n            \"OomScoreAdj\": 0,\n            \"PidMode\": \"\",\n            \"Privileged\": false,\n            \"PublishAllPorts\": false,\n            \"ReadonlyRootfs\": true,\n            \"SecurityOpt\": [\n                \"no-new-privileges:true\"\n            ],\n            \"Tmpfs\": {\n                \"/tmp\": \"size=64m\"\n            },\n            \"UTSMode\": \"\",\n            \"UsernsMode\": \"\",\n            \"ShmSize\": 67108864,\n            \"Runtime\": \"runc\",\n            \"Isolation\": \"\",\n            \"CpuShares\": 0,\n            \"Memory\": 1073741824,\n            \"NanoCpus\": 2000000000,\n            \"CgroupParent\": \"\",\n            \"BlkioWeight\": 0,\n            \"BlkioWeightDevice\": [],\n            \"BlkioDeviceReadBps\": [],\n            \"BlkioDeviceWriteBps\": [],\n            \"BlkioDeviceReadIOps\": [],\n            \"BlkioDeviceWriteIOps\": [],\n            \"CpuPeriod\": 0,\n            \"CpuQuota\": 0,\n            \"CpuRealtimePeriod\": 0,\n            \"CpuRealtimeRuntime\": 0,\n            \"CpusetCpus\": \"\",\n            \"CpusetMems\": \"\",\n            \"Devices\": [],\n            \"DeviceCgroupRules\": null,\n            \"DeviceRequests\": null,\n            \"MemoryReservation\": 0,\n            \"MemorySwap\": 1073741824,\n            \"MemorySwappiness\": null,\n            \"OomKillDisable\": null,\n            \"PidsLimit\": 128,\n            \"Ulimits\": [],\n            \"CpuCount\": 0,\n            \"CpuPercent\": 0,\n            \"IOMaximumIOps\": 0,\n            \"IOMaximumBandwidth\": 0,\n            \"MaskedPaths\": [\n                \"/proc/asound\",\n                \"/proc/acpi\",\n                \"/proc/kcore\",\n                \"/proc/keys\",\n                \"/proc/latency_stats\",\n                \"/proc/timer_list\",\n                \"/proc/timer_stats\",\n                \"/proc/sched_debug\",\n                \"/proc/scsi\",\n                \"/sys/firmware\",\n                \"/sys/devices/virtual/powercap\"\n            ],\n            \"ReadonlyPaths\": [\n                \"/proc/bus\",\n                \"/proc/fs\",\n                \"/proc/irq\",\n                \"/proc/sys\",\n                \"/proc/sysrq-trigger\"\n            ]\n        },\n        \"GraphDriver\": {\n            \"Data\": {\n                \"LowerDir\": \"/media/usv012/pjx/docker-data/overlay2/3dafcd2c1bd4cdccf9e868cee3fe2b27e422d56f5e2d4a74b37012587d8ddf9b-init/diff:/media/usv012/pjx/docker-data/overlay2/zrfobk1z3nf17bdwh6zbvnort/diff:/media/usv012/pjx/docker-data/overlay2/lc31vum1edxqshl5kns3tmxrs/diff:/media/usv012/pjx/docker-data/overlay2/cw4jot0k40ij5qno9nh6p9v5y/diff:/media/usv012/pjx/docker-data/overlay2/k9dtxulmlzm5lwx5hdfsvzn2j/diff:/media/usv012/pjx/docker-data/overlay2/mjmu1sagpaokvbt169rlk31h3/diff:/media/usv012/pjx/docker-data/overlay2/9eh5jpu3pjle9g144f1qoesjs/diff:/media/usv012/pjx/docker-data/overlay2/f123deca9a16cae1ba604166a1dd092e0395b8a9626e688d416becf89d262ba4/diff:/media/usv012/pjx/docker-data/overlay2/0ebaafa7448e74920db345a65a8960de79c2d0311818609b64a87b51886e993b/diff:/media/usv012/pjx/docker-data/overlay2/a144ef0085618c8b1de92e3c67ba2bf71cc84d6f25e298594b3883455f082478/diff:/media/usv012/pjx/docker-data/overlay2/6fd98c0d373f223af363e1183bcd2dec015fe3594c59c5fa19bb02ac067fddfa/diff:/media/usv012/pjx/docker-data/overlay2/98e5d29c55f5337319af92347d58f41461a0851fc24fdf3830b11cf68c774540/diff:/media/usv012/pjx/docker-data/overlay2/325d57cf1b6859c47eed0a86b2fb5c5386bf7442c4aa6484527830fc75b4f922/diff:/media/usv012/pjx/docker-data/overlay2/244bce781146a8a0f91b8efefeaf88932f0033cbf43d3075659a08513265fa34/diff:/media/usv012/pjx/docker-data/overlay2/58ee7d33679b18fd49adceeab206bdf4162394c0551601592c59bbb258bd9957/diff:/media/usv012/pjx/docker-data/overlay2/45126d5f0e16baf7dbc213daf667e34f0e6106a55c6fd05120dac1483ed53082/diff\",\n                \"MergedDir\": \"/media/usv012/pjx/docker-data/overlay2/3dafcd2c1bd4cdccf9e868cee3fe2b27e422d56f5e2d4a74b37012587d8ddf9b/merged\",\n                \"UpperDir\": \"/media/usv012/pjx/docker-data/overlay2/3dafcd2c1bd4cdccf9e868cee3fe2b27e422d56f5e2d4a74b37012587d8ddf9b/diff\",\n                \"WorkDir\": \"/media/usv012/pjx/docker-data/overlay2/3dafcd2c1bd4cdccf9e868cee3fe2b27e422d56f5e2d4a74b37012587d8ddf9b/work\"\n            },\n            \"Name\": \"overlay2\"\n        },\n        \"Mounts\": [\n            {\n                \"Type\": \"bind\",\n                \"Source\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata\",\n                \"Destination\": \"/pg7\",\n                \"Mode\": \"ro\",\n                \"RW\": false,\n                \"Propagation\": \"rprivate\"\n            },\n            {\n                \"Type\": \"bind\",\n                \"Source\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata\",\n                \"Destination\": \"/pg0\",\n                \"Mode\": \"ro\",\n                \"RW\": false,\n                \"Propagation\": \"rprivate\"\n            },\n            {\n                \"Type\": \"bind\",\n                \"Source\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata\",\n                \"Destination\": \"/pg1\",\n                \"Mode\": \"ro\",\n                \"RW\": false,\n                \"Propagation\": \"rprivate\"\n            },\n            {\n                \"Type\": \"bind\",\n                \"Source\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-normal01/data/pg-data/pgdata\",\n                \"Destination\": \"/pg2\",\n                \"Mode\": \"ro\",\n                \"RW\": false,\n                \"Propagation\": \"rprivate\"\n            },\n            {\n                \"Type\": \"bind\",\n                \"Source\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata\",\n                \"Destination\": \"/pg3\",\n                \"Mode\": \"ro\",\n                \"RW\": false,\n                \"Propagation\": \"rprivate\"\n            },\n            {\n                \"Type\": \"bind\",\n                \"Source\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-nov14-normal02/data/pg-data/pgdata\",\n                \"Destination\": \"/pg4\",\n                \"Mode\": \"ro\",\n                \"RW\": false,\n                \"Propagation\": \"rprivate\"\n            },\n            {\n                \"Type\": \"bind\",\n                \"Source\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata\",\n                \"Destination\": \"/pg5\",\n                \"Mode\": \"ro\",\n                \"RW\": false,\n                \"Propagation\": \"rprivate\"\n            },\n            {\n                \"Type\": \"bind\",\n                \"Source\": \"/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/run-pi24-r-nov14-normal02/data/pg-data/pgdata\",\n                \"Destination\": \"/pg6\",\n                \"Mode\": \"ro\",\n                \"RW\": false,\n                \"Propagation\": \"rprivate\"\n            }\n        ],\n        \"Config\": {\n            \"Hostname\": \"9343e5520cba\",\n            \"Domainname\": \"\",\n            \"User\": \"70:70\",\n            \"AttachStdin\": true,\n            \"AttachStdout\": true,\n            \"AttachStderr\": true,\n            \"Tty\": false,\n            \"OpenStdin\": true,\n            \"StdinOnce\": true,\n            \"Env\": [\n                \"NVIDIA_VISIBLE_DEVICES=void\",\n                \"CUDA_VISIBLE_DEVICES=0\",\n                \"PYTHONDONTWRITEBYTECODE=1\",\n                \"PATH=/home/codex/.local/bin:/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\",\n                \"NVARCH=x86_64\",\n                \"NVIDIA_REQUIRE_CUDA=cuda>=12.4 brand=tesla,driver>=470,driver<471 brand=unknown,driver>=470,driver<471 brand=nvidia,driver>=470,driver<471 brand=nvidiartx,driver>=470,driver<471 brand=geforce,driver>=470,driver<471 brand=geforcertx,driver>=470,driver<471 brand=quadro,driver>=470,driver<471 brand=quadrortx,driver>=470,driver<471 brand=titan,driver>=470,driver<471 brand=titanrtx,driver>=470,driver<471 brand=tesla,driver>=525,driver<526 brand=unknown,driver>=525,driver<526 brand=nvidia,driver>=525,driver<526 brand=nvidiartx,driver>=525,driver<526 brand=geforce,driver>=525,driver<526 brand=geforcertx,driver>=525,driver<526 brand=quadro,driver>=525,driver<526 brand=quadrortx,driver>=525,driver<526 brand=titan,driver>=525,driver<526 brand=titanrtx,driver>=525,driver<526 brand=tesla,driver>=535,driver<536 brand=unknown,driver>=535,driver<536 brand=nvidia,driver>=535,driver<536 brand=nvidiartx,driver>=535,driver<536 brand=geforce,driver>=535,driver<536 brand=geforcertx,driver>=535,driver<536 brand=quadro,driver>=535,driver<536 brand=quadrortx,driver>=535,driver<536 brand=titan,driver>=535,driver<536 brand=titanrtx,driver>=535,driver<536\",\n                \"NV_CUDA_CUDART_VERSION=12.4.127-1\",\n                \"NV_CUDA_COMPAT_PACKAGE=cuda-compat-12-4\",\n                \"CUDA_VERSION=12.4.1\",\n                \"LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64\",\n                \"NVIDIA_DRIVER_CAPABILITIES=compute,utility\",\n                \"NV_CUDA_LIB_VERSION=12.4.1-1\",\n                \"NV_NVTX_VERSION=12.4.127-1\",\n                \"NV_LIBNPP_VERSION=12.2.5.30-1\",\n                \"NV_LIBNPP_PACKAGE=libnpp-12-4=12.2.5.30-1\",\n                \"NV_LIBCUSPARSE_VERSION=12.3.1.170-1\",\n                \"NV_LIBCUBLAS_PACKAGE_NAME=libcublas-12-4\",\n                \"NV_LIBCUBLAS_VERSION=12.4.5.8-1\",\n                \"NV_LIBCUBLAS_PACKAGE=libcublas-12-4=12.4.5.8-1\",\n                \"NV_LIBNCCL_PACKAGE_NAME=libnccl2\",\n                \"NV_LIBNCCL_PACKAGE_VERSION=2.21.5-1\",\n                \"NCCL_VERSION=2.21.5-1\",\n                \"NV_LIBNCCL_PACKAGE=libnccl2=2.21.5-1+cuda12.4\",\n                \"NVIDIA_PRODUCT_NAME=CUDA\",\n                \"HOME=/home/codex\",\n                \"CODEX_HOME=/home/codex/.codex\"\n            ],\n            \"Cmd\": [\n                \"--signal=TERM\",\n                \"--kill-after=2s\",\n                \"25s\",\n                \"python3\",\n                \"-c\",\n                \"import pathlib,os,json,stat,time,sys\\nbind=json.load(sys.stdin);seen={tuple(x) for x in bind['host_seen']};rows=[]\\nfor i in range(8):\\n root=pathlib.Path('/pg'+str(i));st=root.lstat();assert [st.st_dev,st.st_ino]==bind['roots'][i];stack=[root];r={'index':i,'apparent_bytes':0,'allocated_bytes':0,'inodes':0,'errors':[]}\\n while stack:\\n  p=stack.pop();st=p.lstat();key=(st.st_dev,st.st_ino)\\n  if key in seen:continue\\n  seen.add(key);r['inodes']+=1;r['apparent_bytes']+=st.st_size;r['allocated_bytes']+=st.st_blocks*512\\n  if stat.S_ISDIR(st.st_mode):\\n   try:stack.extend(p.iterdir())\\n   except Exception as e:r['errors'].append({'path':str(p),'error':repr(e)})\\n rows.append(r)\\nprint(json.dumps({'uid':os.getuid(),'gid':os.getgid(),'roots':rows,'epoch':time.time()}))\\nassert not any(r['errors'] for r in rows)\\n\"\n            ],\n            \"Image\": \"sha256:08619d6d884b3b456661f883a4e4420bd85a81aee560a86f7f26021b75dd6229\",\n            \"Volumes\": null,\n            \"WorkingDir\": \"/workspace\",\n            \"Entrypoint\": [\n                \"timeout\"\n            ],\n            \"OnBuild\": null,\n            \"Labels\": {\n                \"com.docker.compose.project\": \"pi-vllm24-r\",\n                \"execution-sha\": \"9ea36d3221d024a6d8330322d330809fa9e283a6\",\n                \"maintainer\": \"NVIDIA CORPORATION <cudatools@nvidia.com>\",\n                \"org.opencontainers.image.ref.name\": \"ubuntu\",\n                \"org.opencontainers.image.version\": \"22.04\",\n                \"pi24.nonce\": \"r-final-inventory-nov14-01\",\n                \"workorder\": \"24\"\n            }\n        },\n        \"NetworkSettings\": {\n            \"Bridge\": \"\",\n            \"SandboxID\": \"\",\n            \"SandboxKey\": \"\",\n            \"Ports\": {},\n            \"HairpinMode\": false,\n            \"LinkLocalIPv6Address\": \"\",\n            \"LinkLocalIPv6PrefixLen\": 0,\n            \"SecondaryIPAddresses\": null,\n            \"SecondaryIPv6Addresses\": null,\n            \"EndpointID\": \"\",\n            \"Gateway\": \"\",\n            \"GlobalIPv6Address\": \"\",\n            \"GlobalIPv6PrefixLen\": 0,\n            \"IPAddress\": \"\",\n            \"IPPrefixLen\": 0,\n            \"IPv6Gateway\": \"\",\n            \"MacAddress\": \"\",\n            \"Networks\": {\n                \"none\": {\n                    \"IPAMConfig\": null,\n                    \"Links\": null,\n                    \"Aliases\": null,\n                    \"MacAddress\": \"\",\n                    \"DriverOpts\": null,\n                    \"NetworkID\": \"3c37b84eb2a378f2cafdc543c234ca12143fd1c81a25bf1f13efa086c853661e\",\n                    \"EndpointID\": \"\",\n                    \"Gateway\": \"\",\n                    \"IPAddress\": \"\",\n                    \"IPPrefixLen\": 0,\n                    \"IPv6Gateway\": \"\",\n                    \"GlobalIPv6Address\": \"\",\n                    \"GlobalIPv6PrefixLen\": 0,\n                    \"DNSNames\": null\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "rm",
+        "9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c"
+      ],
+      "start": 1794628639.1387205,
+      "end": 1794628639.1673608,
+      "exit": 0,
+      "stdout": "9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "ps",
+        "-a",
+        "-q",
+        "--no-trunc",
+        "--filter",
+        "label=com.docker.compose.project=pi-vllm24-b"
+      ],
+      "start": 1794628639.1674323,
+      "end": 1794628639.1797414,
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "ls",
+        "--no-trunc",
+        "-q",
+        "--filter",
+        "label=com.docker.compose.project=pi-vllm24-b"
+      ],
+      "start": 1794628639.1797452,
+      "end": 1794628639.1911633,
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "ps",
+        "-a",
+        "-q",
+        "--no-trunc",
+        "--filter",
+        "label=com.docker.compose.project=pi-vllm24-r"
+      ],
+      "start": 1794628639.191171,
+      "end": 1794628639.2019687,
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "ls",
+        "--no-trunc",
+        "-q",
+        "--filter",
+        "label=com.docker.compose.project=pi-vllm24-r"
+      ],
+      "start": 1794628639.2019727,
+      "end": 1794628639.2123635,
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "failure": null,
+  "NVML_queries": 0,
+  "model_calls": 0,
+  "readable": {
+    "builder": {
+      "apparent_bytes": 131703591,
+      "allocated_bytes": 139407360,
+      "inodes": 3367
+    },
+    "regulator": {
+      "apparent_bytes": 80816311,
+      "allocated_bytes": 87875584,
+      "inodes": 3091
+    }
+  },
+  "PG_bindings": [
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70,
+      "dev": 2048,
+      "ino": 75146319
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70,
+      "dev": 2048,
+      "ino": 75142145
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-normal01/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70,
+      "dev": 2048,
+      "ino": 75173780
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70,
+      "dev": 2048,
+      "ino": 75144829
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-nov14-normal02/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70,
+      "dev": 2048,
+      "ino": 75175268
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70,
+      "dev": 2048,
+      "ino": 75143472
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/run-pi24-r-nov14-normal02/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70,
+      "dev": 2048,
+      "ino": 75176839
+    },
+    {
+      "path": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata",
+      "uid": 70,
+      "gid": 70,
+      "dev": 2048,
+      "ino": 75172300
+    }
+  ],
+  "host_errors": [],
+  "helper_created": {
+    "Id": "9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c",
+    "Created": "2026-11-14T03:57:18.152953853Z",
+    "Path": "timeout",
+    "Args": [
+      "--signal=TERM",
+      "--kill-after=2s",
+      "25s",
+      "python3",
+      "-c",
+      "import pathlib,os,json,stat,time,sys\nbind=json.load(sys.stdin);seen={tuple(x) for x in bind['host_seen']};rows=[]\nfor i in range(8):\n root=pathlib.Path('/pg'+str(i));st=root.lstat();assert [st.st_dev,st.st_ino]==bind['roots'][i];stack=[root];r={'index':i,'apparent_bytes':0,'allocated_bytes':0,'inodes':0,'errors':[]}\n while stack:\n  p=stack.pop();st=p.lstat();key=(st.st_dev,st.st_ino)\n  if key in seen:continue\n  seen.add(key);r['inodes']+=1;r['apparent_bytes']+=st.st_size;r['allocated_bytes']+=st.st_blocks*512\n  if stat.S_ISDIR(st.st_mode):\n   try:stack.extend(p.iterdir())\n   except Exception as e:r['errors'].append({'path':str(p),'error':repr(e)})\n rows.append(r)\nprint(json.dumps({'uid':os.getuid(),'gid':os.getgid(),'roots':rows,'epoch':time.time()}))\nassert not any(r['errors'] for r in rows)\n"
+    ],
+    "State": {
+      "Status": "created",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "0001-01-01T00:00:00Z",
+      "FinishedAt": "0001-01-01T00:00:00Z"
+    },
+    "Image": "sha256:08619d6d884b3b456661f883a4e4420bd85a81aee560a86f7f26021b75dd6229",
+    "ResolvConfPath": "",
+    "HostnamePath": "",
+    "HostsPath": "",
+    "LogPath": "",
+    "Name": "/optimistic_engelbart",
+    "RestartCount": 0,
+    "Driver": "overlay2",
+    "Platform": "linux",
+    "MountLabel": "",
+    "ProcessLabel": "",
+    "AppArmorProfile": "",
+    "ExecIDs": null,
+    "HostConfig": {
+      "Binds": [
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/run-pi24-r-nov14-normal02/data/pg-data/pgdata:/pg6:ro",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata:/pg7:ro",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata:/pg0:ro",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata:/pg1:ro",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-normal01/data/pg-data/pgdata:/pg2:ro",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata:/pg3:ro",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-nov14-normal02/data/pg-data/pgdata:/pg4:ro",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata:/pg5:ro"
+      ],
+      "ContainerIDFile": "",
+      "LogConfig": {
+        "Type": "json-file",
+        "Config": {}
+      },
+      "NetworkMode": "none",
+      "PortBindings": {},
+      "RestartPolicy": {
+        "Name": "no",
+        "MaximumRetryCount": 0
+      },
+      "AutoRemove": false,
+      "VolumeDriver": "",
+      "VolumesFrom": null,
+      "ConsoleSize": [
+        0,
+        0
+      ],
+      "CapAdd": null,
+      "CapDrop": [
+        "ALL"
+      ],
+      "CgroupnsMode": "private",
+      "Dns": [],
+      "DnsOptions": [],
+      "DnsSearch": [],
+      "ExtraHosts": null,
+      "GroupAdd": null,
+      "IpcMode": "private",
+      "Cgroup": "",
+      "Links": null,
+      "OomScoreAdj": 0,
+      "PidMode": "",
+      "Privileged": false,
+      "PublishAllPorts": false,
+      "ReadonlyRootfs": true,
+      "SecurityOpt": [
+        "no-new-privileges:true"
+      ],
+      "Tmpfs": {
+        "/tmp": "size=64m"
+      },
+      "UTSMode": "",
+      "UsernsMode": "",
+      "ShmSize": 67108864,
+      "Runtime": "runc",
+      "Isolation": "",
+      "CpuShares": 0,
+      "Memory": 1073741824,
+      "NanoCpus": 2000000000,
+      "CgroupParent": "",
+      "BlkioWeight": 0,
+      "BlkioWeightDevice": [],
+      "BlkioDeviceReadBps": [],
+      "BlkioDeviceWriteBps": [],
+      "BlkioDeviceReadIOps": [],
+      "BlkioDeviceWriteIOps": [],
+      "CpuPeriod": 0,
+      "CpuQuota": 0,
+      "CpuRealtimePeriod": 0,
+      "CpuRealtimeRuntime": 0,
+      "CpusetCpus": "",
+      "CpusetMems": "",
+      "Devices": [],
+      "DeviceCgroupRules": null,
+      "DeviceRequests": null,
+      "MemoryReservation": 0,
+      "MemorySwap": 1073741824,
+      "MemorySwappiness": null,
+      "OomKillDisable": false,
+      "PidsLimit": 128,
+      "Ulimits": [],
+      "CpuCount": 0,
+      "CpuPercent": 0,
+      "IOMaximumIOps": 0,
+      "IOMaximumBandwidth": 0,
+      "MaskedPaths": [
+        "/proc/asound",
+        "/proc/acpi",
+        "/proc/kcore",
+        "/proc/keys",
+        "/proc/latency_stats",
+        "/proc/timer_list",
+        "/proc/timer_stats",
+        "/proc/sched_debug",
+        "/proc/scsi",
+        "/sys/firmware",
+        "/sys/devices/virtual/powercap"
+      ],
+      "ReadonlyPaths": [
+        "/proc/bus",
+        "/proc/fs",
+        "/proc/irq",
+        "/proc/sys",
+        "/proc/sysrq-trigger"
+      ]
+    },
+    "GraphDriver": {
+      "Data": {
+        "LowerDir": "/media/usv012/pjx/docker-data/overlay2/3dafcd2c1bd4cdccf9e868cee3fe2b27e422d56f5e2d4a74b37012587d8ddf9b-init/diff:/media/usv012/pjx/docker-data/overlay2/zrfobk1z3nf17bdwh6zbvnort/diff:/media/usv012/pjx/docker-data/overlay2/lc31vum1edxqshl5kns3tmxrs/diff:/media/usv012/pjx/docker-data/overlay2/cw4jot0k40ij5qno9nh6p9v5y/diff:/media/usv012/pjx/docker-data/overlay2/k9dtxulmlzm5lwx5hdfsvzn2j/diff:/media/usv012/pjx/docker-data/overlay2/mjmu1sagpaokvbt169rlk31h3/diff:/media/usv012/pjx/docker-data/overlay2/9eh5jpu3pjle9g144f1qoesjs/diff:/media/usv012/pjx/docker-data/overlay2/f123deca9a16cae1ba604166a1dd092e0395b8a9626e688d416becf89d262ba4/diff:/media/usv012/pjx/docker-data/overlay2/0ebaafa7448e74920db345a65a8960de79c2d0311818609b64a87b51886e993b/diff:/media/usv012/pjx/docker-data/overlay2/a144ef0085618c8b1de92e3c67ba2bf71cc84d6f25e298594b3883455f082478/diff:/media/usv012/pjx/docker-data/overlay2/6fd98c0d373f223af363e1183bcd2dec015fe3594c59c5fa19bb02ac067fddfa/diff:/media/usv012/pjx/docker-data/overlay2/98e5d29c55f5337319af92347d58f41461a0851fc24fdf3830b11cf68c774540/diff:/media/usv012/pjx/docker-data/overlay2/325d57cf1b6859c47eed0a86b2fb5c5386bf7442c4aa6484527830fc75b4f922/diff:/media/usv012/pjx/docker-data/overlay2/244bce781146a8a0f91b8efefeaf88932f0033cbf43d3075659a08513265fa34/diff:/media/usv012/pjx/docker-data/overlay2/58ee7d33679b18fd49adceeab206bdf4162394c0551601592c59bbb258bd9957/diff:/media/usv012/pjx/docker-data/overlay2/45126d5f0e16baf7dbc213daf667e34f0e6106a55c6fd05120dac1483ed53082/diff",
+        "MergedDir": "/media/usv012/pjx/docker-data/overlay2/3dafcd2c1bd4cdccf9e868cee3fe2b27e422d56f5e2d4a74b37012587d8ddf9b/merged",
+        "UpperDir": "/media/usv012/pjx/docker-data/overlay2/3dafcd2c1bd4cdccf9e868cee3fe2b27e422d56f5e2d4a74b37012587d8ddf9b/diff",
+        "WorkDir": "/media/usv012/pjx/docker-data/overlay2/3dafcd2c1bd4cdccf9e868cee3fe2b27e422d56f5e2d4a74b37012587d8ddf9b/work"
+      },
+      "Name": "overlay2"
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata",
+        "Destination": "/pg7",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata",
+        "Destination": "/pg0",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata",
+        "Destination": "/pg1",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-normal01/data/pg-data/pgdata",
+        "Destination": "/pg2",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata",
+        "Destination": "/pg3",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-nov14-normal02/data/pg-data/pgdata",
+        "Destination": "/pg4",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata",
+        "Destination": "/pg5",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/run-pi24-r-nov14-normal02/data/pg-data/pgdata",
+        "Destination": "/pg6",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ],
+    "Config": {
+      "Hostname": "9343e5520cba",
+      "Domainname": "",
+      "User": "70:70",
+      "AttachStdin": true,
+      "AttachStdout": true,
+      "AttachStderr": true,
+      "Tty": false,
+      "OpenStdin": true,
+      "StdinOnce": true,
+      "Env": [
+        "NVIDIA_VISIBLE_DEVICES=void",
+        "CUDA_VISIBLE_DEVICES=0",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PATH=/home/codex/.local/bin:/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "NVARCH=x86_64",
+        "NVIDIA_REQUIRE_CUDA=cuda>=12.4 brand=tesla,driver>=470,driver<471 brand=unknown,driver>=470,driver<471 brand=nvidia,driver>=470,driver<471 brand=nvidiartx,driver>=470,driver<471 brand=geforce,driver>=470,driver<471 brand=geforcertx,driver>=470,driver<471 brand=quadro,driver>=470,driver<471 brand=quadrortx,driver>=470,driver<471 brand=titan,driver>=470,driver<471 brand=titanrtx,driver>=470,driver<471 brand=tesla,driver>=525,driver<526 brand=unknown,driver>=525,driver<526 brand=nvidia,driver>=525,driver<526 brand=nvidiartx,driver>=525,driver<526 brand=geforce,driver>=525,driver<526 brand=geforcertx,driver>=525,driver<526 brand=quadro,driver>=525,driver<526 brand=quadrortx,driver>=525,driver<526 brand=titan,driver>=525,driver<526 brand=titanrtx,driver>=525,driver<526 brand=tesla,driver>=535,driver<536 brand=unknown,driver>=535,driver<536 brand=nvidia,driver>=535,driver<536 brand=nvidiartx,driver>=535,driver<536 brand=geforce,driver>=535,driver<536 brand=geforcertx,driver>=535,driver<536 brand=quadro,driver>=535,driver<536 brand=quadrortx,driver>=535,driver<536 brand=titan,driver>=535,driver<536 brand=titanrtx,driver>=535,driver<536",
+        "NV_CUDA_CUDART_VERSION=12.4.127-1",
+        "NV_CUDA_COMPAT_PACKAGE=cuda-compat-12-4",
+        "CUDA_VERSION=12.4.1",
+        "LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64",
+        "NVIDIA_DRIVER_CAPABILITIES=compute,utility",
+        "NV_CUDA_LIB_VERSION=12.4.1-1",
+        "NV_NVTX_VERSION=12.4.127-1",
+        "NV_LIBNPP_VERSION=12.2.5.30-1",
+        "NV_LIBNPP_PACKAGE=libnpp-12-4=12.2.5.30-1",
+        "NV_LIBCUSPARSE_VERSION=12.3.1.170-1",
+        "NV_LIBCUBLAS_PACKAGE_NAME=libcublas-12-4",
+        "NV_LIBCUBLAS_VERSION=12.4.5.8-1",
+        "NV_LIBCUBLAS_PACKAGE=libcublas-12-4=12.4.5.8-1",
+        "NV_LIBNCCL_PACKAGE_NAME=libnccl2",
+        "NV_LIBNCCL_PACKAGE_VERSION=2.21.5-1",
+        "NCCL_VERSION=2.21.5-1",
+        "NV_LIBNCCL_PACKAGE=libnccl2=2.21.5-1+cuda12.4",
+        "NVIDIA_PRODUCT_NAME=CUDA",
+        "HOME=/home/codex",
+        "CODEX_HOME=/home/codex/.codex"
+      ],
+      "Cmd": [
+        "--signal=TERM",
+        "--kill-after=2s",
+        "25s",
+        "python3",
+        "-c",
+        "import pathlib,os,json,stat,time,sys\nbind=json.load(sys.stdin);seen={tuple(x) for x in bind['host_seen']};rows=[]\nfor i in range(8):\n root=pathlib.Path('/pg'+str(i));st=root.lstat();assert [st.st_dev,st.st_ino]==bind['roots'][i];stack=[root];r={'index':i,'apparent_bytes':0,'allocated_bytes':0,'inodes':0,'errors':[]}\n while stack:\n  p=stack.pop();st=p.lstat();key=(st.st_dev,st.st_ino)\n  if key in seen:continue\n  seen.add(key);r['inodes']+=1;r['apparent_bytes']+=st.st_size;r['allocated_bytes']+=st.st_blocks*512\n  if stat.S_ISDIR(st.st_mode):\n   try:stack.extend(p.iterdir())\n   except Exception as e:r['errors'].append({'path':str(p),'error':repr(e)})\n rows.append(r)\nprint(json.dumps({'uid':os.getuid(),'gid':os.getgid(),'roots':rows,'epoch':time.time()}))\nassert not any(r['errors'] for r in rows)\n"
+      ],
+      "Image": "sha256:08619d6d884b3b456661f883a4e4420bd85a81aee560a86f7f26021b75dd6229",
+      "Volumes": null,
+      "WorkingDir": "/workspace",
+      "Entrypoint": [
+        "timeout"
+      ],
+      "OnBuild": null,
+      "Labels": {
+        "com.docker.compose.project": "pi-vllm24-r",
+        "execution-sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+        "maintainer": "NVIDIA CORPORATION <cudatools@nvidia.com>",
+        "org.opencontainers.image.ref.name": "ubuntu",
+        "org.opencontainers.image.version": "22.04",
+        "pi24.nonce": "r-final-inventory-nov14-01",
+        "workorder": "24"
+      }
+    },
+    "NetworkSettings": {
+      "Bridge": "",
+      "SandboxID": "",
+      "SandboxKey": "",
+      "Ports": {},
+      "HairpinMode": false,
+      "LinkLocalIPv6Address": "",
+      "LinkLocalIPv6PrefixLen": 0,
+      "SecondaryIPAddresses": null,
+      "SecondaryIPv6Addresses": null,
+      "EndpointID": "",
+      "Gateway": "",
+      "GlobalIPv6Address": "",
+      "GlobalIPv6PrefixLen": 0,
+      "IPAddress": "",
+      "IPPrefixLen": 0,
+      "IPv6Gateway": "",
+      "MacAddress": "",
+      "Networks": {
+        "none": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": null,
+          "MacAddress": "",
+          "DriverOpts": null,
+          "NetworkID": "",
+          "EndpointID": "",
+          "Gateway": "",
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "DNSNames": null
+        }
+      }
+    }
+  },
+  "PG": {
+    "uid": 70,
+    "gid": 70,
+    "roots": [
+      {
+        "index": 0,
+        "apparent_bytes": 48246787,
+        "allocated_bytes": 48312320,
+        "inodes": 1314,
+        "errors": []
+      },
+      {
+        "index": 1,
+        "apparent_bytes": 47852038,
+        "allocated_bytes": 47919104,
+        "inodes": 1297,
+        "errors": []
+      },
+      {
+        "index": 2,
+        "apparent_bytes": 48205827,
+        "allocated_bytes": 48271360,
+        "inodes": 1313,
+        "errors": []
+      },
+      {
+        "index": 3,
+        "apparent_bytes": 48246787,
+        "allocated_bytes": 48312320,
+        "inodes": 1314,
+        "errors": []
+      },
+      {
+        "index": 4,
+        "apparent_bytes": 48361672,
+        "allocated_bytes": 48427008,
+        "inodes": 1314,
+        "errors": []
+      },
+      {
+        "index": 5,
+        "apparent_bytes": 48366759,
+        "allocated_bytes": 48435200,
+        "inodes": 1314,
+        "errors": []
+      },
+      {
+        "index": 6,
+        "apparent_bytes": 48345288,
+        "allocated_bytes": 48410624,
+        "inodes": 1314,
+        "errors": []
+      },
+      {
+        "index": 7,
+        "apparent_bytes": 48238595,
+        "allocated_bytes": 48304128,
+        "inodes": 1314,
+        "errors": []
+      }
+    ],
+    "epoch": 1794628638.5846682
+  },
+  "helper_ended": {
+    "Id": "9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c",
+    "Created": "2026-11-14T03:57:18.152953853Z",
+    "Path": "timeout",
+    "Args": [
+      "--signal=TERM",
+      "--kill-after=2s",
+      "25s",
+      "python3",
+      "-c",
+      "import pathlib,os,json,stat,time,sys\nbind=json.load(sys.stdin);seen={tuple(x) for x in bind['host_seen']};rows=[]\nfor i in range(8):\n root=pathlib.Path('/pg'+str(i));st=root.lstat();assert [st.st_dev,st.st_ino]==bind['roots'][i];stack=[root];r={'index':i,'apparent_bytes':0,'allocated_bytes':0,'inodes':0,'errors':[]}\n while stack:\n  p=stack.pop();st=p.lstat();key=(st.st_dev,st.st_ino)\n  if key in seen:continue\n  seen.add(key);r['inodes']+=1;r['apparent_bytes']+=st.st_size;r['allocated_bytes']+=st.st_blocks*512\n  if stat.S_ISDIR(st.st_mode):\n   try:stack.extend(p.iterdir())\n   except Exception as e:r['errors'].append({'path':str(p),'error':repr(e)})\n rows.append(r)\nprint(json.dumps({'uid':os.getuid(),'gid':os.getgid(),'roots':rows,'epoch':time.time()}))\nassert not any(r['errors'] for r in rows)\n"
+    ],
+    "State": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-14T03:57:18.341968172Z",
+      "FinishedAt": "2026-11-14T03:57:18.59634016Z"
+    },
+    "Image": "sha256:08619d6d884b3b456661f883a4e4420bd85a81aee560a86f7f26021b75dd6229",
+    "ResolvConfPath": "/media/usv012/pjx/docker-data/containers/9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c/resolv.conf",
+    "HostnamePath": "/media/usv012/pjx/docker-data/containers/9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c/hostname",
+    "HostsPath": "/media/usv012/pjx/docker-data/containers/9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c/hosts",
+    "LogPath": "/media/usv012/pjx/docker-data/containers/9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c/9343e5520cbab7b8440688daa22a3662d1c9a654786808736f9c6a32804c222c-json.log",
+    "Name": "/optimistic_engelbart",
+    "RestartCount": 0,
+    "Driver": "overlay2",
+    "Platform": "linux",
+    "MountLabel": "",
+    "ProcessLabel": "",
+    "AppArmorProfile": "docker-default",
+    "ExecIDs": null,
+    "HostConfig": {
+      "Binds": [
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/run-pi24-r-nov14-normal02/data/pg-data/pgdata:/pg6:ro",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata:/pg7:ro",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata:/pg0:ro",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata:/pg1:ro",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-normal01/data/pg-data/pgdata:/pg2:ro",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata:/pg3:ro",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-nov14-normal02/data/pg-data/pgdata:/pg4:ro",
+        "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata:/pg5:ro"
+      ],
+      "ContainerIDFile": "",
+      "LogConfig": {
+        "Type": "json-file",
+        "Config": {}
+      },
+      "NetworkMode": "none",
+      "PortBindings": {},
+      "RestartPolicy": {
+        "Name": "no",
+        "MaximumRetryCount": 0
+      },
+      "AutoRemove": false,
+      "VolumeDriver": "",
+      "VolumesFrom": null,
+      "ConsoleSize": [
+        0,
+        0
+      ],
+      "CapAdd": null,
+      "CapDrop": [
+        "ALL"
+      ],
+      "CgroupnsMode": "private",
+      "Dns": [],
+      "DnsOptions": [],
+      "DnsSearch": [],
+      "ExtraHosts": null,
+      "GroupAdd": null,
+      "IpcMode": "private",
+      "Cgroup": "",
+      "Links": null,
+      "OomScoreAdj": 0,
+      "PidMode": "",
+      "Privileged": false,
+      "PublishAllPorts": false,
+      "ReadonlyRootfs": true,
+      "SecurityOpt": [
+        "no-new-privileges:true"
+      ],
+      "Tmpfs": {
+        "/tmp": "size=64m"
+      },
+      "UTSMode": "",
+      "UsernsMode": "",
+      "ShmSize": 67108864,
+      "Runtime": "runc",
+      "Isolation": "",
+      "CpuShares": 0,
+      "Memory": 1073741824,
+      "NanoCpus": 2000000000,
+      "CgroupParent": "",
+      "BlkioWeight": 0,
+      "BlkioWeightDevice": [],
+      "BlkioDeviceReadBps": [],
+      "BlkioDeviceWriteBps": [],
+      "BlkioDeviceReadIOps": [],
+      "BlkioDeviceWriteIOps": [],
+      "CpuPeriod": 0,
+      "CpuQuota": 0,
+      "CpuRealtimePeriod": 0,
+      "CpuRealtimeRuntime": 0,
+      "CpusetCpus": "",
+      "CpusetMems": "",
+      "Devices": [],
+      "DeviceCgroupRules": null,
+      "DeviceRequests": null,
+      "MemoryReservation": 0,
+      "MemorySwap": 1073741824,
+      "MemorySwappiness": null,
+      "OomKillDisable": null,
+      "PidsLimit": 128,
+      "Ulimits": [],
+      "CpuCount": 0,
+      "CpuPercent": 0,
+      "IOMaximumIOps": 0,
+      "IOMaximumBandwidth": 0,
+      "MaskedPaths": [
+        "/proc/asound",
+        "/proc/acpi",
+        "/proc/kcore",
+        "/proc/keys",
+        "/proc/latency_stats",
+        "/proc/timer_list",
+        "/proc/timer_stats",
+        "/proc/sched_debug",
+        "/proc/scsi",
+        "/sys/firmware",
+        "/sys/devices/virtual/powercap"
+      ],
+      "ReadonlyPaths": [
+        "/proc/bus",
+        "/proc/fs",
+        "/proc/irq",
+        "/proc/sys",
+        "/proc/sysrq-trigger"
+      ]
+    },
+    "GraphDriver": {
+      "Data": {
+        "LowerDir": "/media/usv012/pjx/docker-data/overlay2/3dafcd2c1bd4cdccf9e868cee3fe2b27e422d56f5e2d4a74b37012587d8ddf9b-init/diff:/media/usv012/pjx/docker-data/overlay2/zrfobk1z3nf17bdwh6zbvnort/diff:/media/usv012/pjx/docker-data/overlay2/lc31vum1edxqshl5kns3tmxrs/diff:/media/usv012/pjx/docker-data/overlay2/cw4jot0k40ij5qno9nh6p9v5y/diff:/media/usv012/pjx/docker-data/overlay2/k9dtxulmlzm5lwx5hdfsvzn2j/diff:/media/usv012/pjx/docker-data/overlay2/mjmu1sagpaokvbt169rlk31h3/diff:/media/usv012/pjx/docker-data/overlay2/9eh5jpu3pjle9g144f1qoesjs/diff:/media/usv012/pjx/docker-data/overlay2/f123deca9a16cae1ba604166a1dd092e0395b8a9626e688d416becf89d262ba4/diff:/media/usv012/pjx/docker-data/overlay2/0ebaafa7448e74920db345a65a8960de79c2d0311818609b64a87b51886e993b/diff:/media/usv012/pjx/docker-data/overlay2/a144ef0085618c8b1de92e3c67ba2bf71cc84d6f25e298594b3883455f082478/diff:/media/usv012/pjx/docker-data/overlay2/6fd98c0d373f223af363e1183bcd2dec015fe3594c59c5fa19bb02ac067fddfa/diff:/media/usv012/pjx/docker-data/overlay2/98e5d29c55f5337319af92347d58f41461a0851fc24fdf3830b11cf68c774540/diff:/media/usv012/pjx/docker-data/overlay2/325d57cf1b6859c47eed0a86b2fb5c5386bf7442c4aa6484527830fc75b4f922/diff:/media/usv012/pjx/docker-data/overlay2/244bce781146a8a0f91b8efefeaf88932f0033cbf43d3075659a08513265fa34/diff:/media/usv012/pjx/docker-data/overlay2/58ee7d33679b18fd49adceeab206bdf4162394c0551601592c59bbb258bd9957/diff:/media/usv012/pjx/docker-data/overlay2/45126d5f0e16baf7dbc213daf667e34f0e6106a55c6fd05120dac1483ed53082/diff",
+        "MergedDir": "/media/usv012/pjx/docker-data/overlay2/3dafcd2c1bd4cdccf9e868cee3fe2b27e422d56f5e2d4a74b37012587d8ddf9b/merged",
+        "UpperDir": "/media/usv012/pjx/docker-data/overlay2/3dafcd2c1bd4cdccf9e868cee3fe2b27e422d56f5e2d4a74b37012587d8ddf9b/diff",
+        "WorkDir": "/media/usv012/pjx/docker-data/overlay2/3dafcd2c1bd4cdccf9e868cee3fe2b27e422d56f5e2d4a74b37012587d8ddf9b/work"
+      },
+      "Name": "overlay2"
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/r-cpu-fullchain01/data/pg-data/pgdata",
+        "Destination": "/pg7",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain04/data/pg-data/pgdata",
+        "Destination": "/pg0",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain01/data/pg-data/pgdata",
+        "Destination": "/pg1",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-normal01/data/pg-data/pgdata",
+        "Destination": "/pg2",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain03/data/pg-data/pgdata",
+        "Destination": "/pg3",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/run-pi24-b-nov14-normal02/data/pg-data/pgdata",
+        "Destination": "/pg4",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/builder/cpu-fullchain02/data/pg-data/pgdata",
+        "Destination": "/pg5",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/media/usv012/pjx/pi-agent-platform/experiments/24-vllm-serve-20261111/regulator/run-pi24-r-nov14-normal02/data/pg-data/pgdata",
+        "Destination": "/pg6",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ],
+    "Config": {
+      "Hostname": "9343e5520cba",
+      "Domainname": "",
+      "User": "70:70",
+      "AttachStdin": true,
+      "AttachStdout": true,
+      "AttachStderr": true,
+      "Tty": false,
+      "OpenStdin": true,
+      "StdinOnce": true,
+      "Env": [
+        "NVIDIA_VISIBLE_DEVICES=void",
+        "CUDA_VISIBLE_DEVICES=0",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PATH=/home/codex/.local/bin:/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "NVARCH=x86_64",
+        "NVIDIA_REQUIRE_CUDA=cuda>=12.4 brand=tesla,driver>=470,driver<471 brand=unknown,driver>=470,driver<471 brand=nvidia,driver>=470,driver<471 brand=nvidiartx,driver>=470,driver<471 brand=geforce,driver>=470,driver<471 brand=geforcertx,driver>=470,driver<471 brand=quadro,driver>=470,driver<471 brand=quadrortx,driver>=470,driver<471 brand=titan,driver>=470,driver<471 brand=titanrtx,driver>=470,driver<471 brand=tesla,driver>=525,driver<526 brand=unknown,driver>=525,driver<526 brand=nvidia,driver>=525,driver<526 brand=nvidiartx,driver>=525,driver<526 brand=geforce,driver>=525,driver<526 brand=geforcertx,driver>=525,driver<526 brand=quadro,driver>=525,driver<526 brand=quadrortx,driver>=525,driver<526 brand=titan,driver>=525,driver<526 brand=titanrtx,driver>=525,driver<526 brand=tesla,driver>=535,driver<536 brand=unknown,driver>=535,driver<536 brand=nvidia,driver>=535,driver<536 brand=nvidiartx,driver>=535,driver<536 brand=geforce,driver>=535,driver<536 brand=geforcertx,driver>=535,driver<536 brand=quadro,driver>=535,driver<536 brand=quadrortx,driver>=535,driver<536 brand=titan,driver>=535,driver<536 brand=titanrtx,driver>=535,driver<536",
+        "NV_CUDA_CUDART_VERSION=12.4.127-1",
+        "NV_CUDA_COMPAT_PACKAGE=cuda-compat-12-4",
+        "CUDA_VERSION=12.4.1",
+        "LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64",
+        "NVIDIA_DRIVER_CAPABILITIES=compute,utility",
+        "NV_CUDA_LIB_VERSION=12.4.1-1",
+        "NV_NVTX_VERSION=12.4.127-1",
+        "NV_LIBNPP_VERSION=12.2.5.30-1",
+        "NV_LIBNPP_PACKAGE=libnpp-12-4=12.2.5.30-1",
+        "NV_LIBCUSPARSE_VERSION=12.3.1.170-1",
+        "NV_LIBCUBLAS_PACKAGE_NAME=libcublas-12-4",
+        "NV_LIBCUBLAS_VERSION=12.4.5.8-1",
+        "NV_LIBCUBLAS_PACKAGE=libcublas-12-4=12.4.5.8-1",
+        "NV_LIBNCCL_PACKAGE_NAME=libnccl2",
+        "NV_LIBNCCL_PACKAGE_VERSION=2.21.5-1",
+        "NCCL_VERSION=2.21.5-1",
+        "NV_LIBNCCL_PACKAGE=libnccl2=2.21.5-1+cuda12.4",
+        "NVIDIA_PRODUCT_NAME=CUDA",
+        "HOME=/home/codex",
+        "CODEX_HOME=/home/codex/.codex"
+      ],
+      "Cmd": [
+        "--signal=TERM",
+        "--kill-after=2s",
+        "25s",
+        "python3",
+        "-c",
+        "import pathlib,os,json,stat,time,sys\nbind=json.load(sys.stdin);seen={tuple(x) for x in bind['host_seen']};rows=[]\nfor i in range(8):\n root=pathlib.Path('/pg'+str(i));st=root.lstat();assert [st.st_dev,st.st_ino]==bind['roots'][i];stack=[root];r={'index':i,'apparent_bytes':0,'allocated_bytes':0,'inodes':0,'errors':[]}\n while stack:\n  p=stack.pop();st=p.lstat();key=(st.st_dev,st.st_ino)\n  if key in seen:continue\n  seen.add(key);r['inodes']+=1;r['apparent_bytes']+=st.st_size;r['allocated_bytes']+=st.st_blocks*512\n  if stat.S_ISDIR(st.st_mode):\n   try:stack.extend(p.iterdir())\n   except Exception as e:r['errors'].append({'path':str(p),'error':repr(e)})\n rows.append(r)\nprint(json.dumps({'uid':os.getuid(),'gid':os.getgid(),'roots':rows,'epoch':time.time()}))\nassert not any(r['errors'] for r in rows)\n"
+      ],
+      "Image": "sha256:08619d6d884b3b456661f883a4e4420bd85a81aee560a86f7f26021b75dd6229",
+      "Volumes": null,
+      "WorkingDir": "/workspace",
+      "Entrypoint": [
+        "timeout"
+      ],
+      "OnBuild": null,
+      "Labels": {
+        "com.docker.compose.project": "pi-vllm24-r",
+        "execution-sha": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+        "maintainer": "NVIDIA CORPORATION <cudatools@nvidia.com>",
+        "org.opencontainers.image.ref.name": "ubuntu",
+        "org.opencontainers.image.version": "22.04",
+        "pi24.nonce": "r-final-inventory-nov14-01",
+        "workorder": "24"
+      }
+    },
+    "NetworkSettings": {
+      "Bridge": "",
+      "SandboxID": "",
+      "SandboxKey": "",
+      "Ports": {},
+      "HairpinMode": false,
+      "LinkLocalIPv6Address": "",
+      "LinkLocalIPv6PrefixLen": 0,
+      "SecondaryIPAddresses": null,
+      "SecondaryIPv6Addresses": null,
+      "EndpointID": "",
+      "Gateway": "",
+      "GlobalIPv6Address": "",
+      "GlobalIPv6PrefixLen": 0,
+      "IPAddress": "",
+      "IPPrefixLen": 0,
+      "IPv6Gateway": "",
+      "MacAddress": "",
+      "Networks": {
+        "none": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": null,
+          "MacAddress": "",
+          "DriverOpts": null,
+          "NetworkID": "3c37b84eb2a378f2cafdc543c234ca12143fd1c81a25bf1f13efa086c853661e",
+          "EndpointID": "",
+          "Gateway": "",
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "DNSNames": null
+        }
+      }
+    }
+  },
+  "total_apparent_bytes": 598383655,
+  "total_allocated_bytes": 613675008,
+  "exact_disjoint_snapshot": true,
+  "free_bytes": 3047910899712,
+  "end": 1794628639.2123663,
+  "wall_s": 1.1781740188598633,
+  "success": true,
+  "compute_released": true,
+  "scope": "Only full WO24 B/Rroots, lstat nofollow + shared(dev,ino)dedup, exact8PG ROUID70; preexistingG0runtime/model/SDK outside roots excluded. Sequential snapshot; own output additions after measurement are separate."
+}

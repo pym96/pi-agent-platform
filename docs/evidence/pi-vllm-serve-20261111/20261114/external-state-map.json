@@ -3779,6 +3779,41 @@
       "path": "regulator-20261114/R-NORMAL02-REAL-INDEPENDENT-REVIEW.v1.json",
       "bytes": 8148,
       "sha256": "3eff0ff397f0fdc68860d6cb504978fc1b1ab576f06eb185b1f6ef1387f24c24"
+    },
+    {
+      "original_state_group": "vllm24-regulator-20261114",
+      "original_basename": "R-FINAL-INVENTORY-HANDOFF-RELEASE.v1.json",
+      "path": "regulator-20261114/R-FINAL-INVENTORY-HANDOFF-RELEASE.v1.json",
+      "bytes": 7402,
+      "sha256": "2effe155a4a28c71be739347e46d47500a137414aeeb81b11d2d515846d8af4a"
+    },
+    {
+      "original_state_group": "vllm24-regulator-20261114",
+      "original_basename": "R-FINAL-DISK-INVENTORY01-ACTUAL.json",
+      "path": "regulator-20261114/R-FINAL-DISK-INVENTORY01-ACTUAL.json",
+      "bytes": 79121,
+      "sha256": "a5ccb76e585fa86997e08985b0a421e01c4f84de1440a7f3f376802406a0249c"
+    },
+    {
+      "original_state_group": "vllm24-regulator-20261114",
+      "original_basename": "R-FINAL-DISK-INVENTORY01-SSH.json",
+      "path": "regulator-20261114/R-FINAL-DISK-INVENTORY01-SSH.json",
+      "bytes": 79195,
+      "sha256": "b5b6180a343fe5588aeb59fdc2d6062540b5671ff9ef22a3fbe06dad32bfaff6"
+    },
+    {
+      "original_state_group": "vllm24-regulator-20261114",
+      "original_basename": "LOCAL-DISK-FINAL24.v1.json",
+      "path": "regulator-20261114/LOCAL-DISK-FINAL24.v1.json",
+      "bytes": 2042,
+      "sha256": "b80827d332e1b19bfae088ea1519c5e068143aa6dcc1764bafe80932e39e663f"
+    },
+    {
+      "original_state_group": "vllm24-regulator-20261114",
+      "original_basename": "PREFINAL-298b06-INDEPENDENT-REVIEW.v1.json",
+      "path": "regulator-20261114/PREFINAL-298b06-INDEPENDENT-REVIEW.v1.json",
+      "bytes": 5436,
+      "sha256": "0d4c2f5d20d43a3efcea790b9f32e4e30c497f9d595ee9aea27f3b39a612ac24"
     }
   ],
   "retained_external_source_snapshots": [
@@ -3849,8 +3884,9 @@
   "notes": [
     "Original filenames/bytes preserved; original absolute state references can be resolved using group and basename mapping.",
     "Regulator independent probe .py/.sh sources are not in this candidate. CPU outputs/reviews and lifecycle raw remain separately preserved.",
-    "Only completed snapshots copied; independent R own Nov14 real matrix pending.",
-    "Artifact ZIP and TGZ are original bytes; future evidence commit identity is distinct from source execution."
+    "At the initial packaging snapshot, only then-completed records were copied and independent R own Nov14 real matrix was pending. Later R actual records were appended below; the matrix completed and independently stage-passed in report3eff0ff397f0fdc68860d6cb504978fc1b1ab576f06eb185b1f6ef1387f24c24. Final exact-SHA Verdict remains separate.",
+    "Artifact ZIP and TGZ are original bytes; future evidence commit identity is distinct from source execution.",
+    "Final full host+8PG and local global inventory was appended after independent R own matrix: release2eff, actuala5cc, wireb5b6 and localb808 are unchanged bytes. Private inventory helpers remain external; prior readable-only/PG snapshots and their uncertainty remain historical."
   ],
   "regulator_results_extracted_without_probes": [
     {
@@ -5735,5 +5771,15 @@
       }
     ],
     "note": "C04/AGENTS4 independent probes do not enter candidate. Non-executable members copied byte-for-byte; original full archive retained externally with complete hash. Original manifest retains references to3 excluded entries; not mislabeled a self-contained candidate-only original archive."
-  }
+  },
+  "final_inventory_external_private_helpers": [
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/r_final_disk_inventory_remote.py",
+      "sha256": "5c1e7039a0c36beca2b4aaba3408d19f2f53592bb3477315e859d1ec819a5eb1"
+    },
+    {
+      "path": "/Users/panyiming/.local/state/pi-agent-platform/vllm24-regulator-20261114/execute_r_final_inventory_once.py",
+      "sha256": "3a5c29d29f3ed045714185678bb41b7ca99bc8c022ea2f2542ec2492160a0a51"
+    }
+  ]
 }

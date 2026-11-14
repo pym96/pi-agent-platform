@@ -33,7 +33,7 @@
     },
     "C-G2-04@1.4": {
       "status": "B_AND_R_ACTUAL_STAGE_PASS; FINAL_EXACT_SHA_AND_CI_PENDING",
-      "observed": "Exact independently bound phase/source/runtime/model/SDK/network; real doubleGPU0idle>=10s, bounded observer child/watch/native, actual resource and cost/cleanup receipts.",
+      "observed": "Exact independently bound phase/source/runtime/model/SDK/network; real doubleGPU0idle>=10s, bounded observer child/watch/native, actual resource and cost/cleanup receipts. Final actual full host+8PG inventory and local aggregate snapshot now recorded with sequential/non-atomic and post-measurement receipt limits, original private helpers excluded.",
       "evidence": [
         "regulator-20261114/B-NORMAL02-FINAL-HANDOFF-CROSSCHECK.v1.json",
         "regulator-20261114/B-REMAINING-PROFILES-CPU-INDEPENDENT-REVIEW.v1.json"
@@ -54,5 +54,10 @@
     "POST": 9,
     "release": "regulator-20261114/R-NORMAL02-RAW-HANDOFF-RELEASE.v1.json",
     "semantic_report": "regulator-20261114/R-NORMAL02-REAL-INDEPENDENT-REVIEW.v1.json"
+  },
+  "final_full_inventory": {
+    "status": "ACTUAL_FULL_DISJOINT_SNAPSHOT_PASS_AND_RELEASED",
+    "source": "regulator-20261114/R-FINAL-INVENTORY-HANDOFF-RELEASE.v1.json",
+    "limits": "Host+8PG scans sequential, each inode once; output receipt written after snapshot with explicit1MiB allocated reserve; local snapshot predates final small reports."
   }
 }

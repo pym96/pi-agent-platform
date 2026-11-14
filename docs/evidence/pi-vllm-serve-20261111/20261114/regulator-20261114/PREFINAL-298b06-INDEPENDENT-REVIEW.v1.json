@@ -1,0 +1,95 @@
+{
+  "schema": "pi24-R-prefinal-local-review/v1",
+  "fixed_candidate_SHA": "298b06be0b1eb26a5b772cd75abd92f0c2e0d5bc",
+  "execution_SHA": "9ea36d3221d024a6d8330322d330809fa9e283a6",
+  "status": "FIXED_298_LOCAL_CORE_EVIDENCE_PASS; OLD298_NEEDS_TWO_TIMING_NOTES_AND_NOW_ACTUAL_FINAL_INVENTORY_EVIDENCE; NOT_FINAL_VERDICT",
+  "criteria": {
+    "C-G2-01@1.0": "PASS reused exactsame Product actual B/R protocol/nativeidentity/tokenusage + originalCPU negatives",
+    "C-G2-02@1.0": "PASS reused actual B/R cancellation/ACK/native settlement/PG/SSE/restart block+newsession originalraw, preserved failures",
+    "C-G2-03@1.1": "PASS all original Bnormal/deadline/newengine recovery/explicitTF and R7 matrix provenance crosschecked",
+    "C-G2-04@1.4": "PARTIAL: Evidence integrity/source+projection/preservedhistory/claims/gates PASS; fresh final whole8PG+local disk/accounting closure and2stale notes need remedy before final. Actual remote finalCI6/exactSHA/finalHandoff remain beforeVerdict."
+  },
+  "Product_service_tree": "d78b6181beb34f82b79767214677bc4378c320ad",
+  "workflow_tree": "b5b0e3de69e75b2592b678eaecf98086aea7dd4f",
+  "ALL_nonEvidence_blob_records_identical": true,
+  "changed_allowed_count": 823,
+  "manifest_sha256": "433eb9d41e77278ae211ca6b2f95b3b358b7d5038124fa049b0e894c8fbc2d26",
+  "payload_files": 819,
+  "payload_bytes": 28994674,
+  "actual_external_state_copies_byteidentical": 540,
+  "external_snapshots_checked": 9,
+  "archives_CRC_read_checked": 20,
+  "old_R_archive_result_member_projections": 127,
+  "new_R_projected_members": 137,
+  "new_R_excluded_executables": [
+    {
+      "original_archive": "r-normal02-nov14-raw.tgz",
+      "original_member": "r_gpu_entry_phase5.py",
+      "bytes": 4716,
+      "sha256": "c414361b6d722ae86f6986083b9c2882a8df12d448e400e183b27f4d7ffd7426"
+    },
+    {
+      "original_archive": "r-normal02-nov14-raw.tgz",
+      "original_member": "r-gpu-entry-phase5.sh",
+      "bytes": 208,
+      "sha256": "01967195ae8815c8485f072cebcf18d45f25164d4ae02a31c8f811c5e8a0f496"
+    },
+    {
+      "original_archive": "r-normal02-nov14-raw.tgz",
+      "original_member": "nvml-normal02-bin/nvidia-smi",
+      "bytes": 1648,
+      "sha256": "46d16fa43b6caec4cfd3f5b29839f2c1bfc23e32571dcee47b73bb23e61f943a"
+    }
+  ],
+  "independent_integrity_negatives": [
+    "modified_payload",
+    "incorrect_size",
+    "traversal_path",
+    "duplicate_entry",
+    "missing_payload"
+  ],
+  "top_level_Evidence_local_links_checked": 63,
+  "potential_secret_patterns": [],
+  "findings": [
+    {
+      "criterion": "C04 original fullresourceaccounting",
+      "type": "UNKNOWN_FINAL_DISK_SNAPSHOT",
+      "reason": "Old CPU5 fullPGsnapshot predates B/R realnormal newPGdirs; later readable scans deliberately exclude PG and du receipts are at earlier per-run times. Do not call current global complete from them.",
+      "resolution": "One separately authorized <=60s read-only R finalinventory, cachedUID70/runc/VOID/none/CAPDROPALL only8exactPGRO+hostB/R roots/free+cleanup; helper/carrier supplied toMaster, no SSH fromprefinal audit.",
+      "resolution_actual": "Complete original read-only finalinventory now independently actual PASS/8PG/noerrors/under2GiB-serverand1GiBlocal; new Evidencecandidate must include exactreport/raw/currentledger, old298stilldoesnotcontainit."
+    },
+    {
+      "path": "docs/evidence/pi-vllm-serve-20261111/20261114/README.md:24",
+      "type": "STALE_HISTORICAL_SCOPE",
+      "reason": "c61 intentionallyretained should be explicitly historical Bfallbackcloseout; actualR laterremoved."
+    },
+    {
+      "path": "docs/evidence/pi-vllm-serve-20261111/20261114/external-state-map.json:3852",
+      "type": "STALE_OLD_NOTE",
+      "reason": "notes[2] still Rmatrixpending despite ownoriginal status complete+stagePASS."
+    }
+  ],
+  "scope": "Only local fixed298 independentcleanworktree. No source/test/workflow edits; no behavioral suites/GPU/CI/SSH. Negative probes entirely outsidecandidate.",
+  "remaining_before_final": [
+    "Builder package actually completed finalinventory2eff + updateCPU4666.4357385/newremaining660 and two historicaltimingnotes; newexactEvidenceSHA only",
+    "Builder narrow timingnotes+newinventory Evidence exactcandidate, identityrecheck",
+    "One exactsource finalEvidenceCI6 actualsuccess+completeartifact/Handoff; independentcleanorigin finalVerdict",
+    "Master mainCI7/PRactualMERGED afteraccepted separate, not preVerdict blocker"
+  ],
+  "artifact_script_sha256": "2a3fdb3711e49e2cf67b007df6e2ad24c0111bdca0d12b2a150450f13349610e",
+  "external_final_disk_resolution": {
+    "status": "ACTUALLY_RESOLVED_AND_RELEASED_OUTSIDE_OLD_298_CANDIDATE_PENDING_BUILDER_EVIDENCE_UPDATE",
+    "report": "R-FINAL-INVENTORY-HANDOFF-RELEASE.v1.json",
+    "sha256": "2effe155a4a28c71be739347e46d47500a137414aeeb81b11d2d515846d8af4a",
+    "server_apparent_bytes": 598383655,
+    "server_allocated_bytes": 613675008,
+    "PGroots": 8,
+    "errors": 0,
+    "local_apparent_bytes": 656092767,
+    "local_allocated_bytes": 781520896,
+    "CPU_current_s": 4666.4357385,
+    "Nov14_remaining_s": 660,
+    "all_SSH_ended": "2026-11-14T03:57:19.229822Z"
+  },
+  "private_reviewer_schema_notes": "Bworkflow_tree b5b names entire.github tree, not nested.github/workflows; both are unchanged because allnonEvidenceblobtables identical. Externalmap has original_basename and original_relative_path row variants, verifier accepts actualschema variants."
+}

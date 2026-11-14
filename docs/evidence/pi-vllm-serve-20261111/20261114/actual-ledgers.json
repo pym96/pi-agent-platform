@@ -259,5 +259,40 @@
     "native_generations": 12,
     "native_not_executed_POST": 2,
     "native_not_executed_reason": "normal02 queued task cancelled before execution and blocked429"
+  },
+  "final_after_R_inventory": {
+    "source": "regulator-20261114/R-FINAL-INVENTORY-HANDOFF-RELEASE.v1.json",
+    "actual_SSH_start": "2026-11-14T03:57:17.777131+00:00",
+    "actual_SSH_end": "2026-11-14T03:57:19.229822+00:00",
+    "actual_wall_s": 1.452690839767456,
+    "CPU_increment_ceil_s": 2,
+    "CPU_cumulative_s": 4666.4357385,
+    "Nov14_subreserve_remaining_s": 660,
+    "B_device_s": 174.16961550712585,
+    "B_generations": 12,
+    "B_completion_POST": 14,
+    "R_device_s": 35.16040301322937,
+    "R_generations": 7,
+    "R_completion_POST": 9,
+    "all_owned_containers_networks": 0,
+    "no_NVML_or_model_in_inventory": true,
+    "server_snapshot": {
+      "host_and8PG_apparent_bytes": 598383655,
+      "host_and8PG_allocated_bytes": 613675008,
+      "free_bytes": 3047910899712,
+      "post_snapshot_receipt_serialized_bytes": 79121,
+      "additional_allocated_receipt_directory_reserve_bytes": 1048576,
+      "snapshot_plus_conservative_allocation_reserve_bytes": 614723584,
+      "cap_bytes": 2147483648,
+      "sequential_not_atomic": true,
+      "actual_host_and_PG_errors": []
+    },
+    "local_snapshot": {
+      "all6state_2candidate_Rprefinalclone_apparent_bytes": 656092767,
+      "allocated_bytes": 781520896,
+      "cap_bytes": 1073741824,
+      "errors": [],
+      "scope_limit": "Actual measurement predates final small report and this Evidence append; it is a bounded snapshot, not fabricated atomic final du."
+    }
   }
 }
