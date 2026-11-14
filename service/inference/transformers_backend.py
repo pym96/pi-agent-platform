@@ -7,7 +7,14 @@ import json
 import contextlib
 import asyncio
 import threading
+import time
 from .app import InputError
+
+def observe(event,**values):
+    """Opt-in measurement only; no file/clock/token-copy work when disabled."""
+    path=os.environ.get('TF_TOKEN_TRACE')
+    if path:
+        with open(path,'a') as f:f.write(json.dumps({'event':event,'at':time.monotonic(),'clock':'model-monotonic',**values})+'\n')
 
 class TransformersBackend:
     identity='transformers-serialized/Qwen3-8B'
@@ -26,11 +33,14 @@ class TransformersBackend:
         encoded=self.tokenizer(prompt,return_tensors='pt')
         count=encoded.input_ids.shape[1]
         if count+budget>1024:raise InputError('context_limit')
+        if os.environ.get('TF_TOKEN_TRACE'):
+            observe('tf_prepare',input_ids=encoded.input_ids.reshape(-1).detach().cpu().tolist(),budget=budget,next_call=self.calls+1)
         return encoded.to('cuda'),count,budget
     async def stream(self,prepared,cancel):
         from transformers import StoppingCriteria,StoppingCriteriaList
         from transformers.generation.streamers import BaseStreamer
         encoded,prompt_tokens,budget=prepared
+        observation_call=self.calls+1
         loop=asyncio.get_running_loop();queue=asyncio.Queue();stop=threading.Event();tokens=[];backend=self
         class Streamer(BaseStreamer):
             first=True
@@ -77,3 +87,6 @@ class TransformersBackend:
             await asyncio.gather(watcher,return_exceptions=True)
             await worker
             self.active-=1
+            if os.environ.get('TF_TOKEN_TRACE'):
+                observe('tf_settled',call=observation_call,output_ids=list(tokens),cancelled=cancel.is_set(),
+                    finish_reason='length' if len(tokens)>=budget else 'stop',active=self.active)
