@@ -80,6 +80,7 @@ def validate(path,go_digest,phase_path,phase_digest,now=None):
         if model.get('arm')!=expected_arm or block.get('arm')!=expected_arm:raise ValueError('named lifecycle arm identity')
         if type(model.get('max_attempts')) is not int or model['max_attempts']!=cap or block.get('max_attempts')!=cap:raise ValueError('model attempt cap')
         nonce(model.get('nonce'))
+        digest(model.get('network_id'))
         if model['nonce'] in nonces:raise ValueError('duplicate model nonce')
         nonces.add(model['nonce']);deadline=number(model.get('deadline_epoch'))
         if not lower+15<deadline<=end:raise ValueError('ordered finite model deadline')

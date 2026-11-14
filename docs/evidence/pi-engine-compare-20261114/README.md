@@ -15,3 +15,5 @@ R then exercised actual scheduling delay on fixedafb: a request task beginning a
 Human chose goals/resources and asked for native coordinated work; Master froze scope/criteria/dispatch, Builder wrote tool/observation/tests, Regulator independently found and rechecked counterexamples. Model/tokenizer/vLLM/Pi implementations are upstream. No Human independent implementation, speedup, stable P95/SLA or single-mechanism causal contribution is claimed. Further failures/unknowns and actual cost receipts must stay in the experiment handoff rather than being rewritten as success.
 
 [Local source CPU result projection](SOURCE-CPU.md) binds the external Builder raw manifest; actual source SHA is in the separate external SOURCE Handoff.
+
+C04@1.2 prospective clarification separates known network/source/phase/nonce creation constraints from Docker-assigned CID/IP. The source binds precreated full network IDs in GO and verifies actual assigned container/IP identity before use; actual source/model execution remains separately gated.

@@ -21,12 +21,18 @@ def fixture(root):
         'source_sha':'a'*40,'gpu_uuid':phase['physical_GPU_UUID'],'nonce':'test-once',
         'deadline_epoch':1300,'allocated_device_s':300,'allocated_native':18,'allocated_POST':18,'allocated_server_wall_s':350,
         'spent':spent,'ledger_file':'ledger.json','ledger_sha256':lh,'plan_file':'plan.json','plan_sha256':planhash,
-        'models':[{'id':'pilotA','arm':'A','nonce':'model-a','deadline_epoch':1150,'max_attempts':16},
-                  {'id':'pilotB','arm':'B','nonce':'model-b','deadline_epoch':1300,'max_attempts':16}],
+        'models':[{'id':'pilotA','arm':'A','nonce':'model-a','deadline_epoch':1150,'max_attempts':16,'network_id':'c'*64},
+                  {'id':'pilotB','arm':'B','nonce':'model-b','deadline_epoch':1300,'max_attempts':16,'network_id':'d'*64}],
         'entry_hashes':{'authority.py':'b'*64}}
     return go,ph
 
 class AuthorityTests(unittest.TestCase):
+    def test_model_go_requires_preexisting_full_network_identity(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);go,ph=fixture(root);go['models'][0].pop('network_id')
+            gh=write(root/'go.json',go)
+            with self.assertRaises(ValueError):validate(root/'go.json',gh,root/'phase.json',ph,now=1000)
+
     def test_named_lifecycle_cannot_be_relabelled_in_go_and_plan_together(self):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d);go,ph=fixture(root)

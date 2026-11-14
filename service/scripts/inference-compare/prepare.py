@@ -60,8 +60,14 @@ def main():
     inv=sub.add_parser('inventory');inv.add_argument('--roots',nargs='+',required=True)
     ent=sub.add_parser('entries');ent.add_argument('--source',required=True)
     tok=sub.add_parser('tokens');tok.add_argument('--arm',choices=['A','B'],required=True);tok.add_argument('--model',required=True)
-    for s in (inv,ent,tok):s.add_argument('--out',required=True)
-    a=p.parse_args();value=inventory(a.roots) if a.action=='inventory' else entries(a.source) if a.action=='entries' else token_mapping(a.arm,a.model)
+    net=sub.add_parser('network');net.add_argument('--role',choices=['builder','regulator'],required=True);net.add_argument('--source-sha',required=True);net.add_argument('--nonce',required=True)
+    for s in (inv,ent,tok,net):s.add_argument('--out',required=True)
+    a=p.parse_args()
+    if a.action=='network':
+        from owned import OwnedDocker
+        docker=OwnedDocker(a.role,a.source_sha,a.nonce);ident=docker.create_network()
+        value={'network':docker.network(ident),'receipts':docker.receipts,'permission':'requires separate explicit CPU-stage network-creation GO'}
+    else:value=inventory(a.roots) if a.action=='inventory' else entries(a.source) if a.action=='entries' else token_mapping(a.arm,a.model)
     with Path(a.out).open('x') as f:f.write(json.dumps(value,indent=2)+'\n')
     return 1 if a.action=='inventory' and not value['complete'] else 0
 

@@ -110,6 +110,7 @@ def execute(a,g):
             while not stop_lease.is_set():(model_out/'foreground-lease').touch();stop_lease.wait(.5)
         try:
             if docker.discover(known):raise ValueError('preexisting owned objects')
+            network=model['network_id'];dump(model_out/'network.json',docker.network(network))
             snapshots=[]
             for n in range(2):
                 for query in ['--query-gpu=uuid','--query-compute-apps=pid,gpu_uuid']:
@@ -121,7 +122,7 @@ def execute(a,g):
             verify_entries(g,source)
             if time.time()+40>=model['deadline_epoch']:raise ValueError('selected model deadline expired during preflight before Docker')
             consume(root/('consumed-'+model['nonce']))
-            network=docker.create_network();dump(model_out/'network.json',docker.network(network))
+            docker.network(network)
             lease_thread=threading.Thread(target=lease,daemon=True);lease_thread.start()
             watch_log=(model_out/'watch.log').open('w')
             watch=subprocess.Popen([sys.executable,str(here/'watch.py'),'--go',a.go,'--go-sha256',a.go_sha256,
