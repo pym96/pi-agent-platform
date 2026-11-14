@@ -6,16 +6,27 @@ class Contract(unittest.TestCase):
    p=subprocess.run([sys.executable,str(HERE/'launch.py'),'--go',d+'/missing','--go-sha256','0'*64],capture_output=True,text=True,timeout=3)
    self.assertNotEqual(p.returncode,0);self.assertIn('GO rejected',p.stderr)
  def test_go_rejections_before_gpu_commands(self):
-  import importlib.util
+  import importlib.util,os
   spec=importlib.util.spec_from_file_location('launcher',HERE/'launch.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
-  good=dict(issue=21,role='builder',gpu_uuid=m.UUID,deadline_epoch=time.time()+30,max_duration_s=300,model_revision='b968826d9c46dd6066d109eabc6255188de91218',source_sha='a'*40,probe_sha256='b'*64,runtime_manifest_sha256='c'*64,launcher_sha256=m.sha(HERE/'launch.py'),watch_sha256=m.sha(HERE/'watch.py'),driver_sha256=m.sha(HERE/'driver.py'),model_manifest_sha256='f'*64,nonce='cpu-probe')
+  # Replay the accepted Nov11 contract through its existing clock seam, not wallclock.
+  now=1794385200
+  good=dict(issue=21,role='builder',gpu_uuid=m.UUID,deadline_epoch=now+30,max_duration_s=300,model_revision='b968826d9c46dd6066d109eabc6255188de91218',source_sha='a'*40,probe_sha256='b'*64,runtime_manifest_sha256='c'*64,launcher_sha256=m.sha(HERE/'launch.py'),watch_sha256=m.sha(HERE/'watch.py'),driver_sha256=m.sha(HERE/'driver.py'),model_manifest_sha256='f'*64,nonce='cpu-probe')
   with tempfile.TemporaryDirectory() as d:
-   f=pathlib.Path(d)/'go.json'
-   for patch in [{'deadline_epoch':time.time()-1},{'deadline_epoch':time.time()+10},{'issue':13},{'role':'master'},{'gpu_uuid':'GPU-other'},{'max_duration_s':301},{'launcher_sha256':'d'*64},{'model_revision':'latest'},{'source_sha':'z'*40}]:
-    g={**good,**patch};f.write_text(json.dumps(g));p=subprocess.run([sys.executable,str(HERE/'launch.py'),'--go',str(f),'--go-sha256',m.sha(f)],capture_output=True,text=True,timeout=3)
-    self.assertEqual(p.returncode,2,(patch,p.stdout,p.stderr));self.assertIn('GO rejected',p.stderr)
-   f.write_text(json.dumps(good));self.assertEqual(m.validate(f,m.sha(f))['issue'],21)
-   with self.assertRaises(ValueError):m.validate(f,'0'*64)
+   root=pathlib.Path(d);f=root/'go.json'
+   cases=[({'deadline_epoch':now-1},'GO expired or over budget'),({'deadline_epoch':now+10},'GO expired or over budget'),({'issue':13},'GO identity mismatch'),({'role':'master'},'GO identity mismatch'),({'gpu_uuid':'GPU-other'},'GO identity mismatch'),({'max_duration_s':301},'GO expired or over budget'),({'launcher_sha256':'d'*64},'launcher hash mismatch'),({'model_revision':'latest'},'model mismatch'),({'source_sha':'z'*40},'bad source_sha')]
+   for changes,reason in cases:
+    with self.subTest(changes=changes):
+     f.write_text(json.dumps({**good,**changes}))
+     with self.assertRaisesRegex(ValueError,reason):m.validate(f,m.sha(f),now=now)
+   f.write_text(json.dumps(good));self.assertEqual(m.validate(f,m.sha(f),now=now)['issue'],21)
+   with self.assertRaisesRegex(ValueError,'GO hash mismatch'):m.validate(f,'0'*64,now=now)
+   # The real CLI still uses real time and must reject this retired GO before tools.
+   marker=root/'tool-was-called'
+   for name in ['docker','nvidia-smi']:
+    tool=root/name;tool.write_text('#!'+sys.executable+'\nfrom pathlib import Path\nPath('+repr(str(marker))+').touch()\n');tool.chmod(0o755)
+   env=dict(os.environ,PATH=d+os.pathsep+os.environ.get('PATH',''))
+   result=subprocess.run([sys.executable,str(HERE/'launch.py'),'--go',str(f),'--go-sha256',m.sha(f)],capture_output=True,text=True,timeout=3,env=env)
+   self.assertEqual(result.returncode,2,(result.stdout,result.stderr));self.assertIn('last new GPU start elapsed',result.stderr);self.assertFalse(marker.exists())
 
 
  def test_role_caps_and_absolute_window(self):
