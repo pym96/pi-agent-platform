@@ -31,7 +31,7 @@ def formal_blocks(rates):
             points.append(point)
         blocks.append({'id':ident,'arm':ident[0],'repeat':repeat,'max_attempts':130,
                        'warmup':[{'id':f'warmup-{k}','payload':payload(f'warmup-{k}')} for k in range(2)],
-                       'points':points,'recovery_payload':payload('recovery')})
+                       'points':points,'recovery_slot':{'id':'recovery','payload':payload('recovery')}})
     return blocks
 
 def pilot_block(arm):
@@ -39,4 +39,58 @@ def pilot_block(arm):
         {'id':f'warmup-{k}','payload':payload(f'warmup-{k}')} for k in range(2)],
         'points':[{'name':'calibration','mode':'closed','concurrency':1,'total_limit_ns':600*10**9,
                    'slots':[{'id':f'calibration-{k}','payload':payload(f'calibration-{k}')} for k in range(6)]}],
-        'recovery_payload':payload('recovery')}
+        'recovery_slot':{'id':'recovery','payload':payload('recovery')}}
+
+def review_blocks(rates):
+    blocks=[]
+    base=formal_blocks(rates)[0]
+    for arm in ('A','B'):
+        import copy
+        closed=copy.deepcopy(base['points'][0]);closed['slots']=closed['slots'][:4]
+        opened=copy.deepcopy(base['points'][-1]);opened['slots']=opened['slots'][:8];opened['offset_ns']=opened['offset_ns'][:8]
+        blocks.append({'id':'review'+arm,'arm':arm,'max_attempts':18,'warmup':copy.deepcopy(base['warmup']),
+                       'points':[closed,opened],'recovery_slot':copy.deepcopy(base['recovery_slot'])})
+    return blocks
+
+def all_slots(block):
+    return [*block['warmup'],*[s for p in block['points'] for s in p['slots']],block['recovery_slot']]
+
+def validate_frozen_plan(plan,require_expected=False):
+    import copy
+    stage=plan.get('stage')
+    if stage=='pilot':expected=[pilot_block(a) for a in ('A','B')]
+    elif stage in ('formal','review'):
+        calibration=plan['calibration'];rates=freeze_rates(calibration['A_ns'],calibration['B_ns'])
+        if rates!=plan.get('rates'):raise ValueError('rates do not derive from frozen six-sample pilot')
+        expected=formal_blocks(rates) if stage=='formal' else review_blocks(rates)
+    else:raise ValueError('unknown plan stage')
+    actual=copy.deepcopy(plan['blocks'])
+    for block in actual:
+        for slot in all_slots(block):
+            ids=slot.pop('expected_input_ids',None)
+            if require_expected and (not isinstance(ids,list) or not ids or any(type(x) is not int or x<0 for x in ids) or len(ids)+128>1024):raise ValueError('frozen expected input IDs required')
+    if actual!=expected:raise ValueError('frozen payload/slot/order/offset/count contract differs')
+    return True
+
+def bind_expected(plan,mapping):
+    import hashlib,json
+    for block in plan['blocks']:
+        for slot in all_slots(block):
+            key=hashlib.sha256(json.dumps(slot['payload'],sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()).hexdigest()
+            a=mapping['A'][key];b=mapping['B'][key]
+            if a!=b:raise ValueError('expected TF/vLLM template IDs differ')
+            slot['expected_input_ids']=a
+    validate_frozen_plan(plan,require_expected=True);return plan
+
+if __name__=='__main__':
+    import argparse,json
+    from pathlib import Path
+    p=argparse.ArgumentParser();p.add_argument('--stage',choices=['pilot','formal','review'],required=True)
+    p.add_argument('--expected-inputs',required=True);p.add_argument('--calibration');p.add_argument('--out',required=True);a=p.parse_args()
+    plan={'stage':a.stage}
+    if a.stage=='pilot':plan['blocks']=[pilot_block(x) for x in ('A','B')]
+    else:
+        calibration=json.loads(Path(a.calibration).read_text());plan.update(calibration=calibration,rates=freeze_rates(calibration['A_ns'],calibration['B_ns']))
+        plan['blocks']=formal_blocks(plan['rates']) if a.stage=='formal' else review_blocks(plan['rates'])
+    value=bind_expected(plan,json.loads(Path(a.expected_inputs).read_text()))
+    with Path(a.out).open('x') as f:f.write(json.dumps(value,indent=2)+'\n')

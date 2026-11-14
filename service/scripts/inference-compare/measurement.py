@@ -33,6 +33,7 @@ def inspect_exchange(status,chunks,eof,expected_ids,native):
         inputs=native.get('input_ids');outputs=native.get('output_ids')
         result.update(actual_input_ids=inputs,actual_output_ids=outputs)
         if not token_ids(inputs) or not token_ids(outputs) or not outputs or inputs!=expected_ids:raise ValueError('native_input_or_nonempty_output_ids')
+        if native.get('text')!=parsed['content']:raise ValueError('native_text_different_from_SSE')
         usage={'prompt_tokens':len(inputs),'completion_tokens':len(outputs),'total_tokens':len(inputs)+len(outputs)}
         if parsed['usage']!=usage or native.get('finish_reason')!=parsed['finish_reason']:raise ValueError('native_terminal_usage')
         result.update(classification='completed',usage=usage,finish_reason=parsed['finish_reason'],reason=None)

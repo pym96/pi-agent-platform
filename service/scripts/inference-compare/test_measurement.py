@@ -8,6 +8,10 @@ def chunks():
     return [{'at_ns':(i+2)*10,'data_b64':base64.b64encode(('data: '+(json.dumps(v) if isinstance(v,dict) else v)+'\n\n').encode()).decode()} for i,v in enumerate([*events,'[DONE]'])]
 
 class MeasurementTests(unittest.TestCase):
+    def test_sse_text_cannot_be_replaced_while_native_counts_stay_valid(self):
+        truth={'input_ids':[4,5],'output_ids':[9],'finish_reason':'stop','text':'different'}
+        self.assertEqual(inspect_exchange(200,chunks(),True,[4,5],truth)['classification'],'failed')
+
     def test_nonempty_sse_cannot_have_zero_native_generated_tokens(self):
         data=chunks()
         terminal=json.loads(base64.b64decode(data[2]['data_b64'])[6:].strip())
@@ -16,7 +20,7 @@ class MeasurementTests(unittest.TestCase):
         self.assertEqual(inspect_exchange(200,data,True,[4,5],{'input_ids':[4,5],'output_ids':[],'finish_reason':'stop'})['classification'],'failed')
 
     def test_native_truth_and_complete_failures_own_denominator(self):
-        truth={'input_ids':[4,5],'output_ids':[9],'finish_reason':'stop'}
+        truth={'input_ids':[4,5],'output_ids':[9],'finish_reason':'stop','text':'ok'}
         result=inspect_exchange(200,chunks(),True,[4,5],truth)
         self.assertEqual(result['classification'],'completed')
         self.assertEqual(result['first_content_ns'],30)

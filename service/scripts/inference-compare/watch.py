@@ -26,6 +26,7 @@ def run(a):
     g=validate(a.go,a.go_sha256,a.phase_contract,a.phase_contract_sha256);role_root=ROOT/g['role'];verify_entries(g,role_root/'source')
     if not 0<=a.model_index<len(g['models']):raise ValueError('model index')
     model=g['models'][a.model_index];out=Path(a.out).resolve()
+    if time.time()+30>=model['deadline_epoch']:raise ValueError('selected model deadline before tools')
     if out.parent!=role_root/('run-'+g['nonce']) or out.name!=model['id']:raise ValueError('watch exact own output root')
     docker=OwnedDocker(g['role'],g['source_sha'],model['nonce']);known={};failure=None
     target=out/'watch.jsonl'
@@ -55,10 +56,20 @@ def run(a):
             foreign=compute_processes(raw,pids)
             gpu=query(['nvidia-smi','-i','0','--query-gpu=uuid,memory.used,utilization.gpu','--format=csv,noheader,nounits'])
             if gpu.split(',')[0].strip()!=GPU:raise RuntimeError('GPU identity unknown')
+            process_raw=query(['ps','-eo','pid,ppid,pcpu,rss'])
+            processes=[line.split() for line in process_raw.splitlines()[1:]]
+            descendants={os.getppid(),os.getpid()}
+            while True:
+                expanded=descendants|{int(p[0]) for p in processes if int(p[1]) in descendants}
+                if expanded==descendants:break
+                descendants=expanded
+            host_rss=sum(int(p[3])*1024 for p in processes if int(p[0]) in descendants)
+            if host_rss>2**30:raise RuntimeError('host descendants RSS limit')
             record({'event':'sample','running':[r['Id'] for r in rows if r['State']['Running']],
                     'foreign':foreign,'host_load':os.getloadavg(),'watch_cpu_s':time.process_time(),
                     'watch_maxrss_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
-                    'host_processes':query(['ps','-eo','pid,ppid,pcpu,rss,args'])})
+                    'host_descendant_RSS_bytes':host_rss,'host_descendants':sorted(descendants),'host_processes':process_raw,
+                    'owned_model_PIDs':sorted(pids),'owned_model_processes':[p for p in processes if int(p[0]) in pids]})
             lease=out/'foreground-lease'
             if not lease.exists() or time.time()-lease.stat().st_mtime>5:raise RuntimeError('foreground transport lease lost')
             if foreign:raise RuntimeError('foreign GPU0 process observed')

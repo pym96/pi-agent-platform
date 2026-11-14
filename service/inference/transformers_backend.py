@@ -41,7 +41,7 @@ class TransformersBackend:
         from transformers.generation.streamers import BaseStreamer
         encoded,prompt_tokens,budget=prepared
         observation_call=self.calls+1
-        observation={'generation_status':'unknown','generation_error':None}
+        observation={'generation_status':'unknown','generation_error':None,'text':''}
         loop=asyncio.get_running_loop();queue=asyncio.Queue();stop=threading.Event();tokens=[];backend=self
         class Streamer(BaseStreamer):
             first=True
@@ -52,6 +52,7 @@ class TransformersBackend:
                 text=backend.tokenizer.decode(tokens,skip_special_tokens=True,clean_up_tokenization_spaces=False)
                 if text.startswith(self.sent) and not text.endswith('\ufffd'):
                     delta=text[len(self.sent):];self.sent=text
+                    if os.environ.get('TF_TOKEN_TRACE'):observation['text']=self.sent
                     if delta:loop.call_soon_threadsafe(queue.put_nowait,('content',delta))
             def end(self):pass
         class Cancel(StoppingCriteria):
@@ -59,6 +60,7 @@ class TransformersBackend:
         profile_path=os.environ.get('LOAD_PROFILE') if self.calls==0 else None
         def generate():
             try:
+                if os.environ.get('TF_TOKEN_TRACE'):observe('tf_generate_start',call=observation_call,thread_id=threading.get_ident())
                 profiler=None
                 if profile_path:
                     try:profiler=backend.torch.profiler.profile(activities=[backend.torch.profiler.ProfilerActivity.CPU,backend.torch.profiler.ProfilerActivity.CUDA])

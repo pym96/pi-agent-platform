@@ -65,6 +65,7 @@ def validate(path,go_digest,phase_path,phase_digest,now=None):
         if allocation<=0 or used+allocation>limit:raise ValueError('stage allocation exceeds remaining '+field)
         if field!='device_s' and (type(used) is not int or type(allocation) is not int):raise ValueError('integer call accounting')
     if number(spent['server_wall_s'])+number(g['allocated_server_wall_s'])>number(phase['budgets']['server_conservative_wall_CPU_total_s']):raise ValueError('server cumulative wall budget')
+    if type(spent['server_wall_s']) is not int or type(g['allocated_server_wall_s']) is not int:raise ValueError('conservative integer wall seconds required')
     if end-now>g['allocated_device_s'] or g['allocated_server_wall_s']<g['allocated_device_s']:raise ValueError('stage wall/device bound')
     plan_path=local_file(root,g['plan_file'])
     if sha(plan_path)!=digest(g['plan_sha256']):raise ValueError('plan bytes changed')
@@ -73,7 +74,7 @@ def validate(path,go_digest,phase_path,phase_digest,now=None):
     models=g.get('models',[])
     if [m.get('id') for m in models]!=expected or [b.get('id') for b in plan.get('blocks',[])]!=expected:raise ValueError('pre-registered exact lifecycle sequence')
     cap=16 if stage=='pilot' else 130 if stage=='formal' else 18
-    lower=times[0];nonces=set()
+    lower=times[0];nonces={g['nonce']}
     for ident,model,block in zip(expected,models,plan['blocks']):
         expected_arm=ident[-1] if stage in ('pilot','review') else ident[0]
         if model.get('arm')!=expected_arm or block.get('arm')!=expected_arm:raise ValueError('named lifecycle arm identity')
@@ -91,6 +92,10 @@ def validate(path,go_digest,phase_path,phase_digest,now=None):
     return g
 
 def verify_entries(go,source):
+    source=Path(source)
+    expected={str(p.relative_to(source)) for p in (list((source/'service/scripts/inference-compare').glob('*.py'))+list((source/'service/inference').glob('*.py')))}
+    expected.update('service/scripts/'+name for name in ['vllm-serve/owned.py','vllm-compat/native.py','vllm-compat/driver.py','nginx-entry/measurement.py'])
+    if set(go['entry_hashes'])!=expected:raise ValueError('complete executing source file closure required')
     for name,value in go['entry_hashes'].items():
         if sha(local_file(Path(source),name))!=value:raise ValueError('entry bytes changed: '+name)
 

@@ -2,10 +2,24 @@ import asyncio,json,tempfile,unittest
 from pathlib import Path
 import aiohttp
 from aiohttp import web
-from client import run_point
+from client import run_point,request
 from plan import payload
 
 class ClientTests(unittest.TestCase):
+    def test_expiry_inside_scheduled_request_is_unsent_drop(self):
+        async def scenario():
+            import time
+            class Session:
+                calls=0
+                def post(self,*_,**kw):self.calls+=1;raise AssertionError('expired request sent')
+            with tempfile.TemporaryDirectory() as d:
+                session=Session();now=time.monotonic_ns()
+                row=await request(session,'unused',{'id':'expired','payload':payload('expired')},Path(d),now-100,now-1)
+                self.assertEqual(session.calls,0);self.assertIsNone(row['sent_ns'])
+                self.assertEqual(row['classification'],'generator_drop')
+                self.assertGreaterEqual(row['send_lateness_ns'],100)
+        asyncio.run(scenario())
+
     def test_open_drops_at_limit_without_deferring_and_closed_refills(self):
         async def scenario():
             active=0;peak=0;received=[]
