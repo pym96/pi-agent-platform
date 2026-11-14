@@ -1465,8 +1465,8 @@
     },
     {
       "path": "external-state-map.json",
-      "bytes": 261334,
-      "sha256": "cfd9b675134094117613587760d8fef185f3dcb4682b2f6986481d47db7340f4"
+      "bytes": 261375,
+      "sha256": "18fda7258472e4a039e24fa5bd929e34ed65f311833e5d4060ceca29bb097e87"
     },
     {
       "path": "regulator-20261111/B-CPU03-REVIEW.v1.json",
@@ -4012,11 +4012,6 @@
       "path": "regulator-20261114/r-cpu-nov14-stage5-raw/strict-and-phase-run.json",
       "bytes": 772,
       "sha256": "0f49a370c549d73a6907d1b28c27be0c8917e60a24d6cbb0e662902e9ef009d5"
-    },
-    {
-      "path": "regulator-20261114/r-cpu-nov14-stage5-raw/tmp/execcheck",
-      "bytes": 17,
-      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb"
     },
     {
       "path": "regulator-20261114/r-cpu-nov14-stage5-raw/vllm-compat-summary.json",

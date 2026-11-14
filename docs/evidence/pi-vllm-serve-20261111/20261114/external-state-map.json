@@ -3495,13 +3495,6 @@
     },
     {
       "original_state_group": "vllm24-regulator-20261114",
-      "original_relative_path": "r-cpu-nov14-stage5-raw/tmp/execcheck",
-      "path": "regulator-20261114/r-cpu-nov14-stage5-raw/tmp/execcheck",
-      "bytes": 17,
-      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb"
-    },
-    {
-      "original_state_group": "vllm24-regulator-20261114",
       "original_relative_path": "r-cpu-nov14-stage5-raw/vllm-compat-summary.json",
       "path": "regulator-20261114/r-cpu-nov14-stage5-raw/vllm-compat-summary.json",
       "bytes": 140,
@@ -3844,6 +3837,13 @@
       "bytes": 10977,
       "sha256": "d1888755d14d395db1f65668d7bd44111f280f365eebf555942dacbac903245e",
       "reason": "Original independent R archive contains executable private probes; retain outside candidate by C04. Reports/raw result files retained; do not modify original archive."
+    },
+    {
+      "group": "vllm24-regulator-20261114",
+      "name": "r-cpu-nov14-stage5-raw/tmp/execcheck",
+      "bytes": 17,
+      "sha256": "306c6ca7407560340797866e077e053627ad409277d1b9da58106fce4cf717cb",
+      "reason": "Extensionless independent executable fixture; original output/receipt retained, actual private probe remains outside candidate."
     }
   ],
   "notes": [
