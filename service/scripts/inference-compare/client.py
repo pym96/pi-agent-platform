@@ -138,6 +138,10 @@ def reconcile(result,app,native,arm,attempt_start,attempt_end):
         if attempt not in executed:row['not_invoked_reason']='not-invoked'
         if row.get('status')==200 and row.get('eof'):
             row.update(inspect_exchange(row['status'],row['chunks'],True,row['expected_input_ids'],truth))
+            # SSE failure has no successful usage/finish, but cannot erase the
+            # independently observed prepare/invoke/partial generation facts.
+            row['actual_input_ids']=None if truth is None else truth.get('input_ids')
+            row['actual_output_ids']=None if truth is None else truth.get('output_ids')
     return result
 
 async def drain(session,url,app_path,expected_attempts,deadline_ns,out):

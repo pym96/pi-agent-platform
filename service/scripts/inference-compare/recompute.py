@@ -65,8 +65,18 @@ def verify_schedule(result,point):
 
 def rebuild_point(model_root,point,arm,attempt_start):
     folder=model_root/point['name'];producer=json.loads((folder/'ledger.json').read_text())
-    result={'point':point,'start_ns':producer['start_ns'],'offer_end_ns':producer['offer_end_ns'],
+    original=json.loads((folder/'response-ledger.json').read_text())
+    if original['point']!=point or producer['point']!=point:raise ValueError('original point differs from frozen plan')
+    start=original['start_ns'];end=original['offer_end_ns']
+    if type(start) is not int or start<0 or type(end) is not int:raise ValueError('original clock type')
+    expected_end=start+point['offer_end_ns'] if point['mode']=='open' else start
+    if end!=expected_end or producer['start_ns']!=start or producer['offer_end_ns']!=end:raise ValueError('original clock/window differs from derived ledger or frozen mode')
+    result={'point':point,'start_ns':start,'offer_end_ns':end,
             'rows':[rebuild_request(folder,s) for s in point['slots']]}
+    verify_planned_rows(original['rows'],point['slots'])
+    for row,receipt in zip(result['rows'],original['rows']):
+        if any(row.get(k)!=receipt.get(k) for k in ('planned_ns','sent_ns','terminal_ns','status','chunks','eof')):raise ValueError('original response differs from request receipts')
+        if row['planned_ns']<start or row['terminal_ns']<start:raise ValueError('original clock order')
     verify_planned_rows(result['rows'],point['slots']);verify_schedule(result,point)
     drain=json.loads((folder/'drain.json').read_text())
     last=drain[-1];health=last['health']

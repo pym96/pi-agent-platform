@@ -40,3 +40,5 @@ PYTHONDONTWRITEBYTECODE=1 python service/inference/scripts/run_tests.py --out NE
 ```
 
 Set `COMPARE_TEST_EVIDENCE` to a fresh private directory to retain the actual injected-engine HTTP/native/drain/replay fixture. It does not load model weights. Required CI runs the complete comparison and inference suites under actual Python3.10, with transient hosted-runner pinned dependencies, then retains all existing required checks and adds comparison checks under3.12. Local macOS green is not Linux3.10, Docker, actual GPU, sourceCI or acceptance proof.
+
+Replay treats `response-ledger.json` as the original point-clock observation: point identity must match the frozen plan, closed offer-end equals start, open offer-end derives from the frozen horizon, and request receipts must agree. Changing only derived ledger clocks or summary rejects through the production CLI. Failed SSE rows retain separately observed actual input/partial output IDs; successful usage is still null for failed responses. `test_replay_cli.py` exercises a complete18-slot CPU pilot and both clock mutations without changing original receipts.
