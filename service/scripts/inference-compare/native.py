@@ -1,5 +1,5 @@
 """Revalidate independently bound issue28 GO inside the model before ML import."""
-import argparse,importlib.util,json,os,time
+import argparse,importlib.util,json,os,sys,time
 from pathlib import Path
 from authority import validate,verify_entries
 
@@ -15,7 +15,7 @@ def main():
     file=Path('/source/service/scripts/vllm-compat/native.py')
     spec=importlib.util.spec_from_file_location('_pi28_native_budget',file);base=importlib.util.module_from_spec(spec);spec.loader.exec_module(base)
     remaining=base.budget(model['deadline_epoch'],time.time())
-    arm=model['arm'];python='/venv/bin/python' if arm=='B' else '/usr/local/bin/python'
+    arm=model['arm'];python='/venv/bin/python' if arm=='B' else sys.executable
     command=[python,'-m','service.inference','--backend','vllm' if arm=='B' else 'transformers','--host','0.0.0.0','--port','8082',
              '--queue-timeout','2','--generation-timeout','30','--max-attempts',str(model['max_attempts']),'--deadline-epoch',str(model['deadline_epoch'])]
     if arm=='B':command=['/usr/bin/python3','/source/service/scripts/vllm-compat/driver.py','--',*command]

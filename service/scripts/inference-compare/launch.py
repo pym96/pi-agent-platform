@@ -35,7 +35,7 @@ def model_command(g,model,index,root,out,network_id,go_digest):
          'LOAD_TRACE':'/evidence/model-trace.jsonl','NATIVE_TRACE':'/evidence/native-trace.jsonl','TF_TOKEN_TRACE':'/evidence/tf-trace.jsonl',
          'INFERENCE_IDENTITY_RECEIPT':'/evidence/backend-identity.json','PI28_MODEL_NONCE':model['nonce']}
     for k,v in env.items():command+=['--env',k+'='+v]
-    command+=['--entrypoint','/usr/bin/python3' if arm=='B' else '/usr/local/bin/python',IMAGES[arm],
+    command+=['--entrypoint','/usr/bin/python3' if arm=='B' else '/usr/bin/python',IMAGES[arm],
               '/source/service/scripts/inference-compare/native.py','--go','/contract/go.json','--go-sha256',go_digest,
               '--phase-contract','/contract/phase.json','--phase-contract-sha256',g['phase_contract_sha256'],'--model-index',str(index)]
     return command
