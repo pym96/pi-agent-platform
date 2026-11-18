@@ -1,5 +1,5 @@
 """Issue28-only foreground chain. No implicit stages, retry, pull or installation."""
-import argparse,asyncio,base64,json,math,os,resource,shutil,signal,subprocess,sys,threading,time,urllib.request
+import argparse,asyncio,base64,json,math,os,shutil,signal,subprocess,sys,threading,time,urllib.request
 from pathlib import Path
 from authority import ROOT,GPU,validate,verify_entries,sha,consume,local_file
 from owned import OwnedDocker
@@ -83,7 +83,8 @@ def execute(a,g):
     asset_check(g,root)
     if (root/('consumed-'+g['nonce'])).exists():raise ValueError('stage nonce already consumed')
     if shutil.disk_usage(root).free<20*2**30:raise ValueError('free disk')
-    os.sched_setaffinity(0,{0,1});resource.setrlimit(resource.RLIMIT_AS,(2**30,2**30))
+    # Keep CPU affinity; the signed caller and watch observe RSS separately from address space.
+    os.sched_setaffinity(0,{0,1})
     out=root/('run-'+g['nonce']);out.mkdir(exist_ok=False)
     contract=root/'contracts'/g['nonce'];contract.mkdir(parents=True,exist_ok=False)
     for input_path in [Path(a.go),Path(a.phase_contract),local_file(root,g['plan_file']),local_file(root,g['ledger_file'])]:
