@@ -62,7 +62,9 @@ class LaunchTests(unittest.TestCase):
     def test_real_entry_keeps_child_AS_and_cpu_affinity_and_preserves_failed_inventory(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory)
-            code='from test_launch import resource_entry_probe;resource_entry_probe('+repr(directory)+')'
+            # Keep the script directory importable after the probe enters its role root,
+            # as a real launch.py script entry does, without ambient PYTHONPATH.
+            code='import sys;sys.path[0]='+repr(str(Path(__file__).resolve().parent))+';from test_launch import resource_entry_probe;resource_entry_probe('+repr(directory)+')'
             result=subprocess.run([sys.executable,'-c',code],cwd=Path(__file__).parent,capture_output=True,text=True,timeout=20)
             (root/'child.stdout').write_text(result.stdout);(root/'child.stderr').write_text(result.stderr)
             evidence=os.environ.get('COMPARE_TEST_EVIDENCE')
