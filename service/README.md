@@ -1,5 +1,7 @@
 # Pi Agent Platform service
 
+The opt-in [#28 comparison tool](scripts/inference-compare/README.md) measures accepted Transformers and vLLM implementations under a frozen direct-HTTP workload. Its candidate/authorization status is in [SOURCE_OF_TRUTH](../SOURCE_OF_TRUTH.md); older candidate notes below retain their historical meaning.
+
 A server-only Go API and PostgreSQL control plane around **actual upstream Pi 1.3.0**. The default model is a deterministic local HTTP fixture, not an LLM. No tools, GPU, Redis, frontend or paid API call is needed. This is an isolated single-owner development service, not a public multi-user platform.
 
 ```mermaid

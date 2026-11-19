@@ -1,5 +1,7 @@
 # Evidence index
 
+- Current #28 [matched engine comparison](pi-engine-compare-20261114/README.md): local CPU source candidate, accepted #24 base exact28a2; no #28 model result or independent acceptance yet. Older pending entries below are historical status snapshots; current navigation is [SOURCE_OF_TRUTH](../../SOURCE_OF_TRUTH.md).
+
 ## Qwen real-model load experiment — Pi #7
 
 - [Evidence and stage status](qwen-load-20261021/README.md): frozen single-model/runtime workload, streaming measurement and full repetition denominators. Builder candidate; independent Verdict remains separate.
