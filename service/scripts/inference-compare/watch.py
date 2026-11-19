@@ -64,7 +64,7 @@ def run(a):
                 if expanded==descendants:break
                 descendants=expanded
             host_rss=sum(int(p[3])*1024 for p in processes if int(p[0]) in descendants)
-            if host_rss>2**30:raise RuntimeError('host descendants RSS limit')
+            # C04@1.3: host RSS is observation only; retain the actual value.
             record({'event':'sample','running':[r['Id'] for r in rows if r['State']['Running']],
                     'foreign':foreign,'host_load':os.getloadavg(),'watch_cpu_s':time.process_time(),
                     'watch_maxrss_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
